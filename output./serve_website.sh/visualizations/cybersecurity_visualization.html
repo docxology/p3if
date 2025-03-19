@@ -1,0 +1,262 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Cybersecurity</title>
+            <style>
+                body { 
+                    margin: 0;
+                    overflow: hidden;
+                    font-family: Arial, sans-serif;
+                }
+                #info {
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 10px;
+                    border-radius: 5px;
+                    max-width: 300px;
+                    z-index: 100;
+                }
+                #canvas-container {
+                    width: 100%;
+                    height: 100vh;
+                }
+                #legend {
+                    position: absolute;
+                    bottom: 20px;
+                    right: 20px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 10px;
+                    border-radius: 5px;
+                    z-index: 100;
+                }
+                .axis-label {
+                    font-weight: bold;
+                    margin-bottom: 5px;
+                }
+                .property-color { color: #1f77b4; }
+                .process-color { color: #ff7f0e; }
+                .perspective-color { color: #2ca02c; }
+            </style>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+        </head>
+        <body>
+            <div id="info">
+                <h2>Cybersecurity</h2>
+                <p>This visualization represents the P3IF framework as a 3D cube with three dimensions:</p>
+                <p><span class="property-color">X-axis: Properties</span></p>
+                <p><span class="process-color">Y-axis: Processes</span></p>
+                <p><span class="perspective-color">Z-axis: Perspectives</span></p>
+                <p>Each point in the cube represents a relationship between specific property, process, and perspective.</p>
+                <p>Click and drag to rotate. Scroll to zoom. Right-click and drag to pan.</p>
+                <div id="selection-info"></div>
+            </div>
+            
+            <div id="canvas-container"></div>
+            
+            <div id="legend">
+                <div class="axis-label property-color">X-axis: Properties</div>
+                <div class="axis-label process-color">Y-axis: Processes</div>
+                <div class="axis-label perspective-color">Z-axis: Perspectives</div>
+                <div>Point size indicates relationship strength</div>
+            </div>
+            
+            
+            
+            <script>
+                // P3IF data
+                const p3ifData = {"dimensions": {"property": [{"id": "9d26ccbf-f373-4d69-b14d-a350ef0d067f", "name": "Decentralization", "domain": "Blockchain"}, {"id": "f7c398dc-4a6a-4b26-a536-a8220ec97be5", "name": "Transparency", "domain": "Blockchain"}, {"id": "616d7f2a-b2f4-45d4-89c1-449f1e092e04", "name": "Immutability", "domain": "Blockchain"}, {"id": "4e68f1a1-d9d3-4d65-b18a-f032f428f153", "name": "Security", "domain": "Blockchain"}, {"id": "998540ed-44ae-4cd5-9ea4-69b25d09514a", "name": "Consensus", "domain": "Blockchain"}, {"id": "d2370c01-dead-4609-a7ef-cb6960c21a12", "name": "Cryptography", "domain": "Blockchain"}, {"id": "f5e96574-77e4-4c7c-9f76-b5bbab5a45ce", "name": "Scalability", "domain": "Blockchain"}, {"id": "89e9634b-4aec-448b-bdef-360bcf4c14ed", "name": "Interoperability", "domain": "Blockchain"}, {"id": "27923cc9-86f6-44c2-b70a-11ecebb8f170", "name": "Privacy", "domain": "Blockchain"}, {"id": "3e5fba27-cdf5-4f2c-8346-9cf1c49b3c77", "name": "Smart Contract Functionality", "domain": "Blockchain"}, {"id": "a61c70b6-81cd-4029-a6c0-8bec7d75259e", "name": "Energy Efficiency", "domain": "Blockchain"}, {"id": "aad7d4d8-d879-45bb-9360-64debe7a0266", "name": "Transaction Speed", "domain": "Blockchain"}, {"id": "59d1fd1b-ca87-4597-9002-76f09a906a40", "name": "Governance", "domain": "Blockchain"}, {"id": "b0c96852-24c4-46f3-80d7-b97f91c8d31f", "name": "Tokenization", "domain": "Blockchain"}, {"id": "d202fb10-6916-4346-9cea-cf763a327b6c", "name": "Auditability", "domain": "Blockchain"}, {"id": "23b41146-9907-4423-8ff5-4687ae2c5738", "name": "Fault Tolerance", "domain": "Blockchain"}, {"id": "918dd3c3-8df1-4061-a931-280f5c472e78", "name": "Anonymity", "domain": "Blockchain"}, {"id": "0f0fba6f-1fa8-4ee4-8295-da807ba7f9f0", "name": "Programmability", "domain": "Blockchain"}, {"id": "d54e2fab-43c7-45bd-8de5-04f9381358d7", "name": "Finality", "domain": "Blockchain"}, {"id": "6ece4f45-f977-4485-868e-4182e9e2c88a", "name": "Determinism", "domain": "Blockchain"}, {"id": "71dfce35-4372-4260-b69e-7c00068ff7de", "name": "Latency", "domain": "Blockchain"}, {"id": "750ffe14-8df5-4480-9380-f9f740937054", "name": "Throughput", "domain": "Blockchain"}, {"id": "bd171f87-36e9-483e-91dd-82a530b699fb", "name": "Network Effect", "domain": "Blockchain"}, {"id": "265c6bed-9444-4172-8a38-43493abb237d", "name": "Incentive Mechanism", "domain": "Blockchain"}, {"id": "c30b1397-b497-40e8-99f1-5001e8823440", "name": "Adaptability", "domain": "Blockchain"}, {"id": "d1027120-6e25-4b2e-9f2a-d79fd8598172", "name": "Compliance", "domain": "Blockchain"}, {"id": "f4bea02a-57b6-4e6e-942c-37cd7913f676", "name": "Upgradability", "domain": "Blockchain"}, {"id": "f1b301c5-bc60-4214-baf6-26df406c96fa", "name": "Quantum Resistance", "domain": "Blockchain"}, {"id": "e9659c98-c1bc-4983-b013-2cedc39681dc", "name": "Cross-Chain Communication", "domain": "Blockchain"}, {"id": "b7fab93d-52fc-4f98-83d5-d71654918d9b", "name": "Data Integrity", "domain": "Blockchain"}, {"id": "b14f56b9-1deb-44d3-8b5c-b63d272f1d80", "name": "Accessibility", "domain": "Blockchain"}, {"id": "f79c2dfe-2971-4dfc-82dd-06a9b6194211", "name": "Usability", "domain": "Blockchain"}, {"id": "41fd8591-6b81-4b85-ab2e-8b78b07b408d", "name": "Reversibility", "domain": "Blockchain"}, {"id": "ce0bfa8f-024b-4485-9a7a-f17cbf4a09d1", "name": "Sustainability", "domain": "Blockchain"}, {"id": "1bdcb718-348b-4a95-9f3d-497c37c151fe", "name": "Resilience", "domain": "Blockchain"}, {"id": "c6957020-0755-4273-a00e-edf2dae50046", "name": "Composability", "domain": "Blockchain"}, {"id": "694f5e70-bbfe-4c4f-914c-014c5377cfe4", "name": "Liquidity", "domain": "Blockchain"}, {"id": "c0e2325e-bfb4-4bfa-aa00-f16849347221", "name": "Atomicity", "domain": "Blockchain"}, {"id": "6e329510-3cc2-479d-bfc6-afc51a1e13e5", "name": "Consistency", "domain": "Blockchain"}, {"id": "d12a8bd2-4822-405d-8336-57e7ccc3cdd9", "name": "Isolation", "domain": "Blockchain"}, {"id": "29c4e86e-4aee-461d-8cb9-e3a2d8f330ea", "name": "Durability", "domain": "Blockchain"}, {"id": "cedee7ec-adc3-4480-a1d4-285472446551", "name": "Sharding", "domain": "Blockchain"}, {"id": "3913bf49-fcf3-4467-87ca-a10a1f1b41a5", "name": "Staking", "domain": "Blockchain"}, {"id": "2de13a4b-890e-4f86-acf3-1eeede788903", "name": "Mining Efficiency", "domain": "Blockchain"}, {"id": "4e91309f-d56c-49d2-8044-026ddfb6e2d2", "name": "Forking Resistance", "domain": "Blockchain"}, {"id": "acb104d2-ff22-403f-98d2-c3e507e64409", "name": "Censorship Resistance", "domain": "Blockchain"}, {"id": "0a04615b-41ea-4e5e-af21-918b2b33c00e", "name": "Permissionless Nature", "domain": "Blockchain"}, {"id": "af537b94-91f9-4c7c-a9db-935ca40aef11", "name": "Trustlessness", "domain": "Blockchain"}, {"id": "7c36ae5c-e4e1-4eeb-aaa3-9287869b2f74", "name": "Verifiability", "domain": "Blockchain"}, {"id": "abf26e26-2f6f-49e3-a266-40d481a825a7", "name": "Portability", "domain": "Blockchain"}], "process": [{"id": "ff88095d-1fb9-40d1-b362-2f719afb575b", "name": "Transaction Validation", "domain": "Blockchain"}, {"id": "e3351658-53b6-46d6-b7b2-22ec72754c8e", "name": "Block Creation", "domain": "Blockchain"}, {"id": "a3084f4e-05cb-4e6a-a5dd-16701616909c", "name": "Consensus Mechanism", "domain": "Blockchain"}, {"id": "d2fdf3f6-c4b2-42e7-8b03-6c973d31fb60", "name": "Mining", "domain": "Blockchain"}, {"id": "3e618a25-fee1-4bab-946f-2e939c730531", "name": "Staking", "domain": "Blockchain"}, {"id": "0c69ed31-4801-4ce4-b7e8-c6c5fa0fcde1", "name": "Smart Contract Execution", "domain": "Blockchain"}, {"id": "ffbc8227-3bfa-4ef1-a698-ad133ea7ee2b", "name": "Wallet Management", "domain": "Blockchain"}, {"id": "1dc851f5-9314-4923-8353-6437ce0356d5", "name": "Key Generation", "domain": "Blockchain"}, {"id": "612853b7-fd95-44a4-a45c-cb32af59fe05", "name": "Signature Verification", "domain": "Blockchain"}, {"id": "b86e7f52-76e1-4248-8c49-0204b4b9db4e", "name": "Hashing", "domain": "Blockchain"}, {"id": "0670bcc4-4889-4fad-a909-d1d31a3b07e5", "name": "Node Synchronization", "domain": "Blockchain"}, {"id": "2d9a31ec-dae3-42a3-82f2-d81e9bba0c32", "name": "Network Propagation", "domain": "Blockchain"}, {"id": "02b9a73c-7ac4-4301-86cc-a3d177b5242f", "name": "Fork Resolution", "domain": "Blockchain"}, {"id": "5729b84e-d0c3-4695-8e97-69959946a48f", "name": "Chain Reorganization", "domain": "Blockchain"}, {"id": "d0867e04-f3dd-400b-833e-ac108e342c43", "name": "Merkle Tree Construction", "domain": "Blockchain"}, {"id": "cb4c4ffd-0037-47cf-a629-251af7a6e0a7", "name": "Address Generation", "domain": "Blockchain"}, {"id": "55fdf054-4f41-4fe7-a69a-5c9e7c232b34", "name": "Token Minting", "domain": "Blockchain"}, {"id": "f24edd2b-b013-4d08-94ce-7a87fd0c8ff4", "name": "Token Burning", "domain": "Blockchain"}, {"id": "ad8592f0-5766-4cde-ac87-c8cce9e3c648", "name": "Gas Fee Calculation", "domain": "Blockchain"}, {"id": "bdc7b9c5-5146-4ad8-b645-3c06642ebd90", "name": "State Transition", "domain": "Blockchain"}, {"id": "7bc4caea-164d-4735-9200-d06e59d672a8", "name": "Sharding", "domain": "Blockchain"}, {"id": "9d166a5e-c4e4-4997-954b-469fdba683e8", "name": "Layer 2 Scaling", "domain": "Blockchain"}, {"id": "e605f0b1-f3b4-4fc3-a09b-a387b3fbbc18", "name": "Cross-Chain Transfer", "domain": "Blockchain"}, {"id": "6ffea129-f6ea-432f-a72b-14122386a57b", "name": "Atomic Swap", "domain": "Blockchain"}, {"id": "fa4e3992-c866-4e1e-8a3d-5e5419d535f0", "name": "Governance Voting", "domain": "Blockchain"}, {"id": "eea7a455-c622-407a-b4ed-f11bea29775a", "name": "Oracle Data Feeding", "domain": "Blockchain"}, {"id": "ecf54d15-2550-45c1-bd36-974c5abd00e0", "name": "Identity Verification", "domain": "Blockchain"}, {"id": "1cb118e8-3045-4faa-b433-36742f2cfd00", "name": "Tokenization", "domain": "Blockchain"}, {"id": "bbe9644f-93c2-44c4-9f22-c1bc1ef90dd3", "name": "Initial Coin Offering", "domain": "Blockchain"}, {"id": "fa94f56a-bb93-41ee-875a-0ee71c3bd5b1", "name": "Airdrop", "domain": "Blockchain"}, {"id": "048b4b5b-3a92-404c-9455-36ed907baa1e", "name": "Yield Farming", "domain": "Blockchain"}, {"id": "52c7a360-1263-4bca-bce0-fcc431006725", "name": "Liquidity Provision", "domain": "Blockchain"}, {"id": "a2fdddde-4b8f-4b33-aac1-6bd261ec030c", "name": "Decentralized Exchange", "domain": "Blockchain"}, {"id": "76e6d74f-50a5-4886-8fcf-8b7421f97e6d", "name": "Lending and Borrowing", "domain": "Blockchain"}, {"id": "f299d230-e73b-4b60-9f9e-00a181131006", "name": "Insurance Claim Processing", "domain": "Blockchain"}, {"id": "9a5bcc7a-4952-435c-ac53-fa2d86060244", "name": "Non-Fungible Token (NFT) Creation", "domain": "Blockchain"}, {"id": "7336d4ca-cd17-4aae-86ef-3f92b62ba1c8", "name": "Decentralized Autonomous Organization (DAO) Operation", "domain": "Blockchain"}, {"id": "5d5e3b00-50ac-4002-b866-b5b369014fa6", "name": "Stablecoin Pegging", "domain": "Blockchain"}, {"id": "817e5753-44fb-4b3a-ba61-e0f43b55ac49", "name": "Privacy Preservation", "domain": "Blockchain"}, {"id": "f91bb670-a1a9-48c4-8dd1-7dbaaf2f6075", "name": "Zero-Knowledge Proof Generation", "domain": "Blockchain"}, {"id": "ce2a59bf-b59e-4859-88ea-8519797f5ea3", "name": "Sidechain Operation", "domain": "Blockchain"}, {"id": "03ca5555-7dc2-4277-8c79-e011beb6403c", "name": "Interoperability Protocol", "domain": "Blockchain"}, {"id": "9ddae29c-08e3-46a2-abc3-bd21d08554a9", "name": "Blockchain Indexing", "domain": "Blockchain"}, {"id": "17325ec6-b257-4f8c-86d2-987405104517", "name": "Block Explorer Operation", "domain": "Blockchain"}, {"id": "918b8e13-d3f1-438f-bf47-da5d68583a7f", "name": "Hard Fork Implementation", "domain": "Blockchain"}, {"id": "ae561237-72d9-4feb-babf-05797b49ab9b", "name": "Soft Fork Implementation", "domain": "Blockchain"}, {"id": "ff648bf5-16cd-4764-be8b-44c64ddeb6b9", "name": "Node Discovery", "domain": "Blockchain"}, {"id": "4f1d585e-2ac7-483d-85ff-c844e98f755b", "name": "Peer-to-Peer Communication", "domain": "Blockchain"}, {"id": "cf61f324-a43e-49e0-b87f-1541f558502c", "name": "Mempool Management", "domain": "Blockchain"}, {"id": "7f2ee35b-c9d8-4304-869f-76841f5be3dd", "name": "Chain Analysis", "domain": "Blockchain"}], "perspective": [{"id": "99c4e7d3-00fe-4f53-8122-bab28ba5ae2f", "name": "Developer", "domain": "Blockchain"}, {"id": "ae9b3107-7243-48cf-86ce-23040d2bc66a", "name": "Miner", "domain": "Blockchain"}, {"id": "fdbc6ecc-0ddc-4c7c-b671-b2d72f6164ba", "name": "Node Operator", "domain": "Blockchain"}, {"id": "5a8d5303-07e1-4dbf-85e1-a87551976807", "name": "Token Holder", "domain": "Blockchain"}, {"id": "1b0978df-e4d5-4b76-9eda-21ffcb599f3a", "name": "Smart Contract Auditor", "domain": "Blockchain"}, {"id": "5e40b0f2-31df-462c-a652-3b6ceeaade2b", "name": "Regulator", "domain": "Blockchain"}, {"id": "7cd68c98-b284-4856-b8d8-cc8eb46beff1", "name": "Investor", "domain": "Blockchain"}, {"id": "8e0c9569-cba3-4a53-ae5e-ad6460bfb5d0", "name": "Exchange Operator", "domain": "Blockchain"}, {"id": "e20c09e4-1759-426d-927b-857805f2566c", "name": "Blockchain Analyst", "domain": "Blockchain"}, {"id": "637cebd3-93c0-40db-bbd5-acb25456036a", "name": "Cryptographer", "domain": "Blockchain"}, {"id": "dbb48f09-f1f6-4ed5-a5f7-3059c1e804ed", "name": "Economist", "domain": "Blockchain"}, {"id": "0ef19b36-147a-4ad1-a7fa-8bc436976a8b", "name": "Legal Expert", "domain": "Blockchain"}, {"id": "55d8a55f-5909-4d16-a31a-04e5ec2cea74", "name": "Privacy Advocate", "domain": "Blockchain"}, {"id": "79e1bc0a-5c34-499e-afe5-fa5484dfe849", "name": "Security Researcher", "domain": "Blockchain"}, {"id": "785988d2-95ec-4f37-87cb-2ac4f4ba757f", "name": "User Experience Designer", "domain": "Blockchain"}, {"id": "56e03313-62a5-4668-84be-27f57d84f509", "name": "Enterprise Adopter", "domain": "Blockchain"}, {"id": "41aaf978-e95f-4229-bbc1-779d8159d7cc", "name": "Central Bank", "domain": "Blockchain"}, {"id": "f879217a-a872-4a14-b660-601cf655b0f4", "name": "Decentralized Finance (DeFi) User", "domain": "Blockchain"}, {"id": "7c5e9168-5e7e-42d9-b51d-cf0ff4ec65c0", "name": "NFT Artist", "domain": "Blockchain"}, {"id": "ff58b4d0-e979-4321-995e-fbbc4bb2b042", "name": "Governance Participant", "domain": "Blockchain"}, {"id": "050712d6-788a-49c2-9a71-e49904c77e88", "name": "Protocol Designer", "domain": "Blockchain"}, {"id": "39af6bcb-0f53-4f09-8536-9186b16a19f7", "name": "Blockchain Architect", "domain": "Blockchain"}, {"id": "8c8e6dcf-004c-4a11-b717-25546ce20d47", "name": "Consensus Algorithm Researcher", "domain": "Blockchain"}, {"id": "b728c0ce-b494-4939-882b-683b9f5210b6", "name": "Cryptoeconomist", "domain": "Blockchain"}, {"id": "358b9cf4-cdf3-4c4a-8e30-43e63c5ee581", "name": "Blockchain Educator", "domain": "Blockchain"}, {"id": "09fd661d-4012-4d9d-9ad4-b1c611d0a643", "name": "Blockchain Journalist", "domain": "Blockchain"}, {"id": "c85c3cb0-e2ed-42ac-a660-94fe67f80e66", "name": "Venture Capitalist", "domain": "Blockchain"}, {"id": "72d1ef88-039f-464e-ba3c-4dec3a5e2855", "name": "Blockchain Consultant", "domain": "Blockchain"}, {"id": "9a0a31a6-78a0-4df0-b9dd-7ad84e02c496", "name": "Compliance Officer", "domain": "Blockchain"}, {"id": "584a8bec-2581-4b6f-b49d-9572564749de", "name": "Blockchain Ethicist", "domain": "Blockchain"}, {"id": "fa4bbf9f-2a13-4e5c-8882-bc03c058d95b", "name": "Blockchain Governance Specialist", "domain": "Blockchain"}, {"id": "88af1145-5043-4467-9f3d-b58ac651fd02", "name": "Tokenomics Expert", "domain": "Blockchain"}, {"id": "ea24f99a-483f-4608-a6ea-54314f0022d5", "name": "Blockchain Data Scientist", "domain": "Blockchain"}, {"id": "fad113bc-ab52-44df-a921-7ed5d431a9e7", "name": "Smart Contract Developer", "domain": "Blockchain"}, {"id": "b42434eb-fe6a-4d2c-92d7-889b271c4309", "name": "Blockchain Infrastructure Provider", "domain": "Blockchain"}, {"id": "edaf0142-31c8-42b9-97a5-af6ab7180d38", "name": "Blockchain Marketing Specialist", "domain": "Blockchain"}, {"id": "09764f7e-4642-40f1-aa95-29b256dc7f5c", "name": "Blockchain Community Manager", "domain": "Blockchain"}, {"id": "812b804e-4923-4664-883a-9dd9c2f2b98f", "name": "Blockchain Product Manager", "domain": "Blockchain"}, {"id": "94e3bb6a-8a9e-4a26-b248-bce82982051a", "name": "Blockchain UI/UX Designer", "domain": "Blockchain"}, {"id": "24a06e0d-dc95-4a19-a2bc-38acfa4011ff", "name": "Blockchain Quality Assurance Tester", "domain": "Blockchain"}, {"id": "b9e67af9-24d7-4697-abbd-f7225d44663f", "name": "Blockchain Integration Specialist", "domain": "Blockchain"}, {"id": "81b7e621-5daa-4635-8e58-37c0ef9d30f3", "name": "Blockchain Security Auditor", "domain": "Blockchain"}, {"id": "3aa05b2e-a68d-46fe-a1ab-a56b3e2dfe12", "name": "Blockchain Scalability Researcher", "domain": "Blockchain"}, {"id": "4f94c0c8-1845-4af7-86aa-7be9ad6b2b81", "name": "Blockchain Interoperability Specialist", "domain": "Blockchain"}, {"id": "8e0cf8d9-4b15-4936-a88f-60e15cb7572d", "name": "Blockchain Sustainability Expert", "domain": "Blockchain"}, {"id": "e6088326-c999-4bbe-89ac-2124dd19e1c9", "name": "Blockchain Policy Advisor", "domain": "Blockchain"}, {"id": "5581f0cc-c277-41de-bf68-3c3fc16d5176", "name": "Blockchain Social Impact Specialist", "domain": "Blockchain"}, {"id": "77e13296-314e-4aa5-9535-631a2f86544b", "name": "Blockchain Identity Management Expert", "domain": "Blockchain"}, {"id": "c6d1dc0e-bfbf-42a2-bc2a-997c2b25cbbd", "name": "Blockchain Privacy Researcher", "domain": "Blockchain"}, {"id": "2ea3a6f6-4e41-4d26-80de-ff0ba8209d41", "name": "Blockchain Forensics Analyst", "domain": "Blockchain"}]}, "connections": [{"id": "970d1aae-a33a-4546-83e2-b0ee45d3be2f", "property_id": "abf26e26-2f6f-49e3-a266-40d481a825a7", "process_id": "1cb118e8-3045-4faa-b433-36742f2cfd00", "perspective_id": "b42434eb-fe6a-4d2c-92d7-889b271c4309", "strength": 0.86, "confidence": 0.87, "x": 49, "y": 27, "z": 34}, {"id": "97cce26e-79ed-4e2d-b6e3-362fb62dc1d4", "property_id": "c0e2325e-bfb4-4bfa-aa00-f16849347221", "process_id": "e605f0b1-f3b4-4fc3-a09b-a387b3fbbc18", "perspective_id": "5e40b0f2-31df-462c-a652-3b6ceeaade2b", "strength": 0.58, "confidence": 0.83, "x": 37, "y": 22, "z": 5}, {"id": "f1c170cb-1da9-43a3-b3b8-4fee589aa11b", "property_id": "1bdcb718-348b-4a95-9f3d-497c37c151fe", "process_id": "ad8592f0-5766-4cde-ac87-c8cce9e3c648", "perspective_id": "ff58b4d0-e979-4321-995e-fbbc4bb2b042", "strength": 0.68, "confidence": 0.85, "x": 34, "y": 18, "z": 19}, {"id": "e6ef57da-97e6-42aa-82aa-c17eb631a1d2", "property_id": "694f5e70-bbfe-4c4f-914c-014c5377cfe4", "process_id": "6ffea129-f6ea-432f-a72b-14122386a57b", "perspective_id": "b42434eb-fe6a-4d2c-92d7-889b271c4309", "strength": 0.89, "confidence": 0.75, "x": 36, "y": 23, "z": 34}, {"id": "6c0fb4f3-ffe4-4271-b831-eacdb508569f", "property_id": "616d7f2a-b2f4-45d4-89c1-449f1e092e04", "process_id": "ffbc8227-3bfa-4ef1-a698-ad133ea7ee2b", "perspective_id": "3aa05b2e-a68d-46fe-a1ab-a56b3e2dfe12", "strength": 0.75, "confidence": 0.75, "x": 2, "y": 6, "z": 42}, {"id": "a0b908be-b09b-4069-9ff6-dfdc32b2f3fd", "property_id": "f7c398dc-4a6a-4b26-a536-a8220ec97be5", "process_id": "bbe9644f-93c2-44c4-9f22-c1bc1ef90dd3", "perspective_id": "7cd68c98-b284-4856-b8d8-cc8eb46beff1", "strength": 0.76, "confidence": 0.73, "x": 1, "y": 28, "z": 6}, {"id": "9dcb0d78-0ea4-4f86-9652-1e7fe21e0329", "property_id": "89e9634b-4aec-448b-bdef-360bcf4c14ed", "process_id": "0670bcc4-4889-4fad-a909-d1d31a3b07e5", "perspective_id": "24a06e0d-dc95-4a19-a2bc-38acfa4011ff", "strength": 0.9, "confidence": 0.71, "x": 7, "y": 10, "z": 39}, {"id": "cc9eb4fb-c6fa-467d-a40e-96d1084cecd1", "property_id": "f4bea02a-57b6-4e6e-942c-37cd7913f676", "process_id": "eea7a455-c622-407a-b4ed-f11bea29775a", "perspective_id": "81b7e621-5daa-4635-8e58-37c0ef9d30f3", "strength": 0.79, "confidence": 0.72, "x": 26, "y": 25, "z": 41}, {"id": "2270f6b4-9b94-4f55-810b-fab57ff46de0", "property_id": "abf26e26-2f6f-49e3-a266-40d481a825a7", "process_id": "55fdf054-4f41-4fe7-a69a-5c9e7c232b34", "perspective_id": "c85c3cb0-e2ed-42ac-a660-94fe67f80e66", "strength": 0.69, "confidence": 0.71, "x": 49, "y": 16, "z": 26}, {"id": "0294dbbe-1340-4059-a198-331f090634b9", "property_id": "f4bea02a-57b6-4e6e-942c-37cd7913f676", "process_id": "9ddae29c-08e3-46a2-abc3-bd21d08554a9", "perspective_id": "b9e67af9-24d7-4697-abbd-f7225d44663f", "strength": 0.69, "confidence": 0.88, "x": 26, "y": 42, "z": 40}, {"id": "a6d9f4d8-bb6d-444a-9f24-3cb9305b02dd", "property_id": "694f5e70-bbfe-4c4f-914c-014c5377cfe4", "process_id": "817e5753-44fb-4b3a-ba61-e0f43b55ac49", "perspective_id": "1b0978df-e4d5-4b76-9eda-21ffcb599f3a", "strength": 0.52, "confidence": 0.77, "x": 36, "y": 38, "z": 4}, {"id": "5b4262a7-c2e5-421e-8a64-23fe27cd31aa", "property_id": "d54e2fab-43c7-45bd-8de5-04f9381358d7", "process_id": "ffbc8227-3bfa-4ef1-a698-ad133ea7ee2b", "perspective_id": "8e0c9569-cba3-4a53-ae5e-ad6460bfb5d0", "strength": 0.85, "confidence": 0.98, "x": 18, "y": 6, "z": 7}, {"id": "95e4fab2-0a3b-431f-8ccc-bc357942c7ac", "property_id": "6e329510-3cc2-479d-bfc6-afc51a1e13e5", "process_id": "1dc851f5-9314-4923-8353-6437ce0356d5", "perspective_id": "3aa05b2e-a68d-46fe-a1ab-a56b3e2dfe12", "strength": 0.65, "confidence": 0.77, "x": 38, "y": 7, "z": 42}, {"id": "c86a9e28-c1a1-436e-9b5d-69614dd241f2", "property_id": "265c6bed-9444-4172-8a38-43493abb237d", "process_id": "7f2ee35b-c9d8-4304-869f-76841f5be3dd", "perspective_id": "b728c0ce-b494-4939-882b-683b9f5210b6", "strength": 0.67, "confidence": 0.82, "x": 23, "y": 49, "z": 23}, {"id": "909081fd-ead7-418e-a847-eae48bd74d17", "property_id": "abf26e26-2f6f-49e3-a266-40d481a825a7", "process_id": "ff648bf5-16cd-4764-be8b-44c64ddeb6b9", "perspective_id": "1b0978df-e4d5-4b76-9eda-21ffcb599f3a", "strength": 0.69, "confidence": 0.72, "x": 49, "y": 46, "z": 4}, {"id": "2bdc6a30-d7bf-4750-b093-b8d414a137b3", "property_id": "7c36ae5c-e4e1-4eeb-aaa3-9287869b2f74", "process_id": "d2fdf3f6-c4b2-42e7-8b03-6c973d31fb60", "perspective_id": "358b9cf4-cdf3-4c4a-8e30-43e63c5ee581", "strength": 0.72, "confidence": 0.98, "x": 48, "y": 3, "z": 24}, {"id": "c287ad80-c0db-4afc-a8fa-5ad6afad2c5c", "property_id": "e9659c98-c1bc-4983-b013-2cedc39681dc", "process_id": "4f1d585e-2ac7-483d-85ff-c844e98f755b", "perspective_id": "5581f0cc-c277-41de-bf68-3c3fc16d5176", "strength": 0.7, "confidence": 0.75, "x": 28, "y": 47, "z": 46}, {"id": "3e4f0516-53a6-4b37-a0a3-48e71e2c3683", "property_id": "abf26e26-2f6f-49e3-a266-40d481a825a7", "process_id": "02b9a73c-7ac4-4301-86cc-a3d177b5242f", "perspective_id": "88af1145-5043-4467-9f3d-b58ac651fd02", "strength": 0.94, "confidence": 0.74, "x": 49, "y": 12, "z": 31}, {"id": "d3005e3a-8c78-4000-8408-2277d418aeff", "property_id": "d12a8bd2-4822-405d-8336-57e7ccc3cdd9", "process_id": "fa4e3992-c866-4e1e-8a3d-5e5419d535f0", "perspective_id": "7c5e9168-5e7e-42d9-b51d-cf0ff4ec65c0", "strength": 0.69, "confidence": 0.72, "x": 39, "y": 24, "z": 18}, {"id": "3cd0be71-4e27-4459-a3b3-9f95089853b1", "property_id": "694f5e70-bbfe-4c4f-914c-014c5377cfe4", "process_id": "fa4e3992-c866-4e1e-8a3d-5e5419d535f0", "perspective_id": "584a8bec-2581-4b6f-b49d-9572564749de", "strength": 0.69, "confidence": 0.93, "x": 36, "y": 24, "z": 29}, {"id": "d799681e-2aba-4ccf-91b9-087155903c6c", "property_id": "d54e2fab-43c7-45bd-8de5-04f9381358d7", "process_id": "0c69ed31-4801-4ce4-b7e8-c6c5fa0fcde1", "perspective_id": "5e40b0f2-31df-462c-a652-3b6ceeaade2b", "strength": 0.81, "confidence": 0.91, "x": 18, "y": 5, "z": 5}, {"id": "11258b5d-9a11-4d02-a4a3-5b2bddeb6024", "property_id": "41fd8591-6b81-4b85-ab2e-8b78b07b408d", "process_id": "cb4c4ffd-0037-47cf-a629-251af7a6e0a7", "perspective_id": "5581f0cc-c277-41de-bf68-3c3fc16d5176", "strength": 0.97, "confidence": 0.79, "x": 32, "y": 15, "z": 46}, {"id": "1f0cf182-8835-405b-831c-c9e82f8043dd", "property_id": "89e9634b-4aec-448b-bdef-360bcf4c14ed", "process_id": "048b4b5b-3a92-404c-9455-36ed907baa1e", "perspective_id": "55d8a55f-5909-4d16-a31a-04e5ec2cea74", "strength": 0.56, "confidence": 0.93, "x": 7, "y": 30, "z": 12}, {"id": "95a7184d-c682-4ca0-a05a-866654271f30", "property_id": "3e5fba27-cdf5-4f2c-8346-9cf1c49b3c77", "process_id": "2d9a31ec-dae3-42a3-82f2-d81e9bba0c32", "perspective_id": "358b9cf4-cdf3-4c4a-8e30-43e63c5ee581", "strength": 0.95, "confidence": 0.95, "x": 9, "y": 11, "z": 24}, {"id": "2c7aa7be-b9fe-4c80-90b1-a0fc259feee0", "property_id": "d202fb10-6916-4346-9cea-cf763a327b6c", "process_id": "cb4c4ffd-0037-47cf-a629-251af7a6e0a7", "perspective_id": "ff58b4d0-e979-4321-995e-fbbc4bb2b042", "strength": 0.61, "confidence": 0.73, "x": 14, "y": 15, "z": 19}, {"id": "c79e5dbe-69b0-4ea1-ade0-4832dbb1c2e5", "property_id": "f1b301c5-bc60-4214-baf6-26df406c96fa", "process_id": "ecf54d15-2550-45c1-bd36-974c5abd00e0", "perspective_id": "81b7e621-5daa-4635-8e58-37c0ef9d30f3", "strength": 0.93, "confidence": 0.71, "x": 27, "y": 26, "z": 41}, {"id": "00113392-4954-4491-b38b-4fda02119a80", "property_id": "265c6bed-9444-4172-8a38-43493abb237d", "process_id": "17325ec6-b257-4f8c-86d2-987405104517", "perspective_id": "b9e67af9-24d7-4697-abbd-f7225d44663f", "strength": 0.67, "confidence": 0.96, "x": 23, "y": 43, "z": 40}, {"id": "60967442-cbdb-4a4f-86ee-1d85c299a45b", "property_id": "aad7d4d8-d879-45bb-9360-64debe7a0266", "process_id": "fa94f56a-bb93-41ee-875a-0ee71c3bd5b1", "perspective_id": "8e0cf8d9-4b15-4936-a88f-60e15cb7572d", "strength": 0.98, "confidence": 0.85, "x": 11, "y": 29, "z": 44}, {"id": "0346525a-ec62-4860-bd5b-3661acde136e", "property_id": "bd171f87-36e9-483e-91dd-82a530b699fb", "process_id": "1dc851f5-9314-4923-8353-6437ce0356d5", "perspective_id": "88af1145-5043-4467-9f3d-b58ac651fd02", "strength": 0.86, "confidence": 0.74, "x": 22, "y": 7, "z": 31}, {"id": "79aea976-5702-4639-90c2-05e0e2df94ff", "property_id": "4e91309f-d56c-49d2-8044-026ddfb6e2d2", "process_id": "ff88095d-1fb9-40d1-b362-2f719afb575b", "perspective_id": "2ea3a6f6-4e41-4d26-80de-ff0ba8209d41", "strength": 0.83, "confidence": 0.88, "x": 44, "y": 0, "z": 49}, {"id": "e33a919e-159a-4b23-a414-1e5bada23217", "property_id": "f1b301c5-bc60-4214-baf6-26df406c96fa", "process_id": "612853b7-fd95-44a4-a45c-cb32af59fe05", "perspective_id": "358b9cf4-cdf3-4c4a-8e30-43e63c5ee581", "strength": 0.93, "confidence": 0.89, "x": 27, "y": 8, "z": 24}, {"id": "43c67cf8-c632-4e97-8eb3-d394510527a5", "property_id": "23b41146-9907-4423-8ff5-4687ae2c5738", "process_id": "52c7a360-1263-4bca-bce0-fcc431006725", "perspective_id": "24a06e0d-dc95-4a19-a2bc-38acfa4011ff", "strength": 0.92, "confidence": 0.81, "x": 15, "y": 31, "z": 39}, {"id": "aacb0291-3162-4b4e-8110-621d41514ac2", "property_id": "ce0bfa8f-024b-4485-9a7a-f17cbf4a09d1", "process_id": "bbe9644f-93c2-44c4-9f22-c1bc1ef90dd3", "perspective_id": "5a8d5303-07e1-4dbf-85e1-a87551976807", "strength": 0.77, "confidence": 0.82, "x": 33, "y": 28, "z": 3}, {"id": "bc45f654-335e-4100-a67b-2c48161c6fc5", "property_id": "2de13a4b-890e-4f86-acf3-1eeede788903", "process_id": "9ddae29c-08e3-46a2-abc3-bd21d08554a9", "perspective_id": "7cd68c98-b284-4856-b8d8-cc8eb46beff1", "strength": 0.95, "confidence": 0.71, "x": 43, "y": 42, "z": 6}, {"id": "aa796a2c-dd56-4137-8a6d-216cd2b46032", "property_id": "59d1fd1b-ca87-4597-9002-76f09a906a40", "process_id": "9d166a5e-c4e4-4997-954b-469fdba683e8", "perspective_id": "77e13296-314e-4aa5-9535-631a2f86544b", "strength": 0.77, "confidence": 0.97, "x": 12, "y": 21, "z": 47}, {"id": "cb064c9a-e1d9-4dd6-b19f-282d71ec6bd6", "property_id": "acb104d2-ff22-403f-98d2-c3e507e64409", "process_id": "ff88095d-1fb9-40d1-b362-2f719afb575b", "perspective_id": "0ef19b36-147a-4ad1-a7fa-8bc436976a8b", "strength": 0.51, "confidence": 0.85, "x": 45, "y": 0, "z": 11}, {"id": "51555f31-3262-4b91-8dac-4f287100a3b8", "property_id": "9d26ccbf-f373-4d69-b14d-a350ef0d067f", "process_id": "55fdf054-4f41-4fe7-a69a-5c9e7c232b34", "perspective_id": "77e13296-314e-4aa5-9535-631a2f86544b", "strength": 0.81, "confidence": 0.82, "x": 0, "y": 16, "z": 47}, {"id": "c59ecb9e-65f4-4329-8dbb-180c9c1866c7", "property_id": "d202fb10-6916-4346-9cea-cf763a327b6c", "process_id": "d0867e04-f3dd-400b-833e-ac108e342c43", "perspective_id": "4f94c0c8-1845-4af7-86aa-7be9ad6b2b81", "strength": 0.72, "confidence": 0.81, "x": 14, "y": 14, "z": 43}, {"id": "2d9f0993-5d5a-4331-a362-1dabbf4fc70d", "property_id": "b7fab93d-52fc-4f98-83d5-d71654918d9b", "process_id": "2d9a31ec-dae3-42a3-82f2-d81e9bba0c32", "perspective_id": "99c4e7d3-00fe-4f53-8122-bab28ba5ae2f", "strength": 0.81, "confidence": 0.74, "x": 29, "y": 11, "z": 0}, {"id": "adfd21a2-1f5a-418d-9bdc-160552fb1ef6", "property_id": "750ffe14-8df5-4480-9380-f9f740937054", "process_id": "03ca5555-7dc2-4277-8c79-e011beb6403c", "perspective_id": "b728c0ce-b494-4939-882b-683b9f5210b6", "strength": 0.59, "confidence": 0.91, "x": 21, "y": 41, "z": 23}, {"id": "a8ddffbf-126b-4e0d-b6cd-e383c3d9054a", "property_id": "4e91309f-d56c-49d2-8044-026ddfb6e2d2", "process_id": "ffbc8227-3bfa-4ef1-a698-ad133ea7ee2b", "perspective_id": "9a0a31a6-78a0-4df0-b9dd-7ad84e02c496", "strength": 0.73, "confidence": 0.98, "x": 44, "y": 6, "z": 28}, {"id": "e206a562-e665-41b8-885e-2f20e904054a", "property_id": "c6957020-0755-4273-a00e-edf2dae50046", "process_id": "b86e7f52-76e1-4248-8c49-0204b4b9db4e", "perspective_id": "88af1145-5043-4467-9f3d-b58ac651fd02", "strength": 0.99, "confidence": 0.94, "x": 35, "y": 9, "z": 31}, {"id": "e8c76941-9920-4bcc-bfd3-c9b085062afd", "property_id": "1bdcb718-348b-4a95-9f3d-497c37c151fe", "process_id": "03ca5555-7dc2-4277-8c79-e011beb6403c", "perspective_id": "09764f7e-4642-40f1-aa95-29b256dc7f5c", "strength": 0.66, "confidence": 0.79, "x": 34, "y": 41, "z": 36}, {"id": "f031862c-453b-4b2b-b0e4-ae77271c5686", "property_id": "0f0fba6f-1fa8-4ee4-8295-da807ba7f9f0", "process_id": "1dc851f5-9314-4923-8353-6437ce0356d5", "perspective_id": "584a8bec-2581-4b6f-b49d-9572564749de", "strength": 0.79, "confidence": 0.91, "x": 17, "y": 7, "z": 29}, {"id": "1257da1a-a2d1-47e9-8118-19bae66d2e92", "property_id": "cedee7ec-adc3-4480-a1d4-285472446551", "process_id": "03ca5555-7dc2-4277-8c79-e011beb6403c", "perspective_id": "c85c3cb0-e2ed-42ac-a660-94fe67f80e66", "strength": 0.84, "confidence": 0.95, "x": 41, "y": 41, "z": 26}, {"id": "5e465f2b-2041-4e93-b396-3a3fc8bdaac2", "property_id": "f5e96574-77e4-4c7c-9f76-b5bbab5a45ce", "process_id": "6ffea129-f6ea-432f-a72b-14122386a57b", "perspective_id": "7cd68c98-b284-4856-b8d8-cc8eb46beff1", "strength": 0.79, "confidence": 0.94, "x": 6, "y": 23, "z": 6}, {"id": "e5d59375-f37e-41bc-ab93-26823a285e46", "property_id": "918dd3c3-8df1-4061-a931-280f5c472e78", "process_id": "ff88095d-1fb9-40d1-b362-2f719afb575b", "perspective_id": "09764f7e-4642-40f1-aa95-29b256dc7f5c", "strength": 0.97, "confidence": 0.99, "x": 16, "y": 0, "z": 36}, {"id": "e43ca394-5135-40d4-8dfc-6e3815a836b5", "property_id": "d1027120-6e25-4b2e-9f2a-d79fd8598172", "process_id": "f299d230-e73b-4b60-9f9e-00a181131006", "perspective_id": "358b9cf4-cdf3-4c4a-8e30-43e63c5ee581", "strength": 0.66, "confidence": 0.83, "x": 25, "y": 34, "z": 24}, {"id": "f72043b2-9f9f-4cce-b7af-9b792823bdb8", "property_id": "2de13a4b-890e-4f86-acf3-1eeede788903", "process_id": "cf61f324-a43e-49e0-b87f-1541f558502c", "perspective_id": "5581f0cc-c277-41de-bf68-3c3fc16d5176", "strength": 0.83, "confidence": 0.88, "x": 43, "y": 48, "z": 46}, {"id": "6d82a91d-ff40-45e2-af74-63beab31109d", "property_id": "abf26e26-2f6f-49e3-a266-40d481a825a7", "process_id": "7bc4caea-164d-4735-9200-d06e59d672a8", "perspective_id": "55d8a55f-5909-4d16-a31a-04e5ec2cea74", "strength": 0.97, "confidence": 0.79, "x": 49, "y": 20, "z": 12}, {"id": "d08bebc8-1e18-4d4b-88c2-07dfbbae097f", "property_id": "ce0bfa8f-024b-4485-9a7a-f17cbf4a09d1", "process_id": "ff648bf5-16cd-4764-be8b-44c64ddeb6b9", "perspective_id": "5a8d5303-07e1-4dbf-85e1-a87551976807", "strength": 0.69, "confidence": 0.88, "x": 33, "y": 46, "z": 3}, {"id": "a5978618-ea4d-4cd9-932c-8003bd2555d1", "property_id": "23b41146-9907-4423-8ff5-4687ae2c5738", "process_id": "52c7a360-1263-4bca-bce0-fcc431006725", "perspective_id": "ae9b3107-7243-48cf-86ce-23040d2bc66a", "strength": 0.87, "confidence": 0.92, "x": 15, "y": 31, "z": 1}, {"id": "972bd6bb-bb91-4067-b6bd-03e0f11676ce", "property_id": "d1027120-6e25-4b2e-9f2a-d79fd8598172", "process_id": "d2fdf3f6-c4b2-42e7-8b03-6c973d31fb60", "perspective_id": "7cd68c98-b284-4856-b8d8-cc8eb46beff1", "strength": 0.52, "confidence": 0.98, "x": 25, "y": 3, "z": 6}, {"id": "e0bb56f4-1cdd-4f73-a6aa-ece9e3215c5e", "property_id": "b0c96852-24c4-46f3-80d7-b97f91c8d31f", "process_id": "ff648bf5-16cd-4764-be8b-44c64ddeb6b9", "perspective_id": "7cd68c98-b284-4856-b8d8-cc8eb46beff1", "strength": 0.86, "confidence": 0.73, "x": 13, "y": 46, "z": 6}, {"id": "8c03684d-59ea-4036-8256-b0c0e01fa6cc", "property_id": "b14f56b9-1deb-44d3-8b5c-b63d272f1d80", "process_id": "bdc7b9c5-5146-4ad8-b645-3c06642ebd90", "perspective_id": "39af6bcb-0f53-4f09-8536-9186b16a19f7", "strength": 0.9, "confidence": 0.71, "x": 30, "y": 19, "z": 21}, {"id": "0dc090cf-c730-4756-89f9-a8b183139833", "property_id": "265c6bed-9444-4172-8a38-43493abb237d", "process_id": "bdc7b9c5-5146-4ad8-b645-3c06642ebd90", "perspective_id": "b42434eb-fe6a-4d2c-92d7-889b271c4309", "strength": 0.96, "confidence": 0.92, "x": 23, "y": 19, "z": 34}, {"id": "d7e4e07a-d405-42c9-af65-b60e055a1de9", "property_id": "b0c96852-24c4-46f3-80d7-b97f91c8d31f", "process_id": "d2fdf3f6-c4b2-42e7-8b03-6c973d31fb60", "perspective_id": "dbb48f09-f1f6-4ed5-a5f7-3059c1e804ed", "strength": 0.91, "confidence": 0.83, "x": 13, "y": 3, "z": 10}, {"id": "5babfb9a-97cd-4269-b346-1678730b7a9a", "property_id": "d202fb10-6916-4346-9cea-cf763a327b6c", "process_id": "76e6d74f-50a5-4886-8fcf-8b7421f97e6d", "perspective_id": "812b804e-4923-4664-883a-9dd9c2f2b98f", "strength": 0.54, "confidence": 0.77, "x": 14, "y": 33, "z": 37}, {"id": "167ba284-4653-40f0-aa97-9e5937b39eac", "property_id": "d1027120-6e25-4b2e-9f2a-d79fd8598172", "process_id": "7bc4caea-164d-4735-9200-d06e59d672a8", "perspective_id": "b9e67af9-24d7-4697-abbd-f7225d44663f", "strength": 0.76, "confidence": 0.97, "x": 25, "y": 20, "z": 40}]};
+                
+                // Setup
+                const container = document.getElementById('canvas-container');
+                const width = container.clientWidth;
+                const height = container.clientHeight;
+                
+                // Scene
+                const scene = new THREE.Scene();
+                scene.background = new THREE.Color(0xf0f0f0);
+                
+                // Camera
+                const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+                camera.position.set(2, 2, 2);
+                
+                // Renderer
+                const renderer = new THREE.WebGLRenderer({ antialias: true });
+                renderer.setSize(width, height);
+                container.appendChild(renderer.domElement);
+                
+                // Controls
+                const controls = new THREE.OrbitControls(camera, renderer.domElement);
+                controls.enableDamping = true;
+                controls.dampingFactor = 0.25;
+                
+                // Lighting
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+                scene.add(ambientLight);
+                
+                const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+                directionalLight.position.set(1, 1, 1);
+                scene.add(directionalLight);
+                
+                // Axes helper
+                const axesHelper = new THREE.AxesHelper(1);
+                scene.add(axesHelper);
+                
+                // Create cube frame
+                const cubeSize = 1;
+                const cubeGeometry = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize);
+                const edgesMaterial = new THREE.LineBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.2 });
+                const cubeEdges = new THREE.LineSegments(
+                    new THREE.EdgesGeometry(cubeGeometry),
+                    edgesMaterial
+                );
+                scene.add(cubeEdges);
+                
+                // Axis labels
+                const createTextSprite = (text, color, position) => {
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.width = 256;
+                    canvas.height = 128;
+                    
+                    context.font = "Bold 36px Arial";
+                    context.fillStyle = "rgba(255, 255, 255, 0.95)";
+                    context.fillRect(0, 0, canvas.width, canvas.height);
+                    
+                    context.fillStyle = color;
+                    context.fillText(text, 10, 64);
+                    
+                    const texture = new THREE.Texture(canvas);
+                    texture.needsUpdate = true;
+                    
+                    const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
+                    const sprite = new THREE.Sprite(spriteMaterial);
+                    sprite.position.copy(position);
+                    sprite.scale.set(0.2, 0.1, 1);
+                    
+                    return sprite;
+                };
+                
+                // Add axis labels
+                scene.add(createTextSprite("Properties (X)", "#1f77b4", new THREE.Vector3(1.2, 0, 0)));
+                scene.add(createTextSprite("Processes (Y)", "#ff7f0e", new THREE.Vector3(0, 1.2, 0)));
+                scene.add(createTextSprite("Perspectives (Z)", "#2ca02c", new THREE.Vector3(0, 0, 1.2)));
+                
+                // Add points for relationships
+                const pointsMaterial = new THREE.PointsMaterial({
+                    size: 0.05,
+                    vertexColors: true,
+                    sizeAttenuation: true
+                });
+                
+                const pointsGeometry = new THREE.BufferGeometry();
+                const positions = [];
+                const colors = [];
+                const pointData = [];
+                
+                // Normalize positions
+                const numProperties = p3ifData.dimensions.property.length;
+                const numProcesses = p3ifData.dimensions.process.length;
+                const numPerspectives = p3ifData.dimensions.perspective.length;
+                
+                p3ifData.connections.forEach(conn => {
+                    // Normalize to 0-1 range and then scale to cube size
+                    const x = (conn.x / Math.max(1, numProperties - 1)) * cubeSize;
+                    const y = (conn.y / Math.max(1, numProcesses - 1)) * cubeSize;
+                    const z = (conn.z / Math.max(1, numPerspectives - 1)) * cubeSize;
+                    
+                    // Center the cube by subtracting half the size
+                    positions.push(x - cubeSize/2, y - cubeSize/2, z - cubeSize/2);
+                    
+                    // Use strength to determine color intensity
+                    const r = 0.5 + conn.strength * 0.5;
+                    const g = 0.5 * (1 - conn.strength);
+                    const b = 0.5 + conn.confidence * 0.5;
+                    
+                    colors.push(r, g, b);
+                    
+                    // Store the original data for interaction
+                    pointData.push({
+                        id: conn.id,
+                        property: p3ifData.dimensions.property[conn.x],
+                        process: p3ifData.dimensions.process[conn.y],
+                        perspective: p3ifData.dimensions.perspective[conn.z],
+                        strength: conn.strength,
+                        confidence: conn.confidence
+                    });
+                });
+                
+                pointsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+                pointsGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+                
+                const points = new THREE.Points(pointsGeometry, pointsMaterial);
+                scene.add(points);
+                
+                // Handle resizing
+                window.addEventListener('resize', () => {
+                    const newWidth = container.clientWidth;
+                    const newHeight = container.clientHeight;
+                    
+                    camera.aspect = newWidth / newHeight;
+                    camera.updateProjectionMatrix();
+                    
+                    renderer.setSize(newWidth, newHeight);
+                });
+                
+                // Handle point selection
+                const raycaster = new THREE.Raycaster();
+                raycaster.params.Points.threshold = 0.05;
+                
+                const mouse = new THREE.Vector2();
+                
+                container.addEventListener('mousemove', (event) => {
+                    // Calculate mouse position in normalized device coordinates
+                    mouse.x = (event.clientX / width) * 2 - 1;
+                    mouse.y = -(event.clientY / height) * 2 + 1;
+                });
+                
+                container.addEventListener('click', () => {
+                    // Cast a ray from the camera
+                    raycaster.setFromCamera(mouse, camera);
+                    
+                    // Check for intersections with points
+                    const intersects = raycaster.intersectObject(points);
+                    
+                    if (intersects.length > 0) {
+                        const index = intersects[0].index;
+                        const selectedPoint = pointData[index];
+                        
+                        // Display information about the selected point
+                        const infoDiv = document.getElementById('selection-info');
+                        infoDiv.innerHTML = `
+                            <h3>Selected Relationship</h3>
+                            <p><strong>Property:</strong> ${selectedPoint.property.name}</p>
+                            <p><strong>Process:</strong> ${selectedPoint.process.name}</p>
+                            <p><strong>Perspective:</strong> ${selectedPoint.perspective.name}</p>
+                            <p><strong>Strength:</strong> ${selectedPoint.strength.toFixed(2)}</p>
+                            <p><strong>Confidence:</strong> ${selectedPoint.confidence.toFixed(2)}</p>
+                        `;
+                    }
+                });
+                
+                // Animation loop
+                function animate() {
+                    requestAnimationFrame(animate);
+                    controls.update();
+                    renderer.render(scene, camera);
+                }
+                
+                animate();
+            </script>
+            
+            <script>
+                
+            </script>
+        </body>
+        </html>
+        

@@ -1,0 +1,262 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Healthcare</title>
+            <style>
+                body { 
+                    margin: 0;
+                    overflow: hidden;
+                    font-family: Arial, sans-serif;
+                }
+                #info {
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 10px;
+                    border-radius: 5px;
+                    max-width: 300px;
+                    z-index: 100;
+                }
+                #canvas-container {
+                    width: 100%;
+                    height: 100vh;
+                }
+                #legend {
+                    position: absolute;
+                    bottom: 20px;
+                    right: 20px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 10px;
+                    border-radius: 5px;
+                    z-index: 100;
+                }
+                .axis-label {
+                    font-weight: bold;
+                    margin-bottom: 5px;
+                }
+                .property-color { color: #1f77b4; }
+                .process-color { color: #ff7f0e; }
+                .perspective-color { color: #2ca02c; }
+            </style>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+        </head>
+        <body>
+            <div id="info">
+                <h2>Healthcare</h2>
+                <p>This visualization represents the P3IF framework as a 3D cube with three dimensions:</p>
+                <p><span class="property-color">X-axis: Properties</span></p>
+                <p><span class="process-color">Y-axis: Processes</span></p>
+                <p><span class="perspective-color">Z-axis: Perspectives</span></p>
+                <p>Each point in the cube represents a relationship between specific property, process, and perspective.</p>
+                <p>Click and drag to rotate. Scroll to zoom. Right-click and drag to pan.</p>
+                <div id="selection-info"></div>
+            </div>
+            
+            <div id="canvas-container"></div>
+            
+            <div id="legend">
+                <div class="axis-label property-color">X-axis: Properties</div>
+                <div class="axis-label process-color">Y-axis: Processes</div>
+                <div class="axis-label perspective-color">Z-axis: Perspectives</div>
+                <div>Point size indicates relationship strength</div>
+            </div>
+            
+            
+            
+            <script>
+                // P3IF data
+                const p3ifData = {"dimensions": {"property": [{"id": "47419b56-d909-4371-9157-62159eb877ed", "name": "Patient Safety", "domain": "HealthCare"}, {"id": "c6f50ca5-0558-4f08-aceb-36ce37e4b160", "name": "Data Privacy", "domain": "HealthCare"}, {"id": "bf3e18bd-115a-43a6-855c-0813d3b314ff", "name": "Treatment Efficacy", "domain": "HealthCare"}, {"id": "31dfe7c0-7a89-4227-a021-4373930f3d89", "name": "Cost Effectiveness", "domain": "HealthCare"}, {"id": "4f67fe77-475f-4a22-8496-eda1bf792605", "name": "Accessibility", "domain": "HealthCare"}, {"id": "372015e9-c621-4c55-a1d9-6895b442d8ab", "name": "Interoperability", "domain": "HealthCare"}, {"id": "f9c5dec5-da3c-4134-9093-1224bcd43481", "name": "Regulatory Compliance", "domain": "HealthCare"}, {"id": "0df70784-98c2-41d1-80b1-c9e57515ab34", "name": "Patient Satisfaction", "domain": "HealthCare"}, {"id": "f9ac8849-5ac0-4f97-ac31-3c6870f55578", "name": "Staff Efficiency", "domain": "HealthCare"}, {"id": "8bc3951e-94f1-4b1c-a54e-27b892f72a95", "name": "Equipment Reliability", "domain": "HealthCare"}, {"id": "1708a326-9ae0-4ab7-92cb-b711d08958cf", "name": "Infection Control", "domain": "HealthCare"}, {"id": "d808e664-8d8c-45c0-851c-e6bee2609596", "name": "Medication Accuracy", "domain": "HealthCare"}, {"id": "775a3b54-e530-4887-818f-fe34ecc044ae", "name": "Diagnostic Precision", "domain": "HealthCare"}, {"id": "641fd111-2ea0-4a75-af77-8c2e09065880", "name": "Emergency Readiness", "domain": "HealthCare"}, {"id": "7cf36eea-76b8-4a67-a853-41c9ab4411ec", "name": "Continuity of Care", "domain": "HealthCare"}, {"id": "71d41439-3c08-4ca3-9913-41ef585e0529", "name": "Informed Consent", "domain": "HealthCare"}, {"id": "0b4e6e8c-25f5-4a9b-bec5-b32c0b1fe6a6", "name": "Cultural Competence", "domain": "HealthCare"}, {"id": "028fdadb-6e6d-46d3-b080-7ca6d05eefb2", "name": "Ethical Practice", "domain": "HealthCare"}, {"id": "73a7f03b-38f4-4618-a349-018eeb168ecd", "name": "Evidence-Based Care", "domain": "HealthCare"}, {"id": "1749e397-fec6-4e97-995f-686696d5c176", "name": "Patient Empowerment", "domain": "HealthCare"}, {"id": "7d729a25-7439-4569-9c11-afb2e28b0c13", "name": "Preventive Care", "domain": "HealthCare"}, {"id": "62e7f754-efbd-473d-bb04-ac953ad63665", "name": "Chronic Disease Management", "domain": "HealthCare"}, {"id": "4efaaecb-86aa-48bb-924b-451741073fbe", "name": "Pain Management", "domain": "HealthCare"}, {"id": "8f634d1d-68fd-4c30-b29b-895903f7ead9", "name": "End-of-Life Care", "domain": "HealthCare"}, {"id": "748df114-d01e-4505-975d-326ac863f364", "name": "Mental Health Integration", "domain": "HealthCare"}, {"id": "3142f021-d52a-4dcf-9185-2a5541940465", "name": "Telemedicine Capability", "domain": "HealthCare"}, {"id": "a007b819-83e4-41de-abe7-3f56d6dfbd62", "name": "Health Literacy", "domain": "HealthCare"}, {"id": "309394d5-fbfa-49cc-a928-d38c3b45ebe2", "name": "Patient Engagement", "domain": "HealthCare"}, {"id": "49032026-e2b9-4446-9b85-5ce11bd544ff", "name": "Care Coordination", "domain": "HealthCare"}, {"id": "ee8fba74-8bae-4c96-a8fd-33918825e4c2", "name": "Quality Assurance", "domain": "HealthCare"}, {"id": "a6a115ba-62cc-4aec-9f2a-92ed4a6009a3", "name": "Resource Allocation", "domain": "HealthCare"}, {"id": "66356987-6979-48be-afb5-335e30915ecc", "name": "Staff Competency", "domain": "HealthCare"}, {"id": "c14764ec-93db-4565-8b1b-77b5b9275a49", "name": "Technology Integration", "domain": "HealthCare"}, {"id": "872904cc-4b6a-4863-a2a3-20b8cd196ff9", "name": "Patient Rights", "domain": "HealthCare"}, {"id": "20037ad2-bf20-476f-b15c-b1e4bd3af921", "name": "Environmental Safety", "domain": "HealthCare"}, {"id": "2c851772-2cea-47f8-b7e1-51070db9cbb4", "name": "Nutritional Care", "domain": "HealthCare"}, {"id": "090e3393-7488-42e1-b211-b527c3b8cc31", "name": "Rehabilitation Services", "domain": "HealthCare"}, {"id": "63908be2-f0be-47ab-90a3-b0a223180af6", "name": "Pharmaceutical Management", "domain": "HealthCare"}, {"id": "3ead4269-8987-414d-b1a7-88c05234d900", "name": "Genetic Testing", "domain": "HealthCare"}, {"id": "f93131bf-7187-44cc-9fdb-87bd683e33cf", "name": "Personalized Medicine", "domain": "HealthCare"}, {"id": "f67cd869-546e-493e-ab52-e3d543637239", "name": "Palliative Care", "domain": "HealthCare"}, {"id": "834dc551-77a9-412a-933b-abd92ee8e4d5", "name": "Organ Donation", "domain": "HealthCare"}, {"id": "e6421f23-6e85-4368-ae3d-256e8587032e", "name": "Blood Safety", "domain": "HealthCare"}, {"id": "b2b39c38-db9f-411f-b45d-40e25ff85308", "name": "Radiation Safety", "domain": "HealthCare"}, {"id": "4227424b-3862-4ef8-96c6-69e923d036d5", "name": "Waste Management", "domain": "HealthCare"}, {"id": "7b7bb9e5-3383-4f13-a9c9-f63976f01c6f", "name": "Disaster Preparedness", "domain": "HealthCare"}, {"id": "9c99022f-31db-4cf9-90f7-35784c6d1022", "name": "Community Outreach", "domain": "HealthCare"}, {"id": "4d2f262b-e39a-43a2-af8d-673bc9be521d", "name": "Research Ethics", "domain": "HealthCare"}, {"id": "7a653133-84e8-4c88-b4e5-f05a476c6697", "name": "Medical Education", "domain": "HealthCare"}, {"id": "a38eb275-bc45-41ec-9a73-baeda8ea2f21", "name": "Patient Advocacy", "domain": "HealthCare"}], "process": [{"id": "601e26ff-bf7d-43c0-9129-1d4426934aed", "name": "Patient Registration", "domain": "HealthCare"}, {"id": "bff4094a-1b9f-44d3-8d3c-d57f2fb399ff", "name": "Triage", "domain": "HealthCare"}, {"id": "52943cef-319b-4398-98a1-1f38ac48ed57", "name": "Diagnosis", "domain": "HealthCare"}, {"id": "05454a68-1928-4106-96c6-22e9c2efce8f", "name": "Treatment Planning", "domain": "HealthCare"}, {"id": "4fd8d887-9e17-42c4-9007-990d8185cdfc", "name": "Medication Administration", "domain": "HealthCare"}, {"id": "bd80e794-0f34-49c5-bdfb-b106c6145333", "name": "Surgery", "domain": "HealthCare"}, {"id": "a0c70bfb-5de6-4f91-8b63-c3f4af8af7ed", "name": "Laboratory Testing", "domain": "HealthCare"}, {"id": "e2afe2d5-fc79-416e-a48c-5328615c8109", "name": "Imaging", "domain": "HealthCare"}, {"id": "889278d3-7971-4637-8bdb-ff4b8b54c936", "name": "Patient Monitoring", "domain": "HealthCare"}, {"id": "c7b21845-a04f-4a6e-add3-0916ccc23fb7", "name": "Discharge Planning", "domain": "HealthCare"}, {"id": "c572ad57-5d48-483c-bcc9-9e39c8d679b4", "name": "Follow-up Care", "domain": "HealthCare"}, {"id": "e6f7f73c-3c6b-45d7-83ba-5815343bb1b0", "name": "Referral Management", "domain": "HealthCare"}, {"id": "53d21143-901e-48ed-9c4f-9eedb71ff8e8", "name": "Emergency Response", "domain": "HealthCare"}, {"id": "0fe619e3-b61e-4e95-b473-555644c05dad", "name": "Infection Prevention", "domain": "HealthCare"}, {"id": "6521eb2a-4e27-4f9b-ae8b-ae32cefc4755", "name": "Quality Assurance", "domain": "HealthCare"}, {"id": "8b4ee31f-a4da-42fd-832a-7e53fb8d5733", "name": "Staff Training", "domain": "HealthCare"}, {"id": "f9324230-2a4d-40e2-9a1e-9433aacaac83", "name": "Medical Records Management", "domain": "HealthCare"}, {"id": "360fe736-1349-495e-961a-4b07116249b0", "name": "Inventory Management", "domain": "HealthCare"}, {"id": "321eac2e-fbfc-415d-bbcc-f8574adb2e97", "name": "Billing and Coding", "domain": "HealthCare"}, {"id": "f7d8278f-6019-4faa-b2aa-b2b9297e8e7d", "name": "Insurance Verification", "domain": "HealthCare"}, {"id": "690116cc-76c5-4e16-9591-405a3cccee87", "name": "Appointment Scheduling", "domain": "HealthCare"}, {"id": "7ef92962-e448-4f1b-b65b-855db28ad97c", "name": "Patient Education", "domain": "HealthCare"}, {"id": "2bbadadc-c1ca-4137-bd95-d4755604e665", "name": "Consent Obtaining", "domain": "HealthCare"}, {"id": "70633830-df1c-4a16-9eb1-2ac4da968f1e", "name": "Care Coordination", "domain": "HealthCare"}, {"id": "f4bd4a89-4f3a-4547-b581-bd07073c9a24", "name": "Risk Assessment", "domain": "HealthCare"}, {"id": "c8f69d35-0a04-4416-b54d-92c68cef5d60", "name": "Clinical Trials", "domain": "HealthCare"}, {"id": "dc192ddf-033e-4c05-92a3-02ffd196ca7e", "name": "Telemedicine Consultation", "domain": "HealthCare"}, {"id": "239e2d36-7c82-418f-a37c-3a614f045c66", "name": "Prescription Management", "domain": "HealthCare"}, {"id": "24290ab0-ab52-4445-aaa2-d65e87652854", "name": "Rehabilitation", "domain": "HealthCare"}, {"id": "871a877f-b3e3-4726-a017-9fdf9d67eac5", "name": "Palliative Care", "domain": "HealthCare"}, {"id": "5a539c0b-fbea-4c15-bab2-7e7d41f86ff3", "name": "Mental Health Assessment", "domain": "HealthCare"}, {"id": "03fd83ca-d791-4532-a126-74d81756157b", "name": "Nutritional Assessment", "domain": "HealthCare"}, {"id": "18c6a3d7-1a79-458e-8acf-5d765ad6b355", "name": "Pain Management", "domain": "HealthCare"}, {"id": "c2d3cc31-f4f8-458d-be0a-ecbd054d9d50", "name": "Health Screening", "domain": "HealthCare"}, {"id": "33d544b4-6d9a-4539-b5a8-95ee2c1df802", "name": "Immunization", "domain": "HealthCare"}, {"id": "57fec2d5-01a2-48c8-ba27-5e774c096bbf", "name": "Genetic Counseling", "domain": "HealthCare"}, {"id": "88337242-4660-472f-af40-a603508667e1", "name": "Organ Transplantation", "domain": "HealthCare"}, {"id": "1981a630-7c6a-42d6-b8ab-9020b868a132", "name": "Blood Transfusion", "domain": "HealthCare"}, {"id": "77d19c70-c6b2-4b76-aa2f-38b1faad1609", "name": "Radiation Therapy", "domain": "HealthCare"}, {"id": "c6d1441d-86e5-4fea-a7b0-30b3b0bee86b", "name": "Chemotherapy", "domain": "HealthCare"}, {"id": "891c2090-c55d-449c-b72c-0593ed737bc4", "name": "Physical Therapy", "domain": "HealthCare"}, {"id": "0f20d079-0e6a-49a9-ac26-23fa81625c4f", "name": "Occupational Therapy", "domain": "HealthCare"}, {"id": "08b8839f-f1ae-49d9-ba7e-62b9690a41ef", "name": "Speech Therapy", "domain": "HealthCare"}, {"id": "42ef3a04-86d1-42c0-b837-35b8baf6a558", "name": "Respiratory Therapy", "domain": "HealthCare"}, {"id": "2e5eaab3-80a9-44d0-ac3c-c8f054d21fb5", "name": "Dialysis", "domain": "HealthCare"}, {"id": "01a93bbc-7493-4da1-93b8-9c7e0b544605", "name": "Wound Care", "domain": "HealthCare"}, {"id": "5f78bd6a-753b-4074-80b9-f63169e89a86", "name": "Anesthesia Administration", "domain": "HealthCare"}, {"id": "54403738-3ffe-4c1a-8d57-37919c20094f", "name": "Patient Transport", "domain": "HealthCare"}, {"id": "2ad302d0-1377-4e5f-a201-981c734f131c", "name": "Sterilization", "domain": "HealthCare"}, {"id": "53466a08-cd2b-44f3-8235-950364a1b431", "name": "Waste Disposal", "domain": "HealthCare"}], "perspective": [{"id": "cb7afe8c-b12e-488a-ba38-62680d5f7f79", "name": "Patient", "domain": "HealthCare"}, {"id": "de29785f-3837-49ad-a536-a104e41d4c73", "name": "Physician", "domain": "HealthCare"}, {"id": "089375ef-043c-4899-a874-511cca4cbf4d", "name": "Nurse", "domain": "HealthCare"}, {"id": "48ba8513-b441-443f-90e2-9fe4ea8fec7e", "name": "Administrator", "domain": "HealthCare"}, {"id": "e28a03b3-1958-4e6a-8cf8-56d96aff573a", "name": "Insurer", "domain": "HealthCare"}, {"id": "f358c364-9321-4be0-97ed-f346cfba728c", "name": "Regulator", "domain": "HealthCare"}, {"id": "1c2d2da9-6680-4231-97be-3c62f24a4d65", "name": "Researcher", "domain": "HealthCare"}, {"id": "657f6cac-7d9e-4f7c-86ee-25e735d78e06", "name": "Pharmacist", "domain": "HealthCare"}, {"id": "38302af4-42b7-41ca-8145-a3dd3cc76479", "name": "Technician", "domain": "HealthCare"}, {"id": "01c9215c-b587-4f6e-92de-06613bba30a5", "name": "Caregiver", "domain": "HealthCare"}, {"id": "5f65cadc-843f-4afd-aeba-b69f095ba757", "name": "Public Health Official", "domain": "HealthCare"}, {"id": "d34ff986-7e01-4b6c-b397-be1f627bb1aa", "name": "Ethicist", "domain": "HealthCare"}, {"id": "504272f4-1d52-4594-801d-0c7c3e811296", "name": "Legal Counsel", "domain": "HealthCare"}, {"id": "f1baeb13-90cb-494a-a1f3-b06a46640dc7", "name": "Financial Analyst", "domain": "HealthCare"}, {"id": "a6431a6f-1852-43f4-8284-6240b101439d", "name": "IT Specialist", "domain": "HealthCare"}, {"id": "375a30c9-e9ea-42fa-b3d9-88cbe9fe7f6f", "name": "Social Worker", "domain": "HealthCare"}, {"id": "d123f0c7-7a31-46eb-a8c9-4ca728b60152", "name": "Psychologist", "domain": "HealthCare"}, {"id": "33d65bc5-a5f5-473b-be68-2a4bfe0f0be0", "name": "Nutritionist", "domain": "HealthCare"}, {"id": "10eb7c75-d53c-4269-b219-58ca13f3678a", "name": "Physical Therapist", "domain": "HealthCare"}, {"id": "f2bb0b81-aaaf-462b-8106-9cd1d61f8fdf", "name": "Occupational Therapist", "domain": "HealthCare"}, {"id": "7abbcfdd-6286-4e83-a577-ce30a0ad3f2b", "name": "Speech Therapist", "domain": "HealthCare"}, {"id": "74314b28-3cd0-4ffa-aece-451ab01478da", "name": "Radiologist", "domain": "HealthCare"}, {"id": "126e26d2-3ace-4f54-a009-f49a45b3b12b", "name": "Surgeon", "domain": "HealthCare"}, {"id": "abb325e1-a541-439f-a065-9bd792bb99f8", "name": "Anesthesiologist", "domain": "HealthCare"}, {"id": "b8d7b2fd-c4b0-46a2-9992-0764c0805c0c", "name": "Emergency Medical Technician", "domain": "HealthCare"}, {"id": "0edd80b8-39c6-4546-9495-392eeb3c2be4", "name": "Laboratory Technician", "domain": "HealthCare"}, {"id": "a85d4c30-6e0c-469b-9189-b943f4b14d46", "name": "Pathologist", "domain": "HealthCare"}, {"id": "df3aba31-c1a1-4297-82fb-b684caedd822", "name": "Geneticist", "domain": "HealthCare"}, {"id": "3524b217-0e48-40d3-a99d-8f6083b48f1a", "name": "Oncologist", "domain": "HealthCare"}, {"id": "af834ed6-37bd-4971-ad0d-44eb2981bb69", "name": "Pediatrician", "domain": "HealthCare"}, {"id": "a96a0c56-54f8-4937-894a-831e6477ab70", "name": "Geriatrician", "domain": "HealthCare"}, {"id": "828cf4ef-0ed7-4ec2-ab02-f8bb897e4c24", "name": "Psychiatrist", "domain": "HealthCare"}, {"id": "a9250a2a-63c7-4d9d-8c24-942afe248818", "name": "Neurologist", "domain": "HealthCare"}, {"id": "38f4e3e6-26ab-475c-9031-b10f6382abdb", "name": "Cardiologist", "domain": "HealthCare"}, {"id": "ee447560-8d77-41c1-a4a5-491924c1a50b", "name": "Endocrinologist", "domain": "HealthCare"}, {"id": "a4dfa141-3cbb-4bc3-bbe9-0481ade93c8d", "name": "Dermatologist", "domain": "HealthCare"}, {"id": "3c666dce-b3a2-48dd-9b72-0f28300035b3", "name": "Ophthalmologist", "domain": "HealthCare"}, {"id": "37cd492c-d77d-43d7-8351-0c678f4c7524", "name": "Dentist", "domain": "HealthCare"}, {"id": "8208e7bf-fee7-4888-9a2d-af3d5928f972", "name": "Pharmacologist", "domain": "HealthCare"}, {"id": "3d7346a0-0ec0-4a8d-a1f7-626162c633e8", "name": "Biomedical Engineer", "domain": "HealthCare"}, {"id": "c87d9ee2-2fe3-4a6d-a3e8-24bc04fd3c23", "name": "Health Economist", "domain": "HealthCare"}, {"id": "88771091-cf11-4269-9e6b-30fa8195adb7", "name": "Epidemiologist", "domain": "HealthCare"}, {"id": "db74204c-483b-44cb-92ac-67cbb0855c50", "name": "Biostatistician", "domain": "HealthCare"}, {"id": "54c36dbf-ecf4-4045-b37d-f474306c1af6", "name": "Medical Illustrator", "domain": "HealthCare"}, {"id": "5dd194b0-7082-4576-a875-fcfedbd926f7", "name": "Health Educator", "domain": "HealthCare"}, {"id": "26f7e275-04bb-4710-92e1-0ebdbe74b012", "name": "Patient Advocate", "domain": "HealthCare"}, {"id": "7b0c5820-858f-4f14-8fa2-2aac97cccfba", "name": "Hospital Chaplain", "domain": "HealthCare"}, {"id": "3c17f54b-4bb4-4bfb-9434-f3304c7b316b", "name": "Risk Manager", "domain": "HealthCare"}, {"id": "2849d7ee-9dfc-4929-8781-c2625142bbb6", "name": "Quality Improvement Specialist", "domain": "HealthCare"}, {"id": "c775e458-c733-4ef4-b4b1-323e0402a22f", "name": "Infection Control Specialist", "domain": "HealthCare"}]}, "connections": [{"id": "670890d7-cab5-4600-9ed4-7cf4d66c692a", "property_id": "3ead4269-8987-414d-b1a7-88c05234d900", "process_id": "e2afe2d5-fc79-416e-a48c-5328615c8109", "perspective_id": "01c9215c-b587-4f6e-92de-06613bba30a5", "strength": 0.52, "confidence": 0.97, "x": 38, "y": 7, "z": 9}, {"id": "a9e9059a-11cb-4b55-86d7-78ec51cce1c1", "property_id": "ee8fba74-8bae-4c96-a8fd-33918825e4c2", "process_id": "57fec2d5-01a2-48c8-ba27-5e774c096bbf", "perspective_id": "cb7afe8c-b12e-488a-ba38-62680d5f7f79", "strength": 0.76, "confidence": 0.71, "x": 29, "y": 35, "z": 0}, {"id": "977532d5-d4a4-4f53-92c4-836fa01ddaf3", "property_id": "63908be2-f0be-47ab-90a3-b0a223180af6", "process_id": "321eac2e-fbfc-415d-bbcc-f8574adb2e97", "perspective_id": "38f4e3e6-26ab-475c-9031-b10f6382abdb", "strength": 0.81, "confidence": 0.83, "x": 37, "y": 18, "z": 33}, {"id": "9242177d-9c7e-47e7-8f5d-adc57cfacf9c", "property_id": "4227424b-3862-4ef8-96c6-69e923d036d5", "process_id": "bd80e794-0f34-49c5-bdfb-b106c6145333", "perspective_id": "5f65cadc-843f-4afd-aeba-b69f095ba757", "strength": 0.87, "confidence": 0.81, "x": 44, "y": 5, "z": 10}, {"id": "1b227641-c23f-48e9-afd8-89cbd4f97fba", "property_id": "0b4e6e8c-25f5-4a9b-bec5-b32c0b1fe6a6", "process_id": "2bbadadc-c1ca-4137-bd95-d4755604e665", "perspective_id": "504272f4-1d52-4594-801d-0c7c3e811296", "strength": 0.56, "confidence": 0.94, "x": 16, "y": 22, "z": 12}, {"id": "c88a7243-6d37-4470-b140-eadad973c3e6", "property_id": "71d41439-3c08-4ca3-9913-41ef585e0529", "process_id": "360fe736-1349-495e-961a-4b07116249b0", "perspective_id": "df3aba31-c1a1-4297-82fb-b684caedd822", "strength": 0.86, "confidence": 0.91, "x": 15, "y": 17, "z": 27}, {"id": "3510d46c-d44d-44dc-8e84-0bba3b67e8cc", "property_id": "7a653133-84e8-4c88-b4e5-f05a476c6697", "process_id": "e2afe2d5-fc79-416e-a48c-5328615c8109", "perspective_id": "74314b28-3cd0-4ffa-aece-451ab01478da", "strength": 0.99, "confidence": 0.88, "x": 48, "y": 7, "z": 21}, {"id": "e1f6bb90-6499-4eb3-ae10-0ec6c1df4320", "property_id": "ee8fba74-8bae-4c96-a8fd-33918825e4c2", "process_id": "601e26ff-bf7d-43c0-9129-1d4426934aed", "perspective_id": "37cd492c-d77d-43d7-8351-0c678f4c7524", "strength": 0.8, "confidence": 0.9, "x": 29, "y": 0, "z": 37}, {"id": "52fd3cee-b6a1-48ce-8a2c-b7c0f068ce2c", "property_id": "66356987-6979-48be-afb5-335e30915ecc", "process_id": "2e5eaab3-80a9-44d0-ac3c-c8f054d21fb5", "perspective_id": "cb7afe8c-b12e-488a-ba38-62680d5f7f79", "strength": 0.67, "confidence": 0.75, "x": 31, "y": 44, "z": 0}, {"id": "4d295268-a9e8-4569-a3dd-9891e2ab5541", "property_id": "4f67fe77-475f-4a22-8496-eda1bf792605", "process_id": "239e2d36-7c82-418f-a37c-3a614f045c66", "perspective_id": "33d65bc5-a5f5-473b-be68-2a4bfe0f0be0", "strength": 0.57, "confidence": 0.95, "x": 4, "y": 27, "z": 17}, {"id": "388b35bf-f134-439e-af2d-13c04729ee37", "property_id": "7d729a25-7439-4569-9c11-afb2e28b0c13", "process_id": "01a93bbc-7493-4da1-93b8-9c7e0b544605", "perspective_id": "d123f0c7-7a31-46eb-a8c9-4ca728b60152", "strength": 0.77, "confidence": 0.71, "x": 20, "y": 45, "z": 16}, {"id": "c004da85-e8cd-42b2-b1ea-e37bb795340f", "property_id": "62e7f754-efbd-473d-bb04-ac953ad63665", "process_id": "871a877f-b3e3-4726-a017-9fdf9d67eac5", "perspective_id": "d123f0c7-7a31-46eb-a8c9-4ca728b60152", "strength": 0.84, "confidence": 0.97, "x": 21, "y": 29, "z": 16}, {"id": "07f578a8-6cfc-4147-86fc-0a85fd637417", "property_id": "73a7f03b-38f4-4618-a349-018eeb168ecd", "process_id": "03fd83ca-d791-4532-a126-74d81756157b", "perspective_id": "a96a0c56-54f8-4937-894a-831e6477ab70", "strength": 0.88, "confidence": 0.86, "x": 18, "y": 31, "z": 30}, {"id": "89010371-5227-468c-8a47-6c3d9039de8f", "property_id": "372015e9-c621-4c55-a1d9-6895b442d8ab", "process_id": "c6d1441d-86e5-4fea-a7b0-30b3b0bee86b", "perspective_id": "db74204c-483b-44cb-92ac-67cbb0855c50", "strength": 0.72, "confidence": 0.72, "x": 5, "y": 39, "z": 42}, {"id": "70619b26-3c02-4650-a47b-27004cff1f0b", "property_id": "8f634d1d-68fd-4c30-b29b-895903f7ead9", "process_id": "bd80e794-0f34-49c5-bdfb-b106c6145333", "perspective_id": "88771091-cf11-4269-9e6b-30fa8195adb7", "strength": 0.91, "confidence": 0.81, "x": 23, "y": 5, "z": 41}, {"id": "fcafd005-060c-4d1a-b560-7ef74007e231", "property_id": "3142f021-d52a-4dcf-9185-2a5541940465", "process_id": "c572ad57-5d48-483c-bcc9-9e39c8d679b4", "perspective_id": "3c666dce-b3a2-48dd-9b72-0f28300035b3", "strength": 0.96, "confidence": 0.73, "x": 25, "y": 10, "z": 36}, {"id": "22a6a914-c02b-497c-9d82-f81bdfab3f1a", "property_id": "090e3393-7488-42e1-b211-b527c3b8cc31", "process_id": "53466a08-cd2b-44f3-8235-950364a1b431", "perspective_id": "d123f0c7-7a31-46eb-a8c9-4ca728b60152", "strength": 0.58, "confidence": 0.73, "x": 36, "y": 49, "z": 16}, {"id": "f1e80029-dc59-46c7-b6c7-1deddc34f193", "property_id": "62e7f754-efbd-473d-bb04-ac953ad63665", "process_id": "f9324230-2a4d-40e2-9a1e-9433aacaac83", "perspective_id": "504272f4-1d52-4594-801d-0c7c3e811296", "strength": 0.68, "confidence": 0.82, "x": 21, "y": 16, "z": 12}, {"id": "b129fb83-d37e-456e-91d7-46e528699e4d", "property_id": "a007b819-83e4-41de-abe7-3f56d6dfbd62", "process_id": "88337242-4660-472f-af40-a603508667e1", "perspective_id": "5dd194b0-7082-4576-a875-fcfedbd926f7", "strength": 0.67, "confidence": 0.91, "x": 26, "y": 36, "z": 44}, {"id": "27448086-daf0-4773-8976-36a78c500eff", "property_id": "66356987-6979-48be-afb5-335e30915ecc", "process_id": "03fd83ca-d791-4532-a126-74d81756157b", "perspective_id": "e28a03b3-1958-4e6a-8cf8-56d96aff573a", "strength": 0.78, "confidence": 0.97, "x": 31, "y": 31, "z": 4}, {"id": "aa546c9a-8e1e-487b-b042-5c124de7bd17", "property_id": "4efaaecb-86aa-48bb-924b-451741073fbe", "process_id": "871a877f-b3e3-4726-a017-9fdf9d67eac5", "perspective_id": "26f7e275-04bb-4710-92e1-0ebdbe74b012", "strength": 0.71, "confidence": 0.89, "x": 22, "y": 29, "z": 45}, {"id": "498e08bc-aa9b-491c-b285-3fec2e569e78", "property_id": "73a7f03b-38f4-4618-a349-018eeb168ecd", "process_id": "2e5eaab3-80a9-44d0-ac3c-c8f054d21fb5", "perspective_id": "38302af4-42b7-41ca-8145-a3dd3cc76479", "strength": 0.92, "confidence": 0.78, "x": 18, "y": 44, "z": 8}, {"id": "df62afc8-38cc-475a-8b9d-dc77fdaff242", "property_id": "bf3e18bd-115a-43a6-855c-0813d3b314ff", "process_id": "88337242-4660-472f-af40-a603508667e1", "perspective_id": "c775e458-c733-4ef4-b4b1-323e0402a22f", "strength": 0.58, "confidence": 0.76, "x": 2, "y": 36, "z": 49}, {"id": "307fbac5-498c-4caf-a8e3-b4c4c1fcb247", "property_id": "872904cc-4b6a-4863-a2a3-20b8cd196ff9", "process_id": "33d544b4-6d9a-4539-b5a8-95ee2c1df802", "perspective_id": "0edd80b8-39c6-4546-9495-392eeb3c2be4", "strength": 0.72, "confidence": 0.89, "x": 33, "y": 34, "z": 25}, {"id": "69332194-70df-4ede-a1be-f22cef5c9406", "property_id": "a6a115ba-62cc-4aec-9f2a-92ed4a6009a3", "process_id": "c6d1441d-86e5-4fea-a7b0-30b3b0bee86b", "perspective_id": "8208e7bf-fee7-4888-9a2d-af3d5928f972", "strength": 0.89, "confidence": 0.82, "x": 30, "y": 39, "z": 38}, {"id": "d7737868-d6d2-4774-8f7d-ceef6123cb37", "property_id": "bf3e18bd-115a-43a6-855c-0813d3b314ff", "process_id": "52943cef-319b-4398-98a1-1f38ac48ed57", "perspective_id": "26f7e275-04bb-4710-92e1-0ebdbe74b012", "strength": 0.73, "confidence": 1.0, "x": 2, "y": 2, "z": 45}, {"id": "f62219a4-515c-4b8f-98be-08f8c0503a49", "property_id": "641fd111-2ea0-4a75-af77-8c2e09065880", "process_id": "c8f69d35-0a04-4416-b54d-92c68cef5d60", "perspective_id": "74314b28-3cd0-4ffa-aece-451ab01478da", "strength": 0.54, "confidence": 0.83, "x": 13, "y": 25, "z": 21}, {"id": "fc171aec-73f8-423b-aa1c-043ca3d180a2", "property_id": "090e3393-7488-42e1-b211-b527c3b8cc31", "process_id": "891c2090-c55d-449c-b72c-0593ed737bc4", "perspective_id": "504272f4-1d52-4594-801d-0c7c3e811296", "strength": 0.97, "confidence": 0.79, "x": 36, "y": 40, "z": 12}, {"id": "d8efd444-8227-41e3-bc88-8f60030c5f56", "property_id": "f93131bf-7187-44cc-9fdb-87bd683e33cf", "process_id": "c2d3cc31-f4f8-458d-be0a-ecbd054d9d50", "perspective_id": "54c36dbf-ecf4-4045-b37d-f474306c1af6", "strength": 0.82, "confidence": 0.97, "x": 39, "y": 33, "z": 43}, {"id": "3d5f1d50-fbd9-4cc2-b577-fc28872f9b51", "property_id": "1749e397-fec6-4e97-995f-686696d5c176", "process_id": "01a93bbc-7493-4da1-93b8-9c7e0b544605", "perspective_id": "01c9215c-b587-4f6e-92de-06613bba30a5", "strength": 0.64, "confidence": 0.81, "x": 19, "y": 45, "z": 9}, {"id": "4b5609c9-0929-4d75-a79b-792d17bf499e", "property_id": "a38eb275-bc45-41ec-9a73-baeda8ea2f21", "process_id": "6521eb2a-4e27-4f9b-ae8b-ae32cefc4755", "perspective_id": "de29785f-3837-49ad-a536-a104e41d4c73", "strength": 0.93, "confidence": 0.76, "x": 49, "y": 14, "z": 1}, {"id": "70b95512-7a83-40bb-8a08-19bf15ff6b60", "property_id": "3ead4269-8987-414d-b1a7-88c05234d900", "process_id": "88337242-4660-472f-af40-a603508667e1", "perspective_id": "c775e458-c733-4ef4-b4b1-323e0402a22f", "strength": 0.54, "confidence": 0.85, "x": 38, "y": 36, "z": 49}, {"id": "c42bdd1e-9cbb-40dc-b7d6-ae944a81008a", "property_id": "7b7bb9e5-3383-4f13-a9c9-f63976f01c6f", "process_id": "1981a630-7c6a-42d6-b8ab-9020b868a132", "perspective_id": "b8d7b2fd-c4b0-46a2-9992-0764c0805c0c", "strength": 0.95, "confidence": 0.74, "x": 45, "y": 37, "z": 24}, {"id": "fc9e9a7f-700c-44fa-9297-0d27852faed4", "property_id": "f67cd869-546e-493e-ab52-e3d543637239", "process_id": "5f78bd6a-753b-4074-80b9-f63169e89a86", "perspective_id": "26f7e275-04bb-4710-92e1-0ebdbe74b012", "strength": 0.95, "confidence": 0.73, "x": 40, "y": 46, "z": 45}, {"id": "30a96eea-4eca-4aa9-9d05-e5b877a3653a", "property_id": "372015e9-c621-4c55-a1d9-6895b442d8ab", "process_id": "5f78bd6a-753b-4074-80b9-f63169e89a86", "perspective_id": "c87d9ee2-2fe3-4a6d-a3e8-24bc04fd3c23", "strength": 0.8, "confidence": 0.73, "x": 5, "y": 46, "z": 40}, {"id": "b30ab3a3-7cc0-4299-b4b4-db3ac002f970", "property_id": "7a653133-84e8-4c88-b4e5-f05a476c6697", "process_id": "0fe619e3-b61e-4e95-b473-555644c05dad", "perspective_id": "33d65bc5-a5f5-473b-be68-2a4bfe0f0be0", "strength": 0.85, "confidence": 0.81, "x": 48, "y": 13, "z": 17}, {"id": "43297786-ee0a-4123-bbea-6bd02c77f545", "property_id": "7b7bb9e5-3383-4f13-a9c9-f63976f01c6f", "process_id": "2e5eaab3-80a9-44d0-ac3c-c8f054d21fb5", "perspective_id": "2849d7ee-9dfc-4929-8781-c2625142bbb6", "strength": 0.83, "confidence": 0.97, "x": 45, "y": 44, "z": 48}, {"id": "52419870-79ae-43f9-996b-664c4c37badd", "property_id": "e6421f23-6e85-4368-ae3d-256e8587032e", "process_id": "88337242-4660-472f-af40-a603508667e1", "perspective_id": "10eb7c75-d53c-4269-b219-58ca13f3678a", "strength": 0.72, "confidence": 0.88, "x": 42, "y": 36, "z": 18}, {"id": "f1d5d72a-09e2-4704-8b2e-86636a2a773f", "property_id": "c6f50ca5-0558-4f08-aceb-36ce37e4b160", "process_id": "e2afe2d5-fc79-416e-a48c-5328615c8109", "perspective_id": "126e26d2-3ace-4f54-a009-f49a45b3b12b", "strength": 0.91, "confidence": 0.92, "x": 1, "y": 7, "z": 22}, {"id": "43b47b34-7175-4e20-b3eb-af0c19b9d2bc", "property_id": "372015e9-c621-4c55-a1d9-6895b442d8ab", "process_id": "c6d1441d-86e5-4fea-a7b0-30b3b0bee86b", "perspective_id": "a6431a6f-1852-43f4-8284-6240b101439d", "strength": 0.54, "confidence": 0.79, "x": 5, "y": 39, "z": 14}, {"id": "ee4ab88d-a99f-40bd-9aff-793e3c660cfd", "property_id": "3ead4269-8987-414d-b1a7-88c05234d900", "process_id": "01a93bbc-7493-4da1-93b8-9c7e0b544605", "perspective_id": "10eb7c75-d53c-4269-b219-58ca13f3678a", "strength": 0.95, "confidence": 0.93, "x": 38, "y": 45, "z": 18}, {"id": "8276f1c5-28ce-4638-945c-222631b9c5fd", "property_id": "bf3e18bd-115a-43a6-855c-0813d3b314ff", "process_id": "2bbadadc-c1ca-4137-bd95-d4755604e665", "perspective_id": "126e26d2-3ace-4f54-a009-f49a45b3b12b", "strength": 0.82, "confidence": 0.81, "x": 2, "y": 22, "z": 22}, {"id": "546f5ed8-5f49-428e-838a-f1e552b088d4", "property_id": "b2b39c38-db9f-411f-b45d-40e25ff85308", "process_id": "05454a68-1928-4106-96c6-22e9c2efce8f", "perspective_id": "7b0c5820-858f-4f14-8fa2-2aac97cccfba", "strength": 0.58, "confidence": 0.83, "x": 43, "y": 3, "z": 46}, {"id": "a1e8a32f-b586-4fc1-be15-e69504f06403", "property_id": "1749e397-fec6-4e97-995f-686696d5c176", "process_id": "5f78bd6a-753b-4074-80b9-f63169e89a86", "perspective_id": "a6431a6f-1852-43f4-8284-6240b101439d", "strength": 0.58, "confidence": 0.98, "x": 19, "y": 46, "z": 14}, {"id": "34995109-69c3-419e-a58a-4029a77ff487", "property_id": "c14764ec-93db-4565-8b1b-77b5b9275a49", "process_id": "c7b21845-a04f-4a6e-add3-0916ccc23fb7", "perspective_id": "88771091-cf11-4269-9e6b-30fa8195adb7", "strength": 0.68, "confidence": 0.75, "x": 32, "y": 9, "z": 41}, {"id": "1fbf5095-25d3-4789-a414-d73028e81485", "property_id": "4f67fe77-475f-4a22-8496-eda1bf792605", "process_id": "f4bd4a89-4f3a-4547-b581-bd07073c9a24", "perspective_id": "df3aba31-c1a1-4297-82fb-b684caedd822", "strength": 0.64, "confidence": 0.75, "x": 4, "y": 24, "z": 27}, {"id": "5ca419cd-1a11-4c17-8aa9-0adcc1fa282e", "property_id": "7cf36eea-76b8-4a67-a853-41c9ab4411ec", "process_id": "bd80e794-0f34-49c5-bdfb-b106c6145333", "perspective_id": "7b0c5820-858f-4f14-8fa2-2aac97cccfba", "strength": 0.8, "confidence": 0.72, "x": 14, "y": 5, "z": 46}, {"id": "d31ac238-c151-4ff6-a919-786ac2637b0d", "property_id": "372015e9-c621-4c55-a1d9-6895b442d8ab", "process_id": "42ef3a04-86d1-42c0-b837-35b8baf6a558", "perspective_id": "d123f0c7-7a31-46eb-a8c9-4ca728b60152", "strength": 0.66, "confidence": 0.97, "x": 5, "y": 43, "z": 16}, {"id": "2522610d-ec7a-4d7c-9e24-5653040ca2e6", "property_id": "8f634d1d-68fd-4c30-b29b-895903f7ead9", "process_id": "c8f69d35-0a04-4416-b54d-92c68cef5d60", "perspective_id": "3524b217-0e48-40d3-a99d-8f6083b48f1a", "strength": 0.55, "confidence": 0.91, "x": 23, "y": 25, "z": 28}, {"id": "7409dcb2-ed86-4aac-a9b0-e42fcf4c1e23", "property_id": "4d2f262b-e39a-43a2-af8d-673bc9be521d", "process_id": "c572ad57-5d48-483c-bcc9-9e39c8d679b4", "perspective_id": "3524b217-0e48-40d3-a99d-8f6083b48f1a", "strength": 0.77, "confidence": 0.89, "x": 47, "y": 10, "z": 28}, {"id": "644df530-16a8-45a4-8277-c65aadf770d5", "property_id": "872904cc-4b6a-4863-a2a3-20b8cd196ff9", "process_id": "c2d3cc31-f4f8-458d-be0a-ecbd054d9d50", "perspective_id": "089375ef-043c-4899-a874-511cca4cbf4d", "strength": 0.51, "confidence": 0.87, "x": 33, "y": 33, "z": 2}, {"id": "c480d8f9-9dd5-4b93-b053-ad884acc7726", "property_id": "31dfe7c0-7a89-4227-a021-4373930f3d89", "process_id": "53466a08-cd2b-44f3-8235-950364a1b431", "perspective_id": "38f4e3e6-26ab-475c-9031-b10f6382abdb", "strength": 0.64, "confidence": 0.95, "x": 3, "y": 49, "z": 33}, {"id": "dec14dd7-6414-4cc3-abb2-374a9f8913a7", "property_id": "028fdadb-6e6d-46d3-b080-7ca6d05eefb2", "process_id": "2e5eaab3-80a9-44d0-ac3c-c8f054d21fb5", "perspective_id": "504272f4-1d52-4594-801d-0c7c3e811296", "strength": 0.62, "confidence": 0.83, "x": 17, "y": 44, "z": 12}, {"id": "54fa1b64-eed8-4cf6-aa2d-333848f30d85", "property_id": "c14764ec-93db-4565-8b1b-77b5b9275a49", "process_id": "c6d1441d-86e5-4fea-a7b0-30b3b0bee86b", "perspective_id": "a85d4c30-6e0c-469b-9189-b943f4b14d46", "strength": 0.57, "confidence": 0.97, "x": 32, "y": 39, "z": 26}, {"id": "acfd690e-f1b2-42ef-8787-e09a3a74e4cc", "property_id": "872904cc-4b6a-4863-a2a3-20b8cd196ff9", "process_id": "c6d1441d-86e5-4fea-a7b0-30b3b0bee86b", "perspective_id": "0edd80b8-39c6-4546-9495-392eeb3c2be4", "strength": 0.86, "confidence": 0.7, "x": 33, "y": 39, "z": 25}, {"id": "49b928a4-41f6-468d-a5ae-f21c58d42fa2", "property_id": "c14764ec-93db-4565-8b1b-77b5b9275a49", "process_id": "e6f7f73c-3c6b-45d7-83ba-5815343bb1b0", "perspective_id": "3c17f54b-4bb4-4bfb-9434-f3304c7b316b", "strength": 0.93, "confidence": 0.72, "x": 32, "y": 11, "z": 47}, {"id": "3a0195dc-2b45-494c-ba22-10d3aa5e06b0", "property_id": "3142f021-d52a-4dcf-9185-2a5541940465", "process_id": "bff4094a-1b9f-44d3-8d3c-d57f2fb399ff", "perspective_id": "abb325e1-a541-439f-a065-9bd792bb99f8", "strength": 0.84, "confidence": 0.88, "x": 25, "y": 1, "z": 23}, {"id": "98dceae9-2a7e-44e5-ad7b-c8b84c335dcc", "property_id": "f67cd869-546e-493e-ab52-e3d543637239", "process_id": "321eac2e-fbfc-415d-bbcc-f8574adb2e97", "perspective_id": "2849d7ee-9dfc-4929-8781-c2625142bbb6", "strength": 0.81, "confidence": 0.86, "x": 40, "y": 18, "z": 48}, {"id": "a915922f-99e0-4562-a1be-56babce3f059", "property_id": "ee8fba74-8bae-4c96-a8fd-33918825e4c2", "process_id": "a0c70bfb-5de6-4f91-8b63-c3f4af8af7ed", "perspective_id": "1c2d2da9-6680-4231-97be-3c62f24a4d65", "strength": 0.85, "confidence": 0.97, "x": 29, "y": 6, "z": 6}, {"id": "b9baa6e6-0b77-453d-a0f4-836e62d68d06", "property_id": "f9ac8849-5ac0-4f97-ac31-3c6870f55578", "process_id": "77d19c70-c6b2-4b76-aa2f-38b1faad1609", "perspective_id": "3c17f54b-4bb4-4bfb-9434-f3304c7b316b", "strength": 0.69, "confidence": 0.82, "x": 8, "y": 38, "z": 47}, {"id": "4c0ddc27-ae8a-4e89-bd1c-559684161d10", "property_id": "748df114-d01e-4505-975d-326ac863f364", "process_id": "c6d1441d-86e5-4fea-a7b0-30b3b0bee86b", "perspective_id": "df3aba31-c1a1-4297-82fb-b684caedd822", "strength": 0.65, "confidence": 0.71, "x": 24, "y": 39, "z": 27}, {"id": "62e919e3-d158-40fc-9817-f18a44764cea", "property_id": "49032026-e2b9-4446-9b85-5ce11bd544ff", "process_id": "889278d3-7971-4637-8bdb-ff4b8b54c936", "perspective_id": "3c17f54b-4bb4-4bfb-9434-f3304c7b316b", "strength": 0.8, "confidence": 0.91, "x": 28, "y": 8, "z": 47}, {"id": "2a96f1de-172d-49dd-bb5e-35e4ab030d4b", "property_id": "7a653133-84e8-4c88-b4e5-f05a476c6697", "process_id": "7ef92962-e448-4f1b-b65b-855db28ad97c", "perspective_id": "01c9215c-b587-4f6e-92de-06613bba30a5", "strength": 0.92, "confidence": 0.94, "x": 48, "y": 21, "z": 9}, {"id": "5e62cdde-5467-419e-a5b5-ec7f68fe0d92", "property_id": "309394d5-fbfa-49cc-a928-d38c3b45ebe2", "process_id": "e6f7f73c-3c6b-45d7-83ba-5815343bb1b0", "perspective_id": "a6431a6f-1852-43f4-8284-6240b101439d", "strength": 0.71, "confidence": 0.78, "x": 27, "y": 11, "z": 14}, {"id": "fc0843db-bdf0-44f8-82bb-7c63919cc5b9", "property_id": "0df70784-98c2-41d1-80b1-c9e57515ab34", "process_id": "05454a68-1928-4106-96c6-22e9c2efce8f", "perspective_id": "54c36dbf-ecf4-4045-b37d-f474306c1af6", "strength": 0.73, "confidence": 0.95, "x": 7, "y": 3, "z": 43}]};
+                
+                // Setup
+                const container = document.getElementById('canvas-container');
+                const width = container.clientWidth;
+                const height = container.clientHeight;
+                
+                // Scene
+                const scene = new THREE.Scene();
+                scene.background = new THREE.Color(0xf0f0f0);
+                
+                // Camera
+                const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+                camera.position.set(2, 2, 2);
+                
+                // Renderer
+                const renderer = new THREE.WebGLRenderer({ antialias: true });
+                renderer.setSize(width, height);
+                container.appendChild(renderer.domElement);
+                
+                // Controls
+                const controls = new THREE.OrbitControls(camera, renderer.domElement);
+                controls.enableDamping = true;
+                controls.dampingFactor = 0.25;
+                
+                // Lighting
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+                scene.add(ambientLight);
+                
+                const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+                directionalLight.position.set(1, 1, 1);
+                scene.add(directionalLight);
+                
+                // Axes helper
+                const axesHelper = new THREE.AxesHelper(1);
+                scene.add(axesHelper);
+                
+                // Create cube frame
+                const cubeSize = 1;
+                const cubeGeometry = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize);
+                const edgesMaterial = new THREE.LineBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.2 });
+                const cubeEdges = new THREE.LineSegments(
+                    new THREE.EdgesGeometry(cubeGeometry),
+                    edgesMaterial
+                );
+                scene.add(cubeEdges);
+                
+                // Axis labels
+                const createTextSprite = (text, color, position) => {
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.width = 256;
+                    canvas.height = 128;
+                    
+                    context.font = "Bold 36px Arial";
+                    context.fillStyle = "rgba(255, 255, 255, 0.95)";
+                    context.fillRect(0, 0, canvas.width, canvas.height);
+                    
+                    context.fillStyle = color;
+                    context.fillText(text, 10, 64);
+                    
+                    const texture = new THREE.Texture(canvas);
+                    texture.needsUpdate = true;
+                    
+                    const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
+                    const sprite = new THREE.Sprite(spriteMaterial);
+                    sprite.position.copy(position);
+                    sprite.scale.set(0.2, 0.1, 1);
+                    
+                    return sprite;
+                };
+                
+                // Add axis labels
+                scene.add(createTextSprite("Properties (X)", "#1f77b4", new THREE.Vector3(1.2, 0, 0)));
+                scene.add(createTextSprite("Processes (Y)", "#ff7f0e", new THREE.Vector3(0, 1.2, 0)));
+                scene.add(createTextSprite("Perspectives (Z)", "#2ca02c", new THREE.Vector3(0, 0, 1.2)));
+                
+                // Add points for relationships
+                const pointsMaterial = new THREE.PointsMaterial({
+                    size: 0.05,
+                    vertexColors: true,
+                    sizeAttenuation: true
+                });
+                
+                const pointsGeometry = new THREE.BufferGeometry();
+                const positions = [];
+                const colors = [];
+                const pointData = [];
+                
+                // Normalize positions
+                const numProperties = p3ifData.dimensions.property.length;
+                const numProcesses = p3ifData.dimensions.process.length;
+                const numPerspectives = p3ifData.dimensions.perspective.length;
+                
+                p3ifData.connections.forEach(conn => {
+                    // Normalize to 0-1 range and then scale to cube size
+                    const x = (conn.x / Math.max(1, numProperties - 1)) * cubeSize;
+                    const y = (conn.y / Math.max(1, numProcesses - 1)) * cubeSize;
+                    const z = (conn.z / Math.max(1, numPerspectives - 1)) * cubeSize;
+                    
+                    // Center the cube by subtracting half the size
+                    positions.push(x - cubeSize/2, y - cubeSize/2, z - cubeSize/2);
+                    
+                    // Use strength to determine color intensity
+                    const r = 0.5 + conn.strength * 0.5;
+                    const g = 0.5 * (1 - conn.strength);
+                    const b = 0.5 + conn.confidence * 0.5;
+                    
+                    colors.push(r, g, b);
+                    
+                    // Store the original data for interaction
+                    pointData.push({
+                        id: conn.id,
+                        property: p3ifData.dimensions.property[conn.x],
+                        process: p3ifData.dimensions.process[conn.y],
+                        perspective: p3ifData.dimensions.perspective[conn.z],
+                        strength: conn.strength,
+                        confidence: conn.confidence
+                    });
+                });
+                
+                pointsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+                pointsGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+                
+                const points = new THREE.Points(pointsGeometry, pointsMaterial);
+                scene.add(points);
+                
+                // Handle resizing
+                window.addEventListener('resize', () => {
+                    const newWidth = container.clientWidth;
+                    const newHeight = container.clientHeight;
+                    
+                    camera.aspect = newWidth / newHeight;
+                    camera.updateProjectionMatrix();
+                    
+                    renderer.setSize(newWidth, newHeight);
+                });
+                
+                // Handle point selection
+                const raycaster = new THREE.Raycaster();
+                raycaster.params.Points.threshold = 0.05;
+                
+                const mouse = new THREE.Vector2();
+                
+                container.addEventListener('mousemove', (event) => {
+                    // Calculate mouse position in normalized device coordinates
+                    mouse.x = (event.clientX / width) * 2 - 1;
+                    mouse.y = -(event.clientY / height) * 2 + 1;
+                });
+                
+                container.addEventListener('click', () => {
+                    // Cast a ray from the camera
+                    raycaster.setFromCamera(mouse, camera);
+                    
+                    // Check for intersections with points
+                    const intersects = raycaster.intersectObject(points);
+                    
+                    if (intersects.length > 0) {
+                        const index = intersects[0].index;
+                        const selectedPoint = pointData[index];
+                        
+                        // Display information about the selected point
+                        const infoDiv = document.getElementById('selection-info');
+                        infoDiv.innerHTML = `
+                            <h3>Selected Relationship</h3>
+                            <p><strong>Property:</strong> ${selectedPoint.property.name}</p>
+                            <p><strong>Process:</strong> ${selectedPoint.process.name}</p>
+                            <p><strong>Perspective:</strong> ${selectedPoint.perspective.name}</p>
+                            <p><strong>Strength:</strong> ${selectedPoint.strength.toFixed(2)}</p>
+                            <p><strong>Confidence:</strong> ${selectedPoint.confidence.toFixed(2)}</p>
+                        `;
+                    }
+                });
+                
+                // Animation loop
+                function animate() {
+                    requestAnimationFrame(animate);
+                    controls.update();
+                    renderer.render(scene, camera);
+                }
+                
+                animate();
+            </script>
+            
+            <script>
+                
+            </script>
+        </body>
+        </html>
+        

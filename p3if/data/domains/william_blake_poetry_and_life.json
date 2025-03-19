@@ -1,0 +1,1709 @@
+{
+  "domain": "William_Blake_Poetry_and_Life",
+  "version": "1.0",
+  "properties": [
+    "Visionary Imagination",
+    "Mysticism",
+    "Symbolism",
+    "Romanticism",
+    "Spirituality",
+    "Social Criticism",
+    "Artistic Innovation",
+    "Poetic Rhythm",
+    "Visual Artistry",
+    "Philosophical Depth",
+    "Biblical Allusions",
+    "Mythological References",
+    "Nature Imagery",
+    "Industrial Revolution Critique",
+    "Psychological Insight",
+    "Prophetic Voice",
+    "Dualistic Themes",
+    "Innocence and Experience",
+    "Revolutionary Spirit",
+    "Artistic Integrity",
+    "Lyrical Beauty",
+    "Metaphysical Concepts",
+    "Allegorical Narratives",
+    "Illuminated Printing",
+    "Artistic Independence",
+    "Visionary Cosmology",
+    "Poetic Craftsmanship",
+    "Symbolic Color Use",
+    "Archetypal Imagery",
+    "Spiritual Rebellion",
+    "Artistic Versatility",
+    "Poetic Innovation",
+    "Mythopoeic Imagination",
+    "Artistic Legacy",
+    "Literary Influence",
+    "Philosophical Originality",
+    "Artistic Technique",
+    "Poetic Language",
+    "Visual Symbolism",
+    "Cultural Impact",
+    "Historical Context",
+    "Artistic Vision",
+    "Poetic Form",
+    "Spiritual Exploration",
+    "Artistic Expression",
+    "Literary Style",
+    "Visionary Artistry",
+    "Poetic Imagery",
+    "Artistic Interpretation",
+    "Philosophical Insight"
+  ],
+  "processes": [
+    "Poetry Writing",
+    "Engraving",
+    "Painting",
+    "Printmaking",
+    "Book Publishing",
+    "Visionary Experience",
+    "Artistic Composition",
+    "Poetic Recitation",
+    "Visual Design",
+    "Philosophical Contemplation",
+    "Biblical Interpretation",
+    "Mythological Adaptation",
+    "Nature Observation",
+    "Social Commentary",
+    "Psychological Analysis",
+    "Prophetic Writing",
+    "Thematic Development",
+    "Artistic Experimentation",
+    "Revolutionary Thinking",
+    "Artistic Self-Expression",
+    "Lyrical Composition",
+    "Metaphysical Exploration",
+    "Allegorical Construction",
+    "Illuminated Book Creation",
+    "Artistic Marketing",
+    "Cosmological Theorizing",
+    "Poetic Revision",
+    "Color Symbolism",
+    "Archetypal Representation",
+    "Spiritual Practice",
+    "Artistic Cross-Pollination",
+    "Poetic Innovation",
+    "Mythopoeic Creation",
+    "Artistic Influence",
+    "Literary Analysis",
+    "Philosophical Writing",
+    "Artistic Technique Development",
+    "Linguistic Experimentation",
+    "Visual Narrative Creation",
+    "Cultural Critique",
+    "Historical Research",
+    "Visionary Articulation",
+    "Poetic Form Experimentation",
+    "Spiritual Inquiry",
+    "Artistic Performance",
+    "Literary Style Development",
+    "Visionary Art Creation",
+    "Poetic Imagery Crafting",
+    "Artistic Interpretation",
+    "Philosophical Discourse"
+  ],
+  "perspectives": [
+    "Poet",
+    "Artist",
+    "Engraver",
+    "Visionary",
+    "Mystic",
+    "Social Critic",
+    "Romantic",
+    "Philosopher",
+    "Literary Scholar",
+    "Art Historian",
+    "Biographer",
+    "Psychologist",
+    "Theologian",
+    "Cultural Historian",
+    "Literary Critic",
+    "Comparative Mythologist",
+    "Revolutionary Thinker",
+    "Artistic Innovator",
+    "Spiritual Seeker",
+    "Symbolist Interpreter",
+    "Romantic Literature Expert",
+    "Visual Arts Curator",
+    "Poetic Form Analyst",
+    "Biblical Scholar",
+    "Mythological Researcher",
+    "Nature Poet Specialist",
+    "Industrial Revolution Historian",
+    "Psychological Theorist",
+    "Prophetic Literature Expert",
+    "Dualism Philosopher",
+    "Innocence and Experience Theorist",
+    "Revolutionary Literature Scholar",
+    "Artistic Integrity Advocate",
+    "Lyrical Poetry Analyst",
+    "Metaphysical Poet Expert",
+    "Allegorical Narrative Specialist",
+    "Illuminated Book Historian",
+    "Artistic Independence Researcher",
+    "Visionary Cosmology Theorist",
+    "Poetic Craftsmanship Analyst",
+    "Color Symbolism Expert",
+    "Archetypal Imagery Interpreter",
+    "Spiritual Rebellion Historian",
+    "Artistic Versatility Researcher",
+    "Poetic Innovation Theorist",
+    "Mythopoeic Imagination Scholar",
+    "Artistic Legacy Curator",
+    "Literary Influence Analyst",
+    "Philosophical Originality Researcher",
+    "Artistic Technique Historian"
+  ],
+  "patterns": {
+    "properties": [
+      {
+        "id": "b6dba6d6-e276-4328-b18e-0d1181445749",
+        "name": "Visionary Imagination",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "f0597e2e-da50-4a46-afe0-da6425afb4aa",
+        "name": "Mysticism",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "2fd8b8f6-6a0f-45ec-b0a3-361beb5935a2",
+        "name": "Symbolism",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "8a272347-db95-4b34-81c0-94ffe2f6b671",
+        "name": "Romanticism",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "eba2d4dd-6fa4-4f17-8e4f-14b83fb47a5b",
+        "name": "Spirituality",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "2468f930-a700-4771-b351-6cc2cebbc279",
+        "name": "Social Criticism",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "af09ebd2-c169-40d2-a5cb-c0deddca5a21",
+        "name": "Artistic Innovation",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "95c25e18-c8dc-4399-b0a8-f471daec3d79",
+        "name": "Poetic Rhythm",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "86dbad4b-3c5e-464b-9e01-f5b6458abd6f",
+        "name": "Visual Artistry",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "d4be9d0c-b2bf-4e8f-8313-a9c1e309828a",
+        "name": "Philosophical Depth",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "ee7cec60-15a2-4f7e-a221-cee3edf2f00b",
+        "name": "Biblical Allusions",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "42f7439c-e116-4f15-8790-2be662194c4e",
+        "name": "Mythological References",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "ed490f5d-faab-4733-9721-18a15a389b4a",
+        "name": "Nature Imagery",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "0887cdef-3ce5-4255-876c-82db91986d4a",
+        "name": "Industrial Revolution Critique",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "09b5ef6d-80a8-434b-a570-a63bcffd26f4",
+        "name": "Psychological Insight",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "29c9eaef-b689-47ed-9c2b-e79b3778e289",
+        "name": "Prophetic Voice",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "368d760a-70be-41a9-ae6c-65ed52a08f94",
+        "name": "Dualistic Themes",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "dfd7faa7-a696-40d0-94b1-03c71b7402b8",
+        "name": "Innocence and Experience",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "dcb78822-77c7-42b9-93b0-cd1c333f6285",
+        "name": "Revolutionary Spirit",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "2328443b-d0e7-4010-9d6c-e455ba008ed0",
+        "name": "Artistic Integrity",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "c9f8b753-ca0a-4163-9ee4-03e5794adf0f",
+        "name": "Lyrical Beauty",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "8af52675-becf-4cdd-92ae-f1a24158a81e",
+        "name": "Metaphysical Concepts",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "f81f43fe-ac90-44a5-9318-05c33f273676",
+        "name": "Allegorical Narratives",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "fdcca28c-f862-4d3f-a860-1e160e525e27",
+        "name": "Illuminated Printing",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "f74354c3-a149-4051-9672-09e84867b538",
+        "name": "Artistic Independence",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "0fbe8718-c2d1-4265-99b3-db513a129499",
+        "name": "Visionary Cosmology",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "6ae7d6e9-1fae-4b45-a77d-bcfe65cedf93",
+        "name": "Poetic Craftsmanship",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "56d5f006-4704-46fc-8a8a-2c9753355112",
+        "name": "Symbolic Color Use",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "371c94d4-242f-45da-a5f9-234d0d2e585f",
+        "name": "Archetypal Imagery",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "8041dbb6-dc00-404e-b6a3-bc6947098bb4",
+        "name": "Spiritual Rebellion",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "79fc6bd6-ad62-475c-b979-b9e4e4d0baa9",
+        "name": "Artistic Versatility",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "bfab5150-9b38-4060-b8ee-19e37189eb2e",
+        "name": "Poetic Innovation",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "ec92bc32-67dc-48f9-a04d-6659eec2674f",
+        "name": "Mythopoeic Imagination",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "ad31f99d-b088-4ffc-8961-975913a4652d",
+        "name": "Artistic Legacy",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "48217800-5306-43f9-8c75-91561e0084fa",
+        "name": "Literary Influence",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "6dbea0c4-5bc8-492e-853a-3bbd36a32049",
+        "name": "Philosophical Originality",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "92a83279-cff3-4e6d-9370-1110074ddc68",
+        "name": "Artistic Technique",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "7ec71bc8-828d-403f-84e6-4f235f4b6750",
+        "name": "Poetic Language",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "91131a6a-135b-42be-9d1e-181442d62850",
+        "name": "Visual Symbolism",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "8f6f8595-e076-4df3-a807-74ad2a73f886",
+        "name": "Cultural Impact",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "347c7fd0-b938-4064-8a99-0ed296950aa9",
+        "name": "Historical Context",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "ada7f330-7f22-4343-885f-008f51215543",
+        "name": "Artistic Vision",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "439df33b-ed9a-47b4-bfdb-77ea88a49462",
+        "name": "Poetic Form",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "afa4281b-c9a8-4e4e-9390-3a41710171f4",
+        "name": "Spiritual Exploration",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "68bbbddd-663b-4243-82fc-25ae27eb90a9",
+        "name": "Artistic Expression",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "9f9e463b-db70-4bbb-9380-e90bc556eab7",
+        "name": "Literary Style",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "26e260bc-980a-40f5-882b-10b3b4198938",
+        "name": "Visionary Artistry",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "578fe6c6-337a-4448-a97e-0b54172c81cb",
+        "name": "Poetic Imagery",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "5ed0a66f-6690-4d58-926d-a11c933df1fe",
+        "name": "Artistic Interpretation",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "d7ae4847-f7df-4269-8bef-d71436bd36b1",
+        "name": "Philosophical Insight",
+        "type": "property",
+        "domain": "William_Blake_Poetry_and_Life"
+      }
+    ],
+    "processes": [
+      {
+        "id": "95f5b32d-3ec0-420f-b55f-d46f3de7a0c1",
+        "name": "Poetry Writing",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "945af3bb-b97a-4885-9694-f59c2bbc86ac",
+        "name": "Engraving",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "308bb2d1-1eee-4cd0-b3a2-4ab0667b1bcb",
+        "name": "Painting",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "106929b1-a4f0-4f58-9265-2cea05dd91c9",
+        "name": "Printmaking",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "49f5cd65-10df-467d-a468-808630f408e7",
+        "name": "Book Publishing",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "534e7558-e7d4-4e82-8ea8-07ff05ca5b23",
+        "name": "Visionary Experience",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "8dfdfddc-3736-4c1d-bfb9-efde6c36802d",
+        "name": "Artistic Composition",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "369baab9-72b4-44f3-a648-b38360be927b",
+        "name": "Poetic Recitation",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "33c99a1d-5bb2-4011-b982-e3524a670dc5",
+        "name": "Visual Design",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "434ccfca-b943-4b00-8f2e-f5467ab43f52",
+        "name": "Philosophical Contemplation",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "365efdc2-95f2-4a1e-9440-1dd30dd80ee1",
+        "name": "Biblical Interpretation",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "1bf1d334-8756-4e41-8632-8324e2b779c8",
+        "name": "Mythological Adaptation",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "3a3f7111-a051-4619-bbc6-00d0bdae744b",
+        "name": "Nature Observation",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "8083f147-4c56-4b59-bd66-a93e3be321f5",
+        "name": "Social Commentary",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "42b5ead5-f893-4072-95c7-ad8e742a85e6",
+        "name": "Psychological Analysis",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "a66b298c-fd5b-48d9-8432-d702c27b3156",
+        "name": "Prophetic Writing",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "cfcb7280-556b-48ce-a033-879e32091893",
+        "name": "Thematic Development",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "9717a8bc-83c9-48a4-a5f4-f63ed505818a",
+        "name": "Artistic Experimentation",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "e32519b7-b316-4eb2-b1d1-8151258e0aed",
+        "name": "Revolutionary Thinking",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "496545ea-e38e-4803-9d7c-3e983a12cc4f",
+        "name": "Artistic Self-Expression",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "ca6de46b-cb8a-4615-9cac-2af18a0f965f",
+        "name": "Lyrical Composition",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "d49ee9c5-c088-4626-8e1b-6df2c4cb976d",
+        "name": "Metaphysical Exploration",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "a7f9dc41-b4b9-486e-aa11-c2862a9d03ee",
+        "name": "Allegorical Construction",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "80d4258b-7d70-4290-af5c-2771bf712267",
+        "name": "Illuminated Book Creation",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "b1e1e937-ad73-4e8b-9d82-c7ee834f3e5b",
+        "name": "Artistic Marketing",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "b8230141-33ce-4d28-bad7-4b715a66c516",
+        "name": "Cosmological Theorizing",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "9e5491cb-e97a-49f1-9835-e11377e15d5b",
+        "name": "Poetic Revision",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "36e9f7b5-62ce-45f0-a5a4-c969a0baad1d",
+        "name": "Color Symbolism",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "4d51e584-559f-45eb-b82a-824aeedd022c",
+        "name": "Archetypal Representation",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "f2563bf3-50bb-4172-b07b-00750ee4e553",
+        "name": "Spiritual Practice",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "fc0c0378-3326-4b9b-8541-d09266c40ee0",
+        "name": "Artistic Cross-Pollination",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "04f0c566-137c-4db3-bfb2-d34d4162a707",
+        "name": "Poetic Innovation",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "47b4beed-df1a-42b6-a25b-cd256129235a",
+        "name": "Mythopoeic Creation",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "d5ea3b2e-22bf-4dc7-8358-d353da740986",
+        "name": "Artistic Influence",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "85792470-9d9c-4146-9264-4508d61bb906",
+        "name": "Literary Analysis",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "cc10d402-eda9-4311-9cb5-b99ed4ef6dec",
+        "name": "Philosophical Writing",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "c43d3167-ce95-404d-8db2-4a0e727d4400",
+        "name": "Artistic Technique Development",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "41ed0f3c-ae0a-48b6-82d5-15624ea41082",
+        "name": "Linguistic Experimentation",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "c9dfea7e-8e44-413c-ac8d-4ebfccfa6280",
+        "name": "Visual Narrative Creation",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "e7ec3400-c586-4e00-9943-c3b7f5f6e223",
+        "name": "Cultural Critique",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "a610090c-64b4-4e48-85bc-f84dfd6f4151",
+        "name": "Historical Research",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "d765b2dd-7973-4c0b-8c3e-7692a71e9d60",
+        "name": "Visionary Articulation",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "2b04e32a-484a-44a5-bcc9-32ea3ba11bf1",
+        "name": "Poetic Form Experimentation",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "2ba8e342-e2c6-4b36-853d-dbc9c9a83da7",
+        "name": "Spiritual Inquiry",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "4af65e49-ab94-4083-910e-59391291cd78",
+        "name": "Artistic Performance",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "7ad206eb-21e9-40e3-849c-f1a9468c2847",
+        "name": "Literary Style Development",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "b2f1a15e-5e0e-44d4-a067-7f39f193b30d",
+        "name": "Visionary Art Creation",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "3d2a7d63-f6b9-48c7-867c-e11fd7cca2e7",
+        "name": "Poetic Imagery Crafting",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "cf9e6510-0b85-47cf-9005-87756ddc7b47",
+        "name": "Artistic Interpretation",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "f5a5b76d-e443-4f25-b165-1420dcce4332",
+        "name": "Philosophical Discourse",
+        "type": "process",
+        "domain": "William_Blake_Poetry_and_Life"
+      }
+    ],
+    "perspectives": [
+      {
+        "id": "565a5b0b-5ae6-4e8e-8a6f-2e7bc678ab39",
+        "name": "Poet",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "8a681c54-05f3-4f00-a8a8-324e4bae23d6",
+        "name": "Artist",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "018e5c76-3295-4a8d-8320-aa58394172e5",
+        "name": "Engraver",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "30b71a6d-2864-4d29-84fb-87631234102f",
+        "name": "Visionary",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "10dbb50f-a909-40af-a6a0-048b1838b715",
+        "name": "Mystic",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "b9bd07d0-80f1-4278-b471-06601d6a78ab",
+        "name": "Social Critic",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "34cb6515-4c97-4562-a74f-3915026d9218",
+        "name": "Romantic",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "41c834d7-9b03-47a5-98a5-36c2ab339d9b",
+        "name": "Philosopher",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "ff0e4b7d-d90a-4570-a556-a7e5473cd04c",
+        "name": "Literary Scholar",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "3ae6764b-08f0-46e3-ac1b-6be113bd01cf",
+        "name": "Art Historian",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "6953a0a8-da06-410a-9129-c02ad5999a17",
+        "name": "Biographer",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "62c393a3-3b86-4a35-a99b-2d7e7bcb41a1",
+        "name": "Psychologist",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "988eec21-d916-48c0-b294-e5ea8f1f36fd",
+        "name": "Theologian",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "67f9a684-d255-40b3-bbea-f9b882b04e76",
+        "name": "Cultural Historian",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "d418f128-5cfb-437b-9daa-a29908a3d09a",
+        "name": "Literary Critic",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "2a79bf56-319c-441c-aab3-4d5b61921dba",
+        "name": "Comparative Mythologist",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "f272645b-883b-4ee9-a779-07ceb5786cee",
+        "name": "Revolutionary Thinker",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "d359a5f9-0084-43d9-b59a-9d8341c6bc1a",
+        "name": "Artistic Innovator",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "c9b74f42-e8a0-41d6-9f25-f18a5cd4d41e",
+        "name": "Spiritual Seeker",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "59b45587-b1e6-4c33-b9de-5856c509d942",
+        "name": "Symbolist Interpreter",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "cb9d667e-b249-4b8a-8950-b79a704b2f1b",
+        "name": "Romantic Literature Expert",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "a0af7fe2-742c-4ff1-bcd4-f7f9cb6e90fa",
+        "name": "Visual Arts Curator",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "6897a544-8435-483a-8bbc-8cff9f2c7814",
+        "name": "Poetic Form Analyst",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "cd6676dc-1c33-44a1-b169-1cb553943046",
+        "name": "Biblical Scholar",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "051ac812-1637-4f53-bbcf-7dd80defd6e0",
+        "name": "Mythological Researcher",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "f57c5f13-befd-4aa4-915a-c9fdf72a2d34",
+        "name": "Nature Poet Specialist",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "6ae50a7d-cc43-4746-9412-525cc89f8768",
+        "name": "Industrial Revolution Historian",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "82564858-82ce-4fe7-bbdd-54d526d90084",
+        "name": "Psychological Theorist",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "c2ab9460-950e-4a00-a3dd-e833a87e533f",
+        "name": "Prophetic Literature Expert",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "31412ac6-603b-474f-b135-e424f396e6c4",
+        "name": "Dualism Philosopher",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "473a3685-bedc-4e71-9be4-5fc372c18a23",
+        "name": "Innocence and Experience Theorist",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "73166cc1-f3e1-40c0-97e0-76f3948cfd90",
+        "name": "Revolutionary Literature Scholar",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "e0158306-6f52-449a-a9ef-30cf2f4c9019",
+        "name": "Artistic Integrity Advocate",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "2a88c88b-d020-4173-94d7-ae115c75bf83",
+        "name": "Lyrical Poetry Analyst",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "edd79b6c-d437-4545-9c97-bf175117c4cd",
+        "name": "Metaphysical Poet Expert",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "a4e18108-b010-45fa-b92c-114d1c1e9078",
+        "name": "Allegorical Narrative Specialist",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "40b30bbb-80f7-4feb-a792-a088fa81ffb7",
+        "name": "Illuminated Book Historian",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "2a7ff4ce-e026-4fd5-9696-a0f7c72f0d5f",
+        "name": "Artistic Independence Researcher",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "949ebed8-77b0-42cf-90ee-3fc630bf2508",
+        "name": "Visionary Cosmology Theorist",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "fff5c3e1-f51f-4028-85e7-32bf8d61fbd8",
+        "name": "Poetic Craftsmanship Analyst",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "6c956248-acb1-47c6-a9d7-9258da261136",
+        "name": "Color Symbolism Expert",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "abfb03a9-a9fc-493c-84d5-658b89995aaa",
+        "name": "Archetypal Imagery Interpreter",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "f2ec7ab5-12c6-43b6-8199-45c6bf435cff",
+        "name": "Spiritual Rebellion Historian",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "3b172fea-278c-440c-8541-82806ec18b0b",
+        "name": "Artistic Versatility Researcher",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "ed067a80-c3db-4027-8091-6e3312a18cd5",
+        "name": "Poetic Innovation Theorist",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "1bafa53c-93a5-4360-bec8-2beeff1dff4b",
+        "name": "Mythopoeic Imagination Scholar",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "259ea917-2586-459c-8103-56583da2b6f7",
+        "name": "Artistic Legacy Curator",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "38598946-7846-48e9-9749-79418d1ede44",
+        "name": "Literary Influence Analyst",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "6f0afe55-8521-4ffc-901f-cf6ff90d5524",
+        "name": "Philosophical Originality Researcher",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      },
+      {
+        "id": "b9c4b924-edd0-48ed-b8b5-d150ec6404b4",
+        "name": "Artistic Technique Historian",
+        "type": "perspective",
+        "domain": "William_Blake_Poetry_and_Life"
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "275e3238-bde9-43f6-b769-f3a01f20fb1d",
+      "property_id": "b6dba6d6-e276-4328-b18e-0d1181445749",
+      "process_id": "a7f9dc41-b4b9-486e-aa11-c2862a9d03ee",
+      "perspective_id": "82564858-82ce-4fe7-bbdd-54d526d90084",
+      "strength": 0.93,
+      "confidence": 0.72
+    },
+    {
+      "id": "51c5016b-ca58-40b7-a1f5-32547b5b3835",
+      "property_id": "68bbbddd-663b-4243-82fc-25ae27eb90a9",
+      "process_id": "a66b298c-fd5b-48d9-8432-d702c27b3156",
+      "perspective_id": "fff5c3e1-f51f-4028-85e7-32bf8d61fbd8",
+      "strength": 0.94,
+      "confidence": 0.89
+    },
+    {
+      "id": "b257ee2e-174d-4296-890a-913aee0d7cc0",
+      "property_id": "ec92bc32-67dc-48f9-a04d-6659eec2674f",
+      "process_id": "106929b1-a4f0-4f58-9265-2cea05dd91c9",
+      "perspective_id": "38598946-7846-48e9-9749-79418d1ede44",
+      "strength": 0.68,
+      "confidence": 1.0
+    },
+    {
+      "id": "e065fe6d-cf86-45b1-b6a4-179223e2c0e7",
+      "property_id": "09b5ef6d-80a8-434b-a570-a63bcffd26f4",
+      "process_id": "8dfdfddc-3736-4c1d-bfb9-efde6c36802d",
+      "perspective_id": "edd79b6c-d437-4545-9c97-bf175117c4cd",
+      "strength": 0.59,
+      "confidence": 0.95
+    },
+    {
+      "id": "88b7539c-f16f-4955-a053-9413ef55c024",
+      "property_id": "eba2d4dd-6fa4-4f17-8e4f-14b83fb47a5b",
+      "process_id": "2b04e32a-484a-44a5-bcc9-32ea3ba11bf1",
+      "perspective_id": "8a681c54-05f3-4f00-a8a8-324e4bae23d6",
+      "strength": 0.81,
+      "confidence": 0.74
+    },
+    {
+      "id": "b856edea-cc38-4640-8bdd-9e2c65845810",
+      "property_id": "fdcca28c-f862-4d3f-a860-1e160e525e27",
+      "process_id": "b8230141-33ce-4d28-bad7-4b715a66c516",
+      "perspective_id": "c2ab9460-950e-4a00-a3dd-e833a87e533f",
+      "strength": 0.61,
+      "confidence": 0.85
+    },
+    {
+      "id": "b1b902e8-b565-436f-90bb-78fd34d3d3d4",
+      "property_id": "56d5f006-4704-46fc-8a8a-2c9753355112",
+      "process_id": "85792470-9d9c-4146-9264-4508d61bb906",
+      "perspective_id": "2a79bf56-319c-441c-aab3-4d5b61921dba",
+      "strength": 0.81,
+      "confidence": 0.8
+    },
+    {
+      "id": "10282852-6beb-4fc3-9741-ad6918aa5866",
+      "property_id": "48217800-5306-43f9-8c75-91561e0084fa",
+      "process_id": "d5ea3b2e-22bf-4dc7-8358-d353da740986",
+      "perspective_id": "82564858-82ce-4fe7-bbdd-54d526d90084",
+      "strength": 0.81,
+      "confidence": 0.77
+    },
+    {
+      "id": "b402d9d4-e631-4e8f-901c-02b671862e69",
+      "property_id": "8f6f8595-e076-4df3-a807-74ad2a73f886",
+      "process_id": "c43d3167-ce95-404d-8db2-4a0e727d4400",
+      "perspective_id": "3ae6764b-08f0-46e3-ac1b-6be113bd01cf",
+      "strength": 0.72,
+      "confidence": 0.88
+    },
+    {
+      "id": "df2d0ce2-3ad6-4abb-bb64-bb2958c38fab",
+      "property_id": "9f9e463b-db70-4bbb-9380-e90bc556eab7",
+      "process_id": "33c99a1d-5bb2-4011-b982-e3524a670dc5",
+      "perspective_id": "73166cc1-f3e1-40c0-97e0-76f3948cfd90",
+      "strength": 0.81,
+      "confidence": 0.71
+    },
+    {
+      "id": "b36c3bc1-ca12-4b22-9362-69d156060fce",
+      "property_id": "f0597e2e-da50-4a46-afe0-da6425afb4aa",
+      "process_id": "cf9e6510-0b85-47cf-9005-87756ddc7b47",
+      "perspective_id": "6ae50a7d-cc43-4746-9412-525cc89f8768",
+      "strength": 0.74,
+      "confidence": 0.96
+    },
+    {
+      "id": "c76c403f-a24a-4c0d-b12a-4a14a792eba3",
+      "property_id": "f74354c3-a149-4051-9672-09e84867b538",
+      "process_id": "e7ec3400-c586-4e00-9943-c3b7f5f6e223",
+      "perspective_id": "1bafa53c-93a5-4360-bec8-2beeff1dff4b",
+      "strength": 0.54,
+      "confidence": 0.84
+    },
+    {
+      "id": "5c23ad19-bc69-4871-a16d-2fd0f818cd3d",
+      "property_id": "68bbbddd-663b-4243-82fc-25ae27eb90a9",
+      "process_id": "c9dfea7e-8e44-413c-ac8d-4ebfccfa6280",
+      "perspective_id": "f272645b-883b-4ee9-a779-07ceb5786cee",
+      "strength": 0.7,
+      "confidence": 0.89
+    },
+    {
+      "id": "aebe2cbd-5ccc-4ae4-a886-853c3919ab75",
+      "property_id": "0887cdef-3ce5-4255-876c-82db91986d4a",
+      "process_id": "e7ec3400-c586-4e00-9943-c3b7f5f6e223",
+      "perspective_id": "73166cc1-f3e1-40c0-97e0-76f3948cfd90",
+      "strength": 0.95,
+      "confidence": 0.74
+    },
+    {
+      "id": "6a5aebdb-a5ac-4058-a6ab-9e1236c19590",
+      "property_id": "f81f43fe-ac90-44a5-9318-05c33f273676",
+      "process_id": "b1e1e937-ad73-4e8b-9d82-c7ee834f3e5b",
+      "perspective_id": "988eec21-d916-48c0-b294-e5ea8f1f36fd",
+      "strength": 0.62,
+      "confidence": 0.75
+    },
+    {
+      "id": "3206edbf-c571-4d07-ba96-82da1958babe",
+      "property_id": "ee7cec60-15a2-4f7e-a221-cee3edf2f00b",
+      "process_id": "f5a5b76d-e443-4f25-b165-1420dcce4332",
+      "perspective_id": "67f9a684-d255-40b3-bbea-f9b882b04e76",
+      "strength": 0.68,
+      "confidence": 0.87
+    },
+    {
+      "id": "8648c4c8-a81e-49fa-a1b1-7589a0b14e9c",
+      "property_id": "86dbad4b-3c5e-464b-9e01-f5b6458abd6f",
+      "process_id": "e32519b7-b316-4eb2-b1d1-8151258e0aed",
+      "perspective_id": "f57c5f13-befd-4aa4-915a-c9fdf72a2d34",
+      "strength": 0.81,
+      "confidence": 0.86
+    },
+    {
+      "id": "f9c73f69-e4bc-4aa9-a651-39bd441d8a2b",
+      "property_id": "578fe6c6-337a-4448-a97e-0b54172c81cb",
+      "process_id": "04f0c566-137c-4db3-bfb2-d34d4162a707",
+      "perspective_id": "6c956248-acb1-47c6-a9d7-9258da261136",
+      "strength": 0.76,
+      "confidence": 0.88
+    },
+    {
+      "id": "932c6058-8535-47f1-b9af-cda5f1cef8b9",
+      "property_id": "92a83279-cff3-4e6d-9370-1110074ddc68",
+      "process_id": "308bb2d1-1eee-4cd0-b3a2-4ab0667b1bcb",
+      "perspective_id": "41c834d7-9b03-47a5-98a5-36c2ab339d9b",
+      "strength": 0.95,
+      "confidence": 0.8
+    },
+    {
+      "id": "2d612b65-720f-47d9-b2ed-e76cf80b98ce",
+      "property_id": "86dbad4b-3c5e-464b-9e01-f5b6458abd6f",
+      "process_id": "2ba8e342-e2c6-4b36-853d-dbc9c9a83da7",
+      "perspective_id": "8a681c54-05f3-4f00-a8a8-324e4bae23d6",
+      "strength": 0.7,
+      "confidence": 0.91
+    },
+    {
+      "id": "b69000d8-f393-4ef1-98d0-f2f19afb5763",
+      "property_id": "79fc6bd6-ad62-475c-b979-b9e4e4d0baa9",
+      "process_id": "b8230141-33ce-4d28-bad7-4b715a66c516",
+      "perspective_id": "10dbb50f-a909-40af-a6a0-048b1838b715",
+      "strength": 0.62,
+      "confidence": 0.76
+    },
+    {
+      "id": "b10faf7e-6deb-48d8-8971-af344c4740d3",
+      "property_id": "ed490f5d-faab-4733-9721-18a15a389b4a",
+      "process_id": "8083f147-4c56-4b59-bd66-a93e3be321f5",
+      "perspective_id": "259ea917-2586-459c-8103-56583da2b6f7",
+      "strength": 0.68,
+      "confidence": 0.99
+    },
+    {
+      "id": "8c7852dd-f8ad-4be0-b2f8-1aa6e6c4f369",
+      "property_id": "95c25e18-c8dc-4399-b0a8-f471daec3d79",
+      "process_id": "cc10d402-eda9-4311-9cb5-b99ed4ef6dec",
+      "perspective_id": "6c956248-acb1-47c6-a9d7-9258da261136",
+      "strength": 0.6,
+      "confidence": 0.94
+    },
+    {
+      "id": "efc4ca83-729b-4de3-a684-678c91a6be55",
+      "property_id": "29c9eaef-b689-47ed-9c2b-e79b3778e289",
+      "process_id": "369baab9-72b4-44f3-a648-b38360be927b",
+      "perspective_id": "f57c5f13-befd-4aa4-915a-c9fdf72a2d34",
+      "strength": 0.69,
+      "confidence": 0.77
+    },
+    {
+      "id": "6b0778f9-2342-4791-8404-f986470bbb0e",
+      "property_id": "6dbea0c4-5bc8-492e-853a-3bbd36a32049",
+      "process_id": "e32519b7-b316-4eb2-b1d1-8151258e0aed",
+      "perspective_id": "3b172fea-278c-440c-8541-82806ec18b0b",
+      "strength": 0.65,
+      "confidence": 0.99
+    },
+    {
+      "id": "927016e2-8185-49e5-8420-1108e0923662",
+      "property_id": "29c9eaef-b689-47ed-9c2b-e79b3778e289",
+      "process_id": "9717a8bc-83c9-48a4-a5f4-f63ed505818a",
+      "perspective_id": "6897a544-8435-483a-8bbc-8cff9f2c7814",
+      "strength": 0.9,
+      "confidence": 0.75
+    },
+    {
+      "id": "7d0a6720-b86d-4369-a773-94b89376b8e2",
+      "property_id": "578fe6c6-337a-4448-a97e-0b54172c81cb",
+      "process_id": "106929b1-a4f0-4f58-9265-2cea05dd91c9",
+      "perspective_id": "259ea917-2586-459c-8103-56583da2b6f7",
+      "strength": 0.64,
+      "confidence": 0.93
+    },
+    {
+      "id": "57d5448d-ac3e-4312-a11b-256542de1cff",
+      "property_id": "6ae7d6e9-1fae-4b45-a77d-bcfe65cedf93",
+      "process_id": "d765b2dd-7973-4c0b-8c3e-7692a71e9d60",
+      "perspective_id": "6c956248-acb1-47c6-a9d7-9258da261136",
+      "strength": 0.54,
+      "confidence": 0.88
+    },
+    {
+      "id": "b9134041-5370-44ca-a147-eb0e4bf4cb8e",
+      "property_id": "2fd8b8f6-6a0f-45ec-b0a3-361beb5935a2",
+      "process_id": "4af65e49-ab94-4083-910e-59391291cd78",
+      "perspective_id": "259ea917-2586-459c-8103-56583da2b6f7",
+      "strength": 0.6,
+      "confidence": 0.81
+    },
+    {
+      "id": "32904e81-12d7-40e0-b156-cfb56b99bbe9",
+      "property_id": "d4be9d0c-b2bf-4e8f-8313-a9c1e309828a",
+      "process_id": "f2563bf3-50bb-4172-b07b-00750ee4e553",
+      "perspective_id": "3b172fea-278c-440c-8541-82806ec18b0b",
+      "strength": 0.78,
+      "confidence": 0.98
+    },
+    {
+      "id": "73b503d2-f2a9-4322-8040-d351dbf7479a",
+      "property_id": "6ae7d6e9-1fae-4b45-a77d-bcfe65cedf93",
+      "process_id": "cfcb7280-556b-48ce-a033-879e32091893",
+      "perspective_id": "b9bd07d0-80f1-4278-b471-06601d6a78ab",
+      "strength": 0.83,
+      "confidence": 0.76
+    },
+    {
+      "id": "68a29467-6096-4ad0-a00b-8b8889b6962f",
+      "property_id": "2fd8b8f6-6a0f-45ec-b0a3-361beb5935a2",
+      "process_id": "1bf1d334-8756-4e41-8632-8324e2b779c8",
+      "perspective_id": "c2ab9460-950e-4a00-a3dd-e833a87e533f",
+      "strength": 0.7,
+      "confidence": 0.97
+    },
+    {
+      "id": "677e1cb4-93f4-4101-ae63-de7f66dca91e",
+      "property_id": "0887cdef-3ce5-4255-876c-82db91986d4a",
+      "process_id": "9717a8bc-83c9-48a4-a5f4-f63ed505818a",
+      "perspective_id": "018e5c76-3295-4a8d-8320-aa58394172e5",
+      "strength": 0.59,
+      "confidence": 0.86
+    },
+    {
+      "id": "539a1133-54d4-4f2f-8c50-8e5162932a91",
+      "property_id": "8041dbb6-dc00-404e-b6a3-bc6947098bb4",
+      "process_id": "b1e1e937-ad73-4e8b-9d82-c7ee834f3e5b",
+      "perspective_id": "82564858-82ce-4fe7-bbdd-54d526d90084",
+      "strength": 0.63,
+      "confidence": 0.75
+    },
+    {
+      "id": "7ee9cecc-d1f0-4eba-830e-50b8393f6eea",
+      "property_id": "ed490f5d-faab-4733-9721-18a15a389b4a",
+      "process_id": "33c99a1d-5bb2-4011-b982-e3524a670dc5",
+      "perspective_id": "b9bd07d0-80f1-4278-b471-06601d6a78ab",
+      "strength": 0.81,
+      "confidence": 0.73
+    },
+    {
+      "id": "9d510e62-b36b-42b7-aaa9-54ce8933ff42",
+      "property_id": "7ec71bc8-828d-403f-84e6-4f235f4b6750",
+      "process_id": "f5a5b76d-e443-4f25-b165-1420dcce4332",
+      "perspective_id": "40b30bbb-80f7-4feb-a792-a088fa81ffb7",
+      "strength": 0.65,
+      "confidence": 0.96
+    },
+    {
+      "id": "13701c0b-6714-4cd2-8207-f0d95b8e2bae",
+      "property_id": "af09ebd2-c169-40d2-a5cb-c0deddca5a21",
+      "process_id": "534e7558-e7d4-4e82-8ea8-07ff05ca5b23",
+      "perspective_id": "6953a0a8-da06-410a-9129-c02ad5999a17",
+      "strength": 0.86,
+      "confidence": 0.72
+    },
+    {
+      "id": "0e0fce57-9e91-48b5-8969-f89ac008cce7",
+      "property_id": "86dbad4b-3c5e-464b-9e01-f5b6458abd6f",
+      "process_id": "33c99a1d-5bb2-4011-b982-e3524a670dc5",
+      "perspective_id": "fff5c3e1-f51f-4028-85e7-32bf8d61fbd8",
+      "strength": 0.65,
+      "confidence": 0.85
+    },
+    {
+      "id": "f7a83672-b5c2-45a1-b24e-53f23bedd07a",
+      "property_id": "d7ae4847-f7df-4269-8bef-d71436bd36b1",
+      "process_id": "106929b1-a4f0-4f58-9265-2cea05dd91c9",
+      "perspective_id": "62c393a3-3b86-4a35-a99b-2d7e7bcb41a1",
+      "strength": 0.8,
+      "confidence": 0.75
+    },
+    {
+      "id": "18a5a445-e088-4c54-b17d-f56dc03b055d",
+      "property_id": "56d5f006-4704-46fc-8a8a-2c9753355112",
+      "process_id": "9e5491cb-e97a-49f1-9835-e11377e15d5b",
+      "perspective_id": "018e5c76-3295-4a8d-8320-aa58394172e5",
+      "strength": 0.76,
+      "confidence": 0.82
+    },
+    {
+      "id": "a6239940-9def-40c3-b769-7d005ee43d56",
+      "property_id": "8041dbb6-dc00-404e-b6a3-bc6947098bb4",
+      "process_id": "3a3f7111-a051-4619-bbc6-00d0bdae744b",
+      "perspective_id": "c9b74f42-e8a0-41d6-9f25-f18a5cd4d41e",
+      "strength": 0.95,
+      "confidence": 0.9
+    },
+    {
+      "id": "a12e7cbe-1bcf-4979-bfec-eb634b02d9cd",
+      "property_id": "368d760a-70be-41a9-ae6c-65ed52a08f94",
+      "process_id": "3d2a7d63-f6b9-48c7-867c-e11fd7cca2e7",
+      "perspective_id": "473a3685-bedc-4e71-9be4-5fc372c18a23",
+      "strength": 0.73,
+      "confidence": 0.85
+    },
+    {
+      "id": "8be07412-e25d-40ac-b8f6-e12a79bee5d6",
+      "property_id": "af09ebd2-c169-40d2-a5cb-c0deddca5a21",
+      "process_id": "7ad206eb-21e9-40e3-849c-f1a9468c2847",
+      "perspective_id": "34cb6515-4c97-4562-a74f-3915026d9218",
+      "strength": 0.53,
+      "confidence": 0.74
+    },
+    {
+      "id": "c9bc5255-e98c-4b16-8cec-32cfa64ce385",
+      "property_id": "95c25e18-c8dc-4399-b0a8-f471daec3d79",
+      "process_id": "496545ea-e38e-4803-9d7c-3e983a12cc4f",
+      "perspective_id": "cb9d667e-b249-4b8a-8950-b79a704b2f1b",
+      "strength": 0.56,
+      "confidence": 0.81
+    },
+    {
+      "id": "b4d07baf-d342-4991-8348-ecb2e511b001",
+      "property_id": "5ed0a66f-6690-4d58-926d-a11c933df1fe",
+      "process_id": "b1e1e937-ad73-4e8b-9d82-c7ee834f3e5b",
+      "perspective_id": "2a88c88b-d020-4173-94d7-ae115c75bf83",
+      "strength": 0.64,
+      "confidence": 0.99
+    },
+    {
+      "id": "20e61c13-3cf4-4ce0-981a-62b9d659d72b",
+      "property_id": "68bbbddd-663b-4243-82fc-25ae27eb90a9",
+      "process_id": "2ba8e342-e2c6-4b36-853d-dbc9c9a83da7",
+      "perspective_id": "30b71a6d-2864-4d29-84fb-87631234102f",
+      "strength": 0.64,
+      "confidence": 0.78
+    },
+    {
+      "id": "6d664c48-7432-4dc2-8dfc-c6019bc38d3d",
+      "property_id": "95c25e18-c8dc-4399-b0a8-f471daec3d79",
+      "process_id": "2ba8e342-e2c6-4b36-853d-dbc9c9a83da7",
+      "perspective_id": "6c956248-acb1-47c6-a9d7-9258da261136",
+      "strength": 0.99,
+      "confidence": 0.79
+    },
+    {
+      "id": "59e738da-1471-4e7a-b593-455b1377146a",
+      "property_id": "92a83279-cff3-4e6d-9370-1110074ddc68",
+      "process_id": "47b4beed-df1a-42b6-a25b-cd256129235a",
+      "perspective_id": "67f9a684-d255-40b3-bbea-f9b882b04e76",
+      "strength": 0.7,
+      "confidence": 0.85
+    },
+    {
+      "id": "198d5ccb-a233-4c2e-8827-cf0982ae9488",
+      "property_id": "f74354c3-a149-4051-9672-09e84867b538",
+      "process_id": "b1e1e937-ad73-4e8b-9d82-c7ee834f3e5b",
+      "perspective_id": "6c956248-acb1-47c6-a9d7-9258da261136",
+      "strength": 0.79,
+      "confidence": 0.93
+    },
+    {
+      "id": "21786113-994d-4523-bbc8-c5b1d9947a14",
+      "property_id": "368d760a-70be-41a9-ae6c-65ed52a08f94",
+      "process_id": "1bf1d334-8756-4e41-8632-8324e2b779c8",
+      "perspective_id": "2a79bf56-319c-441c-aab3-4d5b61921dba",
+      "strength": 0.89,
+      "confidence": 0.85
+    },
+    {
+      "id": "bf3a1929-2901-4795-b90b-5d100878ec29",
+      "property_id": "2fd8b8f6-6a0f-45ec-b0a3-361beb5935a2",
+      "process_id": "41ed0f3c-ae0a-48b6-82d5-15624ea41082",
+      "perspective_id": "ff0e4b7d-d90a-4570-a556-a7e5473cd04c",
+      "strength": 0.51,
+      "confidence": 0.85
+    },
+    {
+      "id": "46d275da-56de-42bb-bf6b-3f693b288ce5",
+      "property_id": "371c94d4-242f-45da-a5f9-234d0d2e585f",
+      "process_id": "e32519b7-b316-4eb2-b1d1-8151258e0aed",
+      "perspective_id": "ed067a80-c3db-4027-8091-6e3312a18cd5",
+      "strength": 0.98,
+      "confidence": 1.0
+    },
+    {
+      "id": "4d5e14ce-b1cf-4407-85a1-bfc73dc8fd79",
+      "property_id": "b6dba6d6-e276-4328-b18e-0d1181445749",
+      "process_id": "85792470-9d9c-4146-9264-4508d61bb906",
+      "perspective_id": "abfb03a9-a9fc-493c-84d5-658b89995aaa",
+      "strength": 0.56,
+      "confidence": 0.93
+    },
+    {
+      "id": "b9e43aad-d4aa-4385-9eaa-65d37fbfb354",
+      "property_id": "48217800-5306-43f9-8c75-91561e0084fa",
+      "process_id": "b8230141-33ce-4d28-bad7-4b715a66c516",
+      "perspective_id": "73166cc1-f3e1-40c0-97e0-76f3948cfd90",
+      "strength": 0.86,
+      "confidence": 0.82
+    },
+    {
+      "id": "097f4f40-a21e-427f-91cb-7a70861cea0f",
+      "property_id": "578fe6c6-337a-4448-a97e-0b54172c81cb",
+      "process_id": "36e9f7b5-62ce-45f0-a5a4-c969a0baad1d",
+      "perspective_id": "2a88c88b-d020-4173-94d7-ae115c75bf83",
+      "strength": 0.83,
+      "confidence": 0.76
+    },
+    {
+      "id": "3b684acf-9cc1-4315-82c1-9b8d52f096ff",
+      "property_id": "afa4281b-c9a8-4e4e-9390-3a41710171f4",
+      "process_id": "ca6de46b-cb8a-4615-9cac-2af18a0f965f",
+      "perspective_id": "10dbb50f-a909-40af-a6a0-048b1838b715",
+      "strength": 0.54,
+      "confidence": 0.76
+    },
+    {
+      "id": "999670e8-fe51-4896-b8e0-7b894f66a2f1",
+      "property_id": "91131a6a-135b-42be-9d1e-181442d62850",
+      "process_id": "d765b2dd-7973-4c0b-8c3e-7692a71e9d60",
+      "perspective_id": "2a79bf56-319c-441c-aab3-4d5b61921dba",
+      "strength": 0.81,
+      "confidence": 0.83
+    },
+    {
+      "id": "ba8bd894-f616-4a19-862c-7deb9ac1602e",
+      "property_id": "7ec71bc8-828d-403f-84e6-4f235f4b6750",
+      "process_id": "42b5ead5-f893-4072-95c7-ad8e742a85e6",
+      "perspective_id": "6f0afe55-8521-4ffc-901f-cf6ff90d5524",
+      "strength": 0.92,
+      "confidence": 0.93
+    },
+    {
+      "id": "0ed93b56-86cf-44c1-ad38-46d6cb235ee9",
+      "property_id": "c9f8b753-ca0a-4163-9ee4-03e5794adf0f",
+      "process_id": "369baab9-72b4-44f3-a648-b38360be927b",
+      "perspective_id": "62c393a3-3b86-4a35-a99b-2d7e7bcb41a1",
+      "strength": 0.99,
+      "confidence": 0.72
+    },
+    {
+      "id": "fc7ab7b9-fb65-4d0f-b95c-e1e06eca4538",
+      "property_id": "42f7439c-e116-4f15-8790-2be662194c4e",
+      "process_id": "ca6de46b-cb8a-4615-9cac-2af18a0f965f",
+      "perspective_id": "473a3685-bedc-4e71-9be4-5fc372c18a23",
+      "strength": 0.55,
+      "confidence": 0.97
+    },
+    {
+      "id": "9a324d18-76fa-48eb-a4db-704bdeffda77",
+      "property_id": "0fbe8718-c2d1-4265-99b3-db513a129499",
+      "process_id": "41ed0f3c-ae0a-48b6-82d5-15624ea41082",
+      "perspective_id": "259ea917-2586-459c-8103-56583da2b6f7",
+      "strength": 0.93,
+      "confidence": 0.9
+    },
+    {
+      "id": "ba3be101-3f27-4706-9d5d-adbde70d455b",
+      "property_id": "bfab5150-9b38-4060-b8ee-19e37189eb2e",
+      "process_id": "47b4beed-df1a-42b6-a25b-cd256129235a",
+      "perspective_id": "cb9d667e-b249-4b8a-8950-b79a704b2f1b",
+      "strength": 0.64,
+      "confidence": 0.72
+    },
+    {
+      "id": "d1a67c0b-8b17-4756-807f-390d3098523a",
+      "property_id": "d4be9d0c-b2bf-4e8f-8313-a9c1e309828a",
+      "process_id": "8dfdfddc-3736-4c1d-bfb9-efde6c36802d",
+      "perspective_id": "6c956248-acb1-47c6-a9d7-9258da261136",
+      "strength": 0.7,
+      "confidence": 0.9
+    },
+    {
+      "id": "cae830bf-9847-4a6e-af91-725b51b57195",
+      "property_id": "d7ae4847-f7df-4269-8bef-d71436bd36b1",
+      "process_id": "d5ea3b2e-22bf-4dc7-8358-d353da740986",
+      "perspective_id": "10dbb50f-a909-40af-a6a0-048b1838b715",
+      "strength": 0.87,
+      "confidence": 0.84
+    },
+    {
+      "id": "29c3c8f9-ff1a-4713-9b0a-aa5123f44013",
+      "property_id": "c9f8b753-ca0a-4163-9ee4-03e5794adf0f",
+      "process_id": "8083f147-4c56-4b59-bd66-a93e3be321f5",
+      "perspective_id": "2a7ff4ce-e026-4fd5-9696-a0f7c72f0d5f",
+      "strength": 0.62,
+      "confidence": 0.79
+    },
+    {
+      "id": "0b1a47cf-96aa-4f94-8fd6-ddbb6e05c0ec",
+      "property_id": "5ed0a66f-6690-4d58-926d-a11c933df1fe",
+      "process_id": "33c99a1d-5bb2-4011-b982-e3524a670dc5",
+      "perspective_id": "3ae6764b-08f0-46e3-ac1b-6be113bd01cf",
+      "strength": 0.75,
+      "confidence": 0.94
+    },
+    {
+      "id": "f0b113b4-e1a8-43ce-a795-82e4046c93c1",
+      "property_id": "8af52675-becf-4cdd-92ae-f1a24158a81e",
+      "process_id": "496545ea-e38e-4803-9d7c-3e983a12cc4f",
+      "perspective_id": "d359a5f9-0084-43d9-b59a-9d8341c6bc1a",
+      "strength": 0.9,
+      "confidence": 0.72
+    },
+    {
+      "id": "66b294e8-8b01-40ac-a563-5ad3b65e3856",
+      "property_id": "91131a6a-135b-42be-9d1e-181442d62850",
+      "process_id": "1bf1d334-8756-4e41-8632-8324e2b779c8",
+      "perspective_id": "8a681c54-05f3-4f00-a8a8-324e4bae23d6",
+      "strength": 0.77,
+      "confidence": 0.93
+    },
+    {
+      "id": "0361a847-fa42-4e00-b95b-3fb02cef6e4d",
+      "property_id": "29c9eaef-b689-47ed-9c2b-e79b3778e289",
+      "process_id": "2ba8e342-e2c6-4b36-853d-dbc9c9a83da7",
+      "perspective_id": "62c393a3-3b86-4a35-a99b-2d7e7bcb41a1",
+      "strength": 0.59,
+      "confidence": 0.78
+    },
+    {
+      "id": "fd8dfb16-c102-45a3-8a3b-3ede4018f853",
+      "property_id": "79fc6bd6-ad62-475c-b979-b9e4e4d0baa9",
+      "process_id": "434ccfca-b943-4b00-8f2e-f5467ab43f52",
+      "perspective_id": "abfb03a9-a9fc-493c-84d5-658b89995aaa",
+      "strength": 0.68,
+      "confidence": 0.92
+    },
+    {
+      "id": "4e5a31a6-d640-42a6-b674-fdc642c7af71",
+      "property_id": "26e260bc-980a-40f5-882b-10b3b4198938",
+      "process_id": "ca6de46b-cb8a-4615-9cac-2af18a0f965f",
+      "perspective_id": "3b172fea-278c-440c-8541-82806ec18b0b",
+      "strength": 0.51,
+      "confidence": 0.73
+    },
+    {
+      "id": "77f2e1f5-3737-42a9-a448-c65c1939f4b8",
+      "property_id": "368d760a-70be-41a9-ae6c-65ed52a08f94",
+      "process_id": "c9dfea7e-8e44-413c-ac8d-4ebfccfa6280",
+      "perspective_id": "b9bd07d0-80f1-4278-b471-06601d6a78ab",
+      "strength": 0.64,
+      "confidence": 0.73
+    },
+    {
+      "id": "166c927a-2d23-4899-81cf-00345569626a",
+      "property_id": "afa4281b-c9a8-4e4e-9390-3a41710171f4",
+      "process_id": "f2563bf3-50bb-4172-b07b-00750ee4e553",
+      "perspective_id": "82564858-82ce-4fe7-bbdd-54d526d90084",
+      "strength": 0.67,
+      "confidence": 0.89
+    },
+    {
+      "id": "b7eb82ce-e071-4a63-8642-18380196b8fb",
+      "property_id": "6ae7d6e9-1fae-4b45-a77d-bcfe65cedf93",
+      "process_id": "b8230141-33ce-4d28-bad7-4b715a66c516",
+      "perspective_id": "1bafa53c-93a5-4360-bec8-2beeff1dff4b",
+      "strength": 0.65,
+      "confidence": 0.71
+    },
+    {
+      "id": "a59052d2-44e6-4252-8f5e-eebfa10f168f",
+      "property_id": "bfab5150-9b38-4060-b8ee-19e37189eb2e",
+      "process_id": "f5a5b76d-e443-4f25-b165-1420dcce4332",
+      "perspective_id": "cd6676dc-1c33-44a1-b169-1cb553943046",
+      "strength": 0.85,
+      "confidence": 0.98
+    },
+    {
+      "id": "e0fe3733-005a-4c27-b31f-5ab37de4481f",
+      "property_id": "56d5f006-4704-46fc-8a8a-2c9753355112",
+      "process_id": "49f5cd65-10df-467d-a468-808630f408e7",
+      "perspective_id": "c2ab9460-950e-4a00-a3dd-e833a87e533f",
+      "strength": 0.76,
+      "confidence": 0.82
+    },
+    {
+      "id": "2562693b-b016-4ed3-8b01-1b65cf9a8993",
+      "property_id": "d4be9d0c-b2bf-4e8f-8313-a9c1e309828a",
+      "process_id": "47b4beed-df1a-42b6-a25b-cd256129235a",
+      "perspective_id": "fff5c3e1-f51f-4028-85e7-32bf8d61fbd8",
+      "strength": 0.79,
+      "confidence": 0.91
+    },
+    {
+      "id": "b5458e6b-e308-477d-8f43-c4fd78f94440",
+      "property_id": "29c9eaef-b689-47ed-9c2b-e79b3778e289",
+      "process_id": "2ba8e342-e2c6-4b36-853d-dbc9c9a83da7",
+      "perspective_id": "f2ec7ab5-12c6-43b6-8199-45c6bf435cff",
+      "strength": 0.62,
+      "confidence": 0.71
+    },
+    {
+      "id": "a48cdf3a-5a0e-4c54-a0b6-370037598948",
+      "property_id": "48217800-5306-43f9-8c75-91561e0084fa",
+      "process_id": "e32519b7-b316-4eb2-b1d1-8151258e0aed",
+      "perspective_id": "c9b74f42-e8a0-41d6-9f25-f18a5cd4d41e",
+      "strength": 0.97,
+      "confidence": 0.72
+    }
+  ],
+  "metadata": {
+    "count": {
+      "properties": 50,
+      "processes": 50,
+      "perspectives": 50
+    }
+  }
+}

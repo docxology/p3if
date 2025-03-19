@@ -1,0 +1,1597 @@
+{
+  "domain": "HealthCare",
+  "version": "1.0",
+  "properties": [
+    "Patient Safety",
+    "Data Privacy",
+    "Treatment Efficacy",
+    "Cost Effectiveness",
+    "Accessibility",
+    "Interoperability",
+    "Regulatory Compliance",
+    "Patient Satisfaction",
+    "Staff Efficiency",
+    "Equipment Reliability",
+    "Infection Control",
+    "Medication Accuracy",
+    "Diagnostic Precision",
+    "Emergency Readiness",
+    "Continuity of Care",
+    "Informed Consent",
+    "Cultural Competence",
+    "Ethical Practice",
+    "Evidence-Based Care",
+    "Patient Empowerment",
+    "Preventive Care",
+    "Chronic Disease Management",
+    "Pain Management",
+    "End-of-Life Care",
+    "Mental Health Integration",
+    "Telemedicine Capability",
+    "Health Literacy",
+    "Patient Engagement",
+    "Care Coordination",
+    "Quality Assurance",
+    "Resource Allocation",
+    "Staff Competency",
+    "Technology Integration",
+    "Patient Rights",
+    "Environmental Safety",
+    "Nutritional Care",
+    "Rehabilitation Services",
+    "Pharmaceutical Management",
+    "Genetic Testing",
+    "Personalized Medicine",
+    "Palliative Care",
+    "Organ Donation",
+    "Blood Safety",
+    "Radiation Safety",
+    "Waste Management",
+    "Disaster Preparedness",
+    "Community Outreach",
+    "Research Ethics",
+    "Medical Education",
+    "Patient Advocacy"
+  ],
+  "processes": [
+    "Patient Registration",
+    "Triage",
+    "Diagnosis",
+    "Treatment Planning",
+    "Medication Administration",
+    "Surgery",
+    "Laboratory Testing",
+    "Imaging",
+    "Patient Monitoring",
+    "Discharge Planning",
+    "Follow-up Care",
+    "Referral Management",
+    "Emergency Response",
+    "Infection Prevention",
+    "Quality Assurance",
+    "Staff Training",
+    "Medical Records Management",
+    "Inventory Management",
+    "Billing and Coding",
+    "Insurance Verification",
+    "Appointment Scheduling",
+    "Patient Education",
+    "Consent Obtaining",
+    "Care Coordination",
+    "Risk Assessment",
+    "Clinical Trials",
+    "Telemedicine Consultation",
+    "Prescription Management",
+    "Rehabilitation",
+    "Palliative Care",
+    "Mental Health Assessment",
+    "Nutritional Assessment",
+    "Pain Management",
+    "Health Screening",
+    "Immunization",
+    "Genetic Counseling",
+    "Organ Transplantation",
+    "Blood Transfusion",
+    "Radiation Therapy",
+    "Chemotherapy",
+    "Physical Therapy",
+    "Occupational Therapy",
+    "Speech Therapy",
+    "Respiratory Therapy",
+    "Dialysis",
+    "Wound Care",
+    "Anesthesia Administration",
+    "Patient Transport",
+    "Sterilization",
+    "Waste Disposal"
+  ],
+  "perspectives": [
+    "Patient",
+    "Physician",
+    "Nurse",
+    "Administrator",
+    "Insurer",
+    "Regulator",
+    "Researcher",
+    "Pharmacist",
+    "Technician",
+    "Caregiver",
+    "Public Health Official",
+    "Ethicist",
+    "Legal Counsel",
+    "Financial Analyst",
+    "IT Specialist",
+    "Social Worker",
+    "Psychologist",
+    "Nutritionist",
+    "Physical Therapist",
+    "Occupational Therapist",
+    "Speech Therapist",
+    "Radiologist",
+    "Surgeon",
+    "Anesthesiologist",
+    "Emergency Medical Technician",
+    "Laboratory Technician",
+    "Pathologist",
+    "Geneticist",
+    "Oncologist",
+    "Pediatrician",
+    "Geriatrician",
+    "Psychiatrist",
+    "Neurologist",
+    "Cardiologist",
+    "Endocrinologist",
+    "Dermatologist",
+    "Ophthalmologist",
+    "Dentist",
+    "Pharmacologist",
+    "Biomedical Engineer",
+    "Health Economist",
+    "Epidemiologist",
+    "Biostatistician",
+    "Medical Illustrator",
+    "Health Educator",
+    "Patient Advocate",
+    "Hospital Chaplain",
+    "Risk Manager",
+    "Quality Improvement Specialist",
+    "Infection Control Specialist"
+  ],
+  "patterns": {
+    "properties": [
+      {
+        "id": "b8a650a7-b51c-49f2-a895-1f9510b31c84",
+        "name": "Patient Safety",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "5581c070-641a-40ad-8190-9224a0d66bf2",
+        "name": "Data Privacy",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "07f0d4f5-0de5-45df-8801-3ca892b17100",
+        "name": "Treatment Efficacy",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "16e0accb-1128-4fab-a843-054bc26a0aa2",
+        "name": "Cost Effectiveness",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "3ff35f32-1aa1-468e-8bd0-12cbad8953d1",
+        "name": "Accessibility",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "c79f88f8-a915-4793-8fd5-0775ef1e1a7f",
+        "name": "Interoperability",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "82213721-ab2a-4d29-b64f-048cf11a5993",
+        "name": "Regulatory Compliance",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "948f70a6-2dae-440b-882d-8f5321991cb1",
+        "name": "Patient Satisfaction",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "770638df-c281-4100-833a-333fe3d273e0",
+        "name": "Staff Efficiency",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "ba1eb2c1-14d4-44ef-95d7-b8a1f607dbc3",
+        "name": "Equipment Reliability",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "e53df044-8e9b-4ff0-8a06-8bdbf5de3099",
+        "name": "Infection Control",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "8a5b4c62-cc7d-48fd-9d27-83f3b6c47b30",
+        "name": "Medication Accuracy",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "a0f69144-efa4-4cc7-9161-0592151bff3e",
+        "name": "Diagnostic Precision",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "8eb2756a-293d-4c8e-83d5-97e9e449512e",
+        "name": "Emergency Readiness",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "c18a7e3a-f0bd-4d03-93e9-3ff2bae7f26f",
+        "name": "Continuity of Care",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "c1e31282-a2af-400f-a90b-64bdeb39f2ca",
+        "name": "Informed Consent",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "14a1b5a4-fa6d-4037-808e-c2360bcda2d2",
+        "name": "Cultural Competence",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "b1d2c6be-5c91-425d-842f-928f4ccb08bd",
+        "name": "Ethical Practice",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "95df7c46-eeb1-45b6-91a5-c182e8d7d448",
+        "name": "Evidence-Based Care",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "4e940582-57c5-4f75-9dc8-dd595d1edf16",
+        "name": "Patient Empowerment",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "ab624eda-956c-47ad-8ba7-96df2f94eee8",
+        "name": "Preventive Care",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "4682dac1-377a-46c7-852e-8038d13398f5",
+        "name": "Chronic Disease Management",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "4920745c-c013-40c1-bc12-7f803bcc2f09",
+        "name": "Pain Management",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "40e6a4ab-6c6c-4471-8a52-91212cc6a1fe",
+        "name": "End-of-Life Care",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "3a6a46f0-ed49-4727-aa76-3ade02d9316d",
+        "name": "Mental Health Integration",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "a3388800-969c-4b26-b198-dfc8706f4bd0",
+        "name": "Telemedicine Capability",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "463899b8-3925-4479-a1f8-afe4600ca433",
+        "name": "Health Literacy",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "4c67359e-0800-46c9-9d9c-acc327e5e4ee",
+        "name": "Patient Engagement",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "93b3d156-f2d7-44d7-a0df-a277ddda07db",
+        "name": "Care Coordination",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "4642b0d7-7a40-41d9-902a-82bea5e89408",
+        "name": "Quality Assurance",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "a3ed92c6-42f6-4f48-97f2-aa23675e5fd0",
+        "name": "Resource Allocation",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "f8f69bfc-2ca0-43da-ac2b-d9c40766f4f6",
+        "name": "Staff Competency",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "fa1a4e0b-28c0-4f06-a6a4-f2d61d29581e",
+        "name": "Technology Integration",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "98fc600a-6887-48cc-b521-21eb7097a723",
+        "name": "Patient Rights",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "0d7fecdc-88bb-4be2-b428-8df364b62245",
+        "name": "Environmental Safety",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "4153cae9-61e2-41dd-a942-7fb7f10d1ee7",
+        "name": "Nutritional Care",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "7ada452b-71f8-4971-893b-c5ca118ac0c9",
+        "name": "Rehabilitation Services",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "cc989802-d0f2-4269-ba62-3f1b7f248e88",
+        "name": "Pharmaceutical Management",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "dd938c41-974e-4e51-9bec-0e111ae36994",
+        "name": "Genetic Testing",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "5df8e9b1-1d9c-4db9-bbd5-8da24e1fc16f",
+        "name": "Personalized Medicine",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "54931b96-d07e-4cc8-b871-4b3a6010ac6f",
+        "name": "Palliative Care",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "4923e29c-caa7-485e-84cc-cb6eeda08b96",
+        "name": "Organ Donation",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "69ef3358-2928-4987-8193-4d77ad22be8f",
+        "name": "Blood Safety",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "5bef8410-6eb5-4659-91ec-580db7a43bb9",
+        "name": "Radiation Safety",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "16c7e90d-ec5e-4735-bce0-1b74ecf9edd1",
+        "name": "Waste Management",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "a27120ab-7886-49ac-a350-e9ac4a875fc3",
+        "name": "Disaster Preparedness",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "4965618f-4121-4ccd-b698-9b15da2e7e98",
+        "name": "Community Outreach",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "4044eb0e-3cbd-4e86-8b4f-0636735eb7b7",
+        "name": "Research Ethics",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "b0a93b67-99ef-4280-9a30-94dd293fdc03",
+        "name": "Medical Education",
+        "type": "property",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "6d207229-b3be-4a1d-8131-9983a9cf5933",
+        "name": "Patient Advocacy",
+        "type": "property",
+        "domain": "HealthCare"
+      }
+    ],
+    "processes": [
+      {
+        "id": "5216858a-68bf-44e6-af6d-d49e072f1654",
+        "name": "Patient Registration",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "a8310083-db2c-4156-89d0-fffca41ed25e",
+        "name": "Triage",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "49603e58-ee91-4483-b14c-a6de0d87fd13",
+        "name": "Diagnosis",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "de18ea66-57c3-4399-a1e2-f1488c068fce",
+        "name": "Treatment Planning",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "7292cf5b-7465-473a-bf0c-06447c7d3183",
+        "name": "Medication Administration",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "3a8e0c4e-30bf-436e-b079-acd4b1bf1ed3",
+        "name": "Surgery",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "09bede4d-df10-4745-a69e-9dc116ec65b3",
+        "name": "Laboratory Testing",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "30051ef8-b496-472a-a596-b994fe2eb623",
+        "name": "Imaging",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "fa58a926-40c5-454f-902c-550ee40d4ff1",
+        "name": "Patient Monitoring",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "b006df7e-941b-496f-aa3d-3d9a7edf2f29",
+        "name": "Discharge Planning",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "462943c9-e594-493c-93f8-73e0b504c0a5",
+        "name": "Follow-up Care",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "d2b4ef24-1929-400f-8d16-c15ff7231717",
+        "name": "Referral Management",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "70ae26df-e055-4ed3-a0aa-836846595fa7",
+        "name": "Emergency Response",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "0785bd4f-5095-492f-9667-5a32efeea24f",
+        "name": "Infection Prevention",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "0017e295-1787-4e68-b8df-244a2f86013c",
+        "name": "Quality Assurance",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "f131eebd-92d6-4466-b3e7-0ff472cc732b",
+        "name": "Staff Training",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "375f4fb6-f6db-41df-86a4-a87cb0b0126f",
+        "name": "Medical Records Management",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "a8093682-9c30-4006-b6a8-6dc3724b897e",
+        "name": "Inventory Management",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "3f4b91e3-0ed0-47b6-9ff7-2edfc7e0e8a1",
+        "name": "Billing and Coding",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "10db2f2e-3164-45e1-9028-295e6ff937da",
+        "name": "Insurance Verification",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "19a189f4-7610-42aa-a65f-4286fd98e9de",
+        "name": "Appointment Scheduling",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "a3113906-4e7b-4fdb-80c3-88434a18761b",
+        "name": "Patient Education",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "e6119ecb-edee-4f92-8a4f-9ad57994d3bb",
+        "name": "Consent Obtaining",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "2b7fae71-955b-4d67-bc34-89ffb1ab0a72",
+        "name": "Care Coordination",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "1dc51459-c217-464a-a460-c453b6de6e11",
+        "name": "Risk Assessment",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "f19539d6-a43a-495b-82af-71d9eb34c111",
+        "name": "Clinical Trials",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "731a2c23-e4aa-4a17-8416-9dff13b7d497",
+        "name": "Telemedicine Consultation",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "0d8bc910-03f1-470b-8701-3ad51f8809bb",
+        "name": "Prescription Management",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "00b194d2-ee63-443f-89be-abe274324827",
+        "name": "Rehabilitation",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "830e075d-869f-4ff3-9353-1e9a8fe2b633",
+        "name": "Palliative Care",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "4491ec57-fe27-4714-b98a-23d460dd7eec",
+        "name": "Mental Health Assessment",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "84a5b5ea-abe0-4b26-9ad8-174fbf35396d",
+        "name": "Nutritional Assessment",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "2683ef7d-5217-489d-a0a0-150ac29eb063",
+        "name": "Pain Management",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "de86333d-7f2b-47b5-bbb6-52090a739f45",
+        "name": "Health Screening",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "55d1c4f2-b624-481b-9593-1318d0b3de8a",
+        "name": "Immunization",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "217bc589-35e8-46b2-92e3-09ed88be0abe",
+        "name": "Genetic Counseling",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "1e542f7d-24f0-4c88-b947-bf93e7d73316",
+        "name": "Organ Transplantation",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "646d7d15-55c5-413b-bcb6-1707ccd8ccdc",
+        "name": "Blood Transfusion",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "adc47f07-6f56-4d79-8b46-6500e07e86e5",
+        "name": "Radiation Therapy",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "74823802-7889-4a54-98b9-0ddda06ef6e2",
+        "name": "Chemotherapy",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "8c842d55-ad17-4eed-bb02-88308f2e99c9",
+        "name": "Physical Therapy",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "294f7429-d8cc-4816-960c-ccc5dc5021df",
+        "name": "Occupational Therapy",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "650125ec-5e2e-4071-80db-01ca8eb84d0c",
+        "name": "Speech Therapy",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "b4d2e960-c1dd-41f4-819a-126c922dbcea",
+        "name": "Respiratory Therapy",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "2cc8138f-e619-4af5-99a5-dd82d5a71838",
+        "name": "Dialysis",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "be1cba72-d92b-4b07-9cfe-6b2d76d10b1c",
+        "name": "Wound Care",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "cb090776-f2ad-40d9-870f-14408dd7c1d3",
+        "name": "Anesthesia Administration",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "e8a104e2-3cbd-48e7-83d2-d48f74f06808",
+        "name": "Patient Transport",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "ba2ad0b8-1288-4da4-9992-d90af60e67da",
+        "name": "Sterilization",
+        "type": "process",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "30e79db6-2e01-46b7-8b5d-d38134de49f3",
+        "name": "Waste Disposal",
+        "type": "process",
+        "domain": "HealthCare"
+      }
+    ],
+    "perspectives": [
+      {
+        "id": "c6c22633-f336-4077-9ea2-b4e6e843db5b",
+        "name": "Patient",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "ce247aac-49eb-45d3-8969-d25bf81dff08",
+        "name": "Physician",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "0a9a3341-c1bf-4675-9a81-add6a98fc900",
+        "name": "Nurse",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "f72cca6b-8b78-4a31-a801-a35efd2c4190",
+        "name": "Administrator",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "5fa45bbd-93a9-4efb-b30a-f95ccb639cfb",
+        "name": "Insurer",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "f2f11221-74bd-4af4-aac6-eb10c35c2c6a",
+        "name": "Regulator",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "c8216afc-6d9e-4c59-bb35-caf3767bf195",
+        "name": "Researcher",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "e305cea0-2c49-4d80-a614-290c5af417fc",
+        "name": "Pharmacist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "34385863-488c-4edb-932c-4f2bd28804b8",
+        "name": "Technician",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "93156df9-f5cb-44b2-a94d-7cc345d363fa",
+        "name": "Caregiver",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "138543b6-0d5e-477d-87bb-0dcce4c59b31",
+        "name": "Public Health Official",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "6797b41d-f0da-4780-af7a-e714e4475131",
+        "name": "Ethicist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "a86c8e71-a4c5-46a2-9d2b-2e5b5a75b982",
+        "name": "Legal Counsel",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "a6e712f9-9cf1-413e-b6fa-a71c5285f798",
+        "name": "Financial Analyst",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "2dbfe109-eb7d-4a77-8fbb-d91c62dc5b56",
+        "name": "IT Specialist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "912a0ecb-d7d4-4a75-9285-49eda10254a4",
+        "name": "Social Worker",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "3b0b21a3-7ef2-4114-a02e-d045c268ba5a",
+        "name": "Psychologist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "5d00801a-4f96-4289-8772-3399abb1e395",
+        "name": "Nutritionist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "02951214-89a4-4765-8f20-216c2ddb145c",
+        "name": "Physical Therapist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "f1fa86c9-8e12-4fed-b01c-11e6f5f9cfa0",
+        "name": "Occupational Therapist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "3b999704-659c-4db1-86d5-8f2618c066ff",
+        "name": "Speech Therapist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "9a6f5d15-8191-4602-b75f-eb4dd2eec325",
+        "name": "Radiologist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "1ed8efb1-febe-4d24-97b8-a8d1dd8ece93",
+        "name": "Surgeon",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "6647b168-6a5d-4bb3-ac84-38df42128216",
+        "name": "Anesthesiologist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "6b7cf036-3848-4ece-80b7-c39bdf1ddc85",
+        "name": "Emergency Medical Technician",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "076ead9b-15ed-4554-9b47-ca0f2129471d",
+        "name": "Laboratory Technician",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "3bf8b3d9-590a-454b-b221-e5c0f7eb51be",
+        "name": "Pathologist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "2d673d0e-347d-42a8-836b-058ea8103c7a",
+        "name": "Geneticist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "90fa7a8c-bbea-409e-9e99-bbe56905506a",
+        "name": "Oncologist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "dcc7edb7-a600-416f-a03a-19bb3ed8495f",
+        "name": "Pediatrician",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "d768295e-a27d-4d9b-a905-5fdd3d7d6294",
+        "name": "Geriatrician",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "e7388df4-0500-46a8-b4ef-0e1bfe0b1cf3",
+        "name": "Psychiatrist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "19871745-5130-40ea-89d3-06863108d8d0",
+        "name": "Neurologist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "25d2be4f-c635-4835-919f-328c5f4bd025",
+        "name": "Cardiologist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "5c9f5202-f4d7-4656-99d1-5719a3159044",
+        "name": "Endocrinologist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "ee90efac-1593-4f41-920b-1bc9470c0f0f",
+        "name": "Dermatologist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "eed5cca8-6941-4db0-8c10-0d3ec63f172c",
+        "name": "Ophthalmologist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "3452b641-f1a6-41e1-b6f2-f8c0bf77d1c0",
+        "name": "Dentist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "3594e290-3366-4b8f-ac24-e96277554d34",
+        "name": "Pharmacologist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "50fcfa6b-799a-48fb-808a-65b5201a551d",
+        "name": "Biomedical Engineer",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "5da588a5-3302-43ac-998b-71b465a90493",
+        "name": "Health Economist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "fc890816-b070-4566-a34d-0d6025b03645",
+        "name": "Epidemiologist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "5eb7e279-5a3a-487a-9f65-1448abc4187e",
+        "name": "Biostatistician",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "c9094bdd-e43f-4ed5-b6e0-d9a3f60f5aef",
+        "name": "Medical Illustrator",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "e539c5a7-009f-411f-a575-14d133ce52f1",
+        "name": "Health Educator",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "1533ab62-2d96-43ad-8937-b38d4f150f57",
+        "name": "Patient Advocate",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "858bb860-3eb3-431a-a920-b478af02553f",
+        "name": "Hospital Chaplain",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "4df87f69-2e8a-476a-8c97-f4324ad7bf5c",
+        "name": "Risk Manager",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "a5d6ff96-30d9-4e42-ab0b-034f8265cfa7",
+        "name": "Quality Improvement Specialist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      },
+      {
+        "id": "5df0cd4b-a0fb-4ca8-82a3-942de62c8265",
+        "name": "Infection Control Specialist",
+        "type": "perspective",
+        "domain": "HealthCare"
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "da132c6e-eae0-4186-8e03-f2769b94ed13",
+      "property_id": "dd938c41-974e-4e51-9bec-0e111ae36994",
+      "process_id": "30051ef8-b496-472a-a596-b994fe2eb623",
+      "perspective_id": "93156df9-f5cb-44b2-a94d-7cc345d363fa",
+      "strength": 0.52,
+      "confidence": 0.97
+    },
+    {
+      "id": "f0488341-ebcd-4bba-b504-cfd7e6904c97",
+      "property_id": "4642b0d7-7a40-41d9-902a-82bea5e89408",
+      "process_id": "217bc589-35e8-46b2-92e3-09ed88be0abe",
+      "perspective_id": "c6c22633-f336-4077-9ea2-b4e6e843db5b",
+      "strength": 0.76,
+      "confidence": 0.71
+    },
+    {
+      "id": "056f2f46-6cab-4765-b2da-8834de01faeb",
+      "property_id": "cc989802-d0f2-4269-ba62-3f1b7f248e88",
+      "process_id": "3f4b91e3-0ed0-47b6-9ff7-2edfc7e0e8a1",
+      "perspective_id": "25d2be4f-c635-4835-919f-328c5f4bd025",
+      "strength": 0.81,
+      "confidence": 0.83
+    },
+    {
+      "id": "235e3c70-e0f5-49c8-abbb-12cbf0ac98a1",
+      "property_id": "16c7e90d-ec5e-4735-bce0-1b74ecf9edd1",
+      "process_id": "3a8e0c4e-30bf-436e-b079-acd4b1bf1ed3",
+      "perspective_id": "138543b6-0d5e-477d-87bb-0dcce4c59b31",
+      "strength": 0.87,
+      "confidence": 0.81
+    },
+    {
+      "id": "fba05ea8-d685-4d68-8b98-f0e3486ad19d",
+      "property_id": "14a1b5a4-fa6d-4037-808e-c2360bcda2d2",
+      "process_id": "e6119ecb-edee-4f92-8a4f-9ad57994d3bb",
+      "perspective_id": "a86c8e71-a4c5-46a2-9d2b-2e5b5a75b982",
+      "strength": 0.56,
+      "confidence": 0.94
+    },
+    {
+      "id": "075f6cb1-5915-4487-ae1d-a7d1a0afaadf",
+      "property_id": "c1e31282-a2af-400f-a90b-64bdeb39f2ca",
+      "process_id": "a8093682-9c30-4006-b6a8-6dc3724b897e",
+      "perspective_id": "2d673d0e-347d-42a8-836b-058ea8103c7a",
+      "strength": 0.86,
+      "confidence": 0.91
+    },
+    {
+      "id": "a12eb23d-a073-4733-8405-faab4d81435a",
+      "property_id": "b0a93b67-99ef-4280-9a30-94dd293fdc03",
+      "process_id": "30051ef8-b496-472a-a596-b994fe2eb623",
+      "perspective_id": "9a6f5d15-8191-4602-b75f-eb4dd2eec325",
+      "strength": 0.99,
+      "confidence": 0.88
+    },
+    {
+      "id": "05c946a0-6d5d-4133-9934-98911b94447e",
+      "property_id": "4642b0d7-7a40-41d9-902a-82bea5e89408",
+      "process_id": "5216858a-68bf-44e6-af6d-d49e072f1654",
+      "perspective_id": "3452b641-f1a6-41e1-b6f2-f8c0bf77d1c0",
+      "strength": 0.8,
+      "confidence": 0.9
+    },
+    {
+      "id": "3ce8d609-a85e-4e11-bc62-505337a2d822",
+      "property_id": "f8f69bfc-2ca0-43da-ac2b-d9c40766f4f6",
+      "process_id": "2cc8138f-e619-4af5-99a5-dd82d5a71838",
+      "perspective_id": "c6c22633-f336-4077-9ea2-b4e6e843db5b",
+      "strength": 0.67,
+      "confidence": 0.75
+    },
+    {
+      "id": "0f3b30de-6df3-4ae8-8244-880d50a9b25b",
+      "property_id": "3ff35f32-1aa1-468e-8bd0-12cbad8953d1",
+      "process_id": "0d8bc910-03f1-470b-8701-3ad51f8809bb",
+      "perspective_id": "5d00801a-4f96-4289-8772-3399abb1e395",
+      "strength": 0.57,
+      "confidence": 0.95
+    },
+    {
+      "id": "83c4aac6-ae91-426e-8f4d-b33327b63134",
+      "property_id": "ab624eda-956c-47ad-8ba7-96df2f94eee8",
+      "process_id": "be1cba72-d92b-4b07-9cfe-6b2d76d10b1c",
+      "perspective_id": "3b0b21a3-7ef2-4114-a02e-d045c268ba5a",
+      "strength": 0.77,
+      "confidence": 0.71
+    },
+    {
+      "id": "158822ec-d0e8-4e2d-8067-00c0441b6543",
+      "property_id": "4682dac1-377a-46c7-852e-8038d13398f5",
+      "process_id": "830e075d-869f-4ff3-9353-1e9a8fe2b633",
+      "perspective_id": "3b0b21a3-7ef2-4114-a02e-d045c268ba5a",
+      "strength": 0.84,
+      "confidence": 0.97
+    },
+    {
+      "id": "6b389e0c-785f-425c-acae-6b35ac777bc6",
+      "property_id": "95df7c46-eeb1-45b6-91a5-c182e8d7d448",
+      "process_id": "84a5b5ea-abe0-4b26-9ad8-174fbf35396d",
+      "perspective_id": "d768295e-a27d-4d9b-a905-5fdd3d7d6294",
+      "strength": 0.88,
+      "confidence": 0.86
+    },
+    {
+      "id": "62c53c60-52b3-477f-a56c-7bfed8cb02ef",
+      "property_id": "c79f88f8-a915-4793-8fd5-0775ef1e1a7f",
+      "process_id": "74823802-7889-4a54-98b9-0ddda06ef6e2",
+      "perspective_id": "5eb7e279-5a3a-487a-9f65-1448abc4187e",
+      "strength": 0.72,
+      "confidence": 0.72
+    },
+    {
+      "id": "76207b84-71c7-4feb-88f3-c7141222cd83",
+      "property_id": "40e6a4ab-6c6c-4471-8a52-91212cc6a1fe",
+      "process_id": "3a8e0c4e-30bf-436e-b079-acd4b1bf1ed3",
+      "perspective_id": "fc890816-b070-4566-a34d-0d6025b03645",
+      "strength": 0.91,
+      "confidence": 0.81
+    },
+    {
+      "id": "3ac1a102-533e-4d1d-ade1-9b6a501fef9b",
+      "property_id": "a3388800-969c-4b26-b198-dfc8706f4bd0",
+      "process_id": "462943c9-e594-493c-93f8-73e0b504c0a5",
+      "perspective_id": "eed5cca8-6941-4db0-8c10-0d3ec63f172c",
+      "strength": 0.96,
+      "confidence": 0.73
+    },
+    {
+      "id": "a801dc4f-e15f-4b42-93f5-39dd818df699",
+      "property_id": "7ada452b-71f8-4971-893b-c5ca118ac0c9",
+      "process_id": "30e79db6-2e01-46b7-8b5d-d38134de49f3",
+      "perspective_id": "3b0b21a3-7ef2-4114-a02e-d045c268ba5a",
+      "strength": 0.58,
+      "confidence": 0.73
+    },
+    {
+      "id": "e7faf48d-66e6-49fb-8d4a-d1d00ff09802",
+      "property_id": "4682dac1-377a-46c7-852e-8038d13398f5",
+      "process_id": "375f4fb6-f6db-41df-86a4-a87cb0b0126f",
+      "perspective_id": "a86c8e71-a4c5-46a2-9d2b-2e5b5a75b982",
+      "strength": 0.68,
+      "confidence": 0.82
+    },
+    {
+      "id": "5ac44da2-f99e-41f3-a2cf-3745e51b38cd",
+      "property_id": "463899b8-3925-4479-a1f8-afe4600ca433",
+      "process_id": "1e542f7d-24f0-4c88-b947-bf93e7d73316",
+      "perspective_id": "e539c5a7-009f-411f-a575-14d133ce52f1",
+      "strength": 0.67,
+      "confidence": 0.91
+    },
+    {
+      "id": "5e7f3030-46fe-4b51-83b5-c1a3380fca8c",
+      "property_id": "f8f69bfc-2ca0-43da-ac2b-d9c40766f4f6",
+      "process_id": "84a5b5ea-abe0-4b26-9ad8-174fbf35396d",
+      "perspective_id": "5fa45bbd-93a9-4efb-b30a-f95ccb639cfb",
+      "strength": 0.78,
+      "confidence": 0.97
+    },
+    {
+      "id": "5051efe4-6bfa-4289-b03f-ebb0cf82a7b2",
+      "property_id": "4920745c-c013-40c1-bc12-7f803bcc2f09",
+      "process_id": "830e075d-869f-4ff3-9353-1e9a8fe2b633",
+      "perspective_id": "1533ab62-2d96-43ad-8937-b38d4f150f57",
+      "strength": 0.71,
+      "confidence": 0.89
+    },
+    {
+      "id": "48389b15-75fb-45ab-9884-1b0f8a247b79",
+      "property_id": "95df7c46-eeb1-45b6-91a5-c182e8d7d448",
+      "process_id": "2cc8138f-e619-4af5-99a5-dd82d5a71838",
+      "perspective_id": "34385863-488c-4edb-932c-4f2bd28804b8",
+      "strength": 0.92,
+      "confidence": 0.78
+    },
+    {
+      "id": "effb7e24-6732-403e-b791-701d41a703b9",
+      "property_id": "07f0d4f5-0de5-45df-8801-3ca892b17100",
+      "process_id": "1e542f7d-24f0-4c88-b947-bf93e7d73316",
+      "perspective_id": "5df0cd4b-a0fb-4ca8-82a3-942de62c8265",
+      "strength": 0.58,
+      "confidence": 0.76
+    },
+    {
+      "id": "c8e9ea4c-b06a-45bf-a17b-e26411fa7b6a",
+      "property_id": "98fc600a-6887-48cc-b521-21eb7097a723",
+      "process_id": "55d1c4f2-b624-481b-9593-1318d0b3de8a",
+      "perspective_id": "076ead9b-15ed-4554-9b47-ca0f2129471d",
+      "strength": 0.72,
+      "confidence": 0.89
+    },
+    {
+      "id": "b25828c9-5b8b-49a8-8458-8da0d96b4a00",
+      "property_id": "a3ed92c6-42f6-4f48-97f2-aa23675e5fd0",
+      "process_id": "74823802-7889-4a54-98b9-0ddda06ef6e2",
+      "perspective_id": "3594e290-3366-4b8f-ac24-e96277554d34",
+      "strength": 0.89,
+      "confidence": 0.82
+    },
+    {
+      "id": "dedd2d35-aaa6-46d9-8a45-cee65b76b948",
+      "property_id": "07f0d4f5-0de5-45df-8801-3ca892b17100",
+      "process_id": "49603e58-ee91-4483-b14c-a6de0d87fd13",
+      "perspective_id": "1533ab62-2d96-43ad-8937-b38d4f150f57",
+      "strength": 0.73,
+      "confidence": 1.0
+    },
+    {
+      "id": "77d523d3-169a-41e6-a588-7cda9973d633",
+      "property_id": "8eb2756a-293d-4c8e-83d5-97e9e449512e",
+      "process_id": "f19539d6-a43a-495b-82af-71d9eb34c111",
+      "perspective_id": "9a6f5d15-8191-4602-b75f-eb4dd2eec325",
+      "strength": 0.54,
+      "confidence": 0.83
+    },
+    {
+      "id": "3414d619-98f2-4d37-9718-b91647ea96ab",
+      "property_id": "7ada452b-71f8-4971-893b-c5ca118ac0c9",
+      "process_id": "8c842d55-ad17-4eed-bb02-88308f2e99c9",
+      "perspective_id": "a86c8e71-a4c5-46a2-9d2b-2e5b5a75b982",
+      "strength": 0.97,
+      "confidence": 0.79
+    },
+    {
+      "id": "dbb98d91-dc5a-4b86-95dc-12ffad643b4c",
+      "property_id": "5df8e9b1-1d9c-4db9-bbd5-8da24e1fc16f",
+      "process_id": "de86333d-7f2b-47b5-bbb6-52090a739f45",
+      "perspective_id": "c9094bdd-e43f-4ed5-b6e0-d9a3f60f5aef",
+      "strength": 0.82,
+      "confidence": 0.97
+    },
+    {
+      "id": "621b0db6-6636-4575-aff5-5f36907843a3",
+      "property_id": "4e940582-57c5-4f75-9dc8-dd595d1edf16",
+      "process_id": "be1cba72-d92b-4b07-9cfe-6b2d76d10b1c",
+      "perspective_id": "93156df9-f5cb-44b2-a94d-7cc345d363fa",
+      "strength": 0.64,
+      "confidence": 0.81
+    },
+    {
+      "id": "b7a930a3-8df2-4f19-94f2-e0d42d809df4",
+      "property_id": "6d207229-b3be-4a1d-8131-9983a9cf5933",
+      "process_id": "0017e295-1787-4e68-b8df-244a2f86013c",
+      "perspective_id": "ce247aac-49eb-45d3-8969-d25bf81dff08",
+      "strength": 0.93,
+      "confidence": 0.76
+    },
+    {
+      "id": "a429bb85-9f11-40ac-95e1-d40de368c77e",
+      "property_id": "dd938c41-974e-4e51-9bec-0e111ae36994",
+      "process_id": "1e542f7d-24f0-4c88-b947-bf93e7d73316",
+      "perspective_id": "5df0cd4b-a0fb-4ca8-82a3-942de62c8265",
+      "strength": 0.54,
+      "confidence": 0.85
+    },
+    {
+      "id": "edd0561c-9079-49b6-83a3-114e206b9223",
+      "property_id": "a27120ab-7886-49ac-a350-e9ac4a875fc3",
+      "process_id": "646d7d15-55c5-413b-bcb6-1707ccd8ccdc",
+      "perspective_id": "6b7cf036-3848-4ece-80b7-c39bdf1ddc85",
+      "strength": 0.95,
+      "confidence": 0.74
+    },
+    {
+      "id": "0126f895-5d1f-467a-b912-10f69ce8610b",
+      "property_id": "54931b96-d07e-4cc8-b871-4b3a6010ac6f",
+      "process_id": "cb090776-f2ad-40d9-870f-14408dd7c1d3",
+      "perspective_id": "1533ab62-2d96-43ad-8937-b38d4f150f57",
+      "strength": 0.95,
+      "confidence": 0.73
+    },
+    {
+      "id": "633d029d-8310-4881-bf56-29bee5f31862",
+      "property_id": "c79f88f8-a915-4793-8fd5-0775ef1e1a7f",
+      "process_id": "cb090776-f2ad-40d9-870f-14408dd7c1d3",
+      "perspective_id": "5da588a5-3302-43ac-998b-71b465a90493",
+      "strength": 0.8,
+      "confidence": 0.73
+    },
+    {
+      "id": "3ae86228-b325-432a-935e-320dcfd0f6ad",
+      "property_id": "b0a93b67-99ef-4280-9a30-94dd293fdc03",
+      "process_id": "0785bd4f-5095-492f-9667-5a32efeea24f",
+      "perspective_id": "5d00801a-4f96-4289-8772-3399abb1e395",
+      "strength": 0.85,
+      "confidence": 0.81
+    },
+    {
+      "id": "aa4f57fb-9e7c-4dfb-b0dd-6ba335c31f85",
+      "property_id": "a27120ab-7886-49ac-a350-e9ac4a875fc3",
+      "process_id": "2cc8138f-e619-4af5-99a5-dd82d5a71838",
+      "perspective_id": "a5d6ff96-30d9-4e42-ab0b-034f8265cfa7",
+      "strength": 0.83,
+      "confidence": 0.97
+    },
+    {
+      "id": "2621dc1f-baeb-4ca3-8dbf-8d20e4130ed1",
+      "property_id": "69ef3358-2928-4987-8193-4d77ad22be8f",
+      "process_id": "1e542f7d-24f0-4c88-b947-bf93e7d73316",
+      "perspective_id": "02951214-89a4-4765-8f20-216c2ddb145c",
+      "strength": 0.72,
+      "confidence": 0.88
+    },
+    {
+      "id": "e2ed27a5-d92e-4d6e-b7b8-6fa29c2551a1",
+      "property_id": "5581c070-641a-40ad-8190-9224a0d66bf2",
+      "process_id": "30051ef8-b496-472a-a596-b994fe2eb623",
+      "perspective_id": "1ed8efb1-febe-4d24-97b8-a8d1dd8ece93",
+      "strength": 0.91,
+      "confidence": 0.92
+    },
+    {
+      "id": "c94e2039-828c-402c-b90d-4213d785bf27",
+      "property_id": "c79f88f8-a915-4793-8fd5-0775ef1e1a7f",
+      "process_id": "74823802-7889-4a54-98b9-0ddda06ef6e2",
+      "perspective_id": "2dbfe109-eb7d-4a77-8fbb-d91c62dc5b56",
+      "strength": 0.54,
+      "confidence": 0.79
+    },
+    {
+      "id": "a5edb9b3-864d-43e8-86a9-f4dae1ed352c",
+      "property_id": "dd938c41-974e-4e51-9bec-0e111ae36994",
+      "process_id": "be1cba72-d92b-4b07-9cfe-6b2d76d10b1c",
+      "perspective_id": "02951214-89a4-4765-8f20-216c2ddb145c",
+      "strength": 0.95,
+      "confidence": 0.93
+    },
+    {
+      "id": "df4fed5b-7674-429a-ba98-4da8852e0ad6",
+      "property_id": "07f0d4f5-0de5-45df-8801-3ca892b17100",
+      "process_id": "e6119ecb-edee-4f92-8a4f-9ad57994d3bb",
+      "perspective_id": "1ed8efb1-febe-4d24-97b8-a8d1dd8ece93",
+      "strength": 0.82,
+      "confidence": 0.81
+    },
+    {
+      "id": "979fefa8-104c-4feb-900e-b2e47fc11192",
+      "property_id": "5bef8410-6eb5-4659-91ec-580db7a43bb9",
+      "process_id": "de18ea66-57c3-4399-a1e2-f1488c068fce",
+      "perspective_id": "858bb860-3eb3-431a-a920-b478af02553f",
+      "strength": 0.58,
+      "confidence": 0.83
+    },
+    {
+      "id": "632b2b0d-3386-40d7-aedd-bc6126f67860",
+      "property_id": "4e940582-57c5-4f75-9dc8-dd595d1edf16",
+      "process_id": "cb090776-f2ad-40d9-870f-14408dd7c1d3",
+      "perspective_id": "2dbfe109-eb7d-4a77-8fbb-d91c62dc5b56",
+      "strength": 0.58,
+      "confidence": 0.98
+    },
+    {
+      "id": "aa22bf44-f1e1-4043-98c1-2acfa208e4f4",
+      "property_id": "fa1a4e0b-28c0-4f06-a6a4-f2d61d29581e",
+      "process_id": "b006df7e-941b-496f-aa3d-3d9a7edf2f29",
+      "perspective_id": "fc890816-b070-4566-a34d-0d6025b03645",
+      "strength": 0.68,
+      "confidence": 0.75
+    },
+    {
+      "id": "622c1024-2944-47f1-8b41-aef8e410f1a0",
+      "property_id": "3ff35f32-1aa1-468e-8bd0-12cbad8953d1",
+      "process_id": "1dc51459-c217-464a-a460-c453b6de6e11",
+      "perspective_id": "2d673d0e-347d-42a8-836b-058ea8103c7a",
+      "strength": 0.64,
+      "confidence": 0.75
+    },
+    {
+      "id": "d556b5e9-3d09-4a44-9407-5ae326d399c1",
+      "property_id": "c18a7e3a-f0bd-4d03-93e9-3ff2bae7f26f",
+      "process_id": "3a8e0c4e-30bf-436e-b079-acd4b1bf1ed3",
+      "perspective_id": "858bb860-3eb3-431a-a920-b478af02553f",
+      "strength": 0.8,
+      "confidence": 0.72
+    },
+    {
+      "id": "fe142db3-7bf5-4c3b-8388-5ee3a58e1c19",
+      "property_id": "c79f88f8-a915-4793-8fd5-0775ef1e1a7f",
+      "process_id": "b4d2e960-c1dd-41f4-819a-126c922dbcea",
+      "perspective_id": "3b0b21a3-7ef2-4114-a02e-d045c268ba5a",
+      "strength": 0.66,
+      "confidence": 0.97
+    },
+    {
+      "id": "94859476-5945-4e89-b7f2-c4aa48ba403b",
+      "property_id": "40e6a4ab-6c6c-4471-8a52-91212cc6a1fe",
+      "process_id": "f19539d6-a43a-495b-82af-71d9eb34c111",
+      "perspective_id": "90fa7a8c-bbea-409e-9e99-bbe56905506a",
+      "strength": 0.55,
+      "confidence": 0.91
+    },
+    {
+      "id": "7a761e96-7b88-4777-81b3-2ef2f9af59bb",
+      "property_id": "4044eb0e-3cbd-4e86-8b4f-0636735eb7b7",
+      "process_id": "462943c9-e594-493c-93f8-73e0b504c0a5",
+      "perspective_id": "90fa7a8c-bbea-409e-9e99-bbe56905506a",
+      "strength": 0.77,
+      "confidence": 0.89
+    },
+    {
+      "id": "96c7bd98-2321-4920-ada6-23951cf60eb1",
+      "property_id": "98fc600a-6887-48cc-b521-21eb7097a723",
+      "process_id": "de86333d-7f2b-47b5-bbb6-52090a739f45",
+      "perspective_id": "0a9a3341-c1bf-4675-9a81-add6a98fc900",
+      "strength": 0.51,
+      "confidence": 0.87
+    },
+    {
+      "id": "cb79e7e1-eb1f-4b79-b03e-55f355a6caa6",
+      "property_id": "16e0accb-1128-4fab-a843-054bc26a0aa2",
+      "process_id": "30e79db6-2e01-46b7-8b5d-d38134de49f3",
+      "perspective_id": "25d2be4f-c635-4835-919f-328c5f4bd025",
+      "strength": 0.64,
+      "confidence": 0.95
+    },
+    {
+      "id": "44bd6ef8-a4fc-4dc9-b72d-8ba6ec27d0be",
+      "property_id": "b1d2c6be-5c91-425d-842f-928f4ccb08bd",
+      "process_id": "2cc8138f-e619-4af5-99a5-dd82d5a71838",
+      "perspective_id": "a86c8e71-a4c5-46a2-9d2b-2e5b5a75b982",
+      "strength": 0.62,
+      "confidence": 0.83
+    },
+    {
+      "id": "c06756e9-4499-4985-b226-ebf7cf7fb333",
+      "property_id": "fa1a4e0b-28c0-4f06-a6a4-f2d61d29581e",
+      "process_id": "74823802-7889-4a54-98b9-0ddda06ef6e2",
+      "perspective_id": "3bf8b3d9-590a-454b-b221-e5c0f7eb51be",
+      "strength": 0.57,
+      "confidence": 0.97
+    },
+    {
+      "id": "6ad5b14d-5e2a-4fb1-9717-370b09d55e08",
+      "property_id": "98fc600a-6887-48cc-b521-21eb7097a723",
+      "process_id": "74823802-7889-4a54-98b9-0ddda06ef6e2",
+      "perspective_id": "076ead9b-15ed-4554-9b47-ca0f2129471d",
+      "strength": 0.86,
+      "confidence": 0.7
+    },
+    {
+      "id": "1f04e820-5354-4f12-993c-c804056700ac",
+      "property_id": "fa1a4e0b-28c0-4f06-a6a4-f2d61d29581e",
+      "process_id": "d2b4ef24-1929-400f-8d16-c15ff7231717",
+      "perspective_id": "4df87f69-2e8a-476a-8c97-f4324ad7bf5c",
+      "strength": 0.93,
+      "confidence": 0.72
+    },
+    {
+      "id": "b6be0514-f61e-434f-8ff7-5425953ddbae",
+      "property_id": "a3388800-969c-4b26-b198-dfc8706f4bd0",
+      "process_id": "a8310083-db2c-4156-89d0-fffca41ed25e",
+      "perspective_id": "6647b168-6a5d-4bb3-ac84-38df42128216",
+      "strength": 0.84,
+      "confidence": 0.88
+    },
+    {
+      "id": "f68369e4-0231-44d0-a41b-74a0d447742e",
+      "property_id": "54931b96-d07e-4cc8-b871-4b3a6010ac6f",
+      "process_id": "3f4b91e3-0ed0-47b6-9ff7-2edfc7e0e8a1",
+      "perspective_id": "a5d6ff96-30d9-4e42-ab0b-034f8265cfa7",
+      "strength": 0.81,
+      "confidence": 0.86
+    },
+    {
+      "id": "559ea7b2-d19e-46e4-a818-0754d8e2829b",
+      "property_id": "4642b0d7-7a40-41d9-902a-82bea5e89408",
+      "process_id": "09bede4d-df10-4745-a69e-9dc116ec65b3",
+      "perspective_id": "c8216afc-6d9e-4c59-bb35-caf3767bf195",
+      "strength": 0.85,
+      "confidence": 0.97
+    },
+    {
+      "id": "28454727-2f04-4d7b-b795-f2f63a8d9fff",
+      "property_id": "770638df-c281-4100-833a-333fe3d273e0",
+      "process_id": "adc47f07-6f56-4d79-8b46-6500e07e86e5",
+      "perspective_id": "4df87f69-2e8a-476a-8c97-f4324ad7bf5c",
+      "strength": 0.69,
+      "confidence": 0.82
+    },
+    {
+      "id": "3efcf49d-e6fb-4a73-8f58-6cf36c723b26",
+      "property_id": "3a6a46f0-ed49-4727-aa76-3ade02d9316d",
+      "process_id": "74823802-7889-4a54-98b9-0ddda06ef6e2",
+      "perspective_id": "2d673d0e-347d-42a8-836b-058ea8103c7a",
+      "strength": 0.65,
+      "confidence": 0.71
+    },
+    {
+      "id": "000d6fd0-c2e5-4b60-907d-272862616579",
+      "property_id": "93b3d156-f2d7-44d7-a0df-a277ddda07db",
+      "process_id": "fa58a926-40c5-454f-902c-550ee40d4ff1",
+      "perspective_id": "4df87f69-2e8a-476a-8c97-f4324ad7bf5c",
+      "strength": 0.8,
+      "confidence": 0.91
+    },
+    {
+      "id": "1697a258-4c2b-4370-a0fc-1edea288b880",
+      "property_id": "b0a93b67-99ef-4280-9a30-94dd293fdc03",
+      "process_id": "a3113906-4e7b-4fdb-80c3-88434a18761b",
+      "perspective_id": "93156df9-f5cb-44b2-a94d-7cc345d363fa",
+      "strength": 0.92,
+      "confidence": 0.94
+    },
+    {
+      "id": "05a8084a-f090-486b-971c-3369736277eb",
+      "property_id": "4c67359e-0800-46c9-9d9c-acc327e5e4ee",
+      "process_id": "d2b4ef24-1929-400f-8d16-c15ff7231717",
+      "perspective_id": "2dbfe109-eb7d-4a77-8fbb-d91c62dc5b56",
+      "strength": 0.71,
+      "confidence": 0.78
+    },
+    {
+      "id": "d2f37bf6-f5e0-4542-a35b-2680d3bd61af",
+      "property_id": "948f70a6-2dae-440b-882d-8f5321991cb1",
+      "process_id": "de18ea66-57c3-4399-a1e2-f1488c068fce",
+      "perspective_id": "c9094bdd-e43f-4ed5-b6e0-d9a3f60f5aef",
+      "strength": 0.73,
+      "confidence": 0.95
+    }
+  ],
+  "metadata": {
+    "count": {
+      "properties": 50,
+      "processes": 50,
+      "perspectives": 50
+    }
+  }
+}

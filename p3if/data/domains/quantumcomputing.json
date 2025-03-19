@@ -1,0 +1,910 @@
+{
+  "domain": "QuantumComputing",
+  "version": "1.0",
+  "properties": [
+    "Superposition",
+    "Entanglement",
+    "Quantum Gates",
+    "Qubits",
+    "Quantum Algorithms",
+    "Quantum Error Correction",
+    "Quantum Supremacy",
+    "Quantum Cryptography",
+    "Quantum Sensing",
+    "Quantum Simulation",
+    "Quantum Annealing",
+    "Quantum Machine Learning",
+    "Quantum Internet",
+    "Quantum Software",
+    "Quantum Hardware"
+  ],
+  "processes": [
+    "Qubit Initialization",
+    "Quantum Circuit Design",
+    "Quantum State Preparation",
+    "Quantum Measurement",
+    "Quantum Error Mitigation",
+    "Quantum Algorithm Implementation",
+    "Quantum Compiler Optimization",
+    "Quantum Debugger",
+    "Quantum Simulator",
+    "Quantum-Classical Interfacing",
+    "Quantum Hardware Calibration",
+    "Quantum Network Protocol",
+    "Quantum Key Distribution",
+    "Quantum Teleportation",
+    "Quantum Memory Management"
+  ],
+  "perspectives": [
+    "Quantum Physicist",
+    "Quantum Engineer",
+    "Quantum Algorithm Designer",
+    "Quantum Software Developer",
+    "Quantum Hardware Specialist",
+    "Quantum Cryptographer",
+    "Quantum Information Theorist",
+    "Quantum Error Correction Specialist",
+    "Quantum Complexity Theorist",
+    "Quantum Applications Researcher",
+    "Quantum Policy Maker",
+    "Quantum Educator",
+    "Quantum Entrepreneur",
+    "Quantum Investor",
+    "Quantum Ethics Specialist"
+  ],
+  "patterns": {
+    "properties": [
+      {
+        "id": "1df2b8b4-263e-43de-9580-eb190b2238e5",
+        "name": "Superposition",
+        "type": "property",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "c4924599-bbb2-48ed-9ccb-ca249ee74c30",
+        "name": "Entanglement",
+        "type": "property",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "6a103fab-0c45-40f2-8e1e-e927913ea2e0",
+        "name": "Quantum Gates",
+        "type": "property",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "fdd66396-cb19-419c-97c6-82fff4004dfa",
+        "name": "Qubits",
+        "type": "property",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "57558bf7-210b-4812-bcbe-e9436de507dd",
+        "name": "Quantum Algorithms",
+        "type": "property",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "7d9def1d-18e2-47ab-935e-915087a4fe89",
+        "name": "Quantum Error Correction",
+        "type": "property",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "edf82119-163c-4289-a839-1b032ce968f4",
+        "name": "Quantum Supremacy",
+        "type": "property",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "58b02ed7-ec79-4f99-8f83-716cc4713da6",
+        "name": "Quantum Cryptography",
+        "type": "property",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "0617578d-bedf-44b8-8551-28901b97a885",
+        "name": "Quantum Sensing",
+        "type": "property",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "437bf1c4-ed92-4510-a078-224be44b2c2f",
+        "name": "Quantum Simulation",
+        "type": "property",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "cf71cfaa-ad27-4d35-9633-c08ff41db92d",
+        "name": "Quantum Annealing",
+        "type": "property",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "023d2c73-31da-461c-a70b-95e8b638b5d4",
+        "name": "Quantum Machine Learning",
+        "type": "property",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "4872c7df-54e9-4d1f-a020-e15717b3e307",
+        "name": "Quantum Internet",
+        "type": "property",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "8139e971-cfb0-41cf-826b-c85836b0bcd5",
+        "name": "Quantum Software",
+        "type": "property",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "00b1cb77-a7f0-42b1-855f-ed9122323dd4",
+        "name": "Quantum Hardware",
+        "type": "property",
+        "domain": "QuantumComputing"
+      }
+    ],
+    "processes": [
+      {
+        "id": "d77b4156-9360-4553-ac92-dd43d5a15db2",
+        "name": "Qubit Initialization",
+        "type": "process",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "801db018-d7cd-4968-a191-d4ba8c176bf6",
+        "name": "Quantum Circuit Design",
+        "type": "process",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "39081a7d-4122-452d-bb2c-8500fc89a26d",
+        "name": "Quantum State Preparation",
+        "type": "process",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "e01af2ba-21d8-4e56-8b37-c5fca9aeff8f",
+        "name": "Quantum Measurement",
+        "type": "process",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "78a3923c-caa5-4764-b427-b5939e2b0371",
+        "name": "Quantum Error Mitigation",
+        "type": "process",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "e63df48c-5fd1-44ee-aa63-d24518217fcc",
+        "name": "Quantum Algorithm Implementation",
+        "type": "process",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "3acd0755-8709-479f-9ca2-fdae6b5244a1",
+        "name": "Quantum Compiler Optimization",
+        "type": "process",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "608239f4-13cf-4a3a-8029-27d4d36af79d",
+        "name": "Quantum Debugger",
+        "type": "process",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "0c03eff3-1f5c-4d40-949b-0a40b0d9c81b",
+        "name": "Quantum Simulator",
+        "type": "process",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "9acae0cc-96bd-4f4b-900a-e2868759ed24",
+        "name": "Quantum-Classical Interfacing",
+        "type": "process",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "3a3bb1af-617d-45d8-894c-582e2d93d16c",
+        "name": "Quantum Hardware Calibration",
+        "type": "process",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "2c38e40e-fcd9-4870-900c-f0365c55acc1",
+        "name": "Quantum Network Protocol",
+        "type": "process",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "99eca20d-050c-47ec-ae41-a37547afa9a1",
+        "name": "Quantum Key Distribution",
+        "type": "process",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "83e84963-e306-4796-8cc5-9905bf25e4eb",
+        "name": "Quantum Teleportation",
+        "type": "process",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "ecb35cd9-4d0e-43ac-ba03-b706fd93e87e",
+        "name": "Quantum Memory Management",
+        "type": "process",
+        "domain": "QuantumComputing"
+      }
+    ],
+    "perspectives": [
+      {
+        "id": "86073b08-1788-419e-8d65-ee97ce51905c",
+        "name": "Quantum Physicist",
+        "type": "perspective",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "86252547-b437-4c5e-93fa-9c91646e85b5",
+        "name": "Quantum Engineer",
+        "type": "perspective",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "f63b7fb5-13de-460e-8077-d6fdf1192237",
+        "name": "Quantum Algorithm Designer",
+        "type": "perspective",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "e0175aca-8935-483b-8573-34eea689add0",
+        "name": "Quantum Software Developer",
+        "type": "perspective",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "04ffeadc-e1c8-4af6-b330-797c0305153e",
+        "name": "Quantum Hardware Specialist",
+        "type": "perspective",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "29359905-8990-48bd-8cb8-eadd70be4856",
+        "name": "Quantum Cryptographer",
+        "type": "perspective",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "b75729d8-3e6f-4c07-b819-49114337a1b8",
+        "name": "Quantum Information Theorist",
+        "type": "perspective",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "c34b0abc-592c-4a95-bd68-fb182d05f2b1",
+        "name": "Quantum Error Correction Specialist",
+        "type": "perspective",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "15eb0640-70b0-4bcc-b83e-e241787a9630",
+        "name": "Quantum Complexity Theorist",
+        "type": "perspective",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "b6f755a3-4cee-4494-9a98-6220028e06d3",
+        "name": "Quantum Applications Researcher",
+        "type": "perspective",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "312a2418-163f-4278-b5d2-a76bc2150fd9",
+        "name": "Quantum Policy Maker",
+        "type": "perspective",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "40e11da5-6ea3-41fa-ac52-78785ca74139",
+        "name": "Quantum Educator",
+        "type": "perspective",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "ba014322-0363-45bc-8429-f211c2694ce3",
+        "name": "Quantum Entrepreneur",
+        "type": "perspective",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "8b4e18bc-2d96-43d6-95dc-6e6f46b0fcb3",
+        "name": "Quantum Investor",
+        "type": "perspective",
+        "domain": "QuantumComputing"
+      },
+      {
+        "id": "10f22eaf-4baa-4d1e-a01e-376fa2561d65",
+        "name": "Quantum Ethics Specialist",
+        "type": "perspective",
+        "domain": "QuantumComputing"
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "12dd4b10-01e7-4c8f-8bd4-e4c19b31c5af",
+      "property_id": "fdd66396-cb19-419c-97c6-82fff4004dfa",
+      "process_id": "99eca20d-050c-47ec-ae41-a37547afa9a1",
+      "perspective_id": "ba014322-0363-45bc-8429-f211c2694ce3",
+      "strength": 0.56,
+      "confidence": 0.73
+    },
+    {
+      "id": "865f8842-97a8-4448-92b8-5c69ada7856d",
+      "property_id": "437bf1c4-ed92-4510-a078-224be44b2c2f",
+      "process_id": "2c38e40e-fcd9-4870-900c-f0365c55acc1",
+      "perspective_id": "e0175aca-8935-483b-8573-34eea689add0",
+      "strength": 0.63,
+      "confidence": 0.77
+    },
+    {
+      "id": "936f9264-7ab8-4f40-8033-77b5e8c96652",
+      "property_id": "437bf1c4-ed92-4510-a078-224be44b2c2f",
+      "process_id": "3acd0755-8709-479f-9ca2-fdae6b5244a1",
+      "perspective_id": "c34b0abc-592c-4a95-bd68-fb182d05f2b1",
+      "strength": 0.84,
+      "confidence": 1.0
+    },
+    {
+      "id": "6d09a084-07f2-4cb7-bb84-989543d610ff",
+      "property_id": "c4924599-bbb2-48ed-9ccb-ca249ee74c30",
+      "process_id": "0c03eff3-1f5c-4d40-949b-0a40b0d9c81b",
+      "perspective_id": "b6f755a3-4cee-4494-9a98-6220028e06d3",
+      "strength": 0.66,
+      "confidence": 0.93
+    },
+    {
+      "id": "9b116af4-d8e0-4995-bb0a-c0715bf11409",
+      "property_id": "fdd66396-cb19-419c-97c6-82fff4004dfa",
+      "process_id": "e63df48c-5fd1-44ee-aa63-d24518217fcc",
+      "perspective_id": "e0175aca-8935-483b-8573-34eea689add0",
+      "strength": 0.55,
+      "confidence": 0.89
+    },
+    {
+      "id": "532b90fa-b182-42c6-ac5c-de66260418ec",
+      "property_id": "6a103fab-0c45-40f2-8e1e-e927913ea2e0",
+      "process_id": "78a3923c-caa5-4764-b427-b5939e2b0371",
+      "perspective_id": "40e11da5-6ea3-41fa-ac52-78785ca74139",
+      "strength": 0.63,
+      "confidence": 0.75
+    },
+    {
+      "id": "7ce1e37f-81d2-4396-b9f3-2ef373aa0ded",
+      "property_id": "cf71cfaa-ad27-4d35-9633-c08ff41db92d",
+      "process_id": "3a3bb1af-617d-45d8-894c-582e2d93d16c",
+      "perspective_id": "ba014322-0363-45bc-8429-f211c2694ce3",
+      "strength": 0.88,
+      "confidence": 0.84
+    },
+    {
+      "id": "aff0e41d-c52b-44ae-ad1d-4320a6f885b4",
+      "property_id": "7d9def1d-18e2-47ab-935e-915087a4fe89",
+      "process_id": "3a3bb1af-617d-45d8-894c-582e2d93d16c",
+      "perspective_id": "312a2418-163f-4278-b5d2-a76bc2150fd9",
+      "strength": 0.75,
+      "confidence": 0.94
+    },
+    {
+      "id": "fda55a21-ea91-4732-ab21-37d416c9ff7b",
+      "property_id": "1df2b8b4-263e-43de-9580-eb190b2238e5",
+      "process_id": "2c38e40e-fcd9-4870-900c-f0365c55acc1",
+      "perspective_id": "10f22eaf-4baa-4d1e-a01e-376fa2561d65",
+      "strength": 0.63,
+      "confidence": 0.76
+    },
+    {
+      "id": "28723dcc-034b-4c0e-b718-9e8649752c56",
+      "property_id": "edf82119-163c-4289-a839-1b032ce968f4",
+      "process_id": "e63df48c-5fd1-44ee-aa63-d24518217fcc",
+      "perspective_id": "c34b0abc-592c-4a95-bd68-fb182d05f2b1",
+      "strength": 0.58,
+      "confidence": 0.88
+    },
+    {
+      "id": "1e9bb81f-8416-426c-8fd7-db17cb409da0",
+      "property_id": "0617578d-bedf-44b8-8551-28901b97a885",
+      "process_id": "2c38e40e-fcd9-4870-900c-f0365c55acc1",
+      "perspective_id": "29359905-8990-48bd-8cb8-eadd70be4856",
+      "strength": 0.58,
+      "confidence": 0.85
+    },
+    {
+      "id": "e902710f-8edd-4fe7-a90d-95643fa14b00",
+      "property_id": "1df2b8b4-263e-43de-9580-eb190b2238e5",
+      "process_id": "3acd0755-8709-479f-9ca2-fdae6b5244a1",
+      "perspective_id": "312a2418-163f-4278-b5d2-a76bc2150fd9",
+      "strength": 0.87,
+      "confidence": 0.72
+    },
+    {
+      "id": "e3af9818-e8c7-4909-bb78-2a35d71fcba2",
+      "property_id": "7d9def1d-18e2-47ab-935e-915087a4fe89",
+      "process_id": "78a3923c-caa5-4764-b427-b5939e2b0371",
+      "perspective_id": "ba014322-0363-45bc-8429-f211c2694ce3",
+      "strength": 0.91,
+      "confidence": 0.92
+    },
+    {
+      "id": "18d60096-ed61-46f2-b5f2-ca46deac3aea",
+      "property_id": "7d9def1d-18e2-47ab-935e-915087a4fe89",
+      "process_id": "83e84963-e306-4796-8cc5-9905bf25e4eb",
+      "perspective_id": "40e11da5-6ea3-41fa-ac52-78785ca74139",
+      "strength": 0.96,
+      "confidence": 0.88
+    },
+    {
+      "id": "94c83574-d8c7-43aa-8977-ad3c39d988c6",
+      "property_id": "7d9def1d-18e2-47ab-935e-915087a4fe89",
+      "process_id": "e63df48c-5fd1-44ee-aa63-d24518217fcc",
+      "perspective_id": "b75729d8-3e6f-4c07-b819-49114337a1b8",
+      "strength": 0.75,
+      "confidence": 0.93
+    },
+    {
+      "id": "cf2fc635-eb2a-419a-9ec8-e4c1c5910295",
+      "property_id": "1df2b8b4-263e-43de-9580-eb190b2238e5",
+      "process_id": "0c03eff3-1f5c-4d40-949b-0a40b0d9c81b",
+      "perspective_id": "29359905-8990-48bd-8cb8-eadd70be4856",
+      "strength": 0.54,
+      "confidence": 0.83
+    },
+    {
+      "id": "5e2b7fec-a845-476d-b78e-800922a1d5c2",
+      "property_id": "437bf1c4-ed92-4510-a078-224be44b2c2f",
+      "process_id": "9acae0cc-96bd-4f4b-900a-e2868759ed24",
+      "perspective_id": "10f22eaf-4baa-4d1e-a01e-376fa2561d65",
+      "strength": 0.64,
+      "confidence": 0.73
+    },
+    {
+      "id": "bcd79b30-f481-4b85-90ec-0e2d16969d51",
+      "property_id": "00b1cb77-a7f0-42b1-855f-ed9122323dd4",
+      "process_id": "801db018-d7cd-4968-a191-d4ba8c176bf6",
+      "perspective_id": "b6f755a3-4cee-4494-9a98-6220028e06d3",
+      "strength": 0.75,
+      "confidence": 0.97
+    },
+    {
+      "id": "28f73101-8e2c-4811-98db-61b96213f028",
+      "property_id": "edf82119-163c-4289-a839-1b032ce968f4",
+      "process_id": "78a3923c-caa5-4764-b427-b5939e2b0371",
+      "perspective_id": "04ffeadc-e1c8-4af6-b330-797c0305153e",
+      "strength": 0.53,
+      "confidence": 0.91
+    },
+    {
+      "id": "17d31026-ce99-4885-aad4-27fb849d4e9e",
+      "property_id": "c4924599-bbb2-48ed-9ccb-ca249ee74c30",
+      "process_id": "39081a7d-4122-452d-bb2c-8500fc89a26d",
+      "perspective_id": "b6f755a3-4cee-4494-9a98-6220028e06d3",
+      "strength": 0.6,
+      "confidence": 0.75
+    },
+    {
+      "id": "93e4e55e-9567-444a-b1df-0c40573bb13a",
+      "property_id": "7d9def1d-18e2-47ab-935e-915087a4fe89",
+      "process_id": "d77b4156-9360-4553-ac92-dd43d5a15db2",
+      "perspective_id": "312a2418-163f-4278-b5d2-a76bc2150fd9",
+      "strength": 0.55,
+      "confidence": 0.77
+    },
+    {
+      "id": "4780097e-7931-46fe-99eb-916771b83d03",
+      "property_id": "8139e971-cfb0-41cf-826b-c85836b0bcd5",
+      "process_id": "801db018-d7cd-4968-a191-d4ba8c176bf6",
+      "perspective_id": "10f22eaf-4baa-4d1e-a01e-376fa2561d65",
+      "strength": 0.88,
+      "confidence": 0.79
+    },
+    {
+      "id": "3b8d43ed-8bc4-4ad2-8ccc-d4f2a8cfebd5",
+      "property_id": "437bf1c4-ed92-4510-a078-224be44b2c2f",
+      "process_id": "9acae0cc-96bd-4f4b-900a-e2868759ed24",
+      "perspective_id": "c34b0abc-592c-4a95-bd68-fb182d05f2b1",
+      "strength": 0.89,
+      "confidence": 0.96
+    },
+    {
+      "id": "ffd4339c-fd27-4ef4-a676-13e844272469",
+      "property_id": "00b1cb77-a7f0-42b1-855f-ed9122323dd4",
+      "process_id": "801db018-d7cd-4968-a191-d4ba8c176bf6",
+      "perspective_id": "8b4e18bc-2d96-43d6-95dc-6e6f46b0fcb3",
+      "strength": 0.59,
+      "confidence": 0.79
+    },
+    {
+      "id": "179b37c2-f247-4326-a8ae-5b5e0fcba209",
+      "property_id": "c4924599-bbb2-48ed-9ccb-ca249ee74c30",
+      "process_id": "0c03eff3-1f5c-4d40-949b-0a40b0d9c81b",
+      "perspective_id": "04ffeadc-e1c8-4af6-b330-797c0305153e",
+      "strength": 0.94,
+      "confidence": 0.79
+    },
+    {
+      "id": "2d6ddf3a-a9ee-4621-98f4-7d803eb4b078",
+      "property_id": "57558bf7-210b-4812-bcbe-e9436de507dd",
+      "process_id": "d77b4156-9360-4553-ac92-dd43d5a15db2",
+      "perspective_id": "b75729d8-3e6f-4c07-b819-49114337a1b8",
+      "strength": 0.71,
+      "confidence": 0.72
+    },
+    {
+      "id": "16719ad7-d30c-462b-acac-154a5264c2cf",
+      "property_id": "023d2c73-31da-461c-a70b-95e8b638b5d4",
+      "process_id": "39081a7d-4122-452d-bb2c-8500fc89a26d",
+      "perspective_id": "312a2418-163f-4278-b5d2-a76bc2150fd9",
+      "strength": 0.54,
+      "confidence": 0.96
+    },
+    {
+      "id": "7c27b6d2-93b9-4ea4-8fd9-8a1daacee55e",
+      "property_id": "edf82119-163c-4289-a839-1b032ce968f4",
+      "process_id": "3a3bb1af-617d-45d8-894c-582e2d93d16c",
+      "perspective_id": "29359905-8990-48bd-8cb8-eadd70be4856",
+      "strength": 0.86,
+      "confidence": 0.78
+    },
+    {
+      "id": "3f3d550f-55e7-46f5-975b-2bd6d4839954",
+      "property_id": "fdd66396-cb19-419c-97c6-82fff4004dfa",
+      "process_id": "78a3923c-caa5-4764-b427-b5939e2b0371",
+      "perspective_id": "b75729d8-3e6f-4c07-b819-49114337a1b8",
+      "strength": 0.58,
+      "confidence": 0.99
+    },
+    {
+      "id": "c2df6ee9-fa34-493d-b85c-61049c52d262",
+      "property_id": "57558bf7-210b-4812-bcbe-e9436de507dd",
+      "process_id": "3acd0755-8709-479f-9ca2-fdae6b5244a1",
+      "perspective_id": "40e11da5-6ea3-41fa-ac52-78785ca74139",
+      "strength": 0.86,
+      "confidence": 0.89
+    },
+    {
+      "id": "8a69e4ba-ebf9-4161-8598-ac6465e46640",
+      "property_id": "437bf1c4-ed92-4510-a078-224be44b2c2f",
+      "process_id": "3acd0755-8709-479f-9ca2-fdae6b5244a1",
+      "perspective_id": "40e11da5-6ea3-41fa-ac52-78785ca74139",
+      "strength": 0.84,
+      "confidence": 0.99
+    },
+    {
+      "id": "dc301bc2-41a4-4d63-a40f-170f4795926a",
+      "property_id": "6a103fab-0c45-40f2-8e1e-e927913ea2e0",
+      "process_id": "ecb35cd9-4d0e-43ac-ba03-b706fd93e87e",
+      "perspective_id": "ba014322-0363-45bc-8429-f211c2694ce3",
+      "strength": 0.89,
+      "confidence": 0.77
+    },
+    {
+      "id": "5569fa81-f4ce-4ba1-8103-93d92223b632",
+      "property_id": "cf71cfaa-ad27-4d35-9633-c08ff41db92d",
+      "process_id": "9acae0cc-96bd-4f4b-900a-e2868759ed24",
+      "perspective_id": "86252547-b437-4c5e-93fa-9c91646e85b5",
+      "strength": 0.69,
+      "confidence": 0.9
+    },
+    {
+      "id": "38dd3856-9534-4e5a-8048-cb9d8ef8cc95",
+      "property_id": "0617578d-bedf-44b8-8551-28901b97a885",
+      "process_id": "3acd0755-8709-479f-9ca2-fdae6b5244a1",
+      "perspective_id": "312a2418-163f-4278-b5d2-a76bc2150fd9",
+      "strength": 0.74,
+      "confidence": 0.95
+    },
+    {
+      "id": "d77aa748-cf66-45c5-b995-de8a102481a1",
+      "property_id": "1df2b8b4-263e-43de-9580-eb190b2238e5",
+      "process_id": "78a3923c-caa5-4764-b427-b5939e2b0371",
+      "perspective_id": "86073b08-1788-419e-8d65-ee97ce51905c",
+      "strength": 0.68,
+      "confidence": 0.94
+    },
+    {
+      "id": "f04c52f7-6e74-428e-9396-4c17020bcfe6",
+      "property_id": "4872c7df-54e9-4d1f-a020-e15717b3e307",
+      "process_id": "2c38e40e-fcd9-4870-900c-f0365c55acc1",
+      "perspective_id": "312a2418-163f-4278-b5d2-a76bc2150fd9",
+      "strength": 0.62,
+      "confidence": 1.0
+    },
+    {
+      "id": "826eb708-ad00-4edf-bc53-54aa566e164d",
+      "property_id": "fdd66396-cb19-419c-97c6-82fff4004dfa",
+      "process_id": "3a3bb1af-617d-45d8-894c-582e2d93d16c",
+      "perspective_id": "e0175aca-8935-483b-8573-34eea689add0",
+      "strength": 0.74,
+      "confidence": 0.92
+    },
+    {
+      "id": "1ad2c1cc-e47b-40b6-a2df-61a93ea812df",
+      "property_id": "c4924599-bbb2-48ed-9ccb-ca249ee74c30",
+      "process_id": "2c38e40e-fcd9-4870-900c-f0365c55acc1",
+      "perspective_id": "40e11da5-6ea3-41fa-ac52-78785ca74139",
+      "strength": 0.72,
+      "confidence": 0.75
+    },
+    {
+      "id": "2a04e5e1-f055-4b99-b7e1-098d4984b04a",
+      "property_id": "00b1cb77-a7f0-42b1-855f-ed9122323dd4",
+      "process_id": "e63df48c-5fd1-44ee-aa63-d24518217fcc",
+      "perspective_id": "86252547-b437-4c5e-93fa-9c91646e85b5",
+      "strength": 0.67,
+      "confidence": 0.71
+    },
+    {
+      "id": "fa6b4767-d171-4d72-b9ed-ecc2b3e4ebfc",
+      "property_id": "6a103fab-0c45-40f2-8e1e-e927913ea2e0",
+      "process_id": "2c38e40e-fcd9-4870-900c-f0365c55acc1",
+      "perspective_id": "04ffeadc-e1c8-4af6-b330-797c0305153e",
+      "strength": 0.97,
+      "confidence": 0.77
+    },
+    {
+      "id": "71766113-ca42-4348-abf4-2be90b4f124f",
+      "property_id": "edf82119-163c-4289-a839-1b032ce968f4",
+      "process_id": "0c03eff3-1f5c-4d40-949b-0a40b0d9c81b",
+      "perspective_id": "8b4e18bc-2d96-43d6-95dc-6e6f46b0fcb3",
+      "strength": 0.52,
+      "confidence": 0.75
+    },
+    {
+      "id": "289c7254-1ea3-4796-bba9-4607561f7eb2",
+      "property_id": "437bf1c4-ed92-4510-a078-224be44b2c2f",
+      "process_id": "78a3923c-caa5-4764-b427-b5939e2b0371",
+      "perspective_id": "86073b08-1788-419e-8d65-ee97ce51905c",
+      "strength": 0.79,
+      "confidence": 0.75
+    },
+    {
+      "id": "144cd648-bf11-4a20-874e-121a262bb3e4",
+      "property_id": "4872c7df-54e9-4d1f-a020-e15717b3e307",
+      "process_id": "801db018-d7cd-4968-a191-d4ba8c176bf6",
+      "perspective_id": "86073b08-1788-419e-8d65-ee97ce51905c",
+      "strength": 0.93,
+      "confidence": 0.96
+    },
+    {
+      "id": "7280f0f8-a6ea-490c-a342-b3a3473eb5a1",
+      "property_id": "c4924599-bbb2-48ed-9ccb-ca249ee74c30",
+      "process_id": "3a3bb1af-617d-45d8-894c-582e2d93d16c",
+      "perspective_id": "b75729d8-3e6f-4c07-b819-49114337a1b8",
+      "strength": 0.95,
+      "confidence": 0.76
+    },
+    {
+      "id": "674853b9-161f-469a-8e3e-7d5c32db9f4d",
+      "property_id": "023d2c73-31da-461c-a70b-95e8b638b5d4",
+      "process_id": "0c03eff3-1f5c-4d40-949b-0a40b0d9c81b",
+      "perspective_id": "10f22eaf-4baa-4d1e-a01e-376fa2561d65",
+      "strength": 0.76,
+      "confidence": 0.82
+    },
+    {
+      "id": "5153eb60-aab2-4f62-8e89-f22ebaa2fc66",
+      "property_id": "cf71cfaa-ad27-4d35-9633-c08ff41db92d",
+      "process_id": "608239f4-13cf-4a3a-8029-27d4d36af79d",
+      "perspective_id": "ba014322-0363-45bc-8429-f211c2694ce3",
+      "strength": 0.77,
+      "confidence": 0.82
+    },
+    {
+      "id": "5da1bb79-c432-4885-93c8-eec1e48ad77b",
+      "property_id": "7d9def1d-18e2-47ab-935e-915087a4fe89",
+      "process_id": "99eca20d-050c-47ec-ae41-a37547afa9a1",
+      "perspective_id": "f63b7fb5-13de-460e-8077-d6fdf1192237",
+      "strength": 0.53,
+      "confidence": 0.87
+    },
+    {
+      "id": "6fbe32af-70d6-4bf1-8161-ceb7ac2ff6fb",
+      "property_id": "fdd66396-cb19-419c-97c6-82fff4004dfa",
+      "process_id": "2c38e40e-fcd9-4870-900c-f0365c55acc1",
+      "perspective_id": "86252547-b437-4c5e-93fa-9c91646e85b5",
+      "strength": 0.81,
+      "confidence": 0.89
+    },
+    {
+      "id": "d37cfe40-d4f3-41e7-ab70-cb71d1c76bb8",
+      "property_id": "4872c7df-54e9-4d1f-a020-e15717b3e307",
+      "process_id": "e01af2ba-21d8-4e56-8b37-c5fca9aeff8f",
+      "perspective_id": "f63b7fb5-13de-460e-8077-d6fdf1192237",
+      "strength": 0.58,
+      "confidence": 0.72
+    },
+    {
+      "id": "25104246-93d5-4c93-85f5-02a1febd7c04",
+      "property_id": "7d9def1d-18e2-47ab-935e-915087a4fe89",
+      "process_id": "e63df48c-5fd1-44ee-aa63-d24518217fcc",
+      "perspective_id": "04ffeadc-e1c8-4af6-b330-797c0305153e",
+      "strength": 0.93,
+      "confidence": 0.78
+    },
+    {
+      "id": "a9af2313-3c27-4978-8078-0fac02427937",
+      "property_id": "8139e971-cfb0-41cf-826b-c85836b0bcd5",
+      "process_id": "ecb35cd9-4d0e-43ac-ba03-b706fd93e87e",
+      "perspective_id": "ba014322-0363-45bc-8429-f211c2694ce3",
+      "strength": 0.56,
+      "confidence": 0.71
+    },
+    {
+      "id": "e3a72be9-f0c3-4be7-98eb-769f2ff65d6e",
+      "property_id": "7d9def1d-18e2-47ab-935e-915087a4fe89",
+      "process_id": "3acd0755-8709-479f-9ca2-fdae6b5244a1",
+      "perspective_id": "b6f755a3-4cee-4494-9a98-6220028e06d3",
+      "strength": 0.55,
+      "confidence": 0.72
+    },
+    {
+      "id": "6742adb2-506c-40c1-b29f-afd656937a8e",
+      "property_id": "023d2c73-31da-461c-a70b-95e8b638b5d4",
+      "process_id": "83e84963-e306-4796-8cc5-9905bf25e4eb",
+      "perspective_id": "ba014322-0363-45bc-8429-f211c2694ce3",
+      "strength": 0.96,
+      "confidence": 0.84
+    },
+    {
+      "id": "d5ab1dee-f846-4f0b-9335-68e3379fe0cd",
+      "property_id": "4872c7df-54e9-4d1f-a020-e15717b3e307",
+      "process_id": "3acd0755-8709-479f-9ca2-fdae6b5244a1",
+      "perspective_id": "86252547-b437-4c5e-93fa-9c91646e85b5",
+      "strength": 0.76,
+      "confidence": 0.98
+    },
+    {
+      "id": "5d897139-42a8-4742-94b3-4f860418d85e",
+      "property_id": "0617578d-bedf-44b8-8551-28901b97a885",
+      "process_id": "e01af2ba-21d8-4e56-8b37-c5fca9aeff8f",
+      "perspective_id": "29359905-8990-48bd-8cb8-eadd70be4856",
+      "strength": 0.98,
+      "confidence": 0.72
+    },
+    {
+      "id": "0656d1c9-68eb-4598-b2a0-eb5645cd1bd2",
+      "property_id": "1df2b8b4-263e-43de-9580-eb190b2238e5",
+      "process_id": "9acae0cc-96bd-4f4b-900a-e2868759ed24",
+      "perspective_id": "312a2418-163f-4278-b5d2-a76bc2150fd9",
+      "strength": 0.55,
+      "confidence": 0.79
+    },
+    {
+      "id": "d76ae48d-c628-46f1-a463-ce029b557e57",
+      "property_id": "4872c7df-54e9-4d1f-a020-e15717b3e307",
+      "process_id": "78a3923c-caa5-4764-b427-b5939e2b0371",
+      "perspective_id": "29359905-8990-48bd-8cb8-eadd70be4856",
+      "strength": 0.76,
+      "confidence": 0.97
+    },
+    {
+      "id": "4f4ea878-5a7d-4f1b-aba4-c71d3d2918d2",
+      "property_id": "c4924599-bbb2-48ed-9ccb-ca249ee74c30",
+      "process_id": "83e84963-e306-4796-8cc5-9905bf25e4eb",
+      "perspective_id": "29359905-8990-48bd-8cb8-eadd70be4856",
+      "strength": 0.55,
+      "confidence": 0.98
+    },
+    {
+      "id": "07bd23e7-ed51-421a-88db-9478dfaca5d4",
+      "property_id": "00b1cb77-a7f0-42b1-855f-ed9122323dd4",
+      "process_id": "e63df48c-5fd1-44ee-aa63-d24518217fcc",
+      "perspective_id": "40e11da5-6ea3-41fa-ac52-78785ca74139",
+      "strength": 0.67,
+      "confidence": 0.74
+    },
+    {
+      "id": "dc4359ef-8ef2-40b6-856b-433a7df24b71",
+      "property_id": "c4924599-bbb2-48ed-9ccb-ca249ee74c30",
+      "process_id": "3acd0755-8709-479f-9ca2-fdae6b5244a1",
+      "perspective_id": "ba014322-0363-45bc-8429-f211c2694ce3",
+      "strength": 0.53,
+      "confidence": 0.9
+    },
+    {
+      "id": "1c8cd2b4-3fec-4340-8d44-89af457b5ed3",
+      "property_id": "1df2b8b4-263e-43de-9580-eb190b2238e5",
+      "process_id": "39081a7d-4122-452d-bb2c-8500fc89a26d",
+      "perspective_id": "b75729d8-3e6f-4c07-b819-49114337a1b8",
+      "strength": 0.72,
+      "confidence": 0.92
+    },
+    {
+      "id": "81d7977f-7276-4e3b-9a3b-1d3bb03ba4df",
+      "property_id": "6a103fab-0c45-40f2-8e1e-e927913ea2e0",
+      "process_id": "0c03eff3-1f5c-4d40-949b-0a40b0d9c81b",
+      "perspective_id": "29359905-8990-48bd-8cb8-eadd70be4856",
+      "strength": 0.58,
+      "confidence": 0.82
+    },
+    {
+      "id": "a3d866e2-747b-4503-9f59-86caf9360c1e",
+      "property_id": "6a103fab-0c45-40f2-8e1e-e927913ea2e0",
+      "process_id": "3acd0755-8709-479f-9ca2-fdae6b5244a1",
+      "perspective_id": "e0175aca-8935-483b-8573-34eea689add0",
+      "strength": 0.7,
+      "confidence": 0.74
+    },
+    {
+      "id": "e9d6b90f-77e4-4b83-9462-d37e099b19ae",
+      "property_id": "023d2c73-31da-461c-a70b-95e8b638b5d4",
+      "process_id": "0c03eff3-1f5c-4d40-949b-0a40b0d9c81b",
+      "perspective_id": "f63b7fb5-13de-460e-8077-d6fdf1192237",
+      "strength": 0.55,
+      "confidence": 0.79
+    },
+    {
+      "id": "0b1941c9-512d-4551-a6b4-2cf3aa050a97",
+      "property_id": "7d9def1d-18e2-47ab-935e-915087a4fe89",
+      "process_id": "801db018-d7cd-4968-a191-d4ba8c176bf6",
+      "perspective_id": "f63b7fb5-13de-460e-8077-d6fdf1192237",
+      "strength": 0.7,
+      "confidence": 0.87
+    },
+    {
+      "id": "4f546abb-b083-4a74-a64d-a052eca3b60b",
+      "property_id": "437bf1c4-ed92-4510-a078-224be44b2c2f",
+      "process_id": "3acd0755-8709-479f-9ca2-fdae6b5244a1",
+      "perspective_id": "312a2418-163f-4278-b5d2-a76bc2150fd9",
+      "strength": 0.69,
+      "confidence": 0.89
+    },
+    {
+      "id": "910d7aa9-e680-4e23-a041-7682694d9a3e",
+      "property_id": "7d9def1d-18e2-47ab-935e-915087a4fe89",
+      "process_id": "78a3923c-caa5-4764-b427-b5939e2b0371",
+      "perspective_id": "b6f755a3-4cee-4494-9a98-6220028e06d3",
+      "strength": 0.5,
+      "confidence": 0.76
+    },
+    {
+      "id": "77562898-84df-4f54-b6e5-45c1fa598583",
+      "property_id": "6a103fab-0c45-40f2-8e1e-e927913ea2e0",
+      "process_id": "0c03eff3-1f5c-4d40-949b-0a40b0d9c81b",
+      "perspective_id": "f63b7fb5-13de-460e-8077-d6fdf1192237",
+      "strength": 0.84,
+      "confidence": 0.83
+    },
+    {
+      "id": "4e102e4c-6ffc-4e42-b438-4bd1278f80af",
+      "property_id": "58b02ed7-ec79-4f99-8f83-716cc4713da6",
+      "process_id": "608239f4-13cf-4a3a-8029-27d4d36af79d",
+      "perspective_id": "e0175aca-8935-483b-8573-34eea689add0",
+      "strength": 0.75,
+      "confidence": 0.98
+    },
+    {
+      "id": "cd9b6318-e89d-4679-ba01-f9fb3f53ce7b",
+      "property_id": "0617578d-bedf-44b8-8551-28901b97a885",
+      "process_id": "e63df48c-5fd1-44ee-aa63-d24518217fcc",
+      "perspective_id": "15eb0640-70b0-4bcc-b83e-e241787a9630",
+      "strength": 0.53,
+      "confidence": 0.92
+    },
+    {
+      "id": "5d1065c2-ee17-4b88-98ba-c6157cd95f4c",
+      "property_id": "c4924599-bbb2-48ed-9ccb-ca249ee74c30",
+      "process_id": "9acae0cc-96bd-4f4b-900a-e2868759ed24",
+      "perspective_id": "40e11da5-6ea3-41fa-ac52-78785ca74139",
+      "strength": 0.63,
+      "confidence": 0.85
+    }
+  ],
+  "metadata": {
+    "count": {
+      "properties": 15,
+      "processes": 15,
+      "perspectives": 15
+    }
+  }
+}

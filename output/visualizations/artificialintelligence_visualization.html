@@ -1,0 +1,262 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Artificial Intelligence</title>
+            <style>
+                body { 
+                    margin: 0;
+                    overflow: hidden;
+                    font-family: Arial, sans-serif;
+                }
+                #info {
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 10px;
+                    border-radius: 5px;
+                    max-width: 300px;
+                    z-index: 100;
+                }
+                #canvas-container {
+                    width: 100%;
+                    height: 100vh;
+                }
+                #legend {
+                    position: absolute;
+                    bottom: 20px;
+                    right: 20px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 10px;
+                    border-radius: 5px;
+                    z-index: 100;
+                }
+                .axis-label {
+                    font-weight: bold;
+                    margin-bottom: 5px;
+                }
+                .property-color { color: #1f77b4; }
+                .process-color { color: #ff7f0e; }
+                .perspective-color { color: #2ca02c; }
+            </style>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+        </head>
+        <body>
+            <div id="info">
+                <h2>Artificial Intelligence</h2>
+                <p>This visualization represents the P3IF framework as a 3D cube with three dimensions:</p>
+                <p><span class="property-color">X-axis: Properties</span></p>
+                <p><span class="process-color">Y-axis: Processes</span></p>
+                <p><span class="perspective-color">Z-axis: Perspectives</span></p>
+                <p>Each point in the cube represents a relationship between specific property, process, and perspective.</p>
+                <p>Click and drag to rotate. Scroll to zoom. Right-click and drag to pan.</p>
+                <div id="selection-info"></div>
+            </div>
+            
+            <div id="canvas-container"></div>
+            
+            <div id="legend">
+                <div class="axis-label property-color">X-axis: Properties</div>
+                <div class="axis-label process-color">Y-axis: Processes</div>
+                <div class="axis-label perspective-color">Z-axis: Perspectives</div>
+                <div>Point size indicates relationship strength</div>
+            </div>
+            
+            
+            
+            <script>
+                // P3IF data
+                const p3ifData = {"dimensions": {"property": [{"id": "d136f907-4ce6-4ee2-956e-041c277c0550", "name": "Machine Learning", "domain": "ArtificialIntelligence"}, {"id": "e410c931-6092-4a76-82a2-aa40ea8832d4", "name": "Neural Networks", "domain": "ArtificialIntelligence"}, {"id": "286dc7ef-4bdb-41c8-bcdf-137a72f747de", "name": "Natural Language Processing", "domain": "ArtificialIntelligence"}, {"id": "97df0d09-9200-4e4b-bbfa-b9c6124a49eb", "name": "Computer Vision", "domain": "ArtificialIntelligence"}, {"id": "be10c708-0fef-49d2-8460-180d64919e8a", "name": "Robotics", "domain": "ArtificialIntelligence"}, {"id": "68fae960-c04f-4a26-a5c8-da53c3414edb", "name": "Expert Systems", "domain": "ArtificialIntelligence"}, {"id": "6e9a6aa6-2842-463e-9522-d66388de5a9c", "name": "Reinforcement Learning", "domain": "ArtificialIntelligence"}, {"id": "0e5fef78-b776-4e91-ac56-759cbde51397", "name": "Explainable AI", "domain": "ArtificialIntelligence"}, {"id": "480e9733-2d33-45a7-97fe-ac546f1a9f6e", "name": "Ethical AI", "domain": "ArtificialIntelligence"}, {"id": "9264d141-aa9c-4f78-ad57-457fc044a6cf", "name": "AI Governance", "domain": "ArtificialIntelligence"}, {"id": "e3b28c03-9d38-4e0e-93a7-3cadc7b29734", "name": "Data Privacy", "domain": "ArtificialIntelligence"}, {"id": "a5111ec4-e74e-45da-8105-054f4509f8a4", "name": "AI Bias", "domain": "ArtificialIntelligence"}, {"id": "fe370198-b767-4a29-87b9-ff091edcbd0b", "name": "AI Safety", "domain": "ArtificialIntelligence"}, {"id": "4a88c206-a16d-481a-ab92-280f7795e16b", "name": "Quantum AI", "domain": "ArtificialIntelligence"}, {"id": "47c2a798-543e-4ac7-b883-13ff07cd7254", "name": "Edge AI", "domain": "ArtificialIntelligence"}, {"id": "7a340157-2f55-4c07-bda4-f0b0a111f089", "name": "Federated Learning", "domain": "ArtificialIntelligence"}, {"id": "da57d60d-45cb-45e1-b5af-64c9da8f6d89", "name": "Transfer Learning", "domain": "ArtificialIntelligence"}, {"id": "64c8ebae-bf06-4851-962f-8676393444fe", "name": "Generative AI", "domain": "ArtificialIntelligence"}, {"id": "2de43fe4-d9b1-4b6b-92b2-aa1ad5cd74d9", "name": "Autonomous Systems", "domain": "ArtificialIntelligence"}, {"id": "7ff50b0e-db5c-4978-b7d9-00fbb6f9318e", "name": "Human-AI Interaction", "domain": "ArtificialIntelligence"}, {"id": "1021079c-de51-4941-9cec-b7316ca07233", "name": "Deep Learning", "domain": "ArtificialIntelligence"}, {"id": "3ecf25aa-da3b-403d-b569-a0c7083eb912", "name": "Cognitive Computing", "domain": "ArtificialIntelligence"}, {"id": "d874e101-d250-43b6-8fdd-f188763308a9", "name": "Swarm Intelligence", "domain": "ArtificialIntelligence"}, {"id": "7e281acd-fadf-4b56-b87a-7a784ea53bb8", "name": "Evolutionary Computation", "domain": "ArtificialIntelligence"}, {"id": "b2bfff1a-c42e-4cb8-a267-ef31597b3da0", "name": "Fuzzy Logic", "domain": "ArtificialIntelligence"}, {"id": "e0407665-ffda-40cc-ad31-19e66b756b36", "name": "Knowledge Representation", "domain": "ArtificialIntelligence"}, {"id": "0b835ac7-5260-4467-b40b-e2ca98d58c3b", "name": "Automated Reasoning", "domain": "ArtificialIntelligence"}, {"id": "820878fb-1905-414b-81d4-dd7cb04f1944", "name": "Speech Recognition", "domain": "ArtificialIntelligence"}, {"id": "8bde2314-36b9-4a81-b165-53861007d652", "name": "Image Processing", "domain": "ArtificialIntelligence"}, {"id": "214a7cce-da02-46ca-abca-68bd2fcd0606", "name": "Predictive Analytics", "domain": "ArtificialIntelligence"}, {"id": "3d6e3ff1-f6ef-43b7-8c8a-b3333eec2f19", "name": "Anomaly Detection", "domain": "ArtificialIntelligence"}, {"id": "260541f8-0a28-4a32-9783-450c0b6713b6", "name": "Recommendation Systems", "domain": "ArtificialIntelligence"}, {"id": "dfeecbc2-9f97-4662-8a48-44dd55584a83", "name": "Sentiment Analysis", "domain": "ArtificialIntelligence"}, {"id": "20dc49a7-70ae-4888-b035-d4e07d910795", "name": "Chatbots", "domain": "ArtificialIntelligence"}, {"id": "38c45165-1698-465a-ae51-ee73b72060b9", "name": "Virtual Assistants", "domain": "ArtificialIntelligence"}, {"id": "63f01ab4-5753-4de5-bd6a-a7b6030f11e7", "name": "Automated Decision Making", "domain": "ArtificialIntelligence"}, {"id": "a2b5ccba-8708-4bbb-9f41-2df0b002a167", "name": "AI-Powered Simulation", "domain": "ArtificialIntelligence"}, {"id": "45253b43-c0a1-4c48-b54d-072b4efb6386", "name": "AI in Cybersecurity", "domain": "ArtificialIntelligence"}, {"id": "bb847f6d-4f00-4aa7-8e39-3ddb6fdf7c65", "name": "AI for Scientific Discovery", "domain": "ArtificialIntelligence"}, {"id": "d2d30567-69b6-4c56-b8de-1f721e620018", "name": "AI in Healthcare", "domain": "ArtificialIntelligence"}, {"id": "772a4292-3f17-47a4-a73e-c8e1f4c07157", "name": "AI in Finance", "domain": "ArtificialIntelligence"}, {"id": "5bef33c1-9ea9-49a5-be7b-16cc73ba1154", "name": "AI in Education", "domain": "ArtificialIntelligence"}, {"id": "041b76e7-9570-43da-b910-ec3277b68f37", "name": "AI in Manufacturing", "domain": "ArtificialIntelligence"}, {"id": "54b93e81-2c97-4014-aa7e-2ccf4cf3f3be", "name": "AI in Agriculture", "domain": "ArtificialIntelligence"}, {"id": "0cf75fc9-ea35-4c14-b698-330f3f8d2f92", "name": "AI in Transportation", "domain": "ArtificialIntelligence"}, {"id": "c526fc74-0760-49e5-9073-40c7838dcb66", "name": "AI Ethics", "domain": "ArtificialIntelligence"}, {"id": "6ec1dd76-277a-4586-b6f8-c84b09bdd9ff", "name": "AI Regulation", "domain": "ArtificialIntelligence"}, {"id": "68df0f0d-c3fd-415e-8459-70d18fd544a4", "name": "AI Transparency", "domain": "ArtificialIntelligence"}, {"id": "43a21eb7-a124-4f67-8a43-0b8fea82a351", "name": "AI Accountability", "domain": "ArtificialIntelligence"}, {"id": "3d921ed2-281f-4a92-84e1-d73aff96e715", "name": "AI Fairness", "domain": "ArtificialIntelligence"}, {"id": "fc36806c-3f48-4424-a7a4-bc4aa774e235", "name": "AI Robustness", "domain": "ArtificialIntelligence"}, {"id": "cfbe9434-5348-447e-89e7-00eeaaf8e424", "name": "AI Scalability", "domain": "ArtificialIntelligence"}, {"id": "433bc6f6-ac5b-41ff-aff5-7e52b69f3429", "name": "AI Energy Efficiency", "domain": "ArtificialIntelligence"}, {"id": "15090316-7692-4825-9cde-d689e91ab362", "name": "AI Hardware Acceleration", "domain": "ArtificialIntelligence"}, {"id": "b0ab7f61-81bc-45f4-8283-fb42ae046251", "name": "AI Model Compression", "domain": "ArtificialIntelligence"}], "process": [{"id": "bfcdd698-036c-445a-a173-c523f1ac42e7", "name": "Data Collection", "domain": "ArtificialIntelligence"}, {"id": "897a3e04-70b7-44f3-913c-17e3329565a1", "name": "Data Preprocessing", "domain": "ArtificialIntelligence"}, {"id": "d7d6b50d-6acd-45f0-b9da-d1f276c83e37", "name": "Model Training", "domain": "ArtificialIntelligence"}, {"id": "8dbbff9b-cfd1-4dab-891f-e006be825507", "name": "Model Evaluation", "domain": "ArtificialIntelligence"}, {"id": "b9dfc31f-5045-4106-8f8d-7774eb13a5f6", "name": "Hyperparameter Tuning", "domain": "ArtificialIntelligence"}, {"id": "447941a6-2ae8-4453-8e90-2124315bd612", "name": "Feature Engineering", "domain": "ArtificialIntelligence"}, {"id": "a5f21f3b-f42a-4608-83c8-ee6fc107acf7", "name": "Algorithm Selection", "domain": "ArtificialIntelligence"}, {"id": "a049fc7f-2297-4cf7-865b-5c23f366230f", "name": "Deployment", "domain": "ArtificialIntelligence"}, {"id": "81cca543-a9e7-48fe-9ca0-5ebd844cbb34", "name": "Monitoring", "domain": "ArtificialIntelligence"}, {"id": "a670ff7a-6797-4c7d-aa7d-473416088080", "name": "Maintenance", "domain": "ArtificialIntelligence"}, {"id": "cf236cb8-347e-4264-b357-0911f92a7bd3", "name": "Ethical Review", "domain": "ArtificialIntelligence"}, {"id": "b3c3b63d-97a5-4dbf-b716-3c5bba2cf3be", "name": "Bias Detection", "domain": "ArtificialIntelligence"}, {"id": "7efc99ab-b7af-46ec-a2a0-bdd682138734", "name": "Privacy Preservation", "domain": "ArtificialIntelligence"}, {"id": "8911a949-a0bd-47db-9309-66dc0064c20f", "name": "Explainability Analysis", "domain": "ArtificialIntelligence"}, {"id": "b9b6ccba-b3ec-4e4a-ac3d-012d21f4978b", "name": "Safety Testing", "domain": "ArtificialIntelligence"}, {"id": "efc5801b-4884-4afc-b440-9d86241ac649", "name": "User Interface Design", "domain": "ArtificialIntelligence"}, {"id": "76bee8e3-f9c3-481c-be98-30ab263bf6d2", "name": "Integration with Existing Systems", "domain": "ArtificialIntelligence"}, {"id": "04a1b545-183d-469d-85d3-0d62d4612c01", "name": "Continuous Learning", "domain": "ArtificialIntelligence"}, {"id": "5578303a-dc19-4184-84b3-b5ae36d3905e", "name": "Version Control", "domain": "ArtificialIntelligence"}, {"id": "850cedf8-3952-468c-bc44-92a6956588b6", "name": "Documentation", "domain": "ArtificialIntelligence"}, {"id": "caa56e0c-019e-43c7-84eb-436d6c145f4e", "name": "Data Augmentation", "domain": "ArtificialIntelligence"}, {"id": "25251f22-2ac0-46ef-be11-7cef4f1af89f", "name": "Cross-Validation", "domain": "ArtificialIntelligence"}, {"id": "6822fff6-fd53-4bab-8fab-570d363ef0ce", "name": "Ensemble Learning", "domain": "ArtificialIntelligence"}, {"id": "49bd4a78-efcd-47b0-b797-ab9fc50e159c", "name": "Transfer Learning", "domain": "ArtificialIntelligence"}, {"id": "d58cc075-7ed5-44d9-9c4d-058464336cf8", "name": "Federated Learning", "domain": "ArtificialIntelligence"}, {"id": "771f266c-95f9-404f-b3c6-d46b18ce56c4", "name": "Model Compression", "domain": "ArtificialIntelligence"}, {"id": "ecf42461-c664-42bf-b1b2-eb873f970f5b", "name": "Hardware Acceleration", "domain": "ArtificialIntelligence"}, {"id": "9e8e1359-787f-4eae-9f01-62563b9b83b4", "name": "Edge Deployment", "domain": "ArtificialIntelligence"}, {"id": "0b4a99d5-94bf-4852-8a18-01a5ccf26a54", "name": "Cloud Deployment", "domain": "ArtificialIntelligence"}, {"id": "1d06f8c3-4db1-45f8-b348-603d7b33d21d", "name": "A/B Testing", "domain": "ArtificialIntelligence"}, {"id": "0bc49181-aba5-44b5-a1a9-ebc2e126d3b7", "name": "Error Analysis", "domain": "ArtificialIntelligence"}, {"id": "351781b4-dc3c-4f52-817b-282c818de395", "name": "Performance Optimization", "domain": "ArtificialIntelligence"}, {"id": "8bc0a0c5-cd84-4d78-8a0f-a00135863ac0", "name": "Scalability Testing", "domain": "ArtificialIntelligence"}, {"id": "6b18626a-c469-4e96-a9e1-b12a03c0448e", "name": "Security Auditing", "domain": "ArtificialIntelligence"}, {"id": "750db601-0f7c-4196-a967-53a1afcc5c03", "name": "Compliance Checking", "domain": "ArtificialIntelligence"}, {"id": "24d6a9ee-e807-4dd8-a0f3-57ce2dde8e55", "name": "Data Visualization", "domain": "ArtificialIntelligence"}, {"id": "4b41012d-65a2-4584-a901-583607ccaa03", "name": "Interpretability Analysis", "domain": "ArtificialIntelligence"}, {"id": "2f6a6e88-90a5-44e3-8aa8-a88771e46124", "name": "Fairness Assessment", "domain": "ArtificialIntelligence"}, {"id": "61dd1d9d-3967-4586-9518-0f0a66cf31a5", "name": "Robustness Testing", "domain": "ArtificialIntelligence"}, {"id": "b98992f1-f42f-44ad-8b1d-adb5129c492e", "name": "Adversarial Testing", "domain": "ArtificialIntelligence"}, {"id": "57f3e744-b750-45c7-a525-b144bf96be55", "name": "Energy Efficiency Optimization", "domain": "ArtificialIntelligence"}, {"id": "b3fd9c07-8ffd-436b-abc6-5e6402121e04", "name": "Model Versioning", "domain": "ArtificialIntelligence"}, {"id": "3b1be0d0-ffdb-440b-970d-f69b32581526", "name": "Data Pipeline Management", "domain": "ArtificialIntelligence"}, {"id": "a6216427-35a9-470d-9827-28cf9b2612f0", "name": "Model Serving", "domain": "ArtificialIntelligence"}, {"id": "80a1dd7c-c6be-42d0-90e3-27e4fae560ef", "name": "Online Learning", "domain": "ArtificialIntelligence"}, {"id": "596f9cc3-8103-4dcf-bed1-e377aed55678", "name": "Reinforcement Learning Training", "domain": "ArtificialIntelligence"}, {"id": "5e3363d1-9785-49d2-a6fc-1445bbdf175f", "name": "Generative Model Training", "domain": "ArtificialIntelligence"}, {"id": "b9d8243f-63cb-4fe7-8a7f-25b07cfd5032", "name": "Unsupervised Learning", "domain": "ArtificialIntelligence"}, {"id": "97c94dc6-d035-4039-80ff-fbb5543e0724", "name": "Semi-Supervised Learning", "domain": "ArtificialIntelligence"}, {"id": "bfc53ebf-b64b-40bd-a353-c8990031326a", "name": "Active Learning", "domain": "ArtificialIntelligence"}], "perspective": [{"id": "55dfb877-abdb-47ca-be04-e9474797ef9a", "name": "AI Researcher", "domain": "ArtificialIntelligence"}, {"id": "20f6f7f9-5030-41f4-822c-6d42d2658b3c", "name": "Data Scientist", "domain": "ArtificialIntelligence"}, {"id": "759e4dd7-d58c-4fae-836c-e1f266dbdf65", "name": "Machine Learning Engineer", "domain": "ArtificialIntelligence"}, {"id": "f2e6b834-91c5-47e8-b1f6-b94e883a1881", "name": "AI Ethicist", "domain": "ArtificialIntelligence"}, {"id": "a48e2304-e327-4493-b847-eb4244b3a914", "name": "AI Policy Maker", "domain": "ArtificialIntelligence"}, {"id": "7432c5ad-73b6-4663-87d0-52760893d23f", "name": "Domain Expert", "domain": "ArtificialIntelligence"}, {"id": "9d2c7aff-153f-4e4a-938e-5fd4d0d539f1", "name": "End User", "domain": "ArtificialIntelligence"}, {"id": "1b6b55a0-7964-4969-9e8b-a0125d4051ce", "name": "AI Product Manager", "domain": "ArtificialIntelligence"}, {"id": "859ec41b-11a8-40c2-81f0-44876d0e11a0", "name": "AI Safety Specialist", "domain": "ArtificialIntelligence"}, {"id": "b2ca6f1d-0822-4a0a-b1b3-011f88dc6254", "name": "AI Governance Expert", "domain": "ArtificialIntelligence"}, {"id": "aa431bbc-b976-4ee5-87c5-c6ab34650bca", "name": "AI Educator", "domain": "ArtificialIntelligence"}, {"id": "35a33290-9a86-4156-91b2-554e655b782d", "name": "AI Entrepreneur", "domain": "ArtificialIntelligence"}, {"id": "7e880798-9653-46f8-8cf2-611f21d3e50a", "name": "AI Investor", "domain": "ArtificialIntelligence"}, {"id": "41af2299-c458-44b2-9895-b53fae008ced", "name": "AI Critic", "domain": "ArtificialIntelligence"}, {"id": "007240e7-bb24-4bbf-b1d7-c7318f7d087f", "name": "AI Rights Advocate", "domain": "ArtificialIntelligence"}]}, "connections": [{"id": "b6432b9a-b1c9-4ca2-a79a-265614935c41", "property_id": "0e5fef78-b776-4e91-ac56-759cbde51397", "process_id": "4b41012d-65a2-4584-a901-583607ccaa03", "perspective_id": "7e880798-9653-46f8-8cf2-611f21d3e50a", "strength": 0.96, "confidence": 0.79, "x": 7, "y": 36, "z": 12}, {"id": "e58b6fb8-15d9-47f7-9a81-4e2633f4be82", "property_id": "a2b5ccba-8708-4bbb-9f41-2df0b002a167", "process_id": "2f6a6e88-90a5-44e3-8aa8-a88771e46124", "perspective_id": "9d2c7aff-153f-4e4a-938e-5fd4d0d539f1", "strength": 0.79, "confidence": 0.93, "x": 36, "y": 37, "z": 6}, {"id": "fc081d04-613d-4796-a120-9bce11063244", "property_id": "3ecf25aa-da3b-403d-b569-a0c7083eb912", "process_id": "a6216427-35a9-470d-9827-28cf9b2612f0", "perspective_id": "9d2c7aff-153f-4e4a-938e-5fd4d0d539f1", "strength": 0.71, "confidence": 0.87, "x": 21, "y": 43, "z": 6}, {"id": "8a3b03d4-eab8-491a-bba1-e0f1791d47a7", "property_id": "b0ab7f61-81bc-45f4-8283-fb42ae046251", "process_id": "0bc49181-aba5-44b5-a1a9-ebc2e126d3b7", "perspective_id": "1b6b55a0-7964-4969-9e8b-a0125d4051ce", "strength": 0.56, "confidence": 0.73, "x": 54, "y": 30, "z": 7}, {"id": "940d4e06-2fa6-4c6c-b9a0-3e2db260d2e9", "property_id": "e3b28c03-9d38-4e0e-93a7-3cadc7b29734", "process_id": "9e8e1359-787f-4eae-9f01-62563b9b83b4", "perspective_id": "35a33290-9a86-4156-91b2-554e655b782d", "strength": 0.84, "confidence": 0.86, "x": 10, "y": 27, "z": 11}, {"id": "46440f17-0e4e-471e-8d3e-dc019feab89c", "property_id": "0cf75fc9-ea35-4c14-b698-330f3f8d2f92", "process_id": "76bee8e3-f9c3-481c-be98-30ab263bf6d2", "perspective_id": "007240e7-bb24-4bbf-b1d7-c7318f7d087f", "strength": 0.72, "confidence": 0.82, "x": 44, "y": 16, "z": 14}, {"id": "c612e613-e75a-421d-b828-a14d15331610", "property_id": "fe370198-b767-4a29-87b9-ff091edcbd0b", "process_id": "d58cc075-7ed5-44d9-9c4d-058464336cf8", "perspective_id": "f2e6b834-91c5-47e8-b1f6-b94e883a1881", "strength": 0.57, "confidence": 0.94, "x": 12, "y": 24, "z": 3}, {"id": "de0a02dd-2477-4567-b0f1-62490259727a", "property_id": "7ff50b0e-db5c-4978-b7d9-00fbb6f9318e", "process_id": "0b4a99d5-94bf-4852-8a18-01a5ccf26a54", "perspective_id": "35a33290-9a86-4156-91b2-554e655b782d", "strength": 0.68, "confidence": 0.95, "x": 19, "y": 28, "z": 11}, {"id": "e0500bc9-9c27-47c1-ac73-59eca187d7f6", "property_id": "be10c708-0fef-49d2-8460-180d64919e8a", "process_id": "7efc99ab-b7af-46ec-a2a0-bdd682138734", "perspective_id": "f2e6b834-91c5-47e8-b1f6-b94e883a1881", "strength": 0.65, "confidence": 0.98, "x": 4, "y": 12, "z": 3}, {"id": "6b204c10-0a5b-42a6-ba4c-8e02320d8b0a", "property_id": "6e9a6aa6-2842-463e-9522-d66388de5a9c", "process_id": "8dbbff9b-cfd1-4dab-891f-e006be825507", "perspective_id": "f2e6b834-91c5-47e8-b1f6-b94e883a1881", "strength": 0.56, "confidence": 0.75, "x": 6, "y": 3, "z": 3}, {"id": "41507ed6-2cb3-402e-a2b4-b6650f1477d9", "property_id": "b2bfff1a-c42e-4cb8-a267-ef31597b3da0", "process_id": "61dd1d9d-3967-4586-9518-0f0a66cf31a5", "perspective_id": "20f6f7f9-5030-41f4-822c-6d42d2658b3c", "strength": 0.71, "confidence": 0.81, "x": 24, "y": 38, "z": 1}, {"id": "c357a062-644b-45da-a7e2-a64903c01271", "property_id": "da57d60d-45cb-45e1-b5af-64c9da8f6d89", "process_id": "a5f21f3b-f42a-4608-83c8-ee6fc107acf7", "perspective_id": "aa431bbc-b976-4ee5-87c5-c6ab34650bca", "strength": 0.82, "confidence": 0.92, "x": 16, "y": 6, "z": 10}, {"id": "232abcc5-7ba4-4f11-ab11-de774d9387aa", "property_id": "20dc49a7-70ae-4888-b035-d4e07d910795", "process_id": "97c94dc6-d035-4039-80ff-fbb5543e0724", "perspective_id": "759e4dd7-d58c-4fae-836c-e1f266dbdf65", "strength": 0.76, "confidence": 0.72, "x": 33, "y": 48, "z": 2}, {"id": "c436e954-9dcd-4bc3-bf2a-f768d912f2fa", "property_id": "c526fc74-0760-49e5-9073-40c7838dcb66", "process_id": "d7d6b50d-6acd-45f0-b9da-d1f276c83e37", "perspective_id": "9d2c7aff-153f-4e4a-938e-5fd4d0d539f1", "strength": 0.72, "confidence": 0.95, "x": 45, "y": 2, "z": 6}, {"id": "2bdfe302-a5a8-47df-b332-5591a86c7b41", "property_id": "1021079c-de51-4941-9cec-b7316ca07233", "process_id": "24d6a9ee-e807-4dd8-a0f3-57ce2dde8e55", "perspective_id": "a48e2304-e327-4493-b847-eb4244b3a914", "strength": 0.76, "confidence": 0.9, "x": 20, "y": 35, "z": 4}, {"id": "8da88bb5-d530-4159-95c6-315df6220af6", "property_id": "68df0f0d-c3fd-415e-8459-70d18fd544a4", "process_id": "76bee8e3-f9c3-481c-be98-30ab263bf6d2", "perspective_id": "35a33290-9a86-4156-91b2-554e655b782d", "strength": 0.62, "confidence": 0.97, "x": 47, "y": 16, "z": 11}, {"id": "7ef04653-e230-43c5-8bbb-444d4371404d", "property_id": "20dc49a7-70ae-4888-b035-d4e07d910795", "process_id": "81cca543-a9e7-48fe-9ca0-5ebd844cbb34", "perspective_id": "35a33290-9a86-4156-91b2-554e655b782d", "strength": 0.71, "confidence": 0.92, "x": 33, "y": 8, "z": 11}, {"id": "ee353daf-3c6b-4ecd-8251-91674929b2f3", "property_id": "20dc49a7-70ae-4888-b035-d4e07d910795", "process_id": "d58cc075-7ed5-44d9-9c4d-058464336cf8", "perspective_id": "41af2299-c458-44b2-9895-b53fae008ced", "strength": 0.76, "confidence": 0.86, "x": 33, "y": 24, "z": 13}, {"id": "068970f8-c0dd-4762-9544-442416400640", "property_id": "480e9733-2d33-45a7-97fe-ac546f1a9f6e", "process_id": "b3fd9c07-8ffd-436b-abc6-5e6402121e04", "perspective_id": "aa431bbc-b976-4ee5-87c5-c6ab34650bca", "strength": 0.79, "confidence": 0.71, "x": 8, "y": 41, "z": 10}, {"id": "92569d67-9927-4dfa-aa7a-7d3179c28b4a", "property_id": "d136f907-4ce6-4ee2-956e-041c277c0550", "process_id": "9e8e1359-787f-4eae-9f01-62563b9b83b4", "perspective_id": "007240e7-bb24-4bbf-b1d7-c7318f7d087f", "strength": 0.54, "confidence": 0.92, "x": 0, "y": 27, "z": 14}, {"id": "4eb5c4c4-165f-4a31-8c3e-4d9c2f790abf", "property_id": "e410c931-6092-4a76-82a2-aa40ea8832d4", "process_id": "a049fc7f-2297-4cf7-865b-5c23f366230f", "perspective_id": "aa431bbc-b976-4ee5-87c5-c6ab34650bca", "strength": 0.9, "confidence": 0.78, "x": 1, "y": 7, "z": 10}, {"id": "e53d42ae-4666-4a57-9ef0-6faf7ec5d0ab", "property_id": "041b76e7-9570-43da-b910-ec3277b68f37", "process_id": "b9d8243f-63cb-4fe7-8a7f-25b07cfd5032", "perspective_id": "a48e2304-e327-4493-b847-eb4244b3a914", "strength": 0.96, "confidence": 0.77, "x": 42, "y": 47, "z": 4}, {"id": "3dfd855e-a2e4-4545-929b-9f15d19c223e", "property_id": "15090316-7692-4825-9cde-d689e91ab362", "process_id": "80a1dd7c-c6be-42d0-90e3-27e4fae560ef", "perspective_id": "aa431bbc-b976-4ee5-87c5-c6ab34650bca", "strength": 0.91, "confidence": 0.9, "x": 53, "y": 44, "z": 10}, {"id": "58ab6583-6f81-4585-bfb4-0936ecb85956", "property_id": "cfbe9434-5348-447e-89e7-00eeaaf8e424", "process_id": "750db601-0f7c-4196-a967-53a1afcc5c03", "perspective_id": "859ec41b-11a8-40c2-81f0-44876d0e11a0", "strength": 0.91, "confidence": 0.72, "x": 51, "y": 34, "z": 8}, {"id": "adc689a7-734b-4e56-a8d2-090b9e8159b0", "property_id": "b0ab7f61-81bc-45f4-8283-fb42ae046251", "process_id": "a5f21f3b-f42a-4608-83c8-ee6fc107acf7", "perspective_id": "35a33290-9a86-4156-91b2-554e655b782d", "strength": 0.79, "confidence": 0.84, "x": 54, "y": 6, "z": 11}, {"id": "5ce3a59d-6b2f-45b0-a499-893334f3e0a2", "property_id": "e3b28c03-9d38-4e0e-93a7-3cadc7b29734", "process_id": "2f6a6e88-90a5-44e3-8aa8-a88771e46124", "perspective_id": "1b6b55a0-7964-4969-9e8b-a0125d4051ce", "strength": 0.84, "confidence": 0.73, "x": 10, "y": 37, "z": 7}, {"id": "105df90a-30d7-468a-8efa-daefb045e8a7", "property_id": "1021079c-de51-4941-9cec-b7316ca07233", "process_id": "a5f21f3b-f42a-4608-83c8-ee6fc107acf7", "perspective_id": "35a33290-9a86-4156-91b2-554e655b782d", "strength": 0.86, "confidence": 0.99, "x": 20, "y": 6, "z": 11}, {"id": "fddb67b7-f995-4bee-8fe4-2c8d23210757", "property_id": "8bde2314-36b9-4a81-b165-53861007d652", "process_id": "0bc49181-aba5-44b5-a1a9-ebc2e126d3b7", "perspective_id": "aa431bbc-b976-4ee5-87c5-c6ab34650bca", "strength": 0.56, "confidence": 0.95, "x": 28, "y": 30, "z": 10}, {"id": "97b934dc-6920-4b7c-a865-287214725b4d", "property_id": "260541f8-0a28-4a32-9783-450c0b6713b6", "process_id": "4b41012d-65a2-4584-a901-583607ccaa03", "perspective_id": "a48e2304-e327-4493-b847-eb4244b3a914", "strength": 0.54, "confidence": 0.72, "x": 31, "y": 36, "z": 4}, {"id": "e7cb108d-da95-45d2-9eb1-27bdbb893838", "property_id": "20dc49a7-70ae-4888-b035-d4e07d910795", "process_id": "850cedf8-3952-468c-bc44-92a6956588b6", "perspective_id": "1b6b55a0-7964-4969-9e8b-a0125d4051ce", "strength": 0.9, "confidence": 0.75, "x": 33, "y": 19, "z": 7}, {"id": "0eda1640-6d64-4bef-b709-d1f39399bdf2", "property_id": "7e281acd-fadf-4b56-b87a-7a784ea53bb8", "process_id": "750db601-0f7c-4196-a967-53a1afcc5c03", "perspective_id": "759e4dd7-d58c-4fae-836c-e1f266dbdf65", "strength": 0.54, "confidence": 0.95, "x": 23, "y": 34, "z": 2}, {"id": "a3dbf276-4ad2-46d1-88db-4b6f9331e443", "property_id": "d136f907-4ce6-4ee2-956e-041c277c0550", "process_id": "0b4a99d5-94bf-4852-8a18-01a5ccf26a54", "perspective_id": "b2ca6f1d-0822-4a0a-b1b3-011f88dc6254", "strength": 0.72, "confidence": 0.86, "x": 0, "y": 28, "z": 9}, {"id": "2d5edd2a-d923-4c46-a34e-8f34b03777b5", "property_id": "97df0d09-9200-4e4b-bbfa-b9c6124a49eb", "process_id": "6822fff6-fd53-4bab-8fab-570d363ef0ce", "perspective_id": "41af2299-c458-44b2-9895-b53fae008ced", "strength": 0.66, "confidence": 0.74, "x": 3, "y": 22, "z": 13}, {"id": "135ba004-fa65-48c4-9d2c-99cd6ceca7ba", "property_id": "3d921ed2-281f-4a92-84e1-d73aff96e715", "process_id": "1d06f8c3-4db1-45f8-b348-603d7b33d21d", "perspective_id": "b2ca6f1d-0822-4a0a-b1b3-011f88dc6254", "strength": 0.94, "confidence": 0.72, "x": 49, "y": 29, "z": 9}, {"id": "eb57ddde-6921-4a6c-a2ae-7cdc9db37f02", "property_id": "68df0f0d-c3fd-415e-8459-70d18fd544a4", "process_id": "8911a949-a0bd-47db-9309-66dc0064c20f", "perspective_id": "859ec41b-11a8-40c2-81f0-44876d0e11a0", "strength": 0.75, "confidence": 0.82, "x": 47, "y": 13, "z": 8}, {"id": "45b39e24-a1cf-4088-ad2d-1d9dd7f4460e", "property_id": "772a4292-3f17-47a4-a73e-c8e1f4c07157", "process_id": "b3fd9c07-8ffd-436b-abc6-5e6402121e04", "perspective_id": "859ec41b-11a8-40c2-81f0-44876d0e11a0", "strength": 0.65, "confidence": 0.91, "x": 40, "y": 41, "z": 8}, {"id": "1beb8dee-921b-4cd3-a592-30b000698cf8", "property_id": "cfbe9434-5348-447e-89e7-00eeaaf8e424", "process_id": "97c94dc6-d035-4039-80ff-fbb5543e0724", "perspective_id": "759e4dd7-d58c-4fae-836c-e1f266dbdf65", "strength": 0.52, "confidence": 0.93, "x": 51, "y": 48, "z": 2}, {"id": "6af9f19a-c9ff-48a2-91b8-c9396afb9653", "property_id": "fe370198-b767-4a29-87b9-ff091edcbd0b", "process_id": "8dbbff9b-cfd1-4dab-891f-e006be825507", "perspective_id": "20f6f7f9-5030-41f4-822c-6d42d2658b3c", "strength": 0.54, "confidence": 0.96, "x": 12, "y": 3, "z": 1}, {"id": "bac1d1b5-8ab0-44ef-8db1-dd4efbf8bfc4", "property_id": "3ecf25aa-da3b-403d-b569-a0c7083eb912", "process_id": "b9dfc31f-5045-4106-8f8d-7774eb13a5f6", "perspective_id": "7432c5ad-73b6-4663-87d0-52760893d23f", "strength": 0.95, "confidence": 0.91, "x": 21, "y": 4, "z": 5}, {"id": "f388c47d-04e0-40ba-888a-15c203c1e4a7", "property_id": "e410c931-6092-4a76-82a2-aa40ea8832d4", "process_id": "3b1be0d0-ffdb-440b-970d-f69b32581526", "perspective_id": "aa431bbc-b976-4ee5-87c5-c6ab34650bca", "strength": 0.77, "confidence": 0.87, "x": 1, "y": 42, "z": 10}, {"id": "33372604-3f34-4aee-9b60-f45fa61a2f5f", "property_id": "286dc7ef-4bdb-41c8-bcdf-137a72f747de", "process_id": "447941a6-2ae8-4453-8e90-2124315bd612", "perspective_id": "859ec41b-11a8-40c2-81f0-44876d0e11a0", "strength": 0.94, "confidence": 0.77, "x": 2, "y": 5, "z": 8}, {"id": "b63c3761-2dd4-40ca-a254-a3ff52b15aba", "property_id": "1021079c-de51-4941-9cec-b7316ca07233", "process_id": "7efc99ab-b7af-46ec-a2a0-bdd682138734", "perspective_id": "aa431bbc-b976-4ee5-87c5-c6ab34650bca", "strength": 0.78, "confidence": 0.74, "x": 20, "y": 12, "z": 10}, {"id": "41384525-b3e6-4e14-bec4-f9dfbef88df3", "property_id": "1021079c-de51-4941-9cec-b7316ca07233", "process_id": "750db601-0f7c-4196-a967-53a1afcc5c03", "perspective_id": "1b6b55a0-7964-4969-9e8b-a0125d4051ce", "strength": 0.88, "confidence": 0.88, "x": 20, "y": 34, "z": 7}, {"id": "22fcc06f-bdd7-4354-9453-7c6064998156", "property_id": "7a340157-2f55-4c07-bda4-f0b0a111f089", "process_id": "81cca543-a9e7-48fe-9ca0-5ebd844cbb34", "perspective_id": "007240e7-bb24-4bbf-b1d7-c7318f7d087f", "strength": 0.53, "confidence": 0.76, "x": 15, "y": 8, "z": 14}, {"id": "637c7d7d-911e-4099-908f-6075427dcd15", "property_id": "bb847f6d-4f00-4aa7-8e39-3ddb6fdf7c65", "process_id": "2f6a6e88-90a5-44e3-8aa8-a88771e46124", "perspective_id": "b2ca6f1d-0822-4a0a-b1b3-011f88dc6254", "strength": 0.95, "confidence": 0.7, "x": 38, "y": 37, "z": 9}, {"id": "a8440c5c-f277-487a-adb2-3411cab9983c", "property_id": "1021079c-de51-4941-9cec-b7316ca07233", "process_id": "2f6a6e88-90a5-44e3-8aa8-a88771e46124", "perspective_id": "7e880798-9653-46f8-8cf2-611f21d3e50a", "strength": 0.63, "confidence": 0.95, "x": 20, "y": 37, "z": 12}, {"id": "74940025-f6e4-45b6-87b6-1dc3ca466f10", "property_id": "64c8ebae-bf06-4851-962f-8676393444fe", "process_id": "9e8e1359-787f-4eae-9f01-62563b9b83b4", "perspective_id": "35a33290-9a86-4156-91b2-554e655b782d", "strength": 0.86, "confidence": 0.96, "x": 17, "y": 27, "z": 11}, {"id": "ba4aa8ce-c4e8-400f-a6bf-a82c8a87508a", "property_id": "d2d30567-69b6-4c56-b8de-1f721e620018", "process_id": "76bee8e3-f9c3-481c-be98-30ab263bf6d2", "perspective_id": "1b6b55a0-7964-4969-9e8b-a0125d4051ce", "strength": 0.66, "confidence": 0.89, "x": 39, "y": 16, "z": 7}, {"id": "00766985-592e-4500-b252-74a5c45b8567", "property_id": "45253b43-c0a1-4c48-b54d-072b4efb6386", "process_id": "97c94dc6-d035-4039-80ff-fbb5543e0724", "perspective_id": "41af2299-c458-44b2-9895-b53fae008ced", "strength": 0.54, "confidence": 0.72, "x": 37, "y": 48, "z": 13}, {"id": "4fe74c5e-7852-4699-8444-608e16eb94fe", "property_id": "260541f8-0a28-4a32-9783-450c0b6713b6", "process_id": "efc5801b-4884-4afc-b440-9d86241ac649", "perspective_id": "007240e7-bb24-4bbf-b1d7-c7318f7d087f", "strength": 0.85, "confidence": 0.79, "x": 31, "y": 15, "z": 14}, {"id": "672d5dc8-5c74-46c6-a244-c6124e82ec9b", "property_id": "20dc49a7-70ae-4888-b035-d4e07d910795", "process_id": "7efc99ab-b7af-46ec-a2a0-bdd682138734", "perspective_id": "20f6f7f9-5030-41f4-822c-6d42d2658b3c", "strength": 0.97, "confidence": 0.82, "x": 33, "y": 12, "z": 1}, {"id": "91eb3c91-edeb-48ff-9b86-f2f2e60fafee", "property_id": "20dc49a7-70ae-4888-b035-d4e07d910795", "process_id": "850cedf8-3952-468c-bc44-92a6956588b6", "perspective_id": "b2ca6f1d-0822-4a0a-b1b3-011f88dc6254", "strength": 0.75, "confidence": 0.78, "x": 33, "y": 19, "z": 9}, {"id": "0c24af1d-5a23-4835-a861-8f7dabf93177", "property_id": "d2d30567-69b6-4c56-b8de-1f721e620018", "process_id": "750db601-0f7c-4196-a967-53a1afcc5c03", "perspective_id": "b2ca6f1d-0822-4a0a-b1b3-011f88dc6254", "strength": 0.99, "confidence": 0.92, "x": 39, "y": 34, "z": 9}, {"id": "937afacb-3535-4cac-85b1-1786bfbe13c0", "property_id": "d136f907-4ce6-4ee2-956e-041c277c0550", "process_id": "2f6a6e88-90a5-44e3-8aa8-a88771e46124", "perspective_id": "1b6b55a0-7964-4969-9e8b-a0125d4051ce", "strength": 0.62, "confidence": 0.88, "x": 0, "y": 37, "z": 7}, {"id": "6ce257cf-a644-4da8-8f9e-4ea5056c4760", "property_id": "38c45165-1698-465a-ae51-ee73b72060b9", "process_id": "0bc49181-aba5-44b5-a1a9-ebc2e126d3b7", "perspective_id": "b2ca6f1d-0822-4a0a-b1b3-011f88dc6254", "strength": 0.62, "confidence": 0.89, "x": 34, "y": 30, "z": 9}, {"id": "8e1f3128-6043-4822-8f38-4e33057aebef", "property_id": "433bc6f6-ac5b-41ff-aff5-7e52b69f3429", "process_id": "a049fc7f-2297-4cf7-865b-5c23f366230f", "perspective_id": "41af2299-c458-44b2-9895-b53fae008ced", "strength": 0.89, "confidence": 0.79, "x": 52, "y": 7, "z": 13}, {"id": "acff5a53-d2a5-48a1-b0a5-fb938f3ea648", "property_id": "fe370198-b767-4a29-87b9-ff091edcbd0b", "process_id": "0bc49181-aba5-44b5-a1a9-ebc2e126d3b7", "perspective_id": "41af2299-c458-44b2-9895-b53fae008ced", "strength": 0.8, "confidence": 0.9, "x": 12, "y": 30, "z": 13}, {"id": "15f0239f-e5c9-41da-a410-4aa82a5d4df2", "property_id": "e0407665-ffda-40cc-ad31-19e66b756b36", "process_id": "24d6a9ee-e807-4dd8-a0f3-57ce2dde8e55", "perspective_id": "20f6f7f9-5030-41f4-822c-6d42d2658b3c", "strength": 0.98, "confidence": 0.91, "x": 25, "y": 35, "z": 1}, {"id": "6ea75ce6-4af7-4e0c-bc11-55b415850074", "property_id": "fe370198-b767-4a29-87b9-ff091edcbd0b", "process_id": "771f266c-95f9-404f-b3c6-d46b18ce56c4", "perspective_id": "20f6f7f9-5030-41f4-822c-6d42d2658b3c", "strength": 0.51, "confidence": 0.72, "x": 12, "y": 25, "z": 1}]};
+                
+                // Setup
+                const container = document.getElementById('canvas-container');
+                const width = container.clientWidth;
+                const height = container.clientHeight;
+                
+                // Scene
+                const scene = new THREE.Scene();
+                scene.background = new THREE.Color(0xf0f0f0);
+                
+                // Camera
+                const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+                camera.position.set(2, 2, 2);
+                
+                // Renderer
+                const renderer = new THREE.WebGLRenderer({ antialias: true });
+                renderer.setSize(width, height);
+                container.appendChild(renderer.domElement);
+                
+                // Controls
+                const controls = new THREE.OrbitControls(camera, renderer.domElement);
+                controls.enableDamping = true;
+                controls.dampingFactor = 0.25;
+                
+                // Lighting
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+                scene.add(ambientLight);
+                
+                const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+                directionalLight.position.set(1, 1, 1);
+                scene.add(directionalLight);
+                
+                // Axes helper
+                const axesHelper = new THREE.AxesHelper(1);
+                scene.add(axesHelper);
+                
+                // Create cube frame
+                const cubeSize = 1;
+                const cubeGeometry = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize);
+                const edgesMaterial = new THREE.LineBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.2 });
+                const cubeEdges = new THREE.LineSegments(
+                    new THREE.EdgesGeometry(cubeGeometry),
+                    edgesMaterial
+                );
+                scene.add(cubeEdges);
+                
+                // Axis labels
+                const createTextSprite = (text, color, position) => {
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.width = 256;
+                    canvas.height = 128;
+                    
+                    context.font = "Bold 36px Arial";
+                    context.fillStyle = "rgba(255, 255, 255, 0.95)";
+                    context.fillRect(0, 0, canvas.width, canvas.height);
+                    
+                    context.fillStyle = color;
+                    context.fillText(text, 10, 64);
+                    
+                    const texture = new THREE.Texture(canvas);
+                    texture.needsUpdate = true;
+                    
+                    const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
+                    const sprite = new THREE.Sprite(spriteMaterial);
+                    sprite.position.copy(position);
+                    sprite.scale.set(0.2, 0.1, 1);
+                    
+                    return sprite;
+                };
+                
+                // Add axis labels
+                scene.add(createTextSprite("Properties (X)", "#1f77b4", new THREE.Vector3(1.2, 0, 0)));
+                scene.add(createTextSprite("Processes (Y)", "#ff7f0e", new THREE.Vector3(0, 1.2, 0)));
+                scene.add(createTextSprite("Perspectives (Z)", "#2ca02c", new THREE.Vector3(0, 0, 1.2)));
+                
+                // Add points for relationships
+                const pointsMaterial = new THREE.PointsMaterial({
+                    size: 0.05,
+                    vertexColors: true,
+                    sizeAttenuation: true
+                });
+                
+                const pointsGeometry = new THREE.BufferGeometry();
+                const positions = [];
+                const colors = [];
+                const pointData = [];
+                
+                // Normalize positions
+                const numProperties = p3ifData.dimensions.property.length;
+                const numProcesses = p3ifData.dimensions.process.length;
+                const numPerspectives = p3ifData.dimensions.perspective.length;
+                
+                p3ifData.connections.forEach(conn => {
+                    // Normalize to 0-1 range and then scale to cube size
+                    const x = (conn.x / Math.max(1, numProperties - 1)) * cubeSize;
+                    const y = (conn.y / Math.max(1, numProcesses - 1)) * cubeSize;
+                    const z = (conn.z / Math.max(1, numPerspectives - 1)) * cubeSize;
+                    
+                    // Center the cube by subtracting half the size
+                    positions.push(x - cubeSize/2, y - cubeSize/2, z - cubeSize/2);
+                    
+                    // Use strength to determine color intensity
+                    const r = 0.5 + conn.strength * 0.5;
+                    const g = 0.5 * (1 - conn.strength);
+                    const b = 0.5 + conn.confidence * 0.5;
+                    
+                    colors.push(r, g, b);
+                    
+                    // Store the original data for interaction
+                    pointData.push({
+                        id: conn.id,
+                        property: p3ifData.dimensions.property[conn.x],
+                        process: p3ifData.dimensions.process[conn.y],
+                        perspective: p3ifData.dimensions.perspective[conn.z],
+                        strength: conn.strength,
+                        confidence: conn.confidence
+                    });
+                });
+                
+                pointsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+                pointsGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+                
+                const points = new THREE.Points(pointsGeometry, pointsMaterial);
+                scene.add(points);
+                
+                // Handle resizing
+                window.addEventListener('resize', () => {
+                    const newWidth = container.clientWidth;
+                    const newHeight = container.clientHeight;
+                    
+                    camera.aspect = newWidth / newHeight;
+                    camera.updateProjectionMatrix();
+                    
+                    renderer.setSize(newWidth, newHeight);
+                });
+                
+                // Handle point selection
+                const raycaster = new THREE.Raycaster();
+                raycaster.params.Points.threshold = 0.05;
+                
+                const mouse = new THREE.Vector2();
+                
+                container.addEventListener('mousemove', (event) => {
+                    // Calculate mouse position in normalized device coordinates
+                    mouse.x = (event.clientX / width) * 2 - 1;
+                    mouse.y = -(event.clientY / height) * 2 + 1;
+                });
+                
+                container.addEventListener('click', () => {
+                    // Cast a ray from the camera
+                    raycaster.setFromCamera(mouse, camera);
+                    
+                    // Check for intersections with points
+                    const intersects = raycaster.intersectObject(points);
+                    
+                    if (intersects.length > 0) {
+                        const index = intersects[0].index;
+                        const selectedPoint = pointData[index];
+                        
+                        // Display information about the selected point
+                        const infoDiv = document.getElementById('selection-info');
+                        infoDiv.innerHTML = `
+                            <h3>Selected Relationship</h3>
+                            <p><strong>Property:</strong> ${selectedPoint.property.name}</p>
+                            <p><strong>Process:</strong> ${selectedPoint.process.name}</p>
+                            <p><strong>Perspective:</strong> ${selectedPoint.perspective.name}</p>
+                            <p><strong>Strength:</strong> ${selectedPoint.strength.toFixed(2)}</p>
+                            <p><strong>Confidence:</strong> ${selectedPoint.confidence.toFixed(2)}</p>
+                        `;
+                    }
+                });
+                
+                // Animation loop
+                function animate() {
+                    requestAnimationFrame(animate);
+                    controls.update();
+                    renderer.render(scene, camera);
+                }
+                
+                animate();
+            </script>
+            
+            <script>
+                
+            </script>
+        </body>
+        </html>
+        

@@ -1,0 +1,1725 @@
+{
+  "domain": "NationalSecurity",
+  "version": "1.0",
+  "properties": [
+    "Intelligence Gathering",
+    "Threat Assessment",
+    "Border Security",
+    "Cybersecurity",
+    "Counter-terrorism",
+    "Military Readiness",
+    "Diplomatic Relations",
+    "Economic Security",
+    "Critical Infrastructure Protection",
+    "Emergency Response",
+    "Nuclear Deterrence",
+    "Biosecurity",
+    "Information Warfare",
+    "Surveillance Capabilities",
+    "Alliance Management",
+    "Weapons Control",
+    "Counterintelligence",
+    "Homeland Defense",
+    "Maritime Security",
+    "Space Security",
+    "Energy Security",
+    "Food Security",
+    "Public Health Preparedness",
+    "Transportation Security",
+    "Financial System Stability",
+    "Environmental Security",
+    "Technological Superiority",
+    "Strategic Communications",
+    "Cultural Understanding",
+    "Resilience",
+    "Non-Proliferation",
+    "Arms Control",
+    "Disaster Preparedness",
+    "Chemical Security",
+    "Radiological Security",
+    "Asymmetric Warfare Defense",
+    "Insider Threat Mitigation",
+    "Supply Chain Security",
+    "Electromagnetic Pulse Protection",
+    "Quantum Technology Security",
+    "Artificial Intelligence Security",
+    "Biometric Security",
+    "Drone Defense",
+    "Social Media Monitoring",
+    "Refugee Management",
+    "Pandemic Response",
+    "Climate Change Adaptation",
+    "Geopolitical Risk Management",
+    "Psychological Operations Defense",
+    "Critical Mineral Security"
+  ],
+  "processes": [
+    "Intelligence Analysis",
+    "Threat Monitoring",
+    "Border Patrol",
+    "Cyber Defense",
+    "Counter-terrorism Operations",
+    "Military Training",
+    "Diplomatic Negotiations",
+    "Economic Sanctions",
+    "Infrastructure Hardening",
+    "Crisis Management",
+    "Nuclear Arms Control",
+    "Biosurveillance",
+    "Information Operations",
+    "Surveillance Operations",
+    "Alliance Building",
+    "Arms Control Verification",
+    "Counterintelligence Operations",
+    "Homeland Security Coordination",
+    "Maritime Patrols",
+    "Space Monitoring",
+    "Energy Resource Protection",
+    "Food Supply Chain Monitoring",
+    "Public Health Emergency Response",
+    "Transportation System Security",
+    "Financial System Monitoring",
+    "Environmental Threat Assessment",
+    "Technology Development",
+    "Strategic Messaging",
+    "Cultural Intelligence Gathering",
+    "Resilience Planning",
+    "Non-Proliferation Treaty Enforcement",
+    "Arms Reduction Negotiations",
+    "Disaster Response Drills",
+    "Chemical Facility Inspections",
+    "Radiological Detection",
+    "Asymmetric Threat Analysis",
+    "Insider Threat Screening",
+    "Supply Chain Risk Management",
+    "EMP Hardening",
+    "Quantum Encryption Development",
+    "AI Ethics Implementation",
+    "Biometric Data Management",
+    "Anti-Drone Systems Deployment",
+    "Social Media Analysis",
+    "Refugee Screening",
+    "Pandemic Preparedness Planning",
+    "Climate Change Impact Assessment",
+    "Geopolitical Scenario Planning",
+    "Psychological Operations Analysis",
+    "Critical Mineral Stockpiling"
+  ],
+  "perspectives": [
+    "Intelligence Analyst",
+    "Military Commander",
+    "Diplomat",
+    "Cybersecurity Expert",
+    "Counter-terrorism Specialist",
+    "Economic Advisor",
+    "Emergency Response Coordinator",
+    "Nuclear Strategist",
+    "Biosecurity Researcher",
+    "Information Warfare Specialist",
+    "Surveillance Technician",
+    "Alliance Coordinator",
+    "Arms Control Inspector",
+    "Homeland Security Officer",
+    "Maritime Security Expert",
+    "Space Security Analyst",
+    "Energy Security Advisor",
+    "Food Security Specialist",
+    "Public Health Official",
+    "Transportation Security Manager",
+    "Financial System Regulator",
+    "Environmental Security Analyst",
+    "Technology Development Officer",
+    "Strategic Communications Expert",
+    "Cultural Anthropologist",
+    "Resilience Planner",
+    "Non-Proliferation Treaty Negotiator",
+    "Arms Reduction Specialist",
+    "Disaster Management Expert",
+    "Chemical Security Inspector",
+    "Radiological Defense Specialist",
+    "Asymmetric Warfare Analyst",
+    "Insider Threat Investigator",
+    "Supply Chain Security Manager",
+    "EMP Defense Engineer",
+    "Quantum Security Researcher",
+    "AI Ethics Officer",
+    "Biometric Systems Engineer",
+    "Drone Defense Specialist",
+    "Social Media Intelligence Analyst",
+    "Refugee Coordinator",
+    "Pandemic Response Planner",
+    "Climate Change Security Advisor",
+    "Geopolitical Risk Analyst",
+    "Psychological Operations Specialist",
+    "Critical Mineral Strategist",
+    "Border Control Officer",
+    "Customs Inspector",
+    "Infrastructure Protection Specialist",
+    "Crisis Communications Manager"
+  ],
+  "patterns": {
+    "properties": [
+      {
+        "id": "8f2935db-a2fb-4057-bfd0-5f0e73b36edb",
+        "name": "Intelligence Gathering",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "5a8fa904-181c-4336-85f9-3dfa9b73ccdf",
+        "name": "Threat Assessment",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "eb07e872-28b7-4ac2-bd23-d651972739b0",
+        "name": "Border Security",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "67ccacb1-7027-456b-a9c5-a8eadeccfbb1",
+        "name": "Cybersecurity",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "785f9a79-1402-4264-89ed-724b09d601fd",
+        "name": "Counter-terrorism",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "0adda0a0-eea3-4fb1-85a7-45d0a68a73af",
+        "name": "Military Readiness",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "65dc390d-c959-4bb5-b9d4-0f0e2e9a2120",
+        "name": "Diplomatic Relations",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "7fc89eff-f4f4-44dc-899b-8674761ef8fa",
+        "name": "Economic Security",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "933e3c5d-3caf-4404-b02b-4ca3178ce103",
+        "name": "Critical Infrastructure Protection",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "907cb5bb-2895-4445-8e8e-6b7b0641018f",
+        "name": "Emergency Response",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "f9c2128c-ccde-4f35-89b3-386bee90cb96",
+        "name": "Nuclear Deterrence",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "2b309e14-bc06-4e1b-959f-fcf945a64794",
+        "name": "Biosecurity",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "b1fb5190-62ea-495f-8cbe-e0199cadf2c8",
+        "name": "Information Warfare",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "46b38526-88d3-44aa-811c-45a72ac63f3c",
+        "name": "Surveillance Capabilities",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "fa8240bb-7076-4899-8007-9d540f1e3165",
+        "name": "Alliance Management",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "9763ba82-781f-49e2-8277-c003003f4bde",
+        "name": "Weapons Control",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "1dbbad5b-a923-4760-ac20-4fbb3a6dc431",
+        "name": "Counterintelligence",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "50a53c4e-b53c-43cc-92e8-88a3a9d0e36c",
+        "name": "Homeland Defense",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "676b025b-3061-48d4-b883-e1026525ba91",
+        "name": "Maritime Security",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "5796cbb9-3897-474b-a7d0-8748ef3ec9cd",
+        "name": "Space Security",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "9d483591-2416-4267-a1b0-66527ba8b1dd",
+        "name": "Energy Security",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "f334d204-178e-4664-9fc5-e751d6fa2b5b",
+        "name": "Food Security",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "381b2987-e7a2-4c46-a95c-b648202992bb",
+        "name": "Public Health Preparedness",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "a6d9be22-afd3-451f-9c9a-8e8bf791fd24",
+        "name": "Transportation Security",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "9199ab38-f2a5-412c-b9d7-bec193d19a53",
+        "name": "Financial System Stability",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "bd24cf00-9b48-41d0-a6de-4f1a359fa146",
+        "name": "Environmental Security",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "5bb54052-0671-4005-9fce-fb39bac5d59c",
+        "name": "Technological Superiority",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "ba801d54-26e9-4404-b9b4-6e78d521f91f",
+        "name": "Strategic Communications",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "6a160000-c492-452a-887e-c1732df1884d",
+        "name": "Cultural Understanding",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "e868d55d-8052-4e4e-a1e9-71d5157c2d09",
+        "name": "Resilience",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "183222db-9990-4618-93f4-ea35185461d5",
+        "name": "Non-Proliferation",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "74713712-4d6d-4196-8991-545580923f0b",
+        "name": "Arms Control",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "e5a51948-b8a9-494c-9449-e4afba4d5943",
+        "name": "Disaster Preparedness",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "ae956cae-1b26-4b28-9f6a-886e93726a0f",
+        "name": "Chemical Security",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "6ddd014e-6d28-4fd8-8e1d-df98eb6640c3",
+        "name": "Radiological Security",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "878aa6da-a6db-4903-8c22-7dc21e1b085f",
+        "name": "Asymmetric Warfare Defense",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "5b917b74-fe1d-4643-82f6-1f86d7b7dcf3",
+        "name": "Insider Threat Mitigation",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "49709db9-81be-441c-bd7a-9458d411a0e6",
+        "name": "Supply Chain Security",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "2b24da03-a39a-4614-bd5d-5a35a7e4363c",
+        "name": "Electromagnetic Pulse Protection",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "636d4833-62d5-429c-a401-9e73d0797c0c",
+        "name": "Quantum Technology Security",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "eb197bfd-ab28-4668-ab27-c48894cd4d21",
+        "name": "Artificial Intelligence Security",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "e6a2023d-096c-462e-9ca7-975860e491dd",
+        "name": "Biometric Security",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "c4e6dcd6-25b0-41df-bac6-237462d67476",
+        "name": "Drone Defense",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "9bd87d79-1d5d-440e-83ef-30b08287880a",
+        "name": "Social Media Monitoring",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "7d36ee0e-27c1-4c52-b616-bb800126ec3e",
+        "name": "Refugee Management",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "c4428bad-4d57-4cb9-9e2c-694cf6f579b1",
+        "name": "Pandemic Response",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "7531309c-94e3-4723-8161-bf36409a52e5",
+        "name": "Climate Change Adaptation",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "e46ba5e4-b884-4c7b-b23a-53391d624fe3",
+        "name": "Geopolitical Risk Management",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "2cb13023-7bc6-47e8-a1fa-8babb739eb40",
+        "name": "Psychological Operations Defense",
+        "type": "property",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "2f273ce7-0fd2-45b7-a6dc-e835c2fde36c",
+        "name": "Critical Mineral Security",
+        "type": "property",
+        "domain": "NationalSecurity"
+      }
+    ],
+    "processes": [
+      {
+        "id": "77ff5e08-ca10-42c4-b3eb-7f706c8dc586",
+        "name": "Intelligence Analysis",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "b3acd7f5-bf12-475c-9511-6e3abde2ee74",
+        "name": "Threat Monitoring",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "b9da3b80-efdc-4e1c-9416-6a9c6210de51",
+        "name": "Border Patrol",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "27a9283f-0568-4516-90f9-82e0b3a1db85",
+        "name": "Cyber Defense",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "a8ac3472-ae62-4e29-baec-2c7980a5a903",
+        "name": "Counter-terrorism Operations",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "66509aa4-2e97-4f4f-8715-16c7359aade6",
+        "name": "Military Training",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "4577e5ff-489c-4131-8651-e9a2a3499a1d",
+        "name": "Diplomatic Negotiations",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "a1b03041-50dc-4a21-9184-069ef26faf5b",
+        "name": "Economic Sanctions",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "ffcab015-86da-476d-b043-5a780f007815",
+        "name": "Infrastructure Hardening",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "81db7e38-2c5f-44ab-88a6-88d8914ebf72",
+        "name": "Crisis Management",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "0db69faa-b4d8-4172-959f-fedde5935a25",
+        "name": "Nuclear Arms Control",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "cc83e643-fd73-4ed0-8b67-293dfe83fe02",
+        "name": "Biosurveillance",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "8c3807c6-263c-4bc6-b3cc-1e63b47b2ee0",
+        "name": "Information Operations",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "5eef81d3-c0c1-4f73-8b52-4f074bcec725",
+        "name": "Surveillance Operations",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "9887643d-5f67-4ca8-b4b5-6166c6398adc",
+        "name": "Alliance Building",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "33930afd-9705-4160-939d-cba8f2ac3110",
+        "name": "Arms Control Verification",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "aa6f1e11-5e14-41a7-93a7-3f904de0938e",
+        "name": "Counterintelligence Operations",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "7b55a998-eb78-496e-9f13-c477e9ccadfa",
+        "name": "Homeland Security Coordination",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "494a8011-888f-4d2f-ba19-da5c171f34b2",
+        "name": "Maritime Patrols",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "d7f17055-e225-4919-9257-da3b6955acca",
+        "name": "Space Monitoring",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "550acf72-5842-4653-a26b-d4cf1d43ff7d",
+        "name": "Energy Resource Protection",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "32746379-5943-413c-9cfb-f6185b201a20",
+        "name": "Food Supply Chain Monitoring",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "d685a4f4-cd43-44f0-a46d-a476f67a0f7f",
+        "name": "Public Health Emergency Response",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "45a561c6-a924-4dd0-af37-0c9d480af795",
+        "name": "Transportation System Security",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "4cc996fb-c7b9-4fe7-90fc-f2b8e56b9488",
+        "name": "Financial System Monitoring",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "f6e9d1c9-ea76-4990-8629-02707cefc1cb",
+        "name": "Environmental Threat Assessment",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "288704ea-601c-4b6e-9a45-57b0268a95f5",
+        "name": "Technology Development",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "95f5013b-4b66-42cb-a728-5dc5223db331",
+        "name": "Strategic Messaging",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "5321e36f-c3a2-493a-8c6f-736abb015058",
+        "name": "Cultural Intelligence Gathering",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "8d9dd2de-34e5-4c1e-888d-16f340579044",
+        "name": "Resilience Planning",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "cbe895b4-e060-4de7-8513-32aa23d21b64",
+        "name": "Non-Proliferation Treaty Enforcement",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "8944d383-298b-4b61-8067-c87d27502890",
+        "name": "Arms Reduction Negotiations",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "a37f2875-533e-4284-bc66-db9daf9c7c50",
+        "name": "Disaster Response Drills",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "91a42e45-d1a4-4043-a112-e69817fd6dad",
+        "name": "Chemical Facility Inspections",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "01abe5ec-6d16-4379-a9b8-40ceebe043ed",
+        "name": "Radiological Detection",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "dbd8ec1e-e8df-45b0-a4b6-25bca4f69578",
+        "name": "Asymmetric Threat Analysis",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "4bd2df8f-0441-4890-b546-61a4c96c25fb",
+        "name": "Insider Threat Screening",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "b7e1033f-6cbc-443b-889c-8d691cee6cb8",
+        "name": "Supply Chain Risk Management",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "d6750813-672a-42e4-bb8f-c4ea4f5763ab",
+        "name": "EMP Hardening",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "5dd79d40-5540-4c91-9421-72ffd35b8910",
+        "name": "Quantum Encryption Development",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "5aa6f77f-c3b6-4447-87d5-2e2849680648",
+        "name": "AI Ethics Implementation",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "3277b703-9853-4cc5-83ca-8f793994a228",
+        "name": "Biometric Data Management",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "82e56df0-a3ef-47eb-881d-f23c8df72a30",
+        "name": "Anti-Drone Systems Deployment",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "2a53782c-3dfb-40cd-905c-86afaac3f9eb",
+        "name": "Social Media Analysis",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "039f9b1e-b25c-4bd1-9c6c-f25d1979bb02",
+        "name": "Refugee Screening",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "94504ca8-740f-4dbf-83da-6b3e3d6cd387",
+        "name": "Pandemic Preparedness Planning",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "9e84b44a-6e1c-45b4-9dd4-44af3ab142fa",
+        "name": "Climate Change Impact Assessment",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "21394d9c-839c-4b7c-bf09-534c0fc7393c",
+        "name": "Geopolitical Scenario Planning",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "dd396dba-d3fb-46ca-b4fc-60addec89e26",
+        "name": "Psychological Operations Analysis",
+        "type": "process",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "12164153-ce01-41b5-b46d-f27569a96959",
+        "name": "Critical Mineral Stockpiling",
+        "type": "process",
+        "domain": "NationalSecurity"
+      }
+    ],
+    "perspectives": [
+      {
+        "id": "f5832e48-3ceb-47df-9106-435d0eff7d2b",
+        "name": "Intelligence Analyst",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "fb22f01c-549b-46a1-803a-6cfa2af3136a",
+        "name": "Military Commander",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "e15543eb-a89a-45ca-8277-f8fb96d12f2a",
+        "name": "Diplomat",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "44a89b40-71db-4a49-a4b0-b5224686a879",
+        "name": "Cybersecurity Expert",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "f6e8decf-7d78-41ba-a6eb-ee79051116fb",
+        "name": "Counter-terrorism Specialist",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "8871105f-4b2e-42b7-b643-3620403ca573",
+        "name": "Economic Advisor",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "b4e0b74c-77c4-40cc-aff8-a673c1011a85",
+        "name": "Emergency Response Coordinator",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "d3b5bef8-5b8b-42fb-ab2e-7e4fe640b0ff",
+        "name": "Nuclear Strategist",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "ca275b9a-0092-4bbc-a624-e0eda8cde441",
+        "name": "Biosecurity Researcher",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "46087930-80d5-43cc-8b0d-679d799ab2eb",
+        "name": "Information Warfare Specialist",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "a7fdca5c-de0e-4366-9566-51c21b62d553",
+        "name": "Surveillance Technician",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "ecd0396a-2c84-4aec-acb4-355d6e978f74",
+        "name": "Alliance Coordinator",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "28ebd724-d28a-412e-a8b4-f370ace4cba1",
+        "name": "Arms Control Inspector",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "2a05cb8c-7078-4486-96b4-a2e62205e72f",
+        "name": "Homeland Security Officer",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "c676ef8b-1125-49fa-aff5-a6d459340cb1",
+        "name": "Maritime Security Expert",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "5e015042-d8e0-4d90-8fba-85f83eba966c",
+        "name": "Space Security Analyst",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "752da0dd-d1ef-47fa-b473-bba9e413e354",
+        "name": "Energy Security Advisor",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "feb9ffcc-8be4-477c-8f43-540033ef0e21",
+        "name": "Food Security Specialist",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "b3fa8f81-810a-4de1-bd0b-8f44cecae1d9",
+        "name": "Public Health Official",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "0671a94d-692a-411a-9c10-988ca8121fbc",
+        "name": "Transportation Security Manager",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "5e03e955-fde0-4743-bb38-796fffa0cd79",
+        "name": "Financial System Regulator",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "b821933f-6c32-4936-89c0-702848fe2210",
+        "name": "Environmental Security Analyst",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "bf12c561-948e-43e7-b9ec-3484a494d856",
+        "name": "Technology Development Officer",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "2f792803-e7f4-4003-a2ec-378e92cb0304",
+        "name": "Strategic Communications Expert",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "77c9a501-2da0-4dfe-b680-072f028bb8ca",
+        "name": "Cultural Anthropologist",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "94038ac2-838a-4f77-adbd-cfe524c7668b",
+        "name": "Resilience Planner",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "45b1c296-171f-4d79-bac7-2ee5461815f2",
+        "name": "Non-Proliferation Treaty Negotiator",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "d1dc8dde-2b3f-48df-a287-c2498a055bf5",
+        "name": "Arms Reduction Specialist",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "4cb334b5-3e86-4dc4-9c9f-c82b4eb9d983",
+        "name": "Disaster Management Expert",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "49d93db3-90d3-4060-ac16-50a08a2ef0d7",
+        "name": "Chemical Security Inspector",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "e28f33de-8d71-4b0c-b04c-0dfacfa38374",
+        "name": "Radiological Defense Specialist",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "6bf6ab91-58fd-4302-837f-e0b1f2abd777",
+        "name": "Asymmetric Warfare Analyst",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "0d946eb3-357a-4d13-9bb1-e13478852a75",
+        "name": "Insider Threat Investigator",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "caca467c-da18-4d73-86e4-1d57c3b98644",
+        "name": "Supply Chain Security Manager",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "ad329e38-4ec7-4924-be0c-805f01fefa8b",
+        "name": "EMP Defense Engineer",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "54ba3c74-5e63-45f5-9909-0b36d778278f",
+        "name": "Quantum Security Researcher",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "7961b68a-1122-43c9-a0d2-29ff69589f28",
+        "name": "AI Ethics Officer",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "27bd724b-5ebc-4bc5-ae0c-710c98ba3ab9",
+        "name": "Biometric Systems Engineer",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "6f6c494b-eafe-4c7a-8a3c-e8682090593f",
+        "name": "Drone Defense Specialist",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "20cd1f23-9a28-4d53-a760-bd28306d58ae",
+        "name": "Social Media Intelligence Analyst",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "fa28a012-a3cb-4c88-a91b-389d756bc69f",
+        "name": "Refugee Coordinator",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "9cbea604-2ec1-4b97-be10-186fa5355380",
+        "name": "Pandemic Response Planner",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "6fa7e55f-d737-4471-ad68-66297318cdd2",
+        "name": "Climate Change Security Advisor",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "bacfe2ad-30ee-406d-afb7-b3dddb816b95",
+        "name": "Geopolitical Risk Analyst",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "b6ac1f6b-318d-44e1-a279-c819d26acb79",
+        "name": "Psychological Operations Specialist",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "efdc0212-791a-41b2-9030-dc4cb019cefa",
+        "name": "Critical Mineral Strategist",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "d70510b7-f43f-4b12-819b-20a581fb7f5d",
+        "name": "Border Control Officer",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "ff48c0b6-e6c1-4ffb-bd44-1f5a0c4d17c0",
+        "name": "Customs Inspector",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "0f5e96a6-bd6b-4a31-a356-74ec0cd23c37",
+        "name": "Infrastructure Protection Specialist",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      },
+      {
+        "id": "dd2b0e13-fe7e-4674-9ab0-4b23b6189f49",
+        "name": "Crisis Communications Manager",
+        "type": "perspective",
+        "domain": "NationalSecurity"
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "3290eb2e-3225-4f7f-9da2-0218b3a1b847",
+      "property_id": "f334d204-178e-4664-9fc5-e751d6fa2b5b",
+      "process_id": "b3acd7f5-bf12-475c-9511-6e3abde2ee74",
+      "perspective_id": "d3b5bef8-5b8b-42fb-ab2e-7e4fe640b0ff",
+      "strength": 0.51,
+      "confidence": 0.85
+    },
+    {
+      "id": "8c614b8b-90c7-4148-8fe0-d8ee6a969b2f",
+      "property_id": "7531309c-94e3-4723-8161-bf36409a52e5",
+      "process_id": "cc83e643-fd73-4ed0-8b67-293dfe83fe02",
+      "perspective_id": "fb22f01c-549b-46a1-803a-6cfa2af3136a",
+      "strength": 0.99,
+      "confidence": 0.89
+    },
+    {
+      "id": "cd5d5949-2c04-4017-a399-dedb821a4459",
+      "property_id": "878aa6da-a6db-4903-8c22-7dc21e1b085f",
+      "process_id": "9887643d-5f67-4ca8-b4b5-6166c6398adc",
+      "perspective_id": "c676ef8b-1125-49fa-aff5-a6d459340cb1",
+      "strength": 0.57,
+      "confidence": 0.74
+    },
+    {
+      "id": "12841d18-1588-42d4-943a-2ec21a658897",
+      "property_id": "6ddd014e-6d28-4fd8-8e1d-df98eb6640c3",
+      "process_id": "21394d9c-839c-4b7c-bf09-534c0fc7393c",
+      "perspective_id": "45b1c296-171f-4d79-bac7-2ee5461815f2",
+      "strength": 0.57,
+      "confidence": 0.98
+    },
+    {
+      "id": "d9e028ec-ab50-48d1-8179-33fb8719f615",
+      "property_id": "c4e6dcd6-25b0-41df-bac6-237462d67476",
+      "process_id": "494a8011-888f-4d2f-ba19-da5c171f34b2",
+      "perspective_id": "ecd0396a-2c84-4aec-acb4-355d6e978f74",
+      "strength": 0.62,
+      "confidence": 0.86
+    },
+    {
+      "id": "50aa5f6d-dfb1-43ea-b14d-5dc236fbb1f9",
+      "property_id": "f9c2128c-ccde-4f35-89b3-386bee90cb96",
+      "process_id": "aa6f1e11-5e14-41a7-93a7-3f904de0938e",
+      "perspective_id": "dd2b0e13-fe7e-4674-9ab0-4b23b6189f49",
+      "strength": 0.78,
+      "confidence": 0.96
+    },
+    {
+      "id": "1b97faf6-e5fb-4b58-892f-4e028090dc09",
+      "property_id": "7531309c-94e3-4723-8161-bf36409a52e5",
+      "process_id": "039f9b1e-b25c-4bd1-9c6c-f25d1979bb02",
+      "perspective_id": "a7fdca5c-de0e-4366-9566-51c21b62d553",
+      "strength": 0.58,
+      "confidence": 0.88
+    },
+    {
+      "id": "42c69f5f-f246-4820-a6ad-46b1eee690cc",
+      "property_id": "2cb13023-7bc6-47e8-a1fa-8babb739eb40",
+      "process_id": "5eef81d3-c0c1-4f73-8b52-4f074bcec725",
+      "perspective_id": "ff48c0b6-e6c1-4ffb-bd44-1f5a0c4d17c0",
+      "strength": 0.81,
+      "confidence": 0.83
+    },
+    {
+      "id": "4efb2a5a-16f1-41d3-90f1-8a631374b0da",
+      "property_id": "8f2935db-a2fb-4057-bfd0-5f0e73b36edb",
+      "process_id": "d685a4f4-cd43-44f0-a46d-a476f67a0f7f",
+      "perspective_id": "d3b5bef8-5b8b-42fb-ab2e-7e4fe640b0ff",
+      "strength": 0.73,
+      "confidence": 0.73
+    },
+    {
+      "id": "58d7dbc0-f92e-4587-9d9a-a2498d6a090d",
+      "property_id": "c4428bad-4d57-4cb9-9e2c-694cf6f579b1",
+      "process_id": "aa6f1e11-5e14-41a7-93a7-3f904de0938e",
+      "perspective_id": "44a89b40-71db-4a49-a4b0-b5224686a879",
+      "strength": 0.68,
+      "confidence": 0.72
+    },
+    {
+      "id": "9fc06a89-aa32-44f8-91ac-5e9b3e4741cf",
+      "property_id": "785f9a79-1402-4264-89ed-724b09d601fd",
+      "process_id": "0db69faa-b4d8-4172-959f-fedde5935a25",
+      "perspective_id": "bf12c561-948e-43e7-b9ec-3484a494d856",
+      "strength": 0.75,
+      "confidence": 0.96
+    },
+    {
+      "id": "a2a426b8-cc61-4e9d-aa4f-c6174cc8502e",
+      "property_id": "9763ba82-781f-49e2-8277-c003003f4bde",
+      "process_id": "91a42e45-d1a4-4043-a112-e69817fd6dad",
+      "perspective_id": "5e03e955-fde0-4743-bb38-796fffa0cd79",
+      "strength": 0.85,
+      "confidence": 0.78
+    },
+    {
+      "id": "791c4fa0-36b3-4929-a2dc-78322b6e55c0",
+      "property_id": "933e3c5d-3caf-4404-b02b-4ca3178ce103",
+      "process_id": "5eef81d3-c0c1-4f73-8b52-4f074bcec725",
+      "perspective_id": "ca275b9a-0092-4bbc-a624-e0eda8cde441",
+      "strength": 0.84,
+      "confidence": 0.85
+    },
+    {
+      "id": "25961e3b-8369-419b-ba1a-cb794fce7117",
+      "property_id": "ae956cae-1b26-4b28-9f6a-886e93726a0f",
+      "process_id": "7b55a998-eb78-496e-9f13-c477e9ccadfa",
+      "perspective_id": "d1dc8dde-2b3f-48df-a287-c2498a055bf5",
+      "strength": 0.71,
+      "confidence": 0.99
+    },
+    {
+      "id": "596f1bb1-7752-4b19-843e-994d9955ea80",
+      "property_id": "5796cbb9-3897-474b-a7d0-8748ef3ec9cd",
+      "process_id": "f6e9d1c9-ea76-4990-8629-02707cefc1cb",
+      "perspective_id": "6bf6ab91-58fd-4302-837f-e0b1f2abd777",
+      "strength": 0.82,
+      "confidence": 0.94
+    },
+    {
+      "id": "f6755280-7b93-4cbc-baa5-d7ce1aba3529",
+      "property_id": "5796cbb9-3897-474b-a7d0-8748ef3ec9cd",
+      "process_id": "a1b03041-50dc-4a21-9184-069ef26faf5b",
+      "perspective_id": "44a89b40-71db-4a49-a4b0-b5224686a879",
+      "strength": 0.83,
+      "confidence": 0.82
+    },
+    {
+      "id": "046eed64-56f7-4925-afd6-d80438d8e234",
+      "property_id": "1dbbad5b-a923-4760-ac20-4fbb3a6dc431",
+      "process_id": "cbe895b4-e060-4de7-8513-32aa23d21b64",
+      "perspective_id": "0f5e96a6-bd6b-4a31-a356-74ec0cd23c37",
+      "strength": 0.57,
+      "confidence": 0.83
+    },
+    {
+      "id": "b758ece6-7c17-4518-b329-60edc0a1cdf7",
+      "property_id": "e6a2023d-096c-462e-9ca7-975860e491dd",
+      "process_id": "01abe5ec-6d16-4379-a9b8-40ceebe043ed",
+      "perspective_id": "feb9ffcc-8be4-477c-8f43-540033ef0e21",
+      "strength": 0.96,
+      "confidence": 0.93
+    },
+    {
+      "id": "39b9790a-9e94-4c17-9e00-f9ff1f5be97a",
+      "property_id": "2b309e14-bc06-4e1b-959f-fcf945a64794",
+      "process_id": "f6e9d1c9-ea76-4990-8629-02707cefc1cb",
+      "perspective_id": "ad329e38-4ec7-4924-be0c-805f01fefa8b",
+      "strength": 0.83,
+      "confidence": 0.84
+    },
+    {
+      "id": "79f9bafe-9585-487f-9a63-048bcce9aaf0",
+      "property_id": "e868d55d-8052-4e4e-a1e9-71d5157c2d09",
+      "process_id": "d685a4f4-cd43-44f0-a46d-a476f67a0f7f",
+      "perspective_id": "20cd1f23-9a28-4d53-a760-bd28306d58ae",
+      "strength": 0.73,
+      "confidence": 0.99
+    },
+    {
+      "id": "f2677189-7e57-4818-8cdb-27233e8e5ce7",
+      "property_id": "9bd87d79-1d5d-440e-83ef-30b08287880a",
+      "process_id": "77ff5e08-ca10-42c4-b3eb-7f706c8dc586",
+      "perspective_id": "b6ac1f6b-318d-44e1-a279-c819d26acb79",
+      "strength": 0.73,
+      "confidence": 0.71
+    },
+    {
+      "id": "515a3a25-f557-4651-b1b6-1577e05d74c0",
+      "property_id": "eb07e872-28b7-4ac2-bd23-d651972739b0",
+      "process_id": "dd396dba-d3fb-46ca-b4fc-60addec89e26",
+      "perspective_id": "4cb334b5-3e86-4dc4-9c9f-c82b4eb9d983",
+      "strength": 0.73,
+      "confidence": 0.84
+    },
+    {
+      "id": "676439e7-9aaa-4e12-9829-f877f256edb8",
+      "property_id": "f9c2128c-ccde-4f35-89b3-386bee90cb96",
+      "process_id": "3277b703-9853-4cc5-83ca-8f793994a228",
+      "perspective_id": "44a89b40-71db-4a49-a4b0-b5224686a879",
+      "strength": 0.95,
+      "confidence": 0.98
+    },
+    {
+      "id": "f60e8baf-b9f0-4f96-9bf9-183f9c726c65",
+      "property_id": "e46ba5e4-b884-4c7b-b23a-53391d624fe3",
+      "process_id": "7b55a998-eb78-496e-9f13-c477e9ccadfa",
+      "perspective_id": "45b1c296-171f-4d79-bac7-2ee5461815f2",
+      "strength": 0.7,
+      "confidence": 0.78
+    },
+    {
+      "id": "d01a4ad9-a040-4a8f-85c1-46c8e6b997a3",
+      "property_id": "9199ab38-f2a5-412c-b9d7-bec193d19a53",
+      "process_id": "cc83e643-fd73-4ed0-8b67-293dfe83fe02",
+      "perspective_id": "caca467c-da18-4d73-86e4-1d57c3b98644",
+      "strength": 1.0,
+      "confidence": 0.94
+    },
+    {
+      "id": "eb533d56-51b5-4d8f-a67a-e678161864d5",
+      "property_id": "50a53c4e-b53c-43cc-92e8-88a3a9d0e36c",
+      "process_id": "94504ca8-740f-4dbf-83da-6b3e3d6cd387",
+      "perspective_id": "28ebd724-d28a-412e-a8b4-f370ace4cba1",
+      "strength": 0.99,
+      "confidence": 0.94
+    },
+    {
+      "id": "420e2994-6abd-43e2-9ca7-128e082b8ccb",
+      "property_id": "933e3c5d-3caf-4404-b02b-4ca3178ce103",
+      "process_id": "a1b03041-50dc-4a21-9184-069ef26faf5b",
+      "perspective_id": "9cbea604-2ec1-4b97-be10-186fa5355380",
+      "strength": 0.71,
+      "confidence": 0.74
+    },
+    {
+      "id": "29c06f16-b856-4e44-947f-538538508ec3",
+      "property_id": "9763ba82-781f-49e2-8277-c003003f4bde",
+      "process_id": "a8ac3472-ae62-4e29-baec-2c7980a5a903",
+      "perspective_id": "feb9ffcc-8be4-477c-8f43-540033ef0e21",
+      "strength": 0.79,
+      "confidence": 0.88
+    },
+    {
+      "id": "1460a924-e68d-4400-89a2-54d5c66bcba8",
+      "property_id": "6ddd014e-6d28-4fd8-8e1d-df98eb6640c3",
+      "process_id": "32746379-5943-413c-9cfb-f6185b201a20",
+      "perspective_id": "28ebd724-d28a-412e-a8b4-f370ace4cba1",
+      "strength": 0.63,
+      "confidence": 0.92
+    },
+    {
+      "id": "f82abf46-a394-4da2-9413-716437e1a982",
+      "property_id": "183222db-9990-4618-93f4-ea35185461d5",
+      "process_id": "cc83e643-fd73-4ed0-8b67-293dfe83fe02",
+      "perspective_id": "f6e8decf-7d78-41ba-a6eb-ee79051116fb",
+      "strength": 0.81,
+      "confidence": 0.86
+    },
+    {
+      "id": "fd15e200-9954-4af2-9a1f-7b2cd56c766b",
+      "property_id": "b1fb5190-62ea-495f-8cbe-e0199cadf2c8",
+      "process_id": "039f9b1e-b25c-4bd1-9c6c-f25d1979bb02",
+      "perspective_id": "7961b68a-1122-43c9-a0d2-29ff69589f28",
+      "strength": 0.57,
+      "confidence": 0.85
+    },
+    {
+      "id": "3aea47bb-6585-4413-8a48-9671eecd3933",
+      "property_id": "5b917b74-fe1d-4643-82f6-1f86d7b7dcf3",
+      "process_id": "33930afd-9705-4160-939d-cba8f2ac3110",
+      "perspective_id": "2a05cb8c-7078-4486-96b4-a2e62205e72f",
+      "strength": 0.92,
+      "confidence": 0.86
+    },
+    {
+      "id": "b2a7c9ca-be5c-4f21-b920-cf5aef05b065",
+      "property_id": "ba801d54-26e9-4404-b9b4-6e78d521f91f",
+      "process_id": "5eef81d3-c0c1-4f73-8b52-4f074bcec725",
+      "perspective_id": "feb9ffcc-8be4-477c-8f43-540033ef0e21",
+      "strength": 0.71,
+      "confidence": 0.77
+    },
+    {
+      "id": "6dc08841-5cdf-4af5-b5af-9b9c4508f7fb",
+      "property_id": "9d483591-2416-4267-a1b0-66527ba8b1dd",
+      "process_id": "b9da3b80-efdc-4e1c-9416-6a9c6210de51",
+      "perspective_id": "b4e0b74c-77c4-40cc-aff8-a673c1011a85",
+      "strength": 0.87,
+      "confidence": 0.81
+    },
+    {
+      "id": "215f85ca-8d79-4643-ba59-3bd91c43e137",
+      "property_id": "7531309c-94e3-4723-8161-bf36409a52e5",
+      "process_id": "0db69faa-b4d8-4172-959f-fedde5935a25",
+      "perspective_id": "bacfe2ad-30ee-406d-afb7-b3dddb816b95",
+      "strength": 0.95,
+      "confidence": 0.74
+    },
+    {
+      "id": "88951e06-6b0d-471d-aade-d977909cae58",
+      "property_id": "e46ba5e4-b884-4c7b-b23a-53391d624fe3",
+      "process_id": "aa6f1e11-5e14-41a7-93a7-3f904de0938e",
+      "perspective_id": "8871105f-4b2e-42b7-b643-3620403ca573",
+      "strength": 0.91,
+      "confidence": 0.9
+    },
+    {
+      "id": "3a67cae0-f0d8-49e1-9162-7b90d89980a4",
+      "property_id": "7fc89eff-f4f4-44dc-899b-8674761ef8fa",
+      "process_id": "27a9283f-0568-4516-90f9-82e0b3a1db85",
+      "perspective_id": "6fa7e55f-d737-4471-ad68-66297318cdd2",
+      "strength": 0.52,
+      "confidence": 0.74
+    },
+    {
+      "id": "e776a9c7-1c9d-4a25-a6d7-0d8161f29ca8",
+      "property_id": "a6d9be22-afd3-451f-9c9a-8e8bf791fd24",
+      "process_id": "2a53782c-3dfb-40cd-905c-86afaac3f9eb",
+      "perspective_id": "ad329e38-4ec7-4924-be0c-805f01fefa8b",
+      "strength": 0.66,
+      "confidence": 0.95
+    },
+    {
+      "id": "d4f01dd2-c355-47d6-9c05-814efb7df2ed",
+      "property_id": "65dc390d-c959-4bb5-b9d4-0f0e2e9a2120",
+      "process_id": "8944d383-298b-4b61-8067-c87d27502890",
+      "perspective_id": "6bf6ab91-58fd-4302-837f-e0b1f2abd777",
+      "strength": 0.82,
+      "confidence": 0.75
+    },
+    {
+      "id": "2062c289-f800-4663-9116-d37d8e1a22e9",
+      "property_id": "636d4833-62d5-429c-a401-9e73d0797c0c",
+      "process_id": "d7f17055-e225-4919-9257-da3b6955acca",
+      "perspective_id": "a7fdca5c-de0e-4366-9566-51c21b62d553",
+      "strength": 0.92,
+      "confidence": 0.81
+    },
+    {
+      "id": "16167efb-66c8-4b0c-b0ff-a6651234778e",
+      "property_id": "6ddd014e-6d28-4fd8-8e1d-df98eb6640c3",
+      "process_id": "ffcab015-86da-476d-b043-5a780f007815",
+      "perspective_id": "6f6c494b-eafe-4c7a-8a3c-e8682090593f",
+      "strength": 0.75,
+      "confidence": 0.96
+    },
+    {
+      "id": "5a71961f-d79a-47a7-827a-b678839b357b",
+      "property_id": "65dc390d-c959-4bb5-b9d4-0f0e2e9a2120",
+      "process_id": "a1b03041-50dc-4a21-9184-069ef26faf5b",
+      "perspective_id": "0d946eb3-357a-4d13-9bb1-e13478852a75",
+      "strength": 0.6,
+      "confidence": 0.9
+    },
+    {
+      "id": "2c658f80-a88b-459c-aad2-e6d18324a214",
+      "property_id": "ba801d54-26e9-4404-b9b4-6e78d521f91f",
+      "process_id": "45a561c6-a924-4dd0-af37-0c9d480af795",
+      "perspective_id": "caca467c-da18-4d73-86e4-1d57c3b98644",
+      "strength": 0.75,
+      "confidence": 0.92
+    },
+    {
+      "id": "6586a2e5-a45e-44c3-9cc3-b3a794d8ea91",
+      "property_id": "878aa6da-a6db-4903-8c22-7dc21e1b085f",
+      "process_id": "5aa6f77f-c3b6-4447-87d5-2e2849680648",
+      "perspective_id": "28ebd724-d28a-412e-a8b4-f370ace4cba1",
+      "strength": 0.66,
+      "confidence": 0.89
+    },
+    {
+      "id": "ea8ad6f0-aa22-423f-8ab6-978a36e44759",
+      "property_id": "2b24da03-a39a-4614-bd5d-5a35a7e4363c",
+      "process_id": "494a8011-888f-4d2f-ba19-da5c171f34b2",
+      "perspective_id": "f6e8decf-7d78-41ba-a6eb-ee79051116fb",
+      "strength": 0.51,
+      "confidence": 0.87
+    },
+    {
+      "id": "abbf5b2f-ed12-40ba-9976-4cbbd2061e72",
+      "property_id": "1dbbad5b-a923-4760-ac20-4fbb3a6dc431",
+      "process_id": "21394d9c-839c-4b7c-bf09-534c0fc7393c",
+      "perspective_id": "c676ef8b-1125-49fa-aff5-a6d459340cb1",
+      "strength": 0.66,
+      "confidence": 0.91
+    },
+    {
+      "id": "a9015a55-ec63-444d-ad09-6bef8464ac73",
+      "property_id": "c4e6dcd6-25b0-41df-bac6-237462d67476",
+      "process_id": "94504ca8-740f-4dbf-83da-6b3e3d6cd387",
+      "perspective_id": "0d946eb3-357a-4d13-9bb1-e13478852a75",
+      "strength": 0.81,
+      "confidence": 0.97
+    },
+    {
+      "id": "8cb65490-17de-4010-831f-78e89e5b72c9",
+      "property_id": "8f2935db-a2fb-4057-bfd0-5f0e73b36edb",
+      "process_id": "5321e36f-c3a2-493a-8c6f-736abb015058",
+      "perspective_id": "0d946eb3-357a-4d13-9bb1-e13478852a75",
+      "strength": 0.83,
+      "confidence": 0.99
+    },
+    {
+      "id": "a7c07db3-b5bb-4b5b-bba2-9ff6ae138303",
+      "property_id": "46b38526-88d3-44aa-811c-45a72ac63f3c",
+      "process_id": "0db69faa-b4d8-4172-959f-fedde5935a25",
+      "perspective_id": "d70510b7-f43f-4b12-819b-20a581fb7f5d",
+      "strength": 0.59,
+      "confidence": 0.99
+    },
+    {
+      "id": "57e10518-ebc6-435a-902e-d3f240563bbf",
+      "property_id": "6a160000-c492-452a-887e-c1732df1884d",
+      "process_id": "dbd8ec1e-e8df-45b0-a4b6-25bca4f69578",
+      "perspective_id": "4cb334b5-3e86-4dc4-9c9f-c82b4eb9d983",
+      "strength": 0.92,
+      "confidence": 0.82
+    },
+    {
+      "id": "c2abf2c1-ad36-46f4-b364-c26de92fb9dc",
+      "property_id": "6a160000-c492-452a-887e-c1732df1884d",
+      "process_id": "494a8011-888f-4d2f-ba19-da5c171f34b2",
+      "perspective_id": "e15543eb-a89a-45ca-8277-f8fb96d12f2a",
+      "strength": 0.68,
+      "confidence": 0.96
+    },
+    {
+      "id": "ef2689c1-f15e-4dd4-a785-82b594a80211",
+      "property_id": "7531309c-94e3-4723-8161-bf36409a52e5",
+      "process_id": "5eef81d3-c0c1-4f73-8b52-4f074bcec725",
+      "perspective_id": "e15543eb-a89a-45ca-8277-f8fb96d12f2a",
+      "strength": 1.0,
+      "confidence": 0.77
+    },
+    {
+      "id": "feec1667-de6e-4a15-8872-b100c37f1685",
+      "property_id": "b1fb5190-62ea-495f-8cbe-e0199cadf2c8",
+      "process_id": "8944d383-298b-4b61-8067-c87d27502890",
+      "perspective_id": "ad329e38-4ec7-4924-be0c-805f01fefa8b",
+      "strength": 0.86,
+      "confidence": 0.98
+    },
+    {
+      "id": "398789a9-7089-4ca7-ad11-cdbafd61d73d",
+      "property_id": "2b24da03-a39a-4614-bd5d-5a35a7e4363c",
+      "process_id": "9887643d-5f67-4ca8-b4b5-6166c6398adc",
+      "perspective_id": "0d946eb3-357a-4d13-9bb1-e13478852a75",
+      "strength": 0.65,
+      "confidence": 0.93
+    },
+    {
+      "id": "e04e2b8a-c66f-4562-a445-28bbfd1d0730",
+      "property_id": "67ccacb1-7027-456b-a9c5-a8eadeccfbb1",
+      "process_id": "81db7e38-2c5f-44ab-88a6-88d8914ebf72",
+      "perspective_id": "f6e8decf-7d78-41ba-a6eb-ee79051116fb",
+      "strength": 0.89,
+      "confidence": 0.8
+    },
+    {
+      "id": "3dee5573-bb0a-4f85-86f5-3733ddbe74cf",
+      "property_id": "933e3c5d-3caf-4404-b02b-4ca3178ce103",
+      "process_id": "77ff5e08-ca10-42c4-b3eb-7f706c8dc586",
+      "perspective_id": "2f792803-e7f4-4003-a2ec-378e92cb0304",
+      "strength": 0.51,
+      "confidence": 0.81
+    },
+    {
+      "id": "ee564959-a0f9-4827-bbca-af745ac7bd25",
+      "property_id": "65dc390d-c959-4bb5-b9d4-0f0e2e9a2120",
+      "process_id": "82e56df0-a3ef-47eb-881d-f23c8df72a30",
+      "perspective_id": "dd2b0e13-fe7e-4674-9ab0-4b23b6189f49",
+      "strength": 0.97,
+      "confidence": 0.95
+    },
+    {
+      "id": "7ec8b832-92fc-4963-9bc8-cae2acb39227",
+      "property_id": "eb197bfd-ab28-4668-ab27-c48894cd4d21",
+      "process_id": "95f5013b-4b66-42cb-a728-5dc5223db331",
+      "perspective_id": "b4e0b74c-77c4-40cc-aff8-a673c1011a85",
+      "strength": 0.56,
+      "confidence": 0.89
+    },
+    {
+      "id": "826bf60f-62cc-448f-b37f-8031544baa3f",
+      "property_id": "ba801d54-26e9-4404-b9b4-6e78d521f91f",
+      "process_id": "5dd79d40-5540-4c91-9421-72ffd35b8910",
+      "perspective_id": "b3fa8f81-810a-4de1-bd0b-8f44cecae1d9",
+      "strength": 0.87,
+      "confidence": 0.81
+    },
+    {
+      "id": "cc0c34fe-08d5-47a4-accd-70bc75005cac",
+      "property_id": "636d4833-62d5-429c-a401-9e73d0797c0c",
+      "process_id": "12164153-ce01-41b5-b46d-f27569a96959",
+      "perspective_id": "bf12c561-948e-43e7-b9ec-3484a494d856",
+      "strength": 0.99,
+      "confidence": 0.76
+    },
+    {
+      "id": "d7a3d222-8136-4c19-af00-feffd6ba1abb",
+      "property_id": "bd24cf00-9b48-41d0-a6de-4f1a359fa146",
+      "process_id": "ffcab015-86da-476d-b043-5a780f007815",
+      "perspective_id": "752da0dd-d1ef-47fa-b473-bba9e413e354",
+      "strength": 0.97,
+      "confidence": 0.8
+    },
+    {
+      "id": "e108081a-04ab-411b-be16-83bdfb930952",
+      "property_id": "67ccacb1-7027-456b-a9c5-a8eadeccfbb1",
+      "process_id": "b9da3b80-efdc-4e1c-9416-6a9c6210de51",
+      "perspective_id": "6bf6ab91-58fd-4302-837f-e0b1f2abd777",
+      "strength": 0.91,
+      "confidence": 0.7
+    },
+    {
+      "id": "74b593e9-1fa8-4857-8115-3cc39ddcdfa1",
+      "property_id": "9763ba82-781f-49e2-8277-c003003f4bde",
+      "process_id": "a1b03041-50dc-4a21-9184-069ef26faf5b",
+      "perspective_id": "27bd724b-5ebc-4bc5-ae0c-710c98ba3ab9",
+      "strength": 0.61,
+      "confidence": 0.85
+    },
+    {
+      "id": "d0037de2-d848-4db0-ab34-b4b1bf70a747",
+      "property_id": "9bd87d79-1d5d-440e-83ef-30b08287880a",
+      "process_id": "a8ac3472-ae62-4e29-baec-2c7980a5a903",
+      "perspective_id": "a7fdca5c-de0e-4366-9566-51c21b62d553",
+      "strength": 0.6,
+      "confidence": 0.96
+    },
+    {
+      "id": "e2aa1dfc-56af-4809-8433-82bf0abbbd66",
+      "property_id": "2b24da03-a39a-4614-bd5d-5a35a7e4363c",
+      "process_id": "d685a4f4-cd43-44f0-a46d-a476f67a0f7f",
+      "perspective_id": "b6ac1f6b-318d-44e1-a279-c819d26acb79",
+      "strength": 0.58,
+      "confidence": 0.97
+    },
+    {
+      "id": "aea15cb4-ae29-48f1-b5df-7093a0849ca3",
+      "property_id": "67ccacb1-7027-456b-a9c5-a8eadeccfbb1",
+      "process_id": "66509aa4-2e97-4f4f-8715-16c7359aade6",
+      "perspective_id": "7961b68a-1122-43c9-a0d2-29ff69589f28",
+      "strength": 0.65,
+      "confidence": 0.8
+    },
+    {
+      "id": "ab9c1bfb-325f-4e86-b4bc-aef9fd955b14",
+      "property_id": "ae956cae-1b26-4b28-9f6a-886e93726a0f",
+      "process_id": "a1b03041-50dc-4a21-9184-069ef26faf5b",
+      "perspective_id": "0d946eb3-357a-4d13-9bb1-e13478852a75",
+      "strength": 0.94,
+      "confidence": 0.89
+    },
+    {
+      "id": "a9cb353e-9ba3-42e2-b5d6-395be57d6f81",
+      "property_id": "f334d204-178e-4664-9fc5-e751d6fa2b5b",
+      "process_id": "dd396dba-d3fb-46ca-b4fc-60addec89e26",
+      "perspective_id": "fa28a012-a3cb-4c88-a91b-389d756bc69f",
+      "strength": 0.92,
+      "confidence": 0.83
+    },
+    {
+      "id": "ef09e098-84cd-4fd5-9468-938140c3d0cc",
+      "property_id": "907cb5bb-2895-4445-8e8e-6b7b0641018f",
+      "process_id": "dbd8ec1e-e8df-45b0-a4b6-25bca4f69578",
+      "perspective_id": "d1dc8dde-2b3f-48df-a287-c2498a055bf5",
+      "strength": 0.57,
+      "confidence": 0.8
+    },
+    {
+      "id": "2f400768-bb53-44a4-a58e-6e6713a2179a",
+      "property_id": "7531309c-94e3-4723-8161-bf36409a52e5",
+      "process_id": "cc83e643-fd73-4ed0-8b67-293dfe83fe02",
+      "perspective_id": "752da0dd-d1ef-47fa-b473-bba9e413e354",
+      "strength": 0.83,
+      "confidence": 0.73
+    },
+    {
+      "id": "37ff70eb-d1c9-4464-ba0e-f83a8b4d004f",
+      "property_id": "9763ba82-781f-49e2-8277-c003003f4bde",
+      "process_id": "4577e5ff-489c-4131-8651-e9a2a3499a1d",
+      "perspective_id": "49d93db3-90d3-4060-ac16-50a08a2ef0d7",
+      "strength": 0.75,
+      "confidence": 0.8
+    },
+    {
+      "id": "d9de20bf-cd2f-45a5-b100-2e3ebb6f522c",
+      "property_id": "f334d204-178e-4664-9fc5-e751d6fa2b5b",
+      "process_id": "b3acd7f5-bf12-475c-9511-6e3abde2ee74",
+      "perspective_id": "ecd0396a-2c84-4aec-acb4-355d6e978f74",
+      "strength": 0.94,
+      "confidence": 0.82
+    },
+    {
+      "id": "27ea3fd9-35fb-45fb-b842-fe1b34a5c51d",
+      "property_id": "67ccacb1-7027-456b-a9c5-a8eadeccfbb1",
+      "process_id": "b9da3b80-efdc-4e1c-9416-6a9c6210de51",
+      "perspective_id": "0f5e96a6-bd6b-4a31-a356-74ec0cd23c37",
+      "strength": 0.83,
+      "confidence": 0.91
+    },
+    {
+      "id": "21fbc181-a7e2-4c10-9727-0294d0c435e2",
+      "property_id": "7531309c-94e3-4723-8161-bf36409a52e5",
+      "process_id": "a8ac3472-ae62-4e29-baec-2c7980a5a903",
+      "perspective_id": "fa28a012-a3cb-4c88-a91b-389d756bc69f",
+      "strength": 0.69,
+      "confidence": 0.9
+    },
+    {
+      "id": "ba2b7a2d-0903-4954-8eac-75a9c31cdabb",
+      "property_id": "2b309e14-bc06-4e1b-959f-fcf945a64794",
+      "process_id": "32746379-5943-413c-9cfb-f6185b201a20",
+      "perspective_id": "ad329e38-4ec7-4924-be0c-805f01fefa8b",
+      "strength": 0.94,
+      "confidence": 0.96
+    },
+    {
+      "id": "fe2373cf-342b-443f-b172-191c9a5c324e",
+      "property_id": "a6d9be22-afd3-451f-9c9a-8e8bf791fd24",
+      "process_id": "b3acd7f5-bf12-475c-9511-6e3abde2ee74",
+      "perspective_id": "e15543eb-a89a-45ca-8277-f8fb96d12f2a",
+      "strength": 0.88,
+      "confidence": 0.85
+    },
+    {
+      "id": "fac1ac9d-5ae1-48b0-93c1-be435eb3a735",
+      "property_id": "6a160000-c492-452a-887e-c1732df1884d",
+      "process_id": "b3acd7f5-bf12-475c-9511-6e3abde2ee74",
+      "perspective_id": "f5832e48-3ceb-47df-9106-435d0eff7d2b",
+      "strength": 0.71,
+      "confidence": 0.72
+    },
+    {
+      "id": "efedf133-68f1-4679-b3cc-9f0de67a9979",
+      "property_id": "785f9a79-1402-4264-89ed-724b09d601fd",
+      "process_id": "b9da3b80-efdc-4e1c-9416-6a9c6210de51",
+      "perspective_id": "28ebd724-d28a-412e-a8b4-f370ace4cba1",
+      "strength": 0.78,
+      "confidence": 0.95
+    },
+    {
+      "id": "53afe208-e7f7-4d72-a5d9-e7e82c4ae7d3",
+      "property_id": "ba801d54-26e9-4404-b9b4-6e78d521f91f",
+      "process_id": "a8ac3472-ae62-4e29-baec-2c7980a5a903",
+      "perspective_id": "dd2b0e13-fe7e-4674-9ab0-4b23b6189f49",
+      "strength": 0.93,
+      "confidence": 0.84
+    },
+    {
+      "id": "905ff584-1b39-4e95-ac89-13c5c41462a1",
+      "property_id": "6ddd014e-6d28-4fd8-8e1d-df98eb6640c3",
+      "process_id": "494a8011-888f-4d2f-ba19-da5c171f34b2",
+      "perspective_id": "46087930-80d5-43cc-8b0d-679d799ab2eb",
+      "strength": 0.92,
+      "confidence": 0.99
+    },
+    {
+      "id": "ab68fb64-7208-4526-9fd2-bfeab5a1a9a9",
+      "property_id": "785f9a79-1402-4264-89ed-724b09d601fd",
+      "process_id": "d6750813-672a-42e4-bb8f-c4ea4f5763ab",
+      "perspective_id": "0f5e96a6-bd6b-4a31-a356-74ec0cd23c37",
+      "strength": 0.56,
+      "confidence": 0.82
+    }
+  ],
+  "metadata": {
+    "count": {
+      "properties": 50,
+      "processes": 50,
+      "perspectives": 50
+    }
+  }
+}

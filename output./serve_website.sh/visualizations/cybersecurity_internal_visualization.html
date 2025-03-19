@@ -1,0 +1,262 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Cybersecurity Internal</title>
+            <style>
+                body { 
+                    margin: 0;
+                    overflow: hidden;
+                    font-family: Arial, sans-serif;
+                }
+                #info {
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 10px;
+                    border-radius: 5px;
+                    max-width: 300px;
+                    z-index: 100;
+                }
+                #canvas-container {
+                    width: 100%;
+                    height: 100vh;
+                }
+                #legend {
+                    position: absolute;
+                    bottom: 20px;
+                    right: 20px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 10px;
+                    border-radius: 5px;
+                    z-index: 100;
+                }
+                .axis-label {
+                    font-weight: bold;
+                    margin-bottom: 5px;
+                }
+                .property-color { color: #1f77b4; }
+                .process-color { color: #ff7f0e; }
+                .perspective-color { color: #2ca02c; }
+            </style>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+        </head>
+        <body>
+            <div id="info">
+                <h2>Cybersecurity Internal</h2>
+                <p>This visualization represents the P3IF framework as a 3D cube with three dimensions:</p>
+                <p><span class="property-color">X-axis: Properties</span></p>
+                <p><span class="process-color">Y-axis: Processes</span></p>
+                <p><span class="perspective-color">Z-axis: Perspectives</span></p>
+                <p>Each point in the cube represents a relationship between specific property, process, and perspective.</p>
+                <p>Click and drag to rotate. Scroll to zoom. Right-click and drag to pan.</p>
+                <div id="selection-info"></div>
+            </div>
+            
+            <div id="canvas-container"></div>
+            
+            <div id="legend">
+                <div class="axis-label property-color">X-axis: Properties</div>
+                <div class="axis-label process-color">Y-axis: Processes</div>
+                <div class="axis-label perspective-color">Z-axis: Perspectives</div>
+                <div>Point size indicates relationship strength</div>
+            </div>
+            
+            
+            
+            <script>
+                // P3IF data
+                const p3ifData = {"dimensions": {"property": [], "process": [], "perspective": []}, "connections": []};
+                
+                // Setup
+                const container = document.getElementById('canvas-container');
+                const width = container.clientWidth;
+                const height = container.clientHeight;
+                
+                // Scene
+                const scene = new THREE.Scene();
+                scene.background = new THREE.Color(0xf0f0f0);
+                
+                // Camera
+                const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+                camera.position.set(2, 2, 2);
+                
+                // Renderer
+                const renderer = new THREE.WebGLRenderer({ antialias: true });
+                renderer.setSize(width, height);
+                container.appendChild(renderer.domElement);
+                
+                // Controls
+                const controls = new THREE.OrbitControls(camera, renderer.domElement);
+                controls.enableDamping = true;
+                controls.dampingFactor = 0.25;
+                
+                // Lighting
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+                scene.add(ambientLight);
+                
+                const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+                directionalLight.position.set(1, 1, 1);
+                scene.add(directionalLight);
+                
+                // Axes helper
+                const axesHelper = new THREE.AxesHelper(1);
+                scene.add(axesHelper);
+                
+                // Create cube frame
+                const cubeSize = 1;
+                const cubeGeometry = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize);
+                const edgesMaterial = new THREE.LineBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.2 });
+                const cubeEdges = new THREE.LineSegments(
+                    new THREE.EdgesGeometry(cubeGeometry),
+                    edgesMaterial
+                );
+                scene.add(cubeEdges);
+                
+                // Axis labels
+                const createTextSprite = (text, color, position) => {
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.width = 256;
+                    canvas.height = 128;
+                    
+                    context.font = "Bold 36px Arial";
+                    context.fillStyle = "rgba(255, 255, 255, 0.95)";
+                    context.fillRect(0, 0, canvas.width, canvas.height);
+                    
+                    context.fillStyle = color;
+                    context.fillText(text, 10, 64);
+                    
+                    const texture = new THREE.Texture(canvas);
+                    texture.needsUpdate = true;
+                    
+                    const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
+                    const sprite = new THREE.Sprite(spriteMaterial);
+                    sprite.position.copy(position);
+                    sprite.scale.set(0.2, 0.1, 1);
+                    
+                    return sprite;
+                };
+                
+                // Add axis labels
+                scene.add(createTextSprite("Properties (X)", "#1f77b4", new THREE.Vector3(1.2, 0, 0)));
+                scene.add(createTextSprite("Processes (Y)", "#ff7f0e", new THREE.Vector3(0, 1.2, 0)));
+                scene.add(createTextSprite("Perspectives (Z)", "#2ca02c", new THREE.Vector3(0, 0, 1.2)));
+                
+                // Add points for relationships
+                const pointsMaterial = new THREE.PointsMaterial({
+                    size: 0.05,
+                    vertexColors: true,
+                    sizeAttenuation: true
+                });
+                
+                const pointsGeometry = new THREE.BufferGeometry();
+                const positions = [];
+                const colors = [];
+                const pointData = [];
+                
+                // Normalize positions
+                const numProperties = p3ifData.dimensions.property.length;
+                const numProcesses = p3ifData.dimensions.process.length;
+                const numPerspectives = p3ifData.dimensions.perspective.length;
+                
+                p3ifData.connections.forEach(conn => {
+                    // Normalize to 0-1 range and then scale to cube size
+                    const x = (conn.x / Math.max(1, numProperties - 1)) * cubeSize;
+                    const y = (conn.y / Math.max(1, numProcesses - 1)) * cubeSize;
+                    const z = (conn.z / Math.max(1, numPerspectives - 1)) * cubeSize;
+                    
+                    // Center the cube by subtracting half the size
+                    positions.push(x - cubeSize/2, y - cubeSize/2, z - cubeSize/2);
+                    
+                    // Use strength to determine color intensity
+                    const r = 0.5 + conn.strength * 0.5;
+                    const g = 0.5 * (1 - conn.strength);
+                    const b = 0.5 + conn.confidence * 0.5;
+                    
+                    colors.push(r, g, b);
+                    
+                    // Store the original data for interaction
+                    pointData.push({
+                        id: conn.id,
+                        property: p3ifData.dimensions.property[conn.x],
+                        process: p3ifData.dimensions.process[conn.y],
+                        perspective: p3ifData.dimensions.perspective[conn.z],
+                        strength: conn.strength,
+                        confidence: conn.confidence
+                    });
+                });
+                
+                pointsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+                pointsGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+                
+                const points = new THREE.Points(pointsGeometry, pointsMaterial);
+                scene.add(points);
+                
+                // Handle resizing
+                window.addEventListener('resize', () => {
+                    const newWidth = container.clientWidth;
+                    const newHeight = container.clientHeight;
+                    
+                    camera.aspect = newWidth / newHeight;
+                    camera.updateProjectionMatrix();
+                    
+                    renderer.setSize(newWidth, newHeight);
+                });
+                
+                // Handle point selection
+                const raycaster = new THREE.Raycaster();
+                raycaster.params.Points.threshold = 0.05;
+                
+                const mouse = new THREE.Vector2();
+                
+                container.addEventListener('mousemove', (event) => {
+                    // Calculate mouse position in normalized device coordinates
+                    mouse.x = (event.clientX / width) * 2 - 1;
+                    mouse.y = -(event.clientY / height) * 2 + 1;
+                });
+                
+                container.addEventListener('click', () => {
+                    // Cast a ray from the camera
+                    raycaster.setFromCamera(mouse, camera);
+                    
+                    // Check for intersections with points
+                    const intersects = raycaster.intersectObject(points);
+                    
+                    if (intersects.length > 0) {
+                        const index = intersects[0].index;
+                        const selectedPoint = pointData[index];
+                        
+                        // Display information about the selected point
+                        const infoDiv = document.getElementById('selection-info');
+                        infoDiv.innerHTML = `
+                            <h3>Selected Relationship</h3>
+                            <p><strong>Property:</strong> ${selectedPoint.property.name}</p>
+                            <p><strong>Process:</strong> ${selectedPoint.process.name}</p>
+                            <p><strong>Perspective:</strong> ${selectedPoint.perspective.name}</p>
+                            <p><strong>Strength:</strong> ${selectedPoint.strength.toFixed(2)}</p>
+                            <p><strong>Confidence:</strong> ${selectedPoint.confidence.toFixed(2)}</p>
+                        `;
+                    }
+                });
+                
+                // Animation loop
+                function animate() {
+                    requestAnimationFrame(animate);
+                    controls.update();
+                    renderer.render(scene, camera);
+                }
+                
+                animate();
+            </script>
+            
+            <script>
+                
+            </script>
+        </body>
+        </html>
+        

@@ -1,0 +1,1663 @@
+{
+  "domain": "ATM_withdrawal",
+  "version": "1.0",
+  "properties": [
+    "Transaction Security",
+    "User Authentication",
+    "Cash Availability",
+    "Machine Reliability",
+    "Network Connectivity",
+    "Transaction Speed",
+    "User Interface",
+    "Error Handling",
+    "Maintenance Scheduling",
+    "Fraud Detection",
+    "Compliance",
+    "Accessibility",
+    "Energy Efficiency",
+    "Data Privacy",
+    "Service Availability",
+    "Card Reader Functionality",
+    "PIN Encryption",
+    "Cash Dispensing Accuracy",
+    "Receipt Printing Quality",
+    "Screen Visibility",
+    "Keypad Responsiveness",
+    "Software Stability",
+    "Hardware Durability",
+    "Network Latency",
+    "Transaction Logging",
+    "Audit Trail",
+    "Biometric Authentication",
+    "Multi-Factor Authentication",
+    "Cash Recycling",
+    "Foreign Currency Support",
+    "Contactless Technology",
+    "Mobile Integration",
+    "Remote Monitoring",
+    "Thermal Management",
+    "Power Backup",
+    "Vandalism Resistance",
+    "Environmental Adaptability",
+    "Noise Level",
+    "Queue Management",
+    "Customer Support Integration",
+    "Language Support",
+    "Braille Support",
+    "Audio Guidance",
+    "Camera Surveillance",
+    "Anti-Skimming Measures",
+    "EMV Chip Technology",
+    "NFC Capability",
+    "Software Update Mechanism",
+    "Diagnostic Capabilities",
+    "Cash Forecasting"
+  ],
+  "processes": [
+    "Card Insertion",
+    "PIN Entry",
+    "Account Verification",
+    "Transaction Processing",
+    "Cash Dispensing",
+    "Receipt Printing",
+    "Balance Inquiry",
+    "Mini Statement Printing",
+    "Fund Transfer",
+    "Transaction Cancellation",
+    "Error Reporting",
+    "Maintenance Check",
+    "Software Update",
+    "Network Monitoring",
+    "Fraud Monitoring",
+    "Cash Replenishment",
+    "Journal Printing",
+    "User Authentication",
+    "Transaction Authorization",
+    "Cash Counting",
+    "Receipt Paper Replacement",
+    "Screen Calibration",
+    "Keypad Testing",
+    "Camera Adjustment",
+    "Network Troubleshooting",
+    "Software Diagnostics",
+    "Hardware Inspection",
+    "Security Seal Verification",
+    "Cash Cassette Balancing",
+    "Transaction Reconciliation",
+    "Audit Log Generation",
+    "Biometric Data Capture",
+    "Encryption Key Management",
+    "Cash Recycling Process",
+    "Currency Verification",
+    "Contactless Transaction Processing",
+    "Mobile App Integration",
+    "Remote Diagnostics",
+    "Temperature Monitoring",
+    "Power System Check",
+    "Physical Security Check",
+    "Environmental Adaptation",
+    "Noise Level Testing",
+    "Queue Time Monitoring",
+    "Customer Support Routing",
+    "Language Selection",
+    "Braille Interface Activation",
+    "Audio Guidance Triggering",
+    "Video Feed Recording",
+    "Anti-Skimming Detection",
+    "EMV Chip Reading",
+    "NFC Data Exchange",
+    "Software Patch Installation",
+    "Self-Diagnostic Routine",
+    "Cash Demand Forecasting"
+  ],
+  "perspectives": [
+    "User",
+    "Bank Official",
+    "ATM Technician",
+    "Security Analyst",
+    "Network Administrator",
+    "Compliance Officer",
+    "Maintenance Staff",
+    "Customer Service Representative",
+    "Fraud Investigator",
+    "Software Developer",
+    "Hardware Engineer",
+    "Cash Management Specialist",
+    "User Experience Designer",
+    "Accessibility Consultant",
+    "Energy Efficiency Expert",
+    "Data Privacy Officer",
+    "Service Level Manager",
+    "Card Technology Specialist",
+    "Encryption Expert",
+    "Cash Handling Specialist",
+    "Printer Technician",
+    "Display Technology Expert",
+    "Input Device Specialist",
+    "Software Quality Assurance",
+    "Durability Tester",
+    "Network Performance Analyst",
+    "Transaction Auditor",
+    "Biometrics Specialist",
+    "Authentication Expert",
+    "Cash Recycling Technician",
+    "Foreign Exchange Specialist",
+    "Contactless Payment Expert",
+    "Mobile Integration Specialist",
+    "Remote Monitoring Technician",
+    "Thermal Engineer",
+    "Power Systems Engineer",
+    "Physical Security Specialist",
+    "Environmental Adaptation Expert",
+    "Acoustics Engineer",
+    "Queue Management Specialist",
+    "Customer Support Integration Expert",
+    "Localization Specialist",
+    "Braille Technology Expert",
+    "Audio Systems Engineer",
+    "Surveillance Specialist",
+    "Anti-Fraud Technology Expert",
+    "EMV Technology Specialist",
+    "NFC Technology Expert",
+    "Software Update Manager",
+    "Diagnostic Systems Developer",
+    "Cash Forecasting Analyst"
+  ],
+  "patterns": {
+    "properties": [
+      {
+        "id": "5192a858-922e-4abc-a64e-d70260e2f11c",
+        "name": "Transaction Security",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "58c4d320-f958-4eb7-9aef-520521838e3e",
+        "name": "User Authentication",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "1f8d1787-1506-4b60-919c-f4358c23455e",
+        "name": "Cash Availability",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "1c3409bf-5e72-45a7-b8f5-abd019d577d6",
+        "name": "Machine Reliability",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "3674e8f9-0d2b-46a2-9138-a18f79fa0ac4",
+        "name": "Network Connectivity",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "56ce66f5-42d9-4114-9a9a-cfd8660e94dd",
+        "name": "Transaction Speed",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "7f05a860-f460-4251-a715-6f45f3fa212e",
+        "name": "User Interface",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "3b585e2d-5a85-4688-b15d-4013f96787da",
+        "name": "Error Handling",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "39668194-10d7-4099-95a3-b202d0da9f0a",
+        "name": "Maintenance Scheduling",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "84a03644-8977-4966-bd7d-3471ee61dead",
+        "name": "Fraud Detection",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "e1f6eb8c-b075-4075-9272-7fa1af4a6e3d",
+        "name": "Compliance",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "f464688d-1e17-40e0-a073-7e56abb60478",
+        "name": "Accessibility",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "8fa3c129-9ac3-4fc0-ae90-70458f88c892",
+        "name": "Energy Efficiency",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "ab6d876c-7228-4bc7-9d14-ed2b060801fb",
+        "name": "Data Privacy",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "49933be3-570c-47c4-8ae9-86800f4cb279",
+        "name": "Service Availability",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "43ecbed4-c41b-44a1-a412-2b957bb58481",
+        "name": "Card Reader Functionality",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "2a235267-df01-4e39-890c-82bfc6916d69",
+        "name": "PIN Encryption",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "a0395be2-872d-43d6-b70f-5140701ec91c",
+        "name": "Cash Dispensing Accuracy",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "1a0de2e7-025a-41f3-bf7b-42645a882abf",
+        "name": "Receipt Printing Quality",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "091b2748-efd2-431b-9609-c24f1f49cd2e",
+        "name": "Screen Visibility",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "b49d6dac-fd49-406c-aac6-50af64fec2ad",
+        "name": "Keypad Responsiveness",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "c09ef595-20ca-495f-834b-cef3afdf6fc9",
+        "name": "Software Stability",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "fbe2847b-6cc7-41c2-a3a2-1e5e58240fe9",
+        "name": "Hardware Durability",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "a751be48-8ddc-4338-9954-25883729eca4",
+        "name": "Network Latency",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "5bc453ca-7cbf-48f8-8f51-b8de9a00a0e7",
+        "name": "Transaction Logging",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "0c15f42c-a054-4fec-85ab-20fc3587aebc",
+        "name": "Audit Trail",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "618d531d-671f-4088-bd5b-cccf9edd220c",
+        "name": "Biometric Authentication",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "2025199c-d419-4266-b7a0-d2d083c7d8f3",
+        "name": "Multi-Factor Authentication",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "11b760c6-56fa-4535-8041-ac6bbe30dab4",
+        "name": "Cash Recycling",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "04769ab8-21ee-4b09-b339-bf9f68a376fe",
+        "name": "Foreign Currency Support",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "e1295b28-a951-49ef-907c-76fad19e4cab",
+        "name": "Contactless Technology",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "94ed6b90-2302-48df-b2a7-03d76b0bba86",
+        "name": "Mobile Integration",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "56d85ae8-972d-4cf1-972f-f4550cf9a72f",
+        "name": "Remote Monitoring",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "157cc951-ef66-427a-a628-3a096825160b",
+        "name": "Thermal Management",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "6c2c4d86-28d0-4634-a3b4-dd69a55d7fb4",
+        "name": "Power Backup",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "447dabb7-4783-4058-9ab8-0b45e32860b5",
+        "name": "Vandalism Resistance",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "f2a0880f-1201-4a94-901a-30146dab46cb",
+        "name": "Environmental Adaptability",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "d32bc0cc-dcdf-4727-9a6b-78abc87e4b1e",
+        "name": "Noise Level",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "688de7aa-4b66-48c5-9863-42ed0c99b01a",
+        "name": "Queue Management",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "e20acdf5-c196-4451-919c-ffe30275b164",
+        "name": "Customer Support Integration",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "eb76d70e-98cc-4571-8c2c-4d89285274b1",
+        "name": "Language Support",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "7998efeb-4862-44cc-94de-b626bd427779",
+        "name": "Braille Support",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "3ac90064-fba2-4a5a-9b99-645038a8071c",
+        "name": "Audio Guidance",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "eccecc77-e840-4180-91b5-9982d107ec04",
+        "name": "Camera Surveillance",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "6640b818-b093-4467-aa82-c31c189de33a",
+        "name": "Anti-Skimming Measures",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "7b1c4180-af77-4f63-9c37-f4038eb8b1b0",
+        "name": "EMV Chip Technology",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "1d39150e-6892-4dfa-84d9-d7ce519a38b3",
+        "name": "NFC Capability",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "0176c7ff-12c9-4a31-a304-741cc2eeb20d",
+        "name": "Software Update Mechanism",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "9ea8a461-0fe6-4ef6-91f5-8d804d7e88e3",
+        "name": "Diagnostic Capabilities",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "cecbd4a1-4030-47a8-aa42-3e3443007318",
+        "name": "Cash Forecasting",
+        "type": "property",
+        "domain": "ATM_withdrawal"
+      }
+    ],
+    "processes": [
+      {
+        "id": "c3326dc8-4101-4ef1-8fb3-5e4d579f4294",
+        "name": "Card Insertion",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "c8241b45-f5b8-49b8-92c4-85c8d59e9e19",
+        "name": "PIN Entry",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "b2fc9ec6-42f7-4bb8-b02b-bd3450831b1e",
+        "name": "Account Verification",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "24292531-5fa2-4245-bfe4-276706786b9b",
+        "name": "Transaction Processing",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "2e9dcce2-1219-4225-b348-994274ef9b65",
+        "name": "Cash Dispensing",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "c38db911-9cec-4526-a4c2-1bd58f3addb4",
+        "name": "Receipt Printing",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "a093e1d8-5f3d-4a23-a83f-5b8027586d69",
+        "name": "Balance Inquiry",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "ede05a21-3d08-4e9e-ba29-875efb4676cf",
+        "name": "Mini Statement Printing",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "4af27364-c385-4442-824b-b723d687f101",
+        "name": "Fund Transfer",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "9d78c882-7174-4425-b9d7-38c5a61d4bdb",
+        "name": "Transaction Cancellation",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "0bdc0e3b-d329-4b00-98b5-6a71be568b9a",
+        "name": "Error Reporting",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "8a78120b-5f6e-47fd-9648-801517d693a7",
+        "name": "Maintenance Check",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "7395e319-3c24-4cca-bcbe-feeeaffc07f2",
+        "name": "Software Update",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "d4922632-7b9b-4744-aa41-dff6fba00f4b",
+        "name": "Network Monitoring",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "4381af53-dd44-49ed-b8c5-9b7a6d498690",
+        "name": "Fraud Monitoring",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "fbd9cc84-59d4-4d63-bac6-b9df879531fe",
+        "name": "Cash Replenishment",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "8dbecf14-67c0-4659-81d7-dfab308b5362",
+        "name": "Journal Printing",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "a5247ca3-c451-4053-99f0-60b185f6623b",
+        "name": "User Authentication",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "842afecf-d535-4e96-af65-5cfe24892927",
+        "name": "Transaction Authorization",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "151b5515-c514-4af2-8ba1-f32e8ba952ac",
+        "name": "Cash Counting",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "2a1ffad3-2ae9-4390-ae26-d09ba31ba353",
+        "name": "Receipt Paper Replacement",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "f358c8e8-ac3c-4b46-8134-5bf99031485f",
+        "name": "Screen Calibration",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "887873ec-302b-4988-9634-e4853814c219",
+        "name": "Keypad Testing",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "2bef3611-9385-423c-ac3c-cce0a62cb7a7",
+        "name": "Camera Adjustment",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "0e957e1a-9632-4a54-80be-416fa998433a",
+        "name": "Network Troubleshooting",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "cfed9dee-c43c-4968-a129-04c2a89339e2",
+        "name": "Software Diagnostics",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "6d3a32b9-c377-462e-bdfa-5140f8e3d3a9",
+        "name": "Hardware Inspection",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "3ae4b3fa-78bd-4c47-b9a9-cecafaf07841",
+        "name": "Security Seal Verification",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "29bb7b0b-fffd-44a0-9269-e3572eff3a23",
+        "name": "Cash Cassette Balancing",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "1c08dc15-abde-49f5-8ff1-a146d2998afa",
+        "name": "Transaction Reconciliation",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "3d593f18-b752-4375-9327-2c9dd6930648",
+        "name": "Audit Log Generation",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "26e0693a-272a-4137-8cc3-3da26fbd74c0",
+        "name": "Biometric Data Capture",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "497a1691-35ea-4d5f-9ff6-c3813d3d9e02",
+        "name": "Encryption Key Management",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "5c2df8b6-5391-449b-bc4b-3dd8b883d9b8",
+        "name": "Cash Recycling Process",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "3022e034-a0ad-4026-b19a-adb5db0b821d",
+        "name": "Currency Verification",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "a82baed3-5bae-47d2-b90b-bfd9f1c433b4",
+        "name": "Contactless Transaction Processing",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "4e6f5c23-27fd-48e9-98ee-48ea7dec40a2",
+        "name": "Mobile App Integration",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "6a4ab7e1-c35a-45c3-a5e8-b0bba372caa8",
+        "name": "Remote Diagnostics",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "2d129809-0522-49aa-82b1-49df01fb025f",
+        "name": "Temperature Monitoring",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "e9d8218d-a79b-423e-83df-9e3b57481847",
+        "name": "Power System Check",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "196aefde-f575-4273-8a40-2cf295ed7aa7",
+        "name": "Physical Security Check",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "a70e516b-0518-40aa-967a-0be0b6d5240b",
+        "name": "Environmental Adaptation",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "bca0efa9-0719-48f6-b90e-646856e92d79",
+        "name": "Noise Level Testing",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "0628433e-3732-4ae7-9c46-d1b40ab04136",
+        "name": "Queue Time Monitoring",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "c8189933-ad58-465e-af51-8cdf437c9bf5",
+        "name": "Customer Support Routing",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "23c38c22-2b86-4823-aae4-699574af4228",
+        "name": "Language Selection",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "2fd6e5ac-99ac-4059-ade1-97b189382028",
+        "name": "Braille Interface Activation",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "8aff78e5-3ce1-4c66-affd-92f8beb0f3ba",
+        "name": "Audio Guidance Triggering",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "4782c59f-76cb-4cdc-b7ac-eed9110034bd",
+        "name": "Video Feed Recording",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "263b26a4-bdea-4571-b866-61cb25341136",
+        "name": "Anti-Skimming Detection",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "94f85b79-29d5-4dc6-9950-f3932ca9fcf5",
+        "name": "EMV Chip Reading",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "a5365c32-2a5c-4a1f-bac2-c1277f9acc87",
+        "name": "NFC Data Exchange",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "4df4b22e-c962-444c-bdaf-e706ba56d1bf",
+        "name": "Software Patch Installation",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "77fef68a-4e7d-4ed9-82e1-c5cbda7d5c2e",
+        "name": "Self-Diagnostic Routine",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "d0dea5c5-0ab0-49d5-92d0-e5cfc418d547",
+        "name": "Cash Demand Forecasting",
+        "type": "process",
+        "domain": "ATM_withdrawal"
+      }
+    ],
+    "perspectives": [
+      {
+        "id": "ed86f7d2-f99c-49c6-a73b-3cf9fa5992c4",
+        "name": "User",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "ecb47b04-794d-411a-986a-1f5acf3b633e",
+        "name": "Bank Official",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "bb46ad9e-f786-4ed5-957e-8bef8d90486a",
+        "name": "ATM Technician",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "dfa2df76-2648-47ac-9531-3ff3b24a01bc",
+        "name": "Security Analyst",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "9c60f90d-356d-4fee-82d3-76b13278d3c3",
+        "name": "Network Administrator",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "fc9453e2-3614-43e1-9229-570c1d42c018",
+        "name": "Compliance Officer",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "979d7348-8123-4f77-b48d-702736198051",
+        "name": "Maintenance Staff",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "cb4dc4c0-602a-46d1-89a2-a8b3fa064bb4",
+        "name": "Customer Service Representative",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "5b9aad82-ff11-41c6-b371-1ce98c206cb9",
+        "name": "Fraud Investigator",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "4859a07f-3083-43a7-b35c-b168a11a4cfd",
+        "name": "Software Developer",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "033ddb02-58a4-4846-bc84-d33b2a59e309",
+        "name": "Hardware Engineer",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "199743f4-48a9-435f-8f7e-44ecf6f486ae",
+        "name": "Cash Management Specialist",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "fa25d42b-76c4-4be8-8cef-d061a5f0c470",
+        "name": "User Experience Designer",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "b9fca187-f29f-4523-9375-96fe3a549ac6",
+        "name": "Accessibility Consultant",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "23de9213-e843-43ec-9f49-4895137120ff",
+        "name": "Energy Efficiency Expert",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "36bc5241-88a7-4e2a-8981-c9f7700c9eee",
+        "name": "Data Privacy Officer",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "0047a013-741e-4352-9f53-d91a15d0f3ab",
+        "name": "Service Level Manager",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "710e1f32-1e28-4c64-b887-e492662094bb",
+        "name": "Card Technology Specialist",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "e8fdde92-63d9-4aa1-a225-9d7a4b9fd22e",
+        "name": "Encryption Expert",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "2132a6a3-7e8b-4eb1-a09c-bbc3ccf0c202",
+        "name": "Cash Handling Specialist",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "d6022dbd-24e3-446e-9edc-5fa2d817ed5e",
+        "name": "Printer Technician",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "f5545ce0-6101-4c40-84de-9767a7cef3ce",
+        "name": "Display Technology Expert",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "2365de60-a93f-4127-a2c2-552ed00379fd",
+        "name": "Input Device Specialist",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "4a5d0592-f710-47cc-a49a-9bf117d95dc9",
+        "name": "Software Quality Assurance",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "c847101c-b9d4-4773-a0d8-941878907cc2",
+        "name": "Durability Tester",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "75dc1b39-9a0d-4c55-bc1b-71bb78234818",
+        "name": "Network Performance Analyst",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "907382c6-3af6-4ebb-b9d3-4160287cad6a",
+        "name": "Transaction Auditor",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "7f4582d0-1a23-48b1-9b39-622c57212f66",
+        "name": "Biometrics Specialist",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "2418d097-cbf8-43df-a5b5-7156a9542f4f",
+        "name": "Authentication Expert",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "678e6de3-2bd4-455b-9e4d-fd7f0c536839",
+        "name": "Cash Recycling Technician",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "26f2f715-ab77-4977-8e53-ce250885f483",
+        "name": "Foreign Exchange Specialist",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "f86de91a-57cc-45dc-97c1-593b943648d6",
+        "name": "Contactless Payment Expert",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "ea5dcb98-6977-4a36-ab30-547cc95a2903",
+        "name": "Mobile Integration Specialist",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "f789fb81-0187-4767-a032-6fa54170a41a",
+        "name": "Remote Monitoring Technician",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "70e0463b-53a8-4e22-a219-dae0648a11a9",
+        "name": "Thermal Engineer",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "7f7c4977-8555-4ff7-ace6-37548e88090c",
+        "name": "Power Systems Engineer",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "8508cffb-c531-4f70-b383-1f4083efd575",
+        "name": "Physical Security Specialist",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "b04a6c3b-7c46-4476-aa9d-288cb8625c44",
+        "name": "Environmental Adaptation Expert",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "b60a4ca6-f963-4514-9fe7-d50c2d629e85",
+        "name": "Acoustics Engineer",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "5ddac383-3be6-4cc0-92ca-d093b780e995",
+        "name": "Queue Management Specialist",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "648f7750-df50-4a10-9ace-eea78e772790",
+        "name": "Customer Support Integration Expert",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "61bc6598-d4d6-44bf-ae8b-01eedb98da12",
+        "name": "Localization Specialist",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "dd0fa541-c6a6-44f9-94d3-eb257381122c",
+        "name": "Braille Technology Expert",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "9840ba6f-8c4c-4838-8a8a-a59be92c5760",
+        "name": "Audio Systems Engineer",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "0ce7e19a-fb55-4b10-98f5-dfb604aad027",
+        "name": "Surveillance Specialist",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "0825d28b-eefd-4364-84e9-e83b2db4ae13",
+        "name": "Anti-Fraud Technology Expert",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "6a89a8e2-c2be-42f6-8d6e-d6d0c94656d1",
+        "name": "EMV Technology Specialist",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "7bd80956-a16d-4a8b-969d-4b03d35586fb",
+        "name": "NFC Technology Expert",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "7e91c322-8c4f-4c50-a557-65f1ecb623bd",
+        "name": "Software Update Manager",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "ad084031-ec5c-44e2-8a99-9e84e2a35431",
+        "name": "Diagnostic Systems Developer",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      },
+      {
+        "id": "682f6f7e-f416-4904-9563-c2eb1a6e7b8a",
+        "name": "Cash Forecasting Analyst",
+        "type": "perspective",
+        "domain": "ATM_withdrawal"
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "35759fbb-09b9-49a5-9bcc-ce569b88e89f",
+      "property_id": "e1f6eb8c-b075-4075-9272-7fa1af4a6e3d",
+      "process_id": "a70e516b-0518-40aa-967a-0be0b6d5240b",
+      "perspective_id": "7f7c4977-8555-4ff7-ace6-37548e88090c",
+      "strength": 0.78,
+      "confidence": 0.85
+    },
+    {
+      "id": "7b3e82be-315b-4b80-8e74-a37c04672759",
+      "property_id": "f2a0880f-1201-4a94-901a-30146dab46cb",
+      "process_id": "2fd6e5ac-99ac-4059-ade1-97b189382028",
+      "perspective_id": "0047a013-741e-4352-9f53-d91a15d0f3ab",
+      "strength": 0.8,
+      "confidence": 0.98
+    },
+    {
+      "id": "9b05fb83-1c48-43c5-8d4e-0de850942b17",
+      "property_id": "eb76d70e-98cc-4571-8c2c-4d89285274b1",
+      "process_id": "3022e034-a0ad-4026-b19a-adb5db0b821d",
+      "perspective_id": "ecb47b04-794d-411a-986a-1f5acf3b633e",
+      "strength": 0.58,
+      "confidence": 0.91
+    },
+    {
+      "id": "9fe8efc8-124e-48ff-bab2-03ab0f6609fb",
+      "property_id": "157cc951-ef66-427a-a628-3a096825160b",
+      "process_id": "b2fc9ec6-42f7-4bb8-b02b-bd3450831b1e",
+      "perspective_id": "b60a4ca6-f963-4514-9fe7-d50c2d629e85",
+      "strength": 0.95,
+      "confidence": 0.95
+    },
+    {
+      "id": "33a0fb1b-10f1-45d8-a6c3-b1c3d7c63c53",
+      "property_id": "39668194-10d7-4099-95a3-b202d0da9f0a",
+      "process_id": "23c38c22-2b86-4823-aae4-699574af4228",
+      "perspective_id": "033ddb02-58a4-4846-bc84-d33b2a59e309",
+      "strength": 0.64,
+      "confidence": 0.72
+    },
+    {
+      "id": "b26d6a25-5f70-46c0-8c7c-3df81cff3662",
+      "property_id": "58c4d320-f958-4eb7-9aef-520521838e3e",
+      "process_id": "c8189933-ad58-465e-af51-8cdf437c9bf5",
+      "perspective_id": "dfa2df76-2648-47ac-9531-3ff3b24a01bc",
+      "strength": 0.64,
+      "confidence": 0.97
+    },
+    {
+      "id": "6990c3a2-8ffc-4c03-8716-de285e91b1e4",
+      "property_id": "ab6d876c-7228-4bc7-9d14-ed2b060801fb",
+      "process_id": "6a4ab7e1-c35a-45c3-a5e8-b0bba372caa8",
+      "perspective_id": "0825d28b-eefd-4364-84e9-e83b2db4ae13",
+      "strength": 0.55,
+      "confidence": 0.98
+    },
+    {
+      "id": "9014fa13-322b-4f8b-ae5f-a9131114d37d",
+      "property_id": "d32bc0cc-dcdf-4727-9a6b-78abc87e4b1e",
+      "process_id": "fbd9cc84-59d4-4d63-bac6-b9df879531fe",
+      "perspective_id": "5b9aad82-ff11-41c6-b371-1ce98c206cb9",
+      "strength": 0.89,
+      "confidence": 0.93
+    },
+    {
+      "id": "53cfb78a-ae44-4a5d-a27e-b5ff634a1f97",
+      "property_id": "b49d6dac-fd49-406c-aac6-50af64fec2ad",
+      "process_id": "2e9dcce2-1219-4225-b348-994274ef9b65",
+      "perspective_id": "5ddac383-3be6-4cc0-92ca-d093b780e995",
+      "strength": 0.64,
+      "confidence": 0.92
+    },
+    {
+      "id": "b0f43522-b3da-4bdb-a3aa-82ee1aff6632",
+      "property_id": "1f8d1787-1506-4b60-919c-f4358c23455e",
+      "process_id": "9d78c882-7174-4425-b9d7-38c5a61d4bdb",
+      "perspective_id": "0ce7e19a-fb55-4b10-98f5-dfb604aad027",
+      "strength": 0.64,
+      "confidence": 0.84
+    },
+    {
+      "id": "6aad7d5a-d863-41e9-bb2c-d22b2aa15a72",
+      "property_id": "447dabb7-4783-4058-9ab8-0b45e32860b5",
+      "process_id": "c8189933-ad58-465e-af51-8cdf437c9bf5",
+      "perspective_id": "710e1f32-1e28-4c64-b887-e492662094bb",
+      "strength": 0.78,
+      "confidence": 0.94
+    },
+    {
+      "id": "a89404fd-45b9-4eaf-91c1-573b741cf6e4",
+      "property_id": "56d85ae8-972d-4cf1-972f-f4550cf9a72f",
+      "process_id": "c3326dc8-4101-4ef1-8fb3-5e4d579f4294",
+      "perspective_id": "9c60f90d-356d-4fee-82d3-76b13278d3c3",
+      "strength": 0.94,
+      "confidence": 0.72
+    },
+    {
+      "id": "4ad1ba09-f55a-4404-81e1-a104a8389afe",
+      "property_id": "7998efeb-4862-44cc-94de-b626bd427779",
+      "process_id": "77fef68a-4e7d-4ed9-82e1-c5cbda7d5c2e",
+      "perspective_id": "b9fca187-f29f-4523-9375-96fe3a549ac6",
+      "strength": 0.65,
+      "confidence": 0.72
+    },
+    {
+      "id": "3e98b7e3-f87c-42fa-bbbb-d0292672eea7",
+      "property_id": "618d531d-671f-4088-bd5b-cccf9edd220c",
+      "process_id": "77fef68a-4e7d-4ed9-82e1-c5cbda7d5c2e",
+      "perspective_id": "f86de91a-57cc-45dc-97c1-593b943648d6",
+      "strength": 0.61,
+      "confidence": 0.88
+    },
+    {
+      "id": "881ddad5-ba6d-4c81-ab49-1d992d17d4d6",
+      "property_id": "1c3409bf-5e72-45a7-b8f5-abd019d577d6",
+      "process_id": "a70e516b-0518-40aa-967a-0be0b6d5240b",
+      "perspective_id": "61bc6598-d4d6-44bf-ae8b-01eedb98da12",
+      "strength": 0.98,
+      "confidence": 0.73
+    },
+    {
+      "id": "6e09a72d-82cc-4b98-942c-6368b48eadaa",
+      "property_id": "94ed6b90-2302-48df-b2a7-03d76b0bba86",
+      "process_id": "8dbecf14-67c0-4659-81d7-dfab308b5362",
+      "perspective_id": "5b9aad82-ff11-41c6-b371-1ce98c206cb9",
+      "strength": 0.52,
+      "confidence": 0.87
+    },
+    {
+      "id": "4de9e596-ec03-417a-b2cf-84eb99bdeba4",
+      "property_id": "e1f6eb8c-b075-4075-9272-7fa1af4a6e3d",
+      "process_id": "cfed9dee-c43c-4968-a129-04c2a89339e2",
+      "perspective_id": "648f7750-df50-4a10-9ace-eea78e772790",
+      "strength": 0.85,
+      "confidence": 0.82
+    },
+    {
+      "id": "fb2ab8b2-76d7-4d11-b169-77008c772a88",
+      "property_id": "688de7aa-4b66-48c5-9863-42ed0c99b01a",
+      "process_id": "4af27364-c385-4442-824b-b723d687f101",
+      "perspective_id": "c847101c-b9d4-4773-a0d8-941878907cc2",
+      "strength": 0.85,
+      "confidence": 0.99
+    },
+    {
+      "id": "8c1b0abe-9a8b-47aa-9ffb-104f0c0e4e07",
+      "property_id": "56ce66f5-42d9-4114-9a9a-cfd8660e94dd",
+      "process_id": "6a4ab7e1-c35a-45c3-a5e8-b0bba372caa8",
+      "perspective_id": "2365de60-a93f-4127-a2c2-552ed00379fd",
+      "strength": 0.62,
+      "confidence": 0.95
+    },
+    {
+      "id": "02cac65b-3fdf-4ab7-8234-ab3bc46eb15e",
+      "property_id": "0c15f42c-a054-4fec-85ab-20fc3587aebc",
+      "process_id": "bca0efa9-0719-48f6-b90e-646856e92d79",
+      "perspective_id": "678e6de3-2bd4-455b-9e4d-fd7f0c536839",
+      "strength": 0.75,
+      "confidence": 0.72
+    },
+    {
+      "id": "cdf26b58-8ceb-4da5-bca7-c194d218310d",
+      "property_id": "58c4d320-f958-4eb7-9aef-520521838e3e",
+      "process_id": "a70e516b-0518-40aa-967a-0be0b6d5240b",
+      "perspective_id": "2365de60-a93f-4127-a2c2-552ed00379fd",
+      "strength": 0.72,
+      "confidence": 0.79
+    },
+    {
+      "id": "82cf78b5-e7fa-4986-8eb9-31e21f368a2a",
+      "property_id": "618d531d-671f-4088-bd5b-cccf9edd220c",
+      "process_id": "b2fc9ec6-42f7-4bb8-b02b-bd3450831b1e",
+      "perspective_id": "9840ba6f-8c4c-4838-8a8a-a59be92c5760",
+      "strength": 0.86,
+      "confidence": 0.79
+    },
+    {
+      "id": "ea608fde-d8c1-4bf4-9c82-871f27b9cdc8",
+      "property_id": "1d39150e-6892-4dfa-84d9-d7ce519a38b3",
+      "process_id": "8dbecf14-67c0-4659-81d7-dfab308b5362",
+      "perspective_id": "2418d097-cbf8-43df-a5b5-7156a9542f4f",
+      "strength": 0.84,
+      "confidence": 0.96
+    },
+    {
+      "id": "99f29361-74ea-4695-a795-54d65aeb6a4f",
+      "property_id": "1c3409bf-5e72-45a7-b8f5-abd019d577d6",
+      "process_id": "a093e1d8-5f3d-4a23-a83f-5b8027586d69",
+      "perspective_id": "dfa2df76-2648-47ac-9531-3ff3b24a01bc",
+      "strength": 0.84,
+      "confidence": 0.97
+    },
+    {
+      "id": "0cf0020e-1c36-4d98-895a-81d4b0162d1b",
+      "property_id": "447dabb7-4783-4058-9ab8-0b45e32860b5",
+      "process_id": "2d129809-0522-49aa-82b1-49df01fb025f",
+      "perspective_id": "70e0463b-53a8-4e22-a219-dae0648a11a9",
+      "strength": 0.86,
+      "confidence": 0.8
+    },
+    {
+      "id": "f2561fcc-5ac4-4872-a6b0-90b7d55053e8",
+      "property_id": "1a0de2e7-025a-41f3-bf7b-42645a882abf",
+      "process_id": "0628433e-3732-4ae7-9c46-d1b40ab04136",
+      "perspective_id": "0825d28b-eefd-4364-84e9-e83b2db4ae13",
+      "strength": 0.68,
+      "confidence": 0.95
+    },
+    {
+      "id": "e1e9cfd9-49ea-49f2-985e-511d3e0abcea",
+      "property_id": "447dabb7-4783-4058-9ab8-0b45e32860b5",
+      "process_id": "c8241b45-f5b8-49b8-92c4-85c8d59e9e19",
+      "perspective_id": "d6022dbd-24e3-446e-9edc-5fa2d817ed5e",
+      "strength": 0.94,
+      "confidence": 0.77
+    },
+    {
+      "id": "feaba203-ff2b-4ee6-8519-fb7df5c24980",
+      "property_id": "1f8d1787-1506-4b60-919c-f4358c23455e",
+      "process_id": "d0dea5c5-0ab0-49d5-92d0-e5cfc418d547",
+      "perspective_id": "dd0fa541-c6a6-44f9-94d3-eb257381122c",
+      "strength": 0.95,
+      "confidence": 0.98
+    },
+    {
+      "id": "829af84b-1fb6-47f1-9da0-685b3b9b05a5",
+      "property_id": "39668194-10d7-4099-95a3-b202d0da9f0a",
+      "process_id": "2e9dcce2-1219-4225-b348-994274ef9b65",
+      "perspective_id": "979d7348-8123-4f77-b48d-702736198051",
+      "strength": 0.61,
+      "confidence": 0.88
+    },
+    {
+      "id": "167b9bd3-ab6c-49e7-91e2-66bb56420281",
+      "property_id": "eccecc77-e840-4180-91b5-9982d107ec04",
+      "process_id": "5c2df8b6-5391-449b-bc4b-3dd8b883d9b8",
+      "perspective_id": "710e1f32-1e28-4c64-b887-e492662094bb",
+      "strength": 0.7,
+      "confidence": 0.92
+    },
+    {
+      "id": "b18dee74-5236-48ea-b16f-5c0ccda28404",
+      "property_id": "5bc453ca-7cbf-48f8-8f51-b8de9a00a0e7",
+      "process_id": "4782c59f-76cb-4cdc-b7ac-eed9110034bd",
+      "perspective_id": "b04a6c3b-7c46-4476-aa9d-288cb8625c44",
+      "strength": 0.86,
+      "confidence": 0.77
+    },
+    {
+      "id": "204e53df-30b5-46a3-b66d-04205bd48ded",
+      "property_id": "39668194-10d7-4099-95a3-b202d0da9f0a",
+      "process_id": "842afecf-d535-4e96-af65-5cfe24892927",
+      "perspective_id": "907382c6-3af6-4ebb-b9d3-4160287cad6a",
+      "strength": 0.67,
+      "confidence": 0.98
+    },
+    {
+      "id": "2750336e-d8ee-43b5-862c-3d78f1ddc583",
+      "property_id": "56d85ae8-972d-4cf1-972f-f4550cf9a72f",
+      "process_id": "c8189933-ad58-465e-af51-8cdf437c9bf5",
+      "perspective_id": "033ddb02-58a4-4846-bc84-d33b2a59e309",
+      "strength": 0.92,
+      "confidence": 0.79
+    },
+    {
+      "id": "083ffa7f-c76f-4dfb-9260-0aa94886817c",
+      "property_id": "2025199c-d419-4266-b7a0-d2d083c7d8f3",
+      "process_id": "7395e319-3c24-4cca-bcbe-feeeaffc07f2",
+      "perspective_id": "e8fdde92-63d9-4aa1-a225-9d7a4b9fd22e",
+      "strength": 0.86,
+      "confidence": 0.71
+    },
+    {
+      "id": "6cdd0c46-74c4-476b-b465-ea5f29318a9e",
+      "property_id": "eccecc77-e840-4180-91b5-9982d107ec04",
+      "process_id": "842afecf-d535-4e96-af65-5cfe24892927",
+      "perspective_id": "ed86f7d2-f99c-49c6-a73b-3cf9fa5992c4",
+      "strength": 0.63,
+      "confidence": 0.71
+    },
+    {
+      "id": "b5ea8615-a402-47b3-bd86-ca24db040812",
+      "property_id": "6c2c4d86-28d0-4634-a3b4-dd69a55d7fb4",
+      "process_id": "8dbecf14-67c0-4659-81d7-dfab308b5362",
+      "perspective_id": "8508cffb-c531-4f70-b383-1f4083efd575",
+      "strength": 0.57,
+      "confidence": 0.77
+    },
+    {
+      "id": "f4e69ab1-5eb4-45bd-b921-298b40006c25",
+      "property_id": "2025199c-d419-4266-b7a0-d2d083c7d8f3",
+      "process_id": "a093e1d8-5f3d-4a23-a83f-5b8027586d69",
+      "perspective_id": "9c60f90d-356d-4fee-82d3-76b13278d3c3",
+      "strength": 0.6,
+      "confidence": 0.77
+    },
+    {
+      "id": "5732a55e-fed7-446e-a179-fb8306be2ce7",
+      "property_id": "5bc453ca-7cbf-48f8-8f51-b8de9a00a0e7",
+      "process_id": "94f85b79-29d5-4dc6-9950-f3932ca9fcf5",
+      "perspective_id": "9c60f90d-356d-4fee-82d3-76b13278d3c3",
+      "strength": 0.86,
+      "confidence": 0.8
+    },
+    {
+      "id": "4ce03fff-d00a-4f27-b4e3-bc6825429259",
+      "property_id": "eb76d70e-98cc-4571-8c2c-4d89285274b1",
+      "process_id": "94f85b79-29d5-4dc6-9950-f3932ca9fcf5",
+      "perspective_id": "5ddac383-3be6-4cc0-92ca-d093b780e995",
+      "strength": 0.61,
+      "confidence": 0.73
+    },
+    {
+      "id": "12d467eb-6a8b-4740-99cc-e3e621b8e3cb",
+      "property_id": "d32bc0cc-dcdf-4727-9a6b-78abc87e4b1e",
+      "process_id": "a093e1d8-5f3d-4a23-a83f-5b8027586d69",
+      "perspective_id": "61bc6598-d4d6-44bf-ae8b-01eedb98da12",
+      "strength": 0.56,
+      "confidence": 0.97
+    },
+    {
+      "id": "be66663c-e97b-4918-ab45-2a6f585d112b",
+      "property_id": "eb76d70e-98cc-4571-8c2c-4d89285274b1",
+      "process_id": "497a1691-35ea-4d5f-9ff6-c3813d3d9e02",
+      "perspective_id": "26f2f715-ab77-4977-8e53-ce250885f483",
+      "strength": 0.82,
+      "confidence": 0.75
+    },
+    {
+      "id": "bc84bef3-15e3-4e54-afd6-ced3de98b1ca",
+      "property_id": "39668194-10d7-4099-95a3-b202d0da9f0a",
+      "process_id": "1c08dc15-abde-49f5-8ff1-a146d2998afa",
+      "perspective_id": "fc9453e2-3614-43e1-9229-570c1d42c018",
+      "strength": 0.66,
+      "confidence": 0.9
+    },
+    {
+      "id": "5f9e5845-9f9c-4686-a3eb-8838a0819f3c",
+      "property_id": "43ecbed4-c41b-44a1-a412-2b957bb58481",
+      "process_id": "0bdc0e3b-d329-4b00-98b5-6a71be568b9a",
+      "perspective_id": "979d7348-8123-4f77-b48d-702736198051",
+      "strength": 0.55,
+      "confidence": 0.72
+    },
+    {
+      "id": "593d04b8-33bd-4d1c-b49f-38566b6ce606",
+      "property_id": "a0395be2-872d-43d6-b70f-5140701ec91c",
+      "process_id": "f358c8e8-ac3c-4b46-8134-5bf99031485f",
+      "perspective_id": "6a89a8e2-c2be-42f6-8d6e-d6d0c94656d1",
+      "strength": 0.68,
+      "confidence": 0.92
+    },
+    {
+      "id": "f35094c5-f29a-4f53-9ac3-9b5df1c9127d",
+      "property_id": "7b1c4180-af77-4f63-9c37-f4038eb8b1b0",
+      "process_id": "2fd6e5ac-99ac-4059-ade1-97b189382028",
+      "perspective_id": "5b9aad82-ff11-41c6-b371-1ce98c206cb9",
+      "strength": 0.87,
+      "confidence": 0.94
+    },
+    {
+      "id": "6dc43ac6-bd0f-4289-8e59-ae08164a3b8a",
+      "property_id": "84a03644-8977-4966-bd7d-3471ee61dead",
+      "process_id": "2d129809-0522-49aa-82b1-49df01fb025f",
+      "perspective_id": "ad084031-ec5c-44e2-8a99-9e84e2a35431",
+      "strength": 0.74,
+      "confidence": 0.93
+    },
+    {
+      "id": "90d9c234-c38d-49bd-a223-77ef524146cf",
+      "property_id": "49933be3-570c-47c4-8ae9-86800f4cb279",
+      "process_id": "6d3a32b9-c377-462e-bdfa-5140f8e3d3a9",
+      "perspective_id": "5ddac383-3be6-4cc0-92ca-d093b780e995",
+      "strength": 0.88,
+      "confidence": 0.98
+    },
+    {
+      "id": "355afe0e-4ecc-41dd-8c8c-cddcc2f2c726",
+      "property_id": "d32bc0cc-dcdf-4727-9a6b-78abc87e4b1e",
+      "process_id": "a70e516b-0518-40aa-967a-0be0b6d5240b",
+      "perspective_id": "7e91c322-8c4f-4c50-a557-65f1ecb623bd",
+      "strength": 0.93,
+      "confidence": 0.8
+    },
+    {
+      "id": "f56ddab3-7fbe-465a-b1a7-4c71b12c80ac",
+      "property_id": "8fa3c129-9ac3-4fc0-ae90-70458f88c892",
+      "process_id": "2e9dcce2-1219-4225-b348-994274ef9b65",
+      "perspective_id": "8508cffb-c531-4f70-b383-1f4083efd575",
+      "strength": 0.85,
+      "confidence": 0.8
+    },
+    {
+      "id": "2d212c81-5d38-4367-aee8-1d8a439ae94a",
+      "property_id": "cecbd4a1-4030-47a8-aa42-3e3443007318",
+      "process_id": "4af27364-c385-4442-824b-b723d687f101",
+      "perspective_id": "7e91c322-8c4f-4c50-a557-65f1ecb623bd",
+      "strength": 0.98,
+      "confidence": 0.95
+    },
+    {
+      "id": "5a886589-8627-4947-b7b6-58f496ebb2c0",
+      "property_id": "091b2748-efd2-431b-9609-c24f1f49cd2e",
+      "process_id": "0bdc0e3b-d329-4b00-98b5-6a71be568b9a",
+      "perspective_id": "d6022dbd-24e3-446e-9edc-5fa2d817ed5e",
+      "strength": 0.57,
+      "confidence": 0.9
+    },
+    {
+      "id": "998412bf-6a76-4da3-bd05-790c5ec602a8",
+      "property_id": "94ed6b90-2302-48df-b2a7-03d76b0bba86",
+      "process_id": "3022e034-a0ad-4026-b19a-adb5db0b821d",
+      "perspective_id": "f789fb81-0187-4767-a032-6fa54170a41a",
+      "strength": 0.91,
+      "confidence": 0.99
+    },
+    {
+      "id": "c7fb2c96-75c3-4601-8bba-9cfd57f18505",
+      "property_id": "04769ab8-21ee-4b09-b339-bf9f68a376fe",
+      "process_id": "0e957e1a-9632-4a54-80be-416fa998433a",
+      "perspective_id": "907382c6-3af6-4ebb-b9d3-4160287cad6a",
+      "strength": 0.95,
+      "confidence": 0.78
+    },
+    {
+      "id": "2006fab2-693a-48dc-a03f-f92a76f744a1",
+      "property_id": "3ac90064-fba2-4a5a-9b99-645038a8071c",
+      "process_id": "9d78c882-7174-4425-b9d7-38c5a61d4bdb",
+      "perspective_id": "ad084031-ec5c-44e2-8a99-9e84e2a35431",
+      "strength": 0.55,
+      "confidence": 0.9
+    },
+    {
+      "id": "e8e98655-8370-4369-93b1-f3776c9bd779",
+      "property_id": "3b585e2d-5a85-4688-b15d-4013f96787da",
+      "process_id": "0628433e-3732-4ae7-9c46-d1b40ab04136",
+      "perspective_id": "907382c6-3af6-4ebb-b9d3-4160287cad6a",
+      "strength": 0.54,
+      "confidence": 0.82
+    },
+    {
+      "id": "4dd0163e-913b-418a-9f5e-d3e682f9c6d2",
+      "property_id": "688de7aa-4b66-48c5-9863-42ed0c99b01a",
+      "process_id": "196aefde-f575-4273-8a40-2cf295ed7aa7",
+      "perspective_id": "710e1f32-1e28-4c64-b887-e492662094bb",
+      "strength": 0.92,
+      "confidence": 0.93
+    },
+    {
+      "id": "a9ab4e39-639f-4666-8c5e-ddc1f8b1229c",
+      "property_id": "58c4d320-f958-4eb7-9aef-520521838e3e",
+      "process_id": "e9d8218d-a79b-423e-83df-9e3b57481847",
+      "perspective_id": "5b9aad82-ff11-41c6-b371-1ce98c206cb9",
+      "strength": 0.98,
+      "confidence": 0.98
+    },
+    {
+      "id": "4f71bcbd-f1d7-44a9-9f7b-aac702a8dbe6",
+      "property_id": "a751be48-8ddc-4338-9954-25883729eca4",
+      "process_id": "7395e319-3c24-4cca-bcbe-feeeaffc07f2",
+      "perspective_id": "ad084031-ec5c-44e2-8a99-9e84e2a35431",
+      "strength": 0.96,
+      "confidence": 0.73
+    },
+    {
+      "id": "7ccfb7c1-a02c-4b82-87b4-60eef6eb8ec9",
+      "property_id": "e1f6eb8c-b075-4075-9272-7fa1af4a6e3d",
+      "process_id": "24292531-5fa2-4245-bfe4-276706786b9b",
+      "perspective_id": "033ddb02-58a4-4846-bc84-d33b2a59e309",
+      "strength": 0.66,
+      "confidence": 0.7
+    },
+    {
+      "id": "1ed32fb2-dc3b-44f5-ab07-76d2401d2efe",
+      "property_id": "ab6d876c-7228-4bc7-9d14-ed2b060801fb",
+      "process_id": "3022e034-a0ad-4026-b19a-adb5db0b821d",
+      "perspective_id": "ad084031-ec5c-44e2-8a99-9e84e2a35431",
+      "strength": 0.7,
+      "confidence": 0.83
+    },
+    {
+      "id": "fc3faa86-44b9-45b8-80a5-cbc7579bcb58",
+      "property_id": "6640b818-b093-4467-aa82-c31c189de33a",
+      "process_id": "3ae4b3fa-78bd-4c47-b9a9-cecafaf07841",
+      "perspective_id": "7f7c4977-8555-4ff7-ace6-37548e88090c",
+      "strength": 0.71,
+      "confidence": 0.72
+    },
+    {
+      "id": "25e08cb7-697b-4753-805f-a52003a77a72",
+      "property_id": "1a0de2e7-025a-41f3-bf7b-42645a882abf",
+      "process_id": "0bdc0e3b-d329-4b00-98b5-6a71be568b9a",
+      "perspective_id": "7bd80956-a16d-4a8b-969d-4b03d35586fb",
+      "strength": 0.86,
+      "confidence": 0.82
+    },
+    {
+      "id": "bef22dc0-f5a8-4f31-926d-71d5056b6020",
+      "property_id": "3b585e2d-5a85-4688-b15d-4013f96787da",
+      "process_id": "196aefde-f575-4273-8a40-2cf295ed7aa7",
+      "perspective_id": "033ddb02-58a4-4846-bc84-d33b2a59e309",
+      "strength": 0.57,
+      "confidence": 0.94
+    },
+    {
+      "id": "53309c77-ae33-47ce-87cd-377c029a67ec",
+      "property_id": "1a0de2e7-025a-41f3-bf7b-42645a882abf",
+      "process_id": "497a1691-35ea-4d5f-9ff6-c3813d3d9e02",
+      "perspective_id": "4a5d0592-f710-47cc-a49a-9bf117d95dc9",
+      "strength": 0.87,
+      "confidence": 0.85
+    },
+    {
+      "id": "736fb171-80d1-4ea5-9c96-17f4c3d95633",
+      "property_id": "9ea8a461-0fe6-4ef6-91f5-8d804d7e88e3",
+      "process_id": "d4922632-7b9b-4744-aa41-dff6fba00f4b",
+      "perspective_id": "b60a4ca6-f963-4514-9fe7-d50c2d629e85",
+      "strength": 0.61,
+      "confidence": 0.72
+    },
+    {
+      "id": "fa500596-9124-462f-98f5-fb83d4fb7e8c",
+      "property_id": "eccecc77-e840-4180-91b5-9982d107ec04",
+      "process_id": "3022e034-a0ad-4026-b19a-adb5db0b821d",
+      "perspective_id": "b04a6c3b-7c46-4476-aa9d-288cb8625c44",
+      "strength": 0.59,
+      "confidence": 0.95
+    },
+    {
+      "id": "6d61de55-dc7f-448b-b7ad-6961fb705967",
+      "property_id": "b49d6dac-fd49-406c-aac6-50af64fec2ad",
+      "process_id": "c3326dc8-4101-4ef1-8fb3-5e4d579f4294",
+      "perspective_id": "9840ba6f-8c4c-4838-8a8a-a59be92c5760",
+      "strength": 0.88,
+      "confidence": 0.71
+    },
+    {
+      "id": "94175e6d-4cc9-4eae-a7cf-14d0cdf3caff",
+      "property_id": "e20acdf5-c196-4451-919c-ffe30275b164",
+      "process_id": "ede05a21-3d08-4e9e-ba29-875efb4676cf",
+      "perspective_id": "ea5dcb98-6977-4a36-ab30-547cc95a2903",
+      "strength": 0.62,
+      "confidence": 1.0
+    }
+  ],
+  "metadata": {
+    "count": {
+      "properties": 50,
+      "processes": 55,
+      "perspectives": 51
+    }
+  }
+}

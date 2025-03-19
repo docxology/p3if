@@ -1,0 +1,1581 @@
+{
+  "domain": "MathEducation",
+  "version": "1.0",
+  "properties": [
+    "Conceptual Understanding",
+    "Procedural Fluency",
+    "Problem-Solving Skills",
+    "Mathematical Reasoning",
+    "Curriculum Design",
+    "Assessment Methods",
+    "Technology Integration",
+    "Equity and Access",
+    "Teacher Preparation",
+    "Student Engagement",
+    "Math Anxiety Reduction",
+    "Real-World Application",
+    "Interdisciplinary Connections",
+    "Differentiated Instruction",
+    "Mathematical Modeling",
+    "Computational Thinking",
+    "Mathematical Communication",
+    "Growth Mindset Development",
+    "Collaborative Learning",
+    "Mathematical Creativity",
+    "Numeracy Skills",
+    "Geometric Visualization",
+    "Algebraic Thinking",
+    "Statistical Literacy",
+    "Mathematical Proof",
+    "Mental Math Strategies",
+    "Math Language Development",
+    "Mathematical Argumentation",
+    "Error Analysis",
+    "Mathematical Representations",
+    "Math History Integration",
+    "STEM Integration",
+    "Math Competition Preparation",
+    "Math Club Activities",
+    "Parent Math Education",
+    "Math Homework Strategies",
+    "Math Study Skills",
+    "Math Test-Taking Strategies",
+    "Math Remediation",
+    "Advanced Math Topics",
+    "Math Curriculum Sequencing",
+    "Math Textbook Selection",
+    "Math Manipulatives Use",
+    "Math Games and Puzzles",
+    "Math Project-Based Learning",
+    "Math Journaling",
+    "Math Portfolio Assessment",
+    "Math Tutoring Programs",
+    "Math Teacher Professional Development",
+    "Math Education Research"
+  ],
+  "processes": [
+    "Lesson Planning",
+    "Concept Explanation",
+    "Problem Set Design",
+    "Reasoning Exercises",
+    "Curriculum Development",
+    "Assessment Creation",
+    "Educational Technology Implementation",
+    "Equity-Focused Teaching",
+    "Teacher Training",
+    "Engagement Strategies",
+    "Anxiety Reduction Techniques",
+    "Real-World Problem Integration",
+    "Cross-Subject Collaboration",
+    "Differentiated Teaching",
+    "Modeling Activities",
+    "Computational Thinking Exercises",
+    "Mathematical Discussion Facilitation",
+    "Mindset Coaching",
+    "Group Project Coordination",
+    "Creative Problem Design",
+    "Numeracy Skill Building",
+    "Geometric Visualization Exercises",
+    "Algebraic Thinking Development",
+    "Statistical Data Analysis",
+    "Proof Writing Instruction",
+    "Mental Math Practice",
+    "Math Vocabulary Instruction",
+    "Argumentation Skill Development",
+    "Error Pattern Identification",
+    "Multiple Representation Use",
+    "Math History Lesson Integration",
+    "STEM Project Design",
+    "Competition Problem Solving",
+    "Math Club Organization",
+    "Parent Math Workshops",
+    "Homework Design and Review",
+    "Study Skill Instruction",
+    "Test Preparation",
+    "Remedial Instruction",
+    "Advanced Topic Introduction",
+    "Curriculum Mapping",
+    "Textbook Evaluation",
+    "Manipulative Selection and Use",
+    "Game-Based Learning Implementation",
+    "Project Design and Management",
+    "Journal Prompt Creation",
+    "Portfolio Assessment Design",
+    "Tutor Training",
+    "Professional Development Planning",
+    "Action Research Conduction"
+  ],
+  "perspectives": [
+    "Math Teacher",
+    "Curriculum Developer",
+    "Educational Psychologist",
+    "Ed-Tech Specialist",
+    "Equity and Inclusion Officer",
+    "Teacher Trainer",
+    "Student Engagement Specialist",
+    "Math Anxiety Counselor",
+    "Industry Liaison",
+    "Interdisciplinary Educator",
+    "Special Education Teacher",
+    "Mathematical Modeler",
+    "Computer Science Educator",
+    "Math Communication Coach",
+    "Growth Mindset Trainer",
+    "Numeracy Skills Specialist",
+    "Geometry Teacher",
+    "Algebra Instructor",
+    "Statistics Educator",
+    "Mathematical Proof Expert",
+    "Mental Math Coach",
+    "Math Language Specialist",
+    "Mathematical Argumentation Coach",
+    "Error Analysis Specialist",
+    "Math Representation Expert",
+    "Math Historian",
+    "STEM Coordinator",
+    "Math Competition Coach",
+    "Math Club Advisor",
+    "Parent Education Coordinator",
+    "Homework Strategy Specialist",
+    "Study Skills Coach",
+    "Test Prep Specialist",
+    "Math Remediation Expert",
+    "Advanced Math Instructor",
+    "Curriculum Sequencing Specialist",
+    "Textbook Selection Committee Member",
+    "Math Manipulatives Specialist",
+    "Educational Game Designer",
+    "Project-Based Learning Facilitator",
+    "Math Journaling Coach",
+    "Portfolio Assessment Specialist",
+    "Math Tutor Coordinator",
+    "Professional Development Facilitator",
+    "Math Education Researcher",
+    "Differentiated Instruction Specialist",
+    "Math Technology Integration Expert",
+    "Assessment Design Specialist",
+    "Math Literacy Coach",
+    "Data Analysis in Education Expert"
+  ],
+  "patterns": {
+    "properties": [
+      {
+        "id": "664dc252-119c-4c79-aeb4-c68b6be88174",
+        "name": "Conceptual Understanding",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "5bbbf6b3-2a5e-49d3-a134-4f76f2c87b0c",
+        "name": "Procedural Fluency",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "d1e20390-2bfc-493a-bda2-43597e8cc47e",
+        "name": "Problem-Solving Skills",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "9533cd9d-00c8-40f6-9b3b-98ce30952166",
+        "name": "Mathematical Reasoning",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "cd538a6a-26b6-4fb0-ab35-8ada57c057f1",
+        "name": "Curriculum Design",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "8020c04a-fd89-4fed-80bd-42d97b65af70",
+        "name": "Assessment Methods",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "65b43340-241e-4381-b0b8-d113abd499c9",
+        "name": "Technology Integration",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "9e86eb9f-7c67-44af-9309-1a798ee7070c",
+        "name": "Equity and Access",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "c624e3b4-5437-443a-ab0c-79cb4bb3c207",
+        "name": "Teacher Preparation",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "56ee896b-0fa9-4204-ac30-06f39a68e9bd",
+        "name": "Student Engagement",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "72422814-a24d-407f-b9d5-cbf72428d23a",
+        "name": "Math Anxiety Reduction",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "ee2abdb6-5846-4963-949f-0b34e6144225",
+        "name": "Real-World Application",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "48debe36-06b2-449a-9623-b764aec074d4",
+        "name": "Interdisciplinary Connections",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "fbbaee24-24e3-4499-a7a5-2c5606d4ddaf",
+        "name": "Differentiated Instruction",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "1f383348-e406-403c-93f9-8df9021235a3",
+        "name": "Mathematical Modeling",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "ff60080a-bf7b-4818-acb2-bac3e4c5e39e",
+        "name": "Computational Thinking",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "789eae01-674f-43e1-b11e-0e46bb495c65",
+        "name": "Mathematical Communication",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "e4138d15-d0d3-445a-b7c7-5ec05da45979",
+        "name": "Growth Mindset Development",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "67fe0549-2b0c-41a7-8447-12921b5a713b",
+        "name": "Collaborative Learning",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "1cfc4933-a20b-4f44-9e25-984522c434ef",
+        "name": "Mathematical Creativity",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "68f6dc73-bb9e-48ad-be84-064f921d2436",
+        "name": "Numeracy Skills",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "de9c777e-7c1f-498d-abca-81b597d3e7d9",
+        "name": "Geometric Visualization",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "38883a8a-b1f9-4c2e-a4a4-54cfb355a96e",
+        "name": "Algebraic Thinking",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "c37b6391-13a0-4698-9966-a5ce4c250c2f",
+        "name": "Statistical Literacy",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "ede473d2-9d68-4086-9e37-81ff5dadc4a7",
+        "name": "Mathematical Proof",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "6e453bd5-5739-41ac-b9de-7d307e95f7db",
+        "name": "Mental Math Strategies",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "74f24cf4-4cb8-48f1-9ed5-17f1475b8803",
+        "name": "Math Language Development",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "423ddc17-4d88-487a-9fd0-ed14c9a4eb4a",
+        "name": "Mathematical Argumentation",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "8b320a0a-7061-46c8-b766-899eef0b62ff",
+        "name": "Error Analysis",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "e9c8e22a-230f-4f06-a22a-fb7c3d8b1d1a",
+        "name": "Mathematical Representations",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "8f93d03b-978c-4dca-8541-9a3c121eae4f",
+        "name": "Math History Integration",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "11c4714e-0479-4d26-b9d3-7dd139ba088a",
+        "name": "STEM Integration",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "1507c124-26b0-48c5-a9fb-2ca279b65bb6",
+        "name": "Math Competition Preparation",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "90675abe-0ebb-4b7b-b4ad-244592dab260",
+        "name": "Math Club Activities",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "96297bff-bca2-4815-89dd-8ba9ddb242f1",
+        "name": "Parent Math Education",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "c117133e-64cd-42b4-8dd6-5585072c74c8",
+        "name": "Math Homework Strategies",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "41688514-d3e9-4e0e-b126-bed432f9fc1c",
+        "name": "Math Study Skills",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "4418cf46-187a-4888-bd5b-3c8c54d4a7bb",
+        "name": "Math Test-Taking Strategies",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "8b23cb59-3158-4833-8d4b-fef2ffb3521a",
+        "name": "Math Remediation",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "992833b2-771d-4f3a-ab06-141ec118b896",
+        "name": "Advanced Math Topics",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "5727ebbd-6e0a-4985-a547-511489587788",
+        "name": "Math Curriculum Sequencing",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "2271b5b1-fd97-4525-9630-773aad508c87",
+        "name": "Math Textbook Selection",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "722f3a11-e114-4d3c-aa23-5e959f7c7543",
+        "name": "Math Manipulatives Use",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "33b59f51-d93f-4dbd-8b5a-c4878a74ad59",
+        "name": "Math Games and Puzzles",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "dc8328cf-17cb-423a-b61b-4113f39bfffd",
+        "name": "Math Project-Based Learning",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "68cc22fb-ccd3-4005-9155-b83998e80cbe",
+        "name": "Math Journaling",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "0b96483f-3257-41b3-a488-4cdd970b8abb",
+        "name": "Math Portfolio Assessment",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "8b917f18-b87d-43c7-b01b-8982e00753ee",
+        "name": "Math Tutoring Programs",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "27a36c61-d152-4059-a81e-bed7ae835001",
+        "name": "Math Teacher Professional Development",
+        "type": "property",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "214a35f8-a314-4ec1-befe-c8e5cb84da15",
+        "name": "Math Education Research",
+        "type": "property",
+        "domain": "MathEducation"
+      }
+    ],
+    "processes": [
+      {
+        "id": "1978af4b-98da-49ad-98e1-213e75f8cb69",
+        "name": "Lesson Planning",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "757f7a9c-514c-4b6a-8ec9-d1098ebc8fc4",
+        "name": "Concept Explanation",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "809b8b8f-31a5-4a01-bcd9-61c831332a99",
+        "name": "Problem Set Design",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "9c246b27-ce9b-4208-b12c-2761f39be574",
+        "name": "Reasoning Exercises",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "8e0dc0f9-52c5-4548-83e4-872e100e7cf3",
+        "name": "Curriculum Development",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "08953f9c-7c56-41e8-8b8f-cc65402f20c2",
+        "name": "Assessment Creation",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "fcf5b868-9488-4d43-820a-e34546897008",
+        "name": "Educational Technology Implementation",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "4acd3575-4368-4076-990b-688fe2de42a5",
+        "name": "Equity-Focused Teaching",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "a40b8a33-e2ac-412a-b577-12e18979cdce",
+        "name": "Teacher Training",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "6c3428a4-63fb-499e-8dde-ce2a3dbbcb3f",
+        "name": "Engagement Strategies",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "84d162fa-ff46-4026-90e8-a3cfe831c0b7",
+        "name": "Anxiety Reduction Techniques",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "ee612a69-2854-4cb0-85d2-77d18d86bb5f",
+        "name": "Real-World Problem Integration",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "91cde989-098e-4e0f-bbd6-ebf5a3df2326",
+        "name": "Cross-Subject Collaboration",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "1f119ed0-b123-496c-9519-c5ba19a2daa2",
+        "name": "Differentiated Teaching",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "9de50793-c841-43d4-8793-81eb6a236077",
+        "name": "Modeling Activities",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "aa0be3bf-4e2c-462c-8d6e-2fc9aa88e5c6",
+        "name": "Computational Thinking Exercises",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "b4a10a18-6c46-4298-8b2a-5ee316928e88",
+        "name": "Mathematical Discussion Facilitation",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "7b4dac49-942b-4e51-a402-f8ec004d9314",
+        "name": "Mindset Coaching",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "8be49d6d-ab3d-41ed-b529-47e6250c795c",
+        "name": "Group Project Coordination",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "2a539bc9-f239-422b-901b-2d0360e6833d",
+        "name": "Creative Problem Design",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "5b4ced03-2733-48a7-a11d-f03297557d48",
+        "name": "Numeracy Skill Building",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "a44b302c-d9ae-4122-bfd5-10df7b76ee2a",
+        "name": "Geometric Visualization Exercises",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "35fac30d-6a5f-44cf-9a35-c818533dc547",
+        "name": "Algebraic Thinking Development",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "cabfd00c-2b56-4819-8fee-1a565430a2e1",
+        "name": "Statistical Data Analysis",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "2e0f0d99-026f-4868-a35b-ea7486574dbe",
+        "name": "Proof Writing Instruction",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "9423332a-9949-4d50-9787-1027b108cea7",
+        "name": "Mental Math Practice",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "0ea86571-417f-40bb-abdc-bdd8f732c9cc",
+        "name": "Math Vocabulary Instruction",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "ffbb19f6-9e16-4c92-8223-bd6a92038d93",
+        "name": "Argumentation Skill Development",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "1d4198b5-2edf-46b2-b635-f4a7122e8a17",
+        "name": "Error Pattern Identification",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "795b66ee-4a26-4d4e-8ff5-aae6702b1aa8",
+        "name": "Multiple Representation Use",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "2cd7642a-2736-4258-90f6-1f7f31338c3f",
+        "name": "Math History Lesson Integration",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "c05a6923-5e9e-44b0-b118-1d4e97c87538",
+        "name": "STEM Project Design",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "2942b224-d06f-427b-880f-24f8c4376c30",
+        "name": "Competition Problem Solving",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "9f5beb51-66d1-4410-8ece-f7e1727cc310",
+        "name": "Math Club Organization",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "be2ad4d1-e701-485c-9a29-ebc71d049d7f",
+        "name": "Parent Math Workshops",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "fbc52ec3-25e3-4590-9163-483cbedb0478",
+        "name": "Homework Design and Review",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "5e82afa9-94c2-4ea0-a983-f81e541bba48",
+        "name": "Study Skill Instruction",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "9deb9513-e846-4c3e-ad3c-e2b9277f6794",
+        "name": "Test Preparation",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "b40c66f5-bb93-46de-991a-7ed47e301fe1",
+        "name": "Remedial Instruction",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "4fa9479a-cdd4-4130-9664-e57173e17827",
+        "name": "Advanced Topic Introduction",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "cbb96d8e-4a72-4408-836f-c0ccc18dc7bc",
+        "name": "Curriculum Mapping",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "ba21161b-62e4-4c8d-8b5c-d02e052ee102",
+        "name": "Textbook Evaluation",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "3d2e0e53-0b54-4d9d-8114-d85502980a87",
+        "name": "Manipulative Selection and Use",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "075fc7a9-fbcf-4c90-b0f8-d9f6fbc6c4bf",
+        "name": "Game-Based Learning Implementation",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "f9bbb9c9-440a-4872-884c-7b4638f092d4",
+        "name": "Project Design and Management",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "dc38fa12-0dc5-4159-85f4-80aec53080c5",
+        "name": "Journal Prompt Creation",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "901cd857-35bf-46b2-b60c-1d80c3f4c4ea",
+        "name": "Portfolio Assessment Design",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "d5a209ba-e866-4ad9-b51e-070fbbf0c0d9",
+        "name": "Tutor Training",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "fac2edda-f78e-410b-87f9-694ea4ef5cbf",
+        "name": "Professional Development Planning",
+        "type": "process",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "1706ba1e-0680-4814-b6e7-29c72e6f3ec6",
+        "name": "Action Research Conduction",
+        "type": "process",
+        "domain": "MathEducation"
+      }
+    ],
+    "perspectives": [
+      {
+        "id": "52e98f38-ebe1-4117-93e7-d421543408d5",
+        "name": "Math Teacher",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "1bb37155-7cb5-4104-8e11-970cf7309d37",
+        "name": "Curriculum Developer",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "1eb01b55-1c5c-478f-8e56-5dea06a8cba9",
+        "name": "Educational Psychologist",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "58b30920-1bc2-412c-ac88-4269eabce055",
+        "name": "Ed-Tech Specialist",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "f25f4b12-63bb-4959-bec0-72d295161b3e",
+        "name": "Equity and Inclusion Officer",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "71305f97-5ce7-4bc5-971d-7b2975f20858",
+        "name": "Teacher Trainer",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "409b15a1-db77-497f-9b21-21357a384d8f",
+        "name": "Student Engagement Specialist",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "42ff616f-8811-4bb1-83e6-6e7f1825e1c1",
+        "name": "Math Anxiety Counselor",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "66a2f5c8-0169-45b2-bfdc-a1c30230ec26",
+        "name": "Industry Liaison",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "ace00bea-c1e3-4c8d-908c-832383242003",
+        "name": "Interdisciplinary Educator",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "1ebf7f67-5ba2-4d23-8f1a-f8e8ac92d3fd",
+        "name": "Special Education Teacher",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "86573e61-6d7e-41cb-acd0-729b2f701dfa",
+        "name": "Mathematical Modeler",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "91b2a582-2056-4991-8000-be1bf598ca80",
+        "name": "Computer Science Educator",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "340e09cd-b8f9-422c-9ded-b49ef42abaf4",
+        "name": "Math Communication Coach",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "bca1d77c-d3e6-412f-8f6e-f7056ea043fb",
+        "name": "Growth Mindset Trainer",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "5a986385-0725-46b9-827e-e0069f74759e",
+        "name": "Numeracy Skills Specialist",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "5b36c251-cdaa-44a9-b8fd-e459251f4ccf",
+        "name": "Geometry Teacher",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "e47bfa95-7d49-4322-84e7-9a9341dec3ff",
+        "name": "Algebra Instructor",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "c409b00f-bff8-4ec8-83d0-b704d0398931",
+        "name": "Statistics Educator",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "5de92268-0080-496d-b469-dfd5d278be3f",
+        "name": "Mathematical Proof Expert",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "cbe9970d-c98e-443c-bf14-ba22bf8a014f",
+        "name": "Mental Math Coach",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "51f41036-6e1b-4fc3-b939-f522eaeafdca",
+        "name": "Math Language Specialist",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "78df27eb-f64d-4f62-938b-9a3e9a587906",
+        "name": "Mathematical Argumentation Coach",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "bdc38f15-6455-47dd-831c-5beacc5c9146",
+        "name": "Error Analysis Specialist",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "14647040-2084-4616-bf98-8bb70535753e",
+        "name": "Math Representation Expert",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "76a659c9-7a7f-4756-ba02-851966b66686",
+        "name": "Math Historian",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "73acbdb2-7433-4a16-96a1-86715f628c39",
+        "name": "STEM Coordinator",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "d6f6934d-a26b-4e73-99ca-33df355a3291",
+        "name": "Math Competition Coach",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "86bd4386-3aac-4cd1-806d-e8a415f62fcb",
+        "name": "Math Club Advisor",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "d1e3171f-6665-4284-aca6-095e60b869a4",
+        "name": "Parent Education Coordinator",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "fe71bd3c-a1b9-471a-9dd9-cbccea3c0732",
+        "name": "Homework Strategy Specialist",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "6f985d05-0be0-4e94-92b8-7b161dbc121a",
+        "name": "Study Skills Coach",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "1eb6f34a-a415-45a1-9cbe-14bbbbcae7ff",
+        "name": "Test Prep Specialist",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "3dd32268-4e1f-4eae-b2a2-97979bf2d395",
+        "name": "Math Remediation Expert",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "607cc50b-c8bf-4549-8dbf-2c71629474c6",
+        "name": "Advanced Math Instructor",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "ebc6e7f0-c3d7-4378-89ee-1793a9f38efe",
+        "name": "Curriculum Sequencing Specialist",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "9ad2d871-27f8-4656-b307-d077b9504e43",
+        "name": "Textbook Selection Committee Member",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "d6e5a04c-1379-433d-ad8c-552d29cb0589",
+        "name": "Math Manipulatives Specialist",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "4ae481da-2355-4a57-984c-de327a101b4f",
+        "name": "Educational Game Designer",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "27c8c8bb-713a-449e-8238-dc0485a77542",
+        "name": "Project-Based Learning Facilitator",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "235b6eba-59f8-4db1-a0f4-020a02286265",
+        "name": "Math Journaling Coach",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "4ef55354-f998-4387-9d2d-a9898230d1e9",
+        "name": "Portfolio Assessment Specialist",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "31042836-0873-4810-811f-c270f191d4ea",
+        "name": "Math Tutor Coordinator",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "1d48d6aa-0254-4665-b299-32e38a18eeca",
+        "name": "Professional Development Facilitator",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "5f114a37-8890-49d0-95c5-9d1da934a183",
+        "name": "Math Education Researcher",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "0edba088-062c-45f8-8304-2d73d337a682",
+        "name": "Differentiated Instruction Specialist",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "75c048a3-b40a-4754-bf73-a9a7e4e536cf",
+        "name": "Math Technology Integration Expert",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "314a50d7-a823-4b44-b5bc-f0a844f1b449",
+        "name": "Assessment Design Specialist",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "a0deac4a-5a40-49bf-9e80-75ed6889c819",
+        "name": "Math Literacy Coach",
+        "type": "perspective",
+        "domain": "MathEducation"
+      },
+      {
+        "id": "dd004e5f-b7f6-4cc8-95d8-e46eb68a54f4",
+        "name": "Data Analysis in Education Expert",
+        "type": "perspective",
+        "domain": "MathEducation"
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "90e18f9e-fbc7-4628-833a-5bd6a96dd326",
+      "property_id": "dc8328cf-17cb-423a-b61b-4113f39bfffd",
+      "process_id": "9deb9513-e846-4c3e-ad3c-e2b9277f6794",
+      "perspective_id": "1bb37155-7cb5-4104-8e11-970cf7309d37",
+      "strength": 0.56,
+      "confidence": 0.91
+    },
+    {
+      "id": "6924cc63-7691-46bb-a704-ecdf761e2b87",
+      "property_id": "e4138d15-d0d3-445a-b7c7-5ec05da45979",
+      "process_id": "0ea86571-417f-40bb-abdc-bdd8f732c9cc",
+      "perspective_id": "9ad2d871-27f8-4656-b307-d077b9504e43",
+      "strength": 0.58,
+      "confidence": 0.73
+    },
+    {
+      "id": "70dec637-45bd-44d4-80ee-b8b21d3eb9be",
+      "property_id": "cd538a6a-26b6-4fb0-ab35-8ada57c057f1",
+      "process_id": "8e0dc0f9-52c5-4548-83e4-872e100e7cf3",
+      "perspective_id": "ebc6e7f0-c3d7-4378-89ee-1793a9f38efe",
+      "strength": 1.0,
+      "confidence": 0.83
+    },
+    {
+      "id": "f1e54965-4ea4-48f4-81cc-e1ea81db47c1",
+      "property_id": "fbbaee24-24e3-4499-a7a5-2c5606d4ddaf",
+      "process_id": "1d4198b5-2edf-46b2-b635-f4a7122e8a17",
+      "perspective_id": "31042836-0873-4810-811f-c270f191d4ea",
+      "strength": 0.53,
+      "confidence": 0.8
+    },
+    {
+      "id": "4cec8490-34fa-4bd7-a724-5b346cb93bfe",
+      "property_id": "664dc252-119c-4c79-aeb4-c68b6be88174",
+      "process_id": "84d162fa-ff46-4026-90e8-a3cfe831c0b7",
+      "perspective_id": "c409b00f-bff8-4ec8-83d0-b704d0398931",
+      "strength": 0.67,
+      "confidence": 0.94
+    },
+    {
+      "id": "15f31005-6055-4452-b135-5068b5fe23e1",
+      "property_id": "c117133e-64cd-42b4-8dd6-5585072c74c8",
+      "process_id": "fbc52ec3-25e3-4590-9163-483cbedb0478",
+      "perspective_id": "73acbdb2-7433-4a16-96a1-86715f628c39",
+      "strength": 0.6,
+      "confidence": 0.94
+    },
+    {
+      "id": "40f03e9f-d54c-4313-8322-23379c5fe16f",
+      "property_id": "27a36c61-d152-4059-a81e-bed7ae835001",
+      "process_id": "c05a6923-5e9e-44b0-b118-1d4e97c87538",
+      "perspective_id": "14647040-2084-4616-bf98-8bb70535753e",
+      "strength": 0.85,
+      "confidence": 0.81
+    },
+    {
+      "id": "d3bc060d-597b-4448-9f73-14b838845429",
+      "property_id": "1cfc4933-a20b-4f44-9e25-984522c434ef",
+      "process_id": "809b8b8f-31a5-4a01-bcd9-61c831332a99",
+      "perspective_id": "42ff616f-8811-4bb1-83e6-6e7f1825e1c1",
+      "strength": 0.62,
+      "confidence": 0.71
+    },
+    {
+      "id": "9308971d-9bb0-4614-902c-a78dbbf4a62f",
+      "property_id": "67fe0549-2b0c-41a7-8447-12921b5a713b",
+      "process_id": "6c3428a4-63fb-499e-8dde-ce2a3dbbcb3f",
+      "perspective_id": "3dd32268-4e1f-4eae-b2a2-97979bf2d395",
+      "strength": 0.89,
+      "confidence": 0.96
+    },
+    {
+      "id": "9a3c0172-c3cc-48bf-bc46-bf5acac6890b",
+      "property_id": "5727ebbd-6e0a-4985-a547-511489587788",
+      "process_id": "dc38fa12-0dc5-4159-85f4-80aec53080c5",
+      "perspective_id": "73acbdb2-7433-4a16-96a1-86715f628c39",
+      "strength": 0.72,
+      "confidence": 0.76
+    },
+    {
+      "id": "4531f4da-a47c-4699-994c-637b9e8495e6",
+      "property_id": "d1e20390-2bfc-493a-bda2-43597e8cc47e",
+      "process_id": "08953f9c-7c56-41e8-8b8f-cc65402f20c2",
+      "perspective_id": "d6f6934d-a26b-4e73-99ca-33df355a3291",
+      "strength": 0.92,
+      "confidence": 0.96
+    },
+    {
+      "id": "f8e4a909-536d-4e37-8e06-fd125fe408b7",
+      "property_id": "8b917f18-b87d-43c7-b01b-8982e00753ee",
+      "process_id": "ba21161b-62e4-4c8d-8b5c-d02e052ee102",
+      "perspective_id": "14647040-2084-4616-bf98-8bb70535753e",
+      "strength": 0.99,
+      "confidence": 0.89
+    },
+    {
+      "id": "6edc4367-149d-4e9d-a29a-d58c12e774ea",
+      "property_id": "38883a8a-b1f9-4c2e-a4a4-54cfb355a96e",
+      "process_id": "fac2edda-f78e-410b-87f9-694ea4ef5cbf",
+      "perspective_id": "71305f97-5ce7-4bc5-971d-7b2975f20858",
+      "strength": 0.59,
+      "confidence": 0.97
+    },
+    {
+      "id": "43bf97b0-33dd-4884-9b4e-415d511ed1ce",
+      "property_id": "8b23cb59-3158-4833-8d4b-fef2ffb3521a",
+      "process_id": "fac2edda-f78e-410b-87f9-694ea4ef5cbf",
+      "perspective_id": "14647040-2084-4616-bf98-8bb70535753e",
+      "strength": 0.53,
+      "confidence": 0.83
+    },
+    {
+      "id": "0d281d78-3ee5-4324-b01b-cdbafe1eb61e",
+      "property_id": "33b59f51-d93f-4dbd-8b5a-c4878a74ad59",
+      "process_id": "901cd857-35bf-46b2-b60c-1d80c3f4c4ea",
+      "perspective_id": "51f41036-6e1b-4fc3-b939-f522eaeafdca",
+      "strength": 0.61,
+      "confidence": 0.75
+    },
+    {
+      "id": "a6014915-fdab-4bcc-ad04-034b69959335",
+      "property_id": "67fe0549-2b0c-41a7-8447-12921b5a713b",
+      "process_id": "4fa9479a-cdd4-4130-9664-e57173e17827",
+      "perspective_id": "73acbdb2-7433-4a16-96a1-86715f628c39",
+      "strength": 0.61,
+      "confidence": 0.75
+    },
+    {
+      "id": "675c9e72-f590-4401-9f88-ac72944ed2b2",
+      "property_id": "ede473d2-9d68-4086-9e37-81ff5dadc4a7",
+      "process_id": "b40c66f5-bb93-46de-991a-7ed47e301fe1",
+      "perspective_id": "a0deac4a-5a40-49bf-9e80-75ed6889c819",
+      "strength": 0.52,
+      "confidence": 0.79
+    },
+    {
+      "id": "3655987d-f817-4421-bab1-8469ab447cc1",
+      "property_id": "e9c8e22a-230f-4f06-a22a-fb7c3d8b1d1a",
+      "process_id": "35fac30d-6a5f-44cf-9a35-c818533dc547",
+      "perspective_id": "235b6eba-59f8-4db1-a0f4-020a02286265",
+      "strength": 0.87,
+      "confidence": 0.86
+    },
+    {
+      "id": "3078bd9d-be9b-4758-ae34-60a6a52bdeb3",
+      "property_id": "664dc252-119c-4c79-aeb4-c68b6be88174",
+      "process_id": "1d4198b5-2edf-46b2-b635-f4a7122e8a17",
+      "perspective_id": "314a50d7-a823-4b44-b5bc-f0a844f1b449",
+      "strength": 0.87,
+      "confidence": 0.96
+    },
+    {
+      "id": "4797a279-956e-4c98-9cfd-378b22cb0d30",
+      "property_id": "27a36c61-d152-4059-a81e-bed7ae835001",
+      "process_id": "0ea86571-417f-40bb-abdc-bdd8f732c9cc",
+      "perspective_id": "d1e3171f-6665-4284-aca6-095e60b869a4",
+      "strength": 0.86,
+      "confidence": 0.86
+    },
+    {
+      "id": "dc2e6cf4-d3aa-47c3-9f50-24d55c128ad3",
+      "property_id": "1507c124-26b0-48c5-a9fb-2ca279b65bb6",
+      "process_id": "757f7a9c-514c-4b6a-8ec9-d1098ebc8fc4",
+      "perspective_id": "76a659c9-7a7f-4756-ba02-851966b66686",
+      "strength": 0.64,
+      "confidence": 0.89
+    },
+    {
+      "id": "59cabc87-0a36-441d-a85a-944abf71b5c2",
+      "property_id": "48debe36-06b2-449a-9623-b764aec074d4",
+      "process_id": "1f119ed0-b123-496c-9519-c5ba19a2daa2",
+      "perspective_id": "66a2f5c8-0169-45b2-bfdc-a1c30230ec26",
+      "strength": 0.77,
+      "confidence": 0.71
+    },
+    {
+      "id": "bc13722a-bfcc-4502-a425-71d84c8bf308",
+      "property_id": "e9c8e22a-230f-4f06-a22a-fb7c3d8b1d1a",
+      "process_id": "757f7a9c-514c-4b6a-8ec9-d1098ebc8fc4",
+      "perspective_id": "86bd4386-3aac-4cd1-806d-e8a415f62fcb",
+      "strength": 0.78,
+      "confidence": 0.87
+    },
+    {
+      "id": "55025ecb-99dc-440f-804f-9b27b43abeb3",
+      "property_id": "214a35f8-a314-4ec1-befe-c8e5cb84da15",
+      "process_id": "795b66ee-4a26-4d4e-8ff5-aae6702b1aa8",
+      "perspective_id": "1eb01b55-1c5c-478f-8e56-5dea06a8cba9",
+      "strength": 0.75,
+      "confidence": 0.81
+    },
+    {
+      "id": "32931bcd-6c41-48d0-b855-41fbf635793e",
+      "property_id": "214a35f8-a314-4ec1-befe-c8e5cb84da15",
+      "process_id": "8be49d6d-ab3d-41ed-b529-47e6250c795c",
+      "perspective_id": "e47bfa95-7d49-4322-84e7-9a9341dec3ff",
+      "strength": 0.69,
+      "confidence": 0.87
+    },
+    {
+      "id": "296152d5-2e66-40e4-9c6d-1481d573b477",
+      "property_id": "cd538a6a-26b6-4fb0-ab35-8ada57c057f1",
+      "process_id": "7b4dac49-942b-4e51-a402-f8ec004d9314",
+      "perspective_id": "1eb6f34a-a415-45a1-9cbe-14bbbbcae7ff",
+      "strength": 0.57,
+      "confidence": 0.95
+    },
+    {
+      "id": "8d35f7e1-62db-478d-bdc0-37c8b2a1069f",
+      "property_id": "8020c04a-fd89-4fed-80bd-42d97b65af70",
+      "process_id": "075fc7a9-fbcf-4c90-b0f8-d9f6fbc6c4bf",
+      "perspective_id": "5de92268-0080-496d-b469-dfd5d278be3f",
+      "strength": 0.91,
+      "confidence": 0.71
+    },
+    {
+      "id": "cc025406-e2ba-4571-be56-d412ae63d68e",
+      "property_id": "9533cd9d-00c8-40f6-9b3b-98ce30952166",
+      "process_id": "b40c66f5-bb93-46de-991a-7ed47e301fe1",
+      "perspective_id": "42ff616f-8811-4bb1-83e6-6e7f1825e1c1",
+      "strength": 0.56,
+      "confidence": 0.84
+    },
+    {
+      "id": "8258e794-4493-4308-8aa5-81d8d867217d",
+      "property_id": "48debe36-06b2-449a-9623-b764aec074d4",
+      "process_id": "9f5beb51-66d1-4410-8ece-f7e1727cc310",
+      "perspective_id": "5de92268-0080-496d-b469-dfd5d278be3f",
+      "strength": 0.53,
+      "confidence": 0.9
+    },
+    {
+      "id": "1478c325-199a-4fe6-aaba-9d79a43bd37e",
+      "property_id": "992833b2-771d-4f3a-ab06-141ec118b896",
+      "process_id": "1d4198b5-2edf-46b2-b635-f4a7122e8a17",
+      "perspective_id": "42ff616f-8811-4bb1-83e6-6e7f1825e1c1",
+      "strength": 0.77,
+      "confidence": 0.88
+    },
+    {
+      "id": "fc0f197c-ab93-4a43-9831-532ed081fd26",
+      "property_id": "c117133e-64cd-42b4-8dd6-5585072c74c8",
+      "process_id": "f9bbb9c9-440a-4872-884c-7b4638f092d4",
+      "perspective_id": "ebc6e7f0-c3d7-4378-89ee-1793a9f38efe",
+      "strength": 0.96,
+      "confidence": 0.83
+    },
+    {
+      "id": "e537ee92-613a-4c2e-addf-4eaa03273fa3",
+      "property_id": "33b59f51-d93f-4dbd-8b5a-c4878a74ad59",
+      "process_id": "1d4198b5-2edf-46b2-b635-f4a7122e8a17",
+      "perspective_id": "27c8c8bb-713a-449e-8238-dc0485a77542",
+      "strength": 0.66,
+      "confidence": 0.84
+    },
+    {
+      "id": "92cfc4e7-c1b4-454a-a297-61eaafbfc9de",
+      "property_id": "96297bff-bca2-4815-89dd-8ba9ddb242f1",
+      "process_id": "35fac30d-6a5f-44cf-9a35-c818533dc547",
+      "perspective_id": "4ae481da-2355-4a57-984c-de327a101b4f",
+      "strength": 0.57,
+      "confidence": 0.91
+    },
+    {
+      "id": "e584f5b2-2ab0-4055-b2fd-bdd679e36b04",
+      "property_id": "72422814-a24d-407f-b9d5-cbf72428d23a",
+      "process_id": "1d4198b5-2edf-46b2-b635-f4a7122e8a17",
+      "perspective_id": "4ef55354-f998-4387-9d2d-a9898230d1e9",
+      "strength": 0.76,
+      "confidence": 0.91
+    },
+    {
+      "id": "dbdaa2d0-2c31-433a-913e-332e5fd6f3a1",
+      "property_id": "423ddc17-4d88-487a-9fd0-ed14c9a4eb4a",
+      "process_id": "6c3428a4-63fb-499e-8dde-ce2a3dbbcb3f",
+      "perspective_id": "d6e5a04c-1379-433d-ad8c-552d29cb0589",
+      "strength": 0.99,
+      "confidence": 0.93
+    },
+    {
+      "id": "284cdcb1-9291-4d0e-a1ad-be719c88ab43",
+      "property_id": "1507c124-26b0-48c5-a9fb-2ca279b65bb6",
+      "process_id": "9c246b27-ce9b-4208-b12c-2761f39be574",
+      "perspective_id": "e47bfa95-7d49-4322-84e7-9a9341dec3ff",
+      "strength": 0.97,
+      "confidence": 0.74
+    },
+    {
+      "id": "ba7eec00-1819-49ef-988f-623d3993dd4f",
+      "property_id": "de9c777e-7c1f-498d-abca-81b597d3e7d9",
+      "process_id": "6c3428a4-63fb-499e-8dde-ce2a3dbbcb3f",
+      "perspective_id": "d6f6934d-a26b-4e73-99ca-33df355a3291",
+      "strength": 0.77,
+      "confidence": 0.84
+    },
+    {
+      "id": "dca705fc-388d-4092-befe-914142c6d8eb",
+      "property_id": "cd538a6a-26b6-4fb0-ab35-8ada57c057f1",
+      "process_id": "1f119ed0-b123-496c-9519-c5ba19a2daa2",
+      "perspective_id": "1bb37155-7cb5-4104-8e11-970cf7309d37",
+      "strength": 0.5,
+      "confidence": 0.98
+    },
+    {
+      "id": "13a516be-fda0-4bd9-b2bb-1428dac48b10",
+      "property_id": "214a35f8-a314-4ec1-befe-c8e5cb84da15",
+      "process_id": "a40b8a33-e2ac-412a-b577-12e18979cdce",
+      "perspective_id": "71305f97-5ce7-4bc5-971d-7b2975f20858",
+      "strength": 0.87,
+      "confidence": 0.99
+    },
+    {
+      "id": "ccd9eeb8-048e-4e92-9687-59026102457a",
+      "property_id": "ff60080a-bf7b-4818-acb2-bac3e4c5e39e",
+      "process_id": "b4a10a18-6c46-4298-8b2a-5ee316928e88",
+      "perspective_id": "5a986385-0725-46b9-827e-e0069f74759e",
+      "strength": 0.63,
+      "confidence": 0.95
+    },
+    {
+      "id": "535d2729-c85b-4313-8b3c-b97ca48b71e8",
+      "property_id": "0b96483f-3257-41b3-a488-4cdd970b8abb",
+      "process_id": "d5a209ba-e866-4ad9-b51e-070fbbf0c0d9",
+      "perspective_id": "5b36c251-cdaa-44a9-b8fd-e459251f4ccf",
+      "strength": 0.84,
+      "confidence": 0.91
+    },
+    {
+      "id": "f5f90225-668c-4984-a695-622d04e50d15",
+      "property_id": "67fe0549-2b0c-41a7-8447-12921b5a713b",
+      "process_id": "a40b8a33-e2ac-412a-b577-12e18979cdce",
+      "perspective_id": "314a50d7-a823-4b44-b5bc-f0a844f1b449",
+      "strength": 0.86,
+      "confidence": 0.92
+    },
+    {
+      "id": "da34462d-43c3-40e2-816c-c8e33bb1c0c4",
+      "property_id": "56ee896b-0fa9-4204-ac30-06f39a68e9bd",
+      "process_id": "fcf5b868-9488-4d43-820a-e34546897008",
+      "perspective_id": "d1e3171f-6665-4284-aca6-095e60b869a4",
+      "strength": 0.94,
+      "confidence": 0.96
+    },
+    {
+      "id": "a5f1938c-bfae-46f8-87b4-fd4fa60da2f9",
+      "property_id": "48debe36-06b2-449a-9623-b764aec074d4",
+      "process_id": "9c246b27-ce9b-4208-b12c-2761f39be574",
+      "perspective_id": "ebc6e7f0-c3d7-4378-89ee-1793a9f38efe",
+      "strength": 0.7,
+      "confidence": 0.84
+    },
+    {
+      "id": "f4c2bf1b-e603-48ce-b1f3-56cf80ab6186",
+      "property_id": "c37b6391-13a0-4698-9966-a5ce4c250c2f",
+      "process_id": "9deb9513-e846-4c3e-ad3c-e2b9277f6794",
+      "perspective_id": "607cc50b-c8bf-4549-8dbf-2c71629474c6",
+      "strength": 0.53,
+      "confidence": 0.88
+    },
+    {
+      "id": "f257a227-7f5d-472a-b81f-3800b6732e98",
+      "property_id": "ede473d2-9d68-4086-9e37-81ff5dadc4a7",
+      "process_id": "795b66ee-4a26-4d4e-8ff5-aae6702b1aa8",
+      "perspective_id": "71305f97-5ce7-4bc5-971d-7b2975f20858",
+      "strength": 0.7,
+      "confidence": 0.74
+    },
+    {
+      "id": "ebf83fa4-014c-4867-be4e-68a71b98fe3f",
+      "property_id": "56ee896b-0fa9-4204-ac30-06f39a68e9bd",
+      "process_id": "ee612a69-2854-4cb0-85d2-77d18d86bb5f",
+      "perspective_id": "76a659c9-7a7f-4756-ba02-851966b66686",
+      "strength": 0.82,
+      "confidence": 0.72
+    },
+    {
+      "id": "1e40f2c4-bde0-461a-8a2b-757e6882e207",
+      "property_id": "cd538a6a-26b6-4fb0-ab35-8ada57c057f1",
+      "process_id": "fbc52ec3-25e3-4590-9163-483cbedb0478",
+      "perspective_id": "3dd32268-4e1f-4eae-b2a2-97979bf2d395",
+      "strength": 0.65,
+      "confidence": 0.82
+    },
+    {
+      "id": "c5fa605f-e811-4981-a95e-3d5122153096",
+      "property_id": "de9c777e-7c1f-498d-abca-81b597d3e7d9",
+      "process_id": "d5a209ba-e866-4ad9-b51e-070fbbf0c0d9",
+      "perspective_id": "d1e3171f-6665-4284-aca6-095e60b869a4",
+      "strength": 0.81,
+      "confidence": 0.83
+    },
+    {
+      "id": "1ad5adb7-a4cc-4516-83e6-b884ddaba08a",
+      "property_id": "ff60080a-bf7b-4818-acb2-bac3e4c5e39e",
+      "process_id": "075fc7a9-fbcf-4c90-b0f8-d9f6fbc6c4bf",
+      "perspective_id": "cbe9970d-c98e-443c-bf14-ba22bf8a014f",
+      "strength": 0.52,
+      "confidence": 0.86
+    },
+    {
+      "id": "558bc376-02ae-47e6-aa07-e8308d220d3f",
+      "property_id": "1cfc4933-a20b-4f44-9e25-984522c434ef",
+      "process_id": "dc38fa12-0dc5-4159-85f4-80aec53080c5",
+      "perspective_id": "ebc6e7f0-c3d7-4378-89ee-1793a9f38efe",
+      "strength": 0.59,
+      "confidence": 0.83
+    },
+    {
+      "id": "11c76d95-d6bd-4a5a-be16-9aacc261523e",
+      "property_id": "65b43340-241e-4381-b0b8-d113abd499c9",
+      "process_id": "b40c66f5-bb93-46de-991a-7ed47e301fe1",
+      "perspective_id": "58b30920-1bc2-412c-ac88-4269eabce055",
+      "strength": 0.74,
+      "confidence": 0.96
+    },
+    {
+      "id": "6144f5e5-b608-41cd-97a6-7221e65bc745",
+      "property_id": "33b59f51-d93f-4dbd-8b5a-c4878a74ad59",
+      "process_id": "7b4dac49-942b-4e51-a402-f8ec004d9314",
+      "perspective_id": "c409b00f-bff8-4ec8-83d0-b704d0398931",
+      "strength": 0.71,
+      "confidence": 0.74
+    },
+    {
+      "id": "99496f8f-f22a-4a68-bfc8-0cce26509da1",
+      "property_id": "e4138d15-d0d3-445a-b7c7-5ec05da45979",
+      "process_id": "6c3428a4-63fb-499e-8dde-ce2a3dbbcb3f",
+      "perspective_id": "bca1d77c-d3e6-412f-8f6e-f7056ea043fb",
+      "strength": 0.72,
+      "confidence": 0.97
+    },
+    {
+      "id": "ef73ca65-4c74-4800-9515-315ca6a46907",
+      "property_id": "e9c8e22a-230f-4f06-a22a-fb7c3d8b1d1a",
+      "process_id": "8be49d6d-ab3d-41ed-b529-47e6250c795c",
+      "perspective_id": "91b2a582-2056-4991-8000-be1bf598ca80",
+      "strength": 0.62,
+      "confidence": 0.78
+    },
+    {
+      "id": "7c32bb01-51eb-460d-b1a3-35010cc63be5",
+      "property_id": "48debe36-06b2-449a-9623-b764aec074d4",
+      "process_id": "aa0be3bf-4e2c-462c-8d6e-2fc9aa88e5c6",
+      "perspective_id": "1ebf7f67-5ba2-4d23-8f1a-f8e8ac92d3fd",
+      "strength": 0.6,
+      "confidence": 0.96
+    },
+    {
+      "id": "2985decf-37ca-4a13-b40b-9ca5beab44f7",
+      "property_id": "4418cf46-187a-4888-bd5b-3c8c54d4a7bb",
+      "process_id": "4fa9479a-cdd4-4130-9664-e57173e17827",
+      "perspective_id": "76a659c9-7a7f-4756-ba02-851966b66686",
+      "strength": 0.74,
+      "confidence": 0.76
+    },
+    {
+      "id": "95122cfa-851a-4567-886b-5dca2c9dd4d8",
+      "property_id": "d1e20390-2bfc-493a-bda2-43597e8cc47e",
+      "process_id": "35fac30d-6a5f-44cf-9a35-c818533dc547",
+      "perspective_id": "5f114a37-8890-49d0-95c5-9d1da934a183",
+      "strength": 0.9,
+      "confidence": 0.83
+    },
+    {
+      "id": "9ac64b10-9362-4309-9f71-0f4b0685aef8",
+      "property_id": "de9c777e-7c1f-498d-abca-81b597d3e7d9",
+      "process_id": "2cd7642a-2736-4258-90f6-1f7f31338c3f",
+      "perspective_id": "e47bfa95-7d49-4322-84e7-9a9341dec3ff",
+      "strength": 0.53,
+      "confidence": 0.71
+    },
+    {
+      "id": "dee220fb-5913-488e-a5a6-bfb367a1dccd",
+      "property_id": "67fe0549-2b0c-41a7-8447-12921b5a713b",
+      "process_id": "f9bbb9c9-440a-4872-884c-7b4638f092d4",
+      "perspective_id": "5de92268-0080-496d-b469-dfd5d278be3f",
+      "strength": 0.62,
+      "confidence": 0.98
+    },
+    {
+      "id": "f61a61ab-2ac9-4cd3-939e-118c725fc584",
+      "property_id": "de9c777e-7c1f-498d-abca-81b597d3e7d9",
+      "process_id": "1706ba1e-0680-4814-b6e7-29c72e6f3ec6",
+      "perspective_id": "dd004e5f-b7f6-4cc8-95d8-e46eb68a54f4",
+      "strength": 0.82,
+      "confidence": 0.77
+    },
+    {
+      "id": "ef8888e2-7b60-403d-b3bf-35aff6b52e45",
+      "property_id": "38883a8a-b1f9-4c2e-a4a4-54cfb355a96e",
+      "process_id": "075fc7a9-fbcf-4c90-b0f8-d9f6fbc6c4bf",
+      "perspective_id": "75c048a3-b40a-4754-bf73-a9a7e4e536cf",
+      "strength": 0.88,
+      "confidence": 0.98
+    },
+    {
+      "id": "4108aecf-b2db-4257-9935-a0e49ec71afd",
+      "property_id": "c37b6391-13a0-4698-9966-a5ce4c250c2f",
+      "process_id": "5b4ced03-2733-48a7-a11d-f03297557d48",
+      "perspective_id": "ace00bea-c1e3-4c8d-908c-832383242003",
+      "strength": 0.76,
+      "confidence": 0.72
+    }
+  ],
+  "metadata": {
+    "count": {
+      "properties": 50,
+      "processes": 50,
+      "perspectives": 50
+    }
+  }
+}

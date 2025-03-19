@@ -1,0 +1,1732 @@
+{
+  "timestamp": "2025-03-18T06:58:43.447232",
+  "summary": {
+    "num_patterns": 30,
+    "num_relationships": 50
+  },
+  "basic": {
+    "pattern_distribution": {
+      "property": 10,
+      "process": 10,
+      "perspective": 10
+    },
+    "relationship_strength_stats": {
+      "min": 0.0175687531428097,
+      "max": 0.9894370829751753,
+      "mean": 0.45378070760502015,
+      "median": 0.44480063392139924,
+      "std": 0.2464101173765895
+    },
+    "strongest_relationships": [
+      {
+        "id": "0cd0ca16-1819-4521-8e29-6e75a411bf3f",
+        "strength": 0.9894370829751753,
+        "confidence": 0.5708825776099556,
+        "patterns": {
+          "property": {
+            "id": "37de5af9-8e88-466c-8859-0f6e3a1bccfb",
+            "name": "Property 7",
+            "domain": "Domain B"
+          },
+          "process": {
+            "id": "8c3ba5dd-42a9-4445-882f-8c261a3e1355",
+            "name": "Process 1",
+            "domain": "Domain A"
+          },
+          "perspective": {
+            "id": "c24533fd-0ce2-4330-b172-ac48e95fa0e9",
+            "name": "Perspective 4",
+            "domain": "Domain A"
+          }
+        }
+      },
+      {
+        "id": "d19d66e2-c83a-4f49-a230-6e63f6dbad65",
+        "strength": 0.905276622786792,
+        "confidence": 0.37665431397860305,
+        "patterns": {
+          "property": {
+            "id": "1e4d9737-dd57-4933-b30e-ea0cb5b41eb3",
+            "name": "Property 9",
+            "domain": "Domain B"
+          },
+          "process": {
+            "id": "e5174e62-04c6-4afc-94e3-73ce020ede19",
+            "name": "Process 0",
+            "domain": "Domain A"
+          },
+          "perspective": {
+            "id": "fd65c63b-6fc8-4646-9382-8198e45197d1",
+            "name": "Perspective 9",
+            "domain": "Domain C"
+          }
+        }
+      },
+      {
+        "id": "bfd4c9b6-bd2b-4fcf-92f6-15c3a043420c",
+        "strength": 0.8642197138210674,
+        "confidence": 0.5988636706600713,
+        "patterns": {
+          "process": {
+            "id": "ee203ef4-7473-4ce3-a6f8-19abd327be37",
+            "name": "Process 7",
+            "domain": "Domain C"
+          },
+          "perspective": {
+            "id": "1498d069-5843-43a8-8e03-ecf24b215069",
+            "name": "Perspective 0",
+            "domain": "Domain C"
+          }
+        }
+      },
+      {
+        "id": "df455d02-4ace-4ce8-b38f-98db62d0cd9e",
+        "strength": 0.8519505249739392,
+        "confidence": 0.8954505133084328,
+        "patterns": {
+          "property": {
+            "id": "1e4d9737-dd57-4933-b30e-ea0cb5b41eb3",
+            "name": "Property 9",
+            "domain": "Domain B"
+          },
+          "process": {
+            "id": "e5174e62-04c6-4afc-94e3-73ce020ede19",
+            "name": "Process 0",
+            "domain": "Domain A"
+          }
+        }
+      },
+      {
+        "id": "1a284e42-3426-4cc2-bcbe-6c5eb25a9995",
+        "strength": 0.833916288987832,
+        "confidence": 0.36306368263006394,
+        "patterns": {
+          "property": {
+            "id": "0029fc14-680d-4567-906a-600d509d0095",
+            "name": "Property 0",
+            "domain": "Domain B"
+          },
+          "process": {
+            "id": "e8750495-e361-4bed-b5ac-9aabe0be719e",
+            "name": "Process 4",
+            "domain": "Domain C"
+          },
+          "perspective": {
+            "id": "37c6c363-9818-417c-9deb-3040e5f93725",
+            "name": "Perspective 2",
+            "domain": "Domain C"
+          }
+        }
+      }
+    ],
+    "tag_distribution": {
+      "test": 30,
+      "property-0": 1,
+      "property-1": 1,
+      "property-2": 1,
+      "property-3": 1,
+      "property-4": 1,
+      "property-5": 1,
+      "property-6": 1,
+      "property-7": 1,
+      "property-8": 1,
+      "property-9": 1,
+      "process-0": 1,
+      "process-1": 1,
+      "process-2": 1,
+      "process-3": 1,
+      "process-4": 1,
+      "process-5": 1,
+      "process-6": 1,
+      "process-7": 1,
+      "process-8": 1,
+      "process-9": 1,
+      "perspective-0": 1,
+      "perspective-1": 1,
+      "perspective-2": 1,
+      "perspective-3": 1,
+      "perspective-4": 1,
+      "perspective-5": 1,
+      "perspective-6": 1,
+      "perspective-7": 1,
+      "perspective-8": 1,
+      "perspective-9": 1
+    },
+    "most_connected_patterns": {
+      "property": [
+        {
+          "id": "1e4d9737-dd57-4933-b30e-ea0cb5b41eb3",
+          "name": "Property 9",
+          "connection_count": 9,
+          "domain": "Domain B"
+        },
+        {
+          "id": "0029fc14-680d-4567-906a-600d509d0095",
+          "name": "Property 0",
+          "connection_count": 7,
+          "domain": "Domain B"
+        },
+        {
+          "id": "7c98eff6-8f4a-4047-86a9-f5e51b3dbc9f",
+          "name": "Property 5",
+          "connection_count": 6,
+          "domain": "Domain A"
+        },
+        {
+          "id": "6f0bd8fb-5fe6-465d-afee-c16762418be1",
+          "name": "Property 8",
+          "connection_count": 5,
+          "domain": "Domain A"
+        },
+        {
+          "id": "89a47948-aee7-4994-97af-643e31789c42",
+          "name": "Property 6",
+          "connection_count": 4,
+          "domain": "Domain A"
+        }
+      ],
+      "process": [
+        {
+          "id": "e8750495-e361-4bed-b5ac-9aabe0be719e",
+          "name": "Process 4",
+          "connection_count": 9,
+          "domain": "Domain C"
+        },
+        {
+          "id": "ee203ef4-7473-4ce3-a6f8-19abd327be37",
+          "name": "Process 7",
+          "connection_count": 7,
+          "domain": "Domain C"
+        },
+        {
+          "id": "e5174e62-04c6-4afc-94e3-73ce020ede19",
+          "name": "Process 0",
+          "connection_count": 6,
+          "domain": "Domain A"
+        },
+        {
+          "id": "899be43f-67e9-4186-a2f4-df2330099711",
+          "name": "Process 8",
+          "connection_count": 5,
+          "domain": "Domain B"
+        },
+        {
+          "id": "fa952fe1-aa2d-40e7-bdf0-fecbb8be5507",
+          "name": "Process 2",
+          "connection_count": 5,
+          "domain": "Domain B"
+        }
+      ],
+      "perspective": [
+        {
+          "id": "36d57ccd-0aac-4ac1-8c34-34f84876bb66",
+          "name": "Perspective 7",
+          "connection_count": 8,
+          "domain": "Domain A"
+        },
+        {
+          "id": "8ea9a811-73f0-4b55-8d44-130f030c98ba",
+          "name": "Perspective 8",
+          "connection_count": 6,
+          "domain": "Domain B"
+        },
+        {
+          "id": "37c6c363-9818-417c-9deb-3040e5f93725",
+          "name": "Perspective 2",
+          "connection_count": 5,
+          "domain": "Domain C"
+        },
+        {
+          "id": "bdb4bf7e-c8f4-409d-a574-76afe8205208",
+          "name": "Perspective 1",
+          "connection_count": 4,
+          "domain": "Domain B"
+        },
+        {
+          "id": "1498d069-5843-43a8-8e03-ecf24b215069",
+          "name": "Perspective 0",
+          "connection_count": 4,
+          "domain": "Domain C"
+        }
+      ]
+    },
+    "property_similarity": {
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "patterns": [
+        {
+          "id": "0029fc14-680d-4567-906a-600d509d0095",
+          "name": "Property 0",
+          "domain": "Domain B"
+        },
+        {
+          "id": "2980a429-7642-49e6-a403-ed27fdf95a9a",
+          "name": "Property 1",
+          "domain": "Domain C"
+        },
+        {
+          "id": "56e3bbac-b6db-4ceb-b5e3-93c1cd2f5a33",
+          "name": "Property 2",
+          "domain": "Domain C"
+        },
+        {
+          "id": "a0105a68-4abe-45d3-a4f4-2b6f1b34b186",
+          "name": "Property 3",
+          "domain": "Domain B"
+        },
+        {
+          "id": "2a6245fd-57c9-455f-bee8-b8a0d459fb35",
+          "name": "Property 4",
+          "domain": "Domain B"
+        },
+        {
+          "id": "7c98eff6-8f4a-4047-86a9-f5e51b3dbc9f",
+          "name": "Property 5",
+          "domain": "Domain A"
+        },
+        {
+          "id": "89a47948-aee7-4994-97af-643e31789c42",
+          "name": "Property 6",
+          "domain": "Domain A"
+        },
+        {
+          "id": "37de5af9-8e88-466c-8859-0f6e3a1bccfb",
+          "name": "Property 7",
+          "domain": "Domain B"
+        },
+        {
+          "id": "6f0bd8fb-5fe6-465d-afee-c16762418be1",
+          "name": "Property 8",
+          "domain": "Domain A"
+        },
+        {
+          "id": "1e4d9737-dd57-4933-b30e-ea0cb5b41eb3",
+          "name": "Property 9",
+          "domain": "Domain B"
+        }
+      ]
+    },
+    "process_similarity": {
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "patterns": [
+        {
+          "id": "e5174e62-04c6-4afc-94e3-73ce020ede19",
+          "name": "Process 0",
+          "domain": "Domain A"
+        },
+        {
+          "id": "8c3ba5dd-42a9-4445-882f-8c261a3e1355",
+          "name": "Process 1",
+          "domain": "Domain A"
+        },
+        {
+          "id": "fa952fe1-aa2d-40e7-bdf0-fecbb8be5507",
+          "name": "Process 2",
+          "domain": "Domain B"
+        },
+        {
+          "id": "a0f4a88e-462c-4f61-ac13-a67ceaf46f04",
+          "name": "Process 3",
+          "domain": "Domain A"
+        },
+        {
+          "id": "e8750495-e361-4bed-b5ac-9aabe0be719e",
+          "name": "Process 4",
+          "domain": "Domain C"
+        },
+        {
+          "id": "5a21f9dc-1d09-4983-889d-203745c82219",
+          "name": "Process 5",
+          "domain": "Domain B"
+        },
+        {
+          "id": "9a48997f-0840-4aeb-8f4c-ad59ee3995eb",
+          "name": "Process 6",
+          "domain": "Domain A"
+        },
+        {
+          "id": "ee203ef4-7473-4ce3-a6f8-19abd327be37",
+          "name": "Process 7",
+          "domain": "Domain C"
+        },
+        {
+          "id": "899be43f-67e9-4186-a2f4-df2330099711",
+          "name": "Process 8",
+          "domain": "Domain B"
+        },
+        {
+          "id": "d85a537a-452b-4fd4-a343-a5e2aab4591c",
+          "name": "Process 9",
+          "domain": "Domain C"
+        }
+      ]
+    },
+    "perspective_similarity": {
+      "matrix": [
+        [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0
+        ]
+      ],
+      "patterns": [
+        {
+          "id": "1498d069-5843-43a8-8e03-ecf24b215069",
+          "name": "Perspective 0",
+          "domain": "Domain C"
+        },
+        {
+          "id": "bdb4bf7e-c8f4-409d-a574-76afe8205208",
+          "name": "Perspective 1",
+          "domain": "Domain B"
+        },
+        {
+          "id": "37c6c363-9818-417c-9deb-3040e5f93725",
+          "name": "Perspective 2",
+          "domain": "Domain C"
+        },
+        {
+          "id": "dea520ce-0008-4015-8bf4-1463d6634868",
+          "name": "Perspective 3",
+          "domain": "Domain C"
+        },
+        {
+          "id": "c24533fd-0ce2-4330-b172-ac48e95fa0e9",
+          "name": "Perspective 4",
+          "domain": "Domain A"
+        },
+        {
+          "id": "d2c3c8ff-88b5-44a6-8679-98ad85df5ba4",
+          "name": "Perspective 5",
+          "domain": "Domain B"
+        },
+        {
+          "id": "a6069bdb-82d6-495f-8ff8-ecca8272b5d3",
+          "name": "Perspective 6",
+          "domain": "Domain A"
+        },
+        {
+          "id": "36d57ccd-0aac-4ac1-8c34-34f84876bb66",
+          "name": "Perspective 7",
+          "domain": "Domain A"
+        },
+        {
+          "id": "8ea9a811-73f0-4b55-8d44-130f030c98ba",
+          "name": "Perspective 8",
+          "domain": "Domain B"
+        },
+        {
+          "id": "fd65c63b-6fc8-4646-9382-8198e45197d1",
+          "name": "Perspective 9",
+          "domain": "Domain C"
+        }
+      ]
+    }
+  },
+  "network": {
+    "statistics": {
+      "full": {
+        "num_nodes": 30,
+        "num_edges": 84,
+        "density": 0.19310344827586207,
+        "avg_degree": 5.6,
+        "num_components": 2,
+        "largest_component_size": 29,
+        "avg_clustering": 0.33193121693121697,
+        "diameter": 4,
+        "avg_path_length": 2.0985221674876846
+      },
+      "domain": {
+        "num_nodes": 3,
+        "num_edges": 3,
+        "density": 1.0,
+        "avg_degree": 2.0,
+        "num_components": 1,
+        "largest_component_size": 3,
+        "avg_clustering": 1.0,
+        "diameter": 1,
+        "avg_path_length": 1.0
+      }
+    },
+    "centrality": {
+      "full": {
+        "degree": [
+          {
+            "id": "8c3ba5dd-42a9-4445-882f-8c261a3e1355",
+            "value": 0.3448275862068966,
+            "name": "Process 1",
+            "type": "process",
+            "domain": "Domain A"
+          },
+          {
+            "id": "36d57ccd-0aac-4ac1-8c34-34f84876bb66",
+            "value": 0.3448275862068966,
+            "name": "Perspective 7",
+            "type": "perspective",
+            "domain": "Domain A"
+          },
+          {
+            "id": "8ea9a811-73f0-4b55-8d44-130f030c98ba",
+            "value": 0.3448275862068966,
+            "name": "Perspective 8",
+            "type": "perspective",
+            "domain": "Domain B"
+          },
+          {
+            "id": "0029fc14-680d-4567-906a-600d509d0095",
+            "value": 0.3103448275862069,
+            "name": "Property 0",
+            "type": "property",
+            "domain": "Domain B"
+          },
+          {
+            "id": "ee203ef4-7473-4ce3-a6f8-19abd327be37",
+            "value": 0.3103448275862069,
+            "name": "Process 7",
+            "type": "process",
+            "domain": "Domain C"
+          },
+          {
+            "id": "7c98eff6-8f4a-4047-86a9-f5e51b3dbc9f",
+            "value": 0.27586206896551724,
+            "name": "Property 5",
+            "type": "property",
+            "domain": "Domain A"
+          },
+          {
+            "id": "1e4d9737-dd57-4933-b30e-ea0cb5b41eb3",
+            "value": 0.27586206896551724,
+            "name": "Property 9",
+            "type": "property",
+            "domain": "Domain B"
+          },
+          {
+            "id": "e8750495-e361-4bed-b5ac-9aabe0be719e",
+            "value": 0.27586206896551724,
+            "name": "Process 4",
+            "type": "process",
+            "domain": "Domain C"
+          },
+          {
+            "id": "6f0bd8fb-5fe6-465d-afee-c16762418be1",
+            "value": 0.24137931034482757,
+            "name": "Property 8",
+            "type": "property",
+            "domain": "Domain A"
+          },
+          {
+            "id": "e5174e62-04c6-4afc-94e3-73ce020ede19",
+            "value": 0.24137931034482757,
+            "name": "Process 0",
+            "type": "process",
+            "domain": "Domain A"
+          }
+        ],
+        "betweenness": [
+          {
+            "id": "36d57ccd-0aac-4ac1-8c34-34f84876bb66",
+            "value": 0.15851811707723043,
+            "name": "Perspective 7",
+            "type": "perspective",
+            "domain": "Domain A"
+          },
+          {
+            "id": "ee203ef4-7473-4ce3-a6f8-19abd327be37",
+            "value": 0.09990439226892427,
+            "name": "Process 7",
+            "type": "process",
+            "domain": "Domain C"
+          },
+          {
+            "id": "8c3ba5dd-42a9-4445-882f-8c261a3e1355",
+            "value": 0.0937011948095692,
+            "name": "Process 1",
+            "type": "process",
+            "domain": "Domain A"
+          },
+          {
+            "id": "6f0bd8fb-5fe6-465d-afee-c16762418be1",
+            "value": 0.09369743556935674,
+            "name": "Property 8",
+            "type": "property",
+            "domain": "Domain A"
+          },
+          {
+            "id": "7c98eff6-8f4a-4047-86a9-f5e51b3dbc9f",
+            "value": 0.07098168662208071,
+            "name": "Property 5",
+            "type": "property",
+            "domain": "Domain A"
+          },
+          {
+            "id": "8ea9a811-73f0-4b55-8d44-130f030c98ba",
+            "value": 0.06811292156119743,
+            "name": "Perspective 8",
+            "type": "perspective",
+            "domain": "Domain B"
+          },
+          {
+            "id": "89a47948-aee7-4994-97af-643e31789c42",
+            "value": 0.06419294990723562,
+            "name": "Property 6",
+            "type": "property",
+            "domain": "Domain A"
+          },
+          {
+            "id": "fa952fe1-aa2d-40e7-bdf0-fecbb8be5507",
+            "value": 0.04931287923898762,
+            "name": "Process 2",
+            "type": "process",
+            "domain": "Domain B"
+          },
+          {
+            "id": "899be43f-67e9-4186-a2f4-df2330099711",
+            "value": 0.04841835094298148,
+            "name": "Process 8",
+            "type": "process",
+            "domain": "Domain B"
+          },
+          {
+            "id": "0029fc14-680d-4567-906a-600d509d0095",
+            "value": 0.04696293717229677,
+            "name": "Property 0",
+            "type": "property",
+            "domain": "Domain B"
+          }
+        ],
+        "closeness": [
+          {
+            "id": "8c3ba5dd-42a9-4445-882f-8c261a3e1355",
+            "value": 0.5752017608217168,
+            "name": "Process 1",
+            "type": "process",
+            "domain": "Domain A"
+          },
+          {
+            "id": "36d57ccd-0aac-4ac1-8c34-34f84876bb66",
+            "value": 0.5632183908045978,
+            "name": "Perspective 7",
+            "type": "perspective",
+            "domain": "Domain A"
+          },
+          {
+            "id": "8ea9a811-73f0-4b55-8d44-130f030c98ba",
+            "value": 0.5632183908045978,
+            "name": "Perspective 8",
+            "type": "perspective",
+            "domain": "Domain B"
+          },
+          {
+            "id": "7c98eff6-8f4a-4047-86a9-f5e51b3dbc9f",
+            "value": 0.5406896551724139,
+            "name": "Property 5",
+            "type": "property",
+            "domain": "Domain A"
+          },
+          {
+            "id": "ee203ef4-7473-4ce3-a6f8-19abd327be37",
+            "value": 0.5300878972278568,
+            "name": "Process 7",
+            "type": "process",
+            "domain": "Domain C"
+          },
+          {
+            "id": "6f0bd8fb-5fe6-465d-afee-c16762418be1",
+            "value": 0.519893899204244,
+            "name": "Property 8",
+            "type": "property",
+            "domain": "Domain A"
+          },
+          {
+            "id": "e8750495-e361-4bed-b5ac-9aabe0be719e",
+            "value": 0.519893899204244,
+            "name": "Process 4",
+            "type": "process",
+            "domain": "Domain C"
+          },
+          {
+            "id": "0029fc14-680d-4567-906a-600d509d0095",
+            "value": 0.5006385696040868,
+            "name": "Property 0",
+            "type": "property",
+            "domain": "Domain B"
+          },
+          {
+            "id": "89a47948-aee7-4994-97af-643e31789c42",
+            "value": 0.5006385696040868,
+            "name": "Property 6",
+            "type": "property",
+            "domain": "Domain A"
+          },
+          {
+            "id": "899be43f-67e9-4186-a2f4-df2330099711",
+            "value": 0.5006385696040868,
+            "name": "Process 8",
+            "type": "process",
+            "domain": "Domain B"
+          }
+        ],
+        "eigenvector": [
+          {
+            "id": "8ea9a811-73f0-4b55-8d44-130f030c98ba",
+            "value": 0.33953201491046703,
+            "name": "Perspective 8",
+            "type": "perspective",
+            "domain": "Domain B"
+          },
+          {
+            "id": "8c3ba5dd-42a9-4445-882f-8c261a3e1355",
+            "value": 0.29977994349968323,
+            "name": "Process 1",
+            "type": "process",
+            "domain": "Domain A"
+          },
+          {
+            "id": "0029fc14-680d-4567-906a-600d509d0095",
+            "value": 0.2788075312026562,
+            "name": "Property 0",
+            "type": "property",
+            "domain": "Domain B"
+          },
+          {
+            "id": "e8750495-e361-4bed-b5ac-9aabe0be719e",
+            "value": 0.25827356876183777,
+            "name": "Process 4",
+            "type": "process",
+            "domain": "Domain C"
+          },
+          {
+            "id": "7c98eff6-8f4a-4047-86a9-f5e51b3dbc9f",
+            "value": 0.2504064734368098,
+            "name": "Property 5",
+            "type": "property",
+            "domain": "Domain A"
+          },
+          {
+            "id": "36d57ccd-0aac-4ac1-8c34-34f84876bb66",
+            "value": 0.23909359469878125,
+            "name": "Perspective 7",
+            "type": "perspective",
+            "domain": "Domain A"
+          },
+          {
+            "id": "1e4d9737-dd57-4933-b30e-ea0cb5b41eb3",
+            "value": 0.23218706979958237,
+            "name": "Property 9",
+            "type": "property",
+            "domain": "Domain B"
+          },
+          {
+            "id": "ee203ef4-7473-4ce3-a6f8-19abd327be37",
+            "value": 0.23193342438713718,
+            "name": "Process 7",
+            "type": "process",
+            "domain": "Domain C"
+          },
+          {
+            "id": "e5174e62-04c6-4afc-94e3-73ce020ede19",
+            "value": 0.21325225674133091,
+            "name": "Process 0",
+            "type": "process",
+            "domain": "Domain A"
+          },
+          {
+            "id": "6f0bd8fb-5fe6-465d-afee-c16762418be1",
+            "value": 0.2087782724851113,
+            "name": "Property 8",
+            "type": "property",
+            "domain": "Domain A"
+          }
+        ]
+      },
+      "domain": {
+        "degree": [
+          {
+            "id": "Domain C",
+            "value": 1.0,
+            "name": "Domain C"
+          },
+          {
+            "id": "Domain B",
+            "value": 1.0,
+            "name": "Domain B"
+          },
+          {
+            "id": "Domain A",
+            "value": 1.0,
+            "name": "Domain A"
+          }
+        ],
+        "betweenness": [
+          {
+            "id": "Domain C",
+            "value": 0.0,
+            "name": "Domain C"
+          },
+          {
+            "id": "Domain B",
+            "value": 0.0,
+            "name": "Domain B"
+          },
+          {
+            "id": "Domain A",
+            "value": 0.0,
+            "name": "Domain A"
+          }
+        ],
+        "closeness": [
+          {
+            "id": "Domain C",
+            "value": 1.0,
+            "name": "Domain C"
+          },
+          {
+            "id": "Domain B",
+            "value": 1.0,
+            "name": "Domain B"
+          },
+          {
+            "id": "Domain A",
+            "value": 1.0,
+            "name": "Domain A"
+          }
+        ],
+        "eigenvector": [
+          {
+            "id": "Domain B",
+            "value": 0.577350269189626,
+            "name": "Domain B"
+          },
+          {
+            "id": "Domain A",
+            "value": 0.5773502691896258,
+            "name": "Domain A"
+          },
+          {
+            "id": "Domain C",
+            "value": 0.5773502691896256,
+            "name": "Domain C"
+          }
+        ]
+      }
+    },
+    "communities": {
+      "full": {
+        "algorithm": {
+          "name": "louvain",
+          "modularity": 2.220446049250313e-16
+        },
+        "count": 2,
+        "communities": [
+          {
+            "id": 0,
+            "size": 29,
+            "nodes": [
+              {
+                "id": "dea520ce-0008-4015-8bf4-1463d6634868",
+                "name": "Perspective 3",
+                "type": "perspective",
+                "domain": "Domain C"
+              },
+              {
+                "id": "fa952fe1-aa2d-40e7-bdf0-fecbb8be5507",
+                "name": "Process 2",
+                "type": "process",
+                "domain": "Domain B"
+              },
+              {
+                "id": "1498d069-5843-43a8-8e03-ecf24b215069",
+                "name": "Perspective 0",
+                "type": "perspective",
+                "domain": "Domain C"
+              },
+              {
+                "id": "a0f4a88e-462c-4f61-ac13-a67ceaf46f04",
+                "name": "Process 3",
+                "type": "process",
+                "domain": "Domain A"
+              },
+              {
+                "id": "9a48997f-0840-4aeb-8f4c-ad59ee3995eb",
+                "name": "Process 6",
+                "type": "process",
+                "domain": "Domain A"
+              },
+              {
+                "id": "d2c3c8ff-88b5-44a6-8679-98ad85df5ba4",
+                "name": "Perspective 5",
+                "type": "perspective",
+                "domain": "Domain B"
+              },
+              {
+                "id": "2980a429-7642-49e6-a403-ed27fdf95a9a",
+                "name": "Property 1",
+                "type": "property",
+                "domain": "Domain C"
+              },
+              {
+                "id": "a6069bdb-82d6-495f-8ff8-ecca8272b5d3",
+                "name": "Perspective 6",
+                "type": "perspective",
+                "domain": "Domain A"
+              },
+              {
+                "id": "8c3ba5dd-42a9-4445-882f-8c261a3e1355",
+                "name": "Process 1",
+                "type": "process",
+                "domain": "Domain A"
+              },
+              {
+                "id": "ee203ef4-7473-4ce3-a6f8-19abd327be37",
+                "name": "Process 7",
+                "type": "process",
+                "domain": "Domain C"
+              },
+              {
+                "id": "36d57ccd-0aac-4ac1-8c34-34f84876bb66",
+                "name": "Perspective 7",
+                "type": "perspective",
+                "domain": "Domain A"
+              },
+              {
+                "id": "0029fc14-680d-4567-906a-600d509d0095",
+                "name": "Property 0",
+                "type": "property",
+                "domain": "Domain B"
+              },
+              {
+                "id": "c24533fd-0ce2-4330-b172-ac48e95fa0e9",
+                "name": "Perspective 4",
+                "type": "perspective",
+                "domain": "Domain A"
+              },
+              {
+                "id": "89a47948-aee7-4994-97af-643e31789c42",
+                "name": "Property 6",
+                "type": "property",
+                "domain": "Domain A"
+              },
+              {
+                "id": "2a6245fd-57c9-455f-bee8-b8a0d459fb35",
+                "name": "Property 4",
+                "type": "property",
+                "domain": "Domain B"
+              },
+              {
+                "id": "e8750495-e361-4bed-b5ac-9aabe0be719e",
+                "name": "Process 4",
+                "type": "process",
+                "domain": "Domain C"
+              },
+              {
+                "id": "8ea9a811-73f0-4b55-8d44-130f030c98ba",
+                "name": "Perspective 8",
+                "type": "perspective",
+                "domain": "Domain B"
+              },
+              {
+                "id": "37de5af9-8e88-466c-8859-0f6e3a1bccfb",
+                "name": "Property 7",
+                "type": "property",
+                "domain": "Domain B"
+              },
+              {
+                "id": "7c98eff6-8f4a-4047-86a9-f5e51b3dbc9f",
+                "name": "Property 5",
+                "type": "property",
+                "domain": "Domain A"
+              },
+              {
+                "id": "1e4d9737-dd57-4933-b30e-ea0cb5b41eb3",
+                "name": "Property 9",
+                "type": "property",
+                "domain": "Domain B"
+              },
+              {
+                "id": "d85a537a-452b-4fd4-a343-a5e2aab4591c",
+                "name": "Process 9",
+                "type": "process",
+                "domain": "Domain C"
+              },
+              {
+                "id": "5a21f9dc-1d09-4983-889d-203745c82219",
+                "name": "Process 5",
+                "type": "process",
+                "domain": "Domain B"
+              },
+              {
+                "id": "bdb4bf7e-c8f4-409d-a574-76afe8205208",
+                "name": "Perspective 1",
+                "type": "perspective",
+                "domain": "Domain B"
+              },
+              {
+                "id": "6f0bd8fb-5fe6-465d-afee-c16762418be1",
+                "name": "Property 8",
+                "type": "property",
+                "domain": "Domain A"
+              },
+              {
+                "id": "e5174e62-04c6-4afc-94e3-73ce020ede19",
+                "name": "Process 0",
+                "type": "process",
+                "domain": "Domain A"
+              },
+              {
+                "id": "899be43f-67e9-4186-a2f4-df2330099711",
+                "name": "Process 8",
+                "type": "process",
+                "domain": "Domain B"
+              },
+              {
+                "id": "37c6c363-9818-417c-9deb-3040e5f93725",
+                "name": "Perspective 2",
+                "type": "perspective",
+                "domain": "Domain C"
+              },
+              {
+                "id": "fd65c63b-6fc8-4646-9382-8198e45197d1",
+                "name": "Perspective 9",
+                "type": "perspective",
+                "domain": "Domain C"
+              },
+              {
+                "id": "a0105a68-4abe-45d3-a4f4-2b6f1b34b186",
+                "name": "Property 3",
+                "type": "property",
+                "domain": "Domain B"
+              }
+            ]
+          },
+          {
+            "id": 1,
+            "size": 1,
+            "nodes": [
+              {
+                "id": "56e3bbac-b6db-4ceb-b5e3-93c1cd2f5a33",
+                "name": "Property 2",
+                "type": "property",
+                "domain": "Domain C"
+              }
+            ]
+          }
+        ]
+      },
+      "domain": {
+        "algorithm": {
+          "name": "louvain",
+          "modularity": 0.0
+        },
+        "count": 1,
+        "communities": [
+          {
+            "id": 0,
+            "size": 3,
+            "nodes": [
+              {
+                "id": "Domain C",
+                "name": "Domain C"
+              },
+              {
+                "id": "Domain B",
+                "name": "Domain B"
+              },
+              {
+                "id": "Domain A",
+                "name": "Domain A"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "meta": {
+    "domain_comparison": {
+      "domains": [
+        "Domain C",
+        "Domain B",
+        "Domain A"
+      ],
+      "metrics": [
+        "num_properties",
+        "num_processes",
+        "num_perspectives",
+        "num_relationships"
+      ],
+      "data": [
+        [
+          2,
+          3,
+          4,
+          9
+        ],
+        [
+          5,
+          3,
+          3,
+          14
+        ],
+        [
+          3,
+          4,
+          3,
+          10
+        ]
+      ],
+      "similarity_matrix": [
+        [
+          1.0,
+          0.0,
+          0.0
+        ],
+        [
+          0.0,
+          1.0,
+          0.0
+        ],
+        [
+          0.0,
+          0.0,
+          1.0
+        ]
+      ]
+    },
+    "cross_domain_relationships": {
+      "count": 36,
+      "domain_pairs": [
+        {
+          "domain1": "Domain A",
+          "domain2": "Domain B",
+          "relationship_count": 19,
+          "avg_strength": 0.43154807706286064,
+          "max_strength": 0.9894370829751753,
+          "min_strength": 0.0465658990434582
+        },
+        {
+          "domain1": "Domain B",
+          "domain2": "Domain C",
+          "relationship_count": 15,
+          "avg_strength": 0.4992966740932261,
+          "max_strength": 0.905276622786792,
+          "min_strength": 0.0175687531428097
+        },
+        {
+          "domain1": "Domain A",
+          "domain2": "Domain C",
+          "relationship_count": 14,
+          "avg_strength": 0.5015331473285771,
+          "max_strength": 0.905276622786792,
+          "min_strength": 0.15775825065158722
+        }
+      ],
+      "strongest_connections": [
+        {
+          "relationship_id": "0cd0ca16-1819-4521-8e29-6e75a411bf3f",
+          "domains": [
+            "Domain A",
+            "Domain B"
+          ],
+          "strength": 0.9894370829751753,
+          "patterns": {
+            "property_id": "37de5af9-8e88-466c-8859-0f6e3a1bccfb",
+            "process_id": "8c3ba5dd-42a9-4445-882f-8c261a3e1355",
+            "perspective_id": "c24533fd-0ce2-4330-b172-ac48e95fa0e9"
+          }
+        },
+        {
+          "relationship_id": "d19d66e2-c83a-4f49-a230-6e63f6dbad65",
+          "domains": [
+            "Domain A",
+            "Domain B",
+            "Domain C"
+          ],
+          "strength": 0.905276622786792,
+          "patterns": {
+            "property_id": "1e4d9737-dd57-4933-b30e-ea0cb5b41eb3",
+            "process_id": "e5174e62-04c6-4afc-94e3-73ce020ede19",
+            "perspective_id": "fd65c63b-6fc8-4646-9382-8198e45197d1"
+          }
+        },
+        {
+          "relationship_id": "df455d02-4ace-4ce8-b38f-98db62d0cd9e",
+          "domains": [
+            "Domain A",
+            "Domain B"
+          ],
+          "strength": 0.8519505249739392,
+          "patterns": {
+            "property_id": "1e4d9737-dd57-4933-b30e-ea0cb5b41eb3",
+            "process_id": "e5174e62-04c6-4afc-94e3-73ce020ede19",
+            "perspective_id": null
+          }
+        },
+        {
+          "relationship_id": "1a284e42-3426-4cc2-bcbe-6c5eb25a9995",
+          "domains": [
+            "Domain B",
+            "Domain C"
+          ],
+          "strength": 0.833916288987832,
+          "patterns": {
+            "property_id": "0029fc14-680d-4567-906a-600d509d0095",
+            "process_id": "e8750495-e361-4bed-b5ac-9aabe0be719e",
+            "perspective_id": "37c6c363-9818-417c-9deb-3040e5f93725"
+          }
+        },
+        {
+          "relationship_id": "75d3e36c-d0bf-47ba-8f20-9028fa31f81f",
+          "domains": [
+            "Domain A",
+            "Domain C"
+          ],
+          "strength": 0.7737889325785715,
+          "patterns": {
+            "property_id": "89a47948-aee7-4994-97af-643e31789c42",
+            "process_id": "ee203ef4-7473-4ce3-a6f8-19abd327be37",
+            "perspective_id": "36d57ccd-0aac-4ac1-8c34-34f84876bb66"
+          }
+        },
+        {
+          "relationship_id": "aafc3c29-1362-48cb-ae1e-37e3988d568b",
+          "domains": [
+            "Domain B",
+            "Domain C"
+          ],
+          "strength": 0.7330651779644176,
+          "patterns": {
+            "property_id": null,
+            "process_id": "899be43f-67e9-4186-a2f4-df2330099711",
+            "perspective_id": "1498d069-5843-43a8-8e03-ecf24b215069"
+          }
+        },
+        {
+          "relationship_id": "3eb46e27-c1fb-4343-9338-baaba720e110",
+          "domains": [
+            "Domain B",
+            "Domain C"
+          ],
+          "strength": 0.730150547139966,
+          "patterns": {
+            "property_id": "2a6245fd-57c9-455f-bee8-b8a0d459fb35",
+            "process_id": null,
+            "perspective_id": "37c6c363-9818-417c-9deb-3040e5f93725"
+          }
+        },
+        {
+          "relationship_id": "d95de275-fc85-467f-a1fd-a90b196c9763",
+          "domains": [
+            "Domain A",
+            "Domain B",
+            "Domain C"
+          ],
+          "strength": 0.7103375250328925,
+          "patterns": {
+            "property_id": "2a6245fd-57c9-455f-bee8-b8a0d459fb35",
+            "process_id": "e5174e62-04c6-4afc-94e3-73ce020ede19",
+            "perspective_id": "fd65c63b-6fc8-4646-9382-8198e45197d1"
+          }
+        },
+        {
+          "relationship_id": "542a2971-5bfd-4ae1-bd41-e635c30fba08",
+          "domains": [
+            "Domain B",
+            "Domain C"
+          ],
+          "strength": 0.6433703208129867,
+          "patterns": {
+            "property_id": "0029fc14-680d-4567-906a-600d509d0095",
+            "process_id": "e8750495-e361-4bed-b5ac-9aabe0be719e",
+            "perspective_id": "bdb4bf7e-c8f4-409d-a574-76afe8205208"
+          }
+        },
+        {
+          "relationship_id": "fd33e3ab-7e47-4613-80b2-920b3172f159",
+          "domains": [
+            "Domain A",
+            "Domain B"
+          ],
+          "strength": 0.6366843237203196,
+          "patterns": {
+            "property_id": "37de5af9-8e88-466c-8859-0f6e3a1bccfb",
+            "process_id": "899be43f-67e9-4186-a2f4-df2330099711",
+            "perspective_id": "36d57ccd-0aac-4ac1-8c34-34f84876bb66"
+          }
+        }
+      ]
+    },
+    "pattern_correlation": {
+      "features": [
+        "num_properties",
+        "num_processes",
+        "num_perspectives",
+        "num_relationships"
+      ],
+      "correlation_matrix": [
+        [
+          1.0,
+          -0.1889822365046136,
+          -0.7559289460184543,
+          0.989743318610787
+        ],
+        [
+          -0.1889822365046136,
+          1.0,
+          -0.5000000000000002,
+          -0.3273268353539886
+        ],
+        [
+          -0.7559289460184543,
+          -0.5000000000000002,
+          1.0,
+          -0.6546536707079771
+        ],
+        [
+          0.989743318610787,
+          -0.3273268353539886,
+          -0.6546536707079771,
+          1.0
+        ]
+      ]
+    },
+    "common_patterns": {
+      "common_patterns": {
+        "property": [],
+        "process": [],
+        "perspective": []
+      }
+    },
+    "cross_domain_similarity": {
+      "similarities": {
+        "property": {
+          "domains": [
+            "Domain C",
+            "Domain B",
+            "Domain A"
+          ],
+          "similarity_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "process": {
+          "domains": [
+            "Domain C",
+            "Domain B",
+            "Domain A"
+          ],
+          "similarity_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        },
+        "perspective": {
+          "domains": [
+            "Domain C",
+            "Domain B",
+            "Domain A"
+          ],
+          "similarity_matrix": [
+            [
+              1.0,
+              0.0,
+              0.0
+            ],
+            [
+              0.0,
+              1.0,
+              0.0
+            ],
+            [
+              0.0,
+              0.0,
+              1.0
+            ]
+          ]
+        }
+      }
+    }
+  }
+}

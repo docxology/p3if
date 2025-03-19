@@ -1,0 +1,1632 @@
+{
+  "domain": "ClimateChange",
+  "version": "1.0",
+  "properties": [
+    "Global Temperature Rise",
+    "Sea Level Rise",
+    "Ocean Acidification",
+    "Extreme Weather Events",
+    "Biodiversity Loss",
+    "Carbon Emissions",
+    "Deforestation",
+    "Renewable Energy Adoption",
+    "Climate Policy",
+    "Public Awareness",
+    "Greenhouse Gas Concentrations",
+    "Arctic Ice Melt",
+    "Permafrost Thawing",
+    "Desertification",
+    "Coral Reef Bleaching",
+    "Agricultural Productivity",
+    "Water Scarcity",
+    "Vector-Borne Diseases",
+    "Climate Migration",
+    "Ecosystem Resilience",
+    "Carbon Sequestration",
+    "Urban Heat Islands",
+    "Albedo Effect",
+    "Methane Release",
+    "Ozone Depletion",
+    "Climate Justice",
+    "Sustainable Development",
+    "Circular Economy",
+    "Green Infrastructure",
+    "Climate Finance",
+    "Air Quality",
+    "Soil Degradation",
+    "Glacial Retreat",
+    "Ocean Circulation Changes",
+    "Wildfire Frequency",
+    "Coastal Erosion",
+    "Food Security",
+    "Energy Transition",
+    "Climate Litigation",
+    "Carbon Pricing",
+    "Biodiversity Hotspots",
+    "Tipping Points",
+    "Climate Feedback Loops",
+    "Geoengineering",
+    "Climate Refugees",
+    "Sustainable Transportation",
+    "Green Building",
+    "Waste Management",
+    "Climate Education",
+    "Indigenous Knowledge"
+  ],
+  "processes": [
+    "Emissions Monitoring",
+    "Climate Modeling",
+    "Policy Implementation",
+    "Renewable Energy Integration",
+    "Reforestation",
+    "Carbon Capture and Storage",
+    "Sustainable Agriculture",
+    "Climate Education",
+    "Disaster Risk Reduction",
+    "Adaptation Planning",
+    "International Negotiations",
+    "Green Technology Innovation",
+    "Emissions Trading",
+    "Climate Impact Assessment",
+    "Biodiversity Conservation",
+    "Sustainable Urban Planning",
+    "Climate-Resilient Infrastructure",
+    "Waste Management",
+    "Water Conservation",
+    "Energy Efficiency Improvement",
+    "Climate Data Analysis",
+    "Early Warning Systems",
+    "Ecosystem Restoration",
+    "Sustainable Transportation",
+    "Climate-Smart Agriculture",
+    "Ocean Monitoring",
+    "Atmospheric Sampling",
+    "Satellite Observation",
+    "Climate Policy Formulation",
+    "Public Engagement Campaigns",
+    "Greenhouse Gas Inventory",
+    "Arctic Research",
+    "Permafrost Monitoring",
+    "Desertification Control",
+    "Coral Reef Protection",
+    "Crop Yield Forecasting",
+    "Water Resource Management",
+    "Disease Vector Control",
+    "Migration Pattern Analysis",
+    "Ecosystem Services Valuation",
+    "Carbon Offset Projects",
+    "Urban Planning for Heat Mitigation",
+    "Albedo Enhancement Research",
+    "Methane Capture",
+    "Ozone Layer Monitoring",
+    "Environmental Justice Advocacy",
+    "Sustainable Development Goal Implementation",
+    "Circular Economy Transition",
+    "Green Infrastructure Planning",
+    "Climate Finance Allocation",
+    "Air Quality Monitoring",
+    "Soil Conservation",
+    "Glacier Monitoring",
+    "Ocean Current Mapping",
+    "Wildfire Management"
+  ],
+  "perspectives": [
+    "Climate Scientist",
+    "Policymaker",
+    "Environmental Activist",
+    "Renewable Energy Developer",
+    "Sustainability Consultant",
+    "Farmer",
+    "Urban Planner",
+    "Disaster Management Specialist",
+    "Climate Economist",
+    "Indigenous Representative",
+    "Marine Biologist",
+    "Energy Sector Analyst",
+    "Climate Journalist",
+    "Green Tech Entrepreneur",
+    "Climate Educator",
+    "International Negotiator",
+    "Climate Risk Analyst",
+    "Biodiversity Researcher",
+    "Climate Justice Advocate",
+    "Circular Economy Specialist",
+    "Atmospheric Scientist",
+    "Oceanographer",
+    "Glaciologist",
+    "Ecologist",
+    "Meteorologist",
+    "Environmental Lawyer",
+    "Sustainable Finance Expert",
+    "Carbon Market Analyst",
+    "Climate Psychologist",
+    "Geoengineering Researcher",
+    "Water Resource Manager",
+    "Public Health Specialist",
+    "Climate Migration Expert",
+    "Ecosystem Services Economist",
+    "Renewable Energy Engineer",
+    "Green Building Architect",
+    "Waste Management Specialist",
+    "Environmental Education Coordinator",
+    "Indigenous Knowledge Expert",
+    "Climate Policy Analyst",
+    "Sustainable Agriculture Specialist",
+    "Climate Adaptation Planner",
+    "Disaster Risk Reduction Expert",
+    "Climate Communication Specialist",
+    "Environmental Ethicist",
+    "Climate Tech Investor",
+    "Sustainable Transportation Planner",
+    "Climate Resilience Officer",
+    "Carbon Capture Technologist",
+    "Climate Data Scientist"
+  ],
+  "patterns": {
+    "properties": [
+      {
+        "id": "9b480caf-3378-4124-8da2-0a5af8d41d91",
+        "name": "Global Temperature Rise",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "2f294268-5905-49e2-a58f-54bc1a18df78",
+        "name": "Sea Level Rise",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "0ceb2d4a-bd65-4dd6-9bdc-70ad56977880",
+        "name": "Ocean Acidification",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "83778a3f-7eeb-4faa-9725-e4d3ee464697",
+        "name": "Extreme Weather Events",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "a4275e4f-7043-4e15-b44c-d26968de12a0",
+        "name": "Biodiversity Loss",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "2e2cd5ec-7513-40e3-8f31-39e1f53ad799",
+        "name": "Carbon Emissions",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "1ba966b5-2f5a-4e9a-8875-585424bee49d",
+        "name": "Deforestation",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "58a7eaa1-6351-4d13-866e-0d6ad4fedf35",
+        "name": "Renewable Energy Adoption",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "ef5fa49f-747c-4305-839d-4ab827a889f9",
+        "name": "Climate Policy",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "fe20c814-7ef1-4f8d-b583-b436b76ad54a",
+        "name": "Public Awareness",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "4243a877-4128-433f-8032-927e004ec9ea",
+        "name": "Greenhouse Gas Concentrations",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "120120c1-ae6b-44bb-abac-885a5d3e903f",
+        "name": "Arctic Ice Melt",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "1c14b2fd-0f0f-4eac-b45c-c0534f1b12a3",
+        "name": "Permafrost Thawing",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "08aebe6d-91d2-4252-a545-899326fe2455",
+        "name": "Desertification",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "f24b93b9-1606-455e-abc7-76b33dae5441",
+        "name": "Coral Reef Bleaching",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "d3b2b708-0e3f-4d44-b76b-da16cc38cf6d",
+        "name": "Agricultural Productivity",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "9d12ea65-e276-4ff3-a513-eb45451064d2",
+        "name": "Water Scarcity",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "0a756406-dbf4-4912-ae1b-c3ce5892bd11",
+        "name": "Vector-Borne Diseases",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "37d0cef2-3e59-4438-a0b0-3c73f0818922",
+        "name": "Climate Migration",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "1d53b2ee-b5cd-46f7-8329-666b09e81c53",
+        "name": "Ecosystem Resilience",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "add76beb-db08-47ef-a9a2-68cd28e02277",
+        "name": "Carbon Sequestration",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "9e632899-3b49-4149-90e2-f5aea59089e1",
+        "name": "Urban Heat Islands",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "217a87fd-a5f3-4a1c-b961-8e46131c6e72",
+        "name": "Albedo Effect",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "c86321f1-9910-4272-9408-0695bdeb0aba",
+        "name": "Methane Release",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "026a28b6-27f7-48ff-88f7-6ace6deee7ff",
+        "name": "Ozone Depletion",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "c2352666-f4c1-40cc-a896-0a96c0dbf4cc",
+        "name": "Climate Justice",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "53f1a5dd-e3ea-4e2a-9cfe-e9def5ac642e",
+        "name": "Sustainable Development",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "ed88c410-37dc-45a5-a705-2c84442f2335",
+        "name": "Circular Economy",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "ced1e11e-db1b-4d00-9983-0e15f87d366f",
+        "name": "Green Infrastructure",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "f7ffbe28-7e4b-4f29-874b-ce57944e5993",
+        "name": "Climate Finance",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "6aef1bb0-55be-4216-a783-91820b2e06c9",
+        "name": "Air Quality",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "8166d87b-59f5-4c7b-bd5f-8191b7c6ce0d",
+        "name": "Soil Degradation",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "ec1e6431-9b7e-40e5-b8fe-8fde7ecf7c96",
+        "name": "Glacial Retreat",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "d4514947-f57b-4788-bbc9-78992cb33339",
+        "name": "Ocean Circulation Changes",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "0592e82a-3639-4fb7-9879-106f3a7724df",
+        "name": "Wildfire Frequency",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "b08a7b7f-8406-41b0-87b2-ff34269f4912",
+        "name": "Coastal Erosion",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "db642bbb-e0eb-4f4f-b6e4-9bb3d9cf2ae7",
+        "name": "Food Security",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "f0c8178a-2469-4cb7-8064-ac6b573acd38",
+        "name": "Energy Transition",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "501e913e-d033-415a-8f5e-1a6cb622745b",
+        "name": "Climate Litigation",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "e9eb9dc3-fbc5-444d-af48-96c8eeb4ea23",
+        "name": "Carbon Pricing",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "092e9f35-98bc-4c6d-9649-e8aec7581014",
+        "name": "Biodiversity Hotspots",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "15ee275d-76fa-4e11-b38f-4b9e24959270",
+        "name": "Tipping Points",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "53a5a157-2d93-4175-8db8-733abc439678",
+        "name": "Climate Feedback Loops",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "1344708c-75fa-417c-b164-780d3eb7e8fc",
+        "name": "Geoengineering",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "4f1ec03b-4ef9-49da-8a57-15151a52f5fe",
+        "name": "Climate Refugees",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "6591c9f8-e0e9-4c15-9e48-402509fd9f0c",
+        "name": "Sustainable Transportation",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "4cd1400f-1fa6-47b6-86e2-23a6c6d90ac5",
+        "name": "Green Building",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "ceaab7f8-a062-4a61-a43a-06c3f65782ab",
+        "name": "Waste Management",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "f941f0bd-4877-4a3f-a5f5-5725a275855b",
+        "name": "Climate Education",
+        "type": "property",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "119fb902-80c0-4a86-9847-34e0e66f3557",
+        "name": "Indigenous Knowledge",
+        "type": "property",
+        "domain": "ClimateChange"
+      }
+    ],
+    "processes": [
+      {
+        "id": "e9476124-7448-4ff2-92af-d55583682951",
+        "name": "Emissions Monitoring",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "1eacc81c-0988-401d-b77c-0909d95b0c6b",
+        "name": "Climate Modeling",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "922d1485-43b5-4d96-9fad-7584f0b54948",
+        "name": "Policy Implementation",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "e079f68f-9e74-4b97-9eb9-7f8d40a7e6e9",
+        "name": "Renewable Energy Integration",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "80ac883b-97fc-419e-bbca-a88760cbfea1",
+        "name": "Reforestation",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "cc250038-622a-4b2e-96c5-9932de96b6d3",
+        "name": "Carbon Capture and Storage",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "6648b93d-88b1-43d1-b6a9-e1625ff018f3",
+        "name": "Sustainable Agriculture",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "50cb5438-c518-4f7e-a4a1-67c1412533c0",
+        "name": "Climate Education",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "58e138ef-2837-4de1-9a12-7c42d9e88729",
+        "name": "Disaster Risk Reduction",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "b648836c-f687-4ecb-930b-6832078891f2",
+        "name": "Adaptation Planning",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "9110350c-229c-4c9f-a794-3e3a10c2a564",
+        "name": "International Negotiations",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "3ff72675-277b-4a7a-95da-648713372bef",
+        "name": "Green Technology Innovation",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "4867f2d7-8079-430b-988e-716fed0b16f2",
+        "name": "Emissions Trading",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "d6a5c807-4f56-4de8-9c50-5075bdce5ebb",
+        "name": "Climate Impact Assessment",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "13a15ad1-9f0b-4b94-a0c0-161d8f71b0f9",
+        "name": "Biodiversity Conservation",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "a3a2b6ba-8b4f-432a-9cfc-aa72bdafb7d3",
+        "name": "Sustainable Urban Planning",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "26f411ac-e0c9-48a1-b31b-324f9490431e",
+        "name": "Climate-Resilient Infrastructure",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "aa14ffab-c5bb-4f80-a0ed-30b7a5f2ba00",
+        "name": "Waste Management",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "76d5c127-6fc5-4f2c-80f5-23fd49aecfe6",
+        "name": "Water Conservation",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "75405ee5-6a62-4159-83e8-4051153b015d",
+        "name": "Energy Efficiency Improvement",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "991f6211-2cab-409c-8a51-06797772f9a7",
+        "name": "Climate Data Analysis",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "fa4acfb9-c3f7-42cc-97b7-26c149525f49",
+        "name": "Early Warning Systems",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "022eceef-5aeb-4275-98c1-37d17f495975",
+        "name": "Ecosystem Restoration",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "af38f70f-b61b-483b-acb5-d14206b68403",
+        "name": "Sustainable Transportation",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "4a059cfb-395a-411a-835b-abe8d1930dcd",
+        "name": "Climate-Smart Agriculture",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "f341a271-0e51-4dce-a457-6bddeb01efb3",
+        "name": "Ocean Monitoring",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "6d4e9e40-06ad-4716-9c9f-91e0deeef986",
+        "name": "Atmospheric Sampling",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "3511560a-5d6c-42bf-a70c-d84933fa4e5c",
+        "name": "Satellite Observation",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "869a1f77-08ab-4469-a408-08736d35587e",
+        "name": "Climate Policy Formulation",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "b2a917a6-98a1-4974-bd63-ef577cadfe0a",
+        "name": "Public Engagement Campaigns",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "d2eda073-0902-46d3-ac68-b3b78e422a05",
+        "name": "Greenhouse Gas Inventory",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "8360be77-f6a8-4128-b3a3-19d201fec10a",
+        "name": "Arctic Research",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "93b1bd46-ea38-4f0d-bc07-2e080266ccab",
+        "name": "Permafrost Monitoring",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "8d677d78-f1d3-44da-bb73-a1a02537ff40",
+        "name": "Desertification Control",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "236e6efd-bcdb-4fa6-823e-45f0a6b066a4",
+        "name": "Coral Reef Protection",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "a60b3866-1ced-4cfc-a405-2037aa87ec95",
+        "name": "Crop Yield Forecasting",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "280e5a03-d742-4fa2-9cb6-aa7d7366fd38",
+        "name": "Water Resource Management",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "6100e5c8-0ead-46cf-bd80-68ab6995e3d1",
+        "name": "Disease Vector Control",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "52f0d83b-6267-4601-84af-919382208d61",
+        "name": "Migration Pattern Analysis",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "eeffe07b-9c1a-4981-a021-23c316aac001",
+        "name": "Ecosystem Services Valuation",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "a5e543a8-dd4e-4957-b493-1cd2b19ed72a",
+        "name": "Carbon Offset Projects",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "90ff84f0-5f26-4ce7-b2a4-71e9ea87ea5b",
+        "name": "Urban Planning for Heat Mitigation",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "42d09c79-22c7-428c-9962-188faeb5ae22",
+        "name": "Albedo Enhancement Research",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "e12859a9-1000-4658-9d8c-775d3331cab8",
+        "name": "Methane Capture",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "3e85caf9-c825-43e0-996c-583e69bcba19",
+        "name": "Ozone Layer Monitoring",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "0ca0b925-e16f-4ab2-bab3-3c8913008c62",
+        "name": "Environmental Justice Advocacy",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "7fbe44a7-a1d8-4a1b-9797-947d052e55f8",
+        "name": "Sustainable Development Goal Implementation",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "58c5f9e9-bbc4-4d4b-9fe3-b8d271794b70",
+        "name": "Circular Economy Transition",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "4d8974d1-8c47-4bab-9563-332345d694a5",
+        "name": "Green Infrastructure Planning",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "6df8a189-cc96-4041-b703-f544c79967ba",
+        "name": "Climate Finance Allocation",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "12ee65d2-1dfa-462d-b71a-589df72413af",
+        "name": "Air Quality Monitoring",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "f61a0e45-1be4-4171-852d-dc4530bdd08f",
+        "name": "Soil Conservation",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "6d4d4f50-ae05-4e10-a5b9-284590b5358e",
+        "name": "Glacier Monitoring",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "c0755ac7-6d5d-4f9d-ae29-372298cd4df3",
+        "name": "Ocean Current Mapping",
+        "type": "process",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "a96a658c-0c28-40e9-ac01-f325e38c1ede",
+        "name": "Wildfire Management",
+        "type": "process",
+        "domain": "ClimateChange"
+      }
+    ],
+    "perspectives": [
+      {
+        "id": "c71cc694-90ee-4fea-9ffa-bda894ee82c4",
+        "name": "Climate Scientist",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "b7926335-96ed-4a07-a34d-77972bc29e4b",
+        "name": "Policymaker",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "70de0ab0-a5ba-4bc6-84fe-065733689ae4",
+        "name": "Environmental Activist",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "03290d78-9d5a-4496-b0f9-f136e5641bed",
+        "name": "Renewable Energy Developer",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "971c92cd-bbae-4abb-ad7f-17416586a080",
+        "name": "Sustainability Consultant",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "4e1a5667-ca93-40b6-99db-5d92df080127",
+        "name": "Farmer",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "a0f8349d-913c-4743-b87f-ecffb61d271b",
+        "name": "Urban Planner",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "acb54c79-117a-4805-8604-5595b1a92c59",
+        "name": "Disaster Management Specialist",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "75881f54-c73d-4d65-84af-51ef64cb1ca5",
+        "name": "Climate Economist",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "8dcde2b6-945b-4dec-93a8-180765d0b98c",
+        "name": "Indigenous Representative",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "73532983-4e93-4ee1-bcae-f47a0c9959e3",
+        "name": "Marine Biologist",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "55ac0465-b572-4b6c-86e9-e786e2c03ffd",
+        "name": "Energy Sector Analyst",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "fd06dcf4-c356-4700-84bb-93f909866293",
+        "name": "Climate Journalist",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "8dff4244-4703-4641-b0db-677ae73f3b43",
+        "name": "Green Tech Entrepreneur",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "448fec31-8023-4031-9ea4-c2fc1f8fc395",
+        "name": "Climate Educator",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "ebccced0-8b43-4dd9-8b24-ad145afdda8e",
+        "name": "International Negotiator",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "842d96ec-5d3f-4b16-bc41-8ebe8b0f8243",
+        "name": "Climate Risk Analyst",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "37a29cff-d17b-4bc8-99f3-2a2306c72d4d",
+        "name": "Biodiversity Researcher",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "a6c001e0-feb9-4f6d-8d6e-b08d0f564a56",
+        "name": "Climate Justice Advocate",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "ad7805a3-67a5-4647-b644-e04f57c34774",
+        "name": "Circular Economy Specialist",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "06bfff36-4496-4853-8836-399034ddc6ed",
+        "name": "Atmospheric Scientist",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "b20cbe46-1f32-4eea-8a43-33cc04c6049f",
+        "name": "Oceanographer",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "297bc193-eb68-4441-8f67-bca3209da243",
+        "name": "Glaciologist",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "674985d4-fb58-4525-a883-f3d3e8b4a4a4",
+        "name": "Ecologist",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "bdab18d3-ca4b-4baf-ab1a-e2c89dfebb55",
+        "name": "Meteorologist",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "321995b3-8e9b-4ba3-8ba4-6b8cf171f0c2",
+        "name": "Environmental Lawyer",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "a01116bb-59f9-43d6-b8dc-92d7afe7abbb",
+        "name": "Sustainable Finance Expert",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "b235022f-cfa7-4ed0-b4a9-aae0041e6382",
+        "name": "Carbon Market Analyst",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "ab07472a-44f7-44c8-a44c-7ead527b5c60",
+        "name": "Climate Psychologist",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "ea0ad3e2-d7e8-4dc2-8cb8-53b1909e9907",
+        "name": "Geoengineering Researcher",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "321f6323-a30e-4593-ac39-3888ae8eed99",
+        "name": "Water Resource Manager",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "6f63c732-651a-46f0-bd5c-dfa681c4e5f4",
+        "name": "Public Health Specialist",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "71490f3e-6c8e-4548-88de-0b1a18df3f90",
+        "name": "Climate Migration Expert",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "0dd76b54-0d28-4da7-8a03-7f8fb8f09f2c",
+        "name": "Ecosystem Services Economist",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "be77993c-fa8c-45da-9dab-65b18a4e3c7d",
+        "name": "Renewable Energy Engineer",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "2c9fe03d-6112-42fc-80df-de7355ea6b2b",
+        "name": "Green Building Architect",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "26512be2-2a40-4565-8ce2-3cf10bbffb92",
+        "name": "Waste Management Specialist",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "7f1b290f-155f-4a46-a514-67f32cce2efd",
+        "name": "Environmental Education Coordinator",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "998ee83a-cfe8-4e03-8f9d-8e8dc9d8c091",
+        "name": "Indigenous Knowledge Expert",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "54041bd5-8883-406c-89b1-a7ade089ca98",
+        "name": "Climate Policy Analyst",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "735acbb8-0b14-40d6-91cf-2d224e037a36",
+        "name": "Sustainable Agriculture Specialist",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "85763f83-8bc8-4c58-aae9-b6362a9041e0",
+        "name": "Climate Adaptation Planner",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "04c12bb4-ac1b-4280-9e0e-644d1f530538",
+        "name": "Disaster Risk Reduction Expert",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "b07861b3-4692-413c-b1af-9c0b74927eb5",
+        "name": "Climate Communication Specialist",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "da9878e6-40e8-4386-9e92-6b858c63e46f",
+        "name": "Environmental Ethicist",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "9f630d57-be77-4604-88fe-4db2e4cd9746",
+        "name": "Climate Tech Investor",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "28bb1fa9-74d5-4973-98a6-fe9e86edfe5d",
+        "name": "Sustainable Transportation Planner",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "8878ad5c-b6a1-4077-89fe-3d3cf339190e",
+        "name": "Climate Resilience Officer",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "0c0c0e85-943e-4baf-8031-19402e517c64",
+        "name": "Carbon Capture Technologist",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      },
+      {
+        "id": "44b87eb2-c1d9-44c4-a6dc-73a7c8758ca5",
+        "name": "Climate Data Scientist",
+        "type": "perspective",
+        "domain": "ClimateChange"
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "db55aa15-7675-4eca-9ade-bfb4e2a9baa4",
+      "property_id": "9b480caf-3378-4124-8da2-0a5af8d41d91",
+      "process_id": "6d4d4f50-ae05-4e10-a5b9-284590b5358e",
+      "perspective_id": "321995b3-8e9b-4ba3-8ba4-6b8cf171f0c2",
+      "strength": 0.86,
+      "confidence": 0.9
+    },
+    {
+      "id": "95809bd3-f391-4efb-a4ca-6d75ffe0eb8e",
+      "property_id": "092e9f35-98bc-4c6d-9649-e8aec7581014",
+      "process_id": "90ff84f0-5f26-4ce7-b2a4-71e9ea87ea5b",
+      "perspective_id": "321f6323-a30e-4593-ac39-3888ae8eed99",
+      "strength": 0.84,
+      "confidence": 0.76
+    },
+    {
+      "id": "32b2f5df-f721-4447-9cec-5c839fea7730",
+      "property_id": "ef5fa49f-747c-4305-839d-4ab827a889f9",
+      "process_id": "8d677d78-f1d3-44da-bb73-a1a02537ff40",
+      "perspective_id": "ab07472a-44f7-44c8-a44c-7ead527b5c60",
+      "strength": 0.71,
+      "confidence": 0.84
+    },
+    {
+      "id": "ec3d554b-2b4b-484b-beef-afd328922fb8",
+      "property_id": "2f294268-5905-49e2-a58f-54bc1a18df78",
+      "process_id": "6d4d4f50-ae05-4e10-a5b9-284590b5358e",
+      "perspective_id": "44b87eb2-c1d9-44c4-a6dc-73a7c8758ca5",
+      "strength": 0.84,
+      "confidence": 0.99
+    },
+    {
+      "id": "49f1321e-423f-4122-8c42-23646eef78ee",
+      "property_id": "db642bbb-e0eb-4f4f-b6e4-9bb3d9cf2ae7",
+      "process_id": "0ca0b925-e16f-4ab2-bab3-3c8913008c62",
+      "perspective_id": "b235022f-cfa7-4ed0-b4a9-aae0041e6382",
+      "strength": 0.95,
+      "confidence": 0.99
+    },
+    {
+      "id": "4543551b-1df3-4e76-a8f9-c8e6c574c990",
+      "property_id": "fe20c814-7ef1-4f8d-b583-b436b76ad54a",
+      "process_id": "c0755ac7-6d5d-4f9d-ae29-372298cd4df3",
+      "perspective_id": "73532983-4e93-4ee1-bcae-f47a0c9959e3",
+      "strength": 0.88,
+      "confidence": 0.72
+    },
+    {
+      "id": "880a0c1c-f216-4706-b9a6-310e905f1eac",
+      "property_id": "f941f0bd-4877-4a3f-a5f5-5725a275855b",
+      "process_id": "9110350c-229c-4c9f-a794-3e3a10c2a564",
+      "perspective_id": "ab07472a-44f7-44c8-a44c-7ead527b5c60",
+      "strength": 0.83,
+      "confidence": 0.81
+    },
+    {
+      "id": "76d872ab-6e86-4512-bd5c-87fc300ddda9",
+      "property_id": "6591c9f8-e0e9-4c15-9e48-402509fd9f0c",
+      "process_id": "922d1485-43b5-4d96-9fad-7584f0b54948",
+      "perspective_id": "321f6323-a30e-4593-ac39-3888ae8eed99",
+      "strength": 0.55,
+      "confidence": 0.97
+    },
+    {
+      "id": "d4f145b7-45eb-45d5-8ab0-75f7c2549f5f",
+      "property_id": "8166d87b-59f5-4c7b-bd5f-8191b7c6ce0d",
+      "process_id": "42d09c79-22c7-428c-9962-188faeb5ae22",
+      "perspective_id": "acb54c79-117a-4805-8604-5595b1a92c59",
+      "strength": 0.66,
+      "confidence": 0.93
+    },
+    {
+      "id": "18926b71-b1fc-4b01-9e14-8213a4b2793f",
+      "property_id": "ef5fa49f-747c-4305-839d-4ab827a889f9",
+      "process_id": "75405ee5-6a62-4159-83e8-4051153b015d",
+      "perspective_id": "6f63c732-651a-46f0-bd5c-dfa681c4e5f4",
+      "strength": 0.7,
+      "confidence": 0.87
+    },
+    {
+      "id": "dad21896-2872-4a0d-bd17-ec4a7c4c72c5",
+      "property_id": "217a87fd-a5f3-4a1c-b961-8e46131c6e72",
+      "process_id": "a60b3866-1ced-4cfc-a405-2037aa87ec95",
+      "perspective_id": "acb54c79-117a-4805-8604-5595b1a92c59",
+      "strength": 0.57,
+      "confidence": 0.81
+    },
+    {
+      "id": "8314ee1d-a8cf-4155-a235-6d7293a38377",
+      "property_id": "ec1e6431-9b7e-40e5-b8fe-8fde7ecf7c96",
+      "process_id": "9110350c-229c-4c9f-a794-3e3a10c2a564",
+      "perspective_id": "6f63c732-651a-46f0-bd5c-dfa681c4e5f4",
+      "strength": 0.5,
+      "confidence": 0.82
+    },
+    {
+      "id": "42df64a4-b271-4cf0-bd38-0c1245befc10",
+      "property_id": "217a87fd-a5f3-4a1c-b961-8e46131c6e72",
+      "process_id": "3e85caf9-c825-43e0-996c-583e69bcba19",
+      "perspective_id": "b7926335-96ed-4a07-a34d-77972bc29e4b",
+      "strength": 0.68,
+      "confidence": 0.77
+    },
+    {
+      "id": "a6f6bc66-7776-4b84-a776-5071c38902f9",
+      "property_id": "f7ffbe28-7e4b-4f29-874b-ce57944e5993",
+      "process_id": "6d4d4f50-ae05-4e10-a5b9-284590b5358e",
+      "perspective_id": "26512be2-2a40-4565-8ce2-3cf10bbffb92",
+      "strength": 0.59,
+      "confidence": 0.85
+    },
+    {
+      "id": "dc5ba4dc-9446-47d2-8b89-ce68da258226",
+      "property_id": "217a87fd-a5f3-4a1c-b961-8e46131c6e72",
+      "process_id": "e12859a9-1000-4658-9d8c-775d3331cab8",
+      "perspective_id": "674985d4-fb58-4525-a883-f3d3e8b4a4a4",
+      "strength": 0.64,
+      "confidence": 0.87
+    },
+    {
+      "id": "46f1cb9f-7899-4efb-be82-a0630fb8530f",
+      "property_id": "37d0cef2-3e59-4438-a0b0-3c73f0818922",
+      "process_id": "a60b3866-1ced-4cfc-a405-2037aa87ec95",
+      "perspective_id": "0dd76b54-0d28-4da7-8a03-7f8fb8f09f2c",
+      "strength": 0.71,
+      "confidence": 0.91
+    },
+    {
+      "id": "4974af6d-73ee-4d63-83f8-00c12c81e9f5",
+      "property_id": "9e632899-3b49-4149-90e2-f5aea59089e1",
+      "process_id": "869a1f77-08ab-4469-a408-08736d35587e",
+      "perspective_id": "70de0ab0-a5ba-4bc6-84fe-065733689ae4",
+      "strength": 0.69,
+      "confidence": 0.79
+    },
+    {
+      "id": "73038003-e9b0-457f-9792-757d3264ebc4",
+      "property_id": "83778a3f-7eeb-4faa-9725-e4d3ee464697",
+      "process_id": "8d677d78-f1d3-44da-bb73-a1a02537ff40",
+      "perspective_id": "321f6323-a30e-4593-ac39-3888ae8eed99",
+      "strength": 0.65,
+      "confidence": 0.92
+    },
+    {
+      "id": "70539b58-77da-4e7e-9050-6127ff38b7b9",
+      "property_id": "ced1e11e-db1b-4d00-9983-0e15f87d366f",
+      "process_id": "42d09c79-22c7-428c-9962-188faeb5ae22",
+      "perspective_id": "71490f3e-6c8e-4548-88de-0b1a18df3f90",
+      "strength": 0.73,
+      "confidence": 0.89
+    },
+    {
+      "id": "6119d61f-09bf-4777-9b01-bba6b2bedeb5",
+      "property_id": "4f1ec03b-4ef9-49da-8a57-15151a52f5fe",
+      "process_id": "8360be77-f6a8-4128-b3a3-19d201fec10a",
+      "perspective_id": "b7926335-96ed-4a07-a34d-77972bc29e4b",
+      "strength": 0.64,
+      "confidence": 0.8
+    },
+    {
+      "id": "e7cdb2a3-1018-4740-88b4-fd1bf999f9bf",
+      "property_id": "d4514947-f57b-4788-bbc9-78992cb33339",
+      "process_id": "4867f2d7-8079-430b-988e-716fed0b16f2",
+      "perspective_id": "ebccced0-8b43-4dd9-8b24-ad145afdda8e",
+      "strength": 0.98,
+      "confidence": 0.75
+    },
+    {
+      "id": "f6157154-7a36-4863-900b-1259bbad3c0f",
+      "property_id": "6591c9f8-e0e9-4c15-9e48-402509fd9f0c",
+      "process_id": "12ee65d2-1dfa-462d-b71a-589df72413af",
+      "perspective_id": "acb54c79-117a-4805-8604-5595b1a92c59",
+      "strength": 0.59,
+      "confidence": 0.98
+    },
+    {
+      "id": "96688d41-84db-400b-b78b-bdbc3d32521d",
+      "property_id": "f0c8178a-2469-4cb7-8064-ac6b573acd38",
+      "process_id": "fa4acfb9-c3f7-42cc-97b7-26c149525f49",
+      "perspective_id": "971c92cd-bbae-4abb-ad7f-17416586a080",
+      "strength": 0.72,
+      "confidence": 0.96
+    },
+    {
+      "id": "a40a21dc-5f1c-401c-8a67-f41618f07b1c",
+      "property_id": "501e913e-d033-415a-8f5e-1a6cb622745b",
+      "process_id": "76d5c127-6fc5-4f2c-80f5-23fd49aecfe6",
+      "perspective_id": "b7926335-96ed-4a07-a34d-77972bc29e4b",
+      "strength": 0.95,
+      "confidence": 0.79
+    },
+    {
+      "id": "7d85da9c-e92f-4b50-8e68-fe8433a2ba7c",
+      "property_id": "6aef1bb0-55be-4216-a783-91820b2e06c9",
+      "process_id": "58e138ef-2837-4de1-9a12-7c42d9e88729",
+      "perspective_id": "971c92cd-bbae-4abb-ad7f-17416586a080",
+      "strength": 0.67,
+      "confidence": 0.89
+    },
+    {
+      "id": "47cd0840-2e9f-48d8-820d-106abb47902d",
+      "property_id": "08aebe6d-91d2-4252-a545-899326fe2455",
+      "process_id": "76d5c127-6fc5-4f2c-80f5-23fd49aecfe6",
+      "perspective_id": "03290d78-9d5a-4496-b0f9-f136e5641bed",
+      "strength": 0.85,
+      "confidence": 0.79
+    },
+    {
+      "id": "d01d358d-0041-4211-b9f9-f2f67aaa536b",
+      "property_id": "6591c9f8-e0e9-4c15-9e48-402509fd9f0c",
+      "process_id": "8360be77-f6a8-4128-b3a3-19d201fec10a",
+      "perspective_id": "448fec31-8023-4031-9ea4-c2fc1f8fc395",
+      "strength": 0.98,
+      "confidence": 0.96
+    },
+    {
+      "id": "4eb7f646-1626-4f21-9330-2813b9750ab9",
+      "property_id": "6591c9f8-e0e9-4c15-9e48-402509fd9f0c",
+      "process_id": "6df8a189-cc96-4041-b703-f544c79967ba",
+      "perspective_id": "7f1b290f-155f-4a46-a514-67f32cce2efd",
+      "strength": 0.8,
+      "confidence": 0.72
+    },
+    {
+      "id": "2cef9447-0bf5-4955-90a1-e1903b723041",
+      "property_id": "d3b2b708-0e3f-4d44-b76b-da16cc38cf6d",
+      "process_id": "80ac883b-97fc-419e-bbca-a88760cbfea1",
+      "perspective_id": "a6c001e0-feb9-4f6d-8d6e-b08d0f564a56",
+      "strength": 0.53,
+      "confidence": 0.85
+    },
+    {
+      "id": "e51b54ff-93cd-42b0-afa2-0960cd7d582c",
+      "property_id": "026a28b6-27f7-48ff-88f7-6ace6deee7ff",
+      "process_id": "af38f70f-b61b-483b-acb5-d14206b68403",
+      "perspective_id": "8878ad5c-b6a1-4077-89fe-3d3cf339190e",
+      "strength": 0.67,
+      "confidence": 0.71
+    },
+    {
+      "id": "7a005231-27f9-4ce2-805a-b589a9db671d",
+      "property_id": "119fb902-80c0-4a86-9847-34e0e66f3557",
+      "process_id": "75405ee5-6a62-4159-83e8-4051153b015d",
+      "perspective_id": "26512be2-2a40-4565-8ce2-3cf10bbffb92",
+      "strength": 0.98,
+      "confidence": 0.98
+    },
+    {
+      "id": "d4be9f78-cc04-446e-b861-87819647f8d6",
+      "property_id": "9b480caf-3378-4124-8da2-0a5af8d41d91",
+      "process_id": "fa4acfb9-c3f7-42cc-97b7-26c149525f49",
+      "perspective_id": "b235022f-cfa7-4ed0-b4a9-aae0041e6382",
+      "strength": 1.0,
+      "confidence": 0.83
+    },
+    {
+      "id": "ddc0cc4a-da8e-4435-b9fb-9b9935837ce3",
+      "property_id": "8166d87b-59f5-4c7b-bd5f-8191b7c6ce0d",
+      "process_id": "d6a5c807-4f56-4de8-9c50-5075bdce5ebb",
+      "perspective_id": "03290d78-9d5a-4496-b0f9-f136e5641bed",
+      "strength": 0.63,
+      "confidence": 0.83
+    },
+    {
+      "id": "e4e65a5b-d7de-4c3c-8844-2b92fdf42b4a",
+      "property_id": "f941f0bd-4877-4a3f-a5f5-5725a275855b",
+      "process_id": "e079f68f-9e74-4b97-9eb9-7f8d40a7e6e9",
+      "perspective_id": "04c12bb4-ac1b-4280-9e0e-644d1f530538",
+      "strength": 0.88,
+      "confidence": 0.7
+    },
+    {
+      "id": "4cab0eb1-bbcf-4ad4-88dd-a33f5911a235",
+      "property_id": "e9eb9dc3-fbc5-444d-af48-96c8eeb4ea23",
+      "process_id": "3511560a-5d6c-42bf-a70c-d84933fa4e5c",
+      "perspective_id": "70de0ab0-a5ba-4bc6-84fe-065733689ae4",
+      "strength": 0.71,
+      "confidence": 0.87
+    },
+    {
+      "id": "bb642a3a-0135-4e63-b910-2013c8303a8e",
+      "property_id": "b08a7b7f-8406-41b0-87b2-ff34269f4912",
+      "process_id": "52f0d83b-6267-4601-84af-919382208d61",
+      "perspective_id": "fd06dcf4-c356-4700-84bb-93f909866293",
+      "strength": 0.6,
+      "confidence": 0.99
+    },
+    {
+      "id": "4bfb4f70-c626-4d3d-8164-03b1e945fad5",
+      "property_id": "9b480caf-3378-4124-8da2-0a5af8d41d91",
+      "process_id": "8d677d78-f1d3-44da-bb73-a1a02537ff40",
+      "perspective_id": "a0f8349d-913c-4743-b87f-ecffb61d271b",
+      "strength": 0.89,
+      "confidence": 0.93
+    },
+    {
+      "id": "ad41d7ec-fb98-45a5-9c58-5b7adbeed8da",
+      "property_id": "b08a7b7f-8406-41b0-87b2-ff34269f4912",
+      "process_id": "991f6211-2cab-409c-8a51-06797772f9a7",
+      "perspective_id": "55ac0465-b572-4b6c-86e9-e786e2c03ffd",
+      "strength": 0.85,
+      "confidence": 0.9
+    },
+    {
+      "id": "1a9129b0-680a-454a-8e87-710da26e03c0",
+      "property_id": "026a28b6-27f7-48ff-88f7-6ace6deee7ff",
+      "process_id": "280e5a03-d742-4fa2-9cb6-aa7d7366fd38",
+      "perspective_id": "ab07472a-44f7-44c8-a44c-7ead527b5c60",
+      "strength": 0.81,
+      "confidence": 0.95
+    },
+    {
+      "id": "9d00a3ab-c061-4dbc-ba47-224678f09df5",
+      "property_id": "53f1a5dd-e3ea-4e2a-9cfe-e9def5ac642e",
+      "process_id": "9110350c-229c-4c9f-a794-3e3a10c2a564",
+      "perspective_id": "842d96ec-5d3f-4b16-bc41-8ebe8b0f8243",
+      "strength": 0.67,
+      "confidence": 0.94
+    },
+    {
+      "id": "722bf638-3f52-4e2e-956e-252b581545b1",
+      "property_id": "58a7eaa1-6351-4d13-866e-0d6ad4fedf35",
+      "process_id": "0ca0b925-e16f-4ab2-bab3-3c8913008c62",
+      "perspective_id": "2c9fe03d-6112-42fc-80df-de7355ea6b2b",
+      "strength": 0.72,
+      "confidence": 0.84
+    },
+    {
+      "id": "982c5bd4-b88d-4943-9041-0744b6f62d34",
+      "property_id": "58a7eaa1-6351-4d13-866e-0d6ad4fedf35",
+      "process_id": "cc250038-622a-4b2e-96c5-9932de96b6d3",
+      "perspective_id": "321995b3-8e9b-4ba3-8ba4-6b8cf171f0c2",
+      "strength": 0.89,
+      "confidence": 0.97
+    },
+    {
+      "id": "e60b04dc-ec65-4372-8ba3-9e508c6a073f",
+      "property_id": "9b480caf-3378-4124-8da2-0a5af8d41d91",
+      "process_id": "e079f68f-9e74-4b97-9eb9-7f8d40a7e6e9",
+      "perspective_id": "4e1a5667-ca93-40b6-99db-5d92df080127",
+      "strength": 0.68,
+      "confidence": 0.83
+    },
+    {
+      "id": "2e4859ed-a473-4725-a674-6c0f2c2a4f74",
+      "property_id": "53a5a157-2d93-4175-8db8-733abc439678",
+      "process_id": "922d1485-43b5-4d96-9fad-7584f0b54948",
+      "perspective_id": "b235022f-cfa7-4ed0-b4a9-aae0041e6382",
+      "strength": 0.95,
+      "confidence": 0.87
+    },
+    {
+      "id": "aec01d88-6aae-4ac1-8470-d3f9a00613c4",
+      "property_id": "f0c8178a-2469-4cb7-8064-ac6b573acd38",
+      "process_id": "4d8974d1-8c47-4bab-9563-332345d694a5",
+      "perspective_id": "4e1a5667-ca93-40b6-99db-5d92df080127",
+      "strength": 0.74,
+      "confidence": 0.85
+    },
+    {
+      "id": "04e15988-b421-413f-bc21-fbb223ed813d",
+      "property_id": "6aef1bb0-55be-4216-a783-91820b2e06c9",
+      "process_id": "4867f2d7-8079-430b-988e-716fed0b16f2",
+      "perspective_id": "26512be2-2a40-4565-8ce2-3cf10bbffb92",
+      "strength": 0.56,
+      "confidence": 0.92
+    },
+    {
+      "id": "2e813db5-7136-46af-b0c5-60b4bcc23024",
+      "property_id": "9e632899-3b49-4149-90e2-f5aea59089e1",
+      "process_id": "8360be77-f6a8-4128-b3a3-19d201fec10a",
+      "perspective_id": "75881f54-c73d-4d65-84af-51ef64cb1ca5",
+      "strength": 0.84,
+      "confidence": 0.74
+    },
+    {
+      "id": "034bca35-c5fd-415b-ad63-72db2e469bee",
+      "property_id": "0592e82a-3639-4fb7-9879-106f3a7724df",
+      "process_id": "aa14ffab-c5bb-4f80-a0ed-30b7a5f2ba00",
+      "perspective_id": "b7926335-96ed-4a07-a34d-77972bc29e4b",
+      "strength": 0.57,
+      "confidence": 0.97
+    },
+    {
+      "id": "c747392b-8021-4f23-8f0e-e18879cce4df",
+      "property_id": "119fb902-80c0-4a86-9847-34e0e66f3557",
+      "process_id": "3e85caf9-c825-43e0-996c-583e69bcba19",
+      "perspective_id": "321f6323-a30e-4593-ac39-3888ae8eed99",
+      "strength": 0.97,
+      "confidence": 0.85
+    },
+    {
+      "id": "277a7fae-a8d0-4d04-8da6-6ec65050ae43",
+      "property_id": "fe20c814-7ef1-4f8d-b583-b436b76ad54a",
+      "process_id": "fa4acfb9-c3f7-42cc-97b7-26c149525f49",
+      "perspective_id": "ad7805a3-67a5-4647-b644-e04f57c34774",
+      "strength": 0.77,
+      "confidence": 0.71
+    },
+    {
+      "id": "eea4efc9-d6b3-4664-ae5c-291b91c181fb",
+      "property_id": "ec1e6431-9b7e-40e5-b8fe-8fde7ecf7c96",
+      "process_id": "eeffe07b-9c1a-4981-a021-23c316aac001",
+      "perspective_id": "8dff4244-4703-4641-b0db-677ae73f3b43",
+      "strength": 0.68,
+      "confidence": 0.79
+    },
+    {
+      "id": "795d5fd9-2110-4405-962a-91567181a9cc",
+      "property_id": "120120c1-ae6b-44bb-abac-885a5d3e903f",
+      "process_id": "280e5a03-d742-4fa2-9cb6-aa7d7366fd38",
+      "perspective_id": "28bb1fa9-74d5-4973-98a6-fe9e86edfe5d",
+      "strength": 0.66,
+      "confidence": 0.95
+    },
+    {
+      "id": "e201f58d-e693-47d8-bb5b-11dddc5865d4",
+      "property_id": "f24b93b9-1606-455e-abc7-76b33dae5441",
+      "process_id": "80ac883b-97fc-419e-bbca-a88760cbfea1",
+      "perspective_id": "28bb1fa9-74d5-4973-98a6-fe9e86edfe5d",
+      "strength": 0.63,
+      "confidence": 0.97
+    },
+    {
+      "id": "6cd7d057-7201-42b5-b2c2-1322a986cebe",
+      "property_id": "ec1e6431-9b7e-40e5-b8fe-8fde7ecf7c96",
+      "process_id": "6d4d4f50-ae05-4e10-a5b9-284590b5358e",
+      "perspective_id": "75881f54-c73d-4d65-84af-51ef64cb1ca5",
+      "strength": 0.85,
+      "confidence": 0.84
+    },
+    {
+      "id": "8163253d-2b9d-49d2-9ec4-e2216b706b80",
+      "property_id": "ceaab7f8-a062-4a61-a43a-06c3f65782ab",
+      "process_id": "f341a271-0e51-4dce-a457-6bddeb01efb3",
+      "perspective_id": "54041bd5-8883-406c-89b1-a7ade089ca98",
+      "strength": 0.93,
+      "confidence": 0.83
+    },
+    {
+      "id": "ffa79522-02f1-48fe-8f66-446e939a7b12",
+      "property_id": "501e913e-d033-415a-8f5e-1a6cb622745b",
+      "process_id": "52f0d83b-6267-4601-84af-919382208d61",
+      "perspective_id": "735acbb8-0b14-40d6-91cf-2d224e037a36",
+      "strength": 0.77,
+      "confidence": 0.94
+    },
+    {
+      "id": "437bf37f-7309-446d-8ea8-9373acab6f32",
+      "property_id": "9e632899-3b49-4149-90e2-f5aea59089e1",
+      "process_id": "6d4d4f50-ae05-4e10-a5b9-284590b5358e",
+      "perspective_id": "8dcde2b6-945b-4dec-93a8-180765d0b98c",
+      "strength": 0.7,
+      "confidence": 0.72
+    },
+    {
+      "id": "b412f249-a517-430b-a681-034d3fbd350c",
+      "property_id": "c2352666-f4c1-40cc-a896-0a96c0dbf4cc",
+      "process_id": "6d4d4f50-ae05-4e10-a5b9-284590b5358e",
+      "perspective_id": "842d96ec-5d3f-4b16-bc41-8ebe8b0f8243",
+      "strength": 0.66,
+      "confidence": 0.84
+    },
+    {
+      "id": "4c6ee697-25a9-4108-9c6b-018006002e59",
+      "property_id": "15ee275d-76fa-4e11-b38f-4b9e24959270",
+      "process_id": "42d09c79-22c7-428c-9962-188faeb5ae22",
+      "perspective_id": "9f630d57-be77-4604-88fe-4db2e4cd9746",
+      "strength": 0.78,
+      "confidence": 0.89
+    },
+    {
+      "id": "37758f63-7f75-405e-b62f-48c11cc63113",
+      "property_id": "f941f0bd-4877-4a3f-a5f5-5725a275855b",
+      "process_id": "4867f2d7-8079-430b-988e-716fed0b16f2",
+      "perspective_id": "b07861b3-4692-413c-b1af-9c0b74927eb5",
+      "strength": 0.95,
+      "confidence": 0.73
+    },
+    {
+      "id": "26e38b93-9b4c-490f-882e-f669269d552e",
+      "property_id": "ef5fa49f-747c-4305-839d-4ab827a889f9",
+      "process_id": "c0755ac7-6d5d-4f9d-ae29-372298cd4df3",
+      "perspective_id": "735acbb8-0b14-40d6-91cf-2d224e037a36",
+      "strength": 0.63,
+      "confidence": 0.93
+    },
+    {
+      "id": "3df4e0f8-f986-4353-9e8d-8f9cbd3fa982",
+      "property_id": "6591c9f8-e0e9-4c15-9e48-402509fd9f0c",
+      "process_id": "58e138ef-2837-4de1-9a12-7c42d9e88729",
+      "perspective_id": "bdab18d3-ca4b-4baf-ab1a-e2c89dfebb55",
+      "strength": 0.62,
+      "confidence": 0.96
+    },
+    {
+      "id": "593391b7-1b62-4534-934c-f8de114fce57",
+      "property_id": "9d12ea65-e276-4ff3-a513-eb45451064d2",
+      "process_id": "af38f70f-b61b-483b-acb5-d14206b68403",
+      "perspective_id": "da9878e6-40e8-4386-9e92-6b858c63e46f",
+      "strength": 0.76,
+      "confidence": 0.86
+    },
+    {
+      "id": "87433bd8-57d2-4b48-9d6b-0d6a4c1a251b",
+      "property_id": "6aef1bb0-55be-4216-a783-91820b2e06c9",
+      "process_id": "9110350c-229c-4c9f-a794-3e3a10c2a564",
+      "perspective_id": "9f630d57-be77-4604-88fe-4db2e4cd9746",
+      "strength": 0.54,
+      "confidence": 0.91
+    },
+    {
+      "id": "3d930b1c-ecbe-4921-8b7a-ee08937931ac",
+      "property_id": "d3b2b708-0e3f-4d44-b76b-da16cc38cf6d",
+      "process_id": "6100e5c8-0ead-46cf-bd80-68ab6995e3d1",
+      "perspective_id": "8dff4244-4703-4641-b0db-677ae73f3b43",
+      "strength": 0.72,
+      "confidence": 0.86
+    }
+  ],
+  "metadata": {
+    "count": {
+      "properties": 50,
+      "processes": 55,
+      "perspectives": 50
+    }
+  }
+}

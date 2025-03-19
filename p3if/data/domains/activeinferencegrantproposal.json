@@ -1,0 +1,1720 @@
+{
+  "domain": "ActiveInferenceGrantProposal",
+  "version": "1.0",
+  "properties": [
+    "Theoretical Soundness",
+    "Empirical Evidence",
+    "Interdisciplinary Approach",
+    "Novelty",
+    "Practical Applicability",
+    "Scalability",
+    "Computational Efficiency",
+    "Biological Plausibility",
+    "Predictive Power",
+    "Explanatory Power",
+    "Model Complexity",
+    "Data Requirements",
+    "Interpretability",
+    "Generalizability",
+    "Robustness",
+    "Ethical Considerations",
+    "Societal Impact",
+    "Alignment with Funding Priorities",
+    "Cost-Effectiveness",
+    "Timeline Feasibility",
+    "Risk Assessment",
+    "Potential for Collaboration",
+    "Publication Potential",
+    "Intellectual Property",
+    "Educational Value",
+    "Clinical Relevance",
+    "Technological Innovation",
+    "Methodological Rigor",
+    "Reproducibility",
+    "Sustainability",
+    "Adaptability to New Domains",
+    "Integration with Existing Theories",
+    "Potential for Paradigm Shift",
+    "Quantitative Metrics",
+    "Qualitative Insights",
+    "Cross-Cultural Applicability",
+    "Long-term Research Potential",
+    "Short-term Deliverables",
+    "Alignment with Institutional Goals",
+    "Public Engagement",
+    "Policy Implications",
+    "Economic Viability",
+    "Environmental Considerations",
+    "Ethical AI Alignment",
+    "Potential for Spin-off Research",
+    "Interdepartmental Synergies",
+    "International Collaboration Potential",
+    "Industry Partnership Opportunities",
+    "Funding Diversification",
+    "Career Development Aspects"
+  ],
+  "processes": [
+    "Literature Review",
+    "Hypothesis Formulation",
+    "Experimental Design",
+    "Data Collection",
+    "Statistical Analysis",
+    "Model Development",
+    "Simulation",
+    "Empirical Testing",
+    "Peer Review",
+    "Grant Writing",
+    "Ethics Approval",
+    "Participant Recruitment",
+    "Data Preprocessing",
+    "Feature Engineering",
+    "Model Training",
+    "Hyperparameter Optimization",
+    "Cross-Validation",
+    "Error Analysis",
+    "Results Interpretation",
+    "Manuscript Preparation",
+    "Conference Presentation",
+    "Code Documentation",
+    "Data Management",
+    "Team Coordination",
+    "Budget Planning",
+    "Progress Reporting",
+    "Stakeholder Engagement",
+    "Risk Mitigation",
+    "Quality Assurance",
+    "Knowledge Dissemination",
+    "Intellectual Property Protection",
+    "Collaboration Management",
+    "Resource Allocation",
+    "Timeline Management",
+    "Performance Evaluation",
+    "Feedback Incorporation",
+    "Iterative Refinement",
+    "Scalability Testing",
+    "Interdisciplinary Integration",
+    "Theoretical Framework Development",
+    "Computational Implementation",
+    "Biological Validation",
+    "Clinical Translation",
+    "Policy Brief Preparation",
+    "Public Communication",
+    "Funding Acquisition",
+    "Team Recruitment",
+    "Equipment Procurement",
+    "Software Development",
+    "Data Visualization",
+    "Ethical Compliance Monitoring",
+    "Impact Assessment",
+    "Long-term Planning",
+    "Knowledge Transfer",
+    "Community Outreach"
+  ],
+  "perspectives": [
+    "Principal Investigator",
+    "Co-Investigator",
+    "Research Assistant",
+    "Statistician",
+    "Data Scientist",
+    "Neuroscientist",
+    "Cognitive Psychologist",
+    "Computer Scientist",
+    "Mathematician",
+    "Philosopher",
+    "Ethicist",
+    "Funding Agency Representative",
+    "Institutional Review Board Member",
+    "Graduate Student",
+    "Postdoctoral Researcher",
+    "Lab Manager",
+    "Collaborator",
+    "Industry Partner",
+    "Policy Maker",
+    "Journal Editor",
+    "Peer Reviewer",
+    "Research Participant",
+    "Clinical Practitioner",
+    "AI Ethics Specialist",
+    "Science Communicator",
+    "Grant Administrator",
+    "Department Head",
+    "University Dean",
+    "Intellectual Property Lawyer",
+    "Bioethicist",
+    "Computational Neuroscientist",
+    "Roboticist",
+    "Cognitive Scientist",
+    "Systems Biologist",
+    "Theoretical Physicist",
+    "Machine Learning Engineer",
+    "Neuroengineer",
+    "Behavioral Economist",
+    "Developmental Psychologist",
+    "Evolutionary Biologist",
+    "Computational Psychiatrist",
+    "Neuroprosthetics Specialist",
+    "Brain-Computer Interface Expert",
+    "Neuroethicist",
+    "Science Policy Advisor",
+    "Public Health Researcher",
+    "Environmental Scientist",
+    "Social Psychologist",
+    "Anthropologist",
+    "Education Researcher"
+  ],
+  "patterns": {
+    "properties": [
+      {
+        "id": "dbf4a32f-5ff3-4308-820e-50025174bcf9",
+        "name": "Theoretical Soundness",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "8b38def7-4c4b-4dd1-a61a-bc8a88927966",
+        "name": "Empirical Evidence",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "eb7cc057-3fca-4f4c-9a36-c4b52c395123",
+        "name": "Interdisciplinary Approach",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "2b941e2f-957c-4a7a-a11e-57cc78860e97",
+        "name": "Novelty",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "2a7be089-b02c-4653-9bbf-da720d9fe843",
+        "name": "Practical Applicability",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "7c4ca60e-4cbf-4794-b42d-a9d4b31cde60",
+        "name": "Scalability",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "7cad84d3-8c35-494d-ae7d-fd93c1fdd828",
+        "name": "Computational Efficiency",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "b18125dd-574c-42e9-a21a-7a62fa3c97a5",
+        "name": "Biological Plausibility",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "ed1573f7-70b3-4692-8c3d-0ebe08a428b6",
+        "name": "Predictive Power",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "ab7278af-ceb6-4b23-ba69-370adb00a84f",
+        "name": "Explanatory Power",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "679f55c4-afa7-4b0b-9ed2-4b1422678a88",
+        "name": "Model Complexity",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "f2599bf3-4185-44ed-977b-37af0c032f26",
+        "name": "Data Requirements",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "d8883c34-c6e9-432c-b813-23719277f5b6",
+        "name": "Interpretability",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "3a63e102-8836-4ae3-b38b-0eb68aa5c35d",
+        "name": "Generalizability",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "a39f7f6e-0d0e-4b13-bddc-bbcd4f32f420",
+        "name": "Robustness",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "559e9ff4-0ead-49c3-8b52-35495eace2b5",
+        "name": "Ethical Considerations",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "85b26eec-499a-4038-9351-ad432c2e8fc5",
+        "name": "Societal Impact",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "4bba2ecd-c2dd-4f21-9973-80f2ad2ea780",
+        "name": "Alignment with Funding Priorities",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "23606a2d-3aa5-415f-a7a2-e3773719701d",
+        "name": "Cost-Effectiveness",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "783edd22-95ab-4ef7-b3f7-88070aab4917",
+        "name": "Timeline Feasibility",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "47ce6b09-46a4-4157-b8a4-825a854a0703",
+        "name": "Risk Assessment",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "d4934e51-3e2f-4a39-bbf0-b83b75c37bda",
+        "name": "Potential for Collaboration",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "27b62ccd-4e5d-495d-a9e6-f9cb3bf38ae1",
+        "name": "Publication Potential",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "846eb7ac-69ee-4dde-9aa1-1cea6e31c108",
+        "name": "Intellectual Property",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "cf46aeed-657a-493b-b39e-1cadf7deae4a",
+        "name": "Educational Value",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "8dd27299-b281-4f40-919c-f3959e905785",
+        "name": "Clinical Relevance",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "36075ecb-1473-4a88-901e-a618aa696c53",
+        "name": "Technological Innovation",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "8dadd934-dc04-4fe2-8862-e039bd38d7fe",
+        "name": "Methodological Rigor",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "e61ea940-7acc-4f7c-bdf9-8e98e565d2e9",
+        "name": "Reproducibility",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "f20e2020-a8df-4d00-a795-2ac9ec514351",
+        "name": "Sustainability",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "8ad02561-d38c-4f73-82ab-1c8d25974dc1",
+        "name": "Adaptability to New Domains",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "ec3a3ac7-f009-4e41-9b90-31c326b88a6d",
+        "name": "Integration with Existing Theories",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "8e10fe38-72e9-475d-9598-d6ecc7157401",
+        "name": "Potential for Paradigm Shift",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "6f435e08-6d41-4fc2-9838-6e961b19ba85",
+        "name": "Quantitative Metrics",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "b490dd6e-f1bb-4d5d-bcc7-c385eef450d6",
+        "name": "Qualitative Insights",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "41a868e9-b27c-43e8-8e5d-5349f4ba5abe",
+        "name": "Cross-Cultural Applicability",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "03c4120b-7035-4b3e-8ef5-cef4571cb621",
+        "name": "Long-term Research Potential",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "c32976e9-d9f2-4ad4-915a-af74430a5738",
+        "name": "Short-term Deliverables",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "02c9524b-8f61-4cd6-ab9b-4d65397567f8",
+        "name": "Alignment with Institutional Goals",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "66d2652d-9735-4b5a-8a4b-6f5d45d938d7",
+        "name": "Public Engagement",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "d13e69d0-a4b9-4389-8973-f2ea9db74a6a",
+        "name": "Policy Implications",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "7de3197e-d28f-4948-a317-ea50fbb89a81",
+        "name": "Economic Viability",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "ef988300-dbe4-4504-b84b-967998b1ddc2",
+        "name": "Environmental Considerations",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "5683a322-0696-4efa-ad85-adeb93523122",
+        "name": "Ethical AI Alignment",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "9c268c66-0062-48fd-b1ed-07d178506385",
+        "name": "Potential for Spin-off Research",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "3ed19d64-f4b4-4deb-a612-070f2cf3c23f",
+        "name": "Interdepartmental Synergies",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "efc06b02-b895-48e9-8718-dbcc28aef956",
+        "name": "International Collaboration Potential",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "8404b99c-fd20-4e3a-aa61-4346b14a0a08",
+        "name": "Industry Partnership Opportunities",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "e863091b-d764-43f1-bc1d-26b98187e6d5",
+        "name": "Funding Diversification",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "60bf0ea0-353d-4f75-aa9d-bc66f07b3f5f",
+        "name": "Career Development Aspects",
+        "type": "property",
+        "domain": "ActiveInferenceGrantProposal"
+      }
+    ],
+    "processes": [
+      {
+        "id": "cec38f37-cf79-4fb7-84d9-0b9a83b3ff12",
+        "name": "Literature Review",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "ec216be4-48b7-4ae4-9c38-b556f53da94a",
+        "name": "Hypothesis Formulation",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "322df88d-39f9-42ee-b903-fa9d24d0a1bd",
+        "name": "Experimental Design",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "1a0225e4-cc00-48e0-87e3-998353ec971f",
+        "name": "Data Collection",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "30ba8be7-c31b-42b5-b762-f7dcfe2421b1",
+        "name": "Statistical Analysis",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "337266c8-4fdf-492e-869e-24416eb6dea6",
+        "name": "Model Development",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "eb26f01a-dffd-4d6b-8d61-4976bdc4e23c",
+        "name": "Simulation",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "d73b2671-03c8-44dd-8c95-c0cb34ae5904",
+        "name": "Empirical Testing",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "bfe237ee-5c7f-4a00-9f57-34056249aa7b",
+        "name": "Peer Review",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "7f0453c9-7dfa-487e-b311-7deb1ce7f640",
+        "name": "Grant Writing",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "36884aaa-62d6-455e-9ccc-4b56aabf00fa",
+        "name": "Ethics Approval",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "da5f3c9b-2872-4168-a425-42f1378daf95",
+        "name": "Participant Recruitment",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "69c5d258-44e9-4846-9afb-dc5386055f9b",
+        "name": "Data Preprocessing",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "25a15c26-2015-482d-8a4f-0b1e574c4581",
+        "name": "Feature Engineering",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "174f26b0-532b-4609-9ecb-a5d811b5beea",
+        "name": "Model Training",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "71da0ca9-d1c5-47c7-93ba-5bb5795a19b0",
+        "name": "Hyperparameter Optimization",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "3d21b25e-6551-44a1-8cb1-df6b4d9e5f65",
+        "name": "Cross-Validation",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "297cdecc-d165-430a-b75d-f4c4a7500ccc",
+        "name": "Error Analysis",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "2dfffc2e-f3d3-4230-a1da-84d87dfd66ce",
+        "name": "Results Interpretation",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "33462003-4953-47eb-b15d-e48c6e1da41e",
+        "name": "Manuscript Preparation",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "67a558a5-2d99-40c1-9b4d-88fa76b1e1a3",
+        "name": "Conference Presentation",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "73230fd1-848c-4a1a-a428-309731be379c",
+        "name": "Code Documentation",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "78be09b1-1d21-4316-8434-f7b54b6dbce3",
+        "name": "Data Management",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "e0b0cc74-0083-4736-8b84-a4312e1e6ae6",
+        "name": "Team Coordination",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "529abea2-151e-43a1-acc8-ff28e1d234f9",
+        "name": "Budget Planning",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "01c664cf-335f-4fbd-8763-65770eebeae7",
+        "name": "Progress Reporting",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "701ab8ae-bbcc-43a6-b199-c12f3a9791fe",
+        "name": "Stakeholder Engagement",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "6ec4eb49-964a-471e-b061-95b506da13bf",
+        "name": "Risk Mitigation",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "c0eede9f-c04a-4003-83c4-10d4bd8a5e32",
+        "name": "Quality Assurance",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "2ec180ea-c91c-49ea-8bef-18d74852af5f",
+        "name": "Knowledge Dissemination",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "fa0b4e08-1321-4f78-9daa-697d973f5271",
+        "name": "Intellectual Property Protection",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "30c97912-ab73-422a-8282-eb435bc62638",
+        "name": "Collaboration Management",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "9fd23242-fd98-4518-bb56-0f26da03e13f",
+        "name": "Resource Allocation",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "cfabdd51-882a-4fae-9831-577ab49c5e71",
+        "name": "Timeline Management",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "46cec17f-04f2-4768-8fc9-10b0f06cab17",
+        "name": "Performance Evaluation",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "3d890051-7264-4450-b1ae-74c1b898b95a",
+        "name": "Feedback Incorporation",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "a7fc7039-706c-463a-8ff9-6f4fe269be4d",
+        "name": "Iterative Refinement",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "337e1bfe-e33b-49df-8ba2-75dd19d1e4bb",
+        "name": "Scalability Testing",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "451bf1a5-6c49-482c-8408-d50c20cdcdf3",
+        "name": "Interdisciplinary Integration",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "035afebd-d7de-4a39-9a10-5787733e52d0",
+        "name": "Theoretical Framework Development",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "40b12ca0-dbda-4c3d-b56d-909feaab8fd7",
+        "name": "Computational Implementation",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "1336fea7-5356-41f2-b66d-043db03b52a3",
+        "name": "Biological Validation",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "e92d6002-019b-4af0-80d6-001b1c2a3463",
+        "name": "Clinical Translation",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "b7b388d1-c2de-4123-8d17-47f1aa5a9eb3",
+        "name": "Policy Brief Preparation",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "cf456259-68ad-443a-a7ca-414400c73cfb",
+        "name": "Public Communication",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "f4d857ab-1b11-4b6e-b436-6a9f27d90d99",
+        "name": "Funding Acquisition",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "849e3b82-562e-4983-879f-463265431d1b",
+        "name": "Team Recruitment",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "cf945e05-8696-4826-b687-553c972dddc5",
+        "name": "Equipment Procurement",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "1fe94bbd-434b-4301-8e2b-a444d6553ea7",
+        "name": "Software Development",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "a08b1361-9a9c-4ee9-bd6c-964bdec83fb2",
+        "name": "Data Visualization",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "75e4c89f-383e-446c-9485-ece8bc89b5e2",
+        "name": "Ethical Compliance Monitoring",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "2123889f-b4f7-40e8-a7e0-e722bddb7345",
+        "name": "Impact Assessment",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "7790b3e1-9544-4a95-8841-a57c348e2512",
+        "name": "Long-term Planning",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "aec4549f-64bd-49ad-879f-92d801e4258f",
+        "name": "Knowledge Transfer",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "1c41a672-b545-4adb-a0f9-6468cdbbf183",
+        "name": "Community Outreach",
+        "type": "process",
+        "domain": "ActiveInferenceGrantProposal"
+      }
+    ],
+    "perspectives": [
+      {
+        "id": "f45c43eb-74de-4c61-ab5f-49e210cb9f58",
+        "name": "Principal Investigator",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "1f6849e3-7784-4b86-8c43-426994126c0e",
+        "name": "Co-Investigator",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "94f063a6-fb5e-42f4-a8a5-a04c55ef7f12",
+        "name": "Research Assistant",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "9af03649-470c-47fd-b879-134475c17304",
+        "name": "Statistician",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "e8a5a12a-aa53-44fb-b247-2abde14e6e29",
+        "name": "Data Scientist",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "648bdb70-cb40-4841-be1f-168f5bc4b25a",
+        "name": "Neuroscientist",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "f3a342d2-d2f7-46a8-9507-cc8ae84ecb8f",
+        "name": "Cognitive Psychologist",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "16b88bc4-04db-41f3-bbb8-93a482dcd660",
+        "name": "Computer Scientist",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "b5a01a2e-2c29-47de-95d4-f7b0cddad354",
+        "name": "Mathematician",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "eac36b25-5cf5-419b-a5e7-be5ffaf5d1cc",
+        "name": "Philosopher",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "e2782f8e-29a4-4b4e-abbc-bedca74cb274",
+        "name": "Ethicist",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "0b3d3df7-b67a-430b-aa16-606d193ee4e5",
+        "name": "Funding Agency Representative",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "83ba616a-b385-48da-953c-3e4ad2f6fa3a",
+        "name": "Institutional Review Board Member",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "536e095a-73e3-4e68-894a-74049d727c70",
+        "name": "Graduate Student",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "068a057b-fdb2-4aa6-b9b1-c2d8654e3bbe",
+        "name": "Postdoctoral Researcher",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "7c0e9ad3-834f-4331-983d-a5a66cb760da",
+        "name": "Lab Manager",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "ee4d30db-1ddd-4882-a1f5-a62656a1e591",
+        "name": "Collaborator",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "802dc6d6-9ed9-4d02-a603-32f59bb38f41",
+        "name": "Industry Partner",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "d1052a1a-c888-4245-8c0a-231aea5625d7",
+        "name": "Policy Maker",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "78efd100-b08c-4460-b55b-c2e441bb6f01",
+        "name": "Journal Editor",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "85e4c610-a885-4b55-b67a-a758f0b7a96d",
+        "name": "Peer Reviewer",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "5d728ea8-7238-4b01-b4fc-bc75aedcef2a",
+        "name": "Research Participant",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "71e52417-fa86-4216-980c-81c65356ebd7",
+        "name": "Clinical Practitioner",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "36edb97f-7967-4c66-bacf-335ebb5e0df0",
+        "name": "AI Ethics Specialist",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "1db72113-4171-4858-b445-2e845e094519",
+        "name": "Science Communicator",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "4d144851-5d34-4c0c-a7d8-58bedba11edd",
+        "name": "Grant Administrator",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "e970fd00-0572-4464-bdbd-7c175b43cefd",
+        "name": "Department Head",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "14ab07d2-2083-4077-a12f-6c0aaf59303b",
+        "name": "University Dean",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "7487d336-9179-4071-96f4-f3275b035e23",
+        "name": "Intellectual Property Lawyer",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "a8a6cdcb-021f-4e53-b61d-404f588dbf28",
+        "name": "Bioethicist",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "7a34f5ad-6381-46b7-81ef-029e9e71b2a6",
+        "name": "Computational Neuroscientist",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "09b45e9b-6f1e-4b1a-acda-0b3c587784cd",
+        "name": "Roboticist",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "39319a9f-0a56-4451-947f-182b98275364",
+        "name": "Cognitive Scientist",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "1780a3c3-658c-456e-a869-91b12d4c49e2",
+        "name": "Systems Biologist",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "0ec29f13-49a0-4e60-8002-d651c63a1af9",
+        "name": "Theoretical Physicist",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "817aef4b-a515-4e8f-9098-8b6ee4cb14f5",
+        "name": "Machine Learning Engineer",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "f04fd4d7-4f4a-4495-b9da-70c6d69798c0",
+        "name": "Neuroengineer",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "92ee520b-091b-4a23-9f21-6d3623ea0f50",
+        "name": "Behavioral Economist",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "126db149-ba30-4f26-b9d0-11151fb56566",
+        "name": "Developmental Psychologist",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "63a5e300-a97f-4831-81bb-018eb63a7e8b",
+        "name": "Evolutionary Biologist",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "0abf5733-a247-497f-af0d-cd8e58ac4e97",
+        "name": "Computational Psychiatrist",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "18f5b61e-1c94-423f-ac5f-540c5edd131c",
+        "name": "Neuroprosthetics Specialist",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "02b8f2f3-9da9-44b7-88bb-98c4b2042eb9",
+        "name": "Brain-Computer Interface Expert",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "f223b70b-68c1-493e-bef7-b499d141851b",
+        "name": "Neuroethicist",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "e8931384-2ee8-4ef9-8a48-c11604d5f90c",
+        "name": "Science Policy Advisor",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "b55146db-46e7-4211-8b92-8705531c404c",
+        "name": "Public Health Researcher",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "0bae170b-d906-4acb-b08c-c2c7b2c1827d",
+        "name": "Environmental Scientist",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "cd920a46-7906-40f4-aa40-86ab0461c85c",
+        "name": "Social Psychologist",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "a1aa44a0-475f-45a4-85b3-67a5a911eab7",
+        "name": "Anthropologist",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      },
+      {
+        "id": "8c1e03ac-17a4-4ea8-b7fe-81117bda1412",
+        "name": "Education Researcher",
+        "type": "perspective",
+        "domain": "ActiveInferenceGrantProposal"
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "a995fc90-2a8c-4eb1-9b1e-5e04314d8c65",
+      "property_id": "3ed19d64-f4b4-4deb-a612-070f2cf3c23f",
+      "process_id": "aec4549f-64bd-49ad-879f-92d801e4258f",
+      "perspective_id": "39319a9f-0a56-4451-947f-182b98275364",
+      "strength": 0.68,
+      "confidence": 0.98
+    },
+    {
+      "id": "305094b6-db3a-4626-91f0-c19420157dec",
+      "property_id": "efc06b02-b895-48e9-8718-dbcc28aef956",
+      "process_id": "36884aaa-62d6-455e-9ccc-4b56aabf00fa",
+      "perspective_id": "02b8f2f3-9da9-44b7-88bb-98c4b2042eb9",
+      "strength": 0.59,
+      "confidence": 0.95
+    },
+    {
+      "id": "fff82294-91a3-4d3c-a091-24476b7a0f4a",
+      "property_id": "ab7278af-ceb6-4b23-ba69-370adb00a84f",
+      "process_id": "30c97912-ab73-422a-8282-eb435bc62638",
+      "perspective_id": "eac36b25-5cf5-419b-a5e7-be5ffaf5d1cc",
+      "strength": 0.68,
+      "confidence": 0.8
+    },
+    {
+      "id": "7d8b0554-5f7c-48c4-a9d1-7b182c2f1e66",
+      "property_id": "47ce6b09-46a4-4157-b8a4-825a854a0703",
+      "process_id": "b7b388d1-c2de-4123-8d17-47f1aa5a9eb3",
+      "perspective_id": "83ba616a-b385-48da-953c-3e4ad2f6fa3a",
+      "strength": 0.65,
+      "confidence": 0.98
+    },
+    {
+      "id": "afb0203f-aab4-472b-8e8d-6b5e07f5a4bb",
+      "property_id": "4bba2ecd-c2dd-4f21-9973-80f2ad2ea780",
+      "process_id": "da5f3c9b-2872-4168-a425-42f1378daf95",
+      "perspective_id": "85e4c610-a885-4b55-b67a-a758f0b7a96d",
+      "strength": 0.84,
+      "confidence": 0.93
+    },
+    {
+      "id": "28e896ba-fcdb-4152-b61e-db510ec2fb22",
+      "property_id": "02c9524b-8f61-4cd6-ab9b-4d65397567f8",
+      "process_id": "f4d857ab-1b11-4b6e-b436-6a9f27d90d99",
+      "perspective_id": "85e4c610-a885-4b55-b67a-a758f0b7a96d",
+      "strength": 0.76,
+      "confidence": 0.76
+    },
+    {
+      "id": "2c2f6892-f391-4725-80cd-a3251fc51921",
+      "property_id": "3ed19d64-f4b4-4deb-a612-070f2cf3c23f",
+      "process_id": "701ab8ae-bbcc-43a6-b199-c12f3a9791fe",
+      "perspective_id": "0b3d3df7-b67a-430b-aa16-606d193ee4e5",
+      "strength": 0.74,
+      "confidence": 0.88
+    },
+    {
+      "id": "6b6ca7d8-cea7-4681-b29c-260aa8bf3862",
+      "property_id": "6f435e08-6d41-4fc2-9838-6e961b19ba85",
+      "process_id": "69c5d258-44e9-4846-9afb-dc5386055f9b",
+      "perspective_id": "a1aa44a0-475f-45a4-85b3-67a5a911eab7",
+      "strength": 0.94,
+      "confidence": 0.72
+    },
+    {
+      "id": "8d2d4a21-c775-4351-95a2-af7fa3d36c17",
+      "property_id": "679f55c4-afa7-4b0b-9ed2-4b1422678a88",
+      "process_id": "aec4549f-64bd-49ad-879f-92d801e4258f",
+      "perspective_id": "ee4d30db-1ddd-4882-a1f5-a62656a1e591",
+      "strength": 0.96,
+      "confidence": 0.77
+    },
+    {
+      "id": "3ed94840-c84f-4c02-ae57-288aa47dbb16",
+      "property_id": "03c4120b-7035-4b3e-8ef5-cef4571cb621",
+      "process_id": "3d21b25e-6551-44a1-8cb1-df6b4d9e5f65",
+      "perspective_id": "18f5b61e-1c94-423f-ac5f-540c5edd131c",
+      "strength": 0.87,
+      "confidence": 0.76
+    },
+    {
+      "id": "96b990ff-f43a-4c71-860e-8b043a1e1434",
+      "property_id": "c32976e9-d9f2-4ad4-915a-af74430a5738",
+      "process_id": "035afebd-d7de-4a39-9a10-5787733e52d0",
+      "perspective_id": "d1052a1a-c888-4245-8c0a-231aea5625d7",
+      "strength": 0.87,
+      "confidence": 0.95
+    },
+    {
+      "id": "1c74147a-d814-4d58-b8d2-441ea5201837",
+      "property_id": "36075ecb-1473-4a88-901e-a618aa696c53",
+      "process_id": "78be09b1-1d21-4316-8434-f7b54b6dbce3",
+      "perspective_id": "126db149-ba30-4f26-b9d0-11151fb56566",
+      "strength": 0.5,
+      "confidence": 0.85
+    },
+    {
+      "id": "0e670bfd-857b-4464-9814-ff10956ea0d1",
+      "property_id": "3a63e102-8836-4ae3-b38b-0eb68aa5c35d",
+      "process_id": "1fe94bbd-434b-4301-8e2b-a444d6553ea7",
+      "perspective_id": "648bdb70-cb40-4841-be1f-168f5bc4b25a",
+      "strength": 0.81,
+      "confidence": 0.78
+    },
+    {
+      "id": "a9e40d98-d081-4f06-9ced-72be05c877ec",
+      "property_id": "36075ecb-1473-4a88-901e-a618aa696c53",
+      "process_id": "701ab8ae-bbcc-43a6-b199-c12f3a9791fe",
+      "perspective_id": "f04fd4d7-4f4a-4495-b9da-70c6d69798c0",
+      "strength": 0.67,
+      "confidence": 1.0
+    },
+    {
+      "id": "e1ef489e-e5ed-46a2-90ef-4e97bde104ac",
+      "property_id": "8e10fe38-72e9-475d-9598-d6ecc7157401",
+      "process_id": "a7fc7039-706c-463a-8ff9-6f4fe269be4d",
+      "perspective_id": "536e095a-73e3-4e68-894a-74049d727c70",
+      "strength": 0.6,
+      "confidence": 0.99
+    },
+    {
+      "id": "dcd1bbe1-51e4-46dd-92eb-ebfb4f8cef2d",
+      "property_id": "47ce6b09-46a4-4157-b8a4-825a854a0703",
+      "process_id": "b7b388d1-c2de-4123-8d17-47f1aa5a9eb3",
+      "perspective_id": "8c1e03ac-17a4-4ea8-b7fe-81117bda1412",
+      "strength": 0.68,
+      "confidence": 0.96
+    },
+    {
+      "id": "75bc7924-a563-442c-a871-318195106cef",
+      "property_id": "7de3197e-d28f-4948-a317-ea50fbb89a81",
+      "process_id": "36884aaa-62d6-455e-9ccc-4b56aabf00fa",
+      "perspective_id": "36edb97f-7967-4c66-bacf-335ebb5e0df0",
+      "strength": 0.55,
+      "confidence": 0.98
+    },
+    {
+      "id": "c80fbadb-1d13-48fe-9ecb-005143b7a263",
+      "property_id": "ed1573f7-70b3-4692-8c3d-0ebe08a428b6",
+      "process_id": "46cec17f-04f2-4768-8fc9-10b0f06cab17",
+      "perspective_id": "0ec29f13-49a0-4e60-8002-d651c63a1af9",
+      "strength": 0.99,
+      "confidence": 0.73
+    },
+    {
+      "id": "05a70fa1-e622-44df-b73b-4685617daec8",
+      "property_id": "4bba2ecd-c2dd-4f21-9973-80f2ad2ea780",
+      "process_id": "33462003-4953-47eb-b15d-e48c6e1da41e",
+      "perspective_id": "648bdb70-cb40-4841-be1f-168f5bc4b25a",
+      "strength": 0.69,
+      "confidence": 0.91
+    },
+    {
+      "id": "34c86711-a54d-47a9-8c3e-f8233259f991",
+      "property_id": "2a7be089-b02c-4653-9bbf-da720d9fe843",
+      "process_id": "36884aaa-62d6-455e-9ccc-4b56aabf00fa",
+      "perspective_id": "e970fd00-0572-4464-bdbd-7c175b43cefd",
+      "strength": 0.96,
+      "confidence": 0.87
+    },
+    {
+      "id": "693331ef-8952-40af-be7a-fed87e95adbb",
+      "property_id": "36075ecb-1473-4a88-901e-a618aa696c53",
+      "process_id": "a08b1361-9a9c-4ee9-bd6c-964bdec83fb2",
+      "perspective_id": "802dc6d6-9ed9-4d02-a603-32f59bb38f41",
+      "strength": 0.95,
+      "confidence": 0.83
+    },
+    {
+      "id": "74abc4be-2e49-463f-9202-4dc8e5162b4f",
+      "property_id": "cf46aeed-657a-493b-b39e-1cadf7deae4a",
+      "process_id": "7f0453c9-7dfa-487e-b311-7deb1ce7f640",
+      "perspective_id": "7a34f5ad-6381-46b7-81ef-029e9e71b2a6",
+      "strength": 0.76,
+      "confidence": 0.94
+    },
+    {
+      "id": "96d2077f-f28a-4d9c-a71e-40577d8fac2c",
+      "property_id": "85b26eec-499a-4038-9351-ad432c2e8fc5",
+      "process_id": "2ec180ea-c91c-49ea-8bef-18d74852af5f",
+      "perspective_id": "e8a5a12a-aa53-44fb-b247-2abde14e6e29",
+      "strength": 0.63,
+      "confidence": 0.88
+    },
+    {
+      "id": "5a5d2f14-a774-444e-b68a-eda287076aab",
+      "property_id": "b18125dd-574c-42e9-a21a-7a62fa3c97a5",
+      "process_id": "7790b3e1-9544-4a95-8841-a57c348e2512",
+      "perspective_id": "536e095a-73e3-4e68-894a-74049d727c70",
+      "strength": 0.63,
+      "confidence": 0.95
+    },
+    {
+      "id": "0a75c9c5-7fb2-4934-b164-3657312723a3",
+      "property_id": "66d2652d-9735-4b5a-8a4b-6f5d45d938d7",
+      "process_id": "75e4c89f-383e-446c-9485-ece8bc89b5e2",
+      "perspective_id": "78efd100-b08c-4460-b55b-c2e441bb6f01",
+      "strength": 0.66,
+      "confidence": 0.95
+    },
+    {
+      "id": "f09f84cc-5b86-4efc-8d1a-2c0c0a62518c",
+      "property_id": "e61ea940-7acc-4f7c-bdf9-8e98e565d2e9",
+      "process_id": "67a558a5-2d99-40c1-9b4d-88fa76b1e1a3",
+      "perspective_id": "f3a342d2-d2f7-46a8-9507-cc8ae84ecb8f",
+      "strength": 0.64,
+      "confidence": 0.8
+    },
+    {
+      "id": "280f5d6e-9bd6-4aad-9e3c-f2c0135a1b78",
+      "property_id": "27b62ccd-4e5d-495d-a9e6-f9cb3bf38ae1",
+      "process_id": "7790b3e1-9544-4a95-8841-a57c348e2512",
+      "perspective_id": "18f5b61e-1c94-423f-ac5f-540c5edd131c",
+      "strength": 0.5,
+      "confidence": 0.82
+    },
+    {
+      "id": "76ae19f1-4f69-4bd6-a581-4fbd406a9599",
+      "property_id": "d8883c34-c6e9-432c-b813-23719277f5b6",
+      "process_id": "1c41a672-b545-4adb-a0f9-6468cdbbf183",
+      "perspective_id": "0b3d3df7-b67a-430b-aa16-606d193ee4e5",
+      "strength": 0.72,
+      "confidence": 0.89
+    },
+    {
+      "id": "674ae628-4011-4740-8ee8-8256babc5e8e",
+      "property_id": "846eb7ac-69ee-4dde-9aa1-1cea6e31c108",
+      "process_id": "337266c8-4fdf-492e-869e-24416eb6dea6",
+      "perspective_id": "16b88bc4-04db-41f3-bbb8-93a482dcd660",
+      "strength": 0.86,
+      "confidence": 0.77
+    },
+    {
+      "id": "5a338ff6-440c-4d23-a8c3-bc7922040a36",
+      "property_id": "85b26eec-499a-4038-9351-ad432c2e8fc5",
+      "process_id": "9fd23242-fd98-4518-bb56-0f26da03e13f",
+      "perspective_id": "71e52417-fa86-4216-980c-81c65356ebd7",
+      "strength": 1.0,
+      "confidence": 0.87
+    },
+    {
+      "id": "8bf7f066-298b-4c29-adca-3917879700b1",
+      "property_id": "6f435e08-6d41-4fc2-9838-6e961b19ba85",
+      "process_id": "33462003-4953-47eb-b15d-e48c6e1da41e",
+      "perspective_id": "63a5e300-a97f-4831-81bb-018eb63a7e8b",
+      "strength": 0.82,
+      "confidence": 0.75
+    },
+    {
+      "id": "a71488a0-b58f-495b-8594-8198632ae8d0",
+      "property_id": "8404b99c-fd20-4e3a-aa61-4346b14a0a08",
+      "process_id": "30ba8be7-c31b-42b5-b762-f7dcfe2421b1",
+      "perspective_id": "1db72113-4171-4858-b445-2e845e094519",
+      "strength": 0.77,
+      "confidence": 0.78
+    },
+    {
+      "id": "98f225dc-57a6-4a31-adea-c991d05389ab",
+      "property_id": "ab7278af-ceb6-4b23-ba69-370adb00a84f",
+      "process_id": "6ec4eb49-964a-471e-b061-95b506da13bf",
+      "perspective_id": "1db72113-4171-4858-b445-2e845e094519",
+      "strength": 0.9,
+      "confidence": 0.92
+    },
+    {
+      "id": "e326510e-cdc4-4541-a958-fe3fba55a7e4",
+      "property_id": "3ed19d64-f4b4-4deb-a612-070f2cf3c23f",
+      "process_id": "40b12ca0-dbda-4c3d-b56d-909feaab8fd7",
+      "perspective_id": "f04fd4d7-4f4a-4495-b9da-70c6d69798c0",
+      "strength": 0.96,
+      "confidence": 0.76
+    },
+    {
+      "id": "46f59c11-1e33-4ed2-85ae-abc19ebffb7b",
+      "property_id": "60bf0ea0-353d-4f75-aa9d-bc66f07b3f5f",
+      "process_id": "40b12ca0-dbda-4c3d-b56d-909feaab8fd7",
+      "perspective_id": "85e4c610-a885-4b55-b67a-a758f0b7a96d",
+      "strength": 0.7,
+      "confidence": 0.95
+    },
+    {
+      "id": "1ecdf5db-8b4a-4081-a030-e02f7f919408",
+      "property_id": "e61ea940-7acc-4f7c-bdf9-8e98e565d2e9",
+      "process_id": "322df88d-39f9-42ee-b903-fa9d24d0a1bd",
+      "perspective_id": "7c0e9ad3-834f-4331-983d-a5a66cb760da",
+      "strength": 0.97,
+      "confidence": 0.78
+    },
+    {
+      "id": "112197d2-9e1a-4832-af4b-6cfff2518027",
+      "property_id": "ec3a3ac7-f009-4e41-9b90-31c326b88a6d",
+      "process_id": "6ec4eb49-964a-471e-b061-95b506da13bf",
+      "perspective_id": "536e095a-73e3-4e68-894a-74049d727c70",
+      "strength": 0.87,
+      "confidence": 0.79
+    },
+    {
+      "id": "b4860984-35ea-46a5-a40e-9d40246254c3",
+      "property_id": "60bf0ea0-353d-4f75-aa9d-bc66f07b3f5f",
+      "process_id": "67a558a5-2d99-40c1-9b4d-88fa76b1e1a3",
+      "perspective_id": "7a34f5ad-6381-46b7-81ef-029e9e71b2a6",
+      "strength": 0.56,
+      "confidence": 0.82
+    },
+    {
+      "id": "f182dd63-ae8b-4837-a2e0-39056dd399fa",
+      "property_id": "41a868e9-b27c-43e8-8e5d-5349f4ba5abe",
+      "process_id": "40b12ca0-dbda-4c3d-b56d-909feaab8fd7",
+      "perspective_id": "14ab07d2-2083-4077-a12f-6c0aaf59303b",
+      "strength": 0.72,
+      "confidence": 0.89
+    },
+    {
+      "id": "bc4300ed-4ce7-4df7-bc9d-c7edc3c1be81",
+      "property_id": "f20e2020-a8df-4d00-a795-2ac9ec514351",
+      "process_id": "67a558a5-2d99-40c1-9b4d-88fa76b1e1a3",
+      "perspective_id": "a8a6cdcb-021f-4e53-b61d-404f588dbf28",
+      "strength": 0.72,
+      "confidence": 0.71
+    },
+    {
+      "id": "670ac996-7ace-48c6-b571-69f931fa4077",
+      "property_id": "5683a322-0696-4efa-ad85-adeb93523122",
+      "process_id": "01c664cf-335f-4fbd-8763-65770eebeae7",
+      "perspective_id": "83ba616a-b385-48da-953c-3e4ad2f6fa3a",
+      "strength": 0.73,
+      "confidence": 0.97
+    },
+    {
+      "id": "fbafc642-4db1-4f23-8fb1-9c3dc2ab7fe9",
+      "property_id": "4bba2ecd-c2dd-4f21-9973-80f2ad2ea780",
+      "process_id": "da5f3c9b-2872-4168-a425-42f1378daf95",
+      "perspective_id": "e8931384-2ee8-4ef9-8a48-c11604d5f90c",
+      "strength": 0.6,
+      "confidence": 0.88
+    },
+    {
+      "id": "2769ff52-212c-4612-bdba-aa4a17bdb95e",
+      "property_id": "e61ea940-7acc-4f7c-bdf9-8e98e565d2e9",
+      "process_id": "451bf1a5-6c49-482c-8408-d50c20cdcdf3",
+      "perspective_id": "02b8f2f3-9da9-44b7-88bb-98c4b2042eb9",
+      "strength": 0.78,
+      "confidence": 0.96
+    },
+    {
+      "id": "6d1e6c60-0541-458b-ab9f-f8d8c59b6e70",
+      "property_id": "8ad02561-d38c-4f73-82ab-1c8d25974dc1",
+      "process_id": "d73b2671-03c8-44dd-8c95-c0cb34ae5904",
+      "perspective_id": "ee4d30db-1ddd-4882-a1f5-a62656a1e591",
+      "strength": 0.73,
+      "confidence": 0.82
+    },
+    {
+      "id": "8d1edd91-df95-43e1-8613-b86420eebc63",
+      "property_id": "a39f7f6e-0d0e-4b13-bddc-bbcd4f32f420",
+      "process_id": "36884aaa-62d6-455e-9ccc-4b56aabf00fa",
+      "perspective_id": "0b3d3df7-b67a-430b-aa16-606d193ee4e5",
+      "strength": 0.83,
+      "confidence": 0.98
+    },
+    {
+      "id": "c0d5b384-9092-4147-9cae-3d5d10e6b5f7",
+      "property_id": "d8883c34-c6e9-432c-b813-23719277f5b6",
+      "process_id": "36884aaa-62d6-455e-9ccc-4b56aabf00fa",
+      "perspective_id": "ee4d30db-1ddd-4882-a1f5-a62656a1e591",
+      "strength": 0.86,
+      "confidence": 0.92
+    },
+    {
+      "id": "acdf1838-e1bb-4b7b-ad3a-a6e36626bcaf",
+      "property_id": "679f55c4-afa7-4b0b-9ed2-4b1422678a88",
+      "process_id": "bfe237ee-5c7f-4a00-9f57-34056249aa7b",
+      "perspective_id": "126db149-ba30-4f26-b9d0-11151fb56566",
+      "strength": 0.59,
+      "confidence": 0.95
+    },
+    {
+      "id": "263bc56e-d677-41c0-aeba-d019f0d3f72d",
+      "property_id": "ed1573f7-70b3-4692-8c3d-0ebe08a428b6",
+      "process_id": "3d21b25e-6551-44a1-8cb1-df6b4d9e5f65",
+      "perspective_id": "1f6849e3-7784-4b86-8c43-426994126c0e",
+      "strength": 0.69,
+      "confidence": 0.88
+    },
+    {
+      "id": "1f4c21f8-6f97-4335-a0c7-2c53a96eab09",
+      "property_id": "e863091b-d764-43f1-bc1d-26b98187e6d5",
+      "process_id": "7f0453c9-7dfa-487e-b311-7deb1ce7f640",
+      "perspective_id": "02b8f2f3-9da9-44b7-88bb-98c4b2042eb9",
+      "strength": 0.85,
+      "confidence": 0.99
+    },
+    {
+      "id": "7746c359-315d-481b-a7f4-dba798115f27",
+      "property_id": "4bba2ecd-c2dd-4f21-9973-80f2ad2ea780",
+      "process_id": "2ec180ea-c91c-49ea-8bef-18d74852af5f",
+      "perspective_id": "8c1e03ac-17a4-4ea8-b7fe-81117bda1412",
+      "strength": 0.53,
+      "confidence": 0.81
+    },
+    {
+      "id": "986b4e46-d79e-463f-88c9-6c8bc4c7c827",
+      "property_id": "d4934e51-3e2f-4a39-bbf0-b83b75c37bda",
+      "process_id": "174f26b0-532b-4609-9ecb-a5d811b5beea",
+      "perspective_id": "16b88bc4-04db-41f3-bbb8-93a482dcd660",
+      "strength": 0.72,
+      "confidence": 0.87
+    },
+    {
+      "id": "7bbe1a1e-3c72-4612-ab8b-2a68b34d0802",
+      "property_id": "02c9524b-8f61-4cd6-ab9b-4d65397567f8",
+      "process_id": "1fe94bbd-434b-4301-8e2b-a444d6553ea7",
+      "perspective_id": "7a34f5ad-6381-46b7-81ef-029e9e71b2a6",
+      "strength": 0.99,
+      "confidence": 0.79
+    },
+    {
+      "id": "c841eca1-ede5-4f49-8767-ae7e2673d5d6",
+      "property_id": "679f55c4-afa7-4b0b-9ed2-4b1422678a88",
+      "process_id": "529abea2-151e-43a1-acc8-ff28e1d234f9",
+      "perspective_id": "02b8f2f3-9da9-44b7-88bb-98c4b2042eb9",
+      "strength": 0.9,
+      "confidence": 0.83
+    },
+    {
+      "id": "e61d8099-8808-497a-8edb-ec1c73047621",
+      "property_id": "3a63e102-8836-4ae3-b38b-0eb68aa5c35d",
+      "process_id": "da5f3c9b-2872-4168-a425-42f1378daf95",
+      "perspective_id": "0b3d3df7-b67a-430b-aa16-606d193ee4e5",
+      "strength": 0.95,
+      "confidence": 0.8
+    },
+    {
+      "id": "44eec396-8645-41c1-8411-b10ec2c19d34",
+      "property_id": "d8883c34-c6e9-432c-b813-23719277f5b6",
+      "process_id": "9fd23242-fd98-4518-bb56-0f26da03e13f",
+      "perspective_id": "e970fd00-0572-4464-bdbd-7c175b43cefd",
+      "strength": 0.96,
+      "confidence": 0.73
+    },
+    {
+      "id": "428afce0-c470-48bf-bbf9-ac6a817fd4cd",
+      "property_id": "ef988300-dbe4-4504-b84b-967998b1ddc2",
+      "process_id": "297cdecc-d165-430a-b75d-f4c4a7500ccc",
+      "perspective_id": "e970fd00-0572-4464-bdbd-7c175b43cefd",
+      "strength": 0.55,
+      "confidence": 0.93
+    },
+    {
+      "id": "47c2f95e-04cb-43e9-ba36-9b5ccf119652",
+      "property_id": "8404b99c-fd20-4e3a-aa61-4346b14a0a08",
+      "process_id": "1a0225e4-cc00-48e0-87e3-998353ec971f",
+      "perspective_id": "02b8f2f3-9da9-44b7-88bb-98c4b2042eb9",
+      "strength": 0.89,
+      "confidence": 0.76
+    },
+    {
+      "id": "60c52bfe-4732-4d27-8c1e-98de2d3c4fda",
+      "property_id": "eb7cc057-3fca-4f4c-9a36-c4b52c395123",
+      "process_id": "78be09b1-1d21-4316-8434-f7b54b6dbce3",
+      "perspective_id": "817aef4b-a515-4e8f-9098-8b6ee4cb14f5",
+      "strength": 0.95,
+      "confidence": 0.87
+    },
+    {
+      "id": "238bd181-8de3-4596-bb24-16b5fc9bebe2",
+      "property_id": "5683a322-0696-4efa-ad85-adeb93523122",
+      "process_id": "1fe94bbd-434b-4301-8e2b-a444d6553ea7",
+      "perspective_id": "e2782f8e-29a4-4b4e-abbc-bedca74cb274",
+      "strength": 0.78,
+      "confidence": 0.75
+    },
+    {
+      "id": "2d5fd8d4-19e3-4994-8637-0352f15bc956",
+      "property_id": "3a63e102-8836-4ae3-b38b-0eb68aa5c35d",
+      "process_id": "451bf1a5-6c49-482c-8408-d50c20cdcdf3",
+      "perspective_id": "1db72113-4171-4858-b445-2e845e094519",
+      "strength": 0.64,
+      "confidence": 0.9
+    },
+    {
+      "id": "4ae8eb12-de20-4c36-867c-d2f059db4dbb",
+      "property_id": "6f435e08-6d41-4fc2-9838-6e961b19ba85",
+      "process_id": "529abea2-151e-43a1-acc8-ff28e1d234f9",
+      "perspective_id": "536e095a-73e3-4e68-894a-74049d727c70",
+      "strength": 0.81,
+      "confidence": 0.84
+    },
+    {
+      "id": "d00da6b2-a6c4-4545-a89c-0751662fb7a2",
+      "property_id": "d4934e51-3e2f-4a39-bbf0-b83b75c37bda",
+      "process_id": "30c97912-ab73-422a-8282-eb435bc62638",
+      "perspective_id": "536e095a-73e3-4e68-894a-74049d727c70",
+      "strength": 0.69,
+      "confidence": 0.91
+    },
+    {
+      "id": "d8a3f6f4-e75e-4f50-818e-ad7d083943a8",
+      "property_id": "03c4120b-7035-4b3e-8ef5-cef4571cb621",
+      "process_id": "337266c8-4fdf-492e-869e-24416eb6dea6",
+      "perspective_id": "92ee520b-091b-4a23-9f21-6d3623ea0f50",
+      "strength": 0.64,
+      "confidence": 0.86
+    },
+    {
+      "id": "2d08fb5b-5129-4df2-be36-b8353e6c919a",
+      "property_id": "ef988300-dbe4-4504-b84b-967998b1ddc2",
+      "process_id": "71da0ca9-d1c5-47c7-93ba-5bb5795a19b0",
+      "perspective_id": "f3a342d2-d2f7-46a8-9507-cc8ae84ecb8f",
+      "strength": 0.94,
+      "confidence": 0.81
+    },
+    {
+      "id": "5c722b67-f2b4-4684-8cc7-158799922cf0",
+      "property_id": "03c4120b-7035-4b3e-8ef5-cef4571cb621",
+      "process_id": "36884aaa-62d6-455e-9ccc-4b56aabf00fa",
+      "perspective_id": "09b45e9b-6f1e-4b1a-acda-0b3c587784cd",
+      "strength": 0.6,
+      "confidence": 0.99
+    },
+    {
+      "id": "d93857f4-d12d-4969-b93f-27cfe72576cd",
+      "property_id": "783edd22-95ab-4ef7-b3f7-88070aab4917",
+      "process_id": "e92d6002-019b-4af0-80d6-001b1c2a3463",
+      "perspective_id": "7487d336-9179-4071-96f4-f3275b035e23",
+      "strength": 0.59,
+      "confidence": 0.75
+    },
+    {
+      "id": "c83fee3a-a447-4a81-8257-402ea45a3eb5",
+      "property_id": "ab7278af-ceb6-4b23-ba69-370adb00a84f",
+      "process_id": "a08b1361-9a9c-4ee9-bd6c-964bdec83fb2",
+      "perspective_id": "14ab07d2-2083-4077-a12f-6c0aaf59303b",
+      "strength": 0.77,
+      "confidence": 0.71
+    },
+    {
+      "id": "a387171d-fb18-4b9d-9baf-30c63177b263",
+      "property_id": "4bba2ecd-c2dd-4f21-9973-80f2ad2ea780",
+      "process_id": "fa0b4e08-1321-4f78-9daa-697d973f5271",
+      "perspective_id": "f223b70b-68c1-493e-bef7-b499d141851b",
+      "strength": 0.64,
+      "confidence": 0.87
+    },
+    {
+      "id": "83212871-a7d4-41cd-a2fd-8a004e5478a5",
+      "property_id": "41a868e9-b27c-43e8-8e5d-5349f4ba5abe",
+      "process_id": "3d890051-7264-4450-b1ae-74c1b898b95a",
+      "perspective_id": "16b88bc4-04db-41f3-bbb8-93a482dcd660",
+      "strength": 0.72,
+      "confidence": 0.97
+    },
+    {
+      "id": "fa422ee0-e03d-4cc3-b363-3906a26bca19",
+      "property_id": "23606a2d-3aa5-415f-a7a2-e3773719701d",
+      "process_id": "322df88d-39f9-42ee-b903-fa9d24d0a1bd",
+      "perspective_id": "e8a5a12a-aa53-44fb-b247-2abde14e6e29",
+      "strength": 0.91,
+      "confidence": 0.7
+    },
+    {
+      "id": "ebb6d76b-f4c6-4649-bb20-b36fbb545aee",
+      "property_id": "3a63e102-8836-4ae3-b38b-0eb68aa5c35d",
+      "process_id": "1336fea7-5356-41f2-b66d-043db03b52a3",
+      "perspective_id": "a8a6cdcb-021f-4e53-b61d-404f588dbf28",
+      "strength": 0.94,
+      "confidence": 0.71
+    },
+    {
+      "id": "8a98fa3b-1906-437c-aae3-c2e14055aa8a",
+      "property_id": "9c268c66-0062-48fd-b1ed-07d178506385",
+      "process_id": "fa0b4e08-1321-4f78-9daa-697d973f5271",
+      "perspective_id": "eac36b25-5cf5-419b-a5e7-be5ffaf5d1cc",
+      "strength": 0.75,
+      "confidence": 0.92
+    },
+    {
+      "id": "48830381-f159-4631-9405-638d50d59d1d",
+      "property_id": "23606a2d-3aa5-415f-a7a2-e3773719701d",
+      "process_id": "aec4549f-64bd-49ad-879f-92d801e4258f",
+      "perspective_id": "648bdb70-cb40-4841-be1f-168f5bc4b25a",
+      "strength": 0.72,
+      "confidence": 0.77
+    },
+    {
+      "id": "cd7330ff-69e3-4742-b4d8-d0a87842132e",
+      "property_id": "ab7278af-ceb6-4b23-ba69-370adb00a84f",
+      "process_id": "f4d857ab-1b11-4b6e-b436-6a9f27d90d99",
+      "perspective_id": "14ab07d2-2083-4077-a12f-6c0aaf59303b",
+      "strength": 0.94,
+      "confidence": 0.99
+    },
+    {
+      "id": "7896adfd-7c57-4f06-b121-797d12bf43a0",
+      "property_id": "679f55c4-afa7-4b0b-9ed2-4b1422678a88",
+      "process_id": "b7b388d1-c2de-4123-8d17-47f1aa5a9eb3",
+      "perspective_id": "7a34f5ad-6381-46b7-81ef-029e9e71b2a6",
+      "strength": 0.81,
+      "confidence": 0.83
+    },
+    {
+      "id": "980fafb0-e7e2-48cc-b3e1-af1b636e9f43",
+      "property_id": "d4934e51-3e2f-4a39-bbf0-b83b75c37bda",
+      "process_id": "40b12ca0-dbda-4c3d-b56d-909feaab8fd7",
+      "perspective_id": "9af03649-470c-47fd-b879-134475c17304",
+      "strength": 0.53,
+      "confidence": 0.86
+    }
+  ],
+  "metadata": {
+    "count": {
+      "properties": 50,
+      "processes": 55,
+      "perspectives": 50
+    }
+  }
+}

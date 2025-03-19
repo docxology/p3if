@@ -1,0 +1,1560 @@
+{
+  "domain": "Pipette_Use_In_Wet_Lab",
+  "version": "1.0",
+  "properties": [
+    "Accuracy",
+    "Precision",
+    "Ergonomics",
+    "Volume Range",
+    "Tip Compatibility",
+    "Ease of Calibration",
+    "Durability",
+    "Chemical Resistance",
+    "Autoclavability",
+    "User Comfort",
+    "Single Channel",
+    "Multi-Channel",
+    "Electronic",
+    "Manual",
+    "Adjustable Volume",
+    "Fixed Volume",
+    "Lightweight",
+    "Digital Display",
+    "Maintenance Requirements",
+    "Cost Efficiency",
+    "Contamination Prevention",
+    "User Safety",
+    "Reproducibility",
+    "Pipetting Speed",
+    "Liquid Retention",
+    "Tip Ejection Force",
+    "Grip Comfort",
+    "Balance",
+    "Material Quality",
+    "Warranty"
+  ],
+  "processes": [
+    "Sample Preparation",
+    "Serial Dilution",
+    "Reagent Addition",
+    "Cell Culture",
+    "PCR Setup",
+    "ELISA",
+    "Western Blotting",
+    "DNA Extraction",
+    "RNA Extraction",
+    "Protein Purification",
+    "Liquid Handling",
+    "Assay Development",
+    "High-Throughput Screening",
+    "Genotyping",
+    "Cloning",
+    "Transformation",
+    "Transfection",
+    "Library Preparation",
+    "Sequencing",
+    "Chromatography",
+    "Mass Spectrometry",
+    "Flow Cytometry",
+    "Microscopy",
+    "Immunostaining",
+    "In Situ Hybridization",
+    "Cell Sorting",
+    "Cell Counting",
+    "Cell Viability Assay",
+    "Enzyme Assay",
+    "Metabolite Analysis",
+    "Titration",
+    "Buffer Preparation",
+    "Media Preparation",
+    "Sterilization",
+    "Quality Control",
+    "Calibration",
+    "Validation",
+    "Standard Curve Preparation",
+    "Sample Storage",
+    "Sample Transport",
+    "Sample Mixing",
+    "Sample Aliquoting",
+    "Sample Homogenization",
+    "Sample Filtration",
+    "Sample Centrifugation",
+    "Sample Labeling",
+    "Sample Thawing",
+    "Sample Freezing",
+    "Sample Incubation",
+    "Sample Vortexing"
+  ],
+  "perspectives": [
+    "Lab Technician",
+    "Research Scientist",
+    "Principal Investigator",
+    "Lab Manager",
+    "Quality Control Specialist",
+    "Clinical Researcher",
+    "Pharmaceutical Scientist",
+    "Biotechnologist",
+    "Microbiologist",
+    "Molecular Biologist",
+    "Geneticist",
+    "Biochemist",
+    "Cell Biologist",
+    "Immunologist",
+    "Pathologist",
+    "Forensic Scientist",
+    "Environmental Scientist",
+    "Agricultural Scientist",
+    "Food Scientist",
+    "Veterinary Scientist",
+    "Chemical Engineer",
+    "Biomedical Engineer",
+    "Regulatory Affairs Specialist",
+    "Lab Equipment Sales Representative",
+    "Technical Support Specialist",
+    "Lab Assistant",
+    "Postdoctoral Researcher",
+    "Graduate Student",
+    "Undergraduate Student",
+    "Lab Coordinator",
+    "Lab Safety Officer",
+    "Lab Automation Specialist",
+    "Lab IT Specialist",
+    "Lab Procurement Officer",
+    "Lab Maintenance Technician"
+  ],
+  "patterns": {
+    "properties": [
+      {
+        "id": "7e950eba-6f9e-4903-b2e5-62923801771e",
+        "name": "Accuracy",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "0896c470-4fec-43ce-96f0-42c2da1cecff",
+        "name": "Precision",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "5f000d14-9e0d-4f74-b1e5-fd34883ab8ca",
+        "name": "Ergonomics",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "10ddc392-c4d0-4b32-b6f6-4e93e8b1caa9",
+        "name": "Volume Range",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "a74e0975-f0c2-46ed-a80a-16f453ae3948",
+        "name": "Tip Compatibility",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "bda03d66-25d4-4b19-ac37-13ec9ed81d53",
+        "name": "Ease of Calibration",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "cd5c0063-647a-455b-927a-6d636bf9e302",
+        "name": "Durability",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "5f3be1cd-3420-4558-81ed-4ebcd3df7de3",
+        "name": "Chemical Resistance",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "65426144-0387-4e42-8d42-1535e7a3a1f0",
+        "name": "Autoclavability",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "42fe0ddb-4e65-468d-8c30-5a2745f2e679",
+        "name": "User Comfort",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "87d69833-eb8c-42ec-94f5-a296c946a59e",
+        "name": "Single Channel",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "f8272774-4a56-444a-90b1-2602ebbf69f7",
+        "name": "Multi-Channel",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "fef03729-1d71-4efd-8051-a6b60257b72f",
+        "name": "Electronic",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "a1107b04-1203-4e5a-8226-24473376d611",
+        "name": "Manual",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "b1b0c3c6-4e6f-4021-846b-656f3cc7c977",
+        "name": "Adjustable Volume",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "4a7104ec-e886-4427-8b3c-e6f5aa5d8cde",
+        "name": "Fixed Volume",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "bc7cea88-a6a9-4dbe-8fe7-1b21a6abd082",
+        "name": "Lightweight",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "2748e970-b3b2-484f-9708-870e18fcf689",
+        "name": "Digital Display",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "410a7af7-c8ba-429c-83ab-c40661cfc10b",
+        "name": "Maintenance Requirements",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "738e50a6-6dd9-4a91-85d0-01b902a3d1ac",
+        "name": "Cost Efficiency",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "9d2c68e6-6c25-4328-810c-03ba2256b907",
+        "name": "Contamination Prevention",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "184c67f2-48e8-42fe-bdcb-32ca24b889d1",
+        "name": "User Safety",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "7030b080-4e2d-436f-8f41-b160969c2fab",
+        "name": "Reproducibility",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "e69e7026-7d5c-4187-8960-d4600428afeb",
+        "name": "Pipetting Speed",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "1150e7bb-5e40-44bf-b42f-bea014192ca9",
+        "name": "Liquid Retention",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "3b7778de-3be6-4f86-826e-2ac888f3e3d8",
+        "name": "Tip Ejection Force",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "cdf6076f-d907-444d-84c6-fdf42f2f70a8",
+        "name": "Grip Comfort",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "daf5906e-e328-40dc-a39d-e8bc46a49da1",
+        "name": "Balance",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "4f2f46e5-bc2c-40f9-84f1-d555bf9b6eab",
+        "name": "Material Quality",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "b9669bbc-91a6-4cff-8162-c19c36f310b8",
+        "name": "Warranty",
+        "type": "property",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      }
+    ],
+    "processes": [
+      {
+        "id": "ddd9f811-e22d-40df-a30c-bb63557d55eb",
+        "name": "Sample Preparation",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "a43b9b80-960e-45cd-87e2-5e071a506c0c",
+        "name": "Serial Dilution",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "1edcef1e-605a-42d4-ae48-7e59478e968a",
+        "name": "Reagent Addition",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "6b63bb3e-dd7e-41a6-8676-acf494617671",
+        "name": "Cell Culture",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "0e640cce-2910-4489-8ed4-2a5ed9c633f8",
+        "name": "PCR Setup",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "aab5cad5-bd92-4e23-9663-8f3b56762c43",
+        "name": "ELISA",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "33730144-dac0-4f39-86cb-97df6df00fb0",
+        "name": "Western Blotting",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "f3a52ae4-e3ef-46e5-8bff-5884bd5ed7f2",
+        "name": "DNA Extraction",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "5724d30d-9979-4e84-b00e-773e02bd351f",
+        "name": "RNA Extraction",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "b1f2d544-86a4-488f-ae87-3e713a5d6b2e",
+        "name": "Protein Purification",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "26824bf8-3877-4705-97bf-f9e7ec36792a",
+        "name": "Liquid Handling",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "e159db9c-d14b-4065-b432-ee9a11475968",
+        "name": "Assay Development",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "cbca809e-1ccd-47e8-bff2-97940c50e2a0",
+        "name": "High-Throughput Screening",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "a4d3c05c-cbac-4360-94e9-125dc7992d10",
+        "name": "Genotyping",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "da08770f-5471-419e-a398-0421d9182060",
+        "name": "Cloning",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "010ff5ee-e506-4138-ac6d-045749d90df8",
+        "name": "Transformation",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "bd6da7d8-0e7f-4246-9517-a1be2eb14163",
+        "name": "Transfection",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "4c07e4d1-2779-4b7c-8fb2-b0810395295e",
+        "name": "Library Preparation",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "b6ff2b31-ecab-46af-8687-03214ba698cb",
+        "name": "Sequencing",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "3304bfbd-b500-4301-9437-48733876681e",
+        "name": "Chromatography",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "e9d23274-9ba6-4329-ab29-e3e14ea20e0a",
+        "name": "Mass Spectrometry",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "496099b3-6264-4ee8-b578-0caec57843a9",
+        "name": "Flow Cytometry",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "faa2b9b6-63d8-498e-91d4-896a922addfa",
+        "name": "Microscopy",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "3dd45cff-9bfe-45e8-a63d-5cb0fb84d047",
+        "name": "Immunostaining",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "e0c46673-bc16-481e-8f26-bb27d282ef91",
+        "name": "In Situ Hybridization",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "69fd5788-fea2-407d-bfdc-d2091ba90f1d",
+        "name": "Cell Sorting",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "1140baa6-e535-4604-96b9-bf334238d790",
+        "name": "Cell Counting",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "0b8c2d4b-7e7f-4f4b-b8ca-4699d7fcc880",
+        "name": "Cell Viability Assay",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "db21674e-44a0-4ec9-8ffa-648b2f6d7a74",
+        "name": "Enzyme Assay",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "5a0f60b5-8b44-4fd4-813a-544ab0e5cf19",
+        "name": "Metabolite Analysis",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "6f68b256-0f38-45cc-8535-386baaaa1462",
+        "name": "Titration",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "2f8f98f4-5564-4a4a-a3fa-6de20e5289cc",
+        "name": "Buffer Preparation",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "359c1eab-f4ab-44d2-ab14-7fcf67be6d4a",
+        "name": "Media Preparation",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "ea5b4549-d73d-40f6-a5a3-a82237ba164c",
+        "name": "Sterilization",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "e391afd9-e788-49ae-8a9f-22d2cdf47665",
+        "name": "Quality Control",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "94cb7abb-4740-49d2-8482-6fb5c4736bbc",
+        "name": "Calibration",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "8b5040a4-b1af-47f2-b79e-ed316fa989b5",
+        "name": "Validation",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "ebc40277-eeee-4063-b6eb-457e13184aac",
+        "name": "Standard Curve Preparation",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "04f0627f-007a-446c-98ae-2267bd5dded0",
+        "name": "Sample Storage",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "04f49e16-d617-4211-b706-ab6ca83d821a",
+        "name": "Sample Transport",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "44c0eb73-68cf-44be-9a1e-eff8b034ae4f",
+        "name": "Sample Mixing",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "7f09125a-0212-44ee-b58c-3e4edde00c9f",
+        "name": "Sample Aliquoting",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "01354cbb-6c63-481e-a54a-822e58c85c4d",
+        "name": "Sample Homogenization",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "16d500d1-9514-433e-9318-76dbd776cd89",
+        "name": "Sample Filtration",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "eadd02fc-825c-45c2-bac4-72426bbcc44b",
+        "name": "Sample Centrifugation",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "d97ec5d4-2ee6-4bb6-8054-cb3075938f28",
+        "name": "Sample Labeling",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "a03fc47d-8cb7-477f-a339-0e8f04ce820a",
+        "name": "Sample Thawing",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "7504a3f6-7b07-4d92-84b5-87aa485d6c9e",
+        "name": "Sample Freezing",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "19a70217-0679-41e2-9f8f-0e93e3a914f0",
+        "name": "Sample Incubation",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "7c3b8bd8-100d-427e-a19c-d91ef97a4848",
+        "name": "Sample Vortexing",
+        "type": "process",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      }
+    ],
+    "perspectives": [
+      {
+        "id": "1a511f6b-dd66-41e3-8da7-8a6c649324b8",
+        "name": "Lab Technician",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "52c7bd5b-60ef-464f-b4f5-1fd9cb495d51",
+        "name": "Research Scientist",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "b12adbc8-669a-4b89-84d6-bbad55d35c48",
+        "name": "Principal Investigator",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "5e0be6ce-faae-443d-99a4-8e9df19ae917",
+        "name": "Lab Manager",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "3767b27c-313f-4707-b177-64f402557b3a",
+        "name": "Quality Control Specialist",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "cd6752bf-3b0a-40ea-babb-b9aaf2c018ee",
+        "name": "Clinical Researcher",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "9d499df7-0c9a-4df2-bd7a-7f57c0cce047",
+        "name": "Pharmaceutical Scientist",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "88c34da6-45be-4756-8ca8-a4d68ae612ed",
+        "name": "Biotechnologist",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "28fdb56a-7c25-4989-8717-80ea07966578",
+        "name": "Microbiologist",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "3f754ca6-9da0-47de-acb6-1c6e69ee9621",
+        "name": "Molecular Biologist",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "0bcc4136-7063-4ba4-929b-71f121f13c08",
+        "name": "Geneticist",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "d412a361-381b-400a-9919-53e32715c851",
+        "name": "Biochemist",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "98ddd4a1-7e43-4091-bb6e-51e7a50bf04a",
+        "name": "Cell Biologist",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "06776c7b-ce1d-4a00-88f7-f92bf1bad0ea",
+        "name": "Immunologist",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "50ff8bac-1055-4fa1-a5dc-ee6a5a781438",
+        "name": "Pathologist",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "371d0621-8fe5-413f-a3f3-427119ac9c5a",
+        "name": "Forensic Scientist",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "c020e4df-21e1-4ab5-b343-4fb64d45742c",
+        "name": "Environmental Scientist",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "4e821871-5f72-455c-8422-4484b8c081a1",
+        "name": "Agricultural Scientist",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "0df10ac9-314c-40d6-b8e3-07ed38f44035",
+        "name": "Food Scientist",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "b2cdfb3a-d193-493e-b670-96f048dcbb26",
+        "name": "Veterinary Scientist",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "23149312-4619-4a01-8a57-9f244d2644a3",
+        "name": "Chemical Engineer",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "75c73fe1-ca46-4ef8-8ca5-e5dbcbd56bc0",
+        "name": "Biomedical Engineer",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "afeb3e59-a67a-4300-a0f8-8e8390383bd9",
+        "name": "Regulatory Affairs Specialist",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "81b7a287-ff94-4ab9-b60f-5c878811a47c",
+        "name": "Lab Equipment Sales Representative",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "084ae417-4299-447f-9c82-db1b5391e03b",
+        "name": "Technical Support Specialist",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "a55e3a40-cd3b-4a11-80c9-ff877ee89d18",
+        "name": "Lab Assistant",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "c493fe2e-0ded-4251-879e-915926deaf19",
+        "name": "Postdoctoral Researcher",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "d3328ca8-1104-4134-a869-9aa08348dc57",
+        "name": "Graduate Student",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "060689f4-e7db-43b8-8eec-7d9a395bf1ce",
+        "name": "Undergraduate Student",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "c676ef60-81e0-45c9-b4d8-316fb065bfec",
+        "name": "Lab Coordinator",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "af459281-d15e-4aec-8210-29f387672054",
+        "name": "Lab Safety Officer",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "046b4a3e-02e7-4ba1-882c-85f152330c07",
+        "name": "Lab Automation Specialist",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "91c53669-c592-4adf-be24-068942788fa1",
+        "name": "Lab IT Specialist",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "6460aada-971c-416d-bb44-807ba00c3dd9",
+        "name": "Lab Procurement Officer",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      },
+      {
+        "id": "a2827444-3fcb-4b84-9f03-9c864731cfda",
+        "name": "Lab Maintenance Technician",
+        "type": "perspective",
+        "domain": "Pipette_Use_In_Wet_Lab"
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "9f1f287f-29e9-4fe4-887c-d7ef3e9be8dd",
+      "property_id": "5f3be1cd-3420-4558-81ed-4ebcd3df7de3",
+      "process_id": "6f68b256-0f38-45cc-8535-386baaaa1462",
+      "perspective_id": "046b4a3e-02e7-4ba1-882c-85f152330c07",
+      "strength": 0.66,
+      "confidence": 0.93
+    },
+    {
+      "id": "618cc9c3-e5b4-4fc1-99bc-318434c50910",
+      "property_id": "bda03d66-25d4-4b19-ac37-13ec9ed81d53",
+      "process_id": "ebc40277-eeee-4063-b6eb-457e13184aac",
+      "perspective_id": "046b4a3e-02e7-4ba1-882c-85f152330c07",
+      "strength": 0.76,
+      "confidence": 0.71
+    },
+    {
+      "id": "56d4f1ad-6838-4b96-a9d2-b0b0eb40b673",
+      "property_id": "5f000d14-9e0d-4f74-b1e5-fd34883ab8ca",
+      "process_id": "eadd02fc-825c-45c2-bac4-72426bbcc44b",
+      "perspective_id": "cd6752bf-3b0a-40ea-babb-b9aaf2c018ee",
+      "strength": 0.63,
+      "confidence": 0.97
+    },
+    {
+      "id": "f53ee6d7-11f6-4089-9808-b55917bf0cbf",
+      "property_id": "410a7af7-c8ba-429c-83ab-c40661cfc10b",
+      "process_id": "bd6da7d8-0e7f-4246-9517-a1be2eb14163",
+      "perspective_id": "c676ef60-81e0-45c9-b4d8-316fb065bfec",
+      "strength": 0.9,
+      "confidence": 0.92
+    },
+    {
+      "id": "9b34c2c0-9ec1-40e9-a9ae-1a73c66d78a2",
+      "property_id": "7e950eba-6f9e-4903-b2e5-62923801771e",
+      "process_id": "16d500d1-9514-433e-9318-76dbd776cd89",
+      "perspective_id": "af459281-d15e-4aec-8210-29f387672054",
+      "strength": 0.77,
+      "confidence": 0.72
+    },
+    {
+      "id": "42c2f76d-6416-4f04-8fc9-42c660315903",
+      "property_id": "a1107b04-1203-4e5a-8226-24473376d611",
+      "process_id": "0e640cce-2910-4489-8ed4-2a5ed9c633f8",
+      "perspective_id": "084ae417-4299-447f-9c82-db1b5391e03b",
+      "strength": 0.63,
+      "confidence": 0.88
+    },
+    {
+      "id": "807468a5-b8b7-435b-934e-75f66c2f37a9",
+      "property_id": "410a7af7-c8ba-429c-83ab-c40661cfc10b",
+      "process_id": "f3a52ae4-e3ef-46e5-8bff-5884bd5ed7f2",
+      "perspective_id": "06776c7b-ce1d-4a00-88f7-f92bf1bad0ea",
+      "strength": 0.67,
+      "confidence": 0.73
+    },
+    {
+      "id": "4d98b597-de8c-4694-a33b-aa71eaf0a643",
+      "property_id": "3b7778de-3be6-4f86-826e-2ac888f3e3d8",
+      "process_id": "da08770f-5471-419e-a398-0421d9182060",
+      "perspective_id": "1a511f6b-dd66-41e3-8da7-8a6c649324b8",
+      "strength": 0.71,
+      "confidence": 0.91
+    },
+    {
+      "id": "94bc54de-66ca-4c9e-a090-6b2867c8064a",
+      "property_id": "a74e0975-f0c2-46ed-a80a-16f453ae3948",
+      "process_id": "ebc40277-eeee-4063-b6eb-457e13184aac",
+      "perspective_id": "81b7a287-ff94-4ab9-b60f-5c878811a47c",
+      "strength": 0.81,
+      "confidence": 0.89
+    },
+    {
+      "id": "8271b3bb-3f98-43c0-8b36-a1e1ae9c45a5",
+      "property_id": "5f3be1cd-3420-4558-81ed-4ebcd3df7de3",
+      "process_id": "7f09125a-0212-44ee-b58c-3e4edde00c9f",
+      "perspective_id": "9d499df7-0c9a-4df2-bd7a-7f57c0cce047",
+      "strength": 0.86,
+      "confidence": 0.96
+    },
+    {
+      "id": "281763a4-ee84-4d7d-8402-c493b9bb5da7",
+      "property_id": "5f000d14-9e0d-4f74-b1e5-fd34883ab8ca",
+      "process_id": "33730144-dac0-4f39-86cb-97df6df00fb0",
+      "perspective_id": "88c34da6-45be-4756-8ca8-a4d68ae612ed",
+      "strength": 0.53,
+      "confidence": 0.95
+    },
+    {
+      "id": "050b5aca-45fc-48ca-9609-cf62a096e61f",
+      "property_id": "bc7cea88-a6a9-4dbe-8fe7-1b21a6abd082",
+      "process_id": "a43b9b80-960e-45cd-87e2-5e071a506c0c",
+      "perspective_id": "3f754ca6-9da0-47de-acb6-1c6e69ee9621",
+      "strength": 0.89,
+      "confidence": 0.98
+    },
+    {
+      "id": "9a9d2e39-75ef-4313-a1af-e062e6409964",
+      "property_id": "4a7104ec-e886-4427-8b3c-e6f5aa5d8cde",
+      "process_id": "1edcef1e-605a-42d4-ae48-7e59478e968a",
+      "perspective_id": "371d0621-8fe5-413f-a3f3-427119ac9c5a",
+      "strength": 0.71,
+      "confidence": 0.88
+    },
+    {
+      "id": "4a23f79a-8f59-4c2f-a714-17c9ae569d2a",
+      "property_id": "daf5906e-e328-40dc-a39d-e8bc46a49da1",
+      "process_id": "b6ff2b31-ecab-46af-8687-03214ba698cb",
+      "perspective_id": "5e0be6ce-faae-443d-99a4-8e9df19ae917",
+      "strength": 0.5,
+      "confidence": 0.88
+    },
+    {
+      "id": "3949c48e-d2c1-45bf-b85e-28702f319f88",
+      "property_id": "a1107b04-1203-4e5a-8226-24473376d611",
+      "process_id": "e391afd9-e788-49ae-8a9f-22d2cdf47665",
+      "perspective_id": "23149312-4619-4a01-8a57-9f244d2644a3",
+      "strength": 0.75,
+      "confidence": 0.98
+    },
+    {
+      "id": "3ea92998-03f2-4106-8e70-93b22eaee36f",
+      "property_id": "4f2f46e5-bc2c-40f9-84f1-d555bf9b6eab",
+      "process_id": "0b8c2d4b-7e7f-4f4b-b8ca-4699d7fcc880",
+      "perspective_id": "c676ef60-81e0-45c9-b4d8-316fb065bfec",
+      "strength": 0.9,
+      "confidence": 0.7
+    },
+    {
+      "id": "b2c7f98c-58f1-4e49-b5bb-997731f6b0c7",
+      "property_id": "cdf6076f-d907-444d-84c6-fdf42f2f70a8",
+      "process_id": "7c3b8bd8-100d-427e-a19c-d91ef97a4848",
+      "perspective_id": "9d499df7-0c9a-4df2-bd7a-7f57c0cce047",
+      "strength": 0.67,
+      "confidence": 0.76
+    },
+    {
+      "id": "71519b12-925b-4571-a595-a4742bf6ed30",
+      "property_id": "bc7cea88-a6a9-4dbe-8fe7-1b21a6abd082",
+      "process_id": "eadd02fc-825c-45c2-bac4-72426bbcc44b",
+      "perspective_id": "af459281-d15e-4aec-8210-29f387672054",
+      "strength": 0.67,
+      "confidence": 0.8
+    },
+    {
+      "id": "156b1464-6f12-4d16-bcbe-88df7ecf2ba0",
+      "property_id": "b9669bbc-91a6-4cff-8162-c19c36f310b8",
+      "process_id": "bd6da7d8-0e7f-4246-9517-a1be2eb14163",
+      "perspective_id": "3767b27c-313f-4707-b177-64f402557b3a",
+      "strength": 0.94,
+      "confidence": 0.73
+    },
+    {
+      "id": "5902210e-5b09-43f0-aa38-0869fd7cb0ea",
+      "property_id": "65426144-0387-4e42-8d42-1535e7a3a1f0",
+      "process_id": "7504a3f6-7b07-4d92-84b5-87aa485d6c9e",
+      "perspective_id": "3767b27c-313f-4707-b177-64f402557b3a",
+      "strength": 0.81,
+      "confidence": 0.7
+    },
+    {
+      "id": "44fa1229-736c-4251-8953-501a4e07c860",
+      "property_id": "65426144-0387-4e42-8d42-1535e7a3a1f0",
+      "process_id": "7504a3f6-7b07-4d92-84b5-87aa485d6c9e",
+      "perspective_id": "50ff8bac-1055-4fa1-a5dc-ee6a5a781438",
+      "strength": 0.68,
+      "confidence": 0.74
+    },
+    {
+      "id": "48eeb243-986b-41f4-8a32-96c9ae918767",
+      "property_id": "b1b0c3c6-4e6f-4021-846b-656f3cc7c977",
+      "process_id": "26824bf8-3877-4705-97bf-f9e7ec36792a",
+      "perspective_id": "98ddd4a1-7e43-4091-bb6e-51e7a50bf04a",
+      "strength": 0.86,
+      "confidence": 0.81
+    },
+    {
+      "id": "14a190ea-79f7-466d-a3ef-89617d0944f1",
+      "property_id": "a1107b04-1203-4e5a-8226-24473376d611",
+      "process_id": "cbca809e-1ccd-47e8-bff2-97940c50e2a0",
+      "perspective_id": "98ddd4a1-7e43-4091-bb6e-51e7a50bf04a",
+      "strength": 0.84,
+      "confidence": 0.86
+    },
+    {
+      "id": "e5a8d4fc-0b1e-47c5-a209-cd2a9b17d5f8",
+      "property_id": "4a7104ec-e886-4427-8b3c-e6f5aa5d8cde",
+      "process_id": "7504a3f6-7b07-4d92-84b5-87aa485d6c9e",
+      "perspective_id": "23149312-4619-4a01-8a57-9f244d2644a3",
+      "strength": 0.98,
+      "confidence": 0.92
+    },
+    {
+      "id": "48bdf13a-d5d6-4f1a-b0e4-abbbac7961fa",
+      "property_id": "a1107b04-1203-4e5a-8226-24473376d611",
+      "process_id": "1140baa6-e535-4604-96b9-bf334238d790",
+      "perspective_id": "98ddd4a1-7e43-4091-bb6e-51e7a50bf04a",
+      "strength": 0.95,
+      "confidence": 0.72
+    },
+    {
+      "id": "baa9d16a-a12d-40e4-b567-484bf34443e3",
+      "property_id": "7030b080-4e2d-436f-8f41-b160969c2fab",
+      "process_id": "a03fc47d-8cb7-477f-a339-0e8f04ce820a",
+      "perspective_id": "28fdb56a-7c25-4989-8717-80ea07966578",
+      "strength": 0.53,
+      "confidence": 0.77
+    },
+    {
+      "id": "e51d71ab-f663-4483-bbaa-b00df6b05949",
+      "property_id": "a74e0975-f0c2-46ed-a80a-16f453ae3948",
+      "process_id": "16d500d1-9514-433e-9318-76dbd776cd89",
+      "perspective_id": "91c53669-c592-4adf-be24-068942788fa1",
+      "strength": 0.78,
+      "confidence": 0.94
+    },
+    {
+      "id": "04ba00f4-8d30-413f-a551-7cee22b4fbbe",
+      "property_id": "bda03d66-25d4-4b19-ac37-13ec9ed81d53",
+      "process_id": "5a0f60b5-8b44-4fd4-813a-544ab0e5cf19",
+      "perspective_id": "52c7bd5b-60ef-464f-b4f5-1fd9cb495d51",
+      "strength": 0.55,
+      "confidence": 0.89
+    },
+    {
+      "id": "e11d4624-60af-4d14-b94d-db731b6a9118",
+      "property_id": "9d2c68e6-6c25-4328-810c-03ba2256b907",
+      "process_id": "33730144-dac0-4f39-86cb-97df6df00fb0",
+      "perspective_id": "50ff8bac-1055-4fa1-a5dc-ee6a5a781438",
+      "strength": 0.84,
+      "confidence": 0.94
+    },
+    {
+      "id": "635166cc-d4c3-455c-9a4d-367d383e4918",
+      "property_id": "4a7104ec-e886-4427-8b3c-e6f5aa5d8cde",
+      "process_id": "26824bf8-3877-4705-97bf-f9e7ec36792a",
+      "perspective_id": "d412a361-381b-400a-9919-53e32715c851",
+      "strength": 0.73,
+      "confidence": 0.92
+    },
+    {
+      "id": "a6744b81-ad04-426d-a6d3-70bf9e8c3c2a",
+      "property_id": "daf5906e-e328-40dc-a39d-e8bc46a49da1",
+      "process_id": "b6ff2b31-ecab-46af-8687-03214ba698cb",
+      "perspective_id": "5e0be6ce-faae-443d-99a4-8e9df19ae917",
+      "strength": 0.59,
+      "confidence": 0.71
+    },
+    {
+      "id": "0f1433fe-3d01-4e98-a721-2dcd7b294314",
+      "property_id": "a1107b04-1203-4e5a-8226-24473376d611",
+      "process_id": "33730144-dac0-4f39-86cb-97df6df00fb0",
+      "perspective_id": "0df10ac9-314c-40d6-b8e3-07ed38f44035",
+      "strength": 0.86,
+      "confidence": 0.96
+    },
+    {
+      "id": "206522a3-4419-4b5e-a99a-22375f90c06b",
+      "property_id": "cd5c0063-647a-455b-927a-6d636bf9e302",
+      "process_id": "5a0f60b5-8b44-4fd4-813a-544ab0e5cf19",
+      "perspective_id": "52c7bd5b-60ef-464f-b4f5-1fd9cb495d51",
+      "strength": 0.96,
+      "confidence": 0.73
+    },
+    {
+      "id": "de2c3ec5-552d-426d-9b55-2bbd5287f9e6",
+      "property_id": "3b7778de-3be6-4f86-826e-2ac888f3e3d8",
+      "process_id": "04f0627f-007a-446c-98ae-2267bd5dded0",
+      "perspective_id": "28fdb56a-7c25-4989-8717-80ea07966578",
+      "strength": 0.5,
+      "confidence": 0.83
+    },
+    {
+      "id": "2fc37fb0-dab1-49e5-9ce1-2a77b491f7e1",
+      "property_id": "5f000d14-9e0d-4f74-b1e5-fd34883ab8ca",
+      "process_id": "e159db9c-d14b-4065-b432-ee9a11475968",
+      "perspective_id": "28fdb56a-7c25-4989-8717-80ea07966578",
+      "strength": 0.59,
+      "confidence": 0.81
+    },
+    {
+      "id": "f8d2eb3d-aa9e-4a63-a875-6246d1bf4982",
+      "property_id": "10ddc392-c4d0-4b32-b6f6-4e93e8b1caa9",
+      "process_id": "010ff5ee-e506-4138-ac6d-045749d90df8",
+      "perspective_id": "91c53669-c592-4adf-be24-068942788fa1",
+      "strength": 0.85,
+      "confidence": 0.84
+    },
+    {
+      "id": "f1ec0262-3dab-4c50-bb0a-24bf91f66059",
+      "property_id": "7e950eba-6f9e-4903-b2e5-62923801771e",
+      "process_id": "e391afd9-e788-49ae-8a9f-22d2cdf47665",
+      "perspective_id": "b2cdfb3a-d193-493e-b670-96f048dcbb26",
+      "strength": 0.81,
+      "confidence": 0.83
+    },
+    {
+      "id": "bc708fea-2331-4eab-be68-082d772d4fb9",
+      "property_id": "a1107b04-1203-4e5a-8226-24473376d611",
+      "process_id": "cbca809e-1ccd-47e8-bff2-97940c50e2a0",
+      "perspective_id": "a2827444-3fcb-4b84-9f03-9c864731cfda",
+      "strength": 0.52,
+      "confidence": 0.96
+    },
+    {
+      "id": "ce8ad08d-4019-43cf-931c-4d81fdf818e6",
+      "property_id": "b9669bbc-91a6-4cff-8162-c19c36f310b8",
+      "process_id": "04f49e16-d617-4211-b706-ab6ca83d821a",
+      "perspective_id": "a2827444-3fcb-4b84-9f03-9c864731cfda",
+      "strength": 0.69,
+      "confidence": 0.87
+    },
+    {
+      "id": "e0c5da28-ff77-4245-af51-a17c0db7ab10",
+      "property_id": "10ddc392-c4d0-4b32-b6f6-4e93e8b1caa9",
+      "process_id": "e9d23274-9ba6-4329-ab29-e3e14ea20e0a",
+      "perspective_id": "0bcc4136-7063-4ba4-929b-71f121f13c08",
+      "strength": 0.92,
+      "confidence": 0.87
+    },
+    {
+      "id": "945af10b-40cd-4c1f-b485-05f9ac48b06a",
+      "property_id": "b1b0c3c6-4e6f-4021-846b-656f3cc7c977",
+      "process_id": "5a0f60b5-8b44-4fd4-813a-544ab0e5cf19",
+      "perspective_id": "afeb3e59-a67a-4300-a0f8-8e8390383bd9",
+      "strength": 0.66,
+      "confidence": 0.74
+    },
+    {
+      "id": "b3d0cbe6-94ff-4bed-8a64-c9587b1fc070",
+      "property_id": "daf5906e-e328-40dc-a39d-e8bc46a49da1",
+      "process_id": "a4d3c05c-cbac-4360-94e9-125dc7992d10",
+      "perspective_id": "046b4a3e-02e7-4ba1-882c-85f152330c07",
+      "strength": 0.72,
+      "confidence": 0.8
+    },
+    {
+      "id": "9bd18040-ef77-45b8-8827-6f5bf9c872d0",
+      "property_id": "a1107b04-1203-4e5a-8226-24473376d611",
+      "process_id": "ebc40277-eeee-4063-b6eb-457e13184aac",
+      "perspective_id": "3767b27c-313f-4707-b177-64f402557b3a",
+      "strength": 0.92,
+      "confidence": 0.76
+    },
+    {
+      "id": "d889b49c-ac84-4978-ab7e-b4a866c6ec4f",
+      "property_id": "cdf6076f-d907-444d-84c6-fdf42f2f70a8",
+      "process_id": "6f68b256-0f38-45cc-8535-386baaaa1462",
+      "perspective_id": "046b4a3e-02e7-4ba1-882c-85f152330c07",
+      "strength": 0.62,
+      "confidence": 0.76
+    },
+    {
+      "id": "67b400c9-4b11-464c-b520-b7b943e434fe",
+      "property_id": "fef03729-1d71-4efd-8051-a6b60257b72f",
+      "process_id": "b6ff2b31-ecab-46af-8687-03214ba698cb",
+      "perspective_id": "3f754ca6-9da0-47de-acb6-1c6e69ee9621",
+      "strength": 0.83,
+      "confidence": 0.73
+    },
+    {
+      "id": "efffa3c7-3043-45dd-bb11-6609a041d04a",
+      "property_id": "a74e0975-f0c2-46ed-a80a-16f453ae3948",
+      "process_id": "5a0f60b5-8b44-4fd4-813a-544ab0e5cf19",
+      "perspective_id": "046b4a3e-02e7-4ba1-882c-85f152330c07",
+      "strength": 0.58,
+      "confidence": 0.99
+    },
+    {
+      "id": "5ba29adc-047f-479e-a073-2400888313c2",
+      "property_id": "4a7104ec-e886-4427-8b3c-e6f5aa5d8cde",
+      "process_id": "7c3b8bd8-100d-427e-a19c-d91ef97a4848",
+      "perspective_id": "4e821871-5f72-455c-8422-4484b8c081a1",
+      "strength": 0.89,
+      "confidence": 0.89
+    },
+    {
+      "id": "56a19034-903b-4fee-8dc2-bdc8ba3b17c3",
+      "property_id": "a74e0975-f0c2-46ed-a80a-16f453ae3948",
+      "process_id": "04f0627f-007a-446c-98ae-2267bd5dded0",
+      "perspective_id": "0df10ac9-314c-40d6-b8e3-07ed38f44035",
+      "strength": 0.76,
+      "confidence": 0.84
+    },
+    {
+      "id": "152e81d5-15bd-4bca-8c37-1b276c07bfde",
+      "property_id": "cdf6076f-d907-444d-84c6-fdf42f2f70a8",
+      "process_id": "19a70217-0679-41e2-9f8f-0e93e3a914f0",
+      "perspective_id": "371d0621-8fe5-413f-a3f3-427119ac9c5a",
+      "strength": 0.91,
+      "confidence": 0.83
+    },
+    {
+      "id": "45d8d01f-1d83-45a9-9bbf-fadc5cca7e63",
+      "property_id": "10ddc392-c4d0-4b32-b6f6-4e93e8b1caa9",
+      "process_id": "ea5b4549-d73d-40f6-a5a3-a82237ba164c",
+      "perspective_id": "91c53669-c592-4adf-be24-068942788fa1",
+      "strength": 0.56,
+      "confidence": 0.86
+    },
+    {
+      "id": "e274b78d-0a89-4e5d-9352-f9baef2c370e",
+      "property_id": "184c67f2-48e8-42fe-bdcb-32ca24b889d1",
+      "process_id": "7504a3f6-7b07-4d92-84b5-87aa485d6c9e",
+      "perspective_id": "0df10ac9-314c-40d6-b8e3-07ed38f44035",
+      "strength": 0.65,
+      "confidence": 0.83
+    },
+    {
+      "id": "bbcb27f1-495f-4e37-8241-afe8fa41480c",
+      "property_id": "a74e0975-f0c2-46ed-a80a-16f453ae3948",
+      "process_id": "e9d23274-9ba6-4329-ab29-e3e14ea20e0a",
+      "perspective_id": "23149312-4619-4a01-8a57-9f244d2644a3",
+      "strength": 0.52,
+      "confidence": 0.94
+    },
+    {
+      "id": "73a3d25e-39ef-4985-a513-df1a9fb11371",
+      "property_id": "3b7778de-3be6-4f86-826e-2ac888f3e3d8",
+      "process_id": "6f68b256-0f38-45cc-8535-386baaaa1462",
+      "perspective_id": "c676ef60-81e0-45c9-b4d8-316fb065bfec",
+      "strength": 0.82,
+      "confidence": 0.89
+    },
+    {
+      "id": "d3b2333d-636f-46db-8fa1-da29d649c05b",
+      "property_id": "87d69833-eb8c-42ec-94f5-a296c946a59e",
+      "process_id": "4c07e4d1-2779-4b7c-8fb2-b0810395295e",
+      "perspective_id": "cd6752bf-3b0a-40ea-babb-b9aaf2c018ee",
+      "strength": 0.86,
+      "confidence": 0.84
+    },
+    {
+      "id": "9967bd15-2fad-4e0a-a860-cb95b4db590c",
+      "property_id": "9d2c68e6-6c25-4328-810c-03ba2256b907",
+      "process_id": "04f0627f-007a-446c-98ae-2267bd5dded0",
+      "perspective_id": "50ff8bac-1055-4fa1-a5dc-ee6a5a781438",
+      "strength": 0.68,
+      "confidence": 0.89
+    },
+    {
+      "id": "d539434c-2f9c-43d0-a24e-7c5575b81bf5",
+      "property_id": "b1b0c3c6-4e6f-4021-846b-656f3cc7c977",
+      "process_id": "b6ff2b31-ecab-46af-8687-03214ba698cb",
+      "perspective_id": "d412a361-381b-400a-9919-53e32715c851",
+      "strength": 0.91,
+      "confidence": 0.73
+    },
+    {
+      "id": "4ca3284f-2145-478c-b8df-2912fd5bf7e8",
+      "property_id": "3b7778de-3be6-4f86-826e-2ac888f3e3d8",
+      "process_id": "33730144-dac0-4f39-86cb-97df6df00fb0",
+      "perspective_id": "b2cdfb3a-d193-493e-b670-96f048dcbb26",
+      "strength": 0.96,
+      "confidence": 0.95
+    },
+    {
+      "id": "63c62d9b-d556-4fa9-8c09-d2257791c0e4",
+      "property_id": "e69e7026-7d5c-4187-8960-d4600428afeb",
+      "process_id": "ddd9f811-e22d-40df-a30c-bb63557d55eb",
+      "perspective_id": "cd6752bf-3b0a-40ea-babb-b9aaf2c018ee",
+      "strength": 0.55,
+      "confidence": 0.78
+    },
+    {
+      "id": "3ed7bf7e-9570-41fd-a7af-3ad7a3fc5f66",
+      "property_id": "cdf6076f-d907-444d-84c6-fdf42f2f70a8",
+      "process_id": "cbca809e-1ccd-47e8-bff2-97940c50e2a0",
+      "perspective_id": "0df10ac9-314c-40d6-b8e3-07ed38f44035",
+      "strength": 0.79,
+      "confidence": 0.89
+    },
+    {
+      "id": "c27bd03d-1c2f-4551-a067-52b640ae1b51",
+      "property_id": "738e50a6-6dd9-4a91-85d0-01b902a3d1ac",
+      "process_id": "5724d30d-9979-4e84-b00e-773e02bd351f",
+      "perspective_id": "c493fe2e-0ded-4251-879e-915926deaf19",
+      "strength": 0.89,
+      "confidence": 0.9
+    },
+    {
+      "id": "5d3970e1-12e1-41fe-a0bf-bf596496900d",
+      "property_id": "bda03d66-25d4-4b19-ac37-13ec9ed81d53",
+      "process_id": "b1f2d544-86a4-488f-ae87-3e713a5d6b2e",
+      "perspective_id": "cd6752bf-3b0a-40ea-babb-b9aaf2c018ee",
+      "strength": 0.51,
+      "confidence": 0.94
+    },
+    {
+      "id": "261c561a-483a-4620-b2ba-0d0cc1092c89",
+      "property_id": "daf5906e-e328-40dc-a39d-e8bc46a49da1",
+      "process_id": "e159db9c-d14b-4065-b432-ee9a11475968",
+      "perspective_id": "0bcc4136-7063-4ba4-929b-71f121f13c08",
+      "strength": 0.95,
+      "confidence": 0.77
+    },
+    {
+      "id": "30c006cd-bb76-4781-80ac-eaf2ac3f6909",
+      "property_id": "410a7af7-c8ba-429c-83ab-c40661cfc10b",
+      "process_id": "ddd9f811-e22d-40df-a30c-bb63557d55eb",
+      "perspective_id": "0df10ac9-314c-40d6-b8e3-07ed38f44035",
+      "strength": 0.97,
+      "confidence": 0.73
+    },
+    {
+      "id": "e0242dcf-d9af-4499-b1af-2cedc17d8f8d",
+      "property_id": "b1b0c3c6-4e6f-4021-846b-656f3cc7c977",
+      "process_id": "ea5b4549-d73d-40f6-a5a3-a82237ba164c",
+      "perspective_id": "4e821871-5f72-455c-8422-4484b8c081a1",
+      "strength": 0.5,
+      "confidence": 0.76
+    },
+    {
+      "id": "3d2e83c2-0e8a-4c36-bc27-51388e69f367",
+      "property_id": "738e50a6-6dd9-4a91-85d0-01b902a3d1ac",
+      "process_id": "94cb7abb-4740-49d2-8482-6fb5c4736bbc",
+      "perspective_id": "91c53669-c592-4adf-be24-068942788fa1",
+      "strength": 0.55,
+      "confidence": 0.74
+    },
+    {
+      "id": "98ac2a4b-41a4-4a46-a4ee-558e482730f4",
+      "property_id": "a1107b04-1203-4e5a-8226-24473376d611",
+      "process_id": "26824bf8-3877-4705-97bf-f9e7ec36792a",
+      "perspective_id": "060689f4-e7db-43b8-8eec-7d9a395bf1ce",
+      "strength": 0.72,
+      "confidence": 0.74
+    },
+    {
+      "id": "371522a2-6946-4c8d-a699-35731c5a7577",
+      "property_id": "65426144-0387-4e42-8d42-1535e7a3a1f0",
+      "process_id": "3dd45cff-9bfe-45e8-a63d-5cb0fb84d047",
+      "perspective_id": "88c34da6-45be-4756-8ca8-a4d68ae612ed",
+      "strength": 0.81,
+      "confidence": 0.98
+    },
+    {
+      "id": "cde36a87-54dd-4f8f-9fca-1f80d78c0baa",
+      "property_id": "4f2f46e5-bc2c-40f9-84f1-d555bf9b6eab",
+      "process_id": "359c1eab-f4ab-44d2-ab14-7fcf67be6d4a",
+      "perspective_id": "1a511f6b-dd66-41e3-8da7-8a6c649324b8",
+      "strength": 0.68,
+      "confidence": 0.82
+    },
+    {
+      "id": "bb7e7a47-80a4-4cc2-973b-ba768065f1f3",
+      "property_id": "7e950eba-6f9e-4903-b2e5-62923801771e",
+      "process_id": "359c1eab-f4ab-44d2-ab14-7fcf67be6d4a",
+      "perspective_id": "81b7a287-ff94-4ab9-b60f-5c878811a47c",
+      "strength": 0.65,
+      "confidence": 0.9
+    },
+    {
+      "id": "0c496e77-1bff-44b7-90bf-5d3a41d00aa5",
+      "property_id": "bda03d66-25d4-4b19-ac37-13ec9ed81d53",
+      "process_id": "e0c46673-bc16-481e-8f26-bb27d282ef91",
+      "perspective_id": "046b4a3e-02e7-4ba1-882c-85f152330c07",
+      "strength": 0.95,
+      "confidence": 0.94
+    },
+    {
+      "id": "9989211f-94eb-4bdd-ac9d-77954b946768",
+      "property_id": "b1b0c3c6-4e6f-4021-846b-656f3cc7c977",
+      "process_id": "19a70217-0679-41e2-9f8f-0e93e3a914f0",
+      "perspective_id": "9d499df7-0c9a-4df2-bd7a-7f57c0cce047",
+      "strength": 0.69,
+      "confidence": 0.96
+    },
+    {
+      "id": "9eb04160-b0a7-4f6e-ae5a-71c84b15b43f",
+      "property_id": "5f000d14-9e0d-4f74-b1e5-fd34883ab8ca",
+      "process_id": "3304bfbd-b500-4301-9437-48733876681e",
+      "perspective_id": "3767b27c-313f-4707-b177-64f402557b3a",
+      "strength": 0.84,
+      "confidence": 0.92
+    },
+    {
+      "id": "8f984fc0-e623-4274-a372-73d0259e10d0",
+      "property_id": "bc7cea88-a6a9-4dbe-8fe7-1b21a6abd082",
+      "process_id": "010ff5ee-e506-4138-ac6d-045749d90df8",
+      "perspective_id": "c493fe2e-0ded-4251-879e-915926deaf19",
+      "strength": 0.58,
+      "confidence": 0.92
+    },
+    {
+      "id": "a0c34296-d197-4042-a642-23287be398e7",
+      "property_id": "5f3be1cd-3420-4558-81ed-4ebcd3df7de3",
+      "process_id": "0b8c2d4b-7e7f-4f4b-b8ca-4699d7fcc880",
+      "perspective_id": "52c7bd5b-60ef-464f-b4f5-1fd9cb495d51",
+      "strength": 0.87,
+      "confidence": 0.94
+    },
+    {
+      "id": "82007277-b576-41f6-bbc9-b0b104286b0a",
+      "property_id": "cd5c0063-647a-455b-927a-6d636bf9e302",
+      "process_id": "e159db9c-d14b-4065-b432-ee9a11475968",
+      "perspective_id": "b12adbc8-669a-4b89-84d6-bbad55d35c48",
+      "strength": 0.51,
+      "confidence": 0.81
+    },
+    {
+      "id": "1b2db8cd-91c1-4714-9514-b254998d788e",
+      "property_id": "fef03729-1d71-4efd-8051-a6b60257b72f",
+      "process_id": "4c07e4d1-2779-4b7c-8fb2-b0810395295e",
+      "perspective_id": "af459281-d15e-4aec-8210-29f387672054",
+      "strength": 0.61,
+      "confidence": 1.0
+    },
+    {
+      "id": "7ba70dfb-448b-42ab-9067-70f9934fc608",
+      "property_id": "cdf6076f-d907-444d-84c6-fdf42f2f70a8",
+      "process_id": "5724d30d-9979-4e84-b00e-773e02bd351f",
+      "perspective_id": "23149312-4619-4a01-8a57-9f244d2644a3",
+      "strength": 0.56,
+      "confidence": 0.93
+    },
+    {
+      "id": "6537fdb9-02e2-4630-9e91-69dcc0f595b4",
+      "property_id": "5f000d14-9e0d-4f74-b1e5-fd34883ab8ca",
+      "process_id": "eadd02fc-825c-45c2-bac4-72426bbcc44b",
+      "perspective_id": "1a511f6b-dd66-41e3-8da7-8a6c649324b8",
+      "strength": 0.61,
+      "confidence": 0.72
+    },
+    {
+      "id": "c387a01d-eea7-4468-a9c7-485aeccdb89f",
+      "property_id": "b1b0c3c6-4e6f-4021-846b-656f3cc7c977",
+      "process_id": "1edcef1e-605a-42d4-ae48-7e59478e968a",
+      "perspective_id": "d412a361-381b-400a-9919-53e32715c851",
+      "strength": 0.54,
+      "confidence": 0.92
+    },
+    {
+      "id": "1956933a-7165-49a4-8c28-fd208d2e35c7",
+      "property_id": "fef03729-1d71-4efd-8051-a6b60257b72f",
+      "process_id": "5a0f60b5-8b44-4fd4-813a-544ab0e5cf19",
+      "perspective_id": "afeb3e59-a67a-4300-a0f8-8e8390383bd9",
+      "strength": 0.98,
+      "confidence": 0.78
+    },
+    {
+      "id": "b60c82fe-247e-491b-87dc-4246443bfdf0",
+      "property_id": "410a7af7-c8ba-429c-83ab-c40661cfc10b",
+      "process_id": "aab5cad5-bd92-4e23-9663-8f3b56762c43",
+      "perspective_id": "b12adbc8-669a-4b89-84d6-bbad55d35c48",
+      "strength": 0.84,
+      "confidence": 0.99
+    },
+    {
+      "id": "24e653af-2b9a-4e01-9a90-9389e11eb8f2",
+      "property_id": "b1b0c3c6-4e6f-4021-846b-656f3cc7c977",
+      "process_id": "bd6da7d8-0e7f-4246-9517-a1be2eb14163",
+      "perspective_id": "cd6752bf-3b0a-40ea-babb-b9aaf2c018ee",
+      "strength": 0.7,
+      "confidence": 0.9
+    },
+    {
+      "id": "ed44575f-b9ff-46a4-b695-ddc10c362efa",
+      "property_id": "410a7af7-c8ba-429c-83ab-c40661cfc10b",
+      "process_id": "6b63bb3e-dd7e-41a6-8676-acf494617671",
+      "perspective_id": "81b7a287-ff94-4ab9-b60f-5c878811a47c",
+      "strength": 0.84,
+      "confidence": 0.92
+    },
+    {
+      "id": "d9eff3ee-d393-49c1-a874-01423eb8e6a0",
+      "property_id": "f8272774-4a56-444a-90b1-2602ebbf69f7",
+      "process_id": "bd6da7d8-0e7f-4246-9517-a1be2eb14163",
+      "perspective_id": "a55e3a40-cd3b-4a11-80c9-ff877ee89d18",
+      "strength": 0.71,
+      "confidence": 0.81
+    },
+    {
+      "id": "94ec26f7-1426-411e-9309-55698c4960fb",
+      "property_id": "5f3be1cd-3420-4558-81ed-4ebcd3df7de3",
+      "process_id": "69fd5788-fea2-407d-bfdc-d2091ba90f1d",
+      "perspective_id": "afeb3e59-a67a-4300-a0f8-8e8390383bd9",
+      "strength": 0.99,
+      "confidence": 0.84
+    },
+    {
+      "id": "57b35f2b-fd80-4774-aaa2-8ccc533fb8df",
+      "property_id": "e69e7026-7d5c-4187-8960-d4600428afeb",
+      "process_id": "0e640cce-2910-4489-8ed4-2a5ed9c633f8",
+      "perspective_id": "50ff8bac-1055-4fa1-a5dc-ee6a5a781438",
+      "strength": 0.86,
+      "confidence": 0.8
+    },
+    {
+      "id": "5673b332-a62f-437b-908d-2e7aa2c47549",
+      "property_id": "1150e7bb-5e40-44bf-b42f-bea014192ca9",
+      "process_id": "db21674e-44a0-4ec9-8ffa-648b2f6d7a74",
+      "perspective_id": "d3328ca8-1104-4134-a869-9aa08348dc57",
+      "strength": 0.84,
+      "confidence": 0.86
+    },
+    {
+      "id": "f5af030a-ba05-4e1d-ac61-d1563f659ac1",
+      "property_id": "4f2f46e5-bc2c-40f9-84f1-d555bf9b6eab",
+      "process_id": "0b8c2d4b-7e7f-4f4b-b8ca-4699d7fcc880",
+      "perspective_id": "a55e3a40-cd3b-4a11-80c9-ff877ee89d18",
+      "strength": 0.55,
+      "confidence": 0.71
+    },
+    {
+      "id": "fd2fd9b7-c0d5-4a95-9408-2b343d520454",
+      "property_id": "fef03729-1d71-4efd-8051-a6b60257b72f",
+      "process_id": "d97ec5d4-2ee6-4bb6-8054-cb3075938f28",
+      "perspective_id": "046b4a3e-02e7-4ba1-882c-85f152330c07",
+      "strength": 0.86,
+      "confidence": 0.78
+    },
+    {
+      "id": "6669cb52-d85f-4ca1-94f7-9e7bad5c8035",
+      "property_id": "4f2f46e5-bc2c-40f9-84f1-d555bf9b6eab",
+      "process_id": "e9d23274-9ba6-4329-ab29-e3e14ea20e0a",
+      "perspective_id": "afeb3e59-a67a-4300-a0f8-8e8390383bd9",
+      "strength": 0.62,
+      "confidence": 0.86
+    },
+    {
+      "id": "1b3aa03b-4bdd-4ae7-bfd3-78ad43130376",
+      "property_id": "1150e7bb-5e40-44bf-b42f-bea014192ca9",
+      "process_id": "d97ec5d4-2ee6-4bb6-8054-cb3075938f28",
+      "perspective_id": "52c7bd5b-60ef-464f-b4f5-1fd9cb495d51",
+      "strength": 0.99,
+      "confidence": 0.88
+    }
+  ],
+  "metadata": {
+    "count": {
+      "properties": 30,
+      "processes": 50,
+      "perspectives": 35
+    }
+  }
+}

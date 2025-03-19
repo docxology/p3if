@@ -1,0 +1,1765 @@
+{
+  "domain": "PowerGrid",
+  "version": "1.0",
+  "properties": [
+    "Generation Capacity",
+    "Transmission Efficiency",
+    "Distribution Reliability",
+    "Grid Stability",
+    "Energy Storage",
+    "Renewable Integration",
+    "Demand Response",
+    "Smart Metering",
+    "Grid Resilience",
+    "Cybersecurity",
+    "Load Balancing",
+    "Voltage Regulation",
+    "Frequency Control",
+    "Power Quality",
+    "Fault Tolerance",
+    "Interoperability",
+    "Asset Management",
+    "Environmental Impact",
+    "Cost Effectiveness",
+    "Regulatory Compliance",
+    "Grid Modernization",
+    "Microgrid Integration",
+    "Peak Load Management",
+    "Outage Management",
+    "Power System Flexibility",
+    "Grid Congestion Management",
+    "Transmission Capacity",
+    "Substation Automation",
+    "Advanced Metering Infrastructure",
+    "Distributed Energy Resources",
+    "Grid Interconnection",
+    "Power System Reliability",
+    "Energy Efficiency",
+    "Demand Forecasting",
+    "Grid Monitoring",
+    "Power System Protection",
+    "Reactive Power Compensation",
+    "Harmonics Mitigation",
+    "Islanding Detection",
+    "Fault Location",
+    "Power System Restoration",
+    "Grid Code Compliance",
+    "Power Market Integration",
+    "Cross-Border Power Trading",
+    "Grid Data Analytics",
+    "Power System Simulation",
+    "Grid Optimization",
+    "Transmission Rights",
+    "Ancillary Services",
+    "Grid Inertia Management"
+  ],
+  "processes": [
+    "Power Generation",
+    "Transmission",
+    "Distribution",
+    "Grid Monitoring",
+    "Energy Storage Management",
+    "Renewable Energy Integration",
+    "Demand Forecasting",
+    "Smart Meter Data Collection",
+    "Grid Maintenance",
+    "Cybersecurity Measures",
+    "Load Balancing Operations",
+    "Voltage Control",
+    "Frequency Regulation",
+    "Power Quality Management",
+    "Fault Detection and Isolation",
+    "System Integration",
+    "Asset Maintenance",
+    "Environmental Impact Assessment",
+    "Cost-Benefit Analysis",
+    "Regulatory Reporting",
+    "Grid Modernization Planning",
+    "Microgrid Operation",
+    "Peak Shaving",
+    "Outage Response",
+    "Flexibility Assessment",
+    "Congestion Management",
+    "Transmission Capacity Planning",
+    "Substation Control",
+    "AMI Data Management",
+    "DER Integration",
+    "Interconnection Studies",
+    "Reliability Analysis",
+    "Energy Auditing",
+    "Load Forecasting",
+    "SCADA Operations",
+    "Protection System Coordination",
+    "VAR Compensation",
+    "Power Quality Analysis",
+    "Anti-Islanding Control",
+    "Fault Locating",
+    "Black Start Procedures",
+    "Grid Code Compliance Checking",
+    "Market Clearing",
+    "Cross-Border Scheduling",
+    "Big Data Analytics",
+    "Power System Modeling",
+    "Grid Optimization Algorithms",
+    "Transmission Rights Allocation",
+    "Ancillary Service Provision",
+    "Synthetic Inertia Control"
+  ],
+  "perspectives": [
+    "Grid Operator",
+    "Power Plant Manager",
+    "Transmission Engineer",
+    "Distribution Technician",
+    "Energy Storage Specialist",
+    "Renewable Energy Expert",
+    "Demand Response Manager",
+    "Smart Grid Analyst",
+    "Resilience Planner",
+    "Cybersecurity Specialist",
+    "Load Balancing Coordinator",
+    "Voltage Control Engineer",
+    "Frequency Regulation Specialist",
+    "Power Quality Analyst",
+    "Fault Response Team",
+    "System Integration Engineer",
+    "Asset Manager",
+    "Environmental Impact Assessor",
+    "Financial Analyst",
+    "Regulatory Compliance Officer",
+    "Grid Modernization Strategist",
+    "Microgrid Designer",
+    "Peak Load Analyst",
+    "Outage Management Coordinator",
+    "Flexibility Market Operator",
+    "Congestion Management Specialist",
+    "Transmission Planner",
+    "Substation Engineer",
+    "AMI Systems Manager",
+    "DER Integration Specialist",
+    "Interconnection Analyst",
+    "Reliability Coordinator",
+    "Energy Efficiency Consultant",
+    "Load Forecasting Analyst",
+    "SCADA Engineer",
+    "Protection System Engineer",
+    "Power Factor Correction Specialist",
+    "Harmonics Mitigation Expert",
+    "Islanding Detection Specialist",
+    "Fault Location Analyst",
+    "Restoration Coordinator",
+    "Grid Code Compliance Auditor",
+    "Power Market Analyst",
+    "Cross-Border Trading Specialist",
+    "Data Scientist",
+    "Power System Simulator",
+    "Grid Optimization Engineer",
+    "Transmission Rights Trader",
+    "Ancillary Services Coordinator",
+    "Grid Inertia Specialist"
+  ],
+  "patterns": {
+    "properties": [
+      {
+        "id": "611add4b-9889-4692-a50b-40494f4b438f",
+        "name": "Generation Capacity",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "a6aae319-2cf4-4f34-a0c0-755ea13add60",
+        "name": "Transmission Efficiency",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "47a86bab-6c42-49f9-87d3-e452702e0e30",
+        "name": "Distribution Reliability",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "1c733294-6262-4df4-be99-014e13bd661e",
+        "name": "Grid Stability",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "366e454f-96c7-488d-934e-304669700ab1",
+        "name": "Energy Storage",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "4ca3971f-1f46-4762-aa11-ec08b6fcbe36",
+        "name": "Renewable Integration",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "5738bedc-7041-4868-b0dc-7b0b4274995f",
+        "name": "Demand Response",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "f4554e4e-86f4-4e4c-906d-5132b79fe9da",
+        "name": "Smart Metering",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "948b61cb-0f27-4165-aaff-64cf91f6c05d",
+        "name": "Grid Resilience",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "884df945-857f-423d-9d78-81f5604c4453",
+        "name": "Cybersecurity",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "e7a77a71-9738-4ab2-ae7f-d18e9287e19e",
+        "name": "Load Balancing",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "c2a060cc-1443-40cb-b0e5-b270a37b27be",
+        "name": "Voltage Regulation",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "9f543c3f-b104-4e69-9055-1b38b59e8289",
+        "name": "Frequency Control",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "a7f3ca4b-b89f-425a-97ae-79e3cad66998",
+        "name": "Power Quality",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "7d3355ec-ced5-4dcb-a743-ebd28c14234b",
+        "name": "Fault Tolerance",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "a8ba6e92-daff-45d7-9afd-71c0d3635f8f",
+        "name": "Interoperability",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "aeb0deef-e273-4ce5-af73-dd512d16bdf0",
+        "name": "Asset Management",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "68295036-ba00-469c-9768-05ad9cfc1bcc",
+        "name": "Environmental Impact",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "e48c893c-e495-40b7-8fe6-d63f030269e3",
+        "name": "Cost Effectiveness",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "27e69299-e4e1-4ee9-836d-ca5d085bb348",
+        "name": "Regulatory Compliance",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "a2a9dfd7-3473-4cb3-bd1b-cbcba73a6e98",
+        "name": "Grid Modernization",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "f4d0805b-db7d-4f2e-8e64-482005306b20",
+        "name": "Microgrid Integration",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "01ea0dbd-e161-49ee-a7bd-73c1a06a7001",
+        "name": "Peak Load Management",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "049d263a-b626-48f7-b192-461600979606",
+        "name": "Outage Management",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "11d65a42-bd22-40c9-81cf-d613310878c0",
+        "name": "Power System Flexibility",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "266dbc22-6139-4207-bea0-20278db01d4b",
+        "name": "Grid Congestion Management",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "3d1d7761-36d8-4995-9b4c-f054b3e71c0b",
+        "name": "Transmission Capacity",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "abca765c-9b87-42be-9cf7-d0ad67f8100a",
+        "name": "Substation Automation",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "f39c9c5b-363f-42a9-9f37-626c92444be5",
+        "name": "Advanced Metering Infrastructure",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "c5082a14-c6ba-4a76-998b-2b663dace8da",
+        "name": "Distributed Energy Resources",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "34cbef65-4bcc-4efa-84a3-95438e8e6f16",
+        "name": "Grid Interconnection",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "2bf68eeb-6201-454f-983d-512e0b78b42a",
+        "name": "Power System Reliability",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "0af74f00-9082-417c-a5f6-61911e181e93",
+        "name": "Energy Efficiency",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "e4a6f82f-6a83-42ca-b558-6b2424864a22",
+        "name": "Demand Forecasting",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "1c0b1010-fa67-47eb-984f-8a2bafeac21a",
+        "name": "Grid Monitoring",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "c398cc07-51b0-4063-88e2-73de555fdf37",
+        "name": "Power System Protection",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "64ed22f5-d731-410c-b41f-6dbb784c062d",
+        "name": "Reactive Power Compensation",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "bdfc64b7-ed5a-45af-970d-5b1920af4d7d",
+        "name": "Harmonics Mitigation",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "fb93688d-5cdc-49ef-b7ff-7a68bf554c33",
+        "name": "Islanding Detection",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "8b9c240b-ef88-41bb-9d25-da3eabf8c923",
+        "name": "Fault Location",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "dad358e3-7223-4469-bc2f-ec4227b0396a",
+        "name": "Power System Restoration",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "4cccad12-01c6-4046-99a6-a3a464295bad",
+        "name": "Grid Code Compliance",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "aff4c929-d6b4-4edd-ab84-4ce1ea876143",
+        "name": "Power Market Integration",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "b2a5c05e-d09f-43aa-8a2f-098c7b8d4c0c",
+        "name": "Cross-Border Power Trading",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "e4895cd9-b6e1-4748-9396-5ec1e4466ce7",
+        "name": "Grid Data Analytics",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "1f636ee0-f9b2-422a-8058-6b60cb60f634",
+        "name": "Power System Simulation",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "3c0eb124-18dc-4e9c-815c-a8982cc40b77",
+        "name": "Grid Optimization",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "21c1e349-eab1-4ffd-a125-dfee100108ff",
+        "name": "Transmission Rights",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "e9c089fe-dcb0-4457-8cdf-516046073306",
+        "name": "Ancillary Services",
+        "type": "property",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "783d9d54-05c5-4028-aef7-174aeefd345f",
+        "name": "Grid Inertia Management",
+        "type": "property",
+        "domain": "PowerGrid"
+      }
+    ],
+    "processes": [
+      {
+        "id": "7777fbe1-4818-4df4-a68e-8a97c348f85f",
+        "name": "Power Generation",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "13f826c8-7d6b-4abe-974c-07189bee9acf",
+        "name": "Transmission",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "3efa58f4-3203-46a7-be73-58b41736940f",
+        "name": "Distribution",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "7e4da39c-1564-42ce-a683-e8c84c01b15e",
+        "name": "Grid Monitoring",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "e488c773-838d-499a-a465-ed83b79f67ad",
+        "name": "Energy Storage Management",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "26444d49-a57f-43fe-9af0-e4364033a0af",
+        "name": "Renewable Energy Integration",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "e78dfa3e-eb48-4ce4-bfde-6a5c100e65f4",
+        "name": "Demand Forecasting",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "9b669f14-ffb4-4126-a75f-2bbbadee9da4",
+        "name": "Smart Meter Data Collection",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "231d3bd2-7c99-4902-9e70-f56deb7659de",
+        "name": "Grid Maintenance",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "032d238d-c6b6-4f21-831f-40538e4fcaa4",
+        "name": "Cybersecurity Measures",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "abe175da-7992-4c56-a71d-54358de8a191",
+        "name": "Load Balancing Operations",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "26a3a142-2be2-46b7-8a93-8f2ed51b6db8",
+        "name": "Voltage Control",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "5de3507d-8313-4374-bd0a-352696edc24c",
+        "name": "Frequency Regulation",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "268dbdab-daaf-4b0d-abf2-89c944875cf4",
+        "name": "Power Quality Management",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "0ce41a6f-3ebb-4653-99e2-ba25a370bf15",
+        "name": "Fault Detection and Isolation",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "ecd48576-df84-48b0-800c-c9dca0abbfd1",
+        "name": "System Integration",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "8bfeac55-f4d2-4c33-b098-d7af74f1fa09",
+        "name": "Asset Maintenance",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "d72c3a96-9c90-4bcc-baff-b28ddb9288c2",
+        "name": "Environmental Impact Assessment",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "51c35558-9e82-4f5e-bb2c-16e45a4aa83b",
+        "name": "Cost-Benefit Analysis",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "acb9aae0-7258-49cb-9be4-ff2d730be696",
+        "name": "Regulatory Reporting",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "a37e1fab-f38b-4c8a-b935-40efa43a6f02",
+        "name": "Grid Modernization Planning",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "76d4008e-f197-4b4f-b5ae-6d24dacde91e",
+        "name": "Microgrid Operation",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "3b277c0d-f9e2-460c-b113-501695ecc008",
+        "name": "Peak Shaving",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "46c94357-f49d-4da9-af92-2973429c74cc",
+        "name": "Outage Response",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "d0749217-41e8-46f1-ac2d-b25c1c063a25",
+        "name": "Flexibility Assessment",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "766b375a-f2b9-4b74-930e-5830a763d6a5",
+        "name": "Congestion Management",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "17360994-99b4-45b9-8337-ae49664d4e16",
+        "name": "Transmission Capacity Planning",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "dc8ba34e-fdff-403b-8cd3-0b675dd92edb",
+        "name": "Substation Control",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "2aeb19b4-3ea8-4427-93c8-cdf8e00e922e",
+        "name": "AMI Data Management",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "19420dec-7975-47ba-ad5a-a23fa8fdd41a",
+        "name": "DER Integration",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "49b496c4-5ee7-4c2f-afb4-09d3625b786d",
+        "name": "Interconnection Studies",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "624f4444-aad8-4b86-838d-f2045ff5e117",
+        "name": "Reliability Analysis",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "c311aeef-3450-40d1-b200-06247d876392",
+        "name": "Energy Auditing",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "e13cf63c-8704-45e0-a824-5590262f0bb2",
+        "name": "Load Forecasting",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "2046d750-1efe-400f-9dee-2c077cef9b1a",
+        "name": "SCADA Operations",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "6bcfbf82-06c4-4732-ad20-d09236577437",
+        "name": "Protection System Coordination",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "6919969a-0b88-49b2-b2cc-a7872e5d6b62",
+        "name": "VAR Compensation",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "4725eac8-47e1-4cf4-bf91-edd588e2ecea",
+        "name": "Power Quality Analysis",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "c4e62006-050a-4c67-9bca-1c65613bd8a6",
+        "name": "Anti-Islanding Control",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "bf5983d6-58a2-4ed9-8d84-1355dc74fd09",
+        "name": "Fault Locating",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "14f547b1-62db-46cf-8151-6eba17689f8e",
+        "name": "Black Start Procedures",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "763aa74a-0f59-4b32-896d-408329b4b21f",
+        "name": "Grid Code Compliance Checking",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "772a079a-4a04-4b6c-930f-f20b1128f6c9",
+        "name": "Market Clearing",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "8e13b61d-6e5c-44d3-a7fb-409426e22ddf",
+        "name": "Cross-Border Scheduling",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "e9639d1e-b328-4e4e-9995-99f2b6115257",
+        "name": "Big Data Analytics",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "4f59d36a-c498-45ff-9a20-d8ff88ee971e",
+        "name": "Power System Modeling",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "e6946f6b-f87a-4233-a2ee-a7c3e61f47c2",
+        "name": "Grid Optimization Algorithms",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "0beaf4f1-0448-46f8-b43e-3b7a528af425",
+        "name": "Transmission Rights Allocation",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "fce43a84-0532-4943-afca-b5aa6d8b8421",
+        "name": "Ancillary Service Provision",
+        "type": "process",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "c7100559-56e5-41be-aba1-0302e201ae9e",
+        "name": "Synthetic Inertia Control",
+        "type": "process",
+        "domain": "PowerGrid"
+      }
+    ],
+    "perspectives": [
+      {
+        "id": "8f87f9e2-8399-4506-9cb6-f0af51d80d5b",
+        "name": "Grid Operator",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "43b85c4e-e992-43f8-9b84-802ce0cf0fc3",
+        "name": "Power Plant Manager",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "9266fe82-698e-40a8-8fa6-5a0d661d4558",
+        "name": "Transmission Engineer",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "07982f1e-58d9-4451-b2af-5520e98e6d9b",
+        "name": "Distribution Technician",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "e12a8d9a-6ea2-426a-b6e5-a34ef27bf680",
+        "name": "Energy Storage Specialist",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "0534f2b1-6085-46fc-83e8-1b170f690e2a",
+        "name": "Renewable Energy Expert",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "dcb90c25-aa01-4bfb-b4d3-f86783076a09",
+        "name": "Demand Response Manager",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "5f256a20-6c95-47a6-b4b3-d32bedf6c6c9",
+        "name": "Smart Grid Analyst",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "92818fc4-a1bf-40e7-b994-6271f2adb7ac",
+        "name": "Resilience Planner",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "1498d13b-bba4-4e1d-b92c-636e342fcf48",
+        "name": "Cybersecurity Specialist",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "1637f6dd-5cb6-4c66-a4bb-ef280ea2b44f",
+        "name": "Load Balancing Coordinator",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "ed0f055d-0358-4ea8-be20-d6855ebd6a2b",
+        "name": "Voltage Control Engineer",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "7f142977-7ea2-4cc6-8de2-b2c730ae1402",
+        "name": "Frequency Regulation Specialist",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "3c6fec6a-040a-4c1d-affe-e11debe86ec2",
+        "name": "Power Quality Analyst",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "a006d1ac-7ac8-4dab-9943-28b6fd9ac0ce",
+        "name": "Fault Response Team",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "0e6eceb9-fd20-4960-8cd6-4e14e0d9fb33",
+        "name": "System Integration Engineer",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "a19b8858-32ca-46fc-8c12-c0856822ad4f",
+        "name": "Asset Manager",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "2c240101-c017-4c74-a824-b46ac0ec08e2",
+        "name": "Environmental Impact Assessor",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "0b94c1f0-d421-4410-8edc-4c4fd324e400",
+        "name": "Financial Analyst",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "79b3c201-8a74-4af9-87b3-cc9ae2d7a542",
+        "name": "Regulatory Compliance Officer",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "d9fab98b-f194-4952-b008-240b6859b257",
+        "name": "Grid Modernization Strategist",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "2205df21-ce2f-42a3-b897-6ddf5b2c6dc0",
+        "name": "Microgrid Designer",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "d32e71a2-d683-4e47-a3e7-2e3cda400e97",
+        "name": "Peak Load Analyst",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "da81faf0-f26b-41dd-8b1d-39d82e2a39b5",
+        "name": "Outage Management Coordinator",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "aaf24ede-1e0b-40a9-8b16-4dc512f09408",
+        "name": "Flexibility Market Operator",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "b03c7949-97fd-4309-b09d-279e8e3aa4b0",
+        "name": "Congestion Management Specialist",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "0218cb7a-f111-4701-b4e2-607c53fee9f5",
+        "name": "Transmission Planner",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "3912f8dd-57d9-4b7b-966a-644486f6cdaa",
+        "name": "Substation Engineer",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "70b55f8c-461d-4173-a051-b374e4e3ab56",
+        "name": "AMI Systems Manager",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "8e35141e-da2c-4aae-ad7b-888a4f11753a",
+        "name": "DER Integration Specialist",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "078db5f0-c315-4884-9d40-7807d7372b71",
+        "name": "Interconnection Analyst",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "f5d29c4e-33a5-4dfe-b8e4-c9330bb5b891",
+        "name": "Reliability Coordinator",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "efdfcbc5-41b0-4a09-8ab6-25e34c359cd7",
+        "name": "Energy Efficiency Consultant",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "b1d1ecad-46ee-4bf8-96a1-79bbf6a3b800",
+        "name": "Load Forecasting Analyst",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "53fc237a-7e8e-4fe1-bf54-19ef5e9c4ebd",
+        "name": "SCADA Engineer",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "81f3ff10-d29d-4248-83eb-2a9d71247d87",
+        "name": "Protection System Engineer",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "cec10331-01bc-43f5-b058-6707e4dea0fd",
+        "name": "Power Factor Correction Specialist",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "79370ea1-43f4-4841-82e8-53d52ee769a0",
+        "name": "Harmonics Mitigation Expert",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "85c70fbc-2ea0-47d6-bba8-e9e2f86ecda8",
+        "name": "Islanding Detection Specialist",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "14881832-a331-4419-b90b-43a601484daa",
+        "name": "Fault Location Analyst",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "fbd51c35-5436-41ca-bac8-83246a4dc389",
+        "name": "Restoration Coordinator",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "e3910377-bee3-4d59-864f-2f9266fac8a7",
+        "name": "Grid Code Compliance Auditor",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "d539a3d4-2096-43ed-8136-ba00dd6b2bc4",
+        "name": "Power Market Analyst",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "6735a14b-8736-4f3b-a715-5a9e45896bc4",
+        "name": "Cross-Border Trading Specialist",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "21af8540-d00d-4b67-a039-2c1ad1a9b2c2",
+        "name": "Data Scientist",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "430816f4-567f-4e3e-bc9f-5dca1ae46ad5",
+        "name": "Power System Simulator",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "d717ece0-1b2b-4559-bd2f-53e47611d052",
+        "name": "Grid Optimization Engineer",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "9f111759-1f9d-42de-95db-51319345dae1",
+        "name": "Transmission Rights Trader",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "c1df0b28-d5b9-47e1-b528-5c1bf6a80dd4",
+        "name": "Ancillary Services Coordinator",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      },
+      {
+        "id": "c41121b1-baa0-429a-8941-e3dc3b060044",
+        "name": "Grid Inertia Specialist",
+        "type": "perspective",
+        "domain": "PowerGrid"
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "8f493189-3a4c-42b9-92d7-4636ca235ab7",
+      "property_id": "884df945-857f-423d-9d78-81f5604c4453",
+      "process_id": "231d3bd2-7c99-4902-9e70-f56deb7659de",
+      "perspective_id": "3912f8dd-57d9-4b7b-966a-644486f6cdaa",
+      "strength": 0.64,
+      "confidence": 0.84
+    },
+    {
+      "id": "196ee0f2-4aa3-4085-a28d-3c9c5771c3b8",
+      "property_id": "049d263a-b626-48f7-b192-461600979606",
+      "process_id": "46c94357-f49d-4da9-af92-2973429c74cc",
+      "perspective_id": "da81faf0-f26b-41dd-8b1d-39d82e2a39b5",
+      "strength": 0.8,
+      "confidence": 1.0
+    },
+    {
+      "id": "f2a4670b-bacd-423c-8370-c459129cd8bf",
+      "property_id": "c2a060cc-1443-40cb-b0e5-b270a37b27be",
+      "process_id": "2046d750-1efe-400f-9dee-2c077cef9b1a",
+      "perspective_id": "85c70fbc-2ea0-47d6-bba8-e9e2f86ecda8",
+      "strength": 0.97,
+      "confidence": 0.78
+    },
+    {
+      "id": "fd3d84c1-973a-4a89-89a6-574ef3ce6853",
+      "property_id": "8b9c240b-ef88-41bb-9d25-da3eabf8c923",
+      "process_id": "a37e1fab-f38b-4c8a-b935-40efa43a6f02",
+      "perspective_id": "c1df0b28-d5b9-47e1-b528-5c1bf6a80dd4",
+      "strength": 0.61,
+      "confidence": 0.91
+    },
+    {
+      "id": "e5a72f5f-d1fd-460a-b45a-f5510060ae05",
+      "property_id": "aff4c929-d6b4-4edd-ab84-4ce1ea876143",
+      "process_id": "231d3bd2-7c99-4902-9e70-f56deb7659de",
+      "perspective_id": "8f87f9e2-8399-4506-9cb6-f0af51d80d5b",
+      "strength": 0.81,
+      "confidence": 0.95
+    },
+    {
+      "id": "6808c449-42f0-4a5a-8679-a709d8b16721",
+      "property_id": "64ed22f5-d731-410c-b41f-6dbb784c062d",
+      "process_id": "6bcfbf82-06c4-4732-ad20-d09236577437",
+      "perspective_id": "79370ea1-43f4-4841-82e8-53d52ee769a0",
+      "strength": 0.96,
+      "confidence": 0.77
+    },
+    {
+      "id": "00bcadeb-7e1b-40f1-8ef7-78b8901e310e",
+      "property_id": "e4895cd9-b6e1-4748-9396-5ec1e4466ce7",
+      "process_id": "14f547b1-62db-46cf-8151-6eba17689f8e",
+      "perspective_id": "e3910377-bee3-4d59-864f-2f9266fac8a7",
+      "strength": 0.68,
+      "confidence": 0.86
+    },
+    {
+      "id": "f935490b-8567-4d8b-a4bc-d6c6145286dd",
+      "property_id": "a2a9dfd7-3473-4cb3-bd1b-cbcba73a6e98",
+      "process_id": "032d238d-c6b6-4f21-831f-40538e4fcaa4",
+      "perspective_id": "70b55f8c-461d-4173-a051-b374e4e3ab56",
+      "strength": 1.0,
+      "confidence": 0.82
+    },
+    {
+      "id": "96828e8d-1f1e-4970-96bc-f32774c76070",
+      "property_id": "21c1e349-eab1-4ffd-a125-dfee100108ff",
+      "process_id": "76d4008e-f197-4b4f-b5ae-6d24dacde91e",
+      "perspective_id": "2205df21-ce2f-42a3-b897-6ddf5b2c6dc0",
+      "strength": 0.57,
+      "confidence": 0.77
+    },
+    {
+      "id": "f8c874f4-2063-4b11-9692-c514a50fea6b",
+      "property_id": "783d9d54-05c5-4028-aef7-174aeefd345f",
+      "process_id": "9b669f14-ffb4-4126-a75f-2bbbadee9da4",
+      "perspective_id": "79370ea1-43f4-4841-82e8-53d52ee769a0",
+      "strength": 0.78,
+      "confidence": 0.95
+    },
+    {
+      "id": "995763fb-1077-420f-a04c-81de7f05b473",
+      "property_id": "3c0eb124-18dc-4e9c-815c-a8982cc40b77",
+      "process_id": "2aeb19b4-3ea8-4427-93c8-cdf8e00e922e",
+      "perspective_id": "b1d1ecad-46ee-4bf8-96a1-79bbf6a3b800",
+      "strength": 0.8,
+      "confidence": 0.85
+    },
+    {
+      "id": "5884e1e5-cd23-4d6a-a20b-cc7de5e31ba1",
+      "property_id": "dad358e3-7223-4469-bc2f-ec4227b0396a",
+      "process_id": "17360994-99b4-45b9-8337-ae49664d4e16",
+      "perspective_id": "430816f4-567f-4e3e-bc9f-5dca1ae46ad5",
+      "strength": 0.57,
+      "confidence": 0.81
+    },
+    {
+      "id": "4a6fc5b3-63ee-4f17-9005-d099aa662911",
+      "property_id": "3d1d7761-36d8-4995-9b4c-f054b3e71c0b",
+      "process_id": "8bfeac55-f4d2-4c33-b098-d7af74f1fa09",
+      "perspective_id": "0e6eceb9-fd20-4960-8cd6-4e14e0d9fb33",
+      "strength": 0.71,
+      "confidence": 0.74
+    },
+    {
+      "id": "6019935a-8f3e-4ce2-943f-0802b3e5ce0a",
+      "property_id": "a2a9dfd7-3473-4cb3-bd1b-cbcba73a6e98",
+      "process_id": "c7100559-56e5-41be-aba1-0302e201ae9e",
+      "perspective_id": "dcb90c25-aa01-4bfb-b4d3-f86783076a09",
+      "strength": 0.87,
+      "confidence": 0.82
+    },
+    {
+      "id": "5b51cd9f-507b-42e4-8b23-a96d99539f2b",
+      "property_id": "47a86bab-6c42-49f9-87d3-e452702e0e30",
+      "process_id": "7e4da39c-1564-42ce-a683-e8c84c01b15e",
+      "perspective_id": "70b55f8c-461d-4173-a051-b374e4e3ab56",
+      "strength": 0.87,
+      "confidence": 0.98
+    },
+    {
+      "id": "f691a923-26a3-4cfd-adb3-aab4155d1a60",
+      "property_id": "01ea0dbd-e161-49ee-a7bd-73c1a06a7001",
+      "process_id": "19420dec-7975-47ba-ad5a-a23fa8fdd41a",
+      "perspective_id": "a19b8858-32ca-46fc-8c12-c0856822ad4f",
+      "strength": 0.52,
+      "confidence": 0.86
+    },
+    {
+      "id": "cba636e3-a94f-4fa2-942a-f3019b0c70fd",
+      "property_id": "e4895cd9-b6e1-4748-9396-5ec1e4466ce7",
+      "process_id": "13f826c8-7d6b-4abe-974c-07189bee9acf",
+      "perspective_id": "e3910377-bee3-4d59-864f-2f9266fac8a7",
+      "strength": 0.77,
+      "confidence": 0.97
+    },
+    {
+      "id": "2b536a09-6e8f-427f-af19-ae5e82ff10e0",
+      "property_id": "fb93688d-5cdc-49ef-b7ff-7a68bf554c33",
+      "process_id": "ecd48576-df84-48b0-800c-c9dca0abbfd1",
+      "perspective_id": "078db5f0-c315-4884-9d40-7807d7372b71",
+      "strength": 0.93,
+      "confidence": 0.91
+    },
+    {
+      "id": "8306ccc9-43ec-4c26-8aa0-992a327f33d7",
+      "property_id": "abca765c-9b87-42be-9cf7-d0ad67f8100a",
+      "process_id": "7777fbe1-4818-4df4-a68e-8a97c348f85f",
+      "perspective_id": "d717ece0-1b2b-4559-bd2f-53e47611d052",
+      "strength": 0.99,
+      "confidence": 0.95
+    },
+    {
+      "id": "a6360c9d-343f-4415-bb78-bc470b86353a",
+      "property_id": "aff4c929-d6b4-4edd-ab84-4ce1ea876143",
+      "process_id": "acb9aae0-7258-49cb-9be4-ff2d730be696",
+      "perspective_id": "0b94c1f0-d421-4410-8edc-4c4fd324e400",
+      "strength": 0.74,
+      "confidence": 0.83
+    },
+    {
+      "id": "19ff4f4f-ec6e-4dd1-a4a5-0019d12f167c",
+      "property_id": "27e69299-e4e1-4ee9-836d-ca5d085bb348",
+      "process_id": "19420dec-7975-47ba-ad5a-a23fa8fdd41a",
+      "perspective_id": "53fc237a-7e8e-4fe1-bf54-19ef5e9c4ebd",
+      "strength": 0.54,
+      "confidence": 0.79
+    },
+    {
+      "id": "d696d8af-91c4-4c85-b743-72e0b4136356",
+      "property_id": "266dbc22-6139-4207-bea0-20278db01d4b",
+      "process_id": "8bfeac55-f4d2-4c33-b098-d7af74f1fa09",
+      "perspective_id": "81f3ff10-d29d-4248-83eb-2a9d71247d87",
+      "strength": 0.97,
+      "confidence": 0.89
+    },
+    {
+      "id": "34e218a1-4aeb-4433-9b98-f68a4c75c063",
+      "property_id": "5738bedc-7041-4868-b0dc-7b0b4274995f",
+      "process_id": "3efa58f4-3203-46a7-be73-58b41736940f",
+      "perspective_id": "1637f6dd-5cb6-4c66-a4bb-ef280ea2b44f",
+      "strength": 0.94,
+      "confidence": 0.96
+    },
+    {
+      "id": "218e0619-4dce-42fb-b5e0-9cc08e7be739",
+      "property_id": "9f543c3f-b104-4e69-9055-1b38b59e8289",
+      "process_id": "dc8ba34e-fdff-403b-8cd3-0b675dd92edb",
+      "perspective_id": "a006d1ac-7ac8-4dab-9943-28b6fd9ac0ce",
+      "strength": 0.61,
+      "confidence": 0.94
+    },
+    {
+      "id": "97b0b2c5-d734-4186-a2d1-2ff6f5de7616",
+      "property_id": "1c733294-6262-4df4-be99-014e13bd661e",
+      "process_id": "49b496c4-5ee7-4c2f-afb4-09d3625b786d",
+      "perspective_id": "b03c7949-97fd-4309-b09d-279e8e3aa4b0",
+      "strength": 0.79,
+      "confidence": 0.98
+    },
+    {
+      "id": "7562c3d3-d106-483c-a58f-4502d5e0d663",
+      "property_id": "a7f3ca4b-b89f-425a-97ae-79e3cad66998",
+      "process_id": "3b277c0d-f9e2-460c-b113-501695ecc008",
+      "perspective_id": "1637f6dd-5cb6-4c66-a4bb-ef280ea2b44f",
+      "strength": 0.64,
+      "confidence": 0.76
+    },
+    {
+      "id": "d80ebe0f-f5d8-425b-a6a7-a80c90b84c56",
+      "property_id": "aeb0deef-e273-4ce5-af73-dd512d16bdf0",
+      "process_id": "7777fbe1-4818-4df4-a68e-8a97c348f85f",
+      "perspective_id": "0534f2b1-6085-46fc-83e8-1b170f690e2a",
+      "strength": 0.81,
+      "confidence": 0.81
+    },
+    {
+      "id": "a9dd9266-57cb-4bf7-8a9e-c8f5b10a4373",
+      "property_id": "e4a6f82f-6a83-42ca-b558-6b2424864a22",
+      "process_id": "772a079a-4a04-4b6c-930f-f20b1128f6c9",
+      "perspective_id": "b1d1ecad-46ee-4bf8-96a1-79bbf6a3b800",
+      "strength": 0.69,
+      "confidence": 0.94
+    },
+    {
+      "id": "6ab90610-5497-4e63-9f20-b535f82202f5",
+      "property_id": "1f636ee0-f9b2-422a-8058-6b60cb60f634",
+      "process_id": "9b669f14-ffb4-4126-a75f-2bbbadee9da4",
+      "perspective_id": "0534f2b1-6085-46fc-83e8-1b170f690e2a",
+      "strength": 0.98,
+      "confidence": 0.91
+    },
+    {
+      "id": "2a172383-dc0d-4124-a424-cb4a795775f6",
+      "property_id": "21c1e349-eab1-4ffd-a125-dfee100108ff",
+      "process_id": "26a3a142-2be2-46b7-8a93-8f2ed51b6db8",
+      "perspective_id": "c1df0b28-d5b9-47e1-b528-5c1bf6a80dd4",
+      "strength": 0.92,
+      "confidence": 0.77
+    },
+    {
+      "id": "3b0d2ca2-53b0-4a6f-835f-e6a4a8ab1b85",
+      "property_id": "01ea0dbd-e161-49ee-a7bd-73c1a06a7001",
+      "process_id": "e13cf63c-8704-45e0-a824-5590262f0bb2",
+      "perspective_id": "da81faf0-f26b-41dd-8b1d-39d82e2a39b5",
+      "strength": 0.88,
+      "confidence": 0.72
+    },
+    {
+      "id": "d18ad764-f056-4757-80cf-e64f3f3b6b7f",
+      "property_id": "3d1d7761-36d8-4995-9b4c-f054b3e71c0b",
+      "process_id": "032d238d-c6b6-4f21-831f-40538e4fcaa4",
+      "perspective_id": "aaf24ede-1e0b-40a9-8b16-4dc512f09408",
+      "strength": 0.97,
+      "confidence": 0.97
+    },
+    {
+      "id": "9a4e8611-df3d-4275-b5fd-a209226cad07",
+      "property_id": "f4554e4e-86f4-4e4c-906d-5132b79fe9da",
+      "process_id": "7777fbe1-4818-4df4-a68e-8a97c348f85f",
+      "perspective_id": "aaf24ede-1e0b-40a9-8b16-4dc512f09408",
+      "strength": 0.89,
+      "confidence": 0.73
+    },
+    {
+      "id": "6c2ed17c-62bb-4354-868b-565881cd9f81",
+      "property_id": "01ea0dbd-e161-49ee-a7bd-73c1a06a7001",
+      "process_id": "fce43a84-0532-4943-afca-b5aa6d8b8421",
+      "perspective_id": "3912f8dd-57d9-4b7b-966a-644486f6cdaa",
+      "strength": 0.66,
+      "confidence": 0.73
+    },
+    {
+      "id": "5dad47b5-8638-4600-9845-6f962fba72b1",
+      "property_id": "366e454f-96c7-488d-934e-304669700ab1",
+      "process_id": "26a3a142-2be2-46b7-8a93-8f2ed51b6db8",
+      "perspective_id": "d9fab98b-f194-4952-b008-240b6859b257",
+      "strength": 0.56,
+      "confidence": 0.95
+    },
+    {
+      "id": "6aa3a2de-cb3a-45ed-aa98-facb456f219c",
+      "property_id": "f4d0805b-db7d-4f2e-8e64-482005306b20",
+      "process_id": "7e4da39c-1564-42ce-a683-e8c84c01b15e",
+      "perspective_id": "6735a14b-8736-4f3b-a715-5a9e45896bc4",
+      "strength": 0.77,
+      "confidence": 0.74
+    },
+    {
+      "id": "7a84b36c-1b75-474c-8913-fc78db06d9d5",
+      "property_id": "0af74f00-9082-417c-a5f6-61911e181e93",
+      "process_id": "e13cf63c-8704-45e0-a824-5590262f0bb2",
+      "perspective_id": "3c6fec6a-040a-4c1d-affe-e11debe86ec2",
+      "strength": 0.72,
+      "confidence": 0.84
+    },
+    {
+      "id": "99b19c4b-f13c-4763-a2b1-0d7b471ee9af",
+      "property_id": "34cbef65-4bcc-4efa-84a3-95438e8e6f16",
+      "process_id": "2aeb19b4-3ea8-4427-93c8-cdf8e00e922e",
+      "perspective_id": "d9fab98b-f194-4952-b008-240b6859b257",
+      "strength": 0.65,
+      "confidence": 0.77
+    },
+    {
+      "id": "1945e3b3-3619-4fce-b6e9-7d00e456015f",
+      "property_id": "3c0eb124-18dc-4e9c-815c-a8982cc40b77",
+      "process_id": "e78dfa3e-eb48-4ce4-bfde-6a5c100e65f4",
+      "perspective_id": "cec10331-01bc-43f5-b058-6707e4dea0fd",
+      "strength": 0.59,
+      "confidence": 0.88
+    },
+    {
+      "id": "55a80a77-8e34-4941-affc-811a427a187a",
+      "property_id": "dad358e3-7223-4469-bc2f-ec4227b0396a",
+      "process_id": "9b669f14-ffb4-4126-a75f-2bbbadee9da4",
+      "perspective_id": "0e6eceb9-fd20-4960-8cd6-4e14e0d9fb33",
+      "strength": 0.58,
+      "confidence": 0.81
+    },
+    {
+      "id": "d195d6b0-2e04-496e-8028-063c5583addd",
+      "property_id": "049d263a-b626-48f7-b192-461600979606",
+      "process_id": "e6946f6b-f87a-4233-a2ee-a7c3e61f47c2",
+      "perspective_id": "0534f2b1-6085-46fc-83e8-1b170f690e2a",
+      "strength": 0.9,
+      "confidence": 0.74
+    },
+    {
+      "id": "005bb549-f2b7-4845-8dbe-db6d9cf88d13",
+      "property_id": "8b9c240b-ef88-41bb-9d25-da3eabf8c923",
+      "process_id": "c7100559-56e5-41be-aba1-0302e201ae9e",
+      "perspective_id": "70b55f8c-461d-4173-a051-b374e4e3ab56",
+      "strength": 0.55,
+      "confidence": 0.8
+    },
+    {
+      "id": "66561474-c1ea-4790-b2b7-440f3d763678",
+      "property_id": "aff4c929-d6b4-4edd-ab84-4ce1ea876143",
+      "process_id": "e488c773-838d-499a-a465-ed83b79f67ad",
+      "perspective_id": "53fc237a-7e8e-4fe1-bf54-19ef5e9c4ebd",
+      "strength": 0.51,
+      "confidence": 0.94
+    },
+    {
+      "id": "29b00910-8efe-4f66-8bed-d12e926ba882",
+      "property_id": "884df945-857f-423d-9d78-81f5604c4453",
+      "process_id": "4725eac8-47e1-4cf4-bf91-edd588e2ecea",
+      "perspective_id": "5f256a20-6c95-47a6-b4b3-d32bedf6c6c9",
+      "strength": 0.54,
+      "confidence": 0.71
+    },
+    {
+      "id": "56199680-b9c0-4a88-9a0b-ccd5b1e38495",
+      "property_id": "aff4c929-d6b4-4edd-ab84-4ce1ea876143",
+      "process_id": "624f4444-aad8-4b86-838d-f2045ff5e117",
+      "perspective_id": "b1d1ecad-46ee-4bf8-96a1-79bbf6a3b800",
+      "strength": 0.66,
+      "confidence": 0.86
+    },
+    {
+      "id": "b0752b0f-13c9-4cbd-84ef-56ec3ed358fb",
+      "property_id": "f4554e4e-86f4-4e4c-906d-5132b79fe9da",
+      "process_id": "19420dec-7975-47ba-ad5a-a23fa8fdd41a",
+      "perspective_id": "078db5f0-c315-4884-9d40-7807d7372b71",
+      "strength": 0.73,
+      "confidence": 0.92
+    },
+    {
+      "id": "de63421b-3538-4580-b6ea-55fa4fc875ac",
+      "property_id": "f4554e4e-86f4-4e4c-906d-5132b79fe9da",
+      "process_id": "ecd48576-df84-48b0-800c-c9dca0abbfd1",
+      "perspective_id": "1637f6dd-5cb6-4c66-a4bb-ef280ea2b44f",
+      "strength": 0.65,
+      "confidence": 0.97
+    },
+    {
+      "id": "296443f8-b1fa-452f-93b0-87328f6329e7",
+      "property_id": "8b9c240b-ef88-41bb-9d25-da3eabf8c923",
+      "process_id": "3b277c0d-f9e2-460c-b113-501695ecc008",
+      "perspective_id": "c1df0b28-d5b9-47e1-b528-5c1bf6a80dd4",
+      "strength": 0.8,
+      "confidence": 0.76
+    },
+    {
+      "id": "fce0759c-3cad-44f4-b536-29732411dde6",
+      "property_id": "fb93688d-5cdc-49ef-b7ff-7a68bf554c33",
+      "process_id": "a37e1fab-f38b-4c8a-b935-40efa43a6f02",
+      "perspective_id": "92818fc4-a1bf-40e7-b994-6271f2adb7ac",
+      "strength": 0.62,
+      "confidence": 0.77
+    },
+    {
+      "id": "743911e5-2992-4be2-b208-077b6c6068b5",
+      "property_id": "611add4b-9889-4692-a50b-40494f4b438f",
+      "process_id": "2aeb19b4-3ea8-4427-93c8-cdf8e00e922e",
+      "perspective_id": "cec10331-01bc-43f5-b058-6707e4dea0fd",
+      "strength": 0.95,
+      "confidence": 0.76
+    },
+    {
+      "id": "48c965a7-f83a-4460-8b94-0831c3c1072a",
+      "property_id": "e7a77a71-9738-4ab2-ae7f-d18e9287e19e",
+      "process_id": "5de3507d-8313-4374-bd0a-352696edc24c",
+      "perspective_id": "7f142977-7ea2-4cc6-8de2-b2c730ae1402",
+      "strength": 0.73,
+      "confidence": 0.85
+    },
+    {
+      "id": "17cd8846-52ac-422c-ba0f-bd913800e07b",
+      "property_id": "7d3355ec-ced5-4dcb-a743-ebd28c14234b",
+      "process_id": "bf5983d6-58a2-4ed9-8d84-1355dc74fd09",
+      "perspective_id": "c41121b1-baa0-429a-8941-e3dc3b060044",
+      "strength": 0.66,
+      "confidence": 0.92
+    },
+    {
+      "id": "3341d863-728c-4844-a035-7d989f3cbe1a",
+      "property_id": "bdfc64b7-ed5a-45af-970d-5b1920af4d7d",
+      "process_id": "4f59d36a-c498-45ff-9a20-d8ff88ee971e",
+      "perspective_id": "21af8540-d00d-4b67-a039-2c1ad1a9b2c2",
+      "strength": 0.61,
+      "confidence": 0.99
+    },
+    {
+      "id": "e0cb6bad-546c-4343-be55-aa328c9a1325",
+      "property_id": "f39c9c5b-363f-42a9-9f37-626c92444be5",
+      "process_id": "4f59d36a-c498-45ff-9a20-d8ff88ee971e",
+      "perspective_id": "fbd51c35-5436-41ca-bac8-83246a4dc389",
+      "strength": 0.72,
+      "confidence": 0.96
+    },
+    {
+      "id": "f8700680-d52f-46e5-bc49-cf740dfd04e7",
+      "property_id": "7d3355ec-ced5-4dcb-a743-ebd28c14234b",
+      "process_id": "e78dfa3e-eb48-4ce4-bfde-6a5c100e65f4",
+      "perspective_id": "6735a14b-8736-4f3b-a715-5a9e45896bc4",
+      "strength": 0.76,
+      "confidence": 0.96
+    },
+    {
+      "id": "8ba7530b-de7b-43f6-a999-ff08c44d69ec",
+      "property_id": "e4895cd9-b6e1-4748-9396-5ec1e4466ce7",
+      "process_id": "14f547b1-62db-46cf-8151-6eba17689f8e",
+      "perspective_id": "f5d29c4e-33a5-4dfe-b8e4-c9330bb5b891",
+      "strength": 0.52,
+      "confidence": 0.79
+    },
+    {
+      "id": "7a0ef8cf-be54-4168-bcf7-a533d2f15ef6",
+      "property_id": "f4554e4e-86f4-4e4c-906d-5132b79fe9da",
+      "process_id": "2046d750-1efe-400f-9dee-2c077cef9b1a",
+      "perspective_id": "cec10331-01bc-43f5-b058-6707e4dea0fd",
+      "strength": 0.68,
+      "confidence": 0.89
+    },
+    {
+      "id": "b738447a-a46a-4369-b58b-22a60772232c",
+      "property_id": "c5082a14-c6ba-4a76-998b-2b663dace8da",
+      "process_id": "17360994-99b4-45b9-8337-ae49664d4e16",
+      "perspective_id": "078db5f0-c315-4884-9d40-7807d7372b71",
+      "strength": 0.66,
+      "confidence": 0.91
+    },
+    {
+      "id": "c7a4ba26-d1df-47e8-95a3-cfe258057cc6",
+      "property_id": "34cbef65-4bcc-4efa-84a3-95438e8e6f16",
+      "process_id": "032d238d-c6b6-4f21-831f-40538e4fcaa4",
+      "perspective_id": "a19b8858-32ca-46fc-8c12-c0856822ad4f",
+      "strength": 0.89,
+      "confidence": 0.97
+    },
+    {
+      "id": "9e8d4e34-1271-4135-9d9c-45b1adad7cef",
+      "property_id": "266dbc22-6139-4207-bea0-20278db01d4b",
+      "process_id": "c7100559-56e5-41be-aba1-0302e201ae9e",
+      "perspective_id": "0e6eceb9-fd20-4960-8cd6-4e14e0d9fb33",
+      "strength": 0.97,
+      "confidence": 0.86
+    },
+    {
+      "id": "afe03d7c-2c99-45bf-88c1-7c948ece0bfa",
+      "property_id": "783d9d54-05c5-4028-aef7-174aeefd345f",
+      "process_id": "13f826c8-7d6b-4abe-974c-07189bee9acf",
+      "perspective_id": "ed0f055d-0358-4ea8-be20-d6855ebd6a2b",
+      "strength": 0.79,
+      "confidence": 0.78
+    },
+    {
+      "id": "e98aa5b9-cc21-4fa0-a33b-52dffbdc63a8",
+      "property_id": "01ea0dbd-e161-49ee-a7bd-73c1a06a7001",
+      "process_id": "5de3507d-8313-4374-bd0a-352696edc24c",
+      "perspective_id": "078db5f0-c315-4884-9d40-7807d7372b71",
+      "strength": 0.56,
+      "confidence": 0.93
+    },
+    {
+      "id": "117d17b1-1db3-4c06-bf7c-c95014614d48",
+      "property_id": "049d263a-b626-48f7-b192-461600979606",
+      "process_id": "2aeb19b4-3ea8-4427-93c8-cdf8e00e922e",
+      "perspective_id": "2205df21-ce2f-42a3-b897-6ddf5b2c6dc0",
+      "strength": 0.8,
+      "confidence": 0.95
+    },
+    {
+      "id": "6cec802e-0560-4934-a6fa-6bcb8bf9c6e1",
+      "property_id": "a6aae319-2cf4-4f34-a0c0-755ea13add60",
+      "process_id": "772a079a-4a04-4b6c-930f-f20b1128f6c9",
+      "perspective_id": "b1d1ecad-46ee-4bf8-96a1-79bbf6a3b800",
+      "strength": 0.77,
+      "confidence": 0.92
+    },
+    {
+      "id": "ffbc3603-33d2-4de7-b404-af06057c1823",
+      "property_id": "e7a77a71-9738-4ab2-ae7f-d18e9287e19e",
+      "process_id": "51c35558-9e82-4f5e-bb2c-16e45a4aa83b",
+      "perspective_id": "07982f1e-58d9-4451-b2af-5520e98e6d9b",
+      "strength": 0.75,
+      "confidence": 0.85
+    },
+    {
+      "id": "6c5ae763-081a-4783-b12f-f6c4c645d75f",
+      "property_id": "3d1d7761-36d8-4995-9b4c-f054b3e71c0b",
+      "process_id": "763aa74a-0f59-4b32-896d-408329b4b21f",
+      "perspective_id": "9266fe82-698e-40a8-8fa6-5a0d661d4558",
+      "strength": 0.84,
+      "confidence": 0.88
+    },
+    {
+      "id": "88a1dd64-f683-4d7e-85eb-813f8708af71",
+      "property_id": "34cbef65-4bcc-4efa-84a3-95438e8e6f16",
+      "process_id": "e78dfa3e-eb48-4ce4-bfde-6a5c100e65f4",
+      "perspective_id": "79370ea1-43f4-4841-82e8-53d52ee769a0",
+      "strength": 0.78,
+      "confidence": 0.87
+    },
+    {
+      "id": "63489610-ccea-409c-bc8e-20b1b7061737",
+      "property_id": "266dbc22-6139-4207-bea0-20278db01d4b",
+      "process_id": "e488c773-838d-499a-a465-ed83b79f67ad",
+      "perspective_id": "e3910377-bee3-4d59-864f-2f9266fac8a7",
+      "strength": 0.58,
+      "confidence": 0.72
+    },
+    {
+      "id": "30bb92b2-d81b-4b77-8883-092b361d4f21",
+      "property_id": "a7f3ca4b-b89f-425a-97ae-79e3cad66998",
+      "process_id": "13f826c8-7d6b-4abe-974c-07189bee9acf",
+      "perspective_id": "c1df0b28-d5b9-47e1-b528-5c1bf6a80dd4",
+      "strength": 0.59,
+      "confidence": 0.95
+    },
+    {
+      "id": "5550ce09-c664-4108-9602-6eb07ddb33db",
+      "property_id": "8b9c240b-ef88-41bb-9d25-da3eabf8c923",
+      "process_id": "766b375a-f2b9-4b74-930e-5830a763d6a5",
+      "perspective_id": "d32e71a2-d683-4e47-a3e7-2e3cda400e97",
+      "strength": 0.61,
+      "confidence": 0.88
+    },
+    {
+      "id": "3ca26413-7306-46f2-bbd4-be6c621d83f0",
+      "property_id": "01ea0dbd-e161-49ee-a7bd-73c1a06a7001",
+      "process_id": "ecd48576-df84-48b0-800c-c9dca0abbfd1",
+      "perspective_id": "ed0f055d-0358-4ea8-be20-d6855ebd6a2b",
+      "strength": 0.56,
+      "confidence": 0.71
+    },
+    {
+      "id": "0d075284-62a8-4d8d-96df-6d1ffbe6d829",
+      "property_id": "aeb0deef-e273-4ce5-af73-dd512d16bdf0",
+      "process_id": "46c94357-f49d-4da9-af92-2973429c74cc",
+      "perspective_id": "5f256a20-6c95-47a6-b4b3-d32bedf6c6c9",
+      "strength": 0.92,
+      "confidence": 0.91
+    },
+    {
+      "id": "0b8113af-d733-478e-9231-1524f7424aa5",
+      "property_id": "c398cc07-51b0-4063-88e2-73de555fdf37",
+      "process_id": "766b375a-f2b9-4b74-930e-5830a763d6a5",
+      "perspective_id": "0e6eceb9-fd20-4960-8cd6-4e14e0d9fb33",
+      "strength": 0.88,
+      "confidence": 0.81
+    },
+    {
+      "id": "f6219c1c-f3f0-4a72-9823-3f638f9ac57a",
+      "property_id": "7d3355ec-ced5-4dcb-a743-ebd28c14234b",
+      "process_id": "17360994-99b4-45b9-8337-ae49664d4e16",
+      "perspective_id": "9f111759-1f9d-42de-95db-51319345dae1",
+      "strength": 0.9,
+      "confidence": 0.82
+    },
+    {
+      "id": "2401b183-1df3-49b7-8cdf-3622a441ec7c",
+      "property_id": "e4a6f82f-6a83-42ca-b558-6b2424864a22",
+      "process_id": "2046d750-1efe-400f-9dee-2c077cef9b1a",
+      "perspective_id": "0218cb7a-f111-4701-b4e2-607c53fee9f5",
+      "strength": 0.62,
+      "confidence": 0.97
+    },
+    {
+      "id": "e206ae96-f6f0-4eb4-a79c-e394a498f7f1",
+      "property_id": "f4d0805b-db7d-4f2e-8e64-482005306b20",
+      "process_id": "26a3a142-2be2-46b7-8a93-8f2ed51b6db8",
+      "perspective_id": "8e35141e-da2c-4aae-ad7b-888a4f11753a",
+      "strength": 0.82,
+      "confidence": 0.8
+    },
+    {
+      "id": "c0bab777-080d-4d17-8d64-edb25204ddb7",
+      "property_id": "47a86bab-6c42-49f9-87d3-e452702e0e30",
+      "process_id": "7e4da39c-1564-42ce-a683-e8c84c01b15e",
+      "perspective_id": "79370ea1-43f4-4841-82e8-53d52ee769a0",
+      "strength": 0.64,
+      "confidence": 0.77
+    },
+    {
+      "id": "9d86f8d2-a7cc-40ab-8789-2b412f9544f2",
+      "property_id": "783d9d54-05c5-4028-aef7-174aeefd345f",
+      "process_id": "763aa74a-0f59-4b32-896d-408329b4b21f",
+      "perspective_id": "b03c7949-97fd-4309-b09d-279e8e3aa4b0",
+      "strength": 0.95,
+      "confidence": 0.99
+    },
+    {
+      "id": "d1af6f4d-1703-494b-9e03-ee521569fcf0",
+      "property_id": "3c0eb124-18dc-4e9c-815c-a8982cc40b77",
+      "process_id": "14f547b1-62db-46cf-8151-6eba17689f8e",
+      "perspective_id": "9266fe82-698e-40a8-8fa6-5a0d661d4558",
+      "strength": 0.53,
+      "confidence": 0.96
+    },
+    {
+      "id": "7e295db4-8a71-46e7-8842-d70ea118260a",
+      "property_id": "5738bedc-7041-4868-b0dc-7b0b4274995f",
+      "process_id": "76d4008e-f197-4b4f-b5ae-6d24dacde91e",
+      "perspective_id": "0e6eceb9-fd20-4960-8cd6-4e14e0d9fb33",
+      "strength": 0.71,
+      "confidence": 0.93
+    },
+    {
+      "id": "61850277-264b-4e91-86d2-ee2861bf2799",
+      "property_id": "c398cc07-51b0-4063-88e2-73de555fdf37",
+      "process_id": "ecd48576-df84-48b0-800c-c9dca0abbfd1",
+      "perspective_id": "1637f6dd-5cb6-4c66-a4bb-ef280ea2b44f",
+      "strength": 0.91,
+      "confidence": 0.74
+    },
+    {
+      "id": "03f4da35-aec6-42e4-ac7d-8357f36ab638",
+      "property_id": "5738bedc-7041-4868-b0dc-7b0b4274995f",
+      "process_id": "6919969a-0b88-49b2-b2cc-a7872e5d6b62",
+      "perspective_id": "dcb90c25-aa01-4bfb-b4d3-f86783076a09",
+      "strength": 0.93,
+      "confidence": 0.96
+    },
+    {
+      "id": "1b2a74f2-134b-47ab-92b7-6882b60867f7",
+      "property_id": "34cbef65-4bcc-4efa-84a3-95438e8e6f16",
+      "process_id": "17360994-99b4-45b9-8337-ae49664d4e16",
+      "perspective_id": "dcb90c25-aa01-4bfb-b4d3-f86783076a09",
+      "strength": 0.57,
+      "confidence": 0.77
+    },
+    {
+      "id": "9c232667-1c35-4b76-a248-538e5fbc8cf7",
+      "property_id": "c398cc07-51b0-4063-88e2-73de555fdf37",
+      "process_id": "e6946f6b-f87a-4233-a2ee-a7c3e61f47c2",
+      "perspective_id": "2c240101-c017-4c74-a824-b46ac0ec08e2",
+      "strength": 0.74,
+      "confidence": 0.89
+    },
+    {
+      "id": "e3bd76c1-cb01-43c9-9b83-e1feab9eaa68",
+      "property_id": "884df945-857f-423d-9d78-81f5604c4453",
+      "process_id": "2aeb19b4-3ea8-4427-93c8-cdf8e00e922e",
+      "perspective_id": "9266fe82-698e-40a8-8fa6-5a0d661d4558",
+      "strength": 0.96,
+      "confidence": 0.73
+    },
+    {
+      "id": "b17b9bc0-2555-4f09-a895-dbafb9c3bcf5",
+      "property_id": "a2a9dfd7-3473-4cb3-bd1b-cbcba73a6e98",
+      "process_id": "bf5983d6-58a2-4ed9-8d84-1355dc74fd09",
+      "perspective_id": "da81faf0-f26b-41dd-8b1d-39d82e2a39b5",
+      "strength": 0.86,
+      "confidence": 0.93
+    }
+  ],
+  "metadata": {
+    "count": {
+      "properties": 50,
+      "processes": 50,
+      "perspectives": 50
+    }
+  }
+}

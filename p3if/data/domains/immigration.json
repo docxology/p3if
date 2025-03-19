@@ -1,0 +1,1853 @@
+{
+  "domain": "Immigration",
+  "version": "1.0",
+  "properties": [
+    "Border Control",
+    "Visa Processing",
+    "Asylum Management",
+    "Integration Programs",
+    "Labor Market Impact",
+    "Cultural Diversity",
+    "National Security",
+    "Human Rights",
+    "Demographic Change",
+    "Economic Contribution",
+    "Social Cohesion",
+    "Language Acquisition",
+    "Health Screening",
+    "Education Access",
+    "Family Reunification",
+    "Citizenship Pathways",
+    "Illegal Immigration Prevention",
+    "Refugee Resettlement",
+    "Skilled Migration",
+    "Temporary Worker Programs",
+    "Immigration Policy",
+    "Deportation Procedures",
+    "Detention Facilities",
+    "Legal Aid Services",
+    "Immigrant Entrepreneurship",
+    "Remittance Flows",
+    "Brain Drain/Gain",
+    "Dual Citizenship",
+    "Naturalization Process",
+    "Immigration Quotas",
+    "Border Technology",
+    "Immigrant Rights",
+    "Cultural Assimilation",
+    "Diaspora Communities",
+    "Human Trafficking Prevention",
+    "Seasonal Worker Programs",
+    "Immigration Fraud Detection",
+    "Sanctuary Cities",
+    "Immigration Court System",
+    "Immigrant Health Care",
+    "Language Interpretation Services",
+    "Cross-Border Cooperation",
+    "Immigration Data Management",
+    "Immigrant Voting Rights",
+    "Second Generation Integration",
+    "Immigration Research",
+    "Immigrant Mental Health",
+    "Unaccompanied Minor Management",
+    "Immigration Advocacy",
+    "Immigrant Education Programs"
+  ],
+  "processes": [
+    "Border Patrol",
+    "Visa Application Processing",
+    "Asylum Claim Evaluation",
+    "Integration Program Implementation",
+    "Labor Market Analysis",
+    "Cultural Orientation",
+    "Security Screening",
+    "Human Rights Monitoring",
+    "Demographic Data Collection",
+    "Economic Impact Assessment",
+    "Community Engagement",
+    "Language Training",
+    "Health Screening Procedures",
+    "Education Placement",
+    "Family Reunification Processing",
+    "Citizenship Application Processing",
+    "Illegal Immigration Enforcement",
+    "Refugee Placement",
+    "Skilled Migrant Selection",
+    "Temporary Work Visa Issuance",
+    "Policy Development",
+    "Deportation Proceedings",
+    "Detention Center Management",
+    "Legal Aid Provision",
+    "Entrepreneurship Support",
+    "Remittance Tracking",
+    "Brain Drain/Gain Analysis",
+    "Dual Citizenship Processing",
+    "Naturalization Ceremony",
+    "Quota System Management",
+    "Border Technology Implementation",
+    "Rights Education",
+    "Cultural Assimilation Programs",
+    "Diaspora Engagement",
+    "Anti-Trafficking Operations",
+    "Seasonal Worker Coordination",
+    "Fraud Investigation",
+    "Sanctuary City Policy Enforcement",
+    "Immigration Court Proceedings",
+    "Immigrant Healthcare Provision",
+    "Interpretation Service Coordination",
+    "International Border Cooperation",
+    "Immigration Database Management",
+    "Voter Registration for Immigrants",
+    "Second Generation Support Programs",
+    "Immigration Research Studies",
+    "Mental Health Service Provision",
+    "Unaccompanied Minor Care",
+    "Advocacy Campaign Management",
+    "Immigrant Education Curriculum Development"
+  ],
+  "perspectives": [
+    "Immigration Officer",
+    "Visa Processor",
+    "Asylum Case Worker",
+    "Integration Program Coordinator",
+    "Labor Market Analyst",
+    "Cultural Liaison",
+    "Security Screener",
+    "Human Rights Advocate",
+    "Demographer",
+    "Economic Analyst",
+    "Community Outreach Specialist",
+    "Language Instructor",
+    "Health Screening Technician",
+    "Education Placement Officer",
+    "Family Reunification Caseworker",
+    "Citizenship Test Administrator",
+    "Border Patrol Agent",
+    "Refugee Resettlement Coordinator",
+    "Skilled Migration Recruiter",
+    "Temporary Visa Officer",
+    "Immigration Policy Advisor",
+    "Deportation Officer",
+    "Detention Facility Manager",
+    "Immigration Lawyer",
+    "Immigrant Entrepreneur Mentor",
+    "Remittance Analyst",
+    "Brain Drain/Gain Researcher",
+    "Dual Citizenship Processor",
+    "Naturalization Ceremony Official",
+    "Immigration Quota Analyst",
+    "Border Technology Specialist",
+    "Immigrant Rights Educator",
+    "Cultural Assimilation Coach",
+    "Diaspora Community Leader",
+    "Anti-Trafficking Investigator",
+    "Seasonal Worker Program Manager",
+    "Immigration Fraud Investigator",
+    "Sanctuary City Policy Maker",
+    "Immigration Judge",
+    "Immigrant Healthcare Provider",
+    "Language Interpreter",
+    "Cross-Border Cooperation Officer",
+    "Immigration Data Analyst",
+    "Immigrant Voting Rights Advocate",
+    "Second Generation Integration Specialist",
+    "Immigration Researcher",
+    "Immigrant Mental Health Counselor",
+    "Unaccompanied Minor Case Manager",
+    "Immigration Advocate",
+    "Immigrant Education Specialist"
+  ],
+  "patterns": {
+    "properties": [
+      {
+        "id": "d628f4d0-0fe0-4178-aa21-f1afe5b55236",
+        "name": "Border Control",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "8810d0cf-3076-4fc8-9a15-4119fadd75b8",
+        "name": "Visa Processing",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "c52c37f7-a280-4317-8c9f-f436f3a16412",
+        "name": "Asylum Management",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "cd5907b6-c5fd-454f-afc0-6ce412a9f3b9",
+        "name": "Integration Programs",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "f936ff91-9136-4e56-8a70-9fd310521327",
+        "name": "Labor Market Impact",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "ae69d8c4-72a6-43c0-927a-34be93bf31a7",
+        "name": "Cultural Diversity",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "ef541255-9864-428e-8c52-b744ebe15677",
+        "name": "National Security",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "618a245a-9ab5-4415-807f-83e776be9ee2",
+        "name": "Human Rights",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "0da5c10c-9e28-4215-b3a5-cdfcb460068e",
+        "name": "Demographic Change",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "ef0cfb95-bcb4-4c3e-8718-eec57ed4071d",
+        "name": "Economic Contribution",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "69fb5141-05dd-4c0a-b203-3eb1139515f3",
+        "name": "Social Cohesion",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "6a869150-c55d-450c-bf05-6a53435398ed",
+        "name": "Language Acquisition",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "bb0234c9-3469-4880-8daa-ed807a5fbea3",
+        "name": "Health Screening",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "fcc2dd87-1491-46ac-9a1e-d063b7917f1e",
+        "name": "Education Access",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "866019f5-bcef-4811-a265-101bfd85a22b",
+        "name": "Family Reunification",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "f163a723-1bc3-473c-80cc-1a62754eafed",
+        "name": "Citizenship Pathways",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "7b016cb9-504a-4b8e-8140-8cd98110b598",
+        "name": "Illegal Immigration Prevention",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "e11d7d4a-5f3c-4e89-9a63-e09933b2a3c4",
+        "name": "Refugee Resettlement",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "4de8cef8-a2fd-458f-b22e-7726f122ebd8",
+        "name": "Skilled Migration",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "ea581a5f-8c7d-4e22-a09e-2dc275ba1274",
+        "name": "Temporary Worker Programs",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "fb15e19f-d57b-42e2-a26b-fbf0e6f21089",
+        "name": "Immigration Policy",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "dcd00bc4-435b-4866-90e1-60642116637b",
+        "name": "Deportation Procedures",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "a9dec405-68d4-4629-8141-af3e9c5d7c68",
+        "name": "Detention Facilities",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "8219ce5b-70db-4413-ba2c-d6ea5ed3ac7c",
+        "name": "Legal Aid Services",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "fb2518a9-2ee8-4974-b355-61d54d91f6c1",
+        "name": "Immigrant Entrepreneurship",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "335e200a-a07e-4acd-a804-9c2fb20e9141",
+        "name": "Remittance Flows",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "06796cea-ad06-4a65-95af-19b45395d782",
+        "name": "Brain Drain/Gain",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "1f618cd6-0d3e-455c-ba34-66cdc23d0c48",
+        "name": "Dual Citizenship",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "def67289-407e-4807-aee4-e9b9cb95078e",
+        "name": "Naturalization Process",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "e1ac5cc2-f426-4c1e-b78e-67b08ff88e96",
+        "name": "Immigration Quotas",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "f0d78254-f152-4bdd-881e-2124ab05e17e",
+        "name": "Border Technology",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "ac4b8944-9937-4b76-a90d-b8264976dce7",
+        "name": "Immigrant Rights",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "74045f7a-2c40-44c5-ab0b-8005bab37c7a",
+        "name": "Cultural Assimilation",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "bef59e28-9ffc-42a9-8d3f-f01b147e7885",
+        "name": "Diaspora Communities",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "9200ad7f-eaf8-4c0b-8e7a-f703baa8b9d6",
+        "name": "Human Trafficking Prevention",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "7b43f0a3-20b6-42c8-91e2-bbb73e8872e3",
+        "name": "Seasonal Worker Programs",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "ae5e1c2b-6685-40fe-a15f-9233922878af",
+        "name": "Immigration Fraud Detection",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "bcc5862e-7c0f-4a85-ab62-7b106d278d3e",
+        "name": "Sanctuary Cities",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "84c577b9-327b-4849-b8c3-291732dd1368",
+        "name": "Immigration Court System",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "de010c5c-0ff7-4e1a-83c3-a8e0eed13c3e",
+        "name": "Immigrant Health Care",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "876b650b-9921-4ae5-a30d-b1d8fd1b4956",
+        "name": "Language Interpretation Services",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "800f924d-7b12-4542-b7ee-622cdf98a779",
+        "name": "Cross-Border Cooperation",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "66b5c5b9-2e00-4be7-9505-a7f0d53e09f7",
+        "name": "Immigration Data Management",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "01cde949-9d8c-4499-8a54-f28bbe4b4f38",
+        "name": "Immigrant Voting Rights",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "3038f398-04fa-405d-a993-d308927556a2",
+        "name": "Second Generation Integration",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "23fb1e11-1800-43e0-8cf4-aec49d5ef37f",
+        "name": "Immigration Research",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "22f9d92c-9bfb-448d-8fc3-2a5e2bec34a2",
+        "name": "Immigrant Mental Health",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "3f0b2082-b711-4d38-8363-a7890eaa18d5",
+        "name": "Unaccompanied Minor Management",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "8cd7a708-fd33-4bf6-9a47-501350624316",
+        "name": "Immigration Advocacy",
+        "type": "property",
+        "domain": "Immigration"
+      },
+      {
+        "id": "4d650728-8e55-4e4a-9388-beba1cbe0156",
+        "name": "Immigrant Education Programs",
+        "type": "property",
+        "domain": "Immigration"
+      }
+    ],
+    "processes": [
+      {
+        "id": "03d10995-f83c-4a67-a014-49c5d19a80ef",
+        "name": "Border Patrol",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "d4881075-1882-4066-b0d6-5f0d238f0898",
+        "name": "Visa Application Processing",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "8be0a6b7-22fa-43d0-a3d6-221209656d10",
+        "name": "Asylum Claim Evaluation",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "862794a9-ca13-4b54-afef-673faac964cb",
+        "name": "Integration Program Implementation",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "45f0ef04-d953-4417-bfc3-d12003eeee67",
+        "name": "Labor Market Analysis",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "7a2b6c0d-893d-41aa-9c02-50c4503f975f",
+        "name": "Cultural Orientation",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "9e9ebd28-e6a6-4370-916b-5471d1c6ed51",
+        "name": "Security Screening",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "23bec005-8083-4522-91c9-cd102fb9993e",
+        "name": "Human Rights Monitoring",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "73281d2c-4b56-48a5-aee5-7f46a76160c3",
+        "name": "Demographic Data Collection",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "c2279c61-9a97-455f-b1a7-f9eaf506c01a",
+        "name": "Economic Impact Assessment",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "93329cc2-3572-4dcb-8cc6-bcd72491ef1e",
+        "name": "Community Engagement",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "e7f5ff64-3bb6-476b-ad47-92943bef506a",
+        "name": "Language Training",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "b9203f86-0f48-4678-92c0-650c22ee6cbd",
+        "name": "Health Screening Procedures",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "b6919652-21f5-4d39-aee6-05e466de113e",
+        "name": "Education Placement",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "31e34020-153a-43f1-9d42-b3fec668e960",
+        "name": "Family Reunification Processing",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "ecc73f00-66ab-4b94-a245-afdef1239906",
+        "name": "Citizenship Application Processing",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "1b623f2b-3d14-4b9d-8db4-fd042b1804e6",
+        "name": "Illegal Immigration Enforcement",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "f64dcd2e-e306-4b3c-9c45-cbea7612fe4d",
+        "name": "Refugee Placement",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "3af183b9-adff-4b4e-ac04-94014f7a224a",
+        "name": "Skilled Migrant Selection",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "ecabea70-167e-4b1a-a194-bde78811b5d9",
+        "name": "Temporary Work Visa Issuance",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "8869dd99-87a6-418a-98bf-3c6cc3c73bc2",
+        "name": "Policy Development",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "0af75e9e-257e-4da3-b3d6-29481d8acba0",
+        "name": "Deportation Proceedings",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "4cea3da5-b7f5-4c82-b4bb-0fd146003b47",
+        "name": "Detention Center Management",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "bef379c3-8657-455a-b2e5-98808a257469",
+        "name": "Legal Aid Provision",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "2ac56e69-d040-4dac-8267-b1189a9c0f48",
+        "name": "Entrepreneurship Support",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "b50e149b-042e-4ccf-95be-0fe0dbf2e9b8",
+        "name": "Remittance Tracking",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "62a7d16c-fab0-4ff2-9fa4-6ace2a4f5d44",
+        "name": "Brain Drain/Gain Analysis",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "e22c61d2-ad1c-4e09-8818-340dc19ca013",
+        "name": "Dual Citizenship Processing",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "d716e946-9dc5-49b6-9e9f-9515af9657fb",
+        "name": "Naturalization Ceremony",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "12fce9b1-7a62-4bb1-9d54-1dbd88aa560a",
+        "name": "Quota System Management",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "d4df81e7-e9c6-4932-ac7d-86ee4bb8f5d1",
+        "name": "Border Technology Implementation",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "b0f84f69-0391-4806-bc54-db2de88eadeb",
+        "name": "Rights Education",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "f3e692a8-cd0e-4b32-aa9c-096120d9494c",
+        "name": "Cultural Assimilation Programs",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "8eb5ef97-87b0-4733-a9f2-65e596678b04",
+        "name": "Diaspora Engagement",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "0afd1af4-a25d-4b7a-9ba7-be47e8c4f44c",
+        "name": "Anti-Trafficking Operations",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "ddd4d350-91b0-42fc-9e76-311d9292e50b",
+        "name": "Seasonal Worker Coordination",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "cb460dfd-ff0e-4ed9-b305-7d7868cfa697",
+        "name": "Fraud Investigation",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "85e9580f-43a8-4460-8016-bfa26f031431",
+        "name": "Sanctuary City Policy Enforcement",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "1b2abb1f-6f53-4c8f-bdee-6dd86c53c488",
+        "name": "Immigration Court Proceedings",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "6c7d667d-3bd8-4a2a-953e-f5c60b3285c3",
+        "name": "Immigrant Healthcare Provision",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "b51e116b-fc28-4932-a29d-a48477fe7bb2",
+        "name": "Interpretation Service Coordination",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "d2a9e2d2-06b9-4dd4-ad9e-e3245c29f66f",
+        "name": "International Border Cooperation",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "7594f087-95be-437c-ae93-9c594bcb6de3",
+        "name": "Immigration Database Management",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "b194d33d-208a-4fbc-9918-e93d5d82e838",
+        "name": "Voter Registration for Immigrants",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "637e5e9c-eb71-4dea-820e-534f1dc15d68",
+        "name": "Second Generation Support Programs",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "b7dc02ff-c7e3-4f85-9ba4-9202ed13d801",
+        "name": "Immigration Research Studies",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "5dc4cc60-dd5b-4de5-b04b-55f0b65ee534",
+        "name": "Mental Health Service Provision",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "027889a1-51a5-4acf-a96e-6c924cbda7e2",
+        "name": "Unaccompanied Minor Care",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "17cfd7f4-ef69-4caa-8ff4-99d2fb6aeea5",
+        "name": "Advocacy Campaign Management",
+        "type": "process",
+        "domain": "Immigration"
+      },
+      {
+        "id": "ff755f00-1da3-4b97-9639-33d4ade97b96",
+        "name": "Immigrant Education Curriculum Development",
+        "type": "process",
+        "domain": "Immigration"
+      }
+    ],
+    "perspectives": [
+      {
+        "id": "ce3f3f87-5bdc-4647-bb2e-3f17b4e8a462",
+        "name": "Immigration Officer",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "c08e8d09-b074-4303-bd86-bb9e3cb1f205",
+        "name": "Visa Processor",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "e0c91794-2354-45fc-9ad0-a96a9255e48f",
+        "name": "Asylum Case Worker",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "f2526892-57bf-461f-82b5-ed30c5ddd79c",
+        "name": "Integration Program Coordinator",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "b5a31582-e6aa-40f5-931f-3f25f16e63fb",
+        "name": "Labor Market Analyst",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "e4c50564-cfdd-4f69-8f98-0b983bd07f8e",
+        "name": "Cultural Liaison",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "06b43c39-5332-4a8a-8e4d-ce1e2ef6365c",
+        "name": "Security Screener",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "276032e0-afac-4048-860a-43de5263c45b",
+        "name": "Human Rights Advocate",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "c6b6af7d-07ac-4437-b231-fe1d0c220a03",
+        "name": "Demographer",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "86c8ff94-42c7-475f-be06-e10fb1c03080",
+        "name": "Economic Analyst",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "7ce15401-3401-449b-b1d6-521f7e3e7199",
+        "name": "Community Outreach Specialist",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "8ea7883a-65a1-4b74-aad4-254db7afaabb",
+        "name": "Language Instructor",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "d0bf850a-1fcc-45db-bd97-731e96e11deb",
+        "name": "Health Screening Technician",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "8f8e92da-7391-489a-b896-4d696563ff61",
+        "name": "Education Placement Officer",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "7bd1afbd-ca43-4ead-8ad3-114459ddaeaa",
+        "name": "Family Reunification Caseworker",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "b40075cd-8710-4045-a5fd-ad019c2d0904",
+        "name": "Citizenship Test Administrator",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "5f61e62f-3d17-4475-a844-aac7cd1bc8aa",
+        "name": "Border Patrol Agent",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "9d6f9c94-ca01-41fc-82fa-9a4ef73d2cee",
+        "name": "Refugee Resettlement Coordinator",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "c4194243-774e-43d8-961d-499a50d3d5c6",
+        "name": "Skilled Migration Recruiter",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "589f32c5-eeb9-4df4-a508-a63a2a9f182d",
+        "name": "Temporary Visa Officer",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "2709a711-4fcb-408c-9175-4d564e46b4e9",
+        "name": "Immigration Policy Advisor",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "68ceaee8-5701-4066-93ee-8efe2383e98f",
+        "name": "Deportation Officer",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "be6a3693-c341-4ae4-8bd0-04352f930db3",
+        "name": "Detention Facility Manager",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "17d47cf7-b9b7-4ca6-8a65-0d410c788e44",
+        "name": "Immigration Lawyer",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "507fb20d-0b2e-462a-94fa-7b8484cc879a",
+        "name": "Immigrant Entrepreneur Mentor",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "770d6673-3575-4c49-8708-87457c5f1110",
+        "name": "Remittance Analyst",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "4c25f7c2-d5de-44e9-8fc7-4b2e1e8a720e",
+        "name": "Brain Drain/Gain Researcher",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "69b2d79f-6617-4096-a0ad-4cf4fc5a67ed",
+        "name": "Dual Citizenship Processor",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "6b286acd-ea1c-4f39-b931-f5cc6b617565",
+        "name": "Naturalization Ceremony Official",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "096f4873-eca7-41ed-85a5-92d348ba5aad",
+        "name": "Immigration Quota Analyst",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "ec3aaa8e-b48a-4ab0-8d4c-089d9184981a",
+        "name": "Border Technology Specialist",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "d443158f-61c0-4e59-95ca-092779aa4c39",
+        "name": "Immigrant Rights Educator",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "127fac7c-9b17-4e80-ae84-78a0682ab592",
+        "name": "Cultural Assimilation Coach",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "008acb0b-b9a4-47ff-8c1b-24a386197b0c",
+        "name": "Diaspora Community Leader",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "8043d2dc-330d-4b63-bb04-4accc89526d2",
+        "name": "Anti-Trafficking Investigator",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "fe8e1430-fe68-49f1-b110-a671ee7994ed",
+        "name": "Seasonal Worker Program Manager",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "b958063e-a54c-40eb-9bff-ca44c03f8dfe",
+        "name": "Immigration Fraud Investigator",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "3c328007-1c51-43da-974c-5db0dd0d9a86",
+        "name": "Sanctuary City Policy Maker",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "7bd0ed99-55ec-4886-8392-a0d5957e6761",
+        "name": "Immigration Judge",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "9e3ffbec-02d2-41c6-9a22-543b6ee28e4d",
+        "name": "Immigrant Healthcare Provider",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "fb458aca-16e3-4f8d-9c19-f6f2e8bad386",
+        "name": "Language Interpreter",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "afe7448c-3df2-43e1-8a68-b31f5ca5f377",
+        "name": "Cross-Border Cooperation Officer",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "642ea886-c97d-453e-902e-7325fcd66c0e",
+        "name": "Immigration Data Analyst",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "e5222965-f733-4d47-9b83-8b091a9e5098",
+        "name": "Immigrant Voting Rights Advocate",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "c1c35ecf-cae7-4e4b-acc1-b03473c32275",
+        "name": "Second Generation Integration Specialist",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "f1f9eff1-c8b8-4a1b-9222-d4f721989fae",
+        "name": "Immigration Researcher",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "8c9de942-e1cc-4d69-9efe-cc5a574ff823",
+        "name": "Immigrant Mental Health Counselor",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "f3f4b4b0-5b26-4376-ad34-966ceda71fde",
+        "name": "Unaccompanied Minor Case Manager",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "8809cc19-a5b7-4136-82a4-94cde4e0ee76",
+        "name": "Immigration Advocate",
+        "type": "perspective",
+        "domain": "Immigration"
+      },
+      {
+        "id": "31bb78b5-73b5-4a33-8c08-c4e11257287c",
+        "name": "Immigrant Education Specialist",
+        "type": "perspective",
+        "domain": "Immigration"
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "eacc9bce-c8e8-4869-b0fb-1d5cfc214739",
+      "property_id": "ef541255-9864-428e-8c52-b744ebe15677",
+      "process_id": "ecabea70-167e-4b1a-a194-bde78811b5d9",
+      "perspective_id": "770d6673-3575-4c49-8708-87457c5f1110",
+      "strength": 0.94,
+      "confidence": 0.81
+    },
+    {
+      "id": "ee837ba3-1a27-4f95-995f-e2fbc2a02a0d",
+      "property_id": "fb15e19f-d57b-42e2-a26b-fbf0e6f21089",
+      "process_id": "c2279c61-9a97-455f-b1a7-f9eaf506c01a",
+      "perspective_id": "276032e0-afac-4048-860a-43de5263c45b",
+      "strength": 0.82,
+      "confidence": 0.8
+    },
+    {
+      "id": "a78b59a5-c195-4859-9d53-b484c0e79b21",
+      "property_id": "0da5c10c-9e28-4215-b3a5-cdfcb460068e",
+      "process_id": "5dc4cc60-dd5b-4de5-b04b-55f0b65ee534",
+      "perspective_id": "b40075cd-8710-4045-a5fd-ad019c2d0904",
+      "strength": 0.66,
+      "confidence": 0.98
+    },
+    {
+      "id": "ca3ee4df-8971-4c0b-ac63-148fc5c4f433",
+      "property_id": "e1ac5cc2-f426-4c1e-b78e-67b08ff88e96",
+      "process_id": "5dc4cc60-dd5b-4de5-b04b-55f0b65ee534",
+      "perspective_id": "31bb78b5-73b5-4a33-8c08-c4e11257287c",
+      "strength": 0.61,
+      "confidence": 0.75
+    },
+    {
+      "id": "0fabebe2-89ea-49f8-980f-d815e6243096",
+      "property_id": "800f924d-7b12-4542-b7ee-622cdf98a779",
+      "process_id": "ecabea70-167e-4b1a-a194-bde78811b5d9",
+      "perspective_id": "e5222965-f733-4d47-9b83-8b091a9e5098",
+      "strength": 0.78,
+      "confidence": 0.87
+    },
+    {
+      "id": "50b36670-9b7a-4b8c-ac65-aee5dfe57bf4",
+      "property_id": "de010c5c-0ff7-4e1a-83c3-a8e0eed13c3e",
+      "process_id": "ecabea70-167e-4b1a-a194-bde78811b5d9",
+      "perspective_id": "7ce15401-3401-449b-b1d6-521f7e3e7199",
+      "strength": 0.62,
+      "confidence": 0.89
+    },
+    {
+      "id": "214bf653-c5a9-493f-a799-e553c1cc0a66",
+      "property_id": "bcc5862e-7c0f-4a85-ab62-7b106d278d3e",
+      "process_id": "8eb5ef97-87b0-4733-a9f2-65e596678b04",
+      "perspective_id": "5f61e62f-3d17-4475-a844-aac7cd1bc8aa",
+      "strength": 0.73,
+      "confidence": 0.74
+    },
+    {
+      "id": "f8b0a4ba-4076-49be-be67-4083fb034d4f",
+      "property_id": "8cd7a708-fd33-4bf6-9a47-501350624316",
+      "process_id": "b9203f86-0f48-4678-92c0-650c22ee6cbd",
+      "perspective_id": "096f4873-eca7-41ed-85a5-92d348ba5aad",
+      "strength": 0.93,
+      "confidence": 0.9
+    },
+    {
+      "id": "fd785632-bbe8-431b-9094-68644e8d0a7a",
+      "property_id": "4d650728-8e55-4e4a-9388-beba1cbe0156",
+      "process_id": "85e9580f-43a8-4460-8016-bfa26f031431",
+      "perspective_id": "7ce15401-3401-449b-b1d6-521f7e3e7199",
+      "strength": 0.91,
+      "confidence": 0.81
+    },
+    {
+      "id": "1c09d26e-7493-4cae-87f6-7b647d5d1a1d",
+      "property_id": "ef0cfb95-bcb4-4c3e-8718-eec57ed4071d",
+      "process_id": "3af183b9-adff-4b4e-ac04-94014f7a224a",
+      "perspective_id": "8c9de942-e1cc-4d69-9efe-cc5a574ff823",
+      "strength": 0.78,
+      "confidence": 0.94
+    },
+    {
+      "id": "230f9a03-2c1c-494b-8ed2-38372a58fe6f",
+      "property_id": "84c577b9-327b-4849-b8c3-291732dd1368",
+      "process_id": "c2279c61-9a97-455f-b1a7-f9eaf506c01a",
+      "perspective_id": "f1f9eff1-c8b8-4a1b-9222-d4f721989fae",
+      "strength": 0.59,
+      "confidence": 0.75
+    },
+    {
+      "id": "c39976e6-73e3-44b0-add6-a703be88a9fd",
+      "property_id": "a9dec405-68d4-4629-8141-af3e9c5d7c68",
+      "process_id": "85e9580f-43a8-4460-8016-bfa26f031431",
+      "perspective_id": "31bb78b5-73b5-4a33-8c08-c4e11257287c",
+      "strength": 0.7,
+      "confidence": 0.72
+    },
+    {
+      "id": "8da8bf35-3321-4f65-964c-8780e809d060",
+      "property_id": "84c577b9-327b-4849-b8c3-291732dd1368",
+      "process_id": "17cfd7f4-ef69-4caa-8ff4-99d2fb6aeea5",
+      "perspective_id": "68ceaee8-5701-4066-93ee-8efe2383e98f",
+      "strength": 0.79,
+      "confidence": 0.91
+    },
+    {
+      "id": "826c18ee-d0a9-459a-8060-4a2dea6f112e",
+      "property_id": "dcd00bc4-435b-4866-90e1-60642116637b",
+      "process_id": "b51e116b-fc28-4932-a29d-a48477fe7bb2",
+      "perspective_id": "17d47cf7-b9b7-4ca6-8a65-0d410c788e44",
+      "strength": 0.51,
+      "confidence": 0.8
+    },
+    {
+      "id": "13f47ad9-0a2a-4e16-8ecf-e5a71c139174",
+      "property_id": "de010c5c-0ff7-4e1a-83c3-a8e0eed13c3e",
+      "process_id": "7594f087-95be-437c-ae93-9c594bcb6de3",
+      "perspective_id": "c4194243-774e-43d8-961d-499a50d3d5c6",
+      "strength": 0.57,
+      "confidence": 0.76
+    },
+    {
+      "id": "afff5617-40d1-4e04-9a1b-8635dfbd4bd7",
+      "property_id": "e1ac5cc2-f426-4c1e-b78e-67b08ff88e96",
+      "process_id": "b50e149b-042e-4ccf-95be-0fe0dbf2e9b8",
+      "perspective_id": "c08e8d09-b074-4303-bd86-bb9e3cb1f205",
+      "strength": 0.94,
+      "confidence": 0.94
+    },
+    {
+      "id": "75afd90e-c92d-4f83-ab06-6d3f2f848f33",
+      "property_id": "f936ff91-9136-4e56-8a70-9fd310521327",
+      "process_id": "d716e946-9dc5-49b6-9e9f-9515af9657fb",
+      "perspective_id": "096f4873-eca7-41ed-85a5-92d348ba5aad",
+      "strength": 0.65,
+      "confidence": 0.95
+    },
+    {
+      "id": "e7165265-1786-4d74-8b76-6ef2ed31a33b",
+      "property_id": "fb15e19f-d57b-42e2-a26b-fbf0e6f21089",
+      "process_id": "31e34020-153a-43f1-9d42-b3fec668e960",
+      "perspective_id": "86c8ff94-42c7-475f-be06-e10fb1c03080",
+      "strength": 0.53,
+      "confidence": 0.97
+    },
+    {
+      "id": "aafe83d4-effc-486c-9c85-44bf0e57451b",
+      "property_id": "618a245a-9ab5-4415-807f-83e776be9ee2",
+      "process_id": "8be0a6b7-22fa-43d0-a3d6-221209656d10",
+      "perspective_id": "f1f9eff1-c8b8-4a1b-9222-d4f721989fae",
+      "strength": 0.81,
+      "confidence": 0.75
+    },
+    {
+      "id": "a65c1533-f39a-4e10-9f7e-5cc61ecd47c5",
+      "property_id": "de010c5c-0ff7-4e1a-83c3-a8e0eed13c3e",
+      "process_id": "31e34020-153a-43f1-9d42-b3fec668e960",
+      "perspective_id": "afe7448c-3df2-43e1-8a68-b31f5ca5f377",
+      "strength": 0.96,
+      "confidence": 0.71
+    },
+    {
+      "id": "39a1a54c-6382-4b2d-ad8b-514cc3d3a1df",
+      "property_id": "01cde949-9d8c-4499-8a54-f28bbe4b4f38",
+      "process_id": "12fce9b1-7a62-4bb1-9d54-1dbd88aa560a",
+      "perspective_id": "5f61e62f-3d17-4475-a844-aac7cd1bc8aa",
+      "strength": 0.7,
+      "confidence": 0.94
+    },
+    {
+      "id": "4d8c35a9-bacd-41f3-9203-b60cb14a4895",
+      "property_id": "9200ad7f-eaf8-4c0b-8e7a-f703baa8b9d6",
+      "process_id": "3af183b9-adff-4b4e-ac04-94014f7a224a",
+      "perspective_id": "507fb20d-0b2e-462a-94fa-7b8484cc879a",
+      "strength": 0.59,
+      "confidence": 0.79
+    },
+    {
+      "id": "fbe5af35-815f-41f6-adab-300f0fceb157",
+      "property_id": "ae69d8c4-72a6-43c0-927a-34be93bf31a7",
+      "process_id": "73281d2c-4b56-48a5-aee5-7f46a76160c3",
+      "perspective_id": "7bd1afbd-ca43-4ead-8ad3-114459ddaeaa",
+      "strength": 0.57,
+      "confidence": 0.96
+    },
+    {
+      "id": "001f9ef6-a473-412c-a3b6-895b04f22058",
+      "property_id": "0da5c10c-9e28-4215-b3a5-cdfcb460068e",
+      "process_id": "62a7d16c-fab0-4ff2-9fa4-6ace2a4f5d44",
+      "perspective_id": "276032e0-afac-4048-860a-43de5263c45b",
+      "strength": 0.9,
+      "confidence": 0.87
+    },
+    {
+      "id": "50edefa3-20e9-4871-bc11-9f9cd324b4ed",
+      "property_id": "bef59e28-9ffc-42a9-8d3f-f01b147e7885",
+      "process_id": "8869dd99-87a6-418a-98bf-3c6cc3c73bc2",
+      "perspective_id": "9d6f9c94-ca01-41fc-82fa-9a4ef73d2cee",
+      "strength": 0.84,
+      "confidence": 0.82
+    },
+    {
+      "id": "4f330347-532a-4be7-845f-2f9e57ed9597",
+      "property_id": "d628f4d0-0fe0-4178-aa21-f1afe5b55236",
+      "process_id": "6c7d667d-3bd8-4a2a-953e-f5c60b3285c3",
+      "perspective_id": "770d6673-3575-4c49-8708-87457c5f1110",
+      "strength": 0.62,
+      "confidence": 0.71
+    },
+    {
+      "id": "a0e8bc9d-e101-43a7-b3ab-46f74c2572a7",
+      "property_id": "1f618cd6-0d3e-455c-ba34-66cdc23d0c48",
+      "process_id": "7a2b6c0d-893d-41aa-9c02-50c4503f975f",
+      "perspective_id": "008acb0b-b9a4-47ff-8c1b-24a386197b0c",
+      "strength": 0.75,
+      "confidence": 0.74
+    },
+    {
+      "id": "0e8b068e-c379-4e18-8d8e-a56538c924bf",
+      "property_id": "e1ac5cc2-f426-4c1e-b78e-67b08ff88e96",
+      "process_id": "b0f84f69-0391-4806-bc54-db2de88eadeb",
+      "perspective_id": "06b43c39-5332-4a8a-8e4d-ce1e2ef6365c",
+      "strength": 0.66,
+      "confidence": 0.85
+    },
+    {
+      "id": "3b501622-c793-42d1-bd6a-552d36156188",
+      "property_id": "335e200a-a07e-4acd-a804-9c2fb20e9141",
+      "process_id": "85e9580f-43a8-4460-8016-bfa26f031431",
+      "perspective_id": "4c25f7c2-d5de-44e9-8fc7-4b2e1e8a720e",
+      "strength": 0.53,
+      "confidence": 0.71
+    },
+    {
+      "id": "5634994c-b47e-4513-8776-31a0003417b4",
+      "property_id": "ac4b8944-9937-4b76-a90d-b8264976dce7",
+      "process_id": "ddd4d350-91b0-42fc-9e76-311d9292e50b",
+      "perspective_id": "b40075cd-8710-4045-a5fd-ad019c2d0904",
+      "strength": 0.76,
+      "confidence": 0.87
+    },
+    {
+      "id": "cfe59c80-e09f-4d84-b771-72ed179886ae",
+      "property_id": "e1ac5cc2-f426-4c1e-b78e-67b08ff88e96",
+      "process_id": "3af183b9-adff-4b4e-ac04-94014f7a224a",
+      "perspective_id": "f3f4b4b0-5b26-4376-ad34-966ceda71fde",
+      "strength": 0.94,
+      "confidence": 0.96
+    },
+    {
+      "id": "2f4b6e34-fc91-453f-8cd6-5019f419c741",
+      "property_id": "4de8cef8-a2fd-458f-b22e-7726f122ebd8",
+      "process_id": "8869dd99-87a6-418a-98bf-3c6cc3c73bc2",
+      "perspective_id": "9d6f9c94-ca01-41fc-82fa-9a4ef73d2cee",
+      "strength": 0.74,
+      "confidence": 0.77
+    },
+    {
+      "id": "04702f91-d454-47d6-92a2-81dd5aac013f",
+      "property_id": "84c577b9-327b-4849-b8c3-291732dd1368",
+      "process_id": "d4881075-1882-4066-b0d6-5f0d238f0898",
+      "perspective_id": "008acb0b-b9a4-47ff-8c1b-24a386197b0c",
+      "strength": 0.67,
+      "confidence": 0.84
+    },
+    {
+      "id": "bdc23ea4-e612-431e-9e1f-4d8129c0e0ed",
+      "property_id": "01cde949-9d8c-4499-8a54-f28bbe4b4f38",
+      "process_id": "b7dc02ff-c7e3-4f85-9ba4-9202ed13d801",
+      "perspective_id": "7bd1afbd-ca43-4ead-8ad3-114459ddaeaa",
+      "strength": 0.69,
+      "confidence": 0.88
+    },
+    {
+      "id": "634d364e-dace-4bb6-a949-57e2ee2f3703",
+      "property_id": "8810d0cf-3076-4fc8-9a15-4119fadd75b8",
+      "process_id": "0afd1af4-a25d-4b7a-9ba7-be47e8c4f44c",
+      "perspective_id": "507fb20d-0b2e-462a-94fa-7b8484cc879a",
+      "strength": 0.74,
+      "confidence": 0.8
+    },
+    {
+      "id": "8aafce5a-aec6-4f60-b40c-505e5e9cf629",
+      "property_id": "fb2518a9-2ee8-4974-b355-61d54d91f6c1",
+      "process_id": "e7f5ff64-3bb6-476b-ad47-92943bef506a",
+      "perspective_id": "7bd0ed99-55ec-4886-8392-a0d5957e6761",
+      "strength": 0.64,
+      "confidence": 0.91
+    },
+    {
+      "id": "32dedcd1-75ed-4838-9bd2-7eccda63e9c0",
+      "property_id": "66b5c5b9-2e00-4be7-9505-a7f0d53e09f7",
+      "process_id": "5dc4cc60-dd5b-4de5-b04b-55f0b65ee534",
+      "perspective_id": "8043d2dc-330d-4b63-bb04-4accc89526d2",
+      "strength": 0.54,
+      "confidence": 0.8
+    },
+    {
+      "id": "45a95f38-285c-4584-bfdd-9639d08e4a09",
+      "property_id": "22f9d92c-9bfb-448d-8fc3-2a5e2bec34a2",
+      "process_id": "f64dcd2e-e306-4b3c-9c45-cbea7612fe4d",
+      "perspective_id": "17d47cf7-b9b7-4ca6-8a65-0d410c788e44",
+      "strength": 0.69,
+      "confidence": 0.84
+    },
+    {
+      "id": "b41e8f2e-1b7f-4226-ad41-1cec061da9aa",
+      "property_id": "ef0cfb95-bcb4-4c3e-8718-eec57ed4071d",
+      "process_id": "85e9580f-43a8-4460-8016-bfa26f031431",
+      "perspective_id": "17d47cf7-b9b7-4ca6-8a65-0d410c788e44",
+      "strength": 0.61,
+      "confidence": 0.77
+    },
+    {
+      "id": "8b490325-9f4d-4917-9b64-aa6d4608e20d",
+      "property_id": "4d650728-8e55-4e4a-9388-beba1cbe0156",
+      "process_id": "0afd1af4-a25d-4b7a-9ba7-be47e8c4f44c",
+      "perspective_id": "b5a31582-e6aa-40f5-931f-3f25f16e63fb",
+      "strength": 0.79,
+      "confidence": 0.9
+    },
+    {
+      "id": "109c6505-98e5-4fcf-bc07-577c7654285d",
+      "property_id": "def67289-407e-4807-aee4-e9b9cb95078e",
+      "process_id": "c2279c61-9a97-455f-b1a7-f9eaf506c01a",
+      "perspective_id": "b958063e-a54c-40eb-9bff-ca44c03f8dfe",
+      "strength": 0.84,
+      "confidence": 0.85
+    },
+    {
+      "id": "f94123b9-a9c4-4960-ad8e-2820d69817a0",
+      "property_id": "4d650728-8e55-4e4a-9388-beba1cbe0156",
+      "process_id": "027889a1-51a5-4acf-a96e-6c924cbda7e2",
+      "perspective_id": "4c25f7c2-d5de-44e9-8fc7-4b2e1e8a720e",
+      "strength": 0.77,
+      "confidence": 0.94
+    },
+    {
+      "id": "27582069-0a4e-4239-b0df-d0125d1fbd96",
+      "property_id": "c52c37f7-a280-4317-8c9f-f436f3a16412",
+      "process_id": "b9203f86-0f48-4678-92c0-650c22ee6cbd",
+      "perspective_id": "ce3f3f87-5bdc-4647-bb2e-3f17b4e8a462",
+      "strength": 0.93,
+      "confidence": 0.74
+    },
+    {
+      "id": "ea7eae1a-3400-4dda-9656-872be6787df7",
+      "property_id": "de010c5c-0ff7-4e1a-83c3-a8e0eed13c3e",
+      "process_id": "b51e116b-fc28-4932-a29d-a48477fe7bb2",
+      "perspective_id": "127fac7c-9b17-4e80-ae84-78a0682ab592",
+      "strength": 0.72,
+      "confidence": 0.72
+    },
+    {
+      "id": "99e6a5bc-5e48-4737-8f26-f1c7432810c9",
+      "property_id": "84c577b9-327b-4849-b8c3-291732dd1368",
+      "process_id": "b0f84f69-0391-4806-bc54-db2de88eadeb",
+      "perspective_id": "b958063e-a54c-40eb-9bff-ca44c03f8dfe",
+      "strength": 0.86,
+      "confidence": 0.84
+    },
+    {
+      "id": "74eb0eff-c2f4-438e-829d-a8c9d1f1eb28",
+      "property_id": "22f9d92c-9bfb-448d-8fc3-2a5e2bec34a2",
+      "process_id": "1b623f2b-3d14-4b9d-8db4-fd042b1804e6",
+      "perspective_id": "9d6f9c94-ca01-41fc-82fa-9a4ef73d2cee",
+      "strength": 0.74,
+      "confidence": 0.84
+    },
+    {
+      "id": "224cbf8f-dfb9-4621-b6c2-dee3c99a5a6e",
+      "property_id": "ef0cfb95-bcb4-4c3e-8718-eec57ed4071d",
+      "process_id": "d2a9e2d2-06b9-4dd4-ad9e-e3245c29f66f",
+      "perspective_id": "507fb20d-0b2e-462a-94fa-7b8484cc879a",
+      "strength": 0.85,
+      "confidence": 0.81
+    },
+    {
+      "id": "d7abe51b-13a8-46f8-a052-76a6247df420",
+      "property_id": "866019f5-bcef-4811-a265-101bfd85a22b",
+      "process_id": "7a2b6c0d-893d-41aa-9c02-50c4503f975f",
+      "perspective_id": "8ea7883a-65a1-4b74-aad4-254db7afaabb",
+      "strength": 0.99,
+      "confidence": 0.85
+    },
+    {
+      "id": "7233c0be-d7bc-4554-b85e-446ac4dfc136",
+      "property_id": "c52c37f7-a280-4317-8c9f-f436f3a16412",
+      "process_id": "7a2b6c0d-893d-41aa-9c02-50c4503f975f",
+      "perspective_id": "276032e0-afac-4048-860a-43de5263c45b",
+      "strength": 0.66,
+      "confidence": 0.78
+    },
+    {
+      "id": "ca3bcadd-12ca-422a-98ae-c3b60d202a32",
+      "property_id": "fb15e19f-d57b-42e2-a26b-fbf0e6f21089",
+      "process_id": "17cfd7f4-ef69-4caa-8ff4-99d2fb6aeea5",
+      "perspective_id": "8ea7883a-65a1-4b74-aad4-254db7afaabb",
+      "strength": 0.78,
+      "confidence": 0.73
+    },
+    {
+      "id": "c63bb00a-7e50-499f-83eb-e6eacb754ff5",
+      "property_id": "618a245a-9ab5-4415-807f-83e776be9ee2",
+      "process_id": "ddd4d350-91b0-42fc-9e76-311d9292e50b",
+      "perspective_id": "b958063e-a54c-40eb-9bff-ca44c03f8dfe",
+      "strength": 0.88,
+      "confidence": 0.73
+    },
+    {
+      "id": "b8e10b94-6a81-4785-a0fb-cc2e2b08d76a",
+      "property_id": "bb0234c9-3469-4880-8daa-ed807a5fbea3",
+      "process_id": "862794a9-ca13-4b54-afef-673faac964cb",
+      "perspective_id": "8ea7883a-65a1-4b74-aad4-254db7afaabb",
+      "strength": 0.63,
+      "confidence": 0.82
+    },
+    {
+      "id": "8c1879fc-28b8-4577-966a-d3f596ddb5ff",
+      "property_id": "866019f5-bcef-4811-a265-101bfd85a22b",
+      "process_id": "ddd4d350-91b0-42fc-9e76-311d9292e50b",
+      "perspective_id": "31bb78b5-73b5-4a33-8c08-c4e11257287c",
+      "strength": 0.98,
+      "confidence": 0.77
+    },
+    {
+      "id": "a034a10f-6cf0-4d3a-9f7d-1744d9b63256",
+      "property_id": "e1ac5cc2-f426-4c1e-b78e-67b08ff88e96",
+      "process_id": "31e34020-153a-43f1-9d42-b3fec668e960",
+      "perspective_id": "ce3f3f87-5bdc-4647-bb2e-3f17b4e8a462",
+      "strength": 0.98,
+      "confidence": 0.72
+    },
+    {
+      "id": "01a74a06-7bc7-412c-98ce-0da8716bd726",
+      "property_id": "22f9d92c-9bfb-448d-8fc3-2a5e2bec34a2",
+      "process_id": "f3e692a8-cd0e-4b32-aa9c-096120d9494c",
+      "perspective_id": "ce3f3f87-5bdc-4647-bb2e-3f17b4e8a462",
+      "strength": 0.82,
+      "confidence": 0.78
+    },
+    {
+      "id": "a2aaf31f-0826-47ce-9531-e3f325c0b6a0",
+      "property_id": "66b5c5b9-2e00-4be7-9505-a7f0d53e09f7",
+      "process_id": "ff755f00-1da3-4b97-9639-33d4ade97b96",
+      "perspective_id": "c6b6af7d-07ac-4437-b231-fe1d0c220a03",
+      "strength": 0.99,
+      "confidence": 0.83
+    },
+    {
+      "id": "27e16a4d-3bda-4df3-9317-b894b165eafb",
+      "property_id": "335e200a-a07e-4acd-a804-9c2fb20e9141",
+      "process_id": "b194d33d-208a-4fbc-9918-e93d5d82e838",
+      "perspective_id": "096f4873-eca7-41ed-85a5-92d348ba5aad",
+      "strength": 0.7,
+      "confidence": 0.94
+    },
+    {
+      "id": "c1d6f14a-fd69-4126-8314-885f6ed6b4ff",
+      "property_id": "fb15e19f-d57b-42e2-a26b-fbf0e6f21089",
+      "process_id": "0afd1af4-a25d-4b7a-9ba7-be47e8c4f44c",
+      "perspective_id": "d443158f-61c0-4e59-95ca-092779aa4c39",
+      "strength": 0.61,
+      "confidence": 0.86
+    },
+    {
+      "id": "ea65f69c-a4f4-4d39-8a40-6944766da42a",
+      "property_id": "f0d78254-f152-4bdd-881e-2124ab05e17e",
+      "process_id": "23bec005-8083-4522-91c9-cd102fb9993e",
+      "perspective_id": "fb458aca-16e3-4f8d-9c19-f6f2e8bad386",
+      "strength": 0.92,
+      "confidence": 0.89
+    },
+    {
+      "id": "343320f6-97be-4d52-baf2-a565ddce566a",
+      "property_id": "8810d0cf-3076-4fc8-9a15-4119fadd75b8",
+      "process_id": "ecabea70-167e-4b1a-a194-bde78811b5d9",
+      "perspective_id": "c1c35ecf-cae7-4e4b-acc1-b03473c32275",
+      "strength": 0.66,
+      "confidence": 0.85
+    },
+    {
+      "id": "df920b8d-55c2-4486-b368-b584bb3acba6",
+      "property_id": "9200ad7f-eaf8-4c0b-8e7a-f703baa8b9d6",
+      "process_id": "85e9580f-43a8-4460-8016-bfa26f031431",
+      "perspective_id": "c08e8d09-b074-4303-bd86-bb9e3cb1f205",
+      "strength": 0.69,
+      "confidence": 0.86
+    },
+    {
+      "id": "872e937f-0dae-41ab-a1d7-106b841190a3",
+      "property_id": "fb2518a9-2ee8-4974-b355-61d54d91f6c1",
+      "process_id": "b51e116b-fc28-4932-a29d-a48477fe7bb2",
+      "perspective_id": "c1c35ecf-cae7-4e4b-acc1-b03473c32275",
+      "strength": 0.78,
+      "confidence": 0.81
+    },
+    {
+      "id": "b4f471ee-4140-4d7b-aaaa-e2cf0cebf877",
+      "property_id": "335e200a-a07e-4acd-a804-9c2fb20e9141",
+      "process_id": "62a7d16c-fab0-4ff2-9fa4-6ace2a4f5d44",
+      "perspective_id": "8c9de942-e1cc-4d69-9efe-cc5a574ff823",
+      "strength": 0.7,
+      "confidence": 0.93
+    },
+    {
+      "id": "61db8cea-d0b1-4606-bf8d-add55c5fa92d",
+      "property_id": "8810d0cf-3076-4fc8-9a15-4119fadd75b8",
+      "process_id": "93329cc2-3572-4dcb-8cc6-bcd72491ef1e",
+      "perspective_id": "86c8ff94-42c7-475f-be06-e10fb1c03080",
+      "strength": 0.63,
+      "confidence": 0.71
+    },
+    {
+      "id": "c56b0a4f-542d-43d9-8529-e69f5b7a1131",
+      "property_id": "4d650728-8e55-4e4a-9388-beba1cbe0156",
+      "process_id": "62a7d16c-fab0-4ff2-9fa4-6ace2a4f5d44",
+      "perspective_id": "127fac7c-9b17-4e80-ae84-78a0682ab592",
+      "strength": 0.57,
+      "confidence": 0.86
+    },
+    {
+      "id": "a8e3ef97-334f-4d10-b9d6-18eaffee2621",
+      "property_id": "06796cea-ad06-4a65-95af-19b45395d782",
+      "process_id": "b0f84f69-0391-4806-bc54-db2de88eadeb",
+      "perspective_id": "f3f4b4b0-5b26-4376-ad34-966ceda71fde",
+      "strength": 0.67,
+      "confidence": 0.9
+    },
+    {
+      "id": "02a25e56-e695-47af-b756-fdfef93b5355",
+      "property_id": "cd5907b6-c5fd-454f-afc0-6ce412a9f3b9",
+      "process_id": "d4881075-1882-4066-b0d6-5f0d238f0898",
+      "perspective_id": "589f32c5-eeb9-4df4-a508-a63a2a9f182d",
+      "strength": 0.78,
+      "confidence": 0.79
+    },
+    {
+      "id": "93d1d0eb-2171-4dc5-a094-d34c9c7d6720",
+      "property_id": "f163a723-1bc3-473c-80cc-1a62754eafed",
+      "process_id": "ecabea70-167e-4b1a-a194-bde78811b5d9",
+      "perspective_id": "8ea7883a-65a1-4b74-aad4-254db7afaabb",
+      "strength": 0.61,
+      "confidence": 0.97
+    },
+    {
+      "id": "ea17ac70-b3ff-44c3-9697-612dd3339703",
+      "property_id": "ef541255-9864-428e-8c52-b744ebe15677",
+      "process_id": "85e9580f-43a8-4460-8016-bfa26f031431",
+      "perspective_id": "9d6f9c94-ca01-41fc-82fa-9a4ef73d2cee",
+      "strength": 0.54,
+      "confidence": 0.96
+    },
+    {
+      "id": "5f2da496-8b17-4db7-a1e9-86995c5130c4",
+      "property_id": "22f9d92c-9bfb-448d-8fc3-2a5e2bec34a2",
+      "process_id": "b50e149b-042e-4ccf-95be-0fe0dbf2e9b8",
+      "perspective_id": "d443158f-61c0-4e59-95ca-092779aa4c39",
+      "strength": 0.82,
+      "confidence": 0.9
+    },
+    {
+      "id": "b0d020e3-ce05-4c60-8d46-174246eb0c4b",
+      "property_id": "4d650728-8e55-4e4a-9388-beba1cbe0156",
+      "process_id": "ecc73f00-66ab-4b94-a245-afdef1239906",
+      "perspective_id": "4c25f7c2-d5de-44e9-8fc7-4b2e1e8a720e",
+      "strength": 0.63,
+      "confidence": 0.86
+    },
+    {
+      "id": "e944b943-fda9-4872-ae7f-e608304f0908",
+      "property_id": "f0d78254-f152-4bdd-881e-2124ab05e17e",
+      "process_id": "e22c61d2-ad1c-4e09-8818-340dc19ca013",
+      "perspective_id": "9d6f9c94-ca01-41fc-82fa-9a4ef73d2cee",
+      "strength": 0.88,
+      "confidence": 0.9
+    },
+    {
+      "id": "0f860bdf-c385-4bed-a259-ede6dadfab44",
+      "property_id": "bcc5862e-7c0f-4a85-ab62-7b106d278d3e",
+      "process_id": "c2279c61-9a97-455f-b1a7-f9eaf506c01a",
+      "perspective_id": "8f8e92da-7391-489a-b896-4d696563ff61",
+      "strength": 0.57,
+      "confidence": 0.93
+    },
+    {
+      "id": "1c19a699-9561-48f8-b8e7-cbcf6dc2f24d",
+      "property_id": "1f618cd6-0d3e-455c-ba34-66cdc23d0c48",
+      "process_id": "62a7d16c-fab0-4ff2-9fa4-6ace2a4f5d44",
+      "perspective_id": "c4194243-774e-43d8-961d-499a50d3d5c6",
+      "strength": 0.64,
+      "confidence": 0.88
+    },
+    {
+      "id": "e0737d45-32dd-43c3-9da1-d4a03946cb34",
+      "property_id": "618a245a-9ab5-4415-807f-83e776be9ee2",
+      "process_id": "e22c61d2-ad1c-4e09-8818-340dc19ca013",
+      "perspective_id": "8043d2dc-330d-4b63-bb04-4accc89526d2",
+      "strength": 0.76,
+      "confidence": 0.91
+    },
+    {
+      "id": "0e725258-ac23-4f67-b70f-e5222829d8a3",
+      "property_id": "335e200a-a07e-4acd-a804-9c2fb20e9141",
+      "process_id": "23bec005-8083-4522-91c9-cd102fb9993e",
+      "perspective_id": "c4194243-774e-43d8-961d-499a50d3d5c6",
+      "strength": 0.58,
+      "confidence": 0.99
+    },
+    {
+      "id": "397f56d5-e21f-4dc1-ade5-58b9d63a4c6d",
+      "property_id": "fcc2dd87-1491-46ac-9a1e-d063b7917f1e",
+      "process_id": "45f0ef04-d953-4417-bfc3-d12003eeee67",
+      "perspective_id": "770d6673-3575-4c49-8708-87457c5f1110",
+      "strength": 0.6,
+      "confidence": 0.92
+    },
+    {
+      "id": "596c1c77-02e6-4bd6-b0ee-bf0b924a9106",
+      "property_id": "bef59e28-9ffc-42a9-8d3f-f01b147e7885",
+      "process_id": "ff755f00-1da3-4b97-9639-33d4ade97b96",
+      "perspective_id": "69b2d79f-6617-4096-a0ad-4cf4fc5a67ed",
+      "strength": 0.89,
+      "confidence": 0.91
+    },
+    {
+      "id": "f439985a-ceef-4ea1-b0e5-ef8ad888e186",
+      "property_id": "cd5907b6-c5fd-454f-afc0-6ce412a9f3b9",
+      "process_id": "9e9ebd28-e6a6-4370-916b-5471d1c6ed51",
+      "perspective_id": "be6a3693-c341-4ae4-8bd0-04352f930db3",
+      "strength": 0.73,
+      "confidence": 0.86
+    },
+    {
+      "id": "1b878b84-7eac-4d88-8424-40fe13ce0af9",
+      "property_id": "fb15e19f-d57b-42e2-a26b-fbf0e6f21089",
+      "process_id": "7594f087-95be-437c-ae93-9c594bcb6de3",
+      "perspective_id": "c1c35ecf-cae7-4e4b-acc1-b03473c32275",
+      "strength": 0.69,
+      "confidence": 0.87
+    },
+    {
+      "id": "f357e216-4f83-4784-a927-d9f97a4c7ed2",
+      "property_id": "3038f398-04fa-405d-a993-d308927556a2",
+      "process_id": "b51e116b-fc28-4932-a29d-a48477fe7bb2",
+      "perspective_id": "127fac7c-9b17-4e80-ae84-78a0682ab592",
+      "strength": 0.84,
+      "confidence": 0.7
+    },
+    {
+      "id": "e76f6a1c-d80f-4eb4-a16a-8d6b58362e60",
+      "property_id": "ae5e1c2b-6685-40fe-a15f-9233922878af",
+      "process_id": "d716e946-9dc5-49b6-9e9f-9515af9657fb",
+      "perspective_id": "17d47cf7-b9b7-4ca6-8a65-0d410c788e44",
+      "strength": 0.75,
+      "confidence": 0.71
+    },
+    {
+      "id": "b2311513-3c34-4792-a2c6-31609a2af90f",
+      "property_id": "f163a723-1bc3-473c-80cc-1a62754eafed",
+      "process_id": "cb460dfd-ff0e-4ed9-b305-7d7868cfa697",
+      "perspective_id": "127fac7c-9b17-4e80-ae84-78a0682ab592",
+      "strength": 0.84,
+      "confidence": 0.93
+    },
+    {
+      "id": "52b49d04-827b-4368-98e7-baf060ad96dc",
+      "property_id": "ac4b8944-9937-4b76-a90d-b8264976dce7",
+      "process_id": "62a7d16c-fab0-4ff2-9fa4-6ace2a4f5d44",
+      "perspective_id": "e0c91794-2354-45fc-9ad0-a96a9255e48f",
+      "strength": 0.76,
+      "confidence": 0.89
+    },
+    {
+      "id": "c0a6ed63-cc35-466e-a82d-dbb782c7eb3b",
+      "property_id": "01cde949-9d8c-4499-8a54-f28bbe4b4f38",
+      "process_id": "3af183b9-adff-4b4e-ac04-94014f7a224a",
+      "perspective_id": "f2526892-57bf-461f-82b5-ed30c5ddd79c",
+      "strength": 0.81,
+      "confidence": 0.75
+    },
+    {
+      "id": "a81059f6-1c53-4131-b9d3-b5f3c579efa1",
+      "property_id": "def67289-407e-4807-aee4-e9b9cb95078e",
+      "process_id": "85e9580f-43a8-4460-8016-bfa26f031431",
+      "perspective_id": "8809cc19-a5b7-4136-82a4-94cde4e0ee76",
+      "strength": 0.69,
+      "confidence": 0.7
+    },
+    {
+      "id": "a779a815-a1f8-40fb-91d7-f633d044ae27",
+      "property_id": "866019f5-bcef-4811-a265-101bfd85a22b",
+      "process_id": "027889a1-51a5-4acf-a96e-6c924cbda7e2",
+      "perspective_id": "9d6f9c94-ca01-41fc-82fa-9a4ef73d2cee",
+      "strength": 0.88,
+      "confidence": 0.91
+    },
+    {
+      "id": "e4589d1e-40c5-4540-908d-d9d740db5bf7",
+      "property_id": "def67289-407e-4807-aee4-e9b9cb95078e",
+      "process_id": "0af75e9e-257e-4da3-b3d6-29481d8acba0",
+      "perspective_id": "b958063e-a54c-40eb-9bff-ca44c03f8dfe",
+      "strength": 0.78,
+      "confidence": 0.84
+    },
+    {
+      "id": "43661d75-3711-4f86-acac-9a9b6b5210ae",
+      "property_id": "f163a723-1bc3-473c-80cc-1a62754eafed",
+      "process_id": "d4881075-1882-4066-b0d6-5f0d238f0898",
+      "perspective_id": "fb458aca-16e3-4f8d-9c19-f6f2e8bad386",
+      "strength": 0.51,
+      "confidence": 0.76
+    },
+    {
+      "id": "d911da27-2175-411a-9599-6a7b82ae1d69",
+      "property_id": "ae69d8c4-72a6-43c0-927a-34be93bf31a7",
+      "process_id": "45f0ef04-d953-4417-bfc3-d12003eeee67",
+      "perspective_id": "b5a31582-e6aa-40f5-931f-3f25f16e63fb",
+      "strength": 0.54,
+      "confidence": 0.86
+    },
+    {
+      "id": "b7cdc0d7-edba-4efb-98c3-5452a7c25850",
+      "property_id": "ae69d8c4-72a6-43c0-927a-34be93bf31a7",
+      "process_id": "b6919652-21f5-4d39-aee6-05e466de113e",
+      "perspective_id": "589f32c5-eeb9-4df4-a508-a63a2a9f182d",
+      "strength": 0.79,
+      "confidence": 0.86
+    },
+    {
+      "id": "1eca432f-f83a-4d05-a800-9e9ea88c1d9d",
+      "property_id": "e11d7d4a-5f3c-4e89-9a63-e09933b2a3c4",
+      "process_id": "1b2abb1f-6f53-4c8f-bdee-6dd86c53c488",
+      "perspective_id": "8ea7883a-65a1-4b74-aad4-254db7afaabb",
+      "strength": 0.62,
+      "confidence": 0.88
+    },
+    {
+      "id": "0125e540-f3b1-4f8d-8444-0d8a72fbf377",
+      "property_id": "7b016cb9-504a-4b8e-8140-8cd98110b598",
+      "process_id": "e7f5ff64-3bb6-476b-ad47-92943bef506a",
+      "perspective_id": "9e3ffbec-02d2-41c6-9a22-543b6ee28e4d",
+      "strength": 0.85,
+      "confidence": 0.95
+    },
+    {
+      "id": "604a7792-d68d-4300-960d-10ff51ee6fe8",
+      "property_id": "4de8cef8-a2fd-458f-b22e-7726f122ebd8",
+      "process_id": "b7dc02ff-c7e3-4f85-9ba4-9202ed13d801",
+      "perspective_id": "8f8e92da-7391-489a-b896-4d696563ff61",
+      "strength": 0.81,
+      "confidence": 0.77
+    },
+    {
+      "id": "33234f60-f0c0-4b4a-bd97-7fb013f91373",
+      "property_id": "618a245a-9ab5-4415-807f-83e776be9ee2",
+      "process_id": "c2279c61-9a97-455f-b1a7-f9eaf506c01a",
+      "perspective_id": "ce3f3f87-5bdc-4647-bb2e-3f17b4e8a462",
+      "strength": 0.8,
+      "confidence": 0.97
+    },
+    {
+      "id": "eaf6d3ff-04fe-4629-8280-227d2b4b68b1",
+      "property_id": "fb2518a9-2ee8-4974-b355-61d54d91f6c1",
+      "process_id": "2ac56e69-d040-4dac-8267-b1189a9c0f48",
+      "perspective_id": "2709a711-4fcb-408c-9175-4d564e46b4e9",
+      "strength": 0.96,
+      "confidence": 0.96
+    },
+    {
+      "id": "5d09c0d4-aee6-4c9c-9f9b-8412c459ae2c",
+      "property_id": "ef541255-9864-428e-8c52-b744ebe15677",
+      "process_id": "0afd1af4-a25d-4b7a-9ba7-be47e8c4f44c",
+      "perspective_id": "7ce15401-3401-449b-b1d6-521f7e3e7199",
+      "strength": 0.85,
+      "confidence": 0.95
+    }
+  ],
+  "metadata": {
+    "count": {
+      "properties": 50,
+      "processes": 50,
+      "perspectives": 50
+    }
+  }
+}

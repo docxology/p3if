@@ -1,0 +1,1845 @@
+{
+  "domain": "VideoChat",
+  "version": "1.0",
+  "properties": [
+    "Video Quality",
+    "Audio Quality",
+    "Latency",
+    "Bandwidth Efficiency",
+    "Scalability",
+    "Security",
+    "Privacy",
+    "Cross-Platform Compatibility",
+    "User Interface",
+    "Screen Sharing",
+    "Recording Capability",
+    "Encryption",
+    "Noise Cancellation",
+    "Virtual Background",
+    "Accessibility",
+    "Multi-Party Support",
+    "Mobile Optimization",
+    "Network Adaptability",
+    "Integration Capabilities",
+    "Customization Options",
+    "Breakout Rooms",
+    "Live Streaming",
+    "Chat Functionality",
+    "File Sharing",
+    "Whiteboard Feature",
+    "Gesture Recognition",
+    "Facial Recognition",
+    "Language Translation",
+    "Closed Captioning",
+    "Emoji Reactions",
+    "Attendance Tracking",
+    "Polling/Voting",
+    "Waiting Room",
+    "Host Controls",
+    "Background Blur",
+    "Echo Cancellation",
+    "Lip Synchronization",
+    "Bandwidth Management",
+    "Device Compatibility",
+    "Cloud Storage",
+    "API Availability",
+    "Analytics Dashboard",
+    "Compliance (GDPR, HIPAA)",
+    "Single Sign-On",
+    "End-to-End Encryption",
+    "Firewall Traversal",
+    "Quality of Service (QoS)",
+    "Adaptive Bitrate Streaming",
+    "Low-Light Enhancement",
+    "360-Degree Video Support"
+  ],
+  "processes": [
+    "Video Encoding",
+    "Audio Encoding",
+    "Data Compression",
+    "Packet Transmission",
+    "Jitter Buffer Management",
+    "Echo Cancellation",
+    "Noise Suppression",
+    "Video Rendering",
+    "Audio Rendering",
+    "Synchronization",
+    "Bandwidth Allocation",
+    "Error Concealment",
+    "Packet Loss Recovery",
+    "Frame Rate Adaptation",
+    "Resolution Scaling",
+    "User Authentication",
+    "Session Initiation",
+    "Media Negotiation",
+    "NAT Traversal",
+    "Encryption/Decryption",
+    "Screen Capture",
+    "Audio Mixing",
+    "Video Mixing",
+    "Recording",
+    "Transcoding",
+    "Background Subtraction",
+    "Facial Detection",
+    "Audio Level Detection",
+    "Gesture Recognition",
+    "Lip Movement Analysis",
+    "Network Quality Monitoring",
+    "Adaptive Streaming",
+    "Device Enumeration",
+    "Audio Routing",
+    "Video Filtering",
+    "Chat Message Processing",
+    "File Transfer",
+    "Whiteboard Rendering",
+    "Breakout Room Management",
+    "Poll Creation and Analysis",
+    "Attendance Logging",
+    "Language Detection",
+    "Speech-to-Text Conversion",
+    "Text-to-Speech Conversion",
+    "Emoji Rendering",
+    "Analytics Data Collection",
+    "API Request Handling",
+    "Cloud Synchronization",
+    "Low-Light Image Enhancement",
+    "360-Degree Video Processing"
+  ],
+  "perspectives": [
+    "End User",
+    "IT Administrator",
+    "Software Developer",
+    "Network Engineer",
+    "Security Specialist",
+    "User Experience Designer",
+    "Product Manager",
+    "Quality Assurance Tester",
+    "Customer Support Representative",
+    "Sales Representative",
+    "Marketing Specialist",
+    "Business Analyst",
+    "Data Scientist",
+    "Legal Counsel",
+    "Compliance Officer",
+    "Accessibility Expert",
+    "Localization Specialist",
+    "Training Coordinator",
+    "System Integrator",
+    "Cloud Architect",
+    "Mobile Developer",
+    "Web Developer",
+    "DevOps Engineer",
+    "Database Administrator",
+    "UI Designer",
+    "UX Researcher",
+    "Content Creator",
+    "Educator",
+    "Healthcare Professional",
+    "Financial Advisor",
+    "Human Resources Manager",
+    "Event Organizer",
+    "Project Manager",
+    "Executive",
+    "Entrepreneur",
+    "Journalist",
+    "Politician",
+    "Entertainer",
+    "Social Media Influencer",
+    "Customer",
+    "Investor",
+    "Regulator",
+    "Privacy Advocate",
+    "Ethical AI Specialist",
+    "Telecommunications Expert",
+    "Usability Tester",
+    "Ergonomics Specialist",
+    "Cognitive Psychologist",
+    "Audiologist",
+    "Ophthalmologist"
+  ],
+  "patterns": {
+    "properties": [
+      {
+        "id": "47521349-147b-4613-b753-1172038fda04",
+        "name": "Video Quality",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "c853efc8-fdc1-47ff-95e2-891664437517",
+        "name": "Audio Quality",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "252312d3-32f2-42c3-960f-38da8f9afc2a",
+        "name": "Latency",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "ba41380f-299c-4196-a754-5158153aa13c",
+        "name": "Bandwidth Efficiency",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "20c0e320-89be-414a-9e3e-cc732de6f49f",
+        "name": "Scalability",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "67394e90-c6ee-42a5-be8e-cb0b1c100121",
+        "name": "Security",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "db501e70-4bb5-416f-b0a7-8c13d11ba535",
+        "name": "Privacy",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "359f677d-4ced-4ca0-94e5-e38e7779f651",
+        "name": "Cross-Platform Compatibility",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "d69a03d8-f15f-44b9-a087-fbf273384e0d",
+        "name": "User Interface",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "70a2cf44-55ad-44a7-842f-415ed000cec3",
+        "name": "Screen Sharing",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "422030ce-da5f-48c2-8d00-3b51c866372e",
+        "name": "Recording Capability",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "3e960dbf-30cd-43bd-871c-ad41921cd3e0",
+        "name": "Encryption",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "67eb2b9c-404a-46f8-bb98-954032470ec2",
+        "name": "Noise Cancellation",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "aa9fa880-9612-4b43-982d-2b8235c1e387",
+        "name": "Virtual Background",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "2fad0072-254b-4290-9b72-3896d198926d",
+        "name": "Accessibility",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "12053290-99e2-4c8b-835d-2a6dd8a5f612",
+        "name": "Multi-Party Support",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "f562b6ff-272c-4365-a01f-bd35b49fbb9e",
+        "name": "Mobile Optimization",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "832486d3-d5d9-4515-8ea8-7a9b9c7f75f8",
+        "name": "Network Adaptability",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "8a0812cd-bd3c-47c8-a2af-9c070621c566",
+        "name": "Integration Capabilities",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "3afe7804-7467-45d2-b1e3-d035e79a0b94",
+        "name": "Customization Options",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "fdca1ae5-7f35-484e-a82b-10d66195cd86",
+        "name": "Breakout Rooms",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "485aa92b-4c45-4c06-826f-e340af4154e2",
+        "name": "Live Streaming",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "e966dd2f-27b1-429f-9ee8-274ebf73d122",
+        "name": "Chat Functionality",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "3ed09b98-332d-4c48-ac54-9fa4cad6f493",
+        "name": "File Sharing",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "7621bc3c-8bff-43b2-80f7-0b4684528667",
+        "name": "Whiteboard Feature",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "d141096f-27b7-4290-b3cd-65966b7c25bc",
+        "name": "Gesture Recognition",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "4464f744-8412-45f9-9c70-f2192595ef53",
+        "name": "Facial Recognition",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "cb43a320-7da9-472d-a5b0-8816eb73e75c",
+        "name": "Language Translation",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "2d0d8e60-577e-427a-895b-fb4e0c0f98b1",
+        "name": "Closed Captioning",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "c8d20fcf-6fc1-4fda-8f84-663c9d5b20ca",
+        "name": "Emoji Reactions",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "25551654-26bc-4a22-bf2c-02f775dfe05b",
+        "name": "Attendance Tracking",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "a5406239-4bb4-41fd-977f-4f6c2d222dc7",
+        "name": "Polling/Voting",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "6de59a2b-77ce-400a-a31d-c2f66652eb3e",
+        "name": "Waiting Room",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "2e4ce8ea-8b01-4996-91d5-fe4c790d017b",
+        "name": "Host Controls",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "f51add2f-953d-4f45-9b1e-494256d6418d",
+        "name": "Background Blur",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "91415d8e-43b6-43ff-82e9-c8b100761baa",
+        "name": "Echo Cancellation",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "2c11b12b-0fad-4403-8e94-49bbe4f01bbd",
+        "name": "Lip Synchronization",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "2f0b62a6-944b-4085-bc4f-a29eebf296c0",
+        "name": "Bandwidth Management",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "e97d6c07-ce87-4f90-b937-48c1583891b6",
+        "name": "Device Compatibility",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "19ed9dbe-3950-4ccd-95f5-4f84af78bcb5",
+        "name": "Cloud Storage",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "9e0b16b7-4c32-4527-b291-5bc5dd03c06d",
+        "name": "API Availability",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "3bda35fd-20ea-4d31-8b85-d172d35965f2",
+        "name": "Analytics Dashboard",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "deb7abc2-fc67-41ad-99d2-94d59eb1780b",
+        "name": "Compliance (GDPR, HIPAA)",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "c33b9c7c-a673-4e9a-a5b4-d361e70bdf66",
+        "name": "Single Sign-On",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "2f1ad27c-a9f1-4456-8254-6c89feeb9cfa",
+        "name": "End-to-End Encryption",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "0fcbe8d1-e723-4915-9a66-e11eb594e578",
+        "name": "Firewall Traversal",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "4f876d0c-e690-45ba-828d-f5d18dcf1a14",
+        "name": "Quality of Service (QoS)",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "192769a6-d26e-4f1a-9b2d-2da31c1c0076",
+        "name": "Adaptive Bitrate Streaming",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "34eda4bb-9036-43ee-af87-03f9e3e6e73d",
+        "name": "Low-Light Enhancement",
+        "type": "property",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "a6bffdd9-8916-4bb8-b576-7faa9026e84a",
+        "name": "360-Degree Video Support",
+        "type": "property",
+        "domain": "VideoChat"
+      }
+    ],
+    "processes": [
+      {
+        "id": "326b41b6-eb98-4f36-ae54-2ae5dc805e03",
+        "name": "Video Encoding",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "a835dd37-0b00-42f1-8808-6b2b3b4736ad",
+        "name": "Audio Encoding",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "7d6b51ec-cd13-48c4-9d36-29b3ed616bf8",
+        "name": "Data Compression",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "25a5be6b-6563-4e04-a89e-cf3090482fb7",
+        "name": "Packet Transmission",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "651e75ca-8b15-4547-85eb-35b223c20283",
+        "name": "Jitter Buffer Management",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "20f8130e-7fd3-453d-a9a3-39eb75d07c30",
+        "name": "Echo Cancellation",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "40d4880c-302b-4510-bad0-c9cf32da73ce",
+        "name": "Noise Suppression",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "da06b283-70b7-41aa-af0e-484b413b5b9d",
+        "name": "Video Rendering",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "fd561c71-dfbd-4400-a8a6-804efd060686",
+        "name": "Audio Rendering",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "47a0a456-aa94-46be-be44-1667e9ddf0a6",
+        "name": "Synchronization",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "9adb0bcb-1de6-4714-853d-ad578880ebe9",
+        "name": "Bandwidth Allocation",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "86696121-d317-4d59-9d70-5abd19d4e713",
+        "name": "Error Concealment",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "2bd4cb86-f9c9-4e13-9fe9-6ec16616b42b",
+        "name": "Packet Loss Recovery",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "6c16ecc6-bc61-4a8c-baec-e7270dc1e141",
+        "name": "Frame Rate Adaptation",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "fdcc71b6-6eb1-4265-8699-577edd759df5",
+        "name": "Resolution Scaling",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "18b4f213-50d4-4e52-954a-4ffaf0fffe9a",
+        "name": "User Authentication",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "aef7674d-b89f-4d9f-bfb5-7b931f0e00f1",
+        "name": "Session Initiation",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "d5f2a291-32ae-499e-b3ef-fdb513a94db7",
+        "name": "Media Negotiation",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "f26eae1d-0249-463d-9875-647e116f9e1e",
+        "name": "NAT Traversal",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "6831ee11-62f2-4bea-bd34-3c2ca2de6453",
+        "name": "Encryption/Decryption",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "87afd34f-317d-424c-a041-9c15e7b6ed8e",
+        "name": "Screen Capture",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "961b046a-765a-4274-9d93-af830b1b3613",
+        "name": "Audio Mixing",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "fa15c976-d0bd-4d42-b453-499c3a631258",
+        "name": "Video Mixing",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "0833a90e-6d7b-4204-bae6-311ed5643d23",
+        "name": "Recording",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "f5136ec7-8693-43fd-b5c1-20ae11b16b23",
+        "name": "Transcoding",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "6fa524f4-5213-4ed6-8e83-6a48ca397798",
+        "name": "Background Subtraction",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "0f17bcda-c245-492c-86d7-9ef21fee25db",
+        "name": "Facial Detection",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "d36df3c7-ab8f-45c4-bedd-66106bf24c56",
+        "name": "Audio Level Detection",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "341a058e-2b94-4050-bc7b-44d37cf6ed64",
+        "name": "Gesture Recognition",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "24c37fbe-fb4b-4f3e-b1c8-be2b65d94098",
+        "name": "Lip Movement Analysis",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "c10dd0b2-8359-4d93-82ef-b98e89d2e4fc",
+        "name": "Network Quality Monitoring",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "d19ae0af-02aa-438c-b274-b2234a3f4513",
+        "name": "Adaptive Streaming",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "ba4471f0-aa39-4cf0-90a3-c1aaabdbdfe8",
+        "name": "Device Enumeration",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "197ef9af-f77f-4e5a-973b-aa9e4871dd83",
+        "name": "Audio Routing",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "cd0547ae-0a7c-4042-82ab-98de1118e116",
+        "name": "Video Filtering",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "516f589a-47a2-4836-a6aa-a00853559e89",
+        "name": "Chat Message Processing",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "27d20512-519d-4288-9dc0-9f4d0d3d9c9e",
+        "name": "File Transfer",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "f2fbbab6-b294-4b15-a359-b87d957664b6",
+        "name": "Whiteboard Rendering",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "a232d005-6985-4a7a-9592-0fe7a429d17f",
+        "name": "Breakout Room Management",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "dc63dbf3-04cd-4a19-9084-7ba4d4d719af",
+        "name": "Poll Creation and Analysis",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "3971f48c-d390-4469-bebf-d57eb7d1a00a",
+        "name": "Attendance Logging",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "8fa56f5e-c9a6-4485-a588-a4b3c273d5cd",
+        "name": "Language Detection",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "f9a0dda8-a223-462d-898f-8b7edf1e6168",
+        "name": "Speech-to-Text Conversion",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "3298e88e-8508-4564-8332-ebf937e66637",
+        "name": "Text-to-Speech Conversion",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "01223e76-24b6-40c2-ba19-ca8fa55ecc39",
+        "name": "Emoji Rendering",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "25303dd4-48c7-481e-80cb-03ed61e05d35",
+        "name": "Analytics Data Collection",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "72ec6cff-5805-4f5d-9b41-aa258376bb76",
+        "name": "API Request Handling",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "8da33fbb-b316-469d-9b58-a51e9e5da28d",
+        "name": "Cloud Synchronization",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "a6c4d012-1986-41db-bdc4-f7c20233f3e2",
+        "name": "Low-Light Image Enhancement",
+        "type": "process",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "17815cc5-3808-49cd-a99c-e9ffac09edad",
+        "name": "360-Degree Video Processing",
+        "type": "process",
+        "domain": "VideoChat"
+      }
+    ],
+    "perspectives": [
+      {
+        "id": "588b3844-d707-4c1a-9aae-df52b0169db2",
+        "name": "End User",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "228c7830-f470-467b-8155-bd279d548dcf",
+        "name": "IT Administrator",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "6c27491b-771d-47c3-9224-5eed39b0dea8",
+        "name": "Software Developer",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "5dcdd8cb-b93b-4853-8640-dba0ff8f2aa2",
+        "name": "Network Engineer",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "77c74ecb-d4c1-403c-a62a-cf43b29a8182",
+        "name": "Security Specialist",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "c302ea51-51da-47ec-bc55-b76a53a24df3",
+        "name": "User Experience Designer",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "0f0d571d-c538-4855-9807-38df3d3c4c07",
+        "name": "Product Manager",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "2ab7955d-6f10-4de7-9c37-1e49059dc760",
+        "name": "Quality Assurance Tester",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "b48956bf-ec84-46b7-8568-3919e1a14259",
+        "name": "Customer Support Representative",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "7138acfc-0239-4ca7-8a22-46218f085bb7",
+        "name": "Sales Representative",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "847ba4a1-1b86-4be3-bc55-57fb94976717",
+        "name": "Marketing Specialist",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "63d82ea8-8c2a-4c59-ab68-a95198567229",
+        "name": "Business Analyst",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "d2b61b75-d550-4ddf-84f7-f374109278b0",
+        "name": "Data Scientist",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "5a46d154-e57d-4275-89ef-523e0510f1da",
+        "name": "Legal Counsel",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "27c208d8-57eb-47d7-aac6-abebe1452356",
+        "name": "Compliance Officer",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "e5604f09-e843-446c-a2f8-03395cbb6ad3",
+        "name": "Accessibility Expert",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "33a04a88-13fb-43c4-89a8-c72a732005c6",
+        "name": "Localization Specialist",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "d5a1b73f-3456-4271-a7f1-3f48f2b72754",
+        "name": "Training Coordinator",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "65f94b49-df00-4f69-9afa-ea779953a773",
+        "name": "System Integrator",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "a7878cdb-94df-4d8d-aa8d-a38162681e39",
+        "name": "Cloud Architect",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "b08cdce8-9a42-4454-bdb9-a35e6c12f9d2",
+        "name": "Mobile Developer",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "3c2df6b8-b92f-41ec-8dce-1bbab8a8a8f5",
+        "name": "Web Developer",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "60e8dc6d-aeab-4ad4-8341-94a9befa588c",
+        "name": "DevOps Engineer",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "7560cdd1-7f72-4b1a-b34d-295ecc9074bf",
+        "name": "Database Administrator",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "5acab0d3-5e14-4e7a-9525-5e1090730064",
+        "name": "UI Designer",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "faf15022-64ba-4b44-8e81-18201ebd59f1",
+        "name": "UX Researcher",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "c313833e-12c3-4c3a-a592-1b9ee574736e",
+        "name": "Content Creator",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "9f045cce-a84e-45c4-8d60-9f661d14c940",
+        "name": "Educator",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "ebac80ff-9b63-4e99-bb94-c7c55cfb4e4c",
+        "name": "Healthcare Professional",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "48ac7cef-1933-4ed3-9aaa-0bfd31d0c9fb",
+        "name": "Financial Advisor",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "6ef8cb18-bf6e-45c4-9fd8-cb5486125c3e",
+        "name": "Human Resources Manager",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "56aeeaf3-3f05-4ef2-996d-a7a585fe9dc3",
+        "name": "Event Organizer",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "241d56b0-7c51-4dbc-b5e6-9a67b6e8c728",
+        "name": "Project Manager",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "e4e77a20-f107-44d8-94c7-bee24433dfd2",
+        "name": "Executive",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "9371bba2-ead7-41e7-a4f3-2fc15158542e",
+        "name": "Entrepreneur",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "aec3fcb5-f031-49d5-b573-439b55077359",
+        "name": "Journalist",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "8ec45f88-b071-4f62-affe-6d4d0344ec71",
+        "name": "Politician",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "81810db0-983c-491a-a278-a5639280e86e",
+        "name": "Entertainer",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "4fee0289-3f49-4ef6-9cc8-df7fa36c5536",
+        "name": "Social Media Influencer",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "9b8a7e81-f5b1-4a11-bac9-601344dfbc9a",
+        "name": "Customer",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "da738da8-bf68-41e2-af6e-47024dc64acd",
+        "name": "Investor",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "6f9aed98-2cf9-471d-89bc-9bba578143fc",
+        "name": "Regulator",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "6e0d9ec8-8033-4bfa-9860-99ca482ae755",
+        "name": "Privacy Advocate",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "b82b6713-1fd1-4d29-8f17-b140ad414e69",
+        "name": "Ethical AI Specialist",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "9ab4592e-ce1e-4923-af5d-b31873c39d95",
+        "name": "Telecommunications Expert",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "22de40fc-b4cf-4802-8627-8bf5fac249f4",
+        "name": "Usability Tester",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "ead17a5d-8ce9-4d68-a460-f96b2fee68d9",
+        "name": "Ergonomics Specialist",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "df1defd0-4b4d-417b-a8ed-2fd52170092c",
+        "name": "Cognitive Psychologist",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "50d9b874-6696-43bd-a2ac-aee144468436",
+        "name": "Audiologist",
+        "type": "perspective",
+        "domain": "VideoChat"
+      },
+      {
+        "id": "cbc405e6-bfa7-4f60-8b79-4107992d777b",
+        "name": "Ophthalmologist",
+        "type": "perspective",
+        "domain": "VideoChat"
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "44e96c04-3a19-491b-9d05-cc687a11aeee",
+      "property_id": "192769a6-d26e-4f1a-9b2d-2da31c1c0076",
+      "process_id": "f5136ec7-8693-43fd-b5c1-20ae11b16b23",
+      "perspective_id": "2ab7955d-6f10-4de7-9c37-1e49059dc760",
+      "strength": 0.76,
+      "confidence": 0.97
+    },
+    {
+      "id": "b0e15878-aac3-42f9-a1b6-9237191622b6",
+      "property_id": "67394e90-c6ee-42a5-be8e-cb0b1c100121",
+      "process_id": "0f17bcda-c245-492c-86d7-9ef21fee25db",
+      "perspective_id": "e4e77a20-f107-44d8-94c7-bee24433dfd2",
+      "strength": 0.81,
+      "confidence": 0.96
+    },
+    {
+      "id": "9ece5dc3-77f7-46b2-bd43-83c64ca44fb2",
+      "property_id": "34eda4bb-9036-43ee-af87-03f9e3e6e73d",
+      "process_id": "25a5be6b-6563-4e04-a89e-cf3090482fb7",
+      "perspective_id": "22de40fc-b4cf-4802-8627-8bf5fac249f4",
+      "strength": 0.64,
+      "confidence": 0.87
+    },
+    {
+      "id": "c8680963-8011-40df-97ad-0ae4a86e2d8e",
+      "property_id": "20c0e320-89be-414a-9e3e-cc732de6f49f",
+      "process_id": "d5f2a291-32ae-499e-b3ef-fdb513a94db7",
+      "perspective_id": "27c208d8-57eb-47d7-aac6-abebe1452356",
+      "strength": 0.94,
+      "confidence": 0.94
+    },
+    {
+      "id": "da0f34a6-df65-4cd3-b410-b1064ec71669",
+      "property_id": "2f0b62a6-944b-4085-bc4f-a29eebf296c0",
+      "process_id": "326b41b6-eb98-4f36-ae54-2ae5dc805e03",
+      "perspective_id": "33a04a88-13fb-43c4-89a8-c72a732005c6",
+      "strength": 0.62,
+      "confidence": 0.73
+    },
+    {
+      "id": "4e79594a-3dd2-4a27-a640-c276a607198d",
+      "property_id": "67eb2b9c-404a-46f8-bb98-954032470ec2",
+      "process_id": "197ef9af-f77f-4e5a-973b-aa9e4871dd83",
+      "perspective_id": "7138acfc-0239-4ca7-8a22-46218f085bb7",
+      "strength": 0.89,
+      "confidence": 0.95
+    },
+    {
+      "id": "ff53dad3-51aa-4004-9e6d-2ee58faad43b",
+      "property_id": "832486d3-d5d9-4515-8ea8-7a9b9c7f75f8",
+      "process_id": "01223e76-24b6-40c2-ba19-ca8fa55ecc39",
+      "perspective_id": "9371bba2-ead7-41e7-a4f3-2fc15158542e",
+      "strength": 0.61,
+      "confidence": 0.74
+    },
+    {
+      "id": "b20fe0f3-4117-4772-9cdd-3c5f7a3d97d9",
+      "property_id": "d69a03d8-f15f-44b9-a087-fbf273384e0d",
+      "process_id": "17815cc5-3808-49cd-a99c-e9ffac09edad",
+      "perspective_id": "7560cdd1-7f72-4b1a-b34d-295ecc9074bf",
+      "strength": 0.66,
+      "confidence": 0.85
+    },
+    {
+      "id": "aa2b854c-2321-4aa1-ae11-94ef37ba7b28",
+      "property_id": "4f876d0c-e690-45ba-828d-f5d18dcf1a14",
+      "process_id": "20f8130e-7fd3-453d-a9a3-39eb75d07c30",
+      "perspective_id": "b08cdce8-9a42-4454-bdb9-a35e6c12f9d2",
+      "strength": 0.95,
+      "confidence": 0.85
+    },
+    {
+      "id": "fc86320d-ef20-4a51-a4fe-16c8cb85e835",
+      "property_id": "c8d20fcf-6fc1-4fda-8f84-663c9d5b20ca",
+      "process_id": "87afd34f-317d-424c-a041-9c15e7b6ed8e",
+      "perspective_id": "b48956bf-ec84-46b7-8568-3919e1a14259",
+      "strength": 0.62,
+      "confidence": 0.79
+    },
+    {
+      "id": "68d014b2-7df8-4f1c-97ca-c552d4e25513",
+      "property_id": "485aa92b-4c45-4c06-826f-e340af4154e2",
+      "process_id": "a232d005-6985-4a7a-9592-0fe7a429d17f",
+      "perspective_id": "6ef8cb18-bf6e-45c4-9fd8-cb5486125c3e",
+      "strength": 0.62,
+      "confidence": 0.86
+    },
+    {
+      "id": "6db1a537-326e-4fe6-b510-c4627317520e",
+      "property_id": "192769a6-d26e-4f1a-9b2d-2da31c1c0076",
+      "process_id": "aef7674d-b89f-4d9f-bfb5-7b931f0e00f1",
+      "perspective_id": "5acab0d3-5e14-4e7a-9525-5e1090730064",
+      "strength": 0.57,
+      "confidence": 0.91
+    },
+    {
+      "id": "f5c3a154-e99a-4988-852b-ddb970de3db7",
+      "property_id": "91415d8e-43b6-43ff-82e9-c8b100761baa",
+      "process_id": "2bd4cb86-f9c9-4e13-9fe9-6ec16616b42b",
+      "perspective_id": "ead17a5d-8ce9-4d68-a460-f96b2fee68d9",
+      "strength": 0.59,
+      "confidence": 0.88
+    },
+    {
+      "id": "d0705c79-dd48-403f-8783-ab03a76a7a66",
+      "property_id": "d69a03d8-f15f-44b9-a087-fbf273384e0d",
+      "process_id": "0833a90e-6d7b-4204-bae6-311ed5643d23",
+      "perspective_id": "c302ea51-51da-47ec-bc55-b76a53a24df3",
+      "strength": 0.77,
+      "confidence": 0.94
+    },
+    {
+      "id": "652a426c-c7af-42b5-ac89-7eeed33cd2d8",
+      "property_id": "832486d3-d5d9-4515-8ea8-7a9b9c7f75f8",
+      "process_id": "01223e76-24b6-40c2-ba19-ca8fa55ecc39",
+      "perspective_id": "e4e77a20-f107-44d8-94c7-bee24433dfd2",
+      "strength": 0.72,
+      "confidence": 0.75
+    },
+    {
+      "id": "1060eccf-0cc5-411e-baa9-5767bf1f0dde",
+      "property_id": "485aa92b-4c45-4c06-826f-e340af4154e2",
+      "process_id": "72ec6cff-5805-4f5d-9b41-aa258376bb76",
+      "perspective_id": "df1defd0-4b4d-417b-a8ed-2fd52170092c",
+      "strength": 0.59,
+      "confidence": 0.71
+    },
+    {
+      "id": "9e993df5-714b-4d07-a002-0edc82bc4e7a",
+      "property_id": "c853efc8-fdc1-47ff-95e2-891664437517",
+      "process_id": "961b046a-765a-4274-9d93-af830b1b3613",
+      "perspective_id": "48ac7cef-1933-4ed3-9aaa-0bfd31d0c9fb",
+      "strength": 0.91,
+      "confidence": 0.88
+    },
+    {
+      "id": "109ed9e8-5717-4d17-bf71-11bd28b55777",
+      "property_id": "f562b6ff-272c-4365-a01f-bd35b49fbb9e",
+      "process_id": "f2fbbab6-b294-4b15-a359-b87d957664b6",
+      "perspective_id": "cbc405e6-bfa7-4f60-8b79-4107992d777b",
+      "strength": 0.99,
+      "confidence": 0.86
+    },
+    {
+      "id": "9c9b807b-9d08-4997-861a-d22d870e77fe",
+      "property_id": "34eda4bb-9036-43ee-af87-03f9e3e6e73d",
+      "process_id": "aef7674d-b89f-4d9f-bfb5-7b931f0e00f1",
+      "perspective_id": "9ab4592e-ce1e-4923-af5d-b31873c39d95",
+      "strength": 0.75,
+      "confidence": 0.82
+    },
+    {
+      "id": "7f788217-be6a-4309-b1d5-fb2fe98e2f9d",
+      "property_id": "c853efc8-fdc1-47ff-95e2-891664437517",
+      "process_id": "aef7674d-b89f-4d9f-bfb5-7b931f0e00f1",
+      "perspective_id": "228c7830-f470-467b-8155-bd279d548dcf",
+      "strength": 0.88,
+      "confidence": 0.79
+    },
+    {
+      "id": "1d7f1471-ca5e-4183-adf6-03eedbf0f89f",
+      "property_id": "47521349-147b-4613-b753-1172038fda04",
+      "process_id": "0f17bcda-c245-492c-86d7-9ef21fee25db",
+      "perspective_id": "228c7830-f470-467b-8155-bd279d548dcf",
+      "strength": 0.68,
+      "confidence": 0.79
+    },
+    {
+      "id": "d5b3eda4-a4e1-49f7-952f-b3ed8e2690c4",
+      "property_id": "fdca1ae5-7f35-484e-a82b-10d66195cd86",
+      "process_id": "a6c4d012-1986-41db-bdc4-f7c20233f3e2",
+      "perspective_id": "56aeeaf3-3f05-4ef2-996d-a7a585fe9dc3",
+      "strength": 0.87,
+      "confidence": 0.79
+    },
+    {
+      "id": "72d41a73-244e-4465-a80b-b21f07d7c811",
+      "property_id": "25551654-26bc-4a22-bf2c-02f775dfe05b",
+      "process_id": "da06b283-70b7-41aa-af0e-484b413b5b9d",
+      "perspective_id": "0f0d571d-c538-4855-9807-38df3d3c4c07",
+      "strength": 0.58,
+      "confidence": 0.89
+    },
+    {
+      "id": "7703c68e-f310-4a83-bc7b-296b329e3b5e",
+      "property_id": "485aa92b-4c45-4c06-826f-e340af4154e2",
+      "process_id": "f9a0dda8-a223-462d-898f-8b7edf1e6168",
+      "perspective_id": "6f9aed98-2cf9-471d-89bc-9bba578143fc",
+      "strength": 0.88,
+      "confidence": 0.72
+    },
+    {
+      "id": "189b3868-2143-41db-997f-e3600cf7c821",
+      "property_id": "db501e70-4bb5-416f-b0a7-8c13d11ba535",
+      "process_id": "24c37fbe-fb4b-4f3e-b1c8-be2b65d94098",
+      "perspective_id": "faf15022-64ba-4b44-8e81-18201ebd59f1",
+      "strength": 0.87,
+      "confidence": 1.0
+    },
+    {
+      "id": "17e61825-b8e6-429e-a1ed-3b8880a0e10e",
+      "property_id": "3ed09b98-332d-4c48-ac54-9fa4cad6f493",
+      "process_id": "651e75ca-8b15-4547-85eb-35b223c20283",
+      "perspective_id": "6f9aed98-2cf9-471d-89bc-9bba578143fc",
+      "strength": 0.95,
+      "confidence": 0.74
+    },
+    {
+      "id": "f2308334-5893-4187-bda1-06b46ffbafe3",
+      "property_id": "6de59a2b-77ce-400a-a31d-c2f66652eb3e",
+      "process_id": "ba4471f0-aa39-4cf0-90a3-c1aaabdbdfe8",
+      "perspective_id": "c302ea51-51da-47ec-bc55-b76a53a24df3",
+      "strength": 0.84,
+      "confidence": 0.96
+    },
+    {
+      "id": "ded19b00-f0d3-42aa-83ab-a9a3a538962c",
+      "property_id": "20c0e320-89be-414a-9e3e-cc732de6f49f",
+      "process_id": "f5136ec7-8693-43fd-b5c1-20ae11b16b23",
+      "perspective_id": "0f0d571d-c538-4855-9807-38df3d3c4c07",
+      "strength": 0.94,
+      "confidence": 0.85
+    },
+    {
+      "id": "2db3d6d4-4818-43db-bd80-4bd8b0e1419d",
+      "property_id": "a5406239-4bb4-41fd-977f-4f6c2d222dc7",
+      "process_id": "326b41b6-eb98-4f36-ae54-2ae5dc805e03",
+      "perspective_id": "33a04a88-13fb-43c4-89a8-c72a732005c6",
+      "strength": 0.84,
+      "confidence": 0.96
+    },
+    {
+      "id": "fd49339e-61bc-40cc-a1a6-0cca39ce2feb",
+      "property_id": "34eda4bb-9036-43ee-af87-03f9e3e6e73d",
+      "process_id": "d36df3c7-ab8f-45c4-bedd-66106bf24c56",
+      "perspective_id": "7138acfc-0239-4ca7-8a22-46218f085bb7",
+      "strength": 0.96,
+      "confidence": 0.91
+    },
+    {
+      "id": "14ce8c1c-aa15-4418-b1b7-2f08073c353e",
+      "property_id": "0fcbe8d1-e723-4915-9a66-e11eb594e578",
+      "process_id": "961b046a-765a-4274-9d93-af830b1b3613",
+      "perspective_id": "aec3fcb5-f031-49d5-b573-439b55077359",
+      "strength": 0.74,
+      "confidence": 0.91
+    },
+    {
+      "id": "39c8cc89-eb66-420a-9f13-aa5bb30c8d22",
+      "property_id": "c8d20fcf-6fc1-4fda-8f84-663c9d5b20ca",
+      "process_id": "961b046a-765a-4274-9d93-af830b1b3613",
+      "perspective_id": "6e0d9ec8-8033-4bfa-9860-99ca482ae755",
+      "strength": 0.61,
+      "confidence": 0.78
+    },
+    {
+      "id": "a5ed0dec-b945-4ec0-aeef-7323acfe1277",
+      "property_id": "3ed09b98-332d-4c48-ac54-9fa4cad6f493",
+      "process_id": "d5f2a291-32ae-499e-b3ef-fdb513a94db7",
+      "perspective_id": "df1defd0-4b4d-417b-a8ed-2fd52170092c",
+      "strength": 0.9,
+      "confidence": 0.89
+    },
+    {
+      "id": "c8f4f9f5-b1a6-4e53-84db-a049c407b18a",
+      "property_id": "2fad0072-254b-4290-9b72-3896d198926d",
+      "process_id": "18b4f213-50d4-4e52-954a-4ffaf0fffe9a",
+      "perspective_id": "df1defd0-4b4d-417b-a8ed-2fd52170092c",
+      "strength": 0.63,
+      "confidence": 0.96
+    },
+    {
+      "id": "30256470-2ede-46c7-bb9a-5287a0bd3db9",
+      "property_id": "f51add2f-953d-4f45-9b1e-494256d6418d",
+      "process_id": "27d20512-519d-4288-9dc0-9f4d0d3d9c9e",
+      "perspective_id": "aec3fcb5-f031-49d5-b573-439b55077359",
+      "strength": 0.52,
+      "confidence": 0.81
+    },
+    {
+      "id": "3497862c-5163-4714-bdf0-164e2bfc3732",
+      "property_id": "25551654-26bc-4a22-bf2c-02f775dfe05b",
+      "process_id": "341a058e-2b94-4050-bc7b-44d37cf6ed64",
+      "perspective_id": "a7878cdb-94df-4d8d-aa8d-a38162681e39",
+      "strength": 0.71,
+      "confidence": 0.81
+    },
+    {
+      "id": "8a409cd7-b7a0-4144-86f2-e8054de671a7",
+      "property_id": "8a0812cd-bd3c-47c8-a2af-9c070621c566",
+      "process_id": "341a058e-2b94-4050-bc7b-44d37cf6ed64",
+      "perspective_id": "60e8dc6d-aeab-4ad4-8341-94a9befa588c",
+      "strength": 0.86,
+      "confidence": 0.96
+    },
+    {
+      "id": "e326d392-ac33-4d44-9e03-62be6152714c",
+      "property_id": "deb7abc2-fc67-41ad-99d2-94d59eb1780b",
+      "process_id": "fd561c71-dfbd-4400-a8a6-804efd060686",
+      "perspective_id": "e5604f09-e843-446c-a2f8-03395cbb6ad3",
+      "strength": 0.75,
+      "confidence": 0.93
+    },
+    {
+      "id": "350f7bd9-b4c2-46ef-b985-6c90ccfd1cd4",
+      "property_id": "2c11b12b-0fad-4403-8e94-49bbe4f01bbd",
+      "process_id": "2bd4cb86-f9c9-4e13-9fe9-6ec16616b42b",
+      "perspective_id": "588b3844-d707-4c1a-9aae-df52b0169db2",
+      "strength": 0.86,
+      "confidence": 0.77
+    },
+    {
+      "id": "7adc3088-433c-4562-a585-6c03b810416c",
+      "property_id": "7621bc3c-8bff-43b2-80f7-0b4684528667",
+      "process_id": "86696121-d317-4d59-9d70-5abd19d4e713",
+      "perspective_id": "9ab4592e-ce1e-4923-af5d-b31873c39d95",
+      "strength": 0.92,
+      "confidence": 0.95
+    },
+    {
+      "id": "85596816-78b4-4f14-871c-95f871f91be2",
+      "property_id": "359f677d-4ced-4ca0-94e5-e38e7779f651",
+      "process_id": "25a5be6b-6563-4e04-a89e-cf3090482fb7",
+      "perspective_id": "27c208d8-57eb-47d7-aac6-abebe1452356",
+      "strength": 0.87,
+      "confidence": 0.88
+    },
+    {
+      "id": "0e8a82ad-478d-4b0a-a035-896def5f90ce",
+      "property_id": "d69a03d8-f15f-44b9-a087-fbf273384e0d",
+      "process_id": "8da33fbb-b316-469d-9b58-a51e9e5da28d",
+      "perspective_id": "6f9aed98-2cf9-471d-89bc-9bba578143fc",
+      "strength": 0.65,
+      "confidence": 0.78
+    },
+    {
+      "id": "2166558e-886a-4280-a1d3-17cb15b82058",
+      "property_id": "f562b6ff-272c-4365-a01f-bd35b49fbb9e",
+      "process_id": "18b4f213-50d4-4e52-954a-4ffaf0fffe9a",
+      "perspective_id": "d5a1b73f-3456-4271-a7f1-3f48f2b72754",
+      "strength": 0.77,
+      "confidence": 0.99
+    },
+    {
+      "id": "35df024b-8b12-451e-a82d-2ca11999a051",
+      "property_id": "25551654-26bc-4a22-bf2c-02f775dfe05b",
+      "process_id": "27d20512-519d-4288-9dc0-9f4d0d3d9c9e",
+      "perspective_id": "7138acfc-0239-4ca7-8a22-46218f085bb7",
+      "strength": 0.75,
+      "confidence": 0.97
+    },
+    {
+      "id": "2fdcf04c-7932-421f-92a5-3f2bc258cc42",
+      "property_id": "a5406239-4bb4-41fd-977f-4f6c2d222dc7",
+      "process_id": "341a058e-2b94-4050-bc7b-44d37cf6ed64",
+      "perspective_id": "b48956bf-ec84-46b7-8568-3919e1a14259",
+      "strength": 0.88,
+      "confidence": 0.93
+    },
+    {
+      "id": "1a0f2549-1342-4c06-ae69-d9c5da69b9d5",
+      "property_id": "8a0812cd-bd3c-47c8-a2af-9c070621c566",
+      "process_id": "27d20512-519d-4288-9dc0-9f4d0d3d9c9e",
+      "perspective_id": "aec3fcb5-f031-49d5-b573-439b55077359",
+      "strength": 0.86,
+      "confidence": 0.92
+    },
+    {
+      "id": "e2bed20e-c440-4fc1-9834-1c02ebe145bc",
+      "property_id": "8a0812cd-bd3c-47c8-a2af-9c070621c566",
+      "process_id": "0833a90e-6d7b-4204-bae6-311ed5643d23",
+      "perspective_id": "27c208d8-57eb-47d7-aac6-abebe1452356",
+      "strength": 0.96,
+      "confidence": 0.82
+    },
+    {
+      "id": "1bf1850f-db51-4c5b-8cd6-582d15cb9ff9",
+      "property_id": "c8d20fcf-6fc1-4fda-8f84-663c9d5b20ca",
+      "process_id": "25a5be6b-6563-4e04-a89e-cf3090482fb7",
+      "perspective_id": "da738da8-bf68-41e2-af6e-47024dc64acd",
+      "strength": 0.96,
+      "confidence": 0.72
+    },
+    {
+      "id": "08359f95-c7e2-4383-a749-422b23befaeb",
+      "property_id": "2fad0072-254b-4290-9b72-3896d198926d",
+      "process_id": "da06b283-70b7-41aa-af0e-484b413b5b9d",
+      "perspective_id": "4fee0289-3f49-4ef6-9cc8-df7fa36c5536",
+      "strength": 0.96,
+      "confidence": 1.0
+    },
+    {
+      "id": "7f16c32e-4416-4935-b85b-f661cc0f77d7",
+      "property_id": "8a0812cd-bd3c-47c8-a2af-9c070621c566",
+      "process_id": "6831ee11-62f2-4bea-bd34-3c2ca2de6453",
+      "perspective_id": "7560cdd1-7f72-4b1a-b34d-295ecc9074bf",
+      "strength": 0.68,
+      "confidence": 0.79
+    },
+    {
+      "id": "f20e6675-606d-4250-a763-9dcd750158a5",
+      "property_id": "192769a6-d26e-4f1a-9b2d-2da31c1c0076",
+      "process_id": "6831ee11-62f2-4bea-bd34-3c2ca2de6453",
+      "perspective_id": "c313833e-12c3-4c3a-a592-1b9ee574736e",
+      "strength": 0.6,
+      "confidence": 0.89
+    },
+    {
+      "id": "2ae341a1-12d3-4e64-b32e-1b78f806b6c8",
+      "property_id": "3afe7804-7467-45d2-b1e3-d035e79a0b94",
+      "process_id": "c10dd0b2-8359-4d93-82ef-b98e89d2e4fc",
+      "perspective_id": "b82b6713-1fd1-4d29-8f17-b140ad414e69",
+      "strength": 0.87,
+      "confidence": 0.96
+    },
+    {
+      "id": "f1a1f1e6-52a5-4ac3-b0db-20ab33e2538d",
+      "property_id": "2f0b62a6-944b-4085-bc4f-a29eebf296c0",
+      "process_id": "fd561c71-dfbd-4400-a8a6-804efd060686",
+      "perspective_id": "588b3844-d707-4c1a-9aae-df52b0169db2",
+      "strength": 0.66,
+      "confidence": 0.95
+    },
+    {
+      "id": "e10a4629-8932-4379-afe9-6ffae8a6436d",
+      "property_id": "485aa92b-4c45-4c06-826f-e340af4154e2",
+      "process_id": "8fa56f5e-c9a6-4485-a588-a4b3c273d5cd",
+      "perspective_id": "d5a1b73f-3456-4271-a7f1-3f48f2b72754",
+      "strength": 0.55,
+      "confidence": 0.87
+    },
+    {
+      "id": "29b4f2a0-cae1-4920-8f84-a1e1a845f016",
+      "property_id": "67394e90-c6ee-42a5-be8e-cb0b1c100121",
+      "process_id": "47a0a456-aa94-46be-be44-1667e9ddf0a6",
+      "perspective_id": "77c74ecb-d4c1-403c-a62a-cf43b29a8182",
+      "strength": 0.94,
+      "confidence": 0.75
+    },
+    {
+      "id": "4f6b8328-e720-4485-be55-fda1e736d8a5",
+      "property_id": "485aa92b-4c45-4c06-826f-e340af4154e2",
+      "process_id": "2bd4cb86-f9c9-4e13-9fe9-6ec16616b42b",
+      "perspective_id": "65f94b49-df00-4f69-9afa-ea779953a773",
+      "strength": 0.68,
+      "confidence": 0.91
+    },
+    {
+      "id": "caf81981-1f30-4a2e-91a0-41fc102f264b",
+      "property_id": "2e4ce8ea-8b01-4996-91d5-fe4c790d017b",
+      "process_id": "25a5be6b-6563-4e04-a89e-cf3090482fb7",
+      "perspective_id": "5dcdd8cb-b93b-4853-8640-dba0ff8f2aa2",
+      "strength": 0.72,
+      "confidence": 0.79
+    },
+    {
+      "id": "0f8028fd-0192-4663-a5b6-517c95d20ba5",
+      "property_id": "d141096f-27b7-4290-b3cd-65966b7c25bc",
+      "process_id": "a232d005-6985-4a7a-9592-0fe7a429d17f",
+      "perspective_id": "2ab7955d-6f10-4de7-9c37-1e49059dc760",
+      "strength": 0.58,
+      "confidence": 0.79
+    },
+    {
+      "id": "406ab62f-dcde-487e-83c2-d0d55198a640",
+      "property_id": "deb7abc2-fc67-41ad-99d2-94d59eb1780b",
+      "process_id": "da06b283-70b7-41aa-af0e-484b413b5b9d",
+      "perspective_id": "588b3844-d707-4c1a-9aae-df52b0169db2",
+      "strength": 0.93,
+      "confidence": 0.82
+    },
+    {
+      "id": "32fc018d-ce3b-41ba-9b05-569b93974eb8",
+      "property_id": "ba41380f-299c-4196-a754-5158153aa13c",
+      "process_id": "17815cc5-3808-49cd-a99c-e9ffac09edad",
+      "perspective_id": "d2b61b75-d550-4ddf-84f7-f374109278b0",
+      "strength": 0.54,
+      "confidence": 0.96
+    },
+    {
+      "id": "8bafa3a6-b3ce-4f42-bb55-f50c61a825f0",
+      "property_id": "91415d8e-43b6-43ff-82e9-c8b100761baa",
+      "process_id": "40d4880c-302b-4510-bad0-c9cf32da73ce",
+      "perspective_id": "5acab0d3-5e14-4e7a-9525-5e1090730064",
+      "strength": 0.92,
+      "confidence": 0.87
+    },
+    {
+      "id": "4b37aeca-5631-4cd7-a47b-57d47d7a6d25",
+      "property_id": "e97d6c07-ce87-4f90-b937-48c1583891b6",
+      "process_id": "0833a90e-6d7b-4204-bae6-311ed5643d23",
+      "perspective_id": "50d9b874-6696-43bd-a2ac-aee144468436",
+      "strength": 0.75,
+      "confidence": 0.8
+    },
+    {
+      "id": "cbfd68cc-9b08-4d21-8c3e-45cb3006f106",
+      "property_id": "19ed9dbe-3950-4ccd-95f5-4f84af78bcb5",
+      "process_id": "87afd34f-317d-424c-a041-9c15e7b6ed8e",
+      "perspective_id": "847ba4a1-1b86-4be3-bc55-57fb94976717",
+      "strength": 0.86,
+      "confidence": 0.92
+    },
+    {
+      "id": "7a362269-6fd1-481f-afb9-0b8f6206bf5d",
+      "property_id": "a6bffdd9-8916-4bb8-b576-7faa9026e84a",
+      "process_id": "8da33fbb-b316-469d-9b58-a51e9e5da28d",
+      "perspective_id": "9f045cce-a84e-45c4-8d60-9f661d14c940",
+      "strength": 0.81,
+      "confidence": 0.76
+    },
+    {
+      "id": "056aa9e3-8a64-4dfc-8dc0-e4aadff24c10",
+      "property_id": "422030ce-da5f-48c2-8d00-3b51c866372e",
+      "process_id": "c10dd0b2-8359-4d93-82ef-b98e89d2e4fc",
+      "perspective_id": "50d9b874-6696-43bd-a2ac-aee144468436",
+      "strength": 0.95,
+      "confidence": 0.8
+    },
+    {
+      "id": "b3aed190-9a62-4680-9f77-9cc8f0db8b21",
+      "property_id": "deb7abc2-fc67-41ad-99d2-94d59eb1780b",
+      "process_id": "7d6b51ec-cd13-48c4-9d36-29b3ed616bf8",
+      "perspective_id": "3c2df6b8-b92f-41ec-8dce-1bbab8a8a8f5",
+      "strength": 0.94,
+      "confidence": 0.99
+    },
+    {
+      "id": "466cd914-386c-4f95-becf-bbc3b92bc309",
+      "property_id": "cb43a320-7da9-472d-a5b0-8816eb73e75c",
+      "process_id": "651e75ca-8b15-4547-85eb-35b223c20283",
+      "perspective_id": "3c2df6b8-b92f-41ec-8dce-1bbab8a8a8f5",
+      "strength": 0.55,
+      "confidence": 0.92
+    },
+    {
+      "id": "736b8347-9b15-4747-80e4-da38d1dce77d",
+      "property_id": "2e4ce8ea-8b01-4996-91d5-fe4c790d017b",
+      "process_id": "ba4471f0-aa39-4cf0-90a3-c1aaabdbdfe8",
+      "perspective_id": "65f94b49-df00-4f69-9afa-ea779953a773",
+      "strength": 0.58,
+      "confidence": 0.98
+    },
+    {
+      "id": "c6e42c43-58e6-4cc7-8038-a26597a54fb4",
+      "property_id": "d141096f-27b7-4290-b3cd-65966b7c25bc",
+      "process_id": "197ef9af-f77f-4e5a-973b-aa9e4871dd83",
+      "perspective_id": "6e0d9ec8-8033-4bfa-9860-99ca482ae755",
+      "strength": 0.8,
+      "confidence": 0.92
+    },
+    {
+      "id": "371064d3-68fa-4505-951a-c89ed4aeabbd",
+      "property_id": "fdca1ae5-7f35-484e-a82b-10d66195cd86",
+      "process_id": "27d20512-519d-4288-9dc0-9f4d0d3d9c9e",
+      "perspective_id": "7138acfc-0239-4ca7-8a22-46218f085bb7",
+      "strength": 0.99,
+      "confidence": 0.76
+    },
+    {
+      "id": "ab8fdc01-645a-4a5a-9012-9f711bfa3306",
+      "property_id": "422030ce-da5f-48c2-8d00-3b51c866372e",
+      "process_id": "d5f2a291-32ae-499e-b3ef-fdb513a94db7",
+      "perspective_id": "22de40fc-b4cf-4802-8627-8bf5fac249f4",
+      "strength": 0.92,
+      "confidence": 0.79
+    },
+    {
+      "id": "1adfc386-f116-421a-baf8-6b976acc8a24",
+      "property_id": "c853efc8-fdc1-47ff-95e2-891664437517",
+      "process_id": "24c37fbe-fb4b-4f3e-b1c8-be2b65d94098",
+      "perspective_id": "5dcdd8cb-b93b-4853-8640-dba0ff8f2aa2",
+      "strength": 0.71,
+      "confidence": 0.73
+    },
+    {
+      "id": "93b5259e-2900-49c3-bcdc-f8655204c312",
+      "property_id": "3bda35fd-20ea-4d31-8b85-d172d35965f2",
+      "process_id": "961b046a-765a-4274-9d93-af830b1b3613",
+      "perspective_id": "9f045cce-a84e-45c4-8d60-9f661d14c940",
+      "strength": 0.55,
+      "confidence": 0.82
+    },
+    {
+      "id": "7dedee1c-4ed4-4af3-8294-84d30e2b368c",
+      "property_id": "485aa92b-4c45-4c06-826f-e340af4154e2",
+      "process_id": "86696121-d317-4d59-9d70-5abd19d4e713",
+      "perspective_id": "228c7830-f470-467b-8155-bd279d548dcf",
+      "strength": 0.84,
+      "confidence": 0.9
+    },
+    {
+      "id": "58e44712-710a-41ac-a52a-fc1eb2adc14d",
+      "property_id": "d141096f-27b7-4290-b3cd-65966b7c25bc",
+      "process_id": "24c37fbe-fb4b-4f3e-b1c8-be2b65d94098",
+      "perspective_id": "588b3844-d707-4c1a-9aae-df52b0169db2",
+      "strength": 0.9,
+      "confidence": 0.86
+    },
+    {
+      "id": "e481da4c-19a6-469d-b484-ac7c8c01555c",
+      "property_id": "9e0b16b7-4c32-4527-b291-5bc5dd03c06d",
+      "process_id": "0f17bcda-c245-492c-86d7-9ef21fee25db",
+      "perspective_id": "847ba4a1-1b86-4be3-bc55-57fb94976717",
+      "strength": 0.88,
+      "confidence": 0.71
+    },
+    {
+      "id": "5c22de46-844a-4c52-912f-509223a280da",
+      "property_id": "4f876d0c-e690-45ba-828d-f5d18dcf1a14",
+      "process_id": "326b41b6-eb98-4f36-ae54-2ae5dc805e03",
+      "perspective_id": "27c208d8-57eb-47d7-aac6-abebe1452356",
+      "strength": 0.71,
+      "confidence": 0.95
+    },
+    {
+      "id": "ce365727-f1bd-4384-8a36-b0d187bb51e9",
+      "property_id": "d141096f-27b7-4290-b3cd-65966b7c25bc",
+      "process_id": "961b046a-765a-4274-9d93-af830b1b3613",
+      "perspective_id": "9f045cce-a84e-45c4-8d60-9f661d14c940",
+      "strength": 0.66,
+      "confidence": 0.9
+    },
+    {
+      "id": "6cb2cc73-b9b6-4f66-90cb-c3fadae6ecf2",
+      "property_id": "c8d20fcf-6fc1-4fda-8f84-663c9d5b20ca",
+      "process_id": "24c37fbe-fb4b-4f3e-b1c8-be2b65d94098",
+      "perspective_id": "d5a1b73f-3456-4271-a7f1-3f48f2b72754",
+      "strength": 0.72,
+      "confidence": 0.74
+    },
+    {
+      "id": "a5f32947-9e23-4155-81d6-5c1e665e7662",
+      "property_id": "e97d6c07-ce87-4f90-b937-48c1583891b6",
+      "process_id": "25303dd4-48c7-481e-80cb-03ed61e05d35",
+      "perspective_id": "ebac80ff-9b63-4e99-bb94-c7c55cfb4e4c",
+      "strength": 0.79,
+      "confidence": 0.9
+    },
+    {
+      "id": "f0e7d9a1-5cd6-49b0-bd5c-fa891b1132df",
+      "property_id": "7621bc3c-8bff-43b2-80f7-0b4684528667",
+      "process_id": "fd561c71-dfbd-4400-a8a6-804efd060686",
+      "perspective_id": "9b8a7e81-f5b1-4a11-bac9-601344dfbc9a",
+      "strength": 0.96,
+      "confidence": 0.96
+    },
+    {
+      "id": "35c3d916-7aeb-49ce-b3ec-b38285a2aee9",
+      "property_id": "c33b9c7c-a673-4e9a-a5b4-d361e70bdf66",
+      "process_id": "27d20512-519d-4288-9dc0-9f4d0d3d9c9e",
+      "perspective_id": "6f9aed98-2cf9-471d-89bc-9bba578143fc",
+      "strength": 0.97,
+      "confidence": 0.85
+    },
+    {
+      "id": "ce522ee2-33f2-4af0-83e9-eebdda4e074c",
+      "property_id": "f51add2f-953d-4f45-9b1e-494256d6418d",
+      "process_id": "d19ae0af-02aa-438c-b274-b2234a3f4513",
+      "perspective_id": "faf15022-64ba-4b44-8e81-18201ebd59f1",
+      "strength": 0.55,
+      "confidence": 0.79
+    },
+    {
+      "id": "dd3506ac-5cc4-4bb6-8e2b-c759ae5885dc",
+      "property_id": "c8d20fcf-6fc1-4fda-8f84-663c9d5b20ca",
+      "process_id": "0833a90e-6d7b-4204-bae6-311ed5643d23",
+      "perspective_id": "6e0d9ec8-8033-4bfa-9860-99ca482ae755",
+      "strength": 0.59,
+      "confidence": 0.9
+    },
+    {
+      "id": "57e99c94-2f55-4a7f-a4c2-403ba705e390",
+      "property_id": "485aa92b-4c45-4c06-826f-e340af4154e2",
+      "process_id": "20f8130e-7fd3-453d-a9a3-39eb75d07c30",
+      "perspective_id": "9371bba2-ead7-41e7-a4f3-2fc15158542e",
+      "strength": 0.83,
+      "confidence": 0.98
+    },
+    {
+      "id": "367e2a3f-b117-4661-a46b-0802cfd28f77",
+      "property_id": "422030ce-da5f-48c2-8d00-3b51c866372e",
+      "process_id": "197ef9af-f77f-4e5a-973b-aa9e4871dd83",
+      "perspective_id": "b82b6713-1fd1-4d29-8f17-b140ad414e69",
+      "strength": 0.5,
+      "confidence": 0.83
+    },
+    {
+      "id": "b1a1458b-9823-42d3-8d02-cdbbc4d05464",
+      "property_id": "6de59a2b-77ce-400a-a31d-c2f66652eb3e",
+      "process_id": "9adb0bcb-1de6-4714-853d-ad578880ebe9",
+      "perspective_id": "6ef8cb18-bf6e-45c4-9fd8-cb5486125c3e",
+      "strength": 0.68,
+      "confidence": 0.86
+    },
+    {
+      "id": "effefe25-95a0-4d58-87d0-76c5f8904d36",
+      "property_id": "2fad0072-254b-4290-9b72-3896d198926d",
+      "process_id": "6fa524f4-5213-4ed6-8e83-6a48ca397798",
+      "perspective_id": "50d9b874-6696-43bd-a2ac-aee144468436",
+      "strength": 0.8,
+      "confidence": 0.87
+    },
+    {
+      "id": "25f555dd-7946-4a5b-ab48-017473364f77",
+      "property_id": "aa9fa880-9612-4b43-982d-2b8235c1e387",
+      "process_id": "8da33fbb-b316-469d-9b58-a51e9e5da28d",
+      "perspective_id": "faf15022-64ba-4b44-8e81-18201ebd59f1",
+      "strength": 0.77,
+      "confidence": 0.94
+    },
+    {
+      "id": "1359e629-66be-4695-822f-a9f8970bcdfc",
+      "property_id": "2c11b12b-0fad-4403-8e94-49bbe4f01bbd",
+      "process_id": "47a0a456-aa94-46be-be44-1667e9ddf0a6",
+      "perspective_id": "d2b61b75-d550-4ddf-84f7-f374109278b0",
+      "strength": 0.62,
+      "confidence": 0.91
+    },
+    {
+      "id": "52f2a68d-3be4-4a1b-8aed-f014fae134d8",
+      "property_id": "34eda4bb-9036-43ee-af87-03f9e3e6e73d",
+      "process_id": "f5136ec7-8693-43fd-b5c1-20ae11b16b23",
+      "perspective_id": "faf15022-64ba-4b44-8e81-18201ebd59f1",
+      "strength": 0.8,
+      "confidence": 0.86
+    },
+    {
+      "id": "f4175af2-1ad7-4f68-8887-37f0a1f7b161",
+      "property_id": "cb43a320-7da9-472d-a5b0-8816eb73e75c",
+      "process_id": "d5f2a291-32ae-499e-b3ef-fdb513a94db7",
+      "perspective_id": "847ba4a1-1b86-4be3-bc55-57fb94976717",
+      "strength": 0.75,
+      "confidence": 0.85
+    },
+    {
+      "id": "51fc4bd1-e858-4d4b-9e87-ba9c2daf4b74",
+      "property_id": "7621bc3c-8bff-43b2-80f7-0b4684528667",
+      "process_id": "fd561c71-dfbd-4400-a8a6-804efd060686",
+      "perspective_id": "6e0d9ec8-8033-4bfa-9860-99ca482ae755",
+      "strength": 0.97,
+      "confidence": 0.76
+    },
+    {
+      "id": "484d1778-899f-48b4-be53-e38178baa3ff",
+      "property_id": "70a2cf44-55ad-44a7-842f-415ed000cec3",
+      "process_id": "651e75ca-8b15-4547-85eb-35b223c20283",
+      "perspective_id": "4fee0289-3f49-4ef6-9cc8-df7fa36c5536",
+      "strength": 0.67,
+      "confidence": 0.97
+    },
+    {
+      "id": "d8a484d7-ad29-4875-9763-2942d152885e",
+      "property_id": "2f1ad27c-a9f1-4456-8254-6c89feeb9cfa",
+      "process_id": "9adb0bcb-1de6-4714-853d-ad578880ebe9",
+      "perspective_id": "9ab4592e-ce1e-4923-af5d-b31873c39d95",
+      "strength": 0.75,
+      "confidence": 0.74
+    },
+    {
+      "id": "8c84a3e9-6e1c-41eb-b288-22f8856f7535",
+      "property_id": "a6bffdd9-8916-4bb8-b576-7faa9026e84a",
+      "process_id": "d5f2a291-32ae-499e-b3ef-fdb513a94db7",
+      "perspective_id": "b82b6713-1fd1-4d29-8f17-b140ad414e69",
+      "strength": 0.9,
+      "confidence": 0.81
+    }
+  ],
+  "metadata": {
+    "count": {
+      "properties": 50,
+      "processes": 50,
+      "perspectives": 50
+    }
+  }
+}

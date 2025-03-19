@@ -1,0 +1,1813 @@
+{
+  "domain": "GovernmentAccessibility",
+  "version": "1.0",
+  "properties": [
+    "Physical Accessibility",
+    "Digital Accessibility",
+    "Language Accessibility",
+    "Information Clarity",
+    "Service Availability",
+    "Assistive Technology Support",
+    "Inclusive Design",
+    "Staff Training",
+    "Public Awareness",
+    "Feedback Mechanisms",
+    "Compliance Monitoring",
+    "Reasonable Accommodations",
+    "Emergency Preparedness",
+    "Cultural Sensitivity",
+    "Outreach Programs",
+    "Accessible Transportation",
+    "Voting Accessibility",
+    "Healthcare Access",
+    "Education Access",
+    "Employment Support",
+    "Sign Language Interpretation",
+    "Braille Services",
+    "Audio Description",
+    "Captioning Services",
+    "Easy Read Documents",
+    "Wheelchair Accessibility",
+    "Sensory-Friendly Environments",
+    "Accessible Websites",
+    "Mobile App Accessibility",
+    "Accessible Documents",
+    "Multilingual Services",
+    "Assistive Listening Systems",
+    "Visual Aids",
+    "Tactile Maps",
+    "Accessible Kiosks",
+    "Remote Access Services",
+    "Accessible Meeting Spaces",
+    "Inclusive Hiring Practices",
+    "Disability Awareness Training",
+    "Accessible Public Events",
+    "Accessible Recreational Facilities",
+    "Accessible Housing Information",
+    "Accessible Complaint Procedures",
+    "Inclusive Policy Making",
+    "Accessible Voting Machines",
+    "Accessible Emergency Alerts",
+    "Inclusive Civic Engagement",
+    "Accessible Public Transportation",
+    "Accessible Government Buildings",
+    "Universal Design Implementation"
+  ],
+  "processes": [
+    "Accessibility Audits",
+    "Website Optimization",
+    "Translation Services",
+    "Plain Language Writing",
+    "Service Delivery Planning",
+    "Assistive Tech Implementation",
+    "Universal Design Application",
+    "Accessibility Training",
+    "Public Information Campaigns",
+    "Feedback Collection",
+    "Compliance Reporting",
+    "Accommodation Request Processing",
+    "Emergency Response Planning",
+    "Cultural Competence Training",
+    "Community Outreach",
+    "Transportation Planning",
+    "Voting System Design",
+    "Healthcare Coordination",
+    "Education Support Services",
+    "Job Placement Assistance",
+    "Sign Language Interpreter Scheduling",
+    "Braille Document Production",
+    "Audio Description Creation",
+    "Caption Generation",
+    "Easy Read Document Development",
+    "Wheelchair Ramp Installation",
+    "Sensory Room Design",
+    "Web Accessibility Testing",
+    "Mobile App Accessibility Testing",
+    "Document Accessibility Conversion",
+    "Language Line Services",
+    "Assistive Listening Device Maintenance",
+    "Visual Aid Creation",
+    "Tactile Map Production",
+    "Kiosk Accessibility Upgrade",
+    "Remote Service Implementation",
+    "Accessible Meeting Space Design",
+    "Inclusive Recruitment",
+    "Disability Etiquette Training",
+    "Accessible Event Planning",
+    "Recreational Facility Adaptation",
+    "Housing Accessibility Information Compilation",
+    "Complaint Procedure Simplification",
+    "Inclusive Policy Development",
+    "Voting Machine Accessibility Testing",
+    "Emergency Alert System Adaptation",
+    "Civic Engagement Accessibility Planning",
+    "Public Transit Accessibility Improvement",
+    "Government Building Accessibility Renovation",
+    "Universal Design Consultation"
+  ],
+  "perspectives": [
+    "Accessibility Coordinator",
+    "Web Accessibility Specialist",
+    "Language Access Coordinator",
+    "Plain Language Expert",
+    "Service Delivery Manager",
+    "Assistive Technology Specialist",
+    "Universal Design Architect",
+    "Training Coordinator",
+    "Public Relations Officer",
+    "Feedback Analysis Specialist",
+    "Compliance Officer",
+    "Accommodations Coordinator",
+    "Emergency Preparedness Planner",
+    "Cultural Liaison",
+    "Outreach Coordinator",
+    "Transportation Planner",
+    "Voting Rights Advocate",
+    "Healthcare Access Specialist",
+    "Education Accessibility Expert",
+    "Employment Support Coordinator",
+    "Sign Language Interpreter",
+    "Braille Transcriptionist",
+    "Audio Description Specialist",
+    "Captioning Professional",
+    "Easy Read Document Creator",
+    "Accessibility Consultant",
+    "Sensory Integration Specialist",
+    "Web Developer",
+    "Mobile App Developer",
+    "Document Accessibility Specialist",
+    "Multilingual Services Coordinator",
+    "Assistive Listening Technician",
+    "Visual Information Designer",
+    "Tactile Graphics Specialist",
+    "Kiosk Design Engineer",
+    "Remote Services Technician",
+    "Facilities Manager",
+    "Inclusive HR Specialist",
+    "Disability Awareness Trainer",
+    "Event Accessibility Planner",
+    "Recreation Therapist",
+    "Housing Accessibility Advisor",
+    "Ombudsman",
+    "Policy Analyst",
+    "Voting Technology Specialist",
+    "Emergency Communications Expert",
+    "Civic Engagement Coordinator",
+    "Public Transit Accessibility Specialist",
+    "Architectural Accessibility Expert",
+    "Universal Design Consultant"
+  ],
+  "patterns": {
+    "properties": [
+      {
+        "id": "179b2096-01d9-441e-b51b-5b13ef65e6ac",
+        "name": "Physical Accessibility",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "3705053a-e775-451a-9cff-929b10f56bf2",
+        "name": "Digital Accessibility",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "e0b604b6-a7d7-46d7-bc94-4057f84ca7ab",
+        "name": "Language Accessibility",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "2220ca1e-d031-4f16-aceb-24d565cce4cd",
+        "name": "Information Clarity",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "75b05dd0-6809-4e3d-8d5e-b1a392c5cc02",
+        "name": "Service Availability",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "a1114923-69fc-4904-9c96-33d0754d0f77",
+        "name": "Assistive Technology Support",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "24d3fb79-05d8-4532-ae01-93c6ecce69eb",
+        "name": "Inclusive Design",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "b3f1808e-442b-4633-9665-33c67fb36f60",
+        "name": "Staff Training",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "362742aa-6f22-44a2-ae58-7ebd7908ef63",
+        "name": "Public Awareness",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "2c981548-1967-47bc-81ac-2dc264c4db05",
+        "name": "Feedback Mechanisms",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "6bc5e362-cc52-46af-84dc-c11bd555d876",
+        "name": "Compliance Monitoring",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "5465a066-9d89-4685-80a6-86d4005aead9",
+        "name": "Reasonable Accommodations",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "57eb8a54-f236-4536-aef4-34bf2eac7177",
+        "name": "Emergency Preparedness",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "e639c2b8-f61c-4e7c-bb5f-23efced04a19",
+        "name": "Cultural Sensitivity",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "bd7e6a70-dc1a-4e12-b151-b4677dbef2a8",
+        "name": "Outreach Programs",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "22329086-4552-4572-8ff8-81928ddf7583",
+        "name": "Accessible Transportation",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "30417070-ef19-4064-8fa9-039ef6691236",
+        "name": "Voting Accessibility",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "1e999140-fc27-43c1-8b5e-2ffdb29551f8",
+        "name": "Healthcare Access",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "9fa36279-1882-4504-9425-994725fc6d86",
+        "name": "Education Access",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "ca61d99e-489d-499d-8f6c-16321b627865",
+        "name": "Employment Support",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "aaa1238a-1a26-408c-ab85-d39cd55cf735",
+        "name": "Sign Language Interpretation",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "1bc159b2-199a-4923-825a-ee8dff08300f",
+        "name": "Braille Services",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "cdd18012-4976-4726-98a1-6c6c8eb56827",
+        "name": "Audio Description",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "4bdcee4e-f0eb-4152-8849-b408f2ebcce5",
+        "name": "Captioning Services",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "1f397cdd-69ad-4257-bcdd-8e0eb86b7146",
+        "name": "Easy Read Documents",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "352f6d17-03aa-4305-a3c8-d74c87a318b1",
+        "name": "Wheelchair Accessibility",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "134c6dce-7716-4292-b2d8-8470647afd69",
+        "name": "Sensory-Friendly Environments",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "2a495371-5744-409a-bfea-448b0a3243e0",
+        "name": "Accessible Websites",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "a7e57d79-0ef8-4a81-bdb3-f5dd6ae0f785",
+        "name": "Mobile App Accessibility",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "7348bdd4-67e9-40cd-80ba-377b2bcbe633",
+        "name": "Accessible Documents",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "cdb44ccf-f63c-40de-b652-17da97b2a047",
+        "name": "Multilingual Services",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "30976fe8-98e6-4a2a-bf04-79d5dc77e2be",
+        "name": "Assistive Listening Systems",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "1621582d-b1ee-4b97-b9bf-e3bf9e5de119",
+        "name": "Visual Aids",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "03f75153-7c62-40a3-9c12-3da43e94f6a2",
+        "name": "Tactile Maps",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "78fd66cc-f3c9-493c-bf90-85ac33cafb70",
+        "name": "Accessible Kiosks",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "35e30627-05dd-459b-8b97-9ad8239283f5",
+        "name": "Remote Access Services",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "1b64e43c-178c-44a2-8cd8-17f5ca72a33b",
+        "name": "Accessible Meeting Spaces",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "9663a931-2f8c-4b3e-9e14-c64e96e4f706",
+        "name": "Inclusive Hiring Practices",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "d7ca3e93-587f-470e-bd62-75addba8a67d",
+        "name": "Disability Awareness Training",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "53292fa4-a840-4ab4-bfb9-b9be23448528",
+        "name": "Accessible Public Events",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "ee1484df-032d-458e-9730-1afba508ca30",
+        "name": "Accessible Recreational Facilities",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "d9b2e2c0-492d-4bbf-a752-51382b1891d6",
+        "name": "Accessible Housing Information",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "160437e2-9c4b-4ff7-ab9b-0e400c1bbdef",
+        "name": "Accessible Complaint Procedures",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "c39905d4-0e4d-4e6d-a114-6ac57abb62c2",
+        "name": "Inclusive Policy Making",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "625b461f-de8a-4de3-88df-d226c364aa7b",
+        "name": "Accessible Voting Machines",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "e103f74e-23ba-4539-8074-6be26a72dda3",
+        "name": "Accessible Emergency Alerts",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "35907c62-50bb-44db-a4ef-b7209ca03b4b",
+        "name": "Inclusive Civic Engagement",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "d70caf41-6f2d-4d2b-be2d-3532ca8a3d3f",
+        "name": "Accessible Public Transportation",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "c7388da2-89e9-4098-8654-85b9a46c47d7",
+        "name": "Accessible Government Buildings",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "61dfa2e0-8fd9-4fd5-b866-4a68d28badbe",
+        "name": "Universal Design Implementation",
+        "type": "property",
+        "domain": "GovernmentAccessibility"
+      }
+    ],
+    "processes": [
+      {
+        "id": "46394358-ee90-4619-9c04-a3381a92ba49",
+        "name": "Accessibility Audits",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "cc878d1f-6b82-4409-bb5a-858e04274375",
+        "name": "Website Optimization",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "10bb451f-fdc0-4e91-bfed-96ef1d987025",
+        "name": "Translation Services",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "81fdeaa0-916f-429b-beaf-6bf98c8afe96",
+        "name": "Plain Language Writing",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "70e7f707-9279-4d5c-827a-d68daa6b83b2",
+        "name": "Service Delivery Planning",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "370de41f-80dc-48e3-8ef0-fb13db955b2c",
+        "name": "Assistive Tech Implementation",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "2da9bd36-e446-4f0d-a05e-ea9cf5c78efe",
+        "name": "Universal Design Application",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "2d29b366-d4f1-4e78-b358-4c72101e53be",
+        "name": "Accessibility Training",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "045c684d-c94e-4cc5-b8e9-dd22a71e1bb8",
+        "name": "Public Information Campaigns",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "bd7fe8fe-22fe-4ef2-9501-9af8305be06d",
+        "name": "Feedback Collection",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "56c5e045-c105-462c-9cac-ddfef9fbb32d",
+        "name": "Compliance Reporting",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "b3df4347-8c0d-471d-beee-254b32eb328f",
+        "name": "Accommodation Request Processing",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "14fa3866-ee5a-4eb1-b978-dbf9547459ce",
+        "name": "Emergency Response Planning",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "af5c93ec-1e76-4c73-8e59-7b63f94019b5",
+        "name": "Cultural Competence Training",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "8a74140f-0742-496f-b4fe-582523f0ac3f",
+        "name": "Community Outreach",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "0f0800e6-eae0-4dfb-ac9f-718ae6e9f1b6",
+        "name": "Transportation Planning",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "311140e5-c6f4-418a-b047-4edfa6fbb5cc",
+        "name": "Voting System Design",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "d9929628-d93a-4216-afc2-0d24c1bc5f6e",
+        "name": "Healthcare Coordination",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "66d35ae4-73b6-42b1-88cf-41c843d7ccc2",
+        "name": "Education Support Services",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "6d3c6b0f-c06f-47dc-b977-1d09aec76c32",
+        "name": "Job Placement Assistance",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "e92845ec-a237-4284-aa67-75d954a82ad4",
+        "name": "Sign Language Interpreter Scheduling",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "82df640e-5b38-4c8a-89e2-24c5bc388b91",
+        "name": "Braille Document Production",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "89cfd530-fd53-4f71-9e6c-7d9bbb440311",
+        "name": "Audio Description Creation",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "bca606e8-e28a-4270-8bac-7717b2cd0efa",
+        "name": "Caption Generation",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "514e15b3-44d7-4175-8ef5-37bd9f97b98a",
+        "name": "Easy Read Document Development",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "18d8a16f-ab1c-463a-8c52-b9d62a172151",
+        "name": "Wheelchair Ramp Installation",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "0bdf45b9-536e-45db-b3be-fa5a6c6a8e32",
+        "name": "Sensory Room Design",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "18e52e95-d7ec-4a28-89b2-5e292b6bf657",
+        "name": "Web Accessibility Testing",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "50365e59-34c7-46c7-b4b8-670e68511c44",
+        "name": "Mobile App Accessibility Testing",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "3264970c-631e-4b81-baed-e5f4c5ab4a9b",
+        "name": "Document Accessibility Conversion",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "d734b51e-dc62-43bd-aa93-16bd50795813",
+        "name": "Language Line Services",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "3f1a5a30-b923-4e3d-b3d7-70226ea50daa",
+        "name": "Assistive Listening Device Maintenance",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "de2c711e-6cb3-480d-9aa1-e23474766d87",
+        "name": "Visual Aid Creation",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "4a29fff2-9cf0-4e4c-83e3-e2918029c636",
+        "name": "Tactile Map Production",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "fbc9e28a-8426-41a5-9ae8-e7bd467a5df5",
+        "name": "Kiosk Accessibility Upgrade",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "d19cb290-c978-44a6-a84f-caf62d7f5ecf",
+        "name": "Remote Service Implementation",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "549674ee-53d8-4302-9b84-908b4de00e85",
+        "name": "Accessible Meeting Space Design",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "560003bd-89a1-4ec2-817d-b678360e8161",
+        "name": "Inclusive Recruitment",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "183ec7fc-64af-4ba7-8559-223145f32606",
+        "name": "Disability Etiquette Training",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "a046a0c2-8d86-4d00-8e65-a6eb96c434ff",
+        "name": "Accessible Event Planning",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "9b96431e-7dd0-4305-a589-76cf45dae8c2",
+        "name": "Recreational Facility Adaptation",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "f402f386-f5f2-4297-a468-e843a8c2157a",
+        "name": "Housing Accessibility Information Compilation",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "84a9f00e-40e0-40af-a331-12c4a14f9e84",
+        "name": "Complaint Procedure Simplification",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "4971b2b9-e871-4e76-afd7-7045a19cb693",
+        "name": "Inclusive Policy Development",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "08f3a280-cbad-40f7-81ee-cb72492196a2",
+        "name": "Voting Machine Accessibility Testing",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "c198af96-86d3-430c-9302-eaa005d73159",
+        "name": "Emergency Alert System Adaptation",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "95004fd3-30cd-4de4-8223-b60528f9b4bb",
+        "name": "Civic Engagement Accessibility Planning",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "55893b34-a363-4773-8d01-8117e4fc73c5",
+        "name": "Public Transit Accessibility Improvement",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "95fb5734-ba9a-443e-92e4-f95267667732",
+        "name": "Government Building Accessibility Renovation",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "bff1dd5e-265b-4c77-bbee-a8ff38b5bdcb",
+        "name": "Universal Design Consultation",
+        "type": "process",
+        "domain": "GovernmentAccessibility"
+      }
+    ],
+    "perspectives": [
+      {
+        "id": "7c56d9a7-031e-40aa-ab31-270c5c75d6c4",
+        "name": "Accessibility Coordinator",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "6638bc47-b3ba-49d5-a53d-aa86ef650307",
+        "name": "Web Accessibility Specialist",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "d0f0411f-2161-4ef5-81d8-77d2fa7013d6",
+        "name": "Language Access Coordinator",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "9d085286-0e80-48c1-8f71-c52350172b3e",
+        "name": "Plain Language Expert",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "4b3e7968-4ad7-41b5-8aa1-4ae9089a5e72",
+        "name": "Service Delivery Manager",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "61817308-a38e-4695-8732-5e30ebed0a3f",
+        "name": "Assistive Technology Specialist",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "c0ba1b36-898c-4c57-be14-344e0a59fa12",
+        "name": "Universal Design Architect",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "282ae690-0d79-4d98-b142-937a8a95526b",
+        "name": "Training Coordinator",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "0504cb8b-3c45-4f35-97cb-8a58447ca0e7",
+        "name": "Public Relations Officer",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "00b4d138-89fe-4267-b0a2-c59cf43a954f",
+        "name": "Feedback Analysis Specialist",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "6fe33919-b821-49dd-93eb-03a722a58e23",
+        "name": "Compliance Officer",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "b9c02036-26ac-4bd4-b53b-c0a8e40e5ecb",
+        "name": "Accommodations Coordinator",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "f29a427f-730f-4e27-a474-d4111c7f5587",
+        "name": "Emergency Preparedness Planner",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "323515cb-be8e-4092-b925-53851978306f",
+        "name": "Cultural Liaison",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "05e59d9b-7e73-468a-962a-bcab64762178",
+        "name": "Outreach Coordinator",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "2ac425e9-149b-4a04-a504-aeea3f541507",
+        "name": "Transportation Planner",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "ebfdb47b-1edb-47f9-a9cd-6f04a2efcd84",
+        "name": "Voting Rights Advocate",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "dea47f56-c36b-4f85-a443-cb1acbe6eb1d",
+        "name": "Healthcare Access Specialist",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "27f46ed7-68c3-46f6-80c5-3eefbfeaed61",
+        "name": "Education Accessibility Expert",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "b1ba8857-d319-41fe-9763-d8e730785e54",
+        "name": "Employment Support Coordinator",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "b1e46c36-583a-4c0b-821f-a9c4b6d806b7",
+        "name": "Sign Language Interpreter",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "ffaa7e1a-4abe-4539-a0b0-590b616a0942",
+        "name": "Braille Transcriptionist",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "66064f9e-02b4-477a-ad4a-181ef79c2810",
+        "name": "Audio Description Specialist",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "9ebe942a-2243-4d25-8f7b-b322b0519e22",
+        "name": "Captioning Professional",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "5e4a6cfb-de81-40c4-949b-db473663b97b",
+        "name": "Easy Read Document Creator",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "c9dcccef-079e-4d9d-a4fe-51d86fbd92ea",
+        "name": "Accessibility Consultant",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "6bb0b71d-e82a-45d1-b2d3-838b6a938f84",
+        "name": "Sensory Integration Specialist",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "15c14d03-4df9-4ba6-867e-e3aba9c1d9a5",
+        "name": "Web Developer",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "13bbf6ec-844a-43fb-8d50-7f1d05dc991d",
+        "name": "Mobile App Developer",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "05101941-c72d-4858-a0bd-29f757acda6b",
+        "name": "Document Accessibility Specialist",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "debac57a-1dbf-47a0-b5e6-74e7f0e33f62",
+        "name": "Multilingual Services Coordinator",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "6c5fa577-f9ce-4fda-bbb7-e2b8b98dfeaa",
+        "name": "Assistive Listening Technician",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "043cdd65-2aba-4139-bb4c-f0b3f449baf6",
+        "name": "Visual Information Designer",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "d3e24d1d-4c31-4e29-946c-4af97d72ee10",
+        "name": "Tactile Graphics Specialist",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "0ca1aab9-3e83-4dd8-9233-536928eb8684",
+        "name": "Kiosk Design Engineer",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "3a07e20e-386c-4297-a3b1-5ce9009bc133",
+        "name": "Remote Services Technician",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "3fcc7cc5-776d-434e-a27a-95fdd58fcb80",
+        "name": "Facilities Manager",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "518a987d-ade5-4ea7-89f8-65d2a81dfbba",
+        "name": "Inclusive HR Specialist",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "3b1ed415-2a4d-485f-a0d9-ce039573b001",
+        "name": "Disability Awareness Trainer",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "7e03a919-5a62-4d35-b845-c911a2ddd27a",
+        "name": "Event Accessibility Planner",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "8b983399-de67-48ef-bef3-d4269d113ddb",
+        "name": "Recreation Therapist",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "7f305010-a4a0-4c23-b096-c579238fa63d",
+        "name": "Housing Accessibility Advisor",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "028039fd-96e0-4ac5-b75e-53b32801a69b",
+        "name": "Ombudsman",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "2e8b2dcc-7766-49c6-9e6a-4c7e9759688f",
+        "name": "Policy Analyst",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "63d0ea0f-32e5-40b4-ab61-61c3e7f8659f",
+        "name": "Voting Technology Specialist",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "f479a8be-0815-428f-8279-fcffcd4bbe32",
+        "name": "Emergency Communications Expert",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "a6120d86-63eb-456c-b37f-c2c7bc79f162",
+        "name": "Civic Engagement Coordinator",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "ab2d9c02-23c1-4df7-a722-7ead4d9611a5",
+        "name": "Public Transit Accessibility Specialist",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "914592ed-372a-4491-ac69-25845b7b2930",
+        "name": "Architectural Accessibility Expert",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      },
+      {
+        "id": "143c4293-22a0-4cb5-b5ab-a86d0e0e043a",
+        "name": "Universal Design Consultant",
+        "type": "perspective",
+        "domain": "GovernmentAccessibility"
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "10db2c1a-7f60-448a-a53a-20d06a359572",
+      "property_id": "134c6dce-7716-4292-b2d8-8470647afd69",
+      "process_id": "66d35ae4-73b6-42b1-88cf-41c843d7ccc2",
+      "perspective_id": "043cdd65-2aba-4139-bb4c-f0b3f449baf6",
+      "strength": 0.93,
+      "confidence": 0.8
+    },
+    {
+      "id": "b13a7886-190b-49de-b9e7-07edda6d3f8a",
+      "property_id": "2a495371-5744-409a-bfea-448b0a3243e0",
+      "process_id": "b3df4347-8c0d-471d-beee-254b32eb328f",
+      "perspective_id": "b1ba8857-d319-41fe-9763-d8e730785e54",
+      "strength": 0.86,
+      "confidence": 0.72
+    },
+    {
+      "id": "be78bfb4-10a9-4e16-9c0e-9f197f85f87f",
+      "property_id": "134c6dce-7716-4292-b2d8-8470647afd69",
+      "process_id": "50365e59-34c7-46c7-b4b8-670e68511c44",
+      "perspective_id": "a6120d86-63eb-456c-b37f-c2c7bc79f162",
+      "strength": 0.94,
+      "confidence": 0.96
+    },
+    {
+      "id": "e4b09085-997b-4df0-b90a-cbc5f3b18767",
+      "property_id": "c7388da2-89e9-4098-8654-85b9a46c47d7",
+      "process_id": "e92845ec-a237-4284-aa67-75d954a82ad4",
+      "perspective_id": "66064f9e-02b4-477a-ad4a-181ef79c2810",
+      "strength": 0.66,
+      "confidence": 0.77
+    },
+    {
+      "id": "84b35ecb-1608-4cb9-9576-dcac16e87200",
+      "property_id": "2a495371-5744-409a-bfea-448b0a3243e0",
+      "process_id": "514e15b3-44d7-4175-8ef5-37bd9f97b98a",
+      "perspective_id": "b1e46c36-583a-4c0b-821f-a9c4b6d806b7",
+      "strength": 0.53,
+      "confidence": 0.86
+    },
+    {
+      "id": "bb598e3c-0ae7-4813-8766-844080a3328c",
+      "property_id": "57eb8a54-f236-4536-aef4-34bf2eac7177",
+      "process_id": "8a74140f-0742-496f-b4fe-582523f0ac3f",
+      "perspective_id": "63d0ea0f-32e5-40b4-ab61-61c3e7f8659f",
+      "strength": 0.92,
+      "confidence": 0.75
+    },
+    {
+      "id": "f998a943-ab37-445e-be05-3db636a88563",
+      "property_id": "5465a066-9d89-4685-80a6-86d4005aead9",
+      "process_id": "bd7fe8fe-22fe-4ef2-9501-9af8305be06d",
+      "perspective_id": "debac57a-1dbf-47a0-b5e6-74e7f0e33f62",
+      "strength": 0.85,
+      "confidence": 0.77
+    },
+    {
+      "id": "1059bb45-4773-434a-9750-f86597b1b94a",
+      "property_id": "625b461f-de8a-4de3-88df-d226c364aa7b",
+      "process_id": "d9929628-d93a-4216-afc2-0d24c1bc5f6e",
+      "perspective_id": "282ae690-0d79-4d98-b142-937a8a95526b",
+      "strength": 0.71,
+      "confidence": 0.79
+    },
+    {
+      "id": "d6b79cb3-114a-4a7b-9f85-eb604ff72523",
+      "property_id": "d70caf41-6f2d-4d2b-be2d-3532ca8a3d3f",
+      "process_id": "4971b2b9-e871-4e76-afd7-7045a19cb693",
+      "perspective_id": "2e8b2dcc-7766-49c6-9e6a-4c7e9759688f",
+      "strength": 0.74,
+      "confidence": 0.78
+    },
+    {
+      "id": "5eff6d2c-4071-4b04-bc36-e443af4b0d41",
+      "property_id": "30417070-ef19-4064-8fa9-039ef6691236",
+      "process_id": "cc878d1f-6b82-4409-bb5a-858e04274375",
+      "perspective_id": "63d0ea0f-32e5-40b4-ab61-61c3e7f8659f",
+      "strength": 0.74,
+      "confidence": 0.83
+    },
+    {
+      "id": "6248edcd-db86-4ff7-9d7f-207d8efdf2b1",
+      "property_id": "179b2096-01d9-441e-b51b-5b13ef65e6ac",
+      "process_id": "bca606e8-e28a-4270-8bac-7717b2cd0efa",
+      "perspective_id": "b1e46c36-583a-4c0b-821f-a9c4b6d806b7",
+      "strength": 0.97,
+      "confidence": 0.81
+    },
+    {
+      "id": "0903c28c-8b5a-4be4-8f6a-c8cfbc5cef78",
+      "property_id": "c7388da2-89e9-4098-8654-85b9a46c47d7",
+      "process_id": "bff1dd5e-265b-4c77-bbee-a8ff38b5bdcb",
+      "perspective_id": "6fe33919-b821-49dd-93eb-03a722a58e23",
+      "strength": 0.68,
+      "confidence": 0.84
+    },
+    {
+      "id": "53a993bd-71a5-4e7e-8edf-7ea2c016fb90",
+      "property_id": "179b2096-01d9-441e-b51b-5b13ef65e6ac",
+      "process_id": "46394358-ee90-4619-9c04-a3381a92ba49",
+      "perspective_id": "5e4a6cfb-de81-40c4-949b-db473663b97b",
+      "strength": 0.51,
+      "confidence": 0.86
+    },
+    {
+      "id": "1662bc1e-f884-4934-8357-f5a93936f082",
+      "property_id": "2220ca1e-d031-4f16-aceb-24d565cce4cd",
+      "process_id": "3264970c-631e-4b81-baed-e5f4c5ab4a9b",
+      "perspective_id": "a6120d86-63eb-456c-b37f-c2c7bc79f162",
+      "strength": 0.91,
+      "confidence": 0.84
+    },
+    {
+      "id": "5bc5d98c-1deb-4893-9b19-307114271834",
+      "property_id": "03f75153-7c62-40a3-9c12-3da43e94f6a2",
+      "process_id": "9b96431e-7dd0-4305-a589-76cf45dae8c2",
+      "perspective_id": "9ebe942a-2243-4d25-8f7b-b322b0519e22",
+      "strength": 0.67,
+      "confidence": 0.8
+    },
+    {
+      "id": "27cdba22-3230-4e8d-b70b-8c93adb4c88a",
+      "property_id": "c7388da2-89e9-4098-8654-85b9a46c47d7",
+      "process_id": "55893b34-a363-4773-8d01-8117e4fc73c5",
+      "perspective_id": "b1e46c36-583a-4c0b-821f-a9c4b6d806b7",
+      "strength": 0.52,
+      "confidence": 0.93
+    },
+    {
+      "id": "1c22fc31-6828-4cf3-b896-b9baceaa5bdb",
+      "property_id": "1621582d-b1ee-4b97-b9bf-e3bf9e5de119",
+      "process_id": "a046a0c2-8d86-4d00-8e65-a6eb96c434ff",
+      "perspective_id": "6638bc47-b3ba-49d5-a53d-aa86ef650307",
+      "strength": 0.68,
+      "confidence": 0.8
+    },
+    {
+      "id": "e4a5d380-5964-42ed-be37-69f6aa6b8ab4",
+      "property_id": "03f75153-7c62-40a3-9c12-3da43e94f6a2",
+      "process_id": "46394358-ee90-4619-9c04-a3381a92ba49",
+      "perspective_id": "c9dcccef-079e-4d9d-a4fe-51d86fbd92ea",
+      "strength": 0.67,
+      "confidence": 0.91
+    },
+    {
+      "id": "743d2139-36f7-4e52-9861-7e0c9c393575",
+      "property_id": "35907c62-50bb-44db-a4ef-b7209ca03b4b",
+      "process_id": "bca606e8-e28a-4270-8bac-7717b2cd0efa",
+      "perspective_id": "043cdd65-2aba-4139-bb4c-f0b3f449baf6",
+      "strength": 0.75,
+      "confidence": 0.97
+    },
+    {
+      "id": "79d3ae80-9060-4600-9c9f-282770e4f6f1",
+      "property_id": "1f397cdd-69ad-4257-bcdd-8e0eb86b7146",
+      "process_id": "6d3c6b0f-c06f-47dc-b977-1d09aec76c32",
+      "perspective_id": "323515cb-be8e-4092-b925-53851978306f",
+      "strength": 0.63,
+      "confidence": 0.92
+    },
+    {
+      "id": "16b8d869-ecfc-4fc3-a20f-d80a664604ed",
+      "property_id": "d7ca3e93-587f-470e-bd62-75addba8a67d",
+      "process_id": "3264970c-631e-4b81-baed-e5f4c5ab4a9b",
+      "perspective_id": "6fe33919-b821-49dd-93eb-03a722a58e23",
+      "strength": 0.57,
+      "confidence": 0.79
+    },
+    {
+      "id": "68859169-6543-47d4-a8c8-abe1ea152a68",
+      "property_id": "30417070-ef19-4064-8fa9-039ef6691236",
+      "process_id": "95fb5734-ba9a-443e-92e4-f95267667732",
+      "perspective_id": "05e59d9b-7e73-468a-962a-bcab64762178",
+      "strength": 0.95,
+      "confidence": 0.8
+    },
+    {
+      "id": "bb7b4803-8d43-4c29-9390-26cd7401baa2",
+      "property_id": "35907c62-50bb-44db-a4ef-b7209ca03b4b",
+      "process_id": "18e52e95-d7ec-4a28-89b2-5e292b6bf657",
+      "perspective_id": "00b4d138-89fe-4267-b0a2-c59cf43a954f",
+      "strength": 0.74,
+      "confidence": 0.77
+    },
+    {
+      "id": "ecde01dc-251e-46b1-a348-25b1cd4b0fbf",
+      "property_id": "7348bdd4-67e9-40cd-80ba-377b2bcbe633",
+      "process_id": "50365e59-34c7-46c7-b4b8-670e68511c44",
+      "perspective_id": "282ae690-0d79-4d98-b142-937a8a95526b",
+      "strength": 0.59,
+      "confidence": 0.87
+    },
+    {
+      "id": "4251f3a7-6563-48e4-a99f-66d69f1b0552",
+      "property_id": "aaa1238a-1a26-408c-ab85-d39cd55cf735",
+      "process_id": "cc878d1f-6b82-4409-bb5a-858e04274375",
+      "perspective_id": "143c4293-22a0-4cb5-b5ab-a86d0e0e043a",
+      "strength": 0.86,
+      "confidence": 0.99
+    },
+    {
+      "id": "ecdeb02b-ba61-4c9c-9821-27fc7e87ebe6",
+      "property_id": "e103f74e-23ba-4539-8074-6be26a72dda3",
+      "process_id": "de2c711e-6cb3-480d-9aa1-e23474766d87",
+      "perspective_id": "d0f0411f-2161-4ef5-81d8-77d2fa7013d6",
+      "strength": 0.71,
+      "confidence": 0.96
+    },
+    {
+      "id": "fb24de59-8635-4d93-a9a1-bd45368c0a27",
+      "property_id": "30976fe8-98e6-4a2a-bf04-79d5dc77e2be",
+      "process_id": "bd7fe8fe-22fe-4ef2-9501-9af8305be06d",
+      "perspective_id": "6bb0b71d-e82a-45d1-b2d3-838b6a938f84",
+      "strength": 0.65,
+      "confidence": 0.71
+    },
+    {
+      "id": "0432923c-1ad1-408e-9741-b9c39e5f6018",
+      "property_id": "cdb44ccf-f63c-40de-b652-17da97b2a047",
+      "process_id": "e92845ec-a237-4284-aa67-75d954a82ad4",
+      "perspective_id": "7e03a919-5a62-4d35-b845-c911a2ddd27a",
+      "strength": 0.99,
+      "confidence": 0.98
+    },
+    {
+      "id": "836e6815-6533-4fea-b263-952ba76acdc6",
+      "property_id": "d9b2e2c0-492d-4bbf-a752-51382b1891d6",
+      "process_id": "514e15b3-44d7-4175-8ef5-37bd9f97b98a",
+      "perspective_id": "c9dcccef-079e-4d9d-a4fe-51d86fbd92ea",
+      "strength": 0.79,
+      "confidence": 0.71
+    },
+    {
+      "id": "d34d091e-477e-4d82-b2d2-60c34cfd7d7e",
+      "property_id": "362742aa-6f22-44a2-ae58-7ebd7908ef63",
+      "process_id": "2d29b366-d4f1-4e78-b358-4c72101e53be",
+      "perspective_id": "6fe33919-b821-49dd-93eb-03a722a58e23",
+      "strength": 0.77,
+      "confidence": 0.8
+    },
+    {
+      "id": "4563c869-dba1-40eb-90e7-613d73cdebaa",
+      "property_id": "57eb8a54-f236-4536-aef4-34bf2eac7177",
+      "process_id": "c198af96-86d3-430c-9302-eaa005d73159",
+      "perspective_id": "914592ed-372a-4491-ac69-25845b7b2930",
+      "strength": 0.64,
+      "confidence": 0.94
+    },
+    {
+      "id": "c5e4b709-4a6c-40d6-80c9-e5d458f863d0",
+      "property_id": "1621582d-b1ee-4b97-b9bf-e3bf9e5de119",
+      "process_id": "549674ee-53d8-4302-9b84-908b4de00e85",
+      "perspective_id": "7f305010-a4a0-4c23-b096-c579238fa63d",
+      "strength": 0.79,
+      "confidence": 0.92
+    },
+    {
+      "id": "0bddc12d-1733-490a-94c0-bbda5c7828fb",
+      "property_id": "e103f74e-23ba-4539-8074-6be26a72dda3",
+      "process_id": "0f0800e6-eae0-4dfb-ac9f-718ae6e9f1b6",
+      "perspective_id": "b1ba8857-d319-41fe-9763-d8e730785e54",
+      "strength": 0.72,
+      "confidence": 0.87
+    },
+    {
+      "id": "5c0af6d0-7657-4b14-bb10-211e1fde2a35",
+      "property_id": "6bc5e362-cc52-46af-84dc-c11bd555d876",
+      "process_id": "2da9bd36-e446-4f0d-a05e-ea9cf5c78efe",
+      "perspective_id": "b1e46c36-583a-4c0b-821f-a9c4b6d806b7",
+      "strength": 0.99,
+      "confidence": 0.79
+    },
+    {
+      "id": "0dca53f6-3584-41f2-8ca5-1836634ded5d",
+      "property_id": "24d3fb79-05d8-4532-ae01-93c6ecce69eb",
+      "process_id": "b3df4347-8c0d-471d-beee-254b32eb328f",
+      "perspective_id": "f479a8be-0815-428f-8279-fcffcd4bbe32",
+      "strength": 0.87,
+      "confidence": 0.73
+    },
+    {
+      "id": "9993edeb-dd77-46dd-8ed6-aafe2b4cf694",
+      "property_id": "d70caf41-6f2d-4d2b-be2d-3532ca8a3d3f",
+      "process_id": "2d29b366-d4f1-4e78-b358-4c72101e53be",
+      "perspective_id": "dea47f56-c36b-4f85-a443-cb1acbe6eb1d",
+      "strength": 0.66,
+      "confidence": 0.8
+    },
+    {
+      "id": "f35db6e1-61f3-47c2-8af6-86ba6be97193",
+      "property_id": "57eb8a54-f236-4536-aef4-34bf2eac7177",
+      "process_id": "89cfd530-fd53-4f71-9e6c-7d9bbb440311",
+      "perspective_id": "debac57a-1dbf-47a0-b5e6-74e7f0e33f62",
+      "strength": 0.87,
+      "confidence": 0.89
+    },
+    {
+      "id": "f81f004e-4567-4590-812f-300bc8934fa6",
+      "property_id": "03f75153-7c62-40a3-9c12-3da43e94f6a2",
+      "process_id": "3f1a5a30-b923-4e3d-b3d7-70226ea50daa",
+      "perspective_id": "4b3e7968-4ad7-41b5-8aa1-4ae9089a5e72",
+      "strength": 0.73,
+      "confidence": 0.97
+    },
+    {
+      "id": "4eeca467-26e3-48f4-a25d-6149b7dd952b",
+      "property_id": "d9b2e2c0-492d-4bbf-a752-51382b1891d6",
+      "process_id": "183ec7fc-64af-4ba7-8559-223145f32606",
+      "perspective_id": "323515cb-be8e-4092-b925-53851978306f",
+      "strength": 0.8,
+      "confidence": 0.82
+    },
+    {
+      "id": "bf0547d2-d517-455b-8852-493ca5c1761f",
+      "property_id": "c39905d4-0e4d-4e6d-a114-6ac57abb62c2",
+      "process_id": "514e15b3-44d7-4175-8ef5-37bd9f97b98a",
+      "perspective_id": "7c56d9a7-031e-40aa-ab31-270c5c75d6c4",
+      "strength": 0.75,
+      "confidence": 0.99
+    },
+    {
+      "id": "4abec69b-82d5-46ac-b943-8003ebfb4a93",
+      "property_id": "c39905d4-0e4d-4e6d-a114-6ac57abb62c2",
+      "process_id": "18d8a16f-ab1c-463a-8c52-b9d62a172151",
+      "perspective_id": "2ac425e9-149b-4a04-a504-aeea3f541507",
+      "strength": 0.62,
+      "confidence": 0.86
+    },
+    {
+      "id": "da9e1ed1-188d-4379-94ad-c4bc6c5a56c4",
+      "property_id": "179b2096-01d9-441e-b51b-5b13ef65e6ac",
+      "process_id": "549674ee-53d8-4302-9b84-908b4de00e85",
+      "perspective_id": "61817308-a38e-4695-8732-5e30ebed0a3f",
+      "strength": 0.59,
+      "confidence": 0.98
+    },
+    {
+      "id": "41ea23a8-d601-4dd1-8d9d-e85e925356db",
+      "property_id": "aaa1238a-1a26-408c-ab85-d39cd55cf735",
+      "process_id": "89cfd530-fd53-4f71-9e6c-7d9bbb440311",
+      "perspective_id": "00b4d138-89fe-4267-b0a2-c59cf43a954f",
+      "strength": 0.65,
+      "confidence": 0.81
+    },
+    {
+      "id": "de343f0f-d498-4546-9d0a-eb66ad06ca43",
+      "property_id": "d9b2e2c0-492d-4bbf-a752-51382b1891d6",
+      "process_id": "66d35ae4-73b6-42b1-88cf-41c843d7ccc2",
+      "perspective_id": "66064f9e-02b4-477a-ad4a-181ef79c2810",
+      "strength": 0.75,
+      "confidence": 0.84
+    },
+    {
+      "id": "5e230da4-cc48-4d53-a3f2-8f88efc4d072",
+      "property_id": "2c981548-1967-47bc-81ac-2dc264c4db05",
+      "process_id": "18e52e95-d7ec-4a28-89b2-5e292b6bf657",
+      "perspective_id": "15c14d03-4df9-4ba6-867e-e3aba9c1d9a5",
+      "strength": 0.61,
+      "confidence": 0.85
+    },
+    {
+      "id": "ec3b2de5-ee6e-4a48-ab11-d80fe025b649",
+      "property_id": "a1114923-69fc-4904-9c96-33d0754d0f77",
+      "process_id": "d19cb290-c978-44a6-a84f-caf62d7f5ecf",
+      "perspective_id": "9ebe942a-2243-4d25-8f7b-b322b0519e22",
+      "strength": 0.83,
+      "confidence": 0.93
+    },
+    {
+      "id": "4e219506-b885-4569-bb14-bc6df5ef33fe",
+      "property_id": "a7e57d79-0ef8-4a81-bdb3-f5dd6ae0f785",
+      "process_id": "4a29fff2-9cf0-4e4c-83e3-e2918029c636",
+      "perspective_id": "7f305010-a4a0-4c23-b096-c579238fa63d",
+      "strength": 0.6,
+      "confidence": 0.77
+    },
+    {
+      "id": "160b2d6b-7a94-4c41-bf70-f0b28ad4d3f0",
+      "property_id": "625b461f-de8a-4de3-88df-d226c364aa7b",
+      "process_id": "d9929628-d93a-4216-afc2-0d24c1bc5f6e",
+      "perspective_id": "6bb0b71d-e82a-45d1-b2d3-838b6a938f84",
+      "strength": 0.92,
+      "confidence": 0.74
+    },
+    {
+      "id": "1f2696c1-0fd5-4908-8d82-a58771b9963b",
+      "property_id": "a7e57d79-0ef8-4a81-bdb3-f5dd6ae0f785",
+      "process_id": "2d29b366-d4f1-4e78-b358-4c72101e53be",
+      "perspective_id": "9d085286-0e80-48c1-8f71-c52350172b3e",
+      "strength": 0.57,
+      "confidence": 0.96
+    },
+    {
+      "id": "26b6bf48-b927-4878-b8c2-3cb09feaba7e",
+      "property_id": "1f397cdd-69ad-4257-bcdd-8e0eb86b7146",
+      "process_id": "3f1a5a30-b923-4e3d-b3d7-70226ea50daa",
+      "perspective_id": "7e03a919-5a62-4d35-b845-c911a2ddd27a",
+      "strength": 0.59,
+      "confidence": 0.87
+    },
+    {
+      "id": "fc025a86-c471-4a89-b147-d4f6a4963be9",
+      "property_id": "1b64e43c-178c-44a2-8cd8-17f5ca72a33b",
+      "process_id": "a046a0c2-8d86-4d00-8e65-a6eb96c434ff",
+      "perspective_id": "05e59d9b-7e73-468a-962a-bcab64762178",
+      "strength": 0.59,
+      "confidence": 0.75
+    },
+    {
+      "id": "5504aab2-0508-4748-ab2f-3ed216f15150",
+      "property_id": "e0b604b6-a7d7-46d7-bc94-4057f84ca7ab",
+      "process_id": "311140e5-c6f4-418a-b047-4edfa6fbb5cc",
+      "perspective_id": "b1e46c36-583a-4c0b-821f-a9c4b6d806b7",
+      "strength": 0.67,
+      "confidence": 0.75
+    },
+    {
+      "id": "d4b0bc14-6b5a-4fdf-84f8-e1657307bfcd",
+      "property_id": "aaa1238a-1a26-408c-ab85-d39cd55cf735",
+      "process_id": "2da9bd36-e446-4f0d-a05e-ea9cf5c78efe",
+      "perspective_id": "0ca1aab9-3e83-4dd8-9233-536928eb8684",
+      "strength": 0.89,
+      "confidence": 0.98
+    },
+    {
+      "id": "a54ad677-02ea-4d8d-afdd-9759833f5b89",
+      "property_id": "75b05dd0-6809-4e3d-8d5e-b1a392c5cc02",
+      "process_id": "b3df4347-8c0d-471d-beee-254b32eb328f",
+      "perspective_id": "143c4293-22a0-4cb5-b5ab-a86d0e0e043a",
+      "strength": 0.69,
+      "confidence": 0.72
+    },
+    {
+      "id": "9654e082-b983-444e-9bb0-fb762a9b265c",
+      "property_id": "e0b604b6-a7d7-46d7-bc94-4057f84ca7ab",
+      "process_id": "a046a0c2-8d86-4d00-8e65-a6eb96c434ff",
+      "perspective_id": "debac57a-1dbf-47a0-b5e6-74e7f0e33f62",
+      "strength": 1.0,
+      "confidence": 0.73
+    },
+    {
+      "id": "8488ee0a-cc82-40e0-a2d3-151973669284",
+      "property_id": "1b64e43c-178c-44a2-8cd8-17f5ca72a33b",
+      "process_id": "0bdf45b9-536e-45db-b3be-fa5a6c6a8e32",
+      "perspective_id": "6bb0b71d-e82a-45d1-b2d3-838b6a938f84",
+      "strength": 0.56,
+      "confidence": 0.96
+    },
+    {
+      "id": "06929ee1-ffbd-45b3-83c0-b4543eb3b1b7",
+      "property_id": "b3f1808e-442b-4633-9665-33c67fb36f60",
+      "process_id": "6d3c6b0f-c06f-47dc-b977-1d09aec76c32",
+      "perspective_id": "d0f0411f-2161-4ef5-81d8-77d2fa7013d6",
+      "strength": 0.98,
+      "confidence": 0.76
+    },
+    {
+      "id": "ae474660-c122-4f86-b887-88dfd24c5914",
+      "property_id": "35907c62-50bb-44db-a4ef-b7209ca03b4b",
+      "process_id": "a046a0c2-8d86-4d00-8e65-a6eb96c434ff",
+      "perspective_id": "b9c02036-26ac-4bd4-b53b-c0a8e40e5ecb",
+      "strength": 0.57,
+      "confidence": 0.75
+    },
+    {
+      "id": "bb39278b-4caa-4506-a623-5b60bd1aa3bf",
+      "property_id": "a1114923-69fc-4904-9c96-33d0754d0f77",
+      "process_id": "bca606e8-e28a-4270-8bac-7717b2cd0efa",
+      "perspective_id": "6c5fa577-f9ce-4fda-bbb7-e2b8b98dfeaa",
+      "strength": 0.83,
+      "confidence": 0.71
+    },
+    {
+      "id": "11e5e5bb-3e16-4928-9447-3426c4f5f996",
+      "property_id": "e0b604b6-a7d7-46d7-bc94-4057f84ca7ab",
+      "process_id": "18d8a16f-ab1c-463a-8c52-b9d62a172151",
+      "perspective_id": "ffaa7e1a-4abe-4539-a0b0-590b616a0942",
+      "strength": 0.99,
+      "confidence": 0.81
+    },
+    {
+      "id": "07792e6b-6916-4539-b3d8-787d0303fab7",
+      "property_id": "9663a931-2f8c-4b3e-9e14-c64e96e4f706",
+      "process_id": "18e52e95-d7ec-4a28-89b2-5e292b6bf657",
+      "perspective_id": "13bbf6ec-844a-43fb-8d50-7f1d05dc991d",
+      "strength": 0.67,
+      "confidence": 0.96
+    },
+    {
+      "id": "c7a4d25f-a2fc-4c6b-aa25-56ae29d7a52e",
+      "property_id": "75b05dd0-6809-4e3d-8d5e-b1a392c5cc02",
+      "process_id": "50365e59-34c7-46c7-b4b8-670e68511c44",
+      "perspective_id": "15c14d03-4df9-4ba6-867e-e3aba9c1d9a5",
+      "strength": 0.92,
+      "confidence": 0.99
+    },
+    {
+      "id": "421f5da2-4eb9-44d8-8561-d1d8ba8aacb0",
+      "property_id": "78fd66cc-f3c9-493c-bf90-85ac33cafb70",
+      "process_id": "bd7fe8fe-22fe-4ef2-9501-9af8305be06d",
+      "perspective_id": "8b983399-de67-48ef-bef3-d4269d113ddb",
+      "strength": 0.8,
+      "confidence": 0.96
+    },
+    {
+      "id": "a0e80fdd-6651-4cda-b71b-70d57ca92311",
+      "property_id": "cdd18012-4976-4726-98a1-6c6c8eb56827",
+      "process_id": "56c5e045-c105-462c-9cac-ddfef9fbb32d",
+      "perspective_id": "282ae690-0d79-4d98-b142-937a8a95526b",
+      "strength": 0.51,
+      "confidence": 0.91
+    },
+    {
+      "id": "744fd190-18ac-41f7-9ece-93acc661eb96",
+      "property_id": "9663a931-2f8c-4b3e-9e14-c64e96e4f706",
+      "process_id": "bca606e8-e28a-4270-8bac-7717b2cd0efa",
+      "perspective_id": "7f305010-a4a0-4c23-b096-c579238fa63d",
+      "strength": 0.51,
+      "confidence": 0.79
+    },
+    {
+      "id": "ba3e3e04-a20c-4f5d-8c2f-ff5b7657fe74",
+      "property_id": "d70caf41-6f2d-4d2b-be2d-3532ca8a3d3f",
+      "process_id": "e92845ec-a237-4284-aa67-75d954a82ad4",
+      "perspective_id": "c0ba1b36-898c-4c57-be14-344e0a59fa12",
+      "strength": 0.88,
+      "confidence": 0.91
+    },
+    {
+      "id": "e318e5d7-db16-471c-9f9b-5697fb628da3",
+      "property_id": "d70caf41-6f2d-4d2b-be2d-3532ca8a3d3f",
+      "process_id": "fbc9e28a-8426-41a5-9ae8-e7bd467a5df5",
+      "perspective_id": "7f305010-a4a0-4c23-b096-c579238fa63d",
+      "strength": 0.66,
+      "confidence": 0.74
+    },
+    {
+      "id": "ca8cd037-ddf3-41b7-907c-00646b878c8f",
+      "property_id": "30976fe8-98e6-4a2a-bf04-79d5dc77e2be",
+      "process_id": "a046a0c2-8d86-4d00-8e65-a6eb96c434ff",
+      "perspective_id": "143c4293-22a0-4cb5-b5ab-a86d0e0e043a",
+      "strength": 0.77,
+      "confidence": 0.87
+    },
+    {
+      "id": "22e3e96c-ed37-406a-8333-9d7fc7ca137b",
+      "property_id": "1621582d-b1ee-4b97-b9bf-e3bf9e5de119",
+      "process_id": "cc878d1f-6b82-4409-bb5a-858e04274375",
+      "perspective_id": "d3e24d1d-4c31-4e29-946c-4af97d72ee10",
+      "strength": 0.76,
+      "confidence": 0.83
+    },
+    {
+      "id": "dfab7b99-6fec-4edc-9724-1ee32a049ba5",
+      "property_id": "aaa1238a-1a26-408c-ab85-d39cd55cf735",
+      "process_id": "2d29b366-d4f1-4e78-b358-4c72101e53be",
+      "perspective_id": "2e8b2dcc-7766-49c6-9e6a-4c7e9759688f",
+      "strength": 0.58,
+      "confidence": 0.8
+    },
+    {
+      "id": "91416695-72dc-4a3d-a5de-95df3f8d0d1b",
+      "property_id": "bd7e6a70-dc1a-4e12-b151-b4677dbef2a8",
+      "process_id": "14fa3866-ee5a-4eb1-b978-dbf9547459ce",
+      "perspective_id": "b9c02036-26ac-4bd4-b53b-c0a8e40e5ecb",
+      "strength": 0.57,
+      "confidence": 0.88
+    },
+    {
+      "id": "9a64fbdc-7559-46ed-b639-e5510ff2aad3",
+      "property_id": "134c6dce-7716-4292-b2d8-8470647afd69",
+      "process_id": "10bb451f-fdc0-4e91-bfed-96ef1d987025",
+      "perspective_id": "3fcc7cc5-776d-434e-a27a-95fdd58fcb80",
+      "strength": 0.99,
+      "confidence": 0.73
+    },
+    {
+      "id": "abb0cc93-7b6a-4603-a02d-df51362ddf68",
+      "property_id": "4bdcee4e-f0eb-4152-8849-b408f2ebcce5",
+      "process_id": "55893b34-a363-4773-8d01-8117e4fc73c5",
+      "perspective_id": "3a07e20e-386c-4297-a3b1-5ce9009bc133",
+      "strength": 0.91,
+      "confidence": 0.74
+    },
+    {
+      "id": "f754af8b-6c7a-448a-9966-5349b69842dd",
+      "property_id": "d70caf41-6f2d-4d2b-be2d-3532ca8a3d3f",
+      "process_id": "66d35ae4-73b6-42b1-88cf-41c843d7ccc2",
+      "perspective_id": "3b1ed415-2a4d-485f-a0d9-ce039573b001",
+      "strength": 0.67,
+      "confidence": 0.93
+    },
+    {
+      "id": "4c81a1fe-d480-43b8-ba13-61e592b09c9a",
+      "property_id": "1621582d-b1ee-4b97-b9bf-e3bf9e5de119",
+      "process_id": "70e7f707-9279-4d5c-827a-d68daa6b83b2",
+      "perspective_id": "debac57a-1dbf-47a0-b5e6-74e7f0e33f62",
+      "strength": 0.56,
+      "confidence": 0.88
+    },
+    {
+      "id": "41c0c453-bdb9-4d85-9ce7-ee89773f081c",
+      "property_id": "1b64e43c-178c-44a2-8cd8-17f5ca72a33b",
+      "process_id": "045c684d-c94e-4cc5-b8e9-dd22a71e1bb8",
+      "perspective_id": "66064f9e-02b4-477a-ad4a-181ef79c2810",
+      "strength": 0.96,
+      "confidence": 0.75
+    },
+    {
+      "id": "b9e6b377-7a4f-40c7-9804-c4ac78cee693",
+      "property_id": "d70caf41-6f2d-4d2b-be2d-3532ca8a3d3f",
+      "process_id": "560003bd-89a1-4ec2-817d-b678360e8161",
+      "perspective_id": "debac57a-1dbf-47a0-b5e6-74e7f0e33f62",
+      "strength": 0.92,
+      "confidence": 0.94
+    },
+    {
+      "id": "7118db06-a59e-4663-b4b0-078263edae54",
+      "property_id": "d70caf41-6f2d-4d2b-be2d-3532ca8a3d3f",
+      "process_id": "6d3c6b0f-c06f-47dc-b977-1d09aec76c32",
+      "perspective_id": "7f305010-a4a0-4c23-b096-c579238fa63d",
+      "strength": 0.74,
+      "confidence": 0.85
+    },
+    {
+      "id": "cc2fba5a-253e-401f-99c0-d8382e7d3caf",
+      "property_id": "d7ca3e93-587f-470e-bd62-75addba8a67d",
+      "process_id": "370de41f-80dc-48e3-8ef0-fb13db955b2c",
+      "perspective_id": "61817308-a38e-4695-8732-5e30ebed0a3f",
+      "strength": 0.51,
+      "confidence": 0.8
+    },
+    {
+      "id": "a026042c-bd58-4cbf-b0a2-289adf2813ee",
+      "property_id": "ee1484df-032d-458e-9730-1afba508ca30",
+      "process_id": "18d8a16f-ab1c-463a-8c52-b9d62a172151",
+      "perspective_id": "7e03a919-5a62-4d35-b845-c911a2ddd27a",
+      "strength": 0.73,
+      "confidence": 0.78
+    },
+    {
+      "id": "2c66f2a3-1952-4756-8975-b4dcff65a523",
+      "property_id": "e0b604b6-a7d7-46d7-bc94-4057f84ca7ab",
+      "process_id": "d9929628-d93a-4216-afc2-0d24c1bc5f6e",
+      "perspective_id": "ffaa7e1a-4abe-4539-a0b0-590b616a0942",
+      "strength": 0.94,
+      "confidence": 0.93
+    },
+    {
+      "id": "d5c7b504-9b1e-41d1-9d23-1959db11028e",
+      "property_id": "5465a066-9d89-4685-80a6-86d4005aead9",
+      "process_id": "d19cb290-c978-44a6-a84f-caf62d7f5ecf",
+      "perspective_id": "b1ba8857-d319-41fe-9763-d8e730785e54",
+      "strength": 0.91,
+      "confidence": 0.74
+    },
+    {
+      "id": "b65699ad-1805-4347-a37e-47d295d51e27",
+      "property_id": "625b461f-de8a-4de3-88df-d226c364aa7b",
+      "process_id": "549674ee-53d8-4302-9b84-908b4de00e85",
+      "perspective_id": "518a987d-ade5-4ea7-89f8-65d2a81dfbba",
+      "strength": 0.52,
+      "confidence": 0.86
+    },
+    {
+      "id": "3869db59-04b6-4595-ac49-d6089c5dbcc8",
+      "property_id": "1e999140-fc27-43c1-8b5e-2ffdb29551f8",
+      "process_id": "4971b2b9-e871-4e76-afd7-7045a19cb693",
+      "perspective_id": "2ac425e9-149b-4a04-a504-aeea3f541507",
+      "strength": 0.6,
+      "confidence": 0.97
+    },
+    {
+      "id": "a10e521a-14b8-420e-bee9-18ab0db3122d",
+      "property_id": "179b2096-01d9-441e-b51b-5b13ef65e6ac",
+      "process_id": "81fdeaa0-916f-429b-beaf-6bf98c8afe96",
+      "perspective_id": "13bbf6ec-844a-43fb-8d50-7f1d05dc991d",
+      "strength": 0.79,
+      "confidence": 0.73
+    },
+    {
+      "id": "fd6d89d5-f485-46f9-b89a-ed563a47c312",
+      "property_id": "61dfa2e0-8fd9-4fd5-b866-4a68d28badbe",
+      "process_id": "560003bd-89a1-4ec2-817d-b678360e8161",
+      "perspective_id": "518a987d-ade5-4ea7-89f8-65d2a81dfbba",
+      "strength": 0.63,
+      "confidence": 0.79
+    },
+    {
+      "id": "79c4fd45-86d3-45cc-8cba-2a542c7a7f59",
+      "property_id": "3705053a-e775-451a-9cff-929b10f56bf2",
+      "process_id": "3f1a5a30-b923-4e3d-b3d7-70226ea50daa",
+      "perspective_id": "518a987d-ade5-4ea7-89f8-65d2a81dfbba",
+      "strength": 0.54,
+      "confidence": 0.99
+    },
+    {
+      "id": "8875a083-a6ab-4394-bc0b-a2ac5507e12c",
+      "property_id": "5465a066-9d89-4685-80a6-86d4005aead9",
+      "process_id": "50365e59-34c7-46c7-b4b8-670e68511c44",
+      "perspective_id": "05e59d9b-7e73-468a-962a-bcab64762178",
+      "strength": 0.93,
+      "confidence": 0.75
+    },
+    {
+      "id": "a15c5c74-7ae8-4622-bbc9-1c0ea3b62b55",
+      "property_id": "75b05dd0-6809-4e3d-8d5e-b1a392c5cc02",
+      "process_id": "bff1dd5e-265b-4c77-bbee-a8ff38b5bdcb",
+      "perspective_id": "4b3e7968-4ad7-41b5-8aa1-4ae9089a5e72",
+      "strength": 0.64,
+      "confidence": 0.74
+    },
+    {
+      "id": "83258be0-e43b-47ed-a052-c6349d083c98",
+      "property_id": "a1114923-69fc-4904-9c96-33d0754d0f77",
+      "process_id": "81fdeaa0-916f-429b-beaf-6bf98c8afe96",
+      "perspective_id": "9d085286-0e80-48c1-8f71-c52350172b3e",
+      "strength": 0.62,
+      "confidence": 0.8
+    },
+    {
+      "id": "cbd8ed1c-3c73-493e-928b-e63e704346bd",
+      "property_id": "2220ca1e-d031-4f16-aceb-24d565cce4cd",
+      "process_id": "d734b51e-dc62-43bd-aa93-16bd50795813",
+      "perspective_id": "f479a8be-0815-428f-8279-fcffcd4bbe32",
+      "strength": 0.83,
+      "confidence": 0.79
+    },
+    {
+      "id": "bf394cde-1740-46df-bfde-e18876408a7f",
+      "property_id": "ee1484df-032d-458e-9730-1afba508ca30",
+      "process_id": "50365e59-34c7-46c7-b4b8-670e68511c44",
+      "perspective_id": "63d0ea0f-32e5-40b4-ab61-61c3e7f8659f",
+      "strength": 0.6,
+      "confidence": 0.85
+    }
+  ],
+  "metadata": {
+    "count": {
+      "properties": 50,
+      "processes": 50,
+      "perspectives": 50
+    }
+  }
+}

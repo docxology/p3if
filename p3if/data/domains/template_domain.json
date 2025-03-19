@@ -1,0 +1,100 @@
+{
+  "domain": "DomainName",
+  "version": "1.0",
+  "description": "A brief description of the domain",
+  "metadata": {
+    "created": "YYYY-MM-DD",
+    "updated": "YYYY-MM-DD",
+    "author": "Author name or organization",
+    "tags": ["tag1", "tag2"],
+    "count": {
+      "properties": 0,
+      "processes": 0,
+      "perspectives": 0
+    }
+  },
+  "properties": [
+    "Property1",
+    "Property2",
+    "..."
+  ],
+  "processes": [
+    "Process1",
+    "Process2",
+    "..."
+  ],
+  "perspectives": [
+    "Perspective1",
+    "Perspective2",
+    "..."
+  ],
+  "patterns": {
+    "properties": [
+      {
+        "id": "uuid-format-string",
+        "name": "Property1",
+        "type": "property",
+        "domain": "DomainName",
+        "description": "Description of the property",
+        "metadata": {
+          "category": "optional-category",
+          "tags": ["tag1", "tag2"]
+        }
+      }
+    ],
+    "processes": [
+      {
+        "id": "uuid-format-string",
+        "name": "Process1",
+        "type": "process",
+        "domain": "DomainName",
+        "description": "Description of the process",
+        "metadata": {
+          "category": "optional-category",
+          "tags": ["tag1", "tag2"]
+        }
+      }
+    ],
+    "perspectives": [
+      {
+        "id": "uuid-format-string",
+        "name": "Perspective1",
+        "type": "perspective",
+        "domain": "DomainName",
+        "description": "Description of the perspective",
+        "metadata": {
+          "category": "optional-category",
+          "tags": ["tag1", "tag2"]
+        }
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "uuid-format-string",
+      "property_id": "uuid-of-property",
+      "process_id": "uuid-of-process",
+      "perspective_id": "uuid-of-perspective",
+      "strength": 0.0,
+      "confidence": 0.0,
+      "metadata": {
+        "type": "relationship-type",
+        "tags": ["tag1", "tag2"],
+        "notes": "Optional notes about the relationship"
+      }
+    }
+  ],
+  "metadata": {
+    "count": {
+      "properties": 0,
+      "processes": 0,
+      "perspectives": 0,
+      "relationships": 0
+    },
+    "statistics": {
+      "avg_relationship_strength": 0.0,
+      "avg_relationship_confidence": 0.0,
+      "density": 0.0
+    }
+  }
+} 

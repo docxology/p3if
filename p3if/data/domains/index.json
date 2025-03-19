@@ -1,0 +1,166 @@
+{
+  "domains": [
+    {
+      "name": "Artificial Intelligence",
+      "id": "artificialintelligence",
+      "file": "artificialintelligence.json",
+      "counts": {
+        "properties": 55,
+        "processes": 50,
+        "perspectives": 15
+      }
+    },
+    {
+      "name": "Healthcare",
+      "id": "healthcare",
+      "file": "healthcare.json",
+      "counts": {
+        "properties": 55,
+        "processes": 47,
+        "perspectives": 15
+      }
+    },
+    {
+      "name": "Blockchain",
+      "id": "blockchain",
+      "file": "blockchain.json",
+      "counts": {
+        "properties": 55,
+        "processes": 47,
+        "perspectives": 15
+      }
+    },
+    {
+      "name": "William Blake Poetry and Life",
+      "id": "william_blake_poetry_and_life",
+      "file": "william_blake_poetry_and_life.json",
+      "counts": {
+        "properties": 55,
+        "processes": 47,
+        "perspectives": 15
+      }
+    },
+    {
+      "name": "Climate Change",
+      "id": "climatechange",
+      "file": "climatechange.json",
+      "counts": {
+        "properties": 57,
+        "processes": 47,
+        "perspectives": 15
+      }
+    },
+    {
+      "name": "Immigration",
+      "id": "immigration",
+      "file": "immigration.json",
+      "counts": {
+        "properties": 57,
+        "processes": 47,
+        "perspectives": 15
+      }
+    },
+    {
+      "name": "Government Accessibility",
+      "id": "governmentaccessibility",
+      "file": "governmentaccessibility.json",
+      "counts": {
+        "properties": 57,
+        "processes": 47,
+        "perspectives": 15
+      }
+    },
+    {
+      "name": "National Security",
+      "id": "nationalsecurity",
+      "file": "nationalsecurity.json",
+      "counts": {
+        "properties": 57,
+        "processes": 47,
+        "perspectives": 15
+      }
+    },
+    {
+      "name": "Math Education",
+      "id": "matheducation",
+      "file": "matheducation.json",
+      "counts": {
+        "properties": 57,
+        "processes": 47,
+        "perspectives": 15
+      }
+    },
+    {
+      "name": "Power Grid",
+      "id": "powergrid",
+      "file": "powergrid.json",
+      "counts": {
+        "properties": 57,
+        "processes": 47,
+        "perspectives": 15
+      }
+    },
+    {
+      "name": "Science Research",
+      "id": "scienceresearch",
+      "file": "scienceresearch.json",
+      "counts": {
+        "properties": 57,
+        "processes": 42,
+        "perspectives": 15
+      }
+    },
+    {
+      "name": "Video Chat",
+      "id": "videochat",
+      "file": "videochat.json",
+      "counts": {
+        "properties": 57,
+        "processes": 47,
+        "perspectives": 15
+      }
+    },
+    {
+      "name": "Quantum Computing",
+      "id": "quantumcomputing",
+      "file": "quantumcomputing.json",
+      "counts": {
+        "properties": 25,
+        "processes": 15,
+        "perspectives": 15
+      }
+    },
+    {
+      "name": "ATM Withdrawal",
+      "id": "atm_withdrawal",
+      "file": "atm_withdrawal.json",
+      "counts": {
+        "properties": 57,
+        "processes": 50,
+        "perspectives": 15
+      }
+    },
+    {
+      "name": "Active Inference Grant Proposal",
+      "id": "activeinferencegrantproposal",
+      "file": "activeinferencegrantproposal.json",
+      "counts": {
+        "properties": 57,
+        "processes": 47,
+        "perspectives": 15
+      }
+    },
+    {
+      "name": "Pipette Use in Wet Lab",
+      "id": "pipette_use_in_wet_lab",
+      "file": "pipette_use_in_wet_lab.json",
+      "counts": {
+        "properties": 45,
+        "processes": 35,
+        "perspectives": 15
+      }
+    }
+  ],
+  "version": "1.0",
+  "timestamp": "2023-03-18"
+}

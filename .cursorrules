@@ -1,0 +1,115 @@
+# P3IF Project Structure Rules
+
+# Core directories
+/p3if/ = Source code for the P3IF framework
+/docs/ = Documentation files
+/output/ = Generated output files (visualizations, websites, etc.)
+/tests/ = Test files for the framework
+
+# P3IF framework subdirectories
+/p3if/core/ = Core framework implementation
+/p3if/api/ = API components
+/p3if/data/ = Data handling and domains
+/p3if/analysis/ = Analysis tools and algorithms
+/p3if/visualization/ = Visualization components
+/p3if/utils/ = Utility functions and helpers
+/p3if/scripts/ = Executable scripts
+
+# Documentation subdirectories
+/docs/api/ = API reference documentation
+/docs/concepts/ = Conceptual documentation
+/docs/guides/ = User guides and tutorials
+/docs/technical/ = Technical documentation
+/docs/examples/ = Example usage and code samples
+/docs/diagrams/ = Diagrams and visual documentation
+/docs/visualization/ = Visualization-related documentation
+
+# Test subdirectories
+/tests/core/ = Tests for core components
+/tests/api/ = Tests for API components
+/tests/data/ = Tests for data components
+/tests/analysis/ = Tests for analysis tools
+/tests/visualization/ = Tests for visualization components
+/tests/utils/ = Tests for utility functions
+
+# File type conventions
+Documentation = *.md, *.rst, *.txt
+Python Code = *.py
+Configuration = *.json, *.yaml, *.yml
+Web Files = *.html, *.js, *.css
+
+# Naming conventions
+Documentation Files = Use descriptive names with lowercase and underscores
+Python Files = Use lowercase and underscores
+Script Files = Use descriptive verbs to indicate action
+
+# Documentation organization
+Main README = README.md at project root
+Module READMEs = README.md in each main module directory
+User Guides = docs/guides/
+API Reference = docs/api/
+
+# -----------------------------------------------------------------------------
+# LLM and Autonomous Agent Guidelines
+# -----------------------------------------------------------------------------
+
+# Code Style and Structure
+LLM_Code_Style = Follow PEP 8 standards for Python code
+Module_Organization = One class per file, following single responsibility principle
+Function_Length = Keep functions under 50 lines, with clear single purpose
+Class_Organization = Properties at top, followed by initialization, public methods, then private methods
+Method_Order = Group related methods together, general to specific
+
+# Documentation Standards for LLMs
+Docstring_Format = Google-style docstrings with Args, Returns, Raises sections
+Example_Code = Include example usage in module and function docstrings
+Edge_Cases = Document edge cases and limitations explicitly
+Implementation_Notes = Include non-obvious implementation details in docstrings
+
+# Type Annotations
+Type_Hints = Use Python type hints for all function parameters and return values
+Generics = Use appropriate generics for containers and collections
+Optional_Types = Use Optional[] for parameters that can be None
+Complex_Types = Define TypedDict or custom classes for complex parameter types
+
+# Error Handling
+Exception_Hierarchy = Use custom exceptions inheriting from appropriate base exceptions
+Error_Messages = Make error messages specific and actionable
+Validation = Validate inputs at function boundaries
+Fail_Fast = Detect errors as early as possible
+
+# Testing Guidelines for LLMs
+Test_Coverage = Each function should have tests for nominal case and edge cases
+Parametrized_Tests = Use pytest.mark.parametrize for multiple test cases
+Mock_External = Mock external dependencies and services
+Test_Organization = Tests should mirror the structure of the source code
+
+# P3IF Domain-Specific Patterns
+Pattern_Definition = Follow the Property-Process-Perspective pattern structure
+Relationship_Modeling = Model relationships explicitly with strength and confidence attributes
+Visualization_Components = Separate data processing from visualization rendering
+Domain_Boundaries = Clear separation between domain-specific and domain-agnostic code
+
+# AI and LLM-Generated Code Guidelines
+Generated_Code_Comments = Clearly mark AI-generated code with descriptors
+Explanation_Comments = Include reasoning in comments for complex algorithms
+Alternative_Approaches = Document considered alternatives for non-trivial implementations
+Code_References = Reference sources or inspirations for algorithms or techniques
+
+# Patterns for Interactive Features
+User_Feedback = Provide clear user feedback for long-running operations
+Progressive_Disclosure = Implement progressive disclosure for complex visualizations
+Configurable_Parameters = Make visualization parameters configurable by users
+Responsive_Design = Ensure visualizations are responsive to different screen sizes
+
+# Performance Considerations
+Large_Data = Include handling for large datasets with pagination or streaming
+Optimization_Comments = Document performance optimizations explicitly
+Lazy_Loading = Use lazy loading patterns for resource-intensive operations
+Caching_Strategy = Implement appropriate caching for expensive computations
+
+# Autonomy Guidelines
+Self_Diagnosis = Include self-diagnostic capabilities in modules
+Logging_Strategy = Comprehensive logging for autonomous operation
+Recovery_Mechanisms = Design for graceful recovery from failures
+Configuration_Defaults = Sensible defaults with configurable overrides 

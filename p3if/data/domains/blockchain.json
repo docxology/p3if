@@ -1,0 +1,1549 @@
+{
+  "domain": "Blockchain",
+  "version": "1.0",
+  "properties": [
+    "Decentralization",
+    "Transparency",
+    "Immutability",
+    "Security",
+    "Consensus",
+    "Cryptography",
+    "Scalability",
+    "Interoperability",
+    "Privacy",
+    "Smart Contract Functionality",
+    "Energy Efficiency",
+    "Transaction Speed",
+    "Governance",
+    "Tokenization",
+    "Auditability",
+    "Fault Tolerance",
+    "Anonymity",
+    "Programmability",
+    "Finality",
+    "Determinism",
+    "Latency",
+    "Throughput",
+    "Network Effect",
+    "Incentive Mechanism",
+    "Adaptability",
+    "Compliance",
+    "Upgradability",
+    "Quantum Resistance",
+    "Cross-Chain Communication",
+    "Data Integrity",
+    "Accessibility",
+    "Usability",
+    "Reversibility",
+    "Sustainability",
+    "Resilience",
+    "Composability",
+    "Liquidity",
+    "Atomicity",
+    "Consistency",
+    "Isolation",
+    "Durability",
+    "Sharding",
+    "Staking",
+    "Mining Efficiency",
+    "Forking Resistance",
+    "Censorship Resistance",
+    "Permissionless Nature",
+    "Trustlessness",
+    "Verifiability",
+    "Portability"
+  ],
+  "processes": [
+    "Transaction Validation",
+    "Block Creation",
+    "Consensus Mechanism",
+    "Mining",
+    "Staking",
+    "Smart Contract Execution",
+    "Wallet Management",
+    "Key Generation",
+    "Signature Verification",
+    "Hashing",
+    "Node Synchronization",
+    "Network Propagation",
+    "Fork Resolution",
+    "Chain Reorganization",
+    "Merkle Tree Construction",
+    "Address Generation",
+    "Token Minting",
+    "Token Burning",
+    "Gas Fee Calculation",
+    "State Transition",
+    "Sharding",
+    "Layer 2 Scaling",
+    "Cross-Chain Transfer",
+    "Atomic Swap",
+    "Governance Voting",
+    "Oracle Data Feeding",
+    "Identity Verification",
+    "Tokenization",
+    "Initial Coin Offering",
+    "Airdrop",
+    "Yield Farming",
+    "Liquidity Provision",
+    "Decentralized Exchange",
+    "Lending and Borrowing",
+    "Insurance Claim Processing",
+    "Non-Fungible Token (NFT) Creation",
+    "Decentralized Autonomous Organization (DAO) Operation",
+    "Stablecoin Pegging",
+    "Privacy Preservation",
+    "Zero-Knowledge Proof Generation",
+    "Sidechain Operation",
+    "Interoperability Protocol",
+    "Blockchain Indexing",
+    "Block Explorer Operation",
+    "Hard Fork Implementation",
+    "Soft Fork Implementation",
+    "Node Discovery",
+    "Peer-to-Peer Communication",
+    "Mempool Management",
+    "Chain Analysis"
+  ],
+  "perspectives": [
+    "Developer",
+    "Miner",
+    "Node Operator",
+    "Token Holder",
+    "Smart Contract Auditor",
+    "Regulator",
+    "Investor",
+    "Exchange Operator",
+    "Blockchain Analyst",
+    "Cryptographer",
+    "Economist",
+    "Legal Expert",
+    "Privacy Advocate",
+    "Security Researcher",
+    "User Experience Designer",
+    "Enterprise Adopter",
+    "Central Bank",
+    "Decentralized Finance (DeFi) User",
+    "NFT Artist",
+    "Governance Participant",
+    "Protocol Designer",
+    "Blockchain Architect",
+    "Consensus Algorithm Researcher",
+    "Cryptoeconomist",
+    "Blockchain Educator",
+    "Blockchain Journalist",
+    "Venture Capitalist",
+    "Blockchain Consultant",
+    "Compliance Officer",
+    "Blockchain Ethicist",
+    "Blockchain Governance Specialist",
+    "Tokenomics Expert",
+    "Blockchain Data Scientist",
+    "Smart Contract Developer",
+    "Blockchain Infrastructure Provider",
+    "Blockchain Marketing Specialist",
+    "Blockchain Community Manager",
+    "Blockchain Product Manager",
+    "Blockchain UI/UX Designer",
+    "Blockchain Quality Assurance Tester",
+    "Blockchain Integration Specialist",
+    "Blockchain Security Auditor",
+    "Blockchain Scalability Researcher",
+    "Blockchain Interoperability Specialist",
+    "Blockchain Sustainability Expert",
+    "Blockchain Policy Advisor",
+    "Blockchain Social Impact Specialist",
+    "Blockchain Identity Management Expert",
+    "Blockchain Privacy Researcher",
+    "Blockchain Forensics Analyst"
+  ],
+  "patterns": {
+    "properties": [
+      {
+        "id": "48ac8460-897b-442a-a560-516fd23fce7c",
+        "name": "Decentralization",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "4f491ccc-3b81-4b6f-9d1c-ddb589672262",
+        "name": "Transparency",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "07def2e9-89bf-401f-bed1-6c9f87a920dc",
+        "name": "Immutability",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "e722d569-341a-48e9-8a66-46af1db195ce",
+        "name": "Security",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "ab5722cd-2d18-4d95-9c77-05d4329032d2",
+        "name": "Consensus",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "69fccd22-7736-4608-a6c6-c762374f4831",
+        "name": "Cryptography",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "1e4b7872-d607-42f8-a53b-8f2e08322b48",
+        "name": "Scalability",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "c52becc8-1e89-407c-988a-0cd24e167b7e",
+        "name": "Interoperability",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "27840a95-c4b2-4006-8c70-0082b68d9f38",
+        "name": "Privacy",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "2b682600-7a3d-4493-81f3-383b56ced65c",
+        "name": "Smart Contract Functionality",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "c2eca74e-237c-4ad0-8397-1cb00b273fd1",
+        "name": "Energy Efficiency",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "44250e73-3860-49d4-a419-736338f2e13a",
+        "name": "Transaction Speed",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "f1335467-edae-4dd5-ae0c-281b240f0c59",
+        "name": "Governance",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "536fb842-368a-4367-976e-240bd41725d1",
+        "name": "Tokenization",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "693d79f3-c8ce-459f-8326-881004d4227b",
+        "name": "Auditability",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "c0347ab1-3909-4024-9fa1-48a83bcfb1f3",
+        "name": "Fault Tolerance",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "8ae1355a-0b84-4e72-8f0f-70bc26435319",
+        "name": "Anonymity",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "1e0e12eb-bc65-4ff4-b92c-9a937a203c9f",
+        "name": "Programmability",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "0c090c5c-c881-4260-b3d2-ad1235da9154",
+        "name": "Finality",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "f086a61f-7709-41ca-a3cb-a65c2b994fea",
+        "name": "Determinism",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "48b0b994-60aa-47e9-b0c0-8b32507fe2cc",
+        "name": "Latency",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "883a73f5-ad5a-4e1e-a74c-55269f904370",
+        "name": "Throughput",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "b513a429-8b11-4df3-bac5-3ddb9b7f833b",
+        "name": "Network Effect",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "c2ef1897-a488-49aa-a0ff-36f1ad182388",
+        "name": "Incentive Mechanism",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "272d8142-a613-495e-b7be-919ab8452e36",
+        "name": "Adaptability",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "b25ad4e2-b7b5-4e34-bae1-f43726f94c39",
+        "name": "Compliance",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "4549198b-9c64-4391-bccb-178dfdbd0854",
+        "name": "Upgradability",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "2176c79b-81c2-4c24-bbf2-65afd7005aa3",
+        "name": "Quantum Resistance",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "9b4141e4-da7f-4288-af72-a4ea0660dcb1",
+        "name": "Cross-Chain Communication",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "d0a54ef0-8a15-4d82-9fe2-341ab05d2f4c",
+        "name": "Data Integrity",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "9d10bcbc-4dd6-4264-bee7-d6b4703c2436",
+        "name": "Accessibility",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "fff0154f-439d-43f1-b572-0bb26300ce7f",
+        "name": "Usability",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "fc4dca6e-28fa-42db-9f65-a6069a55fae5",
+        "name": "Reversibility",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "1c2bae48-a091-41ee-b32a-9dfdd25cf355",
+        "name": "Sustainability",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "f350eae3-37df-4952-9c59-527ae17c4761",
+        "name": "Resilience",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "80b4cf6e-390d-4587-b2a2-977ebf396494",
+        "name": "Composability",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "dff05c0c-8156-419b-9249-b51ccc16576f",
+        "name": "Liquidity",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "536ea2fd-d4c3-4e8d-a24c-12204a0de6cf",
+        "name": "Atomicity",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "1aea5066-76c5-4bd9-bbf2-af9bca50379d",
+        "name": "Consistency",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "0bfadf85-6a01-4e82-8ab7-b467708d27ab",
+        "name": "Isolation",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "b0116a37-8ba9-4784-b462-a0bb2e140182",
+        "name": "Durability",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "a6624d8c-a003-4a9f-a54f-72f78c87eb65",
+        "name": "Sharding",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "dfa1cd27-c661-4e58-a048-8eea32fd876f",
+        "name": "Staking",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "0f07b3c2-cae7-47bd-a8b6-d703c51041c4",
+        "name": "Mining Efficiency",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "d478c588-c927-4f77-8579-1d12bb7a0772",
+        "name": "Forking Resistance",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "f6e42200-26de-4c65-8cee-888619fcebcc",
+        "name": "Censorship Resistance",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "be748bca-c70f-4502-8884-dd78467dbcad",
+        "name": "Permissionless Nature",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "3979f606-924d-4037-8c59-fe0037d92392",
+        "name": "Trustlessness",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "b0bf0fff-6f26-41cb-b958-6e19a2147956",
+        "name": "Verifiability",
+        "type": "property",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "7bab07ec-560a-420f-b9e7-0f56e1b7833c",
+        "name": "Portability",
+        "type": "property",
+        "domain": "Blockchain"
+      }
+    ],
+    "processes": [
+      {
+        "id": "1aa8aaf2-94e8-4f76-9977-588150e2e6c3",
+        "name": "Transaction Validation",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "746b5fed-2c0a-41cc-b30c-63c358108ae2",
+        "name": "Block Creation",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "35e961d6-49a4-47e8-9fc7-6bd4a6f62de2",
+        "name": "Consensus Mechanism",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "dbc6ed93-fb3c-4736-b0b9-ddc1e292b45e",
+        "name": "Mining",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "dd64e474-db20-4304-9f8d-c45cb9947ce5",
+        "name": "Staking",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "146a3563-22a6-4e7b-9d8d-9e3b05e9d336",
+        "name": "Smart Contract Execution",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "967a349b-c147-45b6-b2a1-a4f12b363bcd",
+        "name": "Wallet Management",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "153d266c-7493-4232-b359-9717259dc606",
+        "name": "Key Generation",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "ab8da25a-6787-4ac4-ac61-fb44f48e3ac4",
+        "name": "Signature Verification",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "b8b4e078-1831-4f90-b202-fc5dbef3e2d6",
+        "name": "Hashing",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "e89fd23b-8ae7-4f73-ab91-c6c0d4e33cf6",
+        "name": "Node Synchronization",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "8f2adf5b-7c30-489d-8e2e-ccf3f77e5337",
+        "name": "Network Propagation",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "3940a44d-178f-4de1-82af-e374baa79b16",
+        "name": "Fork Resolution",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "493b0dfa-c8d9-4c8d-8fe0-4a28fe622e36",
+        "name": "Chain Reorganization",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "183696cc-01d1-4e14-a86c-01b972979f1e",
+        "name": "Merkle Tree Construction",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "9df9353a-839b-466a-9172-4160452f6192",
+        "name": "Address Generation",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "2870bbb9-9200-43f8-97e5-00ab362aff96",
+        "name": "Token Minting",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "d4cba043-9bf1-4f96-89c3-d9b6be8ca89e",
+        "name": "Token Burning",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "9a3b8791-5a94-4e98-b4d6-01570ab0a36c",
+        "name": "Gas Fee Calculation",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "f864123a-6fb8-4f8a-8ca9-23e3a767e4ba",
+        "name": "State Transition",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "3430e927-df9d-4197-bf5a-14670cf9cc02",
+        "name": "Sharding",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "c7cb00bd-e9dc-4f83-b0bc-15b2e28ea379",
+        "name": "Layer 2 Scaling",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "41ddf059-c2b4-4109-832e-e661fd287d74",
+        "name": "Cross-Chain Transfer",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "c8a6c360-b0b0-45b1-b4f2-2b5ea6fc8ac6",
+        "name": "Atomic Swap",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "f660a12f-e18e-4520-a15a-3c79f70c8f7c",
+        "name": "Governance Voting",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "5bc20010-291e-49dc-8b30-b8f78c85bef9",
+        "name": "Oracle Data Feeding",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "10079558-8137-42ee-9508-69ed28b73f51",
+        "name": "Identity Verification",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "4721f567-fec9-479e-8cc9-50e51a5c7817",
+        "name": "Tokenization",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "71cba708-9621-4714-a93e-8ca635b0b62d",
+        "name": "Initial Coin Offering",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "14c87bd6-3c43-4e6e-a2e0-1c0c43691b4b",
+        "name": "Airdrop",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "b3b9946e-5c16-4058-aa3e-02b40e15cab4",
+        "name": "Yield Farming",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "9963e43b-2026-4be0-826a-e3a881136d8e",
+        "name": "Liquidity Provision",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "7e506d19-2cfe-4211-b2f5-b053eae50b35",
+        "name": "Decentralized Exchange",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "463ed8e8-99ce-4cc1-9b48-68537b8c60e8",
+        "name": "Lending and Borrowing",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "a722a0f4-1fb6-4c8b-83f3-f02b6dfbdb10",
+        "name": "Insurance Claim Processing",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "5a1b08ec-521c-4c3a-a3a7-935257c09284",
+        "name": "Non-Fungible Token (NFT) Creation",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "034cf29f-02a3-43c3-a871-ebc9b7e2b6c4",
+        "name": "Decentralized Autonomous Organization (DAO) Operation",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "5dcdc65f-1eb0-4939-896f-71d6f321bb63",
+        "name": "Stablecoin Pegging",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "9de7b13d-9e35-45f8-99d6-9631af333091",
+        "name": "Privacy Preservation",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "ed7c3706-b753-4ab6-a28d-cb712f81e0bd",
+        "name": "Zero-Knowledge Proof Generation",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "bfe1b6df-112b-4e8e-8281-9d7f44b5f191",
+        "name": "Sidechain Operation",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "08d81b66-d0ab-430e-b0cc-b1a2f789c897",
+        "name": "Interoperability Protocol",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "9104f849-b30c-4fc8-92ac-e0c90ec38f93",
+        "name": "Blockchain Indexing",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "19948fef-9d46-4078-bec0-37a03d92504b",
+        "name": "Block Explorer Operation",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "a3228826-2f86-4dcf-9852-d1613cd0571f",
+        "name": "Hard Fork Implementation",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "6e0374c6-b03e-4721-be78-4be0de0f1b32",
+        "name": "Soft Fork Implementation",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "79797437-8c60-491d-a166-cb731992dbe3",
+        "name": "Node Discovery",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "6e91ec31-0534-4f43-b8ff-f7b5ea5cc383",
+        "name": "Peer-to-Peer Communication",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "6dce1837-cf95-4001-93bc-0fd226807c81",
+        "name": "Mempool Management",
+        "type": "process",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "63eb14d5-fbc0-4983-a98c-213742a02411",
+        "name": "Chain Analysis",
+        "type": "process",
+        "domain": "Blockchain"
+      }
+    ],
+    "perspectives": [
+      {
+        "id": "7b33a8eb-3209-4472-b25e-89aec2d64179",
+        "name": "Developer",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "a83e8db6-9d78-4433-8726-29f59705248e",
+        "name": "Miner",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "6cefe597-a7dd-455e-834a-43cd1b07c777",
+        "name": "Node Operator",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "20101db5-d1bd-44cd-9ca1-bc1bd9c9815d",
+        "name": "Token Holder",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "04397304-c697-40d7-9f88-0dfa6782686d",
+        "name": "Smart Contract Auditor",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "8a4cb56e-7f2f-4eeb-bbc3-38be4cf60a03",
+        "name": "Regulator",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "55658e1b-269c-4563-a642-520e15859719",
+        "name": "Investor",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "80ae9087-0a09-4805-983a-4d420c45b97d",
+        "name": "Exchange Operator",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "b14738ae-bb8b-4300-976d-eeca13336be0",
+        "name": "Blockchain Analyst",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "af048a75-baf0-48f6-bce4-7124100017d7",
+        "name": "Cryptographer",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "5f5a7580-3a8f-4b05-af40-e59388378276",
+        "name": "Economist",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "1ef42964-a5de-4aee-9c1c-67f06b4e68de",
+        "name": "Legal Expert",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "a70e26a6-1bfc-426c-9e84-48d6bba78514",
+        "name": "Privacy Advocate",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "9b0cc9dc-1055-446a-ab11-0cc9cf4c6cfa",
+        "name": "Security Researcher",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "58704449-698c-4dd7-ba6c-0c7112b5b426",
+        "name": "User Experience Designer",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "67a0cc42-2c26-45c4-8fce-a28cf9176927",
+        "name": "Enterprise Adopter",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "ea159365-cd5b-4c4c-8ce7-62cf1ba7ae4c",
+        "name": "Central Bank",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "51beb824-49eb-4fb8-9282-d5b1eacca05f",
+        "name": "Decentralized Finance (DeFi) User",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "60d54b7f-a6db-4552-9cd4-5f6990e6a65f",
+        "name": "NFT Artist",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "207d0e69-94f0-476c-886f-dd850c6740fe",
+        "name": "Governance Participant",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "1d413562-a890-46b8-9721-fbe8ec70256e",
+        "name": "Protocol Designer",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "196bfa4a-410b-44c6-a39d-426aa5838932",
+        "name": "Blockchain Architect",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "d560ebcc-d650-4902-87cf-2883f46f125a",
+        "name": "Consensus Algorithm Researcher",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "ba4aaf37-270c-47c4-bfb5-631b0d0f6377",
+        "name": "Cryptoeconomist",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "17986b71-54d7-428a-a2db-b45103a0f4e7",
+        "name": "Blockchain Educator",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "d46e50e1-5ad5-4c2d-966a-5027424482c5",
+        "name": "Blockchain Journalist",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "6a3ce2b3-bcce-4303-8c7b-e78964a550ed",
+        "name": "Venture Capitalist",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "6eeb477d-e5d3-4548-ad05-433443725d16",
+        "name": "Blockchain Consultant",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "79ff237c-f68d-4cd9-99e8-4740ad9d2660",
+        "name": "Compliance Officer",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "9159d656-f2cd-4b07-bbbd-c0881094236a",
+        "name": "Blockchain Ethicist",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "8e9db5bd-e51b-4d6a-85cf-f062027921c2",
+        "name": "Blockchain Governance Specialist",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "181d693d-78fd-4e74-819b-f5911004369e",
+        "name": "Tokenomics Expert",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "0d52cb3e-a0e2-46f9-9527-3df1957af6aa",
+        "name": "Blockchain Data Scientist",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "9df5c1ae-c552-41ad-9e74-91f6c64ef427",
+        "name": "Smart Contract Developer",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "fb21c3e8-18de-42d8-9721-0fa46c59b98f",
+        "name": "Blockchain Infrastructure Provider",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "9a28252b-9d96-46ea-921a-b06e7fdf2f07",
+        "name": "Blockchain Marketing Specialist",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "97f0c60e-4b81-4031-9c8a-451451a6197c",
+        "name": "Blockchain Community Manager",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "ac0cc4b6-194a-4508-9c4e-fbe5b5c4a02c",
+        "name": "Blockchain Product Manager",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "e982c932-f123-43f2-89d1-42efbfc1ec5b",
+        "name": "Blockchain UI/UX Designer",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "5453ed2e-ded7-4fbf-b141-6f3639c26c49",
+        "name": "Blockchain Quality Assurance Tester",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "30eb0fab-9c4d-4e0f-8499-2675e56df4ad",
+        "name": "Blockchain Integration Specialist",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "4955cba9-acbe-4033-96f0-9f1039cd3513",
+        "name": "Blockchain Security Auditor",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "1ca04aa7-98c7-41e3-90ad-f0017b786c42",
+        "name": "Blockchain Scalability Researcher",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "e103cf1a-ce61-4a50-81f3-b7e747a02a91",
+        "name": "Blockchain Interoperability Specialist",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "fe3dc7fb-e95f-466c-ba67-cebe84ee52a9",
+        "name": "Blockchain Sustainability Expert",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "40fb34b7-c8e2-41f8-9819-82ba5b7318dd",
+        "name": "Blockchain Policy Advisor",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "e87988b4-0d3d-4ec7-8176-ae65c1fa468f",
+        "name": "Blockchain Social Impact Specialist",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "8289e1ee-8246-4357-944d-6f9a431455ff",
+        "name": "Blockchain Identity Management Expert",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "9e71c878-3875-4a25-b815-be91cc26e1a8",
+        "name": "Blockchain Privacy Researcher",
+        "type": "perspective",
+        "domain": "Blockchain"
+      },
+      {
+        "id": "0cf89d3a-3492-4613-9990-a5c4e22c96ec",
+        "name": "Blockchain Forensics Analyst",
+        "type": "perspective",
+        "domain": "Blockchain"
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "e17c2de4-925d-43cd-9ab0-fdad29472d9c",
+      "property_id": "7bab07ec-560a-420f-b9e7-0f56e1b7833c",
+      "process_id": "4721f567-fec9-479e-8cc9-50e51a5c7817",
+      "perspective_id": "fb21c3e8-18de-42d8-9721-0fa46c59b98f",
+      "strength": 0.86,
+      "confidence": 0.87
+    },
+    {
+      "id": "b8cffc99-4e33-4816-a13a-2a9f0b46a5ba",
+      "property_id": "536ea2fd-d4c3-4e8d-a24c-12204a0de6cf",
+      "process_id": "41ddf059-c2b4-4109-832e-e661fd287d74",
+      "perspective_id": "8a4cb56e-7f2f-4eeb-bbc3-38be4cf60a03",
+      "strength": 0.58,
+      "confidence": 0.83
+    },
+    {
+      "id": "df4706c4-5d96-40fe-ac56-2632a15b33a3",
+      "property_id": "f350eae3-37df-4952-9c59-527ae17c4761",
+      "process_id": "9a3b8791-5a94-4e98-b4d6-01570ab0a36c",
+      "perspective_id": "207d0e69-94f0-476c-886f-dd850c6740fe",
+      "strength": 0.68,
+      "confidence": 0.85
+    },
+    {
+      "id": "567b9e64-021c-4f59-9390-0dd044e2c0b5",
+      "property_id": "dff05c0c-8156-419b-9249-b51ccc16576f",
+      "process_id": "c8a6c360-b0b0-45b1-b4f2-2b5ea6fc8ac6",
+      "perspective_id": "fb21c3e8-18de-42d8-9721-0fa46c59b98f",
+      "strength": 0.89,
+      "confidence": 0.75
+    },
+    {
+      "id": "8ba96daa-bd59-41fd-9e6a-de66c2e13070",
+      "property_id": "07def2e9-89bf-401f-bed1-6c9f87a920dc",
+      "process_id": "967a349b-c147-45b6-b2a1-a4f12b363bcd",
+      "perspective_id": "1ca04aa7-98c7-41e3-90ad-f0017b786c42",
+      "strength": 0.75,
+      "confidence": 0.75
+    },
+    {
+      "id": "b0927001-372f-466d-b1b4-b3c654cc62f7",
+      "property_id": "4f491ccc-3b81-4b6f-9d1c-ddb589672262",
+      "process_id": "71cba708-9621-4714-a93e-8ca635b0b62d",
+      "perspective_id": "55658e1b-269c-4563-a642-520e15859719",
+      "strength": 0.76,
+      "confidence": 0.73
+    },
+    {
+      "id": "4fe2a95f-6949-44e7-8a27-049d6b0602f9",
+      "property_id": "c52becc8-1e89-407c-988a-0cd24e167b7e",
+      "process_id": "e89fd23b-8ae7-4f73-ab91-c6c0d4e33cf6",
+      "perspective_id": "5453ed2e-ded7-4fbf-b141-6f3639c26c49",
+      "strength": 0.9,
+      "confidence": 0.71
+    },
+    {
+      "id": "b45020e8-13a5-4f68-8b52-5e388f1a35ae",
+      "property_id": "4549198b-9c64-4391-bccb-178dfdbd0854",
+      "process_id": "5bc20010-291e-49dc-8b30-b8f78c85bef9",
+      "perspective_id": "4955cba9-acbe-4033-96f0-9f1039cd3513",
+      "strength": 0.79,
+      "confidence": 0.72
+    },
+    {
+      "id": "15761419-bdb7-432e-ba4f-402c4e0dad7d",
+      "property_id": "7bab07ec-560a-420f-b9e7-0f56e1b7833c",
+      "process_id": "2870bbb9-9200-43f8-97e5-00ab362aff96",
+      "perspective_id": "6a3ce2b3-bcce-4303-8c7b-e78964a550ed",
+      "strength": 0.69,
+      "confidence": 0.71
+    },
+    {
+      "id": "fabf31bd-9d4b-451a-ad34-c1c874aec786",
+      "property_id": "4549198b-9c64-4391-bccb-178dfdbd0854",
+      "process_id": "9104f849-b30c-4fc8-92ac-e0c90ec38f93",
+      "perspective_id": "30eb0fab-9c4d-4e0f-8499-2675e56df4ad",
+      "strength": 0.69,
+      "confidence": 0.88
+    },
+    {
+      "id": "16496b17-9b66-477b-b4f3-abd0ee8c1f98",
+      "property_id": "dff05c0c-8156-419b-9249-b51ccc16576f",
+      "process_id": "9de7b13d-9e35-45f8-99d6-9631af333091",
+      "perspective_id": "04397304-c697-40d7-9f88-0dfa6782686d",
+      "strength": 0.52,
+      "confidence": 0.77
+    },
+    {
+      "id": "e86f156b-7c9d-450e-bdbc-3042707762f3",
+      "property_id": "0c090c5c-c881-4260-b3d2-ad1235da9154",
+      "process_id": "967a349b-c147-45b6-b2a1-a4f12b363bcd",
+      "perspective_id": "80ae9087-0a09-4805-983a-4d420c45b97d",
+      "strength": 0.85,
+      "confidence": 0.98
+    },
+    {
+      "id": "5f14b3ac-4943-4ced-b522-40c8f26e44bd",
+      "property_id": "1aea5066-76c5-4bd9-bbf2-af9bca50379d",
+      "process_id": "153d266c-7493-4232-b359-9717259dc606",
+      "perspective_id": "1ca04aa7-98c7-41e3-90ad-f0017b786c42",
+      "strength": 0.65,
+      "confidence": 0.77
+    },
+    {
+      "id": "c7becebe-702f-4e38-9a95-b88b41aa2fd9",
+      "property_id": "c2ef1897-a488-49aa-a0ff-36f1ad182388",
+      "process_id": "63eb14d5-fbc0-4983-a98c-213742a02411",
+      "perspective_id": "ba4aaf37-270c-47c4-bfb5-631b0d0f6377",
+      "strength": 0.67,
+      "confidence": 0.82
+    },
+    {
+      "id": "9e9c3d64-c039-4cce-938e-b1f0521d2571",
+      "property_id": "7bab07ec-560a-420f-b9e7-0f56e1b7833c",
+      "process_id": "79797437-8c60-491d-a166-cb731992dbe3",
+      "perspective_id": "04397304-c697-40d7-9f88-0dfa6782686d",
+      "strength": 0.69,
+      "confidence": 0.72
+    },
+    {
+      "id": "6039b3f3-e9b4-4dd2-825e-04e0d6732816",
+      "property_id": "b0bf0fff-6f26-41cb-b958-6e19a2147956",
+      "process_id": "dbc6ed93-fb3c-4736-b0b9-ddc1e292b45e",
+      "perspective_id": "17986b71-54d7-428a-a2db-b45103a0f4e7",
+      "strength": 0.72,
+      "confidence": 0.98
+    },
+    {
+      "id": "e825fec8-7854-4246-8400-3b9ecbcfb08f",
+      "property_id": "9b4141e4-da7f-4288-af72-a4ea0660dcb1",
+      "process_id": "6e91ec31-0534-4f43-b8ff-f7b5ea5cc383",
+      "perspective_id": "e87988b4-0d3d-4ec7-8176-ae65c1fa468f",
+      "strength": 0.7,
+      "confidence": 0.75
+    },
+    {
+      "id": "49bd74f5-44a7-4ba8-9e1e-f8aea153b95d",
+      "property_id": "7bab07ec-560a-420f-b9e7-0f56e1b7833c",
+      "process_id": "3940a44d-178f-4de1-82af-e374baa79b16",
+      "perspective_id": "181d693d-78fd-4e74-819b-f5911004369e",
+      "strength": 0.94,
+      "confidence": 0.74
+    },
+    {
+      "id": "bbb4b584-08df-42eb-b974-4b827e7b94fe",
+      "property_id": "0bfadf85-6a01-4e82-8ab7-b467708d27ab",
+      "process_id": "f660a12f-e18e-4520-a15a-3c79f70c8f7c",
+      "perspective_id": "60d54b7f-a6db-4552-9cd4-5f6990e6a65f",
+      "strength": 0.69,
+      "confidence": 0.72
+    },
+    {
+      "id": "5cffa553-6a55-455e-a4f5-e19d66f660cd",
+      "property_id": "dff05c0c-8156-419b-9249-b51ccc16576f",
+      "process_id": "f660a12f-e18e-4520-a15a-3c79f70c8f7c",
+      "perspective_id": "9159d656-f2cd-4b07-bbbd-c0881094236a",
+      "strength": 0.69,
+      "confidence": 0.93
+    },
+    {
+      "id": "addc2213-b7c3-499a-8b94-99bed028ca31",
+      "property_id": "0c090c5c-c881-4260-b3d2-ad1235da9154",
+      "process_id": "146a3563-22a6-4e7b-9d8d-9e3b05e9d336",
+      "perspective_id": "8a4cb56e-7f2f-4eeb-bbc3-38be4cf60a03",
+      "strength": 0.81,
+      "confidence": 0.91
+    },
+    {
+      "id": "8f37e502-d3f6-4abd-b67e-5aba34f3782b",
+      "property_id": "fc4dca6e-28fa-42db-9f65-a6069a55fae5",
+      "process_id": "9df9353a-839b-466a-9172-4160452f6192",
+      "perspective_id": "e87988b4-0d3d-4ec7-8176-ae65c1fa468f",
+      "strength": 0.97,
+      "confidence": 0.79
+    },
+    {
+      "id": "41a258cb-0797-4967-a7d5-1c46ef8ff301",
+      "property_id": "c52becc8-1e89-407c-988a-0cd24e167b7e",
+      "process_id": "b3b9946e-5c16-4058-aa3e-02b40e15cab4",
+      "perspective_id": "a70e26a6-1bfc-426c-9e84-48d6bba78514",
+      "strength": 0.56,
+      "confidence": 0.93
+    },
+    {
+      "id": "48530132-ad50-4103-b63b-8e914eecc68e",
+      "property_id": "2b682600-7a3d-4493-81f3-383b56ced65c",
+      "process_id": "8f2adf5b-7c30-489d-8e2e-ccf3f77e5337",
+      "perspective_id": "17986b71-54d7-428a-a2db-b45103a0f4e7",
+      "strength": 0.95,
+      "confidence": 0.95
+    },
+    {
+      "id": "d68e6db7-de6e-4b16-b07f-6f10213740e0",
+      "property_id": "693d79f3-c8ce-459f-8326-881004d4227b",
+      "process_id": "9df9353a-839b-466a-9172-4160452f6192",
+      "perspective_id": "207d0e69-94f0-476c-886f-dd850c6740fe",
+      "strength": 0.61,
+      "confidence": 0.73
+    },
+    {
+      "id": "9b043ac2-b4d2-40ab-b8b5-7a2ad618c377",
+      "property_id": "2176c79b-81c2-4c24-bbf2-65afd7005aa3",
+      "process_id": "10079558-8137-42ee-9508-69ed28b73f51",
+      "perspective_id": "4955cba9-acbe-4033-96f0-9f1039cd3513",
+      "strength": 0.93,
+      "confidence": 0.71
+    },
+    {
+      "id": "8aa1082b-af37-498c-a2a5-dfdbf8969808",
+      "property_id": "c2ef1897-a488-49aa-a0ff-36f1ad182388",
+      "process_id": "19948fef-9d46-4078-bec0-37a03d92504b",
+      "perspective_id": "30eb0fab-9c4d-4e0f-8499-2675e56df4ad",
+      "strength": 0.67,
+      "confidence": 0.96
+    },
+    {
+      "id": "3345ca6c-5dfb-4b40-a4b3-70ea532a66ba",
+      "property_id": "44250e73-3860-49d4-a419-736338f2e13a",
+      "process_id": "14c87bd6-3c43-4e6e-a2e0-1c0c43691b4b",
+      "perspective_id": "fe3dc7fb-e95f-466c-ba67-cebe84ee52a9",
+      "strength": 0.98,
+      "confidence": 0.85
+    },
+    {
+      "id": "34e4cf6d-0e3f-4b25-92dc-7d6b897f9540",
+      "property_id": "b513a429-8b11-4df3-bac5-3ddb9b7f833b",
+      "process_id": "153d266c-7493-4232-b359-9717259dc606",
+      "perspective_id": "181d693d-78fd-4e74-819b-f5911004369e",
+      "strength": 0.86,
+      "confidence": 0.74
+    },
+    {
+      "id": "ec19c692-1e48-40f8-973c-7a9f3b54fe96",
+      "property_id": "d478c588-c927-4f77-8579-1d12bb7a0772",
+      "process_id": "1aa8aaf2-94e8-4f76-9977-588150e2e6c3",
+      "perspective_id": "0cf89d3a-3492-4613-9990-a5c4e22c96ec",
+      "strength": 0.83,
+      "confidence": 0.88
+    },
+    {
+      "id": "ee062beb-d44e-4f8a-a3ec-352270ec3299",
+      "property_id": "2176c79b-81c2-4c24-bbf2-65afd7005aa3",
+      "process_id": "ab8da25a-6787-4ac4-ac61-fb44f48e3ac4",
+      "perspective_id": "17986b71-54d7-428a-a2db-b45103a0f4e7",
+      "strength": 0.93,
+      "confidence": 0.89
+    },
+    {
+      "id": "fd454ee0-98e5-4d9a-90d3-f8f6104ef73e",
+      "property_id": "c0347ab1-3909-4024-9fa1-48a83bcfb1f3",
+      "process_id": "9963e43b-2026-4be0-826a-e3a881136d8e",
+      "perspective_id": "5453ed2e-ded7-4fbf-b141-6f3639c26c49",
+      "strength": 0.92,
+      "confidence": 0.81
+    },
+    {
+      "id": "8fc25d9a-19da-4f20-bd67-9335654bef3d",
+      "property_id": "1c2bae48-a091-41ee-b32a-9dfdd25cf355",
+      "process_id": "71cba708-9621-4714-a93e-8ca635b0b62d",
+      "perspective_id": "20101db5-d1bd-44cd-9ca1-bc1bd9c9815d",
+      "strength": 0.77,
+      "confidence": 0.82
+    },
+    {
+      "id": "f9c70d07-ed2a-4024-b8f1-fbfd1decc1a4",
+      "property_id": "0f07b3c2-cae7-47bd-a8b6-d703c51041c4",
+      "process_id": "9104f849-b30c-4fc8-92ac-e0c90ec38f93",
+      "perspective_id": "55658e1b-269c-4563-a642-520e15859719",
+      "strength": 0.95,
+      "confidence": 0.71
+    },
+    {
+      "id": "79e775db-f8ef-4f83-bdba-552e39f130d1",
+      "property_id": "f1335467-edae-4dd5-ae0c-281b240f0c59",
+      "process_id": "c7cb00bd-e9dc-4f83-b0bc-15b2e28ea379",
+      "perspective_id": "8289e1ee-8246-4357-944d-6f9a431455ff",
+      "strength": 0.77,
+      "confidence": 0.97
+    },
+    {
+      "id": "a365bd82-6002-4e1f-af6b-91bdfc6b6109",
+      "property_id": "f6e42200-26de-4c65-8cee-888619fcebcc",
+      "process_id": "1aa8aaf2-94e8-4f76-9977-588150e2e6c3",
+      "perspective_id": "1ef42964-a5de-4aee-9c1c-67f06b4e68de",
+      "strength": 0.51,
+      "confidence": 0.85
+    },
+    {
+      "id": "1f4599aa-5250-459a-8557-1efc6bae8bf7",
+      "property_id": "48ac8460-897b-442a-a560-516fd23fce7c",
+      "process_id": "2870bbb9-9200-43f8-97e5-00ab362aff96",
+      "perspective_id": "8289e1ee-8246-4357-944d-6f9a431455ff",
+      "strength": 0.81,
+      "confidence": 0.82
+    },
+    {
+      "id": "d9e54e18-3da4-4e8f-af40-f63dc0d92a4f",
+      "property_id": "693d79f3-c8ce-459f-8326-881004d4227b",
+      "process_id": "183696cc-01d1-4e14-a86c-01b972979f1e",
+      "perspective_id": "e103cf1a-ce61-4a50-81f3-b7e747a02a91",
+      "strength": 0.72,
+      "confidence": 0.81
+    },
+    {
+      "id": "609ed30f-ad63-46b2-9485-f7dd94ff6caf",
+      "property_id": "d0a54ef0-8a15-4d82-9fe2-341ab05d2f4c",
+      "process_id": "8f2adf5b-7c30-489d-8e2e-ccf3f77e5337",
+      "perspective_id": "7b33a8eb-3209-4472-b25e-89aec2d64179",
+      "strength": 0.81,
+      "confidence": 0.74
+    },
+    {
+      "id": "630549d4-c9a9-487f-ae9a-b4c9be1760c2",
+      "property_id": "883a73f5-ad5a-4e1e-a74c-55269f904370",
+      "process_id": "08d81b66-d0ab-430e-b0cc-b1a2f789c897",
+      "perspective_id": "ba4aaf37-270c-47c4-bfb5-631b0d0f6377",
+      "strength": 0.59,
+      "confidence": 0.91
+    },
+    {
+      "id": "06bf4d64-154c-42d3-b31a-fee90f5dc47a",
+      "property_id": "d478c588-c927-4f77-8579-1d12bb7a0772",
+      "process_id": "967a349b-c147-45b6-b2a1-a4f12b363bcd",
+      "perspective_id": "79ff237c-f68d-4cd9-99e8-4740ad9d2660",
+      "strength": 0.73,
+      "confidence": 0.98
+    },
+    {
+      "id": "9cd3b073-1e3f-40dc-b19c-f80040cb3d20",
+      "property_id": "80b4cf6e-390d-4587-b2a2-977ebf396494",
+      "process_id": "b8b4e078-1831-4f90-b202-fc5dbef3e2d6",
+      "perspective_id": "181d693d-78fd-4e74-819b-f5911004369e",
+      "strength": 0.99,
+      "confidence": 0.94
+    },
+    {
+      "id": "39d1fbe6-f59e-450a-8a85-2de2b715277d",
+      "property_id": "f350eae3-37df-4952-9c59-527ae17c4761",
+      "process_id": "08d81b66-d0ab-430e-b0cc-b1a2f789c897",
+      "perspective_id": "97f0c60e-4b81-4031-9c8a-451451a6197c",
+      "strength": 0.66,
+      "confidence": 0.79
+    },
+    {
+      "id": "a6c573ab-1f4e-4c0f-9235-b2447a6a7300",
+      "property_id": "1e0e12eb-bc65-4ff4-b92c-9a937a203c9f",
+      "process_id": "153d266c-7493-4232-b359-9717259dc606",
+      "perspective_id": "9159d656-f2cd-4b07-bbbd-c0881094236a",
+      "strength": 0.79,
+      "confidence": 0.91
+    },
+    {
+      "id": "ae101577-0c33-4281-9218-4f61c0de50ce",
+      "property_id": "a6624d8c-a003-4a9f-a54f-72f78c87eb65",
+      "process_id": "08d81b66-d0ab-430e-b0cc-b1a2f789c897",
+      "perspective_id": "6a3ce2b3-bcce-4303-8c7b-e78964a550ed",
+      "strength": 0.84,
+      "confidence": 0.95
+    },
+    {
+      "id": "c76397f5-59a5-4bc1-946c-2060e261a209",
+      "property_id": "1e4b7872-d607-42f8-a53b-8f2e08322b48",
+      "process_id": "c8a6c360-b0b0-45b1-b4f2-2b5ea6fc8ac6",
+      "perspective_id": "55658e1b-269c-4563-a642-520e15859719",
+      "strength": 0.79,
+      "confidence": 0.94
+    },
+    {
+      "id": "87375657-5aa4-4393-8efb-5a2061cd666e",
+      "property_id": "8ae1355a-0b84-4e72-8f0f-70bc26435319",
+      "process_id": "1aa8aaf2-94e8-4f76-9977-588150e2e6c3",
+      "perspective_id": "97f0c60e-4b81-4031-9c8a-451451a6197c",
+      "strength": 0.97,
+      "confidence": 0.99
+    },
+    {
+      "id": "e4555d5b-c18d-4702-b874-5211611ce41e",
+      "property_id": "b25ad4e2-b7b5-4e34-bae1-f43726f94c39",
+      "process_id": "a722a0f4-1fb6-4c8b-83f3-f02b6dfbdb10",
+      "perspective_id": "17986b71-54d7-428a-a2db-b45103a0f4e7",
+      "strength": 0.66,
+      "confidence": 0.83
+    },
+    {
+      "id": "4a9986d2-a7d6-429e-a364-837df1272a8b",
+      "property_id": "0f07b3c2-cae7-47bd-a8b6-d703c51041c4",
+      "process_id": "6dce1837-cf95-4001-93bc-0fd226807c81",
+      "perspective_id": "e87988b4-0d3d-4ec7-8176-ae65c1fa468f",
+      "strength": 0.83,
+      "confidence": 0.88
+    },
+    {
+      "id": "3e29d75c-45d7-408e-9a4f-4f66f9d84510",
+      "property_id": "7bab07ec-560a-420f-b9e7-0f56e1b7833c",
+      "process_id": "3430e927-df9d-4197-bf5a-14670cf9cc02",
+      "perspective_id": "a70e26a6-1bfc-426c-9e84-48d6bba78514",
+      "strength": 0.97,
+      "confidence": 0.79
+    },
+    {
+      "id": "f0e328d8-981c-4052-9358-3dba108c3ebd",
+      "property_id": "1c2bae48-a091-41ee-b32a-9dfdd25cf355",
+      "process_id": "79797437-8c60-491d-a166-cb731992dbe3",
+      "perspective_id": "20101db5-d1bd-44cd-9ca1-bc1bd9c9815d",
+      "strength": 0.69,
+      "confidence": 0.88
+    },
+    {
+      "id": "aa79e150-a9e3-4c12-81ae-6a34c8f6e587",
+      "property_id": "c0347ab1-3909-4024-9fa1-48a83bcfb1f3",
+      "process_id": "9963e43b-2026-4be0-826a-e3a881136d8e",
+      "perspective_id": "a83e8db6-9d78-4433-8726-29f59705248e",
+      "strength": 0.87,
+      "confidence": 0.92
+    },
+    {
+      "id": "129b8e72-a01d-4f47-802d-9cf56d62c593",
+      "property_id": "b25ad4e2-b7b5-4e34-bae1-f43726f94c39",
+      "process_id": "dbc6ed93-fb3c-4736-b0b9-ddc1e292b45e",
+      "perspective_id": "55658e1b-269c-4563-a642-520e15859719",
+      "strength": 0.52,
+      "confidence": 0.98
+    },
+    {
+      "id": "45b05895-fba7-471a-b1bf-96f66e1a0516",
+      "property_id": "536fb842-368a-4367-976e-240bd41725d1",
+      "process_id": "79797437-8c60-491d-a166-cb731992dbe3",
+      "perspective_id": "55658e1b-269c-4563-a642-520e15859719",
+      "strength": 0.86,
+      "confidence": 0.73
+    },
+    {
+      "id": "9818fbea-c51e-44d7-a868-c295eeedecdb",
+      "property_id": "9d10bcbc-4dd6-4264-bee7-d6b4703c2436",
+      "process_id": "f864123a-6fb8-4f8a-8ca9-23e3a767e4ba",
+      "perspective_id": "196bfa4a-410b-44c6-a39d-426aa5838932",
+      "strength": 0.9,
+      "confidence": 0.71
+    },
+    {
+      "id": "cc15c8c1-3395-485b-a4fb-d18d79d2ebe5",
+      "property_id": "c2ef1897-a488-49aa-a0ff-36f1ad182388",
+      "process_id": "f864123a-6fb8-4f8a-8ca9-23e3a767e4ba",
+      "perspective_id": "fb21c3e8-18de-42d8-9721-0fa46c59b98f",
+      "strength": 0.96,
+      "confidence": 0.92
+    },
+    {
+      "id": "53ccd54d-3efd-4e73-89a7-5ae32b99401c",
+      "property_id": "536fb842-368a-4367-976e-240bd41725d1",
+      "process_id": "dbc6ed93-fb3c-4736-b0b9-ddc1e292b45e",
+      "perspective_id": "5f5a7580-3a8f-4b05-af40-e59388378276",
+      "strength": 0.91,
+      "confidence": 0.83
+    },
+    {
+      "id": "f6c2d920-b1c9-4f96-a59a-6bf979beb9f4",
+      "property_id": "693d79f3-c8ce-459f-8326-881004d4227b",
+      "process_id": "463ed8e8-99ce-4cc1-9b48-68537b8c60e8",
+      "perspective_id": "ac0cc4b6-194a-4508-9c4e-fbe5b5c4a02c",
+      "strength": 0.54,
+      "confidence": 0.77
+    },
+    {
+      "id": "4ab71470-c07f-400d-b896-4d47cce12e6e",
+      "property_id": "b25ad4e2-b7b5-4e34-bae1-f43726f94c39",
+      "process_id": "3430e927-df9d-4197-bf5a-14670cf9cc02",
+      "perspective_id": "30eb0fab-9c4d-4e0f-8499-2675e56df4ad",
+      "strength": 0.76,
+      "confidence": 0.97
+    }
+  ],
+  "metadata": {
+    "count": {
+      "properties": 50,
+      "processes": 50,
+      "perspectives": 50
+    }
+  }
+}

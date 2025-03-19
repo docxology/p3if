@@ -1,0 +1,1610 @@
+{
+  "domain": "ScienceResearch",
+  "version": "1.0",
+  "properties": [
+    "Hypothesis Formulation",
+    "Experimental Design",
+    "Data Collection",
+    "Statistical Analysis",
+    "Peer Review",
+    "Reproducibility",
+    "Ethical Considerations",
+    "Funding Allocation",
+    "Interdisciplinary Collaboration",
+    "Technology Integration",
+    "Publication Impact",
+    "Innovation Potential",
+    "Societal Relevance",
+    "Environmental Sustainability",
+    "Long-term Viability",
+    "Research Integrity",
+    "Knowledge Dissemination",
+    "Talent Development",
+    "International Cooperation",
+    "Industry Partnership",
+    "Open Access",
+    "Big Data Management",
+    "Research Infrastructure",
+    "Scientific Method Application",
+    "Research Ethics",
+    "Grant Writing",
+    "Laboratory Safety",
+    "Intellectual Property",
+    "Science Communication",
+    "Research Policy",
+    "Scientific Literacy",
+    "Research Commercialization",
+    "Citizen Science",
+    "Research Networking",
+    "Scientific Conferences",
+    "Research Quality Assurance",
+    "Scientific Instrumentation",
+    "Research Methodology",
+    "Scientific Publishing",
+    "Research Impact Assessment",
+    "Science Education",
+    "Research Data Sharing",
+    "Scientific Collaboration Tools",
+    "Research Funding Diversity",
+    "Scientific Advisory Boards",
+    "Research Career Development",
+    "Scientific Peer Networks",
+    "Research Project Management",
+    "Scientific Outreach",
+    "Research Evaluation Metrics"
+  ],
+  "processes": [
+    "Literature Review",
+    "Hypothesis Testing",
+    "Data Collection",
+    "Statistical Analysis",
+    "Manuscript Preparation",
+    "Peer Review Process",
+    "Replication Studies",
+    "Ethics Committee Review",
+    "Grant Writing",
+    "Collaborative Project Management",
+    "Technology Implementation",
+    "Impact Factor Calculation",
+    "Innovation Assessment",
+    "Societal Impact Evaluation",
+    "Sustainability Analysis",
+    "Research Integrity Training",
+    "Conference Presentations",
+    "Mentorship Programs",
+    "International Collaboration Coordination",
+    "Industry-Academia Partnerships",
+    "Open Access Publishing",
+    "Big Data Analysis",
+    "Research Facility Management",
+    "Experimental Protocol Development",
+    "Ethics Approval Process",
+    "Funding Proposal Submission",
+    "Laboratory Safety Training",
+    "Patent Application",
+    "Public Science Communication",
+    "Research Policy Development",
+    "Scientific Literacy Programs",
+    "Technology Transfer",
+    "Citizen Science Project Coordination",
+    "Research Network Building",
+    "Conference Organization",
+    "Quality Control Procedures",
+    "Equipment Calibration",
+    "Research Design",
+    "Journal Submission",
+    "Impact Measurement",
+    "Curriculum Development",
+    "Data Repository Management",
+    "Collaboration Platform Implementation",
+    "Diverse Funding Source Identification",
+    "Advisory Board Meetings",
+    "Career Counseling",
+    "Peer Network Facilitation",
+    "Project Timeline Management",
+    "Public Engagement Events",
+    "Bibliometric Analysis"
+  ],
+  "perspectives": [
+    "Principal Investigator",
+    "Research Assistant",
+    "Statistician",
+    "Peer Reviewer",
+    "Ethics Committee Member",
+    "Funding Agency Representative",
+    "Interdisciplinary Collaborator",
+    "Technology Specialist",
+    "Journal Editor",
+    "Innovation Officer",
+    "Science Policy Advisor",
+    "Sustainability Researcher",
+    "Research Integrity Officer",
+    "Science Communicator",
+    "Graduate Student Mentor",
+    "Open Access Advocate",
+    "Data Scientist",
+    "Research Facility Manager",
+    "Methodologist",
+    "Research Ethicist",
+    "Grant Writer",
+    "Laboratory Safety Officer",
+    "Intellectual Property Lawyer",
+    "Science Journalist",
+    "Research Policy Maker",
+    "Science Educator",
+    "Technology Transfer Officer",
+    "Citizen Science Coordinator",
+    "Research Network Administrator",
+    "Conference Organizer",
+    "Quality Assurance Specialist",
+    "Scientific Instrument Technician",
+    "Research Design Consultant",
+    "Scientific Publisher",
+    "Impact Assessment Specialist",
+    "Curriculum Developer",
+    "Data Repository Manager",
+    "Collaboration Tool Developer",
+    "Funding Diversity Specialist",
+    "Scientific Advisory Board Member",
+    "Career Development Officer",
+    "Peer Network Facilitator",
+    "Project Manager",
+    "Outreach Coordinator",
+    "Bibliometrician"
+  ],
+  "patterns": {
+    "properties": [
+      {
+        "id": "1c86b008-3cb8-4942-bfcd-6f3c3c655288",
+        "name": "Hypothesis Formulation",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "0d47582b-b6dd-4b8e-9d2f-3c5474e65bfb",
+        "name": "Experimental Design",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "b0f10893-b858-481f-b643-a7a1867dd6bf",
+        "name": "Data Collection",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "8cf4284c-d80d-411d-b2bb-27e64e4c47eb",
+        "name": "Statistical Analysis",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "034b3730-c20a-4ed9-a27e-d7a9713a743a",
+        "name": "Peer Review",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "14afd441-4f3f-4f49-ba55-4d046d1a4895",
+        "name": "Reproducibility",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "b9cec3c7-8f30-4cbe-b876-2aff71926a98",
+        "name": "Ethical Considerations",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "96eacc88-44bd-4dc8-a94d-d3169605285e",
+        "name": "Funding Allocation",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "8ac17b7b-8350-405a-8c11-110170fa0c9c",
+        "name": "Interdisciplinary Collaboration",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "ba614e61-b274-4cc7-9cd9-812c26007ae1",
+        "name": "Technology Integration",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "e7549422-eb5c-4445-a667-426ae5f4e179",
+        "name": "Publication Impact",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "d3099bd3-a5f4-49dc-bbe3-5c28c3c276bd",
+        "name": "Innovation Potential",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "3f4fcae1-1071-4f05-9c95-91544ae92f8b",
+        "name": "Societal Relevance",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "59a31318-a55b-424e-b0ba-45b6719c2ed9",
+        "name": "Environmental Sustainability",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "4aadd845-7983-4633-894e-7f54addc2e40",
+        "name": "Long-term Viability",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "68865af6-e965-425a-9a8d-d4cd7dce8f85",
+        "name": "Research Integrity",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "a97403cf-26d0-46d7-9652-bb518b768ad4",
+        "name": "Knowledge Dissemination",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "d36a509d-546a-4abd-86f0-f4a7430525d7",
+        "name": "Talent Development",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "29a39733-fdf9-4f6f-af8d-0678f04669cd",
+        "name": "International Cooperation",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "cb49b4c8-9987-4746-87f2-45c3a6fab360",
+        "name": "Industry Partnership",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "df83fa2b-7800-465b-b508-d9c960aefb36",
+        "name": "Open Access",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "b36c2bdc-18c7-4fb0-aaa5-e39b16357ebe",
+        "name": "Big Data Management",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "4c84369f-7937-4fbe-ba86-badc828bf54d",
+        "name": "Research Infrastructure",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "87bde78a-d624-4185-96fb-1b7842af5e6b",
+        "name": "Scientific Method Application",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "a19d0f67-ffae-4ac4-9565-9d658f01a21b",
+        "name": "Research Ethics",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "718cdce8-5cfe-40fc-ba4a-dfd9cf117cae",
+        "name": "Grant Writing",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "30f6f873-3deb-4cd5-8df1-b4cf90ce1c1d",
+        "name": "Laboratory Safety",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "2c94cc3f-2db6-48bb-8416-22c017d5621c",
+        "name": "Intellectual Property",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "ddd21e2d-578c-42c0-bffc-39bb049c4188",
+        "name": "Science Communication",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "151c8fa5-c61e-433e-a924-b7fe5bcde26a",
+        "name": "Research Policy",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "443084b8-1179-4fc0-be41-fe3c471b9c1a",
+        "name": "Scientific Literacy",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "43bbdf6b-9e6e-49d1-b39b-8afdc108a5ec",
+        "name": "Research Commercialization",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "c19d64fe-5ce4-4b80-827c-ac514c92e309",
+        "name": "Citizen Science",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "dfb8bf38-7541-4aa4-a337-a272f8e79d85",
+        "name": "Research Networking",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "f036259f-93bf-46e3-b8c5-461e402251fb",
+        "name": "Scientific Conferences",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "9bc69f7c-7b4f-40e8-98e8-1a42b8a600d7",
+        "name": "Research Quality Assurance",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "53d1b0b8-5d0f-412c-8840-d1d8779aa3b5",
+        "name": "Scientific Instrumentation",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "a0d7d802-64e2-4ff0-a72f-160e087b3956",
+        "name": "Research Methodology",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "124b234a-78d3-4d85-b59d-921e652e446c",
+        "name": "Scientific Publishing",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "a01bf9b6-d4ff-419c-919d-07670e529875",
+        "name": "Research Impact Assessment",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "67daa95f-5a79-47a4-b2ea-55d90f0ea64b",
+        "name": "Science Education",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "68718748-9a33-4c3d-bfa9-54b1c471850d",
+        "name": "Research Data Sharing",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "cd4b93d1-c419-4e00-a569-4007b82f86cb",
+        "name": "Scientific Collaboration Tools",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "47baf040-92f1-4aa4-a24e-7e4419404d0a",
+        "name": "Research Funding Diversity",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "33700d31-01bb-457b-87b8-a7e8ee497585",
+        "name": "Scientific Advisory Boards",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "0b2748a2-8686-458e-a89e-1c3f5bb13db9",
+        "name": "Research Career Development",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "027e891a-c838-4b84-8c08-e8721812db3e",
+        "name": "Scientific Peer Networks",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "3fbb1f79-bc49-4567-a5e2-d989b03ae2d6",
+        "name": "Research Project Management",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "228267c1-aeef-4e12-9d82-c77d1374a0b1",
+        "name": "Scientific Outreach",
+        "type": "property",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "be6e0942-68f7-4ebf-b5ea-4fde59e59887",
+        "name": "Research Evaluation Metrics",
+        "type": "property",
+        "domain": "ScienceResearch"
+      }
+    ],
+    "processes": [
+      {
+        "id": "783d8b82-1c2c-4702-abd6-112c3cf0ff18",
+        "name": "Literature Review",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "3d5fdd2c-b060-4250-a379-4fa4d1079643",
+        "name": "Hypothesis Testing",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "a6fbf31c-9f35-4e5b-9bb8-4ef28eb61365",
+        "name": "Data Collection",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "9a966db1-5dee-4a6d-ab6f-2426038c84c4",
+        "name": "Statistical Analysis",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "19e07c5c-c554-4b18-8ada-b21ec31cc73d",
+        "name": "Manuscript Preparation",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "58c0f035-a1e2-417b-8980-8e3d21772044",
+        "name": "Peer Review Process",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "276432ec-2682-4744-9e5c-18edaa629209",
+        "name": "Replication Studies",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "88c0ed5c-be22-42b7-821d-548e79f2243a",
+        "name": "Ethics Committee Review",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "cce0c1cf-b325-4ebe-ac9e-0ea5e01b6eb1",
+        "name": "Grant Writing",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "2e7f3ce3-3980-4ab8-ba6e-3a8fb21c227e",
+        "name": "Collaborative Project Management",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "b64e3ad2-5544-4749-b617-48dc13f67086",
+        "name": "Technology Implementation",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "b7ff1d27-b166-4b54-9fde-998f77c427ca",
+        "name": "Impact Factor Calculation",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "ce50cc5d-341d-46d5-bbb7-14057eea7fb4",
+        "name": "Innovation Assessment",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "f8774b35-f487-49cc-a7bf-27b0e6446b2c",
+        "name": "Societal Impact Evaluation",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "096bd1eb-52ba-4bde-8396-56814f8da38b",
+        "name": "Sustainability Analysis",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "b3bda89d-ad1a-4f82-aa0e-acd93ebd44ee",
+        "name": "Research Integrity Training",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "ead773e9-5af8-4e90-b685-1ea1a95fb91a",
+        "name": "Conference Presentations",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "1b1728ef-869d-40df-83b4-b60d46c59fe8",
+        "name": "Mentorship Programs",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "4185de8d-b889-479c-9ddd-684ea0bb6687",
+        "name": "International Collaboration Coordination",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "689c78d0-e339-4221-b3f6-ee21d1a39d3d",
+        "name": "Industry-Academia Partnerships",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "f1bdc902-14f3-49fc-bedb-cd3857a39861",
+        "name": "Open Access Publishing",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "a21a0300-9d30-4a5d-9520-29068110b5fc",
+        "name": "Big Data Analysis",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "56999c18-4f9c-4a16-81e5-66ae2546b5c2",
+        "name": "Research Facility Management",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "1a1a1f6d-5ac8-4ee4-b12f-789d3103eba4",
+        "name": "Experimental Protocol Development",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "1131e6dd-9082-4c17-b849-0b426b4770a2",
+        "name": "Ethics Approval Process",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "e06a3168-d0ec-4f08-819a-27c734e3ffb9",
+        "name": "Funding Proposal Submission",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "ca315bc3-f79a-469e-b9b3-bb2dcabe8290",
+        "name": "Laboratory Safety Training",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "402d571b-e3d8-4628-8eae-4e8cc68385ce",
+        "name": "Patent Application",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "92639eaa-7233-4f04-bee0-3a6b44d439f0",
+        "name": "Public Science Communication",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "996f0d67-ce74-4379-bee5-13aae30a3c53",
+        "name": "Research Policy Development",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "cb768779-7389-4c07-a6d0-7d990b492344",
+        "name": "Scientific Literacy Programs",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "77ea213a-0416-45bc-85f8-02da0a9e1850",
+        "name": "Technology Transfer",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "be7ef105-0f9f-4e1e-82d4-07dec9cdb9ce",
+        "name": "Citizen Science Project Coordination",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "d51a3083-55fb-4036-9434-bdea58d973b2",
+        "name": "Research Network Building",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "8b0dd585-d29d-4830-9127-9275518fe662",
+        "name": "Conference Organization",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "60c4461f-e3d0-49d5-98be-d54f73bdbe06",
+        "name": "Quality Control Procedures",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "aefdef13-a82b-4f69-959b-5e28819e2827",
+        "name": "Equipment Calibration",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "6ed8be09-1411-4e26-b5fd-e95d7ea85d65",
+        "name": "Research Design",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "1f17fb9b-7e4f-446d-a334-1e132ca9c5df",
+        "name": "Journal Submission",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "584f534c-999c-4942-8981-b771f89315a3",
+        "name": "Impact Measurement",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "fe21efb3-bce6-4199-9713-ab4d29e886c7",
+        "name": "Curriculum Development",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "97e2f3ad-597c-4bc1-bf01-e29105879c50",
+        "name": "Data Repository Management",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "f858af52-d6ed-4683-84e7-76711e7c2b72",
+        "name": "Collaboration Platform Implementation",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "8ff49df7-8cd5-41a2-9dbd-f3873c6d780d",
+        "name": "Diverse Funding Source Identification",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "1ad3aa52-cdff-4f7a-a616-15ca55b7cb3a",
+        "name": "Advisory Board Meetings",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "0e6e3ac6-fd27-47be-8968-12bc31648125",
+        "name": "Career Counseling",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "0d5ccc7c-b06f-49cf-a955-0ff5dc9d9c62",
+        "name": "Peer Network Facilitation",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "2b375b60-c5c8-431f-b1e5-d568a8207c86",
+        "name": "Project Timeline Management",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "7d652693-eaa5-4a63-8f58-6b1d0ecb0b1c",
+        "name": "Public Engagement Events",
+        "type": "process",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "cc97f11e-4dc2-435e-b3b5-9a37250054f0",
+        "name": "Bibliometric Analysis",
+        "type": "process",
+        "domain": "ScienceResearch"
+      }
+    ],
+    "perspectives": [
+      {
+        "id": "c08dde26-4cf8-4f19-abfb-9bb009e69d55",
+        "name": "Principal Investigator",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "0b263a66-fff9-41c4-904d-5d3b60e89e17",
+        "name": "Research Assistant",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "f89aafdc-8b27-4bde-8ac1-3d56787bb7f0",
+        "name": "Statistician",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "3793baba-cf18-4d57-b292-bfa0194b0876",
+        "name": "Peer Reviewer",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "6524bd4d-76c6-418b-86f6-c61d081142f3",
+        "name": "Ethics Committee Member",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "26a788cf-1b25-49e4-ab9c-044002f4c9b1",
+        "name": "Funding Agency Representative",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "9795b784-a46b-4192-bdc0-ade4cc9710a6",
+        "name": "Interdisciplinary Collaborator",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "2df74206-7f11-4c2a-88e2-ededea2f39d8",
+        "name": "Technology Specialist",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "dbe7828e-ca4a-49de-92f8-1d75605360d9",
+        "name": "Journal Editor",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "cb075290-32d1-4ba6-90d0-2b29cb13fde3",
+        "name": "Innovation Officer",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "79d9b9ff-ed73-4933-b0aa-3bfdd31714c2",
+        "name": "Science Policy Advisor",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "d9b8743a-d2ae-414d-8afd-4bd3e8804013",
+        "name": "Sustainability Researcher",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "d3d5d2f3-0293-4746-9888-a10288e94419",
+        "name": "Research Integrity Officer",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "5eb35ae6-d3e4-4859-bc42-2835baa127db",
+        "name": "Science Communicator",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "8761d0c8-e775-4442-80e5-93cf07a4b104",
+        "name": "Graduate Student Mentor",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "b58a5fcb-cd42-4490-8a52-29217c5037f0",
+        "name": "Open Access Advocate",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "f9912849-e948-43e7-9bce-7aa7290bed7c",
+        "name": "Data Scientist",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "6d88f908-5827-4cd8-9aa8-7095faa6e560",
+        "name": "Research Facility Manager",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "b3b1820f-6139-4968-be15-1a93d18a9f32",
+        "name": "Methodologist",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "0da87594-9cb0-403c-aac3-92d7cb01e04e",
+        "name": "Research Ethicist",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "f67cd546-1c4b-4ca3-b01a-25d6ea7c1af7",
+        "name": "Grant Writer",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "39d0dbf2-d3fd-476e-81c4-7421c793b91a",
+        "name": "Laboratory Safety Officer",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "25b482dd-89b9-4849-8871-891da62f6638",
+        "name": "Intellectual Property Lawyer",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "82b415fd-1c3d-47d9-a3b7-199928bf49d3",
+        "name": "Science Journalist",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "e626186b-015d-4459-bcab-ce638cadafb8",
+        "name": "Research Policy Maker",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "322622f8-6c3c-4762-8a77-87fe2fa86dd5",
+        "name": "Science Educator",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "f21d7a5a-3f98-4b61-9576-a146c34c2736",
+        "name": "Technology Transfer Officer",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "5c415799-af9a-4869-b978-33c2b302add3",
+        "name": "Citizen Science Coordinator",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "a5ac21ed-4923-4ed0-bfc1-035a77b388d6",
+        "name": "Research Network Administrator",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "286b96f3-0c23-4d99-85d8-f84f506453be",
+        "name": "Conference Organizer",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "bf41b8fc-6d69-41af-a949-b6f5ed1eb1de",
+        "name": "Quality Assurance Specialist",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "6e179e0c-42ab-4182-bf85-c4c48c2e05c5",
+        "name": "Scientific Instrument Technician",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "9ff92a34-8a42-4a4a-adf1-b36d5fd1110e",
+        "name": "Research Design Consultant",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "52a00eb1-ddc4-4c8d-9dc7-ca63b99ae7f7",
+        "name": "Scientific Publisher",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "ed57118d-7987-48dc-8a90-82e5f4e22caf",
+        "name": "Impact Assessment Specialist",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "cc05a534-05e6-44c9-a3df-418c598a7ab6",
+        "name": "Curriculum Developer",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "2640de43-78e9-45ac-bcb8-100ce15b190d",
+        "name": "Data Repository Manager",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "a5d6fa27-1f2a-416a-a810-dab2c9ff7961",
+        "name": "Collaboration Tool Developer",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "fb85dcfc-7636-49dd-bdb9-ce1d92ac7619",
+        "name": "Funding Diversity Specialist",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "dd4ae59a-2b88-448c-ab08-491763b55f37",
+        "name": "Scientific Advisory Board Member",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "3ed75da8-b75c-4800-af8d-38b4c7e38453",
+        "name": "Career Development Officer",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "0f7fd021-ea33-4a8d-b032-baf65ea48e5a",
+        "name": "Peer Network Facilitator",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "a68e3dcb-3182-426c-93b0-ecadfa8e6ba2",
+        "name": "Project Manager",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "97293be8-d197-4113-b67c-d343c5594653",
+        "name": "Outreach Coordinator",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      },
+      {
+        "id": "44e652c9-c32b-4580-9d15-3bc140895e49",
+        "name": "Bibliometrician",
+        "type": "perspective",
+        "domain": "ScienceResearch"
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "db31280d-aeee-490c-89f2-e43a5eb65bad",
+      "property_id": "124b234a-78d3-4d85-b59d-921e652e446c",
+      "process_id": "19e07c5c-c554-4b18-8ada-b21ec31cc73d",
+      "perspective_id": "0b263a66-fff9-41c4-904d-5d3b60e89e17",
+      "strength": 0.79,
+      "confidence": 0.92
+    },
+    {
+      "id": "6670d610-49c1-4c5a-83e0-e780e78bca21",
+      "property_id": "47baf040-92f1-4aa4-a24e-7e4419404d0a",
+      "process_id": "402d571b-e3d8-4628-8eae-4e8cc68385ce",
+      "perspective_id": "c08dde26-4cf8-4f19-abfb-9bb009e69d55",
+      "strength": 0.76,
+      "confidence": 0.94
+    },
+    {
+      "id": "eb2b2d43-e6e6-4d61-a4df-3178c89928f8",
+      "property_id": "228267c1-aeef-4e12-9d82-c77d1374a0b1",
+      "process_id": "88c0ed5c-be22-42b7-821d-548e79f2243a",
+      "perspective_id": "f21d7a5a-3f98-4b61-9576-a146c34c2736",
+      "strength": 0.61,
+      "confidence": 0.76
+    },
+    {
+      "id": "9ee77c81-d7b3-4b7a-9fe3-90c562dfef32",
+      "property_id": "d36a509d-546a-4abd-86f0-f4a7430525d7",
+      "process_id": "92639eaa-7233-4f04-bee0-3a6b44d439f0",
+      "perspective_id": "f9912849-e948-43e7-9bce-7aa7290bed7c",
+      "strength": 0.81,
+      "confidence": 0.86
+    },
+    {
+      "id": "ccd62c4f-68f9-4b11-9493-daf73a1f1b7e",
+      "property_id": "d3099bd3-a5f4-49dc-bbe3-5c28c3c276bd",
+      "process_id": "ce50cc5d-341d-46d5-bbb7-14057eea7fb4",
+      "perspective_id": "ed57118d-7987-48dc-8a90-82e5f4e22caf",
+      "strength": 0.8,
+      "confidence": 0.72
+    },
+    {
+      "id": "f41b2953-03e3-45c9-952f-4569ab77ec65",
+      "property_id": "59a31318-a55b-424e-b0ba-45b6719c2ed9",
+      "process_id": "689c78d0-e339-4221-b3f6-ee21d1a39d3d",
+      "perspective_id": "2df74206-7f11-4c2a-88e2-ededea2f39d8",
+      "strength": 0.63,
+      "confidence": 0.72
+    },
+    {
+      "id": "3ffc4ada-b2ec-4a1c-b8de-5c810b2791df",
+      "property_id": "0d47582b-b6dd-4b8e-9d2f-3c5474e65bfb",
+      "process_id": "f858af52-d6ed-4683-84e7-76711e7c2b72",
+      "perspective_id": "ed57118d-7987-48dc-8a90-82e5f4e22caf",
+      "strength": 0.93,
+      "confidence": 0.74
+    },
+    {
+      "id": "62c89819-dd15-452d-bf23-6b7865264443",
+      "property_id": "67daa95f-5a79-47a4-b2ea-55d90f0ea64b",
+      "process_id": "97e2f3ad-597c-4bc1-bf01-e29105879c50",
+      "perspective_id": "5c415799-af9a-4869-b978-33c2b302add3",
+      "strength": 0.69,
+      "confidence": 0.81
+    },
+    {
+      "id": "7ee443f2-5fb8-4121-a34b-dfc92641bbec",
+      "property_id": "cb49b4c8-9987-4746-87f2-45c3a6fab360",
+      "process_id": "58c0f035-a1e2-417b-8980-8e3d21772044",
+      "perspective_id": "d9b8743a-d2ae-414d-8afd-4bd3e8804013",
+      "strength": 0.87,
+      "confidence": 0.76
+    },
+    {
+      "id": "110291e3-2665-4617-ab3a-b2c31ed82ab4",
+      "property_id": "a97403cf-26d0-46d7-9652-bb518b768ad4",
+      "process_id": "276432ec-2682-4744-9e5c-18edaa629209",
+      "perspective_id": "c08dde26-4cf8-4f19-abfb-9bb009e69d55",
+      "strength": 0.61,
+      "confidence": 0.95
+    },
+    {
+      "id": "a27a6eb9-d706-4da9-b024-fa5929d3d8cc",
+      "property_id": "ba614e61-b274-4cc7-9cd9-812c26007ae1",
+      "process_id": "d51a3083-55fb-4036-9434-bdea58d973b2",
+      "perspective_id": "6524bd4d-76c6-418b-86f6-c61d081142f3",
+      "strength": 0.68,
+      "confidence": 0.96
+    },
+    {
+      "id": "acd0cef8-2e6e-4eb7-9277-15a23368d9b5",
+      "property_id": "a0d7d802-64e2-4ff0-a72f-160e087b3956",
+      "process_id": "fe21efb3-bce6-4199-9713-ab4d29e886c7",
+      "perspective_id": "5c415799-af9a-4869-b978-33c2b302add3",
+      "strength": 0.85,
+      "confidence": 0.98
+    },
+    {
+      "id": "f9a669c0-eaf8-4aeb-8ee1-754b6bf80c9e",
+      "property_id": "96eacc88-44bd-4dc8-a94d-d3169605285e",
+      "process_id": "9a966db1-5dee-4a6d-ab6f-2426038c84c4",
+      "perspective_id": "cb075290-32d1-4ba6-90d0-2b29cb13fde3",
+      "strength": 0.68,
+      "confidence": 0.8
+    },
+    {
+      "id": "dcb2e1b9-2b24-4878-a796-62dcf11abb4e",
+      "property_id": "4c84369f-7937-4fbe-ba86-badc828bf54d",
+      "process_id": "a6fbf31c-9f35-4e5b-9bb8-4ef28eb61365",
+      "perspective_id": "0da87594-9cb0-403c-aac3-92d7cb01e04e",
+      "strength": 0.83,
+      "confidence": 0.95
+    },
+    {
+      "id": "0a658512-d0ad-4187-888b-32c6615fce0c",
+      "property_id": "59a31318-a55b-424e-b0ba-45b6719c2ed9",
+      "process_id": "1ad3aa52-cdff-4f7a-a616-15ca55b7cb3a",
+      "perspective_id": "3ed75da8-b75c-4800-af8d-38b4c7e38453",
+      "strength": 0.9,
+      "confidence": 0.83
+    },
+    {
+      "id": "1949f907-fc66-4a14-804c-2174a95d3f92",
+      "property_id": "dfb8bf38-7541-4aa4-a337-a272f8e79d85",
+      "process_id": "1131e6dd-9082-4c17-b849-0b426b4770a2",
+      "perspective_id": "a5d6fa27-1f2a-416a-a810-dab2c9ff7961",
+      "strength": 0.82,
+      "confidence": 0.98
+    },
+    {
+      "id": "42bbe6d8-554a-459c-8b35-22cee04b814d",
+      "property_id": "c19d64fe-5ce4-4b80-827c-ac514c92e309",
+      "process_id": "1b1728ef-869d-40df-83b4-b60d46c59fe8",
+      "perspective_id": "e626186b-015d-4459-bcab-ce638cadafb8",
+      "strength": 0.51,
+      "confidence": 0.79
+    },
+    {
+      "id": "b0e133eb-137d-48c3-91bc-abe1a9386cc3",
+      "property_id": "e7549422-eb5c-4445-a667-426ae5f4e179",
+      "process_id": "689c78d0-e339-4221-b3f6-ee21d1a39d3d",
+      "perspective_id": "44e652c9-c32b-4580-9d15-3bc140895e49",
+      "strength": 0.82,
+      "confidence": 0.89
+    },
+    {
+      "id": "f039200f-ed23-4862-9a7c-cecc39a04109",
+      "property_id": "718cdce8-5cfe-40fc-ba4a-dfd9cf117cae",
+      "process_id": "0e6e3ac6-fd27-47be-8968-12bc31648125",
+      "perspective_id": "ed57118d-7987-48dc-8a90-82e5f4e22caf",
+      "strength": 0.52,
+      "confidence": 0.75
+    },
+    {
+      "id": "fff51c88-f1dc-404f-97a3-7f3d00776aa5",
+      "property_id": "8ac17b7b-8350-405a-8c11-110170fa0c9c",
+      "process_id": "cc97f11e-4dc2-435e-b3b5-9a37250054f0",
+      "perspective_id": "25b482dd-89b9-4849-8871-891da62f6638",
+      "strength": 0.89,
+      "confidence": 0.83
+    },
+    {
+      "id": "c621f429-333b-4bfc-9cc8-30303574be18",
+      "property_id": "d3099bd3-a5f4-49dc-bbe3-5c28c3c276bd",
+      "process_id": "cc97f11e-4dc2-435e-b3b5-9a37250054f0",
+      "perspective_id": "c08dde26-4cf8-4f19-abfb-9bb009e69d55",
+      "strength": 0.96,
+      "confidence": 0.75
+    },
+    {
+      "id": "1d3fdd41-7c63-46d6-a27f-3bc81c15edc4",
+      "property_id": "b36c2bdc-18c7-4fb0-aaa5-e39b16357ebe",
+      "process_id": "0d5ccc7c-b06f-49cf-a955-0ff5dc9d9c62",
+      "perspective_id": "ed57118d-7987-48dc-8a90-82e5f4e22caf",
+      "strength": 0.61,
+      "confidence": 0.97
+    },
+    {
+      "id": "b2d5fe86-46bf-4ec0-99d1-5e89942ce9c8",
+      "property_id": "29a39733-fdf9-4f6f-af8d-0678f04669cd",
+      "process_id": "cc97f11e-4dc2-435e-b3b5-9a37250054f0",
+      "perspective_id": "9795b784-a46b-4192-bdc0-ade4cc9710a6",
+      "strength": 0.74,
+      "confidence": 0.98
+    },
+    {
+      "id": "3789d98b-1919-4e22-a946-60c08e5664c6",
+      "property_id": "ddd21e2d-578c-42c0-bffc-39bb049c4188",
+      "process_id": "3d5fdd2c-b060-4250-a379-4fa4d1079643",
+      "perspective_id": "f67cd546-1c4b-4ca3-b01a-25d6ea7c1af7",
+      "strength": 0.92,
+      "confidence": 0.91
+    },
+    {
+      "id": "7a59af2c-f0dd-4505-afa7-94f1ecb376a2",
+      "property_id": "027e891a-c838-4b84-8c08-e8721812db3e",
+      "process_id": "996f0d67-ce74-4379-bee5-13aae30a3c53",
+      "perspective_id": "5eb35ae6-d3e4-4859-bc42-2835baa127db",
+      "strength": 0.83,
+      "confidence": 0.7
+    },
+    {
+      "id": "b0003ea6-6122-410f-b4c4-e45104d0edb4",
+      "property_id": "cb49b4c8-9987-4746-87f2-45c3a6fab360",
+      "process_id": "b3bda89d-ad1a-4f82-aa0e-acd93ebd44ee",
+      "perspective_id": "25b482dd-89b9-4849-8871-891da62f6638",
+      "strength": 0.69,
+      "confidence": 0.94
+    },
+    {
+      "id": "ee497bff-b29a-43cb-9197-344182e61228",
+      "property_id": "a01bf9b6-d4ff-419c-919d-07670e529875",
+      "process_id": "ca315bc3-f79a-469e-b9b3-bb2dcabe8290",
+      "perspective_id": "f89aafdc-8b27-4bde-8ac1-3d56787bb7f0",
+      "strength": 0.56,
+      "confidence": 0.78
+    },
+    {
+      "id": "180a4c7a-98b7-4f48-886d-89b24c741f7e",
+      "property_id": "2c94cc3f-2db6-48bb-8416-22c017d5621c",
+      "process_id": "1131e6dd-9082-4c17-b849-0b426b4770a2",
+      "perspective_id": "6e179e0c-42ab-4182-bf85-c4c48c2e05c5",
+      "strength": 0.6,
+      "confidence": 0.73
+    },
+    {
+      "id": "242ad385-567e-4e2a-85f7-3d21ecfa7651",
+      "property_id": "e7549422-eb5c-4445-a667-426ae5f4e179",
+      "process_id": "996f0d67-ce74-4379-bee5-13aae30a3c53",
+      "perspective_id": "b58a5fcb-cd42-4490-8a52-29217c5037f0",
+      "strength": 0.65,
+      "confidence": 0.7
+    },
+    {
+      "id": "273314f2-100c-4b6f-82ee-311a29a149cd",
+      "property_id": "14afd441-4f3f-4f49-ba55-4d046d1a4895",
+      "process_id": "60c4461f-e3d0-49d5-98be-d54f73bdbe06",
+      "perspective_id": "6e179e0c-42ab-4182-bf85-c4c48c2e05c5",
+      "strength": 0.99,
+      "confidence": 0.76
+    },
+    {
+      "id": "663b3de7-0ec3-4bb3-a722-0e843fbd5f93",
+      "property_id": "3f4fcae1-1071-4f05-9c95-91544ae92f8b",
+      "process_id": "88c0ed5c-be22-42b7-821d-548e79f2243a",
+      "perspective_id": "8761d0c8-e775-4442-80e5-93cf07a4b104",
+      "strength": 0.76,
+      "confidence": 0.77
+    },
+    {
+      "id": "effdb7f1-49e8-44fa-b9a7-cd36dbb305c4",
+      "property_id": "be6e0942-68f7-4ebf-b5ea-4fde59e59887",
+      "process_id": "689c78d0-e339-4221-b3f6-ee21d1a39d3d",
+      "perspective_id": "286b96f3-0c23-4d99-85d8-f84f506453be",
+      "strength": 0.54,
+      "confidence": 0.98
+    },
+    {
+      "id": "d7823ccb-4ce7-430c-a6c4-87dd94e97f57",
+      "property_id": "228267c1-aeef-4e12-9d82-c77d1374a0b1",
+      "process_id": "58c0f035-a1e2-417b-8980-8e3d21772044",
+      "perspective_id": "b3b1820f-6139-4968-be15-1a93d18a9f32",
+      "strength": 0.59,
+      "confidence": 0.83
+    },
+    {
+      "id": "7dd8f349-aa46-45ca-9724-c4557b4bfdfd",
+      "property_id": "3f4fcae1-1071-4f05-9c95-91544ae92f8b",
+      "process_id": "88c0ed5c-be22-42b7-821d-548e79f2243a",
+      "perspective_id": "6e179e0c-42ab-4182-bf85-c4c48c2e05c5",
+      "strength": 0.92,
+      "confidence": 0.86
+    },
+    {
+      "id": "b7baace5-cc84-4a91-840e-a0391e862959",
+      "property_id": "59a31318-a55b-424e-b0ba-45b6719c2ed9",
+      "process_id": "fe21efb3-bce6-4199-9713-ab4d29e886c7",
+      "perspective_id": "0da87594-9cb0-403c-aac3-92d7cb01e04e",
+      "strength": 0.84,
+      "confidence": 0.94
+    },
+    {
+      "id": "96711461-250f-4439-b98b-c4b8900c9616",
+      "property_id": "027e891a-c838-4b84-8c08-e8721812db3e",
+      "process_id": "1f17fb9b-7e4f-446d-a334-1e132ca9c5df",
+      "perspective_id": "d9b8743a-d2ae-414d-8afd-4bd3e8804013",
+      "strength": 0.67,
+      "confidence": 0.83
+    },
+    {
+      "id": "5b4e903f-247d-446b-85e4-bc620a59a751",
+      "property_id": "443084b8-1179-4fc0-be41-fe3c471b9c1a",
+      "process_id": "9a966db1-5dee-4a6d-ab6f-2426038c84c4",
+      "perspective_id": "5c415799-af9a-4869-b978-33c2b302add3",
+      "strength": 0.76,
+      "confidence": 0.89
+    },
+    {
+      "id": "d3915671-2051-43c2-a7aa-2e6d7c50ae83",
+      "property_id": "718cdce8-5cfe-40fc-ba4a-dfd9cf117cae",
+      "process_id": "60c4461f-e3d0-49d5-98be-d54f73bdbe06",
+      "perspective_id": "b58a5fcb-cd42-4490-8a52-29217c5037f0",
+      "strength": 0.87,
+      "confidence": 0.79
+    },
+    {
+      "id": "3641a364-00fb-4242-89a4-69653e1b5c77",
+      "property_id": "a0d7d802-64e2-4ff0-a72f-160e087b3956",
+      "process_id": "cb768779-7389-4c07-a6d0-7d990b492344",
+      "perspective_id": "f21d7a5a-3f98-4b61-9576-a146c34c2736",
+      "strength": 0.77,
+      "confidence": 0.95
+    },
+    {
+      "id": "1f08dbff-fb04-4d55-b995-a74d3632416c",
+      "property_id": "4aadd845-7983-4633-894e-7f54addc2e40",
+      "process_id": "1f17fb9b-7e4f-446d-a334-1e132ca9c5df",
+      "perspective_id": "f67cd546-1c4b-4ca3-b01a-25d6ea7c1af7",
+      "strength": 0.59,
+      "confidence": 0.9
+    },
+    {
+      "id": "02ad7c7f-8aa2-4a1c-835e-64a456194531",
+      "property_id": "b0f10893-b858-481f-b643-a7a1867dd6bf",
+      "process_id": "b3bda89d-ad1a-4f82-aa0e-acd93ebd44ee",
+      "perspective_id": "52a00eb1-ddc4-4c8d-9dc7-ca63b99ae7f7",
+      "strength": 0.56,
+      "confidence": 0.96
+    },
+    {
+      "id": "ee4f0c26-94a8-442b-bca4-3d0fdf63d361",
+      "property_id": "dfb8bf38-7541-4aa4-a337-a272f8e79d85",
+      "process_id": "276432ec-2682-4744-9e5c-18edaa629209",
+      "perspective_id": "52a00eb1-ddc4-4c8d-9dc7-ca63b99ae7f7",
+      "strength": 0.9,
+      "confidence": 0.79
+    },
+    {
+      "id": "9facc6b7-ad5f-4138-968f-d3ccc87c74f7",
+      "property_id": "43bbdf6b-9e6e-49d1-b39b-8afdc108a5ec",
+      "process_id": "996f0d67-ce74-4379-bee5-13aae30a3c53",
+      "perspective_id": "9795b784-a46b-4192-bdc0-ade4cc9710a6",
+      "strength": 0.66,
+      "confidence": 0.79
+    },
+    {
+      "id": "2df34732-0613-4919-adfe-0c871ad9ccd4",
+      "property_id": "68718748-9a33-4c3d-bfa9-54b1c471850d",
+      "process_id": "096bd1eb-52ba-4bde-8396-56814f8da38b",
+      "perspective_id": "dbe7828e-ca4a-49de-92f8-1d75605360d9",
+      "strength": 0.81,
+      "confidence": 0.83
+    },
+    {
+      "id": "0fbf37ae-3c53-414f-af71-f73adda5ef9b",
+      "property_id": "14afd441-4f3f-4f49-ba55-4d046d1a4895",
+      "process_id": "58c0f035-a1e2-417b-8980-8e3d21772044",
+      "perspective_id": "bf41b8fc-6d69-41af-a949-b6f5ed1eb1de",
+      "strength": 0.88,
+      "confidence": 0.79
+    },
+    {
+      "id": "2ae0d5af-7909-4f47-9134-cf90746f9a44",
+      "property_id": "30f6f873-3deb-4cd5-8df1-b4cf90ce1c1d",
+      "process_id": "aefdef13-a82b-4f69-959b-5e28819e2827",
+      "perspective_id": "6d88f908-5827-4cd8-9aa8-7095faa6e560",
+      "strength": 0.57,
+      "confidence": 0.87
+    },
+    {
+      "id": "522cde94-19bb-4f60-87f5-382568a6dcc9",
+      "property_id": "e7549422-eb5c-4445-a667-426ae5f4e179",
+      "process_id": "2b375b60-c5c8-431f-b1e5-d568a8207c86",
+      "perspective_id": "fb85dcfc-7636-49dd-bdb9-ce1d92ac7619",
+      "strength": 0.84,
+      "confidence": 0.99
+    },
+    {
+      "id": "f74463d2-69d8-4307-9463-b7c80536e43a",
+      "property_id": "2c94cc3f-2db6-48bb-8416-22c017d5621c",
+      "process_id": "f1bdc902-14f3-49fc-bedb-cd3857a39861",
+      "perspective_id": "6e179e0c-42ab-4182-bf85-c4c48c2e05c5",
+      "strength": 0.75,
+      "confidence": 0.79
+    },
+    {
+      "id": "6dba0b1f-3d20-431c-b021-80e48a46e760",
+      "property_id": "9bc69f7c-7b4f-40e8-98e8-1a42b8a600d7",
+      "process_id": "b7ff1d27-b166-4b54-9fde-998f77c427ca",
+      "perspective_id": "fb85dcfc-7636-49dd-bdb9-ce1d92ac7619",
+      "strength": 0.83,
+      "confidence": 0.78
+    },
+    {
+      "id": "a3988ac5-998d-44ff-8160-31a292ed8a8e",
+      "property_id": "718cdce8-5cfe-40fc-ba4a-dfd9cf117cae",
+      "process_id": "2e7f3ce3-3980-4ab8-ba6e-3a8fb21c227e",
+      "perspective_id": "d3d5d2f3-0293-4746-9888-a10288e94419",
+      "strength": 0.7,
+      "confidence": 0.8
+    },
+    {
+      "id": "23527ae1-aa66-4319-8342-2eefce0e3e08",
+      "property_id": "a19d0f67-ffae-4ac4-9565-9d658f01a21b",
+      "process_id": "6ed8be09-1411-4e26-b5fd-e95d7ea85d65",
+      "perspective_id": "f67cd546-1c4b-4ca3-b01a-25d6ea7c1af7",
+      "strength": 0.97,
+      "confidence": 0.95
+    },
+    {
+      "id": "75738877-bc67-40e4-99fe-3855626a5f52",
+      "property_id": "1c86b008-3cb8-4942-bfcd-6f3c3c655288",
+      "process_id": "88c0ed5c-be22-42b7-821d-548e79f2243a",
+      "perspective_id": "b58a5fcb-cd42-4490-8a52-29217c5037f0",
+      "strength": 0.53,
+      "confidence": 0.88
+    },
+    {
+      "id": "10a4782a-d01a-4760-9285-603722a0ba8e",
+      "property_id": "8ac17b7b-8350-405a-8c11-110170fa0c9c",
+      "process_id": "56999c18-4f9c-4a16-81e5-66ae2546b5c2",
+      "perspective_id": "26a788cf-1b25-49e4-ab9c-044002f4c9b1",
+      "strength": 0.92,
+      "confidence": 0.82
+    },
+    {
+      "id": "a3f444ee-b06f-4891-b851-e412170c0823",
+      "property_id": "b0f10893-b858-481f-b643-a7a1867dd6bf",
+      "process_id": "88c0ed5c-be22-42b7-821d-548e79f2243a",
+      "perspective_id": "b58a5fcb-cd42-4490-8a52-29217c5037f0",
+      "strength": 0.76,
+      "confidence": 0.78
+    },
+    {
+      "id": "94baf89d-8f02-4cee-a774-bd230eb6af96",
+      "property_id": "b9cec3c7-8f30-4cbe-b876-2aff71926a98",
+      "process_id": "92639eaa-7233-4f04-bee0-3a6b44d439f0",
+      "perspective_id": "dbe7828e-ca4a-49de-92f8-1d75605360d9",
+      "strength": 0.64,
+      "confidence": 0.72
+    },
+    {
+      "id": "32619b67-7b3d-4f82-91a3-049ae60e64d1",
+      "property_id": "14afd441-4f3f-4f49-ba55-4d046d1a4895",
+      "process_id": "b7ff1d27-b166-4b54-9fde-998f77c427ca",
+      "perspective_id": "6524bd4d-76c6-418b-86f6-c61d081142f3",
+      "strength": 0.99,
+      "confidence": 0.79
+    },
+    {
+      "id": "8d1d64fd-3a61-4101-8689-48fa14da635e",
+      "property_id": "718cdce8-5cfe-40fc-ba4a-dfd9cf117cae",
+      "process_id": "19e07c5c-c554-4b18-8ada-b21ec31cc73d",
+      "perspective_id": "0f7fd021-ea33-4a8d-b032-baf65ea48e5a",
+      "strength": 0.89,
+      "confidence": 0.92
+    },
+    {
+      "id": "0c43fda0-e6ff-4fe5-88b8-987fe200ccac",
+      "property_id": "e7549422-eb5c-4445-a667-426ae5f4e179",
+      "process_id": "2e7f3ce3-3980-4ab8-ba6e-3a8fb21c227e",
+      "perspective_id": "f89aafdc-8b27-4bde-8ac1-3d56787bb7f0",
+      "strength": 0.69,
+      "confidence": 0.83
+    },
+    {
+      "id": "afadea87-c3cd-46a2-8f98-c17c41bcedfc",
+      "property_id": "33700d31-01bb-457b-87b8-a7e8ee497585",
+      "process_id": "d51a3083-55fb-4036-9434-bdea58d973b2",
+      "perspective_id": "5c415799-af9a-4869-b978-33c2b302add3",
+      "strength": 0.74,
+      "confidence": 0.88
+    },
+    {
+      "id": "cb239f6f-2202-4fc4-9e16-c347c25b1047",
+      "property_id": "718cdce8-5cfe-40fc-ba4a-dfd9cf117cae",
+      "process_id": "1b1728ef-869d-40df-83b4-b60d46c59fe8",
+      "perspective_id": "fb85dcfc-7636-49dd-bdb9-ce1d92ac7619",
+      "strength": 0.5,
+      "confidence": 0.9
+    },
+    {
+      "id": "498b8f42-d9fa-4954-9ace-70ac47b6955a",
+      "property_id": "4aadd845-7983-4633-894e-7f54addc2e40",
+      "process_id": "584f534c-999c-4942-8981-b771f89315a3",
+      "perspective_id": "bf41b8fc-6d69-41af-a949-b6f5ed1eb1de",
+      "strength": 0.93,
+      "confidence": 0.77
+    },
+    {
+      "id": "159864bd-5cdc-4f61-b18b-271fc0c38521",
+      "property_id": "8ac17b7b-8350-405a-8c11-110170fa0c9c",
+      "process_id": "689c78d0-e339-4221-b3f6-ee21d1a39d3d",
+      "perspective_id": "8761d0c8-e775-4442-80e5-93cf07a4b104",
+      "strength": 0.89,
+      "confidence": 0.92
+    },
+    {
+      "id": "474220cc-aac8-4f50-b05a-4187d2e5f1bb",
+      "property_id": "1c86b008-3cb8-4942-bfcd-6f3c3c655288",
+      "process_id": "92639eaa-7233-4f04-bee0-3a6b44d439f0",
+      "perspective_id": "0b263a66-fff9-41c4-904d-5d3b60e89e17",
+      "strength": 0.98,
+      "confidence": 0.8
+    },
+    {
+      "id": "34b7ad25-1f81-4798-ab2b-a873ac3ef04a",
+      "property_id": "53d1b0b8-5d0f-412c-8840-d1d8779aa3b5",
+      "process_id": "7d652693-eaa5-4a63-8f58-6b1d0ecb0b1c",
+      "perspective_id": "52a00eb1-ddc4-4c8d-9dc7-ca63b99ae7f7",
+      "strength": 0.71,
+      "confidence": 0.78
+    },
+    {
+      "id": "b137b62c-5bed-4a4b-beec-6acd291339d1",
+      "property_id": "a01bf9b6-d4ff-419c-919d-07670e529875",
+      "process_id": "1ad3aa52-cdff-4f7a-a616-15ca55b7cb3a",
+      "perspective_id": "286b96f3-0c23-4d99-85d8-f84f506453be",
+      "strength": 0.9,
+      "confidence": 0.97
+    },
+    {
+      "id": "d5a98a82-d338-4baa-a028-e9b2075e9fbb",
+      "property_id": "14afd441-4f3f-4f49-ba55-4d046d1a4895",
+      "process_id": "be7ef105-0f9f-4e1e-82d4-07dec9cdb9ce",
+      "perspective_id": "52a00eb1-ddc4-4c8d-9dc7-ca63b99ae7f7",
+      "strength": 0.51,
+      "confidence": 0.98
+    },
+    {
+      "id": "1785fa1b-8941-484e-815e-3e4194612aa9",
+      "property_id": "87bde78a-d624-4185-96fb-1b7842af5e6b",
+      "process_id": "8ff49df7-8cd5-41a2-9dbd-f3873c6d780d",
+      "perspective_id": "6d88f908-5827-4cd8-9aa8-7095faa6e560",
+      "strength": 0.96,
+      "confidence": 0.98
+    },
+    {
+      "id": "f4b96011-a19d-4c5c-bf0f-536c39cfe997",
+      "property_id": "0b2748a2-8686-458e-a89e-1c3f5bb13db9",
+      "process_id": "1131e6dd-9082-4c17-b849-0b426b4770a2",
+      "perspective_id": "f21d7a5a-3f98-4b61-9576-a146c34c2736",
+      "strength": 0.72,
+      "confidence": 0.71
+    },
+    {
+      "id": "74266648-107b-42dd-bc64-b4e9ccce95ec",
+      "property_id": "ddd21e2d-578c-42c0-bffc-39bb049c4188",
+      "process_id": "0d5ccc7c-b06f-49cf-a955-0ff5dc9d9c62",
+      "perspective_id": "d9b8743a-d2ae-414d-8afd-4bd3e8804013",
+      "strength": 0.61,
+      "confidence": 0.99
+    },
+    {
+      "id": "33446a97-6dd2-47f9-a92c-d9755e240d01",
+      "property_id": "14afd441-4f3f-4f49-ba55-4d046d1a4895",
+      "process_id": "584f534c-999c-4942-8981-b771f89315a3",
+      "perspective_id": "286b96f3-0c23-4d99-85d8-f84f506453be",
+      "strength": 0.72,
+      "confidence": 0.71
+    },
+    {
+      "id": "89e407f1-cbea-4296-96b9-8a101f4d7fdf",
+      "property_id": "443084b8-1179-4fc0-be41-fe3c471b9c1a",
+      "process_id": "783d8b82-1c2c-4702-abd6-112c3cf0ff18",
+      "perspective_id": "e626186b-015d-4459-bcab-ce638cadafb8",
+      "strength": 0.67,
+      "confidence": 0.95
+    }
+  ],
+  "metadata": {
+    "count": {
+      "properties": 50,
+      "processes": 50,
+      "perspectives": 45
+    }
+  }
+}
