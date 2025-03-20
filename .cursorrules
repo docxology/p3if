@@ -5,6 +5,7 @@
 /docs/ = Documentation files
 /output/ = Generated output files (visualizations, websites, etc.)
 /tests/ = Test files for the framework
+/examples/ = Example usage and demonstrations
 
 # P3IF framework subdirectories
 /p3if/core/ = Core framework implementation
@@ -31,23 +32,31 @@
 /tests/analysis/ = Tests for analysis tools
 /tests/visualization/ = Tests for visualization components
 /tests/utils/ = Tests for utility functions
+/tests/integration/ = End-to-end and integration tests
 
 # File type conventions
 Documentation = *.md, *.rst, *.txt
 Python Code = *.py
 Configuration = *.json, *.yaml, *.yml
 Web Files = *.html, *.js, *.css
+Data Files = *.csv, *.json, *.npy, *.pickle
 
 # Naming conventions
 Documentation Files = Use descriptive names with lowercase and underscores
 Python Files = Use lowercase and underscores
 Script Files = Use descriptive verbs to indicate action
+Test Files = prefix with test_ followed by the name of the module being tested
+Class Names = CapitalizedWords (PascalCase)
+Function/Method Names = lowercase_with_underscores (snake_case)
+Constants = UPPERCASE_WITH_UNDERSCORES
 
 # Documentation organization
 Main README = README.md at project root
 Module READMEs = README.md in each main module directory
 User Guides = docs/guides/
 API Reference = docs/api/
+Change Log = CHANGELOG.md at project root
+Contributing Guidelines = CONTRIBUTING.md at project root
 
 # -----------------------------------------------------------------------------
 # LLM and Autonomous Agent Guidelines
@@ -59,57 +68,102 @@ Module_Organization = One class per file, following single responsibility princi
 Function_Length = Keep functions under 50 lines, with clear single purpose
 Class_Organization = Properties at top, followed by initialization, public methods, then private methods
 Method_Order = Group related methods together, general to specific
+Import_Order = Standard library, third-party packages, local modules (alphabetically within each group)
+Line_Length = Maximum 88 characters per line (Black formatter standard)
+Whitespace = Use 4 spaces for indentation, no tabs
 
 # Documentation Standards for LLMs
 Docstring_Format = Google-style docstrings with Args, Returns, Raises sections
 Example_Code = Include example usage in module and function docstrings
 Edge_Cases = Document edge cases and limitations explicitly
 Implementation_Notes = Include non-obvious implementation details in docstrings
+Module_Level_Docs = Include module-level docstrings explaining purpose and usage
+Class_Level_Docs = Document class purpose, attributes, and usage patterns
+Versioning_Notes = Include version information for deprecated or changing APIs
 
 # Type Annotations
 Type_Hints = Use Python type hints for all function parameters and return values
 Generics = Use appropriate generics for containers and collections
 Optional_Types = Use Optional[] for parameters that can be None
 Complex_Types = Define TypedDict or custom classes for complex parameter types
+Type_Aliases = Create type aliases for complex or reused types
+Protocol_Classes = Use Protocol classes for structural typing where appropriate
+Type_Comments = Use # type: comments only when type hints are not possible
 
 # Error Handling
 Exception_Hierarchy = Use custom exceptions inheriting from appropriate base exceptions
 Error_Messages = Make error messages specific and actionable
 Validation = Validate inputs at function boundaries
 Fail_Fast = Detect errors as early as possible
+Context_Preservation = Use exception chaining with "raise ... from ..." to preserve context
+Error_Codes = Use standardized error codes for machine-readable error handling
+Recovery_Strategies = Document recovery strategies for specific exceptions
 
 # Testing Guidelines for LLMs
 Test_Coverage = Each function should have tests for nominal case and edge cases
 Parametrized_Tests = Use pytest.mark.parametrize for multiple test cases
 Mock_External = Mock external dependencies and services
 Test_Organization = Tests should mirror the structure of the source code
+Fixtures = Use pytest fixtures for test setup and teardown
+Property_Based_Tests = Use hypothesis for property-based testing when appropriate
+Performance_Tests = Include benchmarks for performance-critical code
+Test_Isolation = Ensure tests are isolated and don't depend on each other
 
 # P3IF Domain-Specific Patterns
 Pattern_Definition = Follow the Property-Process-Perspective pattern structure
 Relationship_Modeling = Model relationships explicitly with strength and confidence attributes
 Visualization_Components = Separate data processing from visualization rendering
 Domain_Boundaries = Clear separation between domain-specific and domain-agnostic code
+Data_Validation = Validate domain data against schema definitions
+Domain_Models = Use clear, consistent domain model representation
+Transformation_Pipelines = Structure data transformations as explicit pipelines
+Cross-Domain_Mapping = Define explicit mappings between domain concepts
 
 # AI and LLM-Generated Code Guidelines
 Generated_Code_Comments = Clearly mark AI-generated code with descriptors
 Explanation_Comments = Include reasoning in comments for complex algorithms
 Alternative_Approaches = Document considered alternatives for non-trivial implementations
 Code_References = Reference sources or inspirations for algorithms or techniques
+Model_Provenance = Document which AI model generated or contributed to code
+Human_Review = Indicate whether AI-generated code has been human-reviewed
+Algorithm_Complexity = Document time and space complexity for algorithms
 
 # Patterns for Interactive Features
 User_Feedback = Provide clear user feedback for long-running operations
 Progressive_Disclosure = Implement progressive disclosure for complex visualizations
 Configurable_Parameters = Make visualization parameters configurable by users
 Responsive_Design = Ensure visualizations are responsive to different screen sizes
+Accessibility = Follow WCAG 2.1 AA standards for accessibility
+Internationalization = Design for internationalization from the start
+State_Management = Clear patterns for managing UI state
+Error_Recovery = Provide user-friendly error recovery mechanisms
 
 # Performance Considerations
 Large_Data = Include handling for large datasets with pagination or streaming
 Optimization_Comments = Document performance optimizations explicitly
 Lazy_Loading = Use lazy loading patterns for resource-intensive operations
 Caching_Strategy = Implement appropriate caching for expensive computations
+Memory_Management = Monitor and optimize memory usage for large datasets
+Asynchronous_Operations = Use async/await for I/O-bound operations
+Parallel_Processing = Implement parallel processing for CPU-bound tasks
+Profiling = Include profiling hooks for performance monitoring
 
 # Autonomy Guidelines
 Self_Diagnosis = Include self-diagnostic capabilities in modules
 Logging_Strategy = Comprehensive logging for autonomous operation
 Recovery_Mechanisms = Design for graceful recovery from failures
-Configuration_Defaults = Sensible defaults with configurable overrides 
+Configuration_Defaults = Sensible defaults with configurable overrides
+Circuit_Breakers = Implement circuit breakers for external dependencies
+Rate_Limiting = Apply rate limiting for external API calls
+Retry_Policies = Define explicit retry policies with backoff strategies
+Health_Checks = Implement health check endpoints for services
+
+# Deployment and DevOps
+Container_Support = Include Dockerfile and container configuration
+CI_CD_Pipeline = Support continuous integration and deployment
+Environment_Variables = Use environment variables for configuration
+Secrets_Management = Separate secrets from code and configuration
+Versioning = Follow semantic versioning for releases
+Dependency_Management = Pin dependencies with specific versions
+Monitoring = Include Prometheus/OpenTelemetry metrics support
+Documentation_Deployment = Automate documentation generation and deployment 
