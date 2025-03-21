@@ -9,9 +9,15 @@ from typing import List, Dict, Any, Optional, Union, Tuple
 import json
 from pathlib import Path
 import os
+import sys
 
-from p3if.core.models import Property, Process, Perspective, Relationship, Pattern
-from p3if.core.framework import P3IFFramework
+# Add the project root to the path if this module is run directly
+if __name__ == "__main__":
+    project_root = Path(__file__).parent.parent
+    sys.path.insert(0, str(project_root))
+
+from core.models import Property, Process, Perspective, Relationship, Pattern
+from core.framework import P3IFFramework
 
 
 class SyntheticDataGenerator:
@@ -39,10 +45,22 @@ class SyntheticDataGenerator:
             domains_dir = module_dir / "domains"
             index_file = domains_dir / "index.json"
             
-            if index_file.exists():
+            if domains_dir.exists() and index_file.exists():
+                self.logger.info(f"Loading domains from {domains_dir}")
                 self.load_domain_index(index_file)
             elif default_data_path.exists():
                 self.load_domain_data(default_data_path)
+            else:
+                # Attempt to find domains in the repo structure
+                project_root = Path(__file__).parent.parent  # Go up to project root
+                domains_dir = project_root / "data" / "domains"
+                index_file = domains_dir / "index.json"
+                
+                if domains_dir.exists() and index_file.exists():
+                    self.logger.info(f"Loading domains from repository at {domains_dir}")
+                    self.load_domain_index(index_file)
+                else:
+                    self.logger.warning(f"No domain data found. Checked: {domains_dir}, {default_data_path}")
     
     def load_domain_index(self, index_path: Union[str, Path]) -> None:
         """
@@ -405,4 +423,20 @@ class SyntheticDataGenerator:
             except ValueError:
                 pass
         
-        self.logger.info(f"Generated {num_connections} cross-domain connections") 
+        self.logger.info(f"Generated {num_connections} cross-domain connections")
+    
+    def generate_domain(self, framework: P3IFFramework, domain_name: str, 
+                        num_relationships: int = 100) -> None:
+        """
+        Generate data for a specific domain.
+        
+        Args:
+            framework: P3IF framework instance
+            domain_name: Name of the domain to generate
+            num_relationships: Number of relationships to generate
+        """
+        return self.generate_for_domain(
+            framework=framework,
+            domain_name=domain_name,
+            num_relationships=num_relationships
+        ) 

@@ -11,9 +11,60 @@ from typing import Dict, List, Any, Union, Optional
 
 import networkx as nx
 
-from p3if.core.framework import P3IFFramework
+from core.framework import P3IFFramework
 
 logger = logging.getLogger(__name__)
+
+
+class DataExporter:
+    """Class for exporting P3IF data to various file formats."""
+    
+    def __init__(self, framework: P3IFFramework):
+        """
+        Initialize the data exporter.
+        
+        Args:
+            framework: P3IFFramework instance to export
+        """
+        self.framework = framework
+    
+    def export_to_json(self, file_path: Union[str, Path]) -> Path:
+        """
+        Export P3IF framework data to a JSON file.
+        
+        Args:
+            file_path: Path where JSON file will be saved
+            
+        Returns:
+            Path to the saved file
+        """
+        return export_to_json(self.framework, file_path)
+    
+    def export_to_csv(self, patterns_file: Union[str, Path], 
+                    relationships_file: Union[str, Path]) -> Dict[str, Path]:
+        """
+        Export P3IF framework data to CSV files.
+        
+        Args:
+            patterns_file: Path where patterns CSV will be saved
+            relationships_file: Path where relationships CSV will be saved
+            
+        Returns:
+            Dictionary with paths to saved files
+        """
+        return export_to_csv(self.framework, patterns_file, relationships_file)
+    
+    def export_to_graphml(self, file_path: Union[str, Path]) -> Path:
+        """
+        Export P3IF framework data to a GraphML file.
+        
+        Args:
+            file_path: Path where GraphML file will be saved
+            
+        Returns:
+            Path to the saved file
+        """
+        return export_to_graphml(self.framework, file_path)
 
 
 def export_to_json(framework: P3IFFramework, file_path: Union[str, Path]) -> Path:

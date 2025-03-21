@@ -1,1 +1,0 @@
-p3if/scripts/generate_visualizations.sh

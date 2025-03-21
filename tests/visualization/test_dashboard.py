@@ -1,14 +1,21 @@
+#!/usr/bin/env python3
 """
-Tests for the P3IF Dashboard Generator.
+Tests for the dashboard generator in the P3IF framework.
 """
-import os
 import unittest
 import tempfile
 from pathlib import Path
+import sys
+import os
 import re
 
-from p3if.visualization.dashboard import DashboardGenerator
-from p3if.utils.config import Config
+# Add the project root to the path
+current_dir = Path(__file__).parent
+project_root = current_dir.parent.parent
+sys.path.insert(0, str(project_root))
+
+from visualization.dashboard import DashboardGenerator
+from utils.config import Config
 from tests.utils import create_test_framework, create_multi_domain_test_framework
 
 

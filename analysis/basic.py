@@ -9,8 +9,8 @@ import pandas as pd
 import numpy as np
 from collections import Counter
 
-from p3if.core.framework import P3IFFramework
-from p3if.core.models import Pattern, Relationship
+from core.framework import P3IFFramework
+from core.models import Pattern, Relationship
 
 
 class BasicAnalyzer:

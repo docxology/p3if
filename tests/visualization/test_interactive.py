@@ -7,8 +7,8 @@ import json
 import tempfile
 from pathlib import Path
 
-from p3if.visualization.interactive import InteractiveVisualizer
-from p3if.utils.config import Config
+from visualization.interactive import InteractiveVisualizer
+from utils.config import Config
 from tests.utils import create_test_framework
 
 

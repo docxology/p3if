@@ -1,0 +1,819 @@
+{% extends "base.html" %}
+
+{% block title %}Network Graph | {{ visualization.title }} | P3IF{% endblock %}
+{% block description %}Explore pattern relationships through an interactive force-directed network graph{% endblock %}
+
+{% block head_extra %}
+<script src="https://cdn.jsdelivr.net/npm/d3@7.6.1/dist/d3.min.js"></script>
+<style>
+    .network-container {
+        position: relative;
+        width: 100%;
+        height: 80vh;
+        overflow: hidden;
+        background: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
+    }
+    
+    #pattern-network {
+        width: 100%;
+        height: 100%;
+    }
+    
+    .controls {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 100;
+        padding: 0.5rem;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 4px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .info-panel {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        z-index: 100;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 4px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        max-width: 300px;
+        display: none;
+    }
+    
+    .legend {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        z-index: 100;
+        padding: 0.5rem;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 4px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .legend-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.25rem;
+    }
+    
+    .legend-color {
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+        border-radius: 3px;
+    }
+    
+    .node {
+        stroke: #fff;
+        stroke-width: 1.5px;
+    }
+    
+    .link {
+        stroke: #999;
+        stroke-opacity: 0.6;
+    }
+    
+    .node text {
+        pointer-events: none;
+        font-size: 10px;
+        fill: #333;
+    }
+    
+    .node-highlight {
+        stroke: #000;
+        stroke-width: 2px;
+    }
+    
+    .tooltip {
+        position: absolute;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 8px;
+        font-size: 12px;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+        max-width: 200px;
+        z-index: 100;
+    }
+    
+    .loading-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="container mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('viz_bp.index') }}">Visualizations</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('viz_bp.show_visualization', output_dir=output_dir) }}">{{ visualization.title }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Network Graph</li>
+        </ol>
+    </nav>
+
+    <div class="row mb-4">
+        <div class="col">
+            <h1>Network Graph</h1>
+            <p class="lead">
+                This interactive network visualization shows relationships between patterns across domains.
+                Each node represents a pattern, and links show similarities or relationships between patterns.
+            </p>
+        </div>
+    </div>
+
+    <div class="network-container">
+        <div id="pattern-network"></div>
+        
+        <div class="controls">
+            <div class="form-group mb-2">
+                <label for="domain-filter">Filter by Domain:</label>
+                <select id="domain-filter" class="form-control form-control-sm">
+                    <option value="all">All Domains</option>
+                    {% for domain in domains %}
+                    <option value="{{ domain.id }}">{{ domain.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="form-group mb-2">
+                <label for="link-threshold">Link Strength:</label>
+                <input type="range" class="form-range" min="0" max="1" step="0.05" value="0.3" id="link-threshold">
+                <small class="d-flex justify-content-between">
+                    <span>All</span>
+                    <span>Strong</span>
+                </small>
+            </div>
+            
+            <div class="form-group mb-2">
+                <label for="node-size">Node Size:</label>
+                <select id="node-size" class="form-control form-control-sm">
+                    <option value="uniform">Uniform</option>
+                    <option value="degree" selected>By Connections</option>
+                    <option value="importance">By Importance</option>
+                </select>
+            </div>
+            
+            <div class="form-check form-switch mb-2">
+                <input class="form-check-input" type="checkbox" id="show-labels" checked>
+                <label class="form-check-label" for="show-labels">Show Labels</label>
+            </div>
+            
+            <div class="form-check form-switch mb-2">
+                <input class="form-check-input" type="checkbox" id="enable-physics" checked>
+                <label class="form-check-label" for="enable-physics">Enable Physics</label>
+            </div>
+            
+            <button id="reset-view" class="btn btn-sm btn-outline-primary mt-2 w-100">Reset View</button>
+        </div>
+        
+        <div class="info-panel" id="pattern-info">
+            <h4 id="pattern-name">Pattern Name</h4>
+            <div id="pattern-domain" class="badge bg-primary mb-2">Domain</div>
+            <div id="pattern-type" class="badge bg-secondary mb-2">Type</div>
+            <p id="pattern-description">Pattern description will appear here when you select a pattern.</p>
+            <div class="small text-muted">Connected Patterns:</div>
+            <div id="connected-patterns" class="mt-1"></div>
+        </div>
+        
+        <div class="legend" id="domain-legend">
+            <div class="small mb-1"><strong>Domains:</strong></div>
+            <!-- Legend items will be dynamically added here -->
+        </div>
+        
+        <div id="graph-tooltip" class="tooltip"></div>
+        
+        <div class="loading-overlay" id="loading">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="mb-0">How to Use This Visualization</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>Drag nodes</strong> to rearrange the network</li>
+                        <li><strong>Hover over a node</strong> to see pattern details</li>
+                        <li><strong>Click a node</strong> to select it and view its connections</li>
+                        <li><strong>Adjust the link threshold</strong> to show only stronger connections</li>
+                        <li><strong>Use the domain filter</strong> to focus on specific domains</li>
+                        <li><strong>Double-click</strong> on empty space to reset the zoom</li>
+                        <li><strong>Mouse wheel</strong> to zoom in and out</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="mb-0">Network Insights</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>Central nodes</strong> with many connections often represent fundamental patterns</li>
+                        <li><strong>Node clusters</strong> indicate related concepts or functions</li>
+                        <li><strong>Bridge nodes</strong> connecting different clusters may represent important abstraction patterns</li>
+                        <li><strong>Isolated nodes</strong> may be unique to a specific domain</li>
+                        <li><strong>Link thickness</strong> indicates strength of the relationship</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dataPath = "{{ url_for('static', filename='output/' + output_dir + '/data/network_data.json') }}";
+    
+    // Set up initial variables
+    let svg, simulation;
+    let nodes = [], links = [];
+    let nodeElements, linkElements, textElements;
+    let selectedNode = null;
+    let width, height;
+    let domainColors = {};
+    let tooltip = d3.select("#graph-tooltip");
+    
+    // Set up zoom behavior
+    const zoom = d3.zoom()
+        .scaleExtent([0.1, 4])
+        .on("zoom", zoomed);
+    
+    // Function to initialize the visualization
+    function initializeGraph() {
+        const container = document.getElementById('pattern-network');
+        width = container.clientWidth;
+        height = container.clientHeight;
+        
+        // Create SVG element
+        svg = d3.select("#pattern-network")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .call(zoom);
+        
+        // Create a group to hold all elements for zooming
+        const g = svg.append("g")
+            .attr("class", "graph-container");
+        
+        // Create arrow marker for directed links
+        svg.append("defs").append("marker")
+            .attr("id", "arrowhead")
+            .attr("viewBox", "0 -5 10 10")
+            .attr("refX", 15)
+            .attr("refY", 0)
+            .attr("orient", "auto")
+            .attr("markerWidth", 6)
+            .attr("markerHeight", 6)
+            .append("path")
+            .attr("d", "M0,-5L10,0L0,5")
+            .attr("fill", "#999");
+        
+        // Initialize force simulation
+        simulation = d3.forceSimulation()
+            .force("link", d3.forceLink().id(d => d.id).distance(100))
+            .force("charge", d3.forceManyBody().strength(-300))
+            .force("center", d3.forceCenter(width / 2, height / 2))
+            .force("collide", d3.forceCollide().radius(d => d.radius * 1.2));
+        
+        // Create link elements
+        linkElements = g.append("g")
+            .attr("class", "links")
+            .selectAll("line");
+        
+        // Create node elements
+        nodeElements = g.append("g")
+            .attr("class", "nodes")
+            .selectAll("circle");
+        
+        // Create text elements
+        textElements = g.append("g")
+            .attr("class", "texts")
+            .selectAll("text");
+        
+        // Load data and create visualization
+        loadData();
+        
+        // Add event listeners
+        window.addEventListener('resize', onWindowResize);
+        document.getElementById('domain-filter').addEventListener('change', updateFilters);
+        document.getElementById('link-threshold').addEventListener('input', updateLinkThreshold);
+        document.getElementById('node-size').addEventListener('change', updateNodeSize);
+        document.getElementById('show-labels').addEventListener('change', toggleLabels);
+        document.getElementById('enable-physics').addEventListener('change', togglePhysics);
+        document.getElementById('reset-view').addEventListener('click', resetView);
+    }
+    
+    // Function to handle zooming
+    function zoomed(event) {
+        d3.select(".graph-container").attr("transform", event.transform);
+    }
+    
+    // Load network data from JSON
+    function loadData() {
+        fetch(dataPath)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                processData(data);
+                updateVisualization();
+                document.getElementById('loading').style.display = 'none';
+            })
+            .catch(error => {
+                console.error('Error loading data:', error);
+                document.getElementById('loading').innerHTML = `
+                    <div class="alert alert-danger">
+                        <h4>Error Loading Visualization</h4>
+                        <p>${error.message}</p>
+                        <p>Try regenerating the visualization or check the console for details.</p>
+                    </div>
+                `;
+            });
+    }
+    
+    // Process the loaded data
+    function processData(data) {
+        nodes = data.nodes;
+        links = data.links;
+        
+        // Generate domain colors
+        const uniqueDomains = [...new Set(nodes.map(node => node.domain))];
+        const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+        
+        uniqueDomains.forEach((domain, i) => {
+            domainColors[domain] = colorScale(i);
+        });
+        
+        // Set node radius based on importance or degree
+        nodes.forEach(node => {
+            node.radius = calculateNodeRadius(node);
+            node.visible = true;
+        });
+        
+        // Set link properties
+        links.forEach(link => {
+            link.visible = link.weight >= 0.3;
+        });
+        
+        // Create domain legend
+        createLegend(uniqueDomains);
+    }
+    
+    // Calculate node radius based on selected mode
+    function calculateNodeRadius(node) {
+        const sizeMode = document.getElementById('node-size').value;
+        
+        if (sizeMode === 'uniform') {
+            return 8;
+        } else if (sizeMode === 'importance') {
+            return 5 + (node.importance || 0.5) * 10;
+        } else { // degree
+            // This will be updated after links are processed
+            return 8;
+        }
+    }
+    
+    // Update node sizes based on number of connections (degree)
+    function updateNodeSizesByDegree() {
+        if (document.getElementById('node-size').value === 'degree') {
+            // Count visible connections for each node
+            const nodeDegrees = {};
+            
+            nodes.forEach(node => {
+                nodeDegrees[node.id] = 0;
+            });
+            
+            links.forEach(link => {
+                if (link.visible) {
+                    nodeDegrees[link.source.id || link.source] += 1;
+                    nodeDegrees[link.target.id || link.target] += 1;
+                }
+            });
+            
+            // Find max degree
+            const maxDegree = Math.max(1, ...Object.values(nodeDegrees));
+            
+            // Update node radii
+            nodes.forEach(node => {
+                const degree = nodeDegrees[node.id];
+                node.radius = 5 + (degree / maxDegree) * 10;
+            });
+            
+            // Update visual representation
+            if (nodeElements) {
+                nodeElements.attr("r", d => d.radius);
+            }
+            
+            // Update simulation
+            if (simulation) {
+                simulation.force("collide", d3.forceCollide().radius(d => d.radius * 1.2));
+                simulation.alpha(0.3).restart();
+            }
+        }
+    }
+    
+    // Create domain legend
+    function createLegend(domains) {
+        const legendContainer = document.getElementById('domain-legend');
+        
+        // Clear existing legend items
+        while (legendContainer.childElementCount > 1) {
+            legendContainer.removeChild(legendContainer.lastChild);
+        }
+        
+        // Add legend items for each domain
+        domains.forEach(domain => {
+            const domainNode = nodes.find(n => n.domain === domain);
+            const domainName = domainNode ? (domainNode.domainName || domain) : domain;
+            
+            const legendItem = document.createElement('div');
+            legendItem.className = 'legend-item';
+            
+            const colorBox = document.createElement('div');
+            colorBox.className = 'legend-color';
+            colorBox.style.backgroundColor = domainColors[domain];
+            
+            const label = document.createElement('div');
+            label.className = 'legend-label small';
+            label.textContent = domainName;
+            
+            legendItem.appendChild(colorBox);
+            legendItem.appendChild(label);
+            legendContainer.appendChild(legendItem);
+        });
+    }
+    
+    // Update the visualization with current data
+    function updateVisualization() {
+        // Filter visible links based on threshold
+        const threshold = parseFloat(document.getElementById('link-threshold').value);
+        links.forEach(link => {
+            link.visible = link.weight >= threshold;
+        });
+        
+        // Create filtered arrays for rendering
+        const visibleLinks = links.filter(link => link.visible);
+        const visibleNodes = nodes.filter(node => node.visible);
+        
+        // Update links
+        linkElements = linkElements.data(visibleLinks, d => `${d.source.id || d.source}-${d.target.id || d.target}`);
+        
+        linkElements.exit().remove();
+        
+        const linkEnter = linkElements.enter()
+            .append("line")
+            .attr("class", "link")
+            .attr("stroke-width", d => Math.max(1, d.weight * 5));
+            
+        linkElements = linkEnter.merge(linkElements);
+        
+        // Update nodes
+        nodeElements = nodeElements.data(visibleNodes, d => d.id);
+        
+        nodeElements.exit().remove();
+        
+        const nodeEnter = nodeElements.enter()
+            .append("circle")
+            .attr("class", "node")
+            .attr("r", d => d.radius)
+            .attr("fill", d => domainColors[d.domain])
+            .call(d3.drag()
+                .on("start", dragstarted)
+                .on("drag", dragged)
+                .on("end", dragended))
+            .on("mouseover", showTooltip)
+            .on("mouseout", hideTooltip)
+            .on("click", selectNode);
+            
+        nodeElements = nodeEnter.merge(nodeElements);
+        
+        // Update text labels
+        textElements = textElements.data(visibleNodes, d => d.id);
+        
+        textElements.exit().remove();
+        
+        const textEnter = textElements.enter()
+            .append("text")
+            .text(d => d.name)
+            .attr("font-size", 10)
+            .attr("dx", d => d.radius + 5)
+            .attr("dy", 4);
+            
+        textElements = textEnter.merge(textElements);
+        
+        // Toggle label visibility based on checkbox
+        toggleLabels();
+            
+        // Update node sizes by degree if that option is selected
+        updateNodeSizesByDegree();
+        
+        // Update and restart simulation
+        simulation.nodes(visibleNodes).on("tick", ticked);
+        simulation.force("link").links(visibleLinks);
+        simulation.alpha(0.3).restart();
+    }
+    
+    // Handle simulation tick updates
+    function ticked() {
+        linkElements
+            .attr("x1", d => d.source.x)
+            .attr("y1", d => d.source.y)
+            .attr("x2", d => d.target.x)
+            .attr("y2", d => d.target.y);
+            
+        nodeElements
+            .attr("cx", d => d.x)
+            .attr("cy", d => d.y);
+            
+        textElements
+            .attr("x", d => d.x)
+            .attr("y", d => d.y);
+    }
+    
+    // Show tooltip with node information
+    function showTooltip(event, d) {
+        tooltip
+            .style("left", (event.pageX + 10) + "px")
+            .style("top", (event.pageY - 10) + "px")
+            .style("opacity", 1)
+            .html(`
+                <strong>${d.name}</strong><br>
+                <span class="text-muted">${d.domainName || d.domain}</span><br>
+                ${d.type ? `<span class="badge bg-secondary">${d.type}</span><br>` : ''}
+                ${d.description ? d.description.substring(0, 100) + (d.description.length > 100 ? '...' : '') : 'No description available'}
+            `);
+    }
+    
+    // Hide tooltip
+    function hideTooltip() {
+        tooltip.style("opacity", 0);
+    }
+    
+    // Select a node
+    function selectNode(event, d) {
+        // Prevent event from bubbling up to the SVG
+        event.stopPropagation();
+        
+        // Reset previous selection
+        if (selectedNode) {
+            d3.selectAll(".node-highlight").classed("node-highlight", false);
+            d3.selectAll(".link-highlight").classed("link-highlight", false)
+                .attr("stroke", "#999");
+        }
+        
+        // Set new selection
+        selectedNode = d;
+        d3.select(this).classed("node-highlight", true);
+        
+        // Find connected nodes and highlight them
+        const connectedLinks = links.filter(link => 
+            (link.source.id === d.id || link.source === d.id) || 
+            (link.target.id === d.id || link.target === d.id)
+        );
+        
+        const connectedNodeIds = new Set();
+        connectedLinks.forEach(link => {
+            const sourceId = link.source.id || link.source;
+            const targetId = link.target.id || link.target;
+            if (sourceId !== d.id) connectedNodeIds.add(sourceId);
+            if (targetId !== d.id) connectedNodeIds.add(targetId);
+        });
+        
+        // Highlight connected nodes
+        nodeElements.filter(node => connectedNodeIds.has(node.id))
+            .classed("node-highlight", true);
+        
+        // Highlight connected links
+        linkElements.filter(link => 
+            (link.source.id === d.id || link.source === d.id) || 
+            (link.target.id === d.id || link.target === d.id)
+        )
+        .classed("link-highlight", true)
+        .attr("stroke", "#333");
+        
+        // Update info panel
+        const infoPanel = document.getElementById('pattern-info');
+        infoPanel.style.display = 'block';
+        
+        document.getElementById('pattern-name').textContent = d.name;
+        document.getElementById('pattern-domain').textContent = d.domainName || d.domain;
+        document.getElementById('pattern-domain').style.backgroundColor = domainColors[d.domain];
+        document.getElementById('pattern-type').textContent = d.type || 'Unspecified';
+        document.getElementById('pattern-description').textContent = d.description || 'No description available.';
+        
+        // Find connected patterns
+        const connectedPatternsContainer = document.getElementById('connected-patterns');
+        connectedPatternsContainer.innerHTML = '';
+        
+        if (connectedLinks.length > 0) {
+            connectedLinks
+                .sort((a, b) => b.weight - a.weight)
+                .forEach(link => {
+                    const connectedId = link.source.id === d.id || link.source === d.id 
+                        ? (link.target.id || link.target) 
+                        : (link.source.id || link.source);
+                    
+                    const connectedNode = nodes.find(n => n.id === connectedId);
+                    
+                    if (connectedNode) {
+                        const connectedElem = document.createElement('div');
+                        connectedElem.className = 'badge bg-light text-dark me-1 mb-1';
+                        connectedElem.textContent = connectedNode.name;
+                        connectedElem.style.borderLeft = `3px solid ${domainColors[connectedNode.domain]}`;
+                        connectedElem.title = `Strength: ${Math.round(link.weight * 100)}%`;
+                        connectedElem.style.cursor = 'pointer';
+                        
+                        connectedElem.addEventListener('click', (e) => {
+                            e.preventDefault();
+                            const connectedNodeElement = nodeElements.filter(n => n.id === connectedId).node();
+                            if (connectedNodeElement) {
+                                const event = { stopPropagation: () => {} };
+                                selectNode.call(connectedNodeElement, event, connectedNode);
+                            }
+                        });
+                        
+                        connectedPatternsContainer.appendChild(connectedElem);
+                    }
+                });
+        } else {
+            connectedPatternsContainer.textContent = 'No connections found.';
+        }
+    }
+    
+    // Reset node selection
+    function resetSelection() {
+        if (selectedNode) {
+            d3.selectAll(".node-highlight").classed("node-highlight", false);
+            d3.selectAll(".link-highlight").classed("link-highlight", false)
+                .attr("stroke", "#999");
+            selectedNode = null;
+            
+            document.getElementById('pattern-info').style.display = 'none';
+        }
+    }
+    
+    // Handle drag start event
+    function dragstarted(event, d) {
+        if (!event.active) simulation.alphaTarget(0.3).restart();
+        d.fx = d.x;
+        d.fy = d.y;
+    }
+    
+    // Handle drag event
+    function dragged(event, d) {
+        d.fx = event.x;
+        d.fy = event.y;
+    }
+    
+    // Handle drag end event
+    function dragended(event, d) {
+        if (!event.active) simulation.alphaTarget(0);
+        if (!document.getElementById('enable-physics').checked) {
+            d.fx = event.x;
+            d.fy = event.y;
+        } else {
+            d.fx = null;
+            d.fy = null;
+        }
+    }
+    
+    // Update filters based on user selection
+    function updateFilters() {
+        const domainFilter = document.getElementById('domain-filter').value;
+        
+        // Update node visibility
+        nodes.forEach(node => {
+            node.visible = domainFilter === 'all' || node.domain === domainFilter;
+        });
+        
+        // Reset selection
+        resetSelection();
+        
+        // Update visualization
+        updateVisualization();
+    }
+    
+    // Update link threshold
+    function updateLinkThreshold() {
+        updateVisualization();
+    }
+    
+    // Update node size based on selected mode
+    function updateNodeSize() {
+        nodes.forEach(node => {
+            node.radius = calculateNodeRadius(node);
+        });
+        
+        updateNodeSizesByDegree();
+        updateVisualization();
+    }
+    
+    // Toggle label visibility
+    function toggleLabels() {
+        const showLabels = document.getElementById('show-labels').checked;
+        textElements.style("visibility", showLabels ? "visible" : "hidden");
+    }
+    
+    // Toggle physics simulation
+    function togglePhysics() {
+        const enablePhysics = document.getElementById('enable-physics').checked;
+        
+        if (enablePhysics) {
+            // Release all fixed positions
+            nodes.forEach(node => {
+                node.fx = null;
+                node.fy = null;
+            });
+            
+            // Restart simulation
+            simulation.alpha(0.3).restart();
+        } else {
+            // Fix all nodes at their current positions
+            nodes.forEach(node => {
+                node.fx = node.x;
+                node.fy = node.y;
+            });
+        }
+    }
+    
+    // Reset view to center
+    function resetView() {
+        // Reset zoom
+        svg.transition()
+            .duration(750)
+            .call(zoom.transform, d3.zoomIdentity);
+        
+        // Reset selection
+        resetSelection();
+        
+        // If physics is enabled, recenter the graph
+        if (document.getElementById('enable-physics').checked) {
+            // Release fixed positions
+            nodes.forEach(node => {
+                node.fx = null;
+                node.fy = null;
+            });
+            
+            // Update center force and restart
+            simulation.force("center", d3.forceCenter(width / 2, height / 2))
+                .alpha(0.3).restart();
+        }
+    }
+    
+    // Handle window resize
+    function onWindowResize() {
+        const container = document.getElementById('pattern-network');
+        width = container.clientWidth;
+        height = container.clientHeight;
+        
+        svg.attr("width", width)
+            .attr("height", height);
+            
+        simulation.force("center", d3.forceCenter(width / 2, height / 2))
+            .alpha(0.3).restart();
+    }
+    
+    // Initialize the graph on page load
+    initializeGraph();
+    
+    // Add background click handler to deselect nodes
+    svg.on("click", function(event) {
+        if (event.target === this) {
+            resetSelection();
+        }
+    });
+});
+</script>
+{% endblock %} 

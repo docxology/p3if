@@ -11,8 +11,8 @@ from pathlib import Path
 import re
 from bs4 import BeautifulSoup
 
-from p3if.visualization.portal import VisualizationPortal
-from p3if.utils.config import Config
+from visualization.portal import VisualizationPortal
+from utils.config import Config
 from tests.utils import (
     create_test_framework,
     create_multi_domain_test_framework,

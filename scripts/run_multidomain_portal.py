@@ -12,9 +12,16 @@ import tempfile
 import logging
 import argparse
 from pathlib import Path
+from typing import Optional, List
+
+# Add the project root to the path
+current_dir = Path(__file__).parent
+project_root = current_dir.parent
+sys.path.insert(0, str(project_root))
+
 # Only use SyntheticDataGenerator
-from p3if.data.synthetic import SyntheticDataGenerator
-from p3if.visualization.portal import VisualizationPortal
+from data.synthetic import SyntheticDataGenerator
+from visualization.portal import VisualizationPortal
 
 # Configure logging
 logging.basicConfig(
@@ -24,93 +31,116 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-# Add the project root to the path
-current_dir = Path(__file__).parent
-project_root = current_dir.parent.parent
-sys.path.insert(0, str(project_root))
+from core.framework import P3IFFramework
+from utils.config import Config
+from visualization.portal import VisualizationPortal
+from data.synthetic import SyntheticDataGenerator
 
-from p3if.core.framework import P3IFFramework
-from p3if.utils.config import Config
+# Import domain functionality 
+from data.domains import DomainManager
 
-
-def run_multidomain_portal(domains=None, output_dir=None, open_browser=True, 
-                         relationships_per_domain=50, cross_domain_connections=20):
+def run_multidomain_portal(
+    domain_names: List[str],
+    output_dir: Optional[str] = None,
+    num_relationships_per_domain: int = 20,
+    num_cross_domain_relationships: int = 10,
+    enable_visualizations: bool = True,
+    openai_api_key: Optional[str] = None,
+) -> None:
     """
-    Run the P3IF portal with multiple domains.
-    
+    Generate a multi-domain portal.
+
     Args:
-        domains: List of domain names to include (if None, uses all available domains)
-        output_dir: Directory to save the portal files (if None, uses a temp directory)
-        open_browser: Whether to open the browser automatically
-        relationships_per_domain: Number of relationships to generate per domain
-        cross_domain_connections: Number of cross-domain connections to generate
-        
-    Returns:
-        Path to the generated portal HTML file
+        domain_names: List of domain names
+        output_dir: Output directory
+        num_relationships_per_domain: Number of relationships to generate per domain
+        num_cross_domain_relationships: Number of cross-domain relationships to generate
+        enable_visualizations: Whether to generate visualizations
+        openai_api_key: OpenAI API key
     """
-    # Create output directory if needed
-    if output_dir:
-        output_dir = Path(output_dir)
-        os.makedirs(output_dir, exist_ok=True)
-    else:
-        # Create a temporary directory
-        temp_dir = tempfile.TemporaryDirectory()
-        output_dir = Path(temp_dir.name)
-    
-    # Create framework
+    # Set OpenAI API key
+    if openai_api_key:
+        os.environ["OPENAI_API_KEY"] = openai_api_key
+
+    # Initialize framework
     framework = P3IFFramework()
+    config = Config()
     
-    # Create data generator
+    # Load domains using SyntheticDataGenerator
     generator = SyntheticDataGenerator()
-    
-    # Get available domains
     available_domains = generator.get_available_domains()
+    
     logger.info(f"Available domains: {available_domains}")
     
-    # Filter domains if specified
-    if domains:
-        # Convert to list if it's a comma-separated string
-        if isinstance(domains, str):
-            domains = [d.strip() for d in domains.split(",")]
-        
-        # Verify domains exist
-        domains = [d for d in domains if d in available_domains]
-        if not domains:
-            logger.warning("None of the specified domains were found. Using all available domains.")
-            domains = available_domains
+    # Filter to requested domains
+    domains_to_use = []
+    for domain_name in domain_names:
+        if domain_name in available_domains:
+            domains_to_use.append(domain_name)
+        else:
+            logger.warning(f"Domain not found: {domain_name}")
+    
+    if not domains_to_use:
+        logger.error("No valid domains specified")
+        return
+    
+    # Set up output path correctly within the repository
+    project_root = Path(__file__).parent.parent  # Two levels up from this script
+    
+    if output_dir is None:
+        # Default to output/portal if no output_dir specified
+        output_path = project_root / "output" / "portal"
     else:
-        domains = available_domains
+        # Handle both absolute and relative paths
+        output_path = Path(output_dir)
+        # If the path is absolute, make it relative to the project root
+        if output_path.is_absolute():
+            try:
+                # Try to make it relative to the project root
+                output_path = output_path.relative_to(project_root)
+                output_path = project_root / output_path
+            except ValueError:
+                # If the path is outside the project, place it in output/custom
+                logging.warning(f"Output path {output_path} is outside the project. Using output/custom instead.")
+                output_path = project_root / "output" / "custom"
+        else:
+            # It's already relative, ensure it's relative to project root
+            output_path = project_root / output_path
     
-    # Generate data for selected domains
-    logger.info(f"Generating data for domains: {domains}")
-    generator.generate_multi_domain(
-        framework=framework,
-        domain_names=domains,
-        relationships_per_domain=relationships_per_domain
-    )
+    # Ensure the output directory exists
+    logging.info(f"Creating output directory: {output_path}")
+    os.makedirs(output_path, exist_ok=True)
     
-    # Generate cross-domain connections
-    if len(domains) > 1 and cross_domain_connections > 0:
-        logger.info(f"Generating {cross_domain_connections} cross-domain connections")
-        generator.generate_cross_domain_connections(
+    # Generate data for each domain
+    for domain in domains_to_use:
+        logger.info(f"Generating data for domain: {domain}")
+        generator.generate_domain(
             framework=framework,
-            num_connections=cross_domain_connections
+            domain_name=domain,
+            num_relationships=num_relationships_per_domain
         )
     
-    # Prepare datasets for dropdown
+    # Generate cross-domain connections
+    if len(domains_to_use) > 1 and num_cross_domain_relationships > 0:
+        logger.info(f"Generating {num_cross_domain_relationships} cross-domain connections")
+        generator.generate_cross_domain_connections(
+            framework=framework,
+            num_connections=num_cross_domain_relationships
+        )
+    
+    # Prepare dataset information for portal
     datasets = []
-    for domain in domains:
-        domain_info = generator.get_domain_info(domain)
+    for domain in domains_to_use:
         datasets.append({
-            "id": domain_info.get("id", domain.lower().replace(" ", "_")),
+            "id": domain.lower().replace(" ", "_"),
             "name": domain
         })
     
     # Create visualization portal
-    portal = VisualizationPortal(framework, Config())
+    portal = VisualizationPortal(framework, config)
     
     # Generate portal
-    output_file = output_dir / "index.html"
+    output_file = output_path / "index.html"
     portal.generate_portal(
         output_file=output_file,
         title="P3IF Multi-Domain Portal",
@@ -124,38 +154,35 @@ def run_multidomain_portal(domains=None, output_dir=None, open_browser=True,
         include_data_loading_script=True,
         include_export_buttons=True
     )
-    
-    logger.info(f"Portal generated at {output_file}")
-    
-    # Open in browser if requested
-    if open_browser:
-        portal_url = f"file://{output_file.absolute()}"
-        logger.info(f"Opening portal in browser: {portal_url}")
-        webbrowser.open(portal_url)
-    
-    return output_file
 
+    logging.info(f"Portal generated at {output_file}")
 
 def main():
-    # Get project root directory
-    project_root = Path(__file__).parent.parent.parent
-    output_dir = project_root / 'output'
-    output_dir.mkdir(parents=True, exist_ok=True)
+    """Command-line interface for running the portal."""
+    parser = argparse.ArgumentParser(description="Generate a P3IF multi-domain portal")
+    parser.add_argument("--domains", type=str, help="Comma-separated list of domain names")
+    parser.add_argument("--output_dir", type=str, help="Output directory for the portal")
+    parser.add_argument("--num_relationships_per_domain", type=int, default=20, 
+                      help="Number of relationships to generate per domain")
+    parser.add_argument("--num_cross_domain_relationships", type=int, default=10,
+                      help="Number of cross-domain relationships to generate")
+    parser.add_argument("--enable_visualizations", type=bool, default=True,
+                      help="Whether to generate visualizations")
+    args = parser.parse_args()
     
-    # Create portal output directory
-    portal_dir = output_dir / 'portal'
-    portal_dir.mkdir(parents=True, exist_ok=True)
+    if args.domains:
+        domains = [d.strip() for d in args.domains.split(',')]
+    else:
+        # Default to a couple of interesting domains
+        domains = ["Cybersecurity", "MachineLearning"]
     
-    # Run the multi-domain portal
     run_multidomain_portal(
-        output_dir=portal_dir,
-        open_browser=False,  # Don't open browser in build process
-        relationships_per_domain=50,
-        cross_domain_connections=20
+        domain_names=domains,
+        output_dir=args.output_dir,
+        num_relationships_per_domain=args.num_relationships_per_domain,
+        num_cross_domain_relationships=args.num_cross_domain_relationships,
+        enable_visualizations=args.enable_visualizations
     )
-    
-    logger.info(f"Generated visualization portal at {portal_dir}/index.html")
-
 
 if __name__ == "__main__":
     main() 

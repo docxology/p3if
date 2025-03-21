@@ -13,6 +13,10 @@ The test suite is designed to be run using the run_visualization_tests.py script
 or via a standard test runner like pytest.
 """
 
+# Configure matplotlib to use the non-interactive Agg backend to prevent popups during tests
+import matplotlib
+matplotlib.use('Agg')
+
 from tests.visualization.test_interactive import TestInteractiveVisualizer
 from tests.visualization.test_portal import TestVisualizationPortal
 from tests.visualization.test_dashboard import TestDashboardGenerator

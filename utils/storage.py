@@ -13,7 +13,7 @@ from typing import Dict, List, Optional, Any, Union
 from datetime import datetime
 from pathlib import Path
 
-from p3if.core.models import Pattern, Relationship
+from core.models import Pattern, Relationship
 
 
 class StorageInterface(ABC):
@@ -103,16 +103,16 @@ class JSONStorage(StorageInterface):
         if pattern_data:
             pattern_type = pattern_data.get("type", "")
             if pattern_type == "property":
-                from p3if.core.models import Property
+                from core.models import Property
                 return Property(**pattern_data)
             elif pattern_type == "process":
-                from p3if.core.models import Process
+                from core.models import Process
                 return Process(**pattern_data)
             elif pattern_type == "perspective":
-                from p3if.core.models import Perspective
+                from core.models import Perspective
                 return Perspective(**pattern_data)
             else:
-                from p3if.core.models import Pattern
+                from core.models import Pattern
                 return Pattern(**pattern_data)
         return None
     
@@ -143,7 +143,7 @@ class JSONStorage(StorageInterface):
         """Retrieve a relationship by ID."""
         rel_data = self._data["relationships"].get(relationship_id)
         if rel_data:
-            from p3if.core.models import Relationship
+            from core.models import Relationship
             return Relationship(**rel_data)
         return None
     
@@ -266,16 +266,16 @@ class SQLiteStorage(StorageInterface):
             # Create appropriate pattern type
             pattern_type = pattern_data.get('type', '')
             if pattern_type == 'property':
-                from p3if.core.models import Property
+                from core.models import Property
                 return Property(**pattern_data)
             elif pattern_type == 'process':
-                from p3if.core.models import Process
+                from core.models import Process
                 return Process(**pattern_data)
             elif pattern_type == 'perspective':
-                from p3if.core.models import Perspective
+                from core.models import Perspective
                 return Perspective(**pattern_data)
             else:
-                from p3if.core.models import Pattern
+                from core.models import Pattern
                 return Pattern(**pattern_data)
         
         return None
@@ -345,7 +345,7 @@ class SQLiteStorage(StorageInterface):
             rel_data['created_at'] = datetime.fromisoformat(rel_data['created_at'])
             rel_data['updated_at'] = datetime.fromisoformat(rel_data['updated_at'])
             
-            from p3if.core.models import Relationship
+            from core.models import Relationship
             return Relationship(**rel_data)
         
         return None

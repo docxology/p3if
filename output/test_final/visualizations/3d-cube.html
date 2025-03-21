@@ -1,0 +1,262 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>P3IF 3D Cube</title>
+            <style>
+                body { 
+                    margin: 0;
+                    overflow: hidden;
+                    font-family: Arial, sans-serif;
+                }
+                #info {
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 10px;
+                    border-radius: 5px;
+                    max-width: 300px;
+                    z-index: 100;
+                }
+                #canvas-container {
+                    width: 100%;
+                    height: 100vh;
+                }
+                #legend {
+                    position: absolute;
+                    bottom: 20px;
+                    right: 20px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 10px;
+                    border-radius: 5px;
+                    z-index: 100;
+                }
+                .axis-label {
+                    font-weight: bold;
+                    margin-bottom: 5px;
+                }
+                .property-color { color: #1f77b4; }
+                .process-color { color: #ff7f0e; }
+                .perspective-color { color: #2ca02c; }
+            </style>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+        </head>
+        <body>
+            <div id="info">
+                <h2>P3IF 3D Cube</h2>
+                <p>This visualization represents the P3IF framework as a 3D cube with three dimensions:</p>
+                <p><span class="property-color">X-axis: Properties</span></p>
+                <p><span class="process-color">Y-axis: Processes</span></p>
+                <p><span class="perspective-color">Z-axis: Perspectives</span></p>
+                <p>Each point in the cube represents a relationship between specific property, process, and perspective.</p>
+                <p>Click and drag to rotate. Scroll to zoom. Right-click and drag to pan.</p>
+                <div id="selection-info"></div>
+            </div>
+            
+            <div id="canvas-container"></div>
+            
+            <div id="legend">
+                <div class="axis-label property-color">X-axis: Properties</div>
+                <div class="axis-label process-color">Y-axis: Processes</div>
+                <div class="axis-label perspective-color">Z-axis: Perspectives</div>
+                <div>Point size indicates relationship strength</div>
+            </div>
+            
+            
+            
+            <script>
+                // P3IF data
+                const p3ifData = {"dimensions": {"property": [{"id": "10bbad73-d3d9-4d9a-95e7-89bca7ee6404", "name": "Machine Learning", "domain": "ArtificialIntelligence"}, {"id": "b8bf9e0d-b340-4c34-b2cd-74701b3d2e59", "name": "Neural Networks", "domain": "ArtificialIntelligence"}, {"id": "c2d4efe7-dece-4b97-b95a-f35960ccbf0a", "name": "Natural Language Processing", "domain": "ArtificialIntelligence"}, {"id": "d0d6b6f9-a497-4251-85ce-a372018493ff", "name": "Computer Vision", "domain": "ArtificialIntelligence"}, {"id": "e8cd0c4a-6d3d-4ec0-8f89-78513f6f5299", "name": "Robotics", "domain": "ArtificialIntelligence"}, {"id": "330df672-1235-47f9-a96d-ac5cc0c4e5c5", "name": "Expert Systems", "domain": "ArtificialIntelligence"}, {"id": "df4c111a-0c96-412c-bc43-50cedb669030", "name": "Reinforcement Learning", "domain": "ArtificialIntelligence"}, {"id": "5408dce4-87db-4ca9-b4f8-775c9af2b2d4", "name": "Explainable AI", "domain": "ArtificialIntelligence"}, {"id": "17742542-b427-4021-8cd8-b16515bf9f9f", "name": "Ethical AI", "domain": "ArtificialIntelligence"}, {"id": "d52e97d9-05af-4092-933e-9546657d29d9", "name": "AI Governance", "domain": "ArtificialIntelligence"}, {"id": "fb009a84-6196-487d-986a-c63eafc50359", "name": "Data Privacy", "domain": "ArtificialIntelligence"}, {"id": "a81aebfd-c31e-4e35-bd5c-133a2fbc3330", "name": "AI Bias", "domain": "ArtificialIntelligence"}, {"id": "e322e299-df5b-43fd-8baa-497c9d7c1204", "name": "AI Safety", "domain": "ArtificialIntelligence"}, {"id": "dcb268c8-6128-4255-bb05-ae50c5a5e62d", "name": "Quantum AI", "domain": "ArtificialIntelligence"}, {"id": "4d14be6a-d6ca-4bba-8d1b-087491db76b4", "name": "Edge AI", "domain": "ArtificialIntelligence"}, {"id": "cbe77d21-7656-4439-83c1-63c6782c56d8", "name": "Federated Learning", "domain": "ArtificialIntelligence"}, {"id": "05d3ddb2-972e-480c-9f3b-08662b32490d", "name": "Transfer Learning", "domain": "ArtificialIntelligence"}, {"id": "1113f602-b98f-4b90-bf9d-22ebe96eb056", "name": "Generative AI", "domain": "ArtificialIntelligence"}, {"id": "1acb6caf-c573-4861-a222-21dfb9210883", "name": "Autonomous Systems", "domain": "ArtificialIntelligence"}, {"id": "8843df68-1ae4-4b49-99d8-afa329712ae1", "name": "Human-AI Interaction", "domain": "ArtificialIntelligence"}, {"id": "7816d887-8320-4147-bfea-9a46ecde4420", "name": "Deep Learning", "domain": "ArtificialIntelligence"}, {"id": "5e4e91a3-6597-4807-b6be-97d861d04441", "name": "Cognitive Computing", "domain": "ArtificialIntelligence"}, {"id": "cade41cf-3f8f-4511-95a7-c71e89eb3d25", "name": "Swarm Intelligence", "domain": "ArtificialIntelligence"}, {"id": "7ec2fa26-933f-434b-bb54-a3b4028bfadc", "name": "Evolutionary Computation", "domain": "ArtificialIntelligence"}, {"id": "dd8b0fee-71c1-4c9a-9ff8-a73d7ba484ee", "name": "Fuzzy Logic", "domain": "ArtificialIntelligence"}, {"id": "25561787-d0fe-4283-befb-c4a6e6c2dcd6", "name": "Knowledge Representation", "domain": "ArtificialIntelligence"}, {"id": "5aeb8614-e5d1-4ac7-9f6b-313b81a093d3", "name": "Automated Reasoning", "domain": "ArtificialIntelligence"}, {"id": "6f401972-fed9-40cb-b820-f326167c08cf", "name": "Speech Recognition", "domain": "ArtificialIntelligence"}, {"id": "22fd97f1-ca69-44e5-81c1-57dcce6ea9f8", "name": "Image Processing", "domain": "ArtificialIntelligence"}, {"id": "f7d8fd51-04d6-4a3c-a0b7-81e5be552ffb", "name": "Predictive Analytics", "domain": "ArtificialIntelligence"}, {"id": "e865e70a-50ba-420e-80b9-c89534a750b4", "name": "Anomaly Detection", "domain": "ArtificialIntelligence"}, {"id": "f6562dbb-9149-4c41-a3f2-0a5645e85c2c", "name": "Recommendation Systems", "domain": "ArtificialIntelligence"}, {"id": "bb58f4f8-be05-409c-a54c-1eff9dc3680d", "name": "Sentiment Analysis", "domain": "ArtificialIntelligence"}, {"id": "13d78474-5f87-4794-b773-a12c7801fbdb", "name": "Chatbots", "domain": "ArtificialIntelligence"}, {"id": "2e88f981-cc87-474d-a903-1ad3d947d756", "name": "Virtual Assistants", "domain": "ArtificialIntelligence"}, {"id": "ba55e2fb-1957-4688-a4cc-4e89391ed900", "name": "Automated Decision Making", "domain": "ArtificialIntelligence"}, {"id": "0bc505a9-4391-4fe0-96d9-6012338ad4a7", "name": "AI-Powered Simulation", "domain": "ArtificialIntelligence"}, {"id": "21a65501-4ac5-418d-9850-395674403d45", "name": "AI in Cybersecurity", "domain": "ArtificialIntelligence"}, {"id": "8dd442b9-4bbf-4030-9e6b-3587edef1fbc", "name": "AI for Scientific Discovery", "domain": "ArtificialIntelligence"}, {"id": "dd8886a8-b6c5-40d8-a3cb-a94e0385e41e", "name": "AI in Healthcare", "domain": "ArtificialIntelligence"}, {"id": "a23b675c-2150-4dbb-a1ed-62eecc0a0f17", "name": "AI in Finance", "domain": "ArtificialIntelligence"}, {"id": "b6e399ba-fb4a-44fc-a7af-be67146671e9", "name": "AI in Education", "domain": "ArtificialIntelligence"}, {"id": "03418c0d-9219-40b8-b038-d581619cc0e2", "name": "AI in Manufacturing", "domain": "ArtificialIntelligence"}, {"id": "c8d75b51-5418-4c78-8f3b-4a86f369ce70", "name": "AI in Agriculture", "domain": "ArtificialIntelligence"}, {"id": "8f559458-4105-4251-a248-0214a3757561", "name": "AI in Transportation", "domain": "ArtificialIntelligence"}, {"id": "89e372e5-30cf-43f9-9c23-a471b5ab0004", "name": "AI Ethics", "domain": "ArtificialIntelligence"}, {"id": "441d8c31-7d60-4066-94f9-35fde935e507", "name": "AI Regulation", "domain": "ArtificialIntelligence"}, {"id": "c8f30f4b-e53a-48e3-ada0-0c847592f383", "name": "AI Transparency", "domain": "ArtificialIntelligence"}, {"id": "20ae8687-682a-49e5-b588-135988a61b8f", "name": "AI Accountability", "domain": "ArtificialIntelligence"}, {"id": "b43a8154-ccac-4d70-898f-21ebd91c65f1", "name": "AI Fairness", "domain": "ArtificialIntelligence"}, {"id": "c74952db-3097-4c5a-8b96-9f7d0ecd7891", "name": "AI Robustness", "domain": "ArtificialIntelligence"}, {"id": "4c2c03a7-15de-4494-b18b-1faf4041ba5c", "name": "AI Scalability", "domain": "ArtificialIntelligence"}, {"id": "e380a213-9538-4399-a059-b295979022fd", "name": "AI Energy Efficiency", "domain": "ArtificialIntelligence"}, {"id": "e2db6d33-dece-4d0c-bda9-39df5c7afe9b", "name": "AI Hardware Acceleration", "domain": "ArtificialIntelligence"}, {"id": "68a43b34-4873-42bb-9114-053aef802d52", "name": "AI Model Compression", "domain": "ArtificialIntelligence"}, {"id": "a00188fb-20a0-485f-92de-d11c289645b8", "name": "Patient Safety", "domain": "HealthCare"}, {"id": "5d3d9357-adc7-4699-b39a-82016ee529b0", "name": "Data Privacy", "domain": "HealthCare"}, {"id": "46f07e2c-6d01-4a14-a9ca-5e2af30c89a5", "name": "Treatment Efficacy", "domain": "HealthCare"}, {"id": "7529329d-1c3c-4faf-a5a0-1fa4668121fc", "name": "Cost Effectiveness", "domain": "HealthCare"}, {"id": "8db9945e-d328-42be-b3fe-9850db6e91ca", "name": "Accessibility", "domain": "HealthCare"}, {"id": "085275bf-f4ac-4bd8-a000-f5f396fb0b0b", "name": "Interoperability", "domain": "HealthCare"}, {"id": "cce2e3c6-c8a9-4262-af33-609aa8b5f3a9", "name": "Regulatory Compliance", "domain": "HealthCare"}, {"id": "cf7a2a43-e8b0-4d77-9990-7b842cfc2c2f", "name": "Patient Satisfaction", "domain": "HealthCare"}, {"id": "d653d7a8-7920-4403-bf44-f424a808b55f", "name": "Staff Efficiency", "domain": "HealthCare"}, {"id": "373fadd4-90c8-42d5-ac21-c736513c6785", "name": "Equipment Reliability", "domain": "HealthCare"}, {"id": "fb738ce1-e3c0-4d95-a5b2-1488035a1d43", "name": "Infection Control", "domain": "HealthCare"}, {"id": "5989937d-1f78-42a0-9f3e-73fdc1f093ad", "name": "Medication Accuracy", "domain": "HealthCare"}, {"id": "4b6d3da2-f716-4153-a4fe-66103bdaff3f", "name": "Diagnostic Precision", "domain": "HealthCare"}, {"id": "07a40b81-9c80-49ce-8014-858d0f45eb03", "name": "Emergency Readiness", "domain": "HealthCare"}, {"id": "94ad5045-5b57-4322-b6fa-f452ead2de36", "name": "Continuity of Care", "domain": "HealthCare"}, {"id": "b473481a-c0aa-450c-b098-f316c2c81edc", "name": "Informed Consent", "domain": "HealthCare"}, {"id": "adf7591a-6d91-46f7-a327-f74e23cccc0d", "name": "Cultural Competence", "domain": "HealthCare"}, {"id": "dd435055-3c0e-4dda-87cd-5293974cfb83", "name": "Ethical Practice", "domain": "HealthCare"}, {"id": "c53a4471-f3bb-4a47-acce-8b5cd47ed335", "name": "Evidence-Based Care", "domain": "HealthCare"}, {"id": "ce68512d-2907-4c35-8618-27ba07131628", "name": "Patient Empowerment", "domain": "HealthCare"}, {"id": "f9dea91c-b557-4fb4-9c6f-2679c263b03b", "name": "Preventive Care", "domain": "HealthCare"}, {"id": "a708dc0c-ee0a-4efa-9ae9-07180875567c", "name": "Chronic Disease Management", "domain": "HealthCare"}, {"id": "c5b47475-f876-4679-a22e-b6f7313cc659", "name": "Pain Management", "domain": "HealthCare"}, {"id": "95868566-2922-4896-a342-46c5a03bcf0e", "name": "End-of-Life Care", "domain": "HealthCare"}, {"id": "2716420b-15dc-472f-a9d3-e1380a309811", "name": "Mental Health Integration", "domain": "HealthCare"}, {"id": "70a0c47e-e200-417b-a301-f359a251f57e", "name": "Telemedicine Capability", "domain": "HealthCare"}, {"id": "5f9e1cf1-631f-4365-869e-d1fe40c131a8", "name": "Health Literacy", "domain": "HealthCare"}, {"id": "444d823b-3c2d-4191-b6cd-393c71536d9e", "name": "Patient Engagement", "domain": "HealthCare"}, {"id": "9e7f3a12-19f6-45f3-8286-0459787df2f5", "name": "Care Coordination", "domain": "HealthCare"}, {"id": "0d191b6b-00a9-4dfc-877c-b1e98c3f8adb", "name": "Quality Assurance", "domain": "HealthCare"}, {"id": "cd950ecb-1e9f-4949-83bb-88881e421098", "name": "Resource Allocation", "domain": "HealthCare"}, {"id": "33c1d222-4a9e-4d24-a992-586089ace0bd", "name": "Staff Competency", "domain": "HealthCare"}, {"id": "e397fe0f-5554-4a41-87c3-99be5f726604", "name": "Technology Integration", "domain": "HealthCare"}, {"id": "e2fffb65-449c-44c0-bc44-d537c0a079b6", "name": "Patient Rights", "domain": "HealthCare"}, {"id": "f77544f1-9a04-4aa3-831f-390c0e44d88f", "name": "Environmental Safety", "domain": "HealthCare"}, {"id": "e9993eb4-f077-45cc-a74c-d93e17ddcbef", "name": "Nutritional Care", "domain": "HealthCare"}, {"id": "2d7ed5e3-14cc-47db-8fa2-5a935738ba64", "name": "Rehabilitation Services", "domain": "HealthCare"}, {"id": "1a610d97-74ce-4c62-b1a4-94688fc09098", "name": "Pharmaceutical Management", "domain": "HealthCare"}, {"id": "66587833-e4fc-45dc-98e9-b9849a4b3be5", "name": "Genetic Testing", "domain": "HealthCare"}, {"id": "5c77dd1c-2778-4c4c-88ef-e2f815308c3b", "name": "Personalized Medicine", "domain": "HealthCare"}, {"id": "53de010a-4d12-4636-8fd6-203f21520cd5", "name": "Palliative Care", "domain": "HealthCare"}, {"id": "858d5545-86b8-4c9e-bd59-f704d92e4e7f", "name": "Organ Donation", "domain": "HealthCare"}, {"id": "b0c2470b-9a82-400f-81f2-d3215c6d25a7", "name": "Blood Safety", "domain": "HealthCare"}, {"id": "6388db1b-55f1-4420-9c4a-2338dadfdc72", "name": "Radiation Safety", "domain": "HealthCare"}, {"id": "0e1cfcb7-2f7b-439e-b81f-c7afe8ee6a7c", "name": "Waste Management", "domain": "HealthCare"}, {"id": "fa29aab8-548a-4244-96fc-42c21fded777", "name": "Disaster Preparedness", "domain": "HealthCare"}, {"id": "30af10b0-aa76-4fcc-9b6b-fc2ac3b07d90", "name": "Community Outreach", "domain": "HealthCare"}, {"id": "54b49dd9-10a4-4e85-81bf-edc7b07b41d6", "name": "Research Ethics", "domain": "HealthCare"}, {"id": "44b294e9-b604-4e56-b50c-f5b23632c7b6", "name": "Medical Education", "domain": "HealthCare"}, {"id": "6253b4a5-7e66-48c3-a373-f394ca3ce09f", "name": "Patient Advocacy", "domain": "HealthCare"}], "process": [{"id": "0aee6b8b-f5c3-4e93-9fc0-7b5eb3e48f7d", "name": "Data Collection", "domain": "ArtificialIntelligence"}, {"id": "6efc49ac-cfde-4156-9809-943f563f3083", "name": "Data Preprocessing", "domain": "ArtificialIntelligence"}, {"id": "9b158f92-62ae-46a5-acb1-b2476424a1c8", "name": "Model Training", "domain": "ArtificialIntelligence"}, {"id": "19512560-8ceb-40a6-b3dd-6905fb59a762", "name": "Model Evaluation", "domain": "ArtificialIntelligence"}, {"id": "2c4d67e4-8867-4bd4-a7e0-6fb454b68f0f", "name": "Hyperparameter Tuning", "domain": "ArtificialIntelligence"}, {"id": "857c4e17-9b4d-4e8b-911a-031542bf4e0c", "name": "Feature Engineering", "domain": "ArtificialIntelligence"}, {"id": "729f0f52-0e0c-4147-aadb-3565ebe6db82", "name": "Algorithm Selection", "domain": "ArtificialIntelligence"}, {"id": "f6a8c26b-de89-4082-b50a-8d4f896640f4", "name": "Deployment", "domain": "ArtificialIntelligence"}, {"id": "244ec9cd-f2a2-4a0e-94be-5f68366832fe", "name": "Monitoring", "domain": "ArtificialIntelligence"}, {"id": "2ad55dbb-4bb2-4cfd-9679-ff9c7d01f7ad", "name": "Maintenance", "domain": "ArtificialIntelligence"}, {"id": "bb7829fc-d435-4ed6-9b7f-7718c3fa3252", "name": "Ethical Review", "domain": "ArtificialIntelligence"}, {"id": "89b3795b-736a-402e-8eac-316ba61fecd4", "name": "Bias Detection", "domain": "ArtificialIntelligence"}, {"id": "79ebcd6d-f53b-415d-8dc6-fb2c1bad70ff", "name": "Privacy Preservation", "domain": "ArtificialIntelligence"}, {"id": "804c4dc6-1723-4ff2-ae56-71824a5f3748", "name": "Explainability Analysis", "domain": "ArtificialIntelligence"}, {"id": "45caa9f3-58e2-4bde-8828-0ccb3db7519e", "name": "Safety Testing", "domain": "ArtificialIntelligence"}, {"id": "1aedbca1-0559-4055-a202-eddad4cc39f2", "name": "User Interface Design", "domain": "ArtificialIntelligence"}, {"id": "ae49d171-df90-4ce6-83cc-6ed2cb656113", "name": "Integration with Existing Systems", "domain": "ArtificialIntelligence"}, {"id": "bf3618eb-b721-4bfd-9f06-6a7c9579058f", "name": "Continuous Learning", "domain": "ArtificialIntelligence"}, {"id": "24897b0b-3d13-4ddd-8552-e5d366eca788", "name": "Version Control", "domain": "ArtificialIntelligence"}, {"id": "fdcd6a5e-d8b2-42dd-b5bf-3045251f2188", "name": "Documentation", "domain": "ArtificialIntelligence"}, {"id": "4448cd27-dd25-4ac1-bdb5-8d548d066887", "name": "Data Augmentation", "domain": "ArtificialIntelligence"}, {"id": "7987fa12-c0d1-45ec-aa17-20345151928e", "name": "Cross-Validation", "domain": "ArtificialIntelligence"}, {"id": "4d9a1c61-70b6-476d-ab1e-d3aaf293fd68", "name": "Ensemble Learning", "domain": "ArtificialIntelligence"}, {"id": "268be898-81c5-41e0-8279-d4223b77125e", "name": "Transfer Learning", "domain": "ArtificialIntelligence"}, {"id": "28da7ada-53ef-4e8c-9df8-03f9bfc52118", "name": "Federated Learning", "domain": "ArtificialIntelligence"}, {"id": "ed7f2cb2-1170-44c2-9ab7-7961b41908ca", "name": "Model Compression", "domain": "ArtificialIntelligence"}, {"id": "c8f20058-57e7-4cef-9489-fa90c2942d56", "name": "Hardware Acceleration", "domain": "ArtificialIntelligence"}, {"id": "1a9904a1-ab20-4f6d-a5bb-d47cc195c323", "name": "Edge Deployment", "domain": "ArtificialIntelligence"}, {"id": "622234db-c01f-4953-b531-9d283d10431d", "name": "Cloud Deployment", "domain": "ArtificialIntelligence"}, {"id": "46346ca1-7eb9-4c6a-9d80-3aa77df17095", "name": "A/B Testing", "domain": "ArtificialIntelligence"}, {"id": "fea2cfbc-44f4-49bd-9754-745c43943c50", "name": "Error Analysis", "domain": "ArtificialIntelligence"}, {"id": "fe7457cb-6066-452a-8144-96a6ff9f9870", "name": "Performance Optimization", "domain": "ArtificialIntelligence"}, {"id": "3ac99b95-4346-408f-bb9d-deea4d640430", "name": "Scalability Testing", "domain": "ArtificialIntelligence"}, {"id": "31f21890-86b9-468e-a768-9632503ab817", "name": "Security Auditing", "domain": "ArtificialIntelligence"}, {"id": "ac8cfdbe-5514-4606-be54-3c6e0c71ab0c", "name": "Compliance Checking", "domain": "ArtificialIntelligence"}, {"id": "be7612aa-9582-4373-a04c-e2bc30951ccf", "name": "Data Visualization", "domain": "ArtificialIntelligence"}, {"id": "ff396c6a-18bc-4ae3-922f-d25836713c46", "name": "Interpretability Analysis", "domain": "ArtificialIntelligence"}, {"id": "2852dccc-7757-4fc0-82f0-38bff8294ac6", "name": "Fairness Assessment", "domain": "ArtificialIntelligence"}, {"id": "2684efe8-c88f-473f-99c4-4b3c339e1712", "name": "Robustness Testing", "domain": "ArtificialIntelligence"}, {"id": "bd7903ba-cdc3-4e12-8210-f94113a76e51", "name": "Adversarial Testing", "domain": "ArtificialIntelligence"}, {"id": "50bfdd97-f127-4fd5-a7a4-dbb19b590a2f", "name": "Energy Efficiency Optimization", "domain": "ArtificialIntelligence"}, {"id": "811ac696-20ec-4010-af48-279b84e4c089", "name": "Model Versioning", "domain": "ArtificialIntelligence"}, {"id": "a6feebad-f128-4559-90dc-41c362be78bd", "name": "Data Pipeline Management", "domain": "ArtificialIntelligence"}, {"id": "689d27f1-ffa2-4249-983b-c8dcaead4411", "name": "Model Serving", "domain": "ArtificialIntelligence"}, {"id": "17711c2e-bd82-4832-83c9-cb04be7196a0", "name": "Online Learning", "domain": "ArtificialIntelligence"}, {"id": "6df11bcc-9c60-4034-896a-b3e93f08e00c", "name": "Reinforcement Learning Training", "domain": "ArtificialIntelligence"}, {"id": "32f34212-dbcb-4c5d-823c-17f09020674b", "name": "Generative Model Training", "domain": "ArtificialIntelligence"}, {"id": "e59c6d65-7563-4ef0-add2-6ed82597f857", "name": "Unsupervised Learning", "domain": "ArtificialIntelligence"}, {"id": "cf68e8d5-ae94-4664-8038-d9abcbffa7f8", "name": "Semi-Supervised Learning", "domain": "ArtificialIntelligence"}, {"id": "258ffd03-40d1-4af4-bba4-c495b72d1d13", "name": "Active Learning", "domain": "ArtificialIntelligence"}, {"id": "634cb071-1eef-4eaf-950d-000671239315", "name": "Patient Registration", "domain": "HealthCare"}, {"id": "b767b42b-27a6-4d2b-9fa3-e959d7933377", "name": "Triage", "domain": "HealthCare"}, {"id": "6c8342b0-526f-4d82-a5ec-19eb39c5b7ed", "name": "Diagnosis", "domain": "HealthCare"}, {"id": "8cb143fd-cdd3-4483-b08f-359277698ddf", "name": "Treatment Planning", "domain": "HealthCare"}, {"id": "4164c604-c9e1-4e4a-8545-233b49b0ded6", "name": "Medication Administration", "domain": "HealthCare"}, {"id": "38e9c010-014e-4b0c-91e6-605552a146d7", "name": "Surgery", "domain": "HealthCare"}, {"id": "c39773a0-0f1b-42e4-bbce-a3818731a9cf", "name": "Laboratory Testing", "domain": "HealthCare"}, {"id": "189177d6-d977-482d-a036-4cda6fa3e5c2", "name": "Imaging", "domain": "HealthCare"}, {"id": "0c906dde-2998-44a0-a5a5-55f89efddd52", "name": "Patient Monitoring", "domain": "HealthCare"}, {"id": "970c2339-d2a4-494b-8292-77a71bb2ce01", "name": "Discharge Planning", "domain": "HealthCare"}, {"id": "d54fea70-589f-4ab6-8cf3-480862b29233", "name": "Follow-up Care", "domain": "HealthCare"}, {"id": "4d6f16fe-8e4b-48ed-86e7-66e712c3a5a7", "name": "Referral Management", "domain": "HealthCare"}, {"id": "5a0adb70-d07e-4df6-8d3e-ca8f04a1e76c", "name": "Emergency Response", "domain": "HealthCare"}, {"id": "b176ee53-666b-4c51-ac1f-3e090dd0a494", "name": "Infection Prevention", "domain": "HealthCare"}, {"id": "3a1a1957-54c2-4927-ae4d-d9de8d5dcd27", "name": "Quality Assurance", "domain": "HealthCare"}, {"id": "24c73a8d-04b7-4416-aa71-6b528c57c40b", "name": "Staff Training", "domain": "HealthCare"}, {"id": "75f61ee0-4fce-4313-b8f5-07c1102e857c", "name": "Medical Records Management", "domain": "HealthCare"}, {"id": "7734bd59-1019-4b81-a8f5-00d92f0b80f0", "name": "Inventory Management", "domain": "HealthCare"}, {"id": "98cf5272-07e7-4f10-97ed-839ce1e8b38a", "name": "Billing and Coding", "domain": "HealthCare"}, {"id": "d55ee2d3-3126-4395-90f3-dc709fe67542", "name": "Insurance Verification", "domain": "HealthCare"}, {"id": "63f1c4c8-ebfd-4366-a3df-ce3d8e86e76a", "name": "Appointment Scheduling", "domain": "HealthCare"}, {"id": "091db837-1c44-40e0-986d-dc579b4db331", "name": "Patient Education", "domain": "HealthCare"}, {"id": "11be8ad8-eb89-47b4-ae54-30bbf693a684", "name": "Consent Obtaining", "domain": "HealthCare"}, {"id": "ce1c13e8-0f5f-4acd-9d7b-8311ab687378", "name": "Care Coordination", "domain": "HealthCare"}, {"id": "ee27612f-47c5-4f67-908b-df011040d2f9", "name": "Risk Assessment", "domain": "HealthCare"}, {"id": "df93cd08-23cd-4f96-828a-2bf583576789", "name": "Clinical Trials", "domain": "HealthCare"}, {"id": "b2595004-79f5-4b64-94c6-afcb2a2741ae", "name": "Telemedicine Consultation", "domain": "HealthCare"}, {"id": "d41fe2ae-d849-427d-9265-aa29c9767bf1", "name": "Prescription Management", "domain": "HealthCare"}, {"id": "5f7caa22-6dbe-4920-b936-f8930b7e8b65", "name": "Rehabilitation", "domain": "HealthCare"}, {"id": "9bd938f0-53d5-4df8-8424-3b1cfaef83c4", "name": "Palliative Care", "domain": "HealthCare"}, {"id": "9e4e5f60-7a02-4ea4-a80f-8e11c83f7760", "name": "Mental Health Assessment", "domain": "HealthCare"}, {"id": "ed98c519-bf2b-48c6-a3ed-6c27cb2b6d62", "name": "Nutritional Assessment", "domain": "HealthCare"}, {"id": "64b654f5-5338-4478-b437-2535b1d989fc", "name": "Pain Management", "domain": "HealthCare"}, {"id": "49507a22-7487-45ab-8ea4-45f244c9c331", "name": "Health Screening", "domain": "HealthCare"}, {"id": "f20976ee-8f48-4db7-bbe7-1417c69ecf38", "name": "Immunization", "domain": "HealthCare"}, {"id": "386950d0-dd0b-4fa3-8e94-c372f2a0cc7f", "name": "Genetic Counseling", "domain": "HealthCare"}, {"id": "f5f63975-30a0-4d9c-a987-1f1098439cda", "name": "Organ Transplantation", "domain": "HealthCare"}, {"id": "453b83a1-cf36-48d1-a597-b294cfe8c6e3", "name": "Blood Transfusion", "domain": "HealthCare"}, {"id": "5a4225aa-6618-47df-8fb6-a204ce675919", "name": "Radiation Therapy", "domain": "HealthCare"}, {"id": "babfa78b-51e4-475a-ad75-5615de6633d5", "name": "Chemotherapy", "domain": "HealthCare"}, {"id": "025cfd3c-d45b-4674-86e6-33405954fdcc", "name": "Physical Therapy", "domain": "HealthCare"}, {"id": "05490c99-94ee-4973-83f8-6d74dbe05bc0", "name": "Occupational Therapy", "domain": "HealthCare"}, {"id": "e6dae62c-f7fb-466a-8640-234544b631dd", "name": "Speech Therapy", "domain": "HealthCare"}, {"id": "b945c159-e8cb-4c35-b322-f36bd0903225", "name": "Respiratory Therapy", "domain": "HealthCare"}, {"id": "756c21bd-850d-4b81-8bf7-31ef0a431e42", "name": "Dialysis", "domain": "HealthCare"}, {"id": "7af07cb8-0735-49f7-899c-015d2d92de49", "name": "Wound Care", "domain": "HealthCare"}, {"id": "65d6e009-ecbb-45fa-975a-6e6b9a8023a6", "name": "Anesthesia Administration", "domain": "HealthCare"}, {"id": "4e634c8d-fece-4e92-8aa3-3083026923f0", "name": "Patient Transport", "domain": "HealthCare"}, {"id": "2648e817-af0c-4552-a17c-12398828e3d3", "name": "Sterilization", "domain": "HealthCare"}, {"id": "7f81fef9-7e68-4050-8bf5-53b5d466045e", "name": "Waste Disposal", "domain": "HealthCare"}], "perspective": [{"id": "b93fea40-b1dc-446e-950e-63a850135edf", "name": "AI Researcher", "domain": "ArtificialIntelligence"}, {"id": "6fa39423-4ad0-41e3-8a2f-5f2ae6a14e5e", "name": "Data Scientist", "domain": "ArtificialIntelligence"}, {"id": "3f6aa2ee-fd39-457b-9707-8c4adbdbefce", "name": "Machine Learning Engineer", "domain": "ArtificialIntelligence"}, {"id": "771e7c2d-80ba-4a13-bcd5-4913a30b985f", "name": "AI Ethicist", "domain": "ArtificialIntelligence"}, {"id": "58edfd61-bb39-4e42-9c98-2b54389bb752", "name": "AI Policy Maker", "domain": "ArtificialIntelligence"}, {"id": "90db1872-f2e2-4faa-8a41-d0fe72497e68", "name": "Domain Expert", "domain": "ArtificialIntelligence"}, {"id": "f80389ab-bc30-43a6-a85c-3f6b1b6e9916", "name": "End User", "domain": "ArtificialIntelligence"}, {"id": "de02a57e-5e78-435a-a23b-0744a3ae280f", "name": "AI Product Manager", "domain": "ArtificialIntelligence"}, {"id": "83f1e418-b0a0-4d2f-93b1-8001829e0f0d", "name": "AI Safety Specialist", "domain": "ArtificialIntelligence"}, {"id": "edf23b31-ae53-4255-8a70-2282a1a49837", "name": "AI Governance Expert", "domain": "ArtificialIntelligence"}, {"id": "64dc10f9-627c-429b-a94f-7a3b5657ede9", "name": "AI Educator", "domain": "ArtificialIntelligence"}, {"id": "4a5bf2dc-620a-41cd-bdd2-2358ff6a0544", "name": "AI Entrepreneur", "domain": "ArtificialIntelligence"}, {"id": "ae984000-f18f-48e7-bde8-520c2c247b1d", "name": "AI Investor", "domain": "ArtificialIntelligence"}, {"id": "03975ab5-2f5b-414a-8c49-d18f3a92c46f", "name": "AI Critic", "domain": "ArtificialIntelligence"}, {"id": "b4f27761-183d-4bb1-bd60-ef7675a23c00", "name": "AI Rights Advocate", "domain": "ArtificialIntelligence"}, {"id": "40c5d6c8-8c9c-4d27-b7a9-08dd6e595afb", "name": "Patient", "domain": "HealthCare"}, {"id": "57958fdb-83c4-4f27-adfc-8600ecdabcac", "name": "Physician", "domain": "HealthCare"}, {"id": "6132f333-17f8-419d-99b7-8fd926b5d3f1", "name": "Nurse", "domain": "HealthCare"}, {"id": "55e819ac-acd8-4223-a62b-aab1a4dcc489", "name": "Administrator", "domain": "HealthCare"}, {"id": "5be0c25d-df51-4f24-8fdf-a1a5ecb36ea4", "name": "Insurer", "domain": "HealthCare"}, {"id": "f52bfd0c-be04-40a7-a89a-33fe5963d2d7", "name": "Regulator", "domain": "HealthCare"}, {"id": "b5ab1156-346e-48ac-a00a-b0f067fc497d", "name": "Researcher", "domain": "HealthCare"}, {"id": "2d6f3c78-cfa4-498c-a5df-4037c92d0acf", "name": "Pharmacist", "domain": "HealthCare"}, {"id": "e046d316-1b3f-46c5-b842-5c803e31251b", "name": "Technician", "domain": "HealthCare"}, {"id": "05176110-e6d3-450a-9b20-ddc11a647404", "name": "Caregiver", "domain": "HealthCare"}, {"id": "428ace1f-14b3-4ffb-9e72-f5ac54989cef", "name": "Public Health Official", "domain": "HealthCare"}, {"id": "52e6da01-60e6-4d0b-b60c-22e21797feef", "name": "Ethicist", "domain": "HealthCare"}, {"id": "77c1c080-8640-4f37-bc09-3ad00dde38c7", "name": "Legal Counsel", "domain": "HealthCare"}, {"id": "8622f1ce-475a-4ef9-aafc-db4b211de4ff", "name": "Financial Analyst", "domain": "HealthCare"}, {"id": "0051c069-35d2-43d4-a451-5a0244dd7161", "name": "IT Specialist", "domain": "HealthCare"}, {"id": "e242104a-8d63-4f21-8ec0-dc7daf8ee6a5", "name": "Social Worker", "domain": "HealthCare"}, {"id": "d90373ae-9fc8-41b8-8c52-9de6e2fa308c", "name": "Psychologist", "domain": "HealthCare"}, {"id": "16527889-5c18-4963-a625-19c16061b479", "name": "Nutritionist", "domain": "HealthCare"}, {"id": "2ccaa2ad-dda9-4555-80fb-eaf2cd00b719", "name": "Physical Therapist", "domain": "HealthCare"}, {"id": "92724b01-fa61-4414-99b5-055800c3cf37", "name": "Occupational Therapist", "domain": "HealthCare"}, {"id": "6769b2ef-bcc4-4d9a-82f6-e8e3c58f449e", "name": "Speech Therapist", "domain": "HealthCare"}, {"id": "19f1bc82-c468-44d5-a722-d4a6ffdfa44d", "name": "Radiologist", "domain": "HealthCare"}, {"id": "93da5cb4-3201-4fe1-868a-c2ec2cb60cf6", "name": "Surgeon", "domain": "HealthCare"}, {"id": "c7823ae1-c95a-4845-a376-282d04fed3a4", "name": "Anesthesiologist", "domain": "HealthCare"}, {"id": "3c89ae41-f632-4300-986e-8cc37d30ef44", "name": "Emergency Medical Technician", "domain": "HealthCare"}, {"id": "681c8132-fb63-4c3d-b7b7-8bc6aecc39fc", "name": "Laboratory Technician", "domain": "HealthCare"}, {"id": "65e06a78-065f-491b-a85b-74988cd2f8f3", "name": "Pathologist", "domain": "HealthCare"}, {"id": "f41b498f-cd3c-46b5-92c4-fdce404c465f", "name": "Geneticist", "domain": "HealthCare"}, {"id": "1cc6d6b0-1571-49b1-95f9-69cb6f21da9c", "name": "Oncologist", "domain": "HealthCare"}, {"id": "2a795be8-6abb-4dcc-b488-00acaa346a34", "name": "Pediatrician", "domain": "HealthCare"}, {"id": "00beedff-fe3e-4d76-9156-552573572988", "name": "Geriatrician", "domain": "HealthCare"}, {"id": "93291980-7bbf-49cc-bfd5-5c33f4f807f5", "name": "Psychiatrist", "domain": "HealthCare"}, {"id": "0e342e28-d344-40c7-8a7d-6a8dc0f45ee9", "name": "Neurologist", "domain": "HealthCare"}, {"id": "64839615-3744-475f-8f00-1046dfd182eb", "name": "Cardiologist", "domain": "HealthCare"}, {"id": "eda98ded-dbef-48cd-a9aa-247cb2a7a1a4", "name": "Endocrinologist", "domain": "HealthCare"}, {"id": "15ebe93a-63e3-421f-ab87-9309fc392052", "name": "Dermatologist", "domain": "HealthCare"}, {"id": "30620b9b-d89b-4113-a98a-aa7b6f45543f", "name": "Ophthalmologist", "domain": "HealthCare"}, {"id": "abc2772a-a138-429b-9d62-2d793f3b3f7a", "name": "Dentist", "domain": "HealthCare"}, {"id": "1a421b70-f3de-4b39-9915-d70d889b1fd4", "name": "Pharmacologist", "domain": "HealthCare"}, {"id": "42cb2e3c-ca49-4da8-b934-466d62937ed0", "name": "Biomedical Engineer", "domain": "HealthCare"}, {"id": "a72d2a3e-2ae2-444c-8767-4c478f83edb1", "name": "Health Economist", "domain": "HealthCare"}, {"id": "b5a48627-c320-4f38-8dfd-5f1ec81e9b03", "name": "Epidemiologist", "domain": "HealthCare"}, {"id": "779fbb7e-017e-45cb-9007-d861e01e5e4b", "name": "Biostatistician", "domain": "HealthCare"}, {"id": "83a79d85-bd0e-4a7b-869c-3f0c41728944", "name": "Medical Illustrator", "domain": "HealthCare"}, {"id": "a81f1d75-f7c4-4170-b562-be45e0f74c67", "name": "Health Educator", "domain": "HealthCare"}, {"id": "cdde1aac-f948-4d47-9663-866628feec6b", "name": "Patient Advocate", "domain": "HealthCare"}, {"id": "04fb02ee-8754-4920-9282-dab91aae108a", "name": "Hospital Chaplain", "domain": "HealthCare"}, {"id": "8c27ee66-e3dd-4d4e-a498-6ebf0ffc1277", "name": "Risk Manager", "domain": "HealthCare"}, {"id": "1b8329e8-8986-45e7-a111-2d4a568f8116", "name": "Quality Improvement Specialist", "domain": "HealthCare"}, {"id": "adb7f471-92fa-4145-b177-e8ed366435b9", "name": "Infection Control Specialist", "domain": "HealthCare"}]}, "connections": [{"id": "321f743c-bd6a-48a3-becd-e990a0fbd2f8", "property_id": "dd8b0fee-71c1-4c9a-9ff8-a73d7ba484ee", "process_id": "fe7457cb-6066-452a-8144-96a6ff9f9870", "perspective_id": "b4f27761-183d-4bb1-bd60-ef7675a23c00", "strength": 0.9357078336132397, "confidence": 0.7803437145274095, "x": 24, "y": 31, "z": 14}, {"id": "29a8b871-7aae-48a3-8992-705277fa73a5", "property_id": "e322e299-df5b-43fd-8baa-497c9d7c1204", "process_id": "2c4d67e4-8867-4bd4-a7e0-6fb454b68f0f", "perspective_id": "03975ab5-2f5b-414a-8c49-d18f3a92c46f", "strength": 0.9923121951692375, "confidence": 0.621214178903607, "x": 12, "y": 4, "z": 13}, {"id": "4a1f118a-c687-45a9-a404-38a34d537820", "property_id": "8843df68-1ae4-4b49-99d8-afa329712ae1", "process_id": "19512560-8ceb-40a6-b3dd-6905fb59a762", "perspective_id": "b4f27761-183d-4bb1-bd60-ef7675a23c00", "strength": 0.30136937482619264, "confidence": 0.9317708849093862, "x": 19, "y": 3, "z": 14}, {"id": "c7a5ee0c-98e3-4012-840b-3fcc9d2282fb", "property_id": "13d78474-5f87-4794-b773-a12c7801fbdb", "process_id": "28da7ada-53ef-4e8c-9df8-03f9bfc52118", "perspective_id": "90db1872-f2e2-4faa-8a41-d0fe72497e68", "strength": 0.9968554869042812, "confidence": 0.6933982135697745, "x": 33, "y": 24, "z": 5}, {"id": "8e5e8f2a-fe8c-4d0e-9133-5d0fab4dacb9", "property_id": "2e88f981-cc87-474d-a903-1ad3d947d756", "process_id": "89b3795b-736a-402e-8eac-316ba61fecd4", "perspective_id": "b93fea40-b1dc-446e-950e-63a850135edf", "strength": 0.5042569480796915, "confidence": 0.5489243195563187, "x": 34, "y": 11, "z": 0}, {"id": "21bb8d9b-4535-477b-a457-64e4345f27b6", "property_id": "53de010a-4d12-4636-8fd6-203f21520cd5", "process_id": "ee27612f-47c5-4f67-908b-df011040d2f9", "perspective_id": "55e819ac-acd8-4223-a62b-aab1a4dcc489", "strength": 0.010884174804931424, "confidence": 0.9489462880369406, "x": 95, "y": 74, "z": 18}, {"id": "b4202d9b-4bcc-42e3-a459-0ec3a539b53f", "property_id": "b0c2470b-9a82-400f-81f2-d3215c6d25a7", "process_id": "b767b42b-27a6-4d2b-9fa3-e959d7933377", "perspective_id": "b5ab1156-346e-48ac-a00a-b0f067fc497d", "strength": 0.7252944204324162, "confidence": 0.5626454660846931, "x": 97, "y": 51, "z": 21}, {"id": "eada10b2-7348-466a-b660-9be94569e830", "property_id": "f77544f1-9a04-4aa3-831f-390c0e44d88f", "process_id": "64b654f5-5338-4478-b437-2535b1d989fc", "perspective_id": "c7823ae1-c95a-4845-a376-282d04fed3a4", "strength": 0.9399160079645369, "confidence": 0.7064900192591028, "x": 89, "y": 82, "z": 38}, {"id": "feed32dd-2f5b-46c2-b969-b27872d3c73d", "property_id": "f9dea91c-b557-4fb4-9c6f-2679c263b03b", "process_id": "d55ee2d3-3126-4395-90f3-dc709fe67542", "perspective_id": "6132f333-17f8-419d-99b7-8fd926b5d3f1", "strength": 0.2645479665647209, "confidence": 0.7253846843774403, "x": 75, "y": 69, "z": 17}, {"id": "09ebdbe5-e893-45ca-b69e-4690c60a1c0b", "property_id": "b473481a-c0aa-450c-b098-f316c2c81edc", "process_id": "63f1c4c8-ebfd-4366-a3df-ce3d8e86e76a", "perspective_id": "40c5d6c8-8c9c-4d27-b7a9-08dd6e595afb", "strength": 0.4296068090105929, "confidence": 0.5174116092496813, "x": 70, "y": 70, "z": 15}]};
+                
+                // Setup
+                const container = document.getElementById('canvas-container');
+                const width = container.clientWidth;
+                const height = container.clientHeight;
+                
+                // Scene
+                const scene = new THREE.Scene();
+                scene.background = new THREE.Color(0xf0f0f0);
+                
+                // Camera
+                const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+                camera.position.set(2, 2, 2);
+                
+                // Renderer
+                const renderer = new THREE.WebGLRenderer({ antialias: true });
+                renderer.setSize(width, height);
+                container.appendChild(renderer.domElement);
+                
+                // Controls
+                const controls = new THREE.OrbitControls(camera, renderer.domElement);
+                controls.enableDamping = true;
+                controls.dampingFactor = 0.25;
+                
+                // Lighting
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+                scene.add(ambientLight);
+                
+                const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+                directionalLight.position.set(1, 1, 1);
+                scene.add(directionalLight);
+                
+                // Axes helper
+                const axesHelper = new THREE.AxesHelper(1);
+                scene.add(axesHelper);
+                
+                // Create cube frame
+                const cubeSize = 1;
+                const cubeGeometry = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize);
+                const edgesMaterial = new THREE.LineBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.2 });
+                const cubeEdges = new THREE.LineSegments(
+                    new THREE.EdgesGeometry(cubeGeometry),
+                    edgesMaterial
+                );
+                scene.add(cubeEdges);
+                
+                // Axis labels
+                const createTextSprite = (text, color, position) => {
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.width = 256;
+                    canvas.height = 128;
+                    
+                    context.font = "Bold 36px Arial";
+                    context.fillStyle = "rgba(255, 255, 255, 0.95)";
+                    context.fillRect(0, 0, canvas.width, canvas.height);
+                    
+                    context.fillStyle = color;
+                    context.fillText(text, 10, 64);
+                    
+                    const texture = new THREE.Texture(canvas);
+                    texture.needsUpdate = true;
+                    
+                    const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
+                    const sprite = new THREE.Sprite(spriteMaterial);
+                    sprite.position.copy(position);
+                    sprite.scale.set(0.2, 0.1, 1);
+                    
+                    return sprite;
+                };
+                
+                // Add axis labels
+                scene.add(createTextSprite("Properties (X)", "#1f77b4", new THREE.Vector3(1.2, 0, 0)));
+                scene.add(createTextSprite("Processes (Y)", "#ff7f0e", new THREE.Vector3(0, 1.2, 0)));
+                scene.add(createTextSprite("Perspectives (Z)", "#2ca02c", new THREE.Vector3(0, 0, 1.2)));
+                
+                // Add points for relationships
+                const pointsMaterial = new THREE.PointsMaterial({
+                    size: 0.05,
+                    vertexColors: true,
+                    sizeAttenuation: true
+                });
+                
+                const pointsGeometry = new THREE.BufferGeometry();
+                const positions = [];
+                const colors = [];
+                const pointData = [];
+                
+                // Normalize positions
+                const numProperties = p3ifData.dimensions.property.length;
+                const numProcesses = p3ifData.dimensions.process.length;
+                const numPerspectives = p3ifData.dimensions.perspective.length;
+                
+                p3ifData.connections.forEach(conn => {
+                    // Normalize to 0-1 range and then scale to cube size
+                    const x = (conn.x / Math.max(1, numProperties - 1)) * cubeSize;
+                    const y = (conn.y / Math.max(1, numProcesses - 1)) * cubeSize;
+                    const z = (conn.z / Math.max(1, numPerspectives - 1)) * cubeSize;
+                    
+                    // Center the cube by subtracting half the size
+                    positions.push(x - cubeSize/2, y - cubeSize/2, z - cubeSize/2);
+                    
+                    // Use strength to determine color intensity
+                    const r = 0.5 + conn.strength * 0.5;
+                    const g = 0.5 * (1 - conn.strength);
+                    const b = 0.5 + conn.confidence * 0.5;
+                    
+                    colors.push(r, g, b);
+                    
+                    // Store the original data for interaction
+                    pointData.push({
+                        id: conn.id,
+                        property: p3ifData.dimensions.property[conn.x],
+                        process: p3ifData.dimensions.process[conn.y],
+                        perspective: p3ifData.dimensions.perspective[conn.z],
+                        strength: conn.strength,
+                        confidence: conn.confidence
+                    });
+                });
+                
+                pointsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+                pointsGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+                
+                const points = new THREE.Points(pointsGeometry, pointsMaterial);
+                scene.add(points);
+                
+                // Handle resizing
+                window.addEventListener('resize', () => {
+                    const newWidth = container.clientWidth;
+                    const newHeight = container.clientHeight;
+                    
+                    camera.aspect = newWidth / newHeight;
+                    camera.updateProjectionMatrix();
+                    
+                    renderer.setSize(newWidth, newHeight);
+                });
+                
+                // Handle point selection
+                const raycaster = new THREE.Raycaster();
+                raycaster.params.Points.threshold = 0.05;
+                
+                const mouse = new THREE.Vector2();
+                
+                container.addEventListener('mousemove', (event) => {
+                    // Calculate mouse position in normalized device coordinates
+                    mouse.x = (event.clientX / width) * 2 - 1;
+                    mouse.y = -(event.clientY / height) * 2 + 1;
+                });
+                
+                container.addEventListener('click', () => {
+                    // Cast a ray from the camera
+                    raycaster.setFromCamera(mouse, camera);
+                    
+                    // Check for intersections with points
+                    const intersects = raycaster.intersectObject(points);
+                    
+                    if (intersects.length > 0) {
+                        const index = intersects[0].index;
+                        const selectedPoint = pointData[index];
+                        
+                        // Display information about the selected point
+                        const infoDiv = document.getElementById('selection-info');
+                        infoDiv.innerHTML = `
+                            <h3>Selected Relationship</h3>
+                            <p><strong>Property:</strong> ${selectedPoint.property.name}</p>
+                            <p><strong>Process:</strong> ${selectedPoint.process.name}</p>
+                            <p><strong>Perspective:</strong> ${selectedPoint.perspective.name}</p>
+                            <p><strong>Strength:</strong> ${selectedPoint.strength.toFixed(2)}</p>
+                            <p><strong>Confidence:</strong> ${selectedPoint.confidence.toFixed(2)}</p>
+                        `;
+                    }
+                });
+                
+                // Animation loop
+                function animate() {
+                    requestAnimationFrame(animate);
+                    controls.update();
+                    renderer.render(scene, camera);
+                }
+                
+                animate();
+            </script>
+            
+            <script>
+                
+            </script>
+        </body>
+        </html>
+        

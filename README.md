@@ -118,16 +118,16 @@ git clone https://github.com/yourusername/p3if.git
 cd p3if
 
 # Generate a visualization portal
-python3 p3if/scripts/run_multidomain_portal.py --output-dir output
+python3 scripts/run_multidomain_portal.py --output-dir output
 
 # Generate the 3D cube visualization
-python3 p3if/scripts/test_3d_cube_with_domains.py
+python3 scripts/test_3d_cube_with_domains.py
 
 # Open the 3D visualization
-python3 p3if/scripts/view_p3if_website.py
+python3 scripts/view_p3if_website.py
 
 # Generate all visualizations
-bash p3if/scripts/generate_visualizations.sh
+bash scripts/generate_visualizations.sh
 
 # Open the visualization portal
 open output/index.html
@@ -297,10 +297,10 @@ To generate and view the 3D visualization:
 
 ```bash
 # Generate the 3D visualization
-python3 p3if/scripts/test_3d_cube_with_domains.py
+python3 scripts/test_3d_cube_with_domains.py
 
 # Open the visualization in your browser
-python3 p3if/scripts/view_p3if_website.py
+python3 scripts/view_p3if_website.py
 ```
 
 For more information about the 3D visualization, see the [visualization documentation](docs/visualization/README.md).

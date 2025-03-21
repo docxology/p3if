@@ -1,0 +1,794 @@
+{% extends "base.html" %}
+
+{% block title %}Similarity Matrix | {{ visualization.title }} | P3IF{% endblock %}
+{% block description %}Explore pattern similarities across domains through a visual heatmap matrix{% endblock %}
+
+{% block head_extra %}
+<script src="https://cdn.jsdelivr.net/npm/d3@7.6.1/dist/d3.min.js"></script>
+<style>
+    .matrix-container {
+        position: relative;
+        width: 100%;
+        padding: 20px;
+        background: white;
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
+        overflow: hidden;
+    }
+    
+    #matrix-visualization {
+        width: 100%;
+        overflow-x: auto;
+    }
+    
+    .matrix-toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    
+    .matrix-controls {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+    }
+    
+    .domain-pills {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 15px;
+    }
+    
+    .domain-pill {
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        cursor: pointer;
+        border: 2px solid transparent;
+    }
+    
+    .domain-pill.active {
+        border-color: #333;
+        font-weight: bold;
+    }
+    
+    .domain-pill:hover {
+        opacity: 0.9;
+    }
+    
+    .cell-tooltip {
+        position: absolute;
+        background: white;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        padding: 10px;
+        font-size: 12px;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 0.3s;
+        max-width: 300px;
+        z-index: 100;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .loading-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+    
+    .scale-legend {
+        display: flex;
+        align-items: center;
+        margin-top: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .scale-gradient {
+        height: 20px;
+        width: 200px;
+        margin-right: 10px;
+        border: 1px solid #ddd;
+    }
+    
+    .scale-labels {
+        display: flex;
+        width: 200px;
+        justify-content: space-between;
+        font-size: 12px;
+        color: #666;
+    }
+    
+    .selected-cell {
+        stroke: #000;
+        stroke-width: 2px;
+    }
+    
+    .pattern-info-card {
+        margin-top: 20px;
+        display: none;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="container mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('viz_bp.index') }}">Visualizations</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('viz_bp.show_visualization', output_dir=output_dir) }}">{{ visualization.title }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Similarity Matrix</li>
+        </ol>
+    </nav>
+
+    <div class="row mb-4">
+        <div class="col">
+            <h1>Pattern Similarity Matrix</h1>
+            <p class="lead">
+                This heatmap visualizes similarities between patterns across different domains.
+                Darker cells indicate stronger relationships between patterns.
+            </p>
+        </div>
+    </div>
+
+    <div class="matrix-container">
+        <div class="matrix-toolbar">
+            <div class="matrix-controls">
+                <div>
+                    <label for="sort-by" class="form-label">Sort by:</label>
+                    <select id="sort-by" class="form-select form-select-sm">
+                        <option value="domain">Domain</option>
+                        <option value="similarity">Similarity Clusters</option>
+                        <option value="alphabetical">Alphabetical</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="threshold" class="form-label">Min. Similarity:</label>
+                    <input type="range" class="form-range" min="0" max="1" step="0.05" value="0.3" id="threshold">
+                    <span id="threshold-value">0.3</span>
+                </div>
+                
+                <div>
+                    <button id="download-svg" class="btn btn-sm btn-outline-secondary">
+                        <i class="bi bi-download"></i> Download
+                    </button>
+                </div>
+            </div>
+            
+            <div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="show-labels" checked>
+                    <label class="form-check-label" for="show-labels">Show Labels</label>
+                </div>
+            </div>
+        </div>
+        
+        <div class="domain-pills-container">
+            <div class="mb-2">Filter by Domain:</div>
+            <div class="domain-pills">
+                <span class="domain-pill active" data-domain="all" style="background-color: #e9ecef;">All Domains</span>
+                {% for domain in domains %}
+                <span class="domain-pill" data-domain="{{ domain.id }}" style="background-color: {{ domain.color }};">
+                    {{ domain.name }}
+                </span>
+                {% endfor %}
+            </div>
+        </div>
+        
+        <div class="scale-legend">
+            <div>
+                <div class="scale-gradient" id="scale-gradient"></div>
+                <div class="scale-labels">
+                    <span>Low Similarity</span>
+                    <span>High Similarity</span>
+                </div>
+            </div>
+            <div class="ms-4">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="highlight-cross-domain">
+                    <label class="form-check-label" for="highlight-cross-domain">
+                        Highlight Cross-Domain Similarities
+                    </label>
+                </div>
+            </div>
+        </div>
+        
+        <div id="matrix-visualization"></div>
+        
+        <div class="cell-tooltip" id="cell-tooltip"></div>
+        
+        <div class="loading-overlay" id="loading">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+        
+        <div class="card pattern-info-card" id="pattern-info">
+            <div class="card-header">
+                <h3 class="mb-0">Pattern Relationship</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-header" id="pattern1-header">Pattern 1</div>
+                            <div class="card-body">
+                                <h4 id="pattern1-name">Pattern Name</h4>
+                                <div class="mb-2" id="pattern1-domain-badge"></div>
+                                <div class="mb-2" id="pattern1-type-badge"></div>
+                                <p id="pattern1-description">Pattern description will appear here.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card mb-3">
+                            <div class="card-header" id="pattern2-header">Pattern 2</div>
+                            <div class="card-body">
+                                <h4 id="pattern2-name">Pattern Name</h4>
+                                <div class="mb-2" id="pattern2-domain-badge"></div>
+                                <div class="mb-2" id="pattern2-type-badge"></div>
+                                <p id="pattern2-description">Pattern description will appear here.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relationship-details">
+                    <h4>Similarity Details</h4>
+                    <div class="progress mb-3">
+                        <div class="progress-bar" id="similarity-bar" role="progressbar" style="width: 0%"></div>
+                    </div>
+                    <p id="similarity-explanation">
+                        Select a cell in the matrix to see detailed information about the pattern relationship.
+                    </p>
+                    
+                    <div class="alert alert-info" id="cross-domain-insight" style="display: none;">
+                        This is a cross-domain similarity, suggesting these patterns may share underlying principles despite being from different domains.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="mb-0">How to Read This Matrix</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>Each cell</strong> represents the similarity between two patterns</li>
+                        <li><strong>Darker colors</strong> indicate higher similarity between patterns</li>
+                        <li><strong>Hover over cells</strong> to see pattern names and similarity score</li>
+                        <li><strong>Click on a cell</strong> to see detailed information about both patterns</li>
+                        <li><strong>Use domain pills</strong> to filter the matrix by specific domains</li>
+                        <li><strong>Adjust the similarity threshold</strong> to focus on stronger connections</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="mb-0">Matrix Insights</h3>
+                </div>
+                <div class="card-body">
+                    <p>Patterns with high similarity scores often share underlying principles or solve similar problems:</p>
+                    <ul>
+                        <li><strong>Clusters</strong> of dark cells indicate related groups of patterns</li>
+                        <li><strong>Cross-domain similarities</strong> (patterns from different domains) suggest potential knowledge transfer opportunities</li>
+                        <li><strong>Similar patterns</strong> can inspire new solutions by adapting techniques from other domains</li>
+                        <li><strong>Sorting by similarity</strong> reveals clusters that might not be obvious when sorted by domain</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dataPath = "{{ url_for('static', filename='output/' + output_dir + '/data/matrix_data.json') }}";
+    
+    // Set up initial variables
+    let matrixData = null;
+    let patterns = [];
+    let domainMap = {};
+    let domainColors = {};
+    let selectedCell = null;
+    let tooltip = d3.select("#cell-tooltip");
+    
+    // Initialize matrix visualization
+    function initializeMatrix() {
+        // Add event listeners
+        document.getElementById('sort-by').addEventListener('change', updateMatrix);
+        document.getElementById('threshold').addEventListener('input', function() {
+            document.getElementById('threshold-value').textContent = this.value;
+            updateMatrix();
+        });
+        document.getElementById('show-labels').addEventListener('change', updateMatrix);
+        document.getElementById('highlight-cross-domain').addEventListener('change', updateMatrix);
+        document.getElementById('download-svg').addEventListener('click', downloadSVG);
+        
+        // Set up domain pill selection
+        const domainPills = document.querySelectorAll('.domain-pill');
+        domainPills.forEach(pill => {
+            pill.addEventListener('click', function() {
+                domainPills.forEach(p => p.classList.remove('active'));
+                this.classList.add('active');
+                updateMatrix();
+            });
+        });
+        
+        // Load data and create visualization
+        loadData();
+    }
+    
+    // Load matrix data from JSON
+    function loadData() {
+        fetch(dataPath)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                matrixData = data;
+                patterns = data.patterns;
+                
+                // Process domain colors
+                if (data.domains) {
+                    data.domains.forEach(domain => {
+                        domainMap[domain.id] = domain;
+                        domainColors[domain.id] = domain.color || getDefaultColor(domain.id);
+                    });
+                }
+                
+                // Create color scale legend
+                createColorScaleLegend();
+                
+                // Create the matrix visualization
+                updateMatrix();
+                
+                // Hide loading overlay
+                document.getElementById('loading').style.display = 'none';
+            })
+            .catch(error => {
+                console.error('Error loading data:', error);
+                document.getElementById('loading').innerHTML = `
+                    <div class="alert alert-danger">
+                        <h4>Error Loading Visualization</h4>
+                        <p>${error.message}</p>
+                        <p>Try regenerating the visualization or check the console for details.</p>
+                    </div>
+                `;
+            });
+    }
+    
+    // Generate a default color for a domain if none is provided
+    function getDefaultColor(domainId) {
+        // Simple hash function to generate a color
+        let hash = 0;
+        for (let i = 0; i < domainId.length; i++) {
+            hash = domainId.charCodeAt(i) + ((hash << 5) - hash);
+        }
+        
+        let color = '#';
+        for (let i = 0; i < 3; i++) {
+            const value = (hash >> (i * 8)) & 0xFF;
+            color += ('00' + value.toString(16)).substr(-2);
+        }
+        return color;
+    }
+    
+    // Create color scale legend
+    function createColorScaleLegend() {
+        const colorScale = d3.scaleSequential(d3.interpolateBlues)
+            .domain([0, 1]);
+        
+        const gradientSvg = d3.select("#scale-gradient")
+            .append("svg")
+            .attr("width", "100%")
+            .attr("height", "100%");
+        
+        const gradient = gradientSvg.append("defs")
+            .append("linearGradient")
+            .attr("id", "color-scale-gradient")
+            .attr("x1", "0%")
+            .attr("x2", "100%")
+            .attr("y1", "0%")
+            .attr("y2", "0%");
+        
+        gradient.selectAll("stop")
+            .data(d3.range(0, 1.01, 0.1))
+            .enter()
+            .append("stop")
+            .attr("offset", d => d * 100 + "%")
+            .attr("stop-color", d => colorScale(d));
+        
+        gradientSvg.append("rect")
+            .attr("width", "100%")
+            .attr("height", "100%")
+            .style("fill", "url(#color-scale-gradient)");
+    }
+    
+    // Update the matrix visualization based on current settings
+    function updateMatrix() {
+        if (!matrixData) return;
+        
+        const container = document.getElementById('matrix-visualization');
+        const sortBy = document.getElementById('sort-by').value;
+        const threshold = parseFloat(document.getElementById('threshold').value);
+        const showLabels = document.getElementById('show-labels').checked;
+        const highlightCrossDomain = document.getElementById('highlight-cross-domain').checked;
+        const selectedDomain = document.querySelector('.domain-pill.active').dataset.domain;
+        
+        // Clear previous visualization
+        container.innerHTML = '';
+        
+        // Filter patterns by selected domain
+        let filteredPatterns = patterns;
+        if (selectedDomain !== 'all') {
+            filteredPatterns = patterns.filter(p => p.domain === selectedDomain);
+        }
+        
+        // Sort patterns based on selected option
+        if (sortBy === 'domain') {
+            filteredPatterns.sort((a, b) => {
+                if (a.domain === b.domain) return a.name.localeCompare(b.name);
+                return a.domain.localeCompare(b.domain);
+            });
+        } else if (sortBy === 'alphabetical') {
+            filteredPatterns.sort((a, b) => a.name.localeCompare(b.name));
+        } else if (sortBy === 'similarity') {
+            // Use hierarchical clustering to sort by similarity
+            const clusterOrder = clusterPatterns(filteredPatterns);
+            
+            // Sort based on cluster order
+            const orderMap = new Map();
+            clusterOrder.forEach((id, index) => {
+                orderMap.set(id, index);
+            });
+            
+            filteredPatterns.sort((a, b) => {
+                return (orderMap.get(a.id) || 0) - (orderMap.get(b.id) || 0);
+            });
+        }
+        
+        // Calculate matrix dimensions
+        const cellSize = Math.min(30, Math.max(15, 600 / filteredPatterns.length));
+        const labelOffset = showLabels ? 120 : 0;
+        const margin = { top: labelOffset, right: 20, bottom: 20, left: labelOffset };
+        const width = cellSize * filteredPatterns.length + margin.left + margin.right;
+        const height = cellSize * filteredPatterns.length + margin.top + margin.bottom;
+        
+        // Create SVG
+        const svg = d3.select("#matrix-visualization")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height)
+            .attr("viewBox", `0 0 ${width} ${height}`)
+            .attr("preserveAspectRatio", "xMidYMid meet");
+        
+        const matrix = svg.append("g")
+            .attr("transform", `translate(${margin.left},${margin.top})`);
+        
+        // Create color scale
+        const colorScale = d3.scaleSequential(d3.interpolateBlues)
+            .domain([0, 1]);
+        
+        // Create cell data
+        const cellData = [];
+        for (let i = 0; i < filteredPatterns.length; i++) {
+            for (let j = 0; j < filteredPatterns.length; j++) {
+                const source = filteredPatterns[i];
+                const target = filteredPatterns[j];
+                
+                // Skip the cell if it's the same pattern
+                if (source.id === target.id) continue;
+                
+                // Find similarity score
+                const similarity = getSimilarity(source.id, target.id);
+                
+                // Skip if below threshold
+                if (similarity < threshold) continue;
+                
+                cellData.push({
+                    row: i,
+                    col: j,
+                    source: source,
+                    target: target,
+                    similarity: similarity,
+                    isCrossDomain: source.domain !== target.domain
+                });
+            }
+        }
+        
+        // Create cells
+        const cells = matrix.selectAll(".cell")
+            .data(cellData)
+            .enter()
+            .append("rect")
+            .attr("class", "cell")
+            .attr("x", d => d.col * cellSize)
+            .attr("y", d => d.row * cellSize)
+            .attr("width", cellSize)
+            .attr("height", cellSize)
+            .attr("fill", d => colorScale(d.similarity))
+            .attr("stroke", d => highlightCrossDomain && d.isCrossDomain ? "#ff6b6b" : "#fff")
+            .attr("stroke-width", d => highlightCrossDomain && d.isCrossDomain ? 2 : 0.5)
+            .on("mouseover", showCellTooltip)
+            .on("mouseout", hideCellTooltip)
+            .on("click", selectPatternPair);
+        
+        // Show labels if enabled
+        if (showLabels) {
+            // Add row labels (left side)
+            matrix.selectAll(".row-label")
+                .data(filteredPatterns)
+                .enter()
+                .append("text")
+                .attr("class", "row-label")
+                .attr("x", -5)
+                .attr("y", (d, i) => i * cellSize + cellSize / 2)
+                .attr("text-anchor", "end")
+                .attr("dominant-baseline", "middle")
+                .attr("font-size", Math.min(10, cellSize * 0.5))
+                .text(d => truncateText(d.name, 15))
+                .append("title")
+                .text(d => `${d.name} (${d.domain})`);
+            
+            // Add column labels (top)
+            matrix.selectAll(".col-label")
+                .data(filteredPatterns)
+                .enter()
+                .append("text")
+                .attr("class", "col-label")
+                .attr("x", (d, i) => i * cellSize + cellSize / 2)
+                .attr("y", -5)
+                .attr("text-anchor", "start")
+                .attr("dominant-baseline", "middle")
+                .attr("transform", (d, i) => `rotate(-90, ${i * cellSize + cellSize / 2}, -5)`)
+                .attr("font-size", Math.min(10, cellSize * 0.5))
+                .text(d => truncateText(d.name, 15))
+                .append("title")
+                .text(d => `${d.name} (${d.domain})`);
+            
+            // Add domain color indicators (left side)
+            matrix.selectAll(".row-domain")
+                .data(filteredPatterns)
+                .enter()
+                .append("rect")
+                .attr("class", "row-domain")
+                .attr("x", -labelOffset + 5)
+                .attr("y", (d, i) => i * cellSize + cellSize / 4)
+                .attr("width", 10)
+                .attr("height", cellSize / 2)
+                .attr("fill", d => domainColors[d.domain])
+                .append("title")
+                .text(d => domainMap[d.domain]?.name || d.domain);
+            
+            // Add domain color indicators (top)
+            matrix.selectAll(".col-domain")
+                .data(filteredPatterns)
+                .enter()
+                .append("rect")
+                .attr("class", "col-domain")
+                .attr("x", (d, i) => i * cellSize + cellSize / 4)
+                .attr("y", -labelOffset + 5)
+                .attr("width", cellSize / 2)
+                .attr("height", 10)
+                .attr("fill", d => domainColors[d.domain])
+                .append("title")
+                .text(d => domainMap[d.domain]?.name || d.domain);
+        }
+    }
+    
+    // Get similarity score between two patterns
+    function getSimilarity(sourceId, targetId) {
+        if (!matrixData || !matrixData.similarities) return 0;
+        
+        const key = `${sourceId}:${targetId}`;
+        const reverseKey = `${targetId}:${sourceId}`;
+        
+        return matrixData.similarities[key] || matrixData.similarities[reverseKey] || 0;
+    }
+    
+    // Cluster patterns based on similarity for sorting
+    function clusterPatterns(patternList) {
+        // Simple greedy clustering algorithm
+        if (patternList.length <= 1) return patternList.map(p => p.id);
+        
+        // Start with the first pattern
+        const order = [patternList[0].id];
+        const remaining = new Set(patternList.slice(1).map(p => p.id));
+        
+        while (remaining.size > 0) {
+            let bestNextId = null;
+            let bestSimilarity = -1;
+            
+            // Find the most similar pattern to any in the current order
+            for (const remainingId of remaining) {
+                for (const orderedId of order) {
+                    const similarity = getSimilarity(remainingId, orderedId);
+                    if (similarity > bestSimilarity) {
+                        bestSimilarity = similarity;
+                        bestNextId = remainingId;
+                    }
+                }
+            }
+            
+            // If no similarity is found, just take the next one
+            if (bestNextId === null) {
+                bestNextId = remaining.values().next().value;
+            }
+            
+            // Add to order and remove from remaining
+            order.push(bestNextId);
+            remaining.delete(bestNextId);
+        }
+        
+        return order;
+    }
+    
+    // Show tooltip on cell hover
+    function showCellTooltip(event, d) {
+        const formatPercent = d3.format(".0%");
+        
+        tooltip
+            .style("left", (event.pageX + 10) + "px")
+            .style("top", (event.pageY - 10) + "px")
+            .style("opacity", 1)
+            .html(`
+                <div><strong>${d.source.name}</strong> × <strong>${d.target.name}</strong></div>
+                <div>Similarity: <strong>${formatPercent(d.similarity)}</strong></div>
+                <div class="mt-1">
+                    <small class="badge" style="background-color: ${domainColors[d.source.domain]}">
+                        ${domainMap[d.source.domain]?.name || d.source.domain}
+                    </small>
+                    <small class="badge" style="background-color: ${domainColors[d.target.domain]}">
+                        ${domainMap[d.target.domain]?.name || d.target.domain}
+                    </small>
+                </div>
+                <div class="small mt-1">Click for details</div>
+            `);
+    }
+    
+    // Hide tooltip
+    function hideCellTooltip() {
+        tooltip.style("opacity", 0);
+    }
+    
+    // Select a pattern pair when a cell is clicked
+    function selectPatternPair(event, d) {
+        // Reset previous selection if any
+        if (selectedCell) {
+            selectedCell.classed("selected-cell", false);
+        }
+        
+        // Highlight current selection
+        selectedCell = d3.select(this).classed("selected-cell", true);
+        
+        // Update pattern info card
+        const infoCard = document.getElementById('pattern-info');
+        infoCard.style.display = 'block';
+        
+        // Pattern 1 details
+        document.getElementById('pattern1-name').textContent = d.source.name;
+        document.getElementById('pattern1-domain-badge').innerHTML = `
+            <span class="badge" style="background-color: ${domainColors[d.source.domain]}">
+                ${domainMap[d.source.domain]?.name || d.source.domain}
+            </span>
+        `;
+        document.getElementById('pattern1-type-badge').innerHTML = `
+            <span class="badge bg-secondary">${d.source.type || 'Unspecified'}</span>
+        `;
+        document.getElementById('pattern1-description').textContent = d.source.description || 'No description available.';
+        
+        // Pattern 2 details
+        document.getElementById('pattern2-name').textContent = d.target.name;
+        document.getElementById('pattern2-domain-badge').innerHTML = `
+            <span class="badge" style="background-color: ${domainColors[d.target.domain]}">
+                ${domainMap[d.target.domain]?.name || d.target.domain}
+            </span>
+        `;
+        document.getElementById('pattern2-type-badge').innerHTML = `
+            <span class="badge bg-secondary">${d.target.type || 'Unspecified'}</span>
+        `;
+        document.getElementById('pattern2-description').textContent = d.target.description || 'No description available.';
+        
+        // Similarity details
+        const similarityBar = document.getElementById('similarity-bar');
+        similarityBar.style.width = `${d.similarity * 100}%`;
+        similarityBar.setAttribute('aria-valuenow', d.similarity * 100);
+        
+        // Set color based on similarity value
+        if (d.similarity < 0.3) {
+            similarityBar.className = 'progress-bar bg-info';
+        } else if (d.similarity < 0.7) {
+            similarityBar.className = 'progress-bar bg-primary';
+        } else {
+            similarityBar.className = 'progress-bar bg-success';
+        }
+        
+        // Similarity explanation
+        const formatPercent = d3.format(".0%");
+        let explanation = `These patterns have a ${formatPercent(d.similarity)} similarity score. `;
+        
+        if (d.similarity < 0.3) {
+            explanation += 'These patterns have a weak relationship and likely represent different concepts.';
+        } else if (d.similarity < 0.7) {
+            explanation += 'These patterns have a moderate relationship and may share some common principles.';
+        } else {
+            explanation += 'These patterns have a strong relationship and likely represent similar concepts across domains.';
+        }
+        
+        document.getElementById('similarity-explanation').textContent = explanation;
+        
+        // Cross-domain insight
+        const crossDomainInsight = document.getElementById('cross-domain-insight');
+        if (d.isCrossDomain) {
+            crossDomainInsight.style.display = 'block';
+        } else {
+            crossDomainInsight.style.display = 'none';
+        }
+        
+        // Scroll to pattern info card
+        infoCard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    
+    // Truncate text if too long
+    function truncateText(text, maxLength) {
+        return text.length > maxLength ? text.substring(0, maxLength - 3) + '...' : text;
+    }
+    
+    // Download SVG as image
+    function downloadSVG() {
+        const svg = document.querySelector('#matrix-visualization svg');
+        const serializer = new XMLSerializer();
+        let source = serializer.serializeToString(svg);
+        
+        // Add namespaces
+        if (!source.match(/^<svg[^>]+xmlns="http:\/\/www\.w3\.org\/2000\/svg"/)) {
+            source = source.replace(/^<svg/, '<svg xmlns="http://www.w3.org/2000/svg"');
+        }
+        if (!source.match(/^<svg[^>]+"http:\/\/www\.w3\.org\/1999\/xlink"/)) {
+            source = source.replace(/^<svg/, '<svg xmlns:xlink="http://www.w3.org/1999/xlink"');
+        }
+        
+        // Add XML declaration
+        source = '<?xml version="1.0" standalone="no"?>\r\n' + source;
+        
+        // Convert SVG to data URL
+        const url = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(source);
+        
+        // Create download link
+        const downloadLink = document.createElement("a");
+        downloadLink.href = url;
+        downloadLink.download = "pattern_similarity_matrix.svg";
+        document.body.appendChild(downloadLink);
+        downloadLink.click();
+        document.body.removeChild(downloadLink);
+    }
+    
+    // Initialize the visualization
+    initializeMatrix();
+});
+</script>
+{% endblock %} 

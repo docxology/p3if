@@ -8,8 +8,8 @@ import json
 from pathlib import Path
 import logging
 
-from p3if.core.models import Pattern, Property, Process, Perspective
-from p3if.core.framework import P3IFFramework
+from core.models import Pattern, Property, Process, Perspective
+from core.framework import P3IFFramework
 
 
 class DomainManager:
@@ -253,7 +253,7 @@ class DomainManager:
                 continue  # Skip existing relationship
             
             # Create new relationship
-            from p3if.core.models import Relationship
+            from core.models import Relationship
             relationship = Relationship(**rel_data)
             
             try:

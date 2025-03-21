@@ -9,8 +9,8 @@ import networkx as nx
 import numpy as np
 from collections import defaultdict
 
-from p3if.core.framework import P3IFFramework
-from p3if.core.models import Pattern, Relationship
+from core.framework import P3IFFramework
+from core.models import Pattern, Relationship
 
 
 class NetworkAnalyzer:

@@ -8,5 +8,5 @@ patterns (properties), processes, and perspectives.
 __version__ = "0.1.0"
 
 # Import main modules for easier access
-from core.framework import P3IFFramework
-from core.models import Pattern, Process, Perspective, Relationship 
+from .core.framework import P3IFFramework
+from .core.models import Pattern, Process, Perspective, Relationship 

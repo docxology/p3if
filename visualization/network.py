@@ -11,10 +11,10 @@ from matplotlib.figure import Figure
 from pathlib import Path
 import numpy as np
 
-from p3if.core.framework import P3IFFramework
-from p3if.visualization.base import Visualizer
-from p3if.utils.config import Config
-from p3if.analysis.network import NetworkAnalyzer
+from core.framework import P3IFFramework
+from visualization.base import Visualizer
+from utils.config import Config
+from analysis.network import NetworkAnalyzer
 
 
 class NetworkVisualizer(Visualizer):

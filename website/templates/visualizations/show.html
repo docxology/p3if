@@ -1,0 +1,283 @@
+{% extends "base.html" %}
+
+{% block title %}{{ visualization.title }} | P3IF Visualizations{% endblock %}
+{% block description %}{{ visualization.description }}{% endblock %}
+
+{% block extra_css %}
+<style>
+    .interactive-viz-container {
+        width: 100%;
+        height: 700px;
+        border: none;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+    
+    .static-viz-container {
+        text-align: center;
+        margin: 2rem 0;
+    }
+    
+    .static-viz-container img {
+        max-width: 100%;
+        max-height: 700px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+    }
+    
+    .viz-nav {
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        margin-bottom: 1rem;
+        list-style: none;
+        border-bottom: 1px solid #e9ecef;
+    }
+    
+    .viz-nav-item {
+        margin-right: 0.5rem;
+    }
+    
+    .viz-nav-link {
+        display: block;
+        padding: 0.5rem 1rem;
+        text-decoration: none;
+        color: var(--dark);
+        border-radius: 0.25rem 0.25rem 0 0;
+        transition: all 0.2s ease;
+    }
+    
+    .viz-nav-link:hover {
+        color: var(--primary);
+        background-color: rgba(0, 0, 0, 0.03);
+    }
+    
+    .viz-nav-link.active {
+        color: var(--primary);
+        background-color: #fff;
+        border: 1px solid #e9ecef;
+        border-bottom-color: #fff;
+        margin-bottom: -1px;
+    }
+    
+    .viz-content {
+        display: none;
+    }
+    
+    .viz-content.active {
+        display: block;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container section-sm">
+    <nav class="breadcrumb">
+        <div class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></div>
+        <div class="breadcrumb-item"><a href="{{ url_for('visualizations.index') }}">Visualizations</a></div>
+        <div class="breadcrumb-item active">{{ visualization.title }}</div>
+    </nav>
+
+    <div class="row mb-4">
+        <div class="col-12 col-md-8">
+            <h1>{{ visualization.title }}</h1>
+            <p>{{ visualization.description }}</p>
+            
+            <div class="mb-3">
+                <span class="badge bg-secondary">{{ visualization.type }}</span>
+                {% for domain in visualization.domains %}
+                <span class="badge bg-light text-dark">{{ domain }}</span>
+                {% endfor %}
+                {% if visualization.is_interactive %}
+                <span class="badge bg-info">Interactive</span>
+                {% endif %}
+            </div>
+            
+            <p><small class="text-muted">Generated: {{ visualization.date }}</small></p>
+        </div>
+        <div class="col-12 col-md-4 text-md-end">
+            <div class="btn-group" role="group">
+                <a href="{{ url_for('visualizations.index') }}" class="btn btn-outline-secondary">Back to Gallery</a>
+                {% if visualization.source_data %}
+                <a href="{{ url_for('serve_output', path=visualization.source_data) }}" class="btn btn-outline-primary">Download Data</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    {% if visualization.is_interactive %}
+        {% if visualization.type == 'cube' %}
+        <iframe src="{{ url_for('serve_output', path=visualization.interactive_file) }}" class="interactive-viz-container" id="cube-viz"></iframe>
+        {% elif visualization.type == 'network' %}
+        <iframe src="{{ url_for('serve_output', path=visualization.interactive_file) }}" class="interactive-viz-container" id="force-graph"></iframe>
+        {% else %}
+        <iframe src="{{ url_for('serve_output', path=visualization.interactive_file) }}" class="interactive-viz-container"></iframe>
+        {% endif %}
+    {% elif visualization.visualizations|default([])|length > 0 %}
+        <ul class="viz-nav">
+            {% for viz in visualization.visualizations %}
+            <li class="viz-nav-item">
+                <a class="viz-nav-link {% if loop.first %}active{% endif %}" href="#" data-target="#viz-{{ loop.index }}">{{ viz.title }}</a>
+            </li>
+            {% endfor %}
+        </ul>
+        
+        <div class="viz-contents">
+            {% for viz in visualization.visualizations %}
+            <div class="viz-content {% if loop.first %}active{% endif %}" id="viz-{{ loop.index }}">
+                <div class="static-viz-container">
+                    <img src="{{ url_for('serve_output', path=viz.image) }}" alt="{{ viz.title }}">
+                </div>
+                {% if viz.description %}
+                <div class="viz-description mt-3">
+                    <h3>{{ viz.title }}</h3>
+                    <p>{{ viz.description }}</p>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="static-viz-container">
+            <img src="{{ url_for('serve_output', path=visualization.image) }}" alt="{{ visualization.title }}">
+        </div>
+    {% endif %}
+    
+    {% if visualization.summary %}
+    <div class="card mt-5">
+        <div class="card-header">
+            <h2 class="mb-0">Analysis Summary</h2>
+        </div>
+        <div class="card-body">
+            {{ visualization.summary|safe }}
+        </div>
+    </div>
+    {% endif %}
+    
+    {% if visualization.metrics %}
+    <div class="card mt-4">
+        <div class="card-header">
+            <h2 class="mb-0">Metrics</h2>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                {% for metric_name, metric_value in visualization.metrics.items() %}
+                <div class="col-12 col-md-4 mb-3">
+                    <div class="card">
+                        <div class="card-body text-center">
+                            <h4 class="card-title">{{ metric_name }}</h4>
+                            <p class="display-4">{{ metric_value }}</p>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    {% if related_visualizations %}
+    <div class="mt-5">
+        <h2>Related Visualizations</h2>
+        <div class="viz-gallery">
+            {% for viz in related_visualizations %}
+            <div class="viz-card card">
+                <div class="viz-img-container">
+                    <img src="{{ url_for('serve_output', path=viz.thumbnail) }}" alt="{{ viz.title }}" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">{{ viz.title }}</h3>
+                    <p class="card-text">{{ viz.description[:100] }}{% if viz.description|length > 100 %}...{% endif %}</p>
+                    <p class="mb-2"><small class="text-muted">Generated: {{ viz.date }}</small></p>
+                </div>
+                <div class="card-footer">
+                    <a href="{{ url_for('visualizations.show_visualization', output_dir=viz.id) }}" class="btn btn-primary">View</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<section class="section bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Generate Similar Visualization</h2>
+        
+        <form action="{{ url_for('viz_generate_bp.generate_visualization') }}" method="post" class="domain-compare-form">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title mb-3">Domain Selection</h3>
+                            
+                            <div class="domain-checkboxes mb-4">
+                                {% for domain_id in visualization.domain_ids %}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="domains" value="{{ domain_id }}" id="domain-{{ domain_id }}" checked>
+                                    <label class="form-check-label" for="domain-{{ domain_id }}">
+                                        {{ domain_id }}
+                                    </label>
+                                </div>
+                                {% endfor %}
+                                
+                                {% for other_domain in other_domains %}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="domains" value="{{ other_domain.id }}" id="domain-{{ other_domain.id }}">
+                                    <label class="form-check-label" for="domain-{{ other_domain.id }}">
+                                        {{ other_domain.name }}
+                                    </label>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            
+                            <h3 class="card-title mb-3">Visualization Options</h3>
+                            
+                            <div class="form-group mb-3">
+                                <label for="viz-type">Visualization Type</label>
+                                <select class="form-control" id="viz-type" name="viz_type">
+                                    <option value="matrix" {% if visualization.type == 'matrix' %}selected{% endif %}>Similarity Matrix</option>
+                                    <option value="network" {% if visualization.type == 'network' %}selected{% endif %}>Network Graph</option>
+                                    <option value="cube" {% if visualization.type == 'cube' %}selected{% endif %}>3D Pattern Cube</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group mb-3">
+                                <label for="output-name">Output Name (optional)</label>
+                                <input type="text" class="form-control" id="output-name" name="output_name" placeholder="e.g., {{ visualization.title }}_Modified">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Generate Visualization</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Visualization navigation functionality
+    const vizNavLinks = document.querySelectorAll('.viz-nav-link');
+    const vizContents = document.querySelectorAll('.viz-content');
+    
+    vizNavLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = this.getAttribute('data-target');
+            
+            // Deactivate all links and contents
+            vizNavLinks.forEach(l => l.classList.remove('active'));
+            vizContents.forEach(c => c.classList.remove('active'));
+            
+            // Activate clicked link and corresponding content
+            this.classList.add('active');
+            document.querySelector(target).classList.add('active');
+        });
+    });
+});
+</script>
+{% endblock %} 

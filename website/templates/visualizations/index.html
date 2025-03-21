@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+
+{% block title %}P3IF Visualization Gallery{% endblock %}
+{% block description %}Explore visualizations of patterns and domain connections in the P3IF framework{% endblock %}
+
+{% block content %}
+<section class="hero" style="background-image: linear-gradient(135deg, var(--accent), var(--primary-dark));">
+    <div class="container">
+        <h1 class="hero-title">Visualization Gallery</h1>
+        <p class="hero-description">
+            Explore pattern visualizations and domain connections generated using the P3IF framework.
+        </p>
+    </div>
+</section>
+
+<div class="container section">
+    <div class="row mb-4">
+        <div class="col-12 col-md-6">
+            <h2>Available Visualizations</h2>
+            <p>Explore {{ visualizations|length }} visualizations showcasing patterns across domains.</p>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="d-flex justify-content-md-end">
+                <div class="btn-group" role="group" aria-label="Visualization filters">
+                    <button type="button" class="btn btn-outline-primary viz-filter-btn active" data-filter="all">All</button>
+                    <button type="button" class="btn btn-outline-primary viz-filter-btn" data-filter="matrix">Matrix</button>
+                    <button type="button" class="btn btn-outline-primary viz-filter-btn" data-filter="network">Network</button>
+                    <button type="button" class="btn btn-outline-primary viz-filter-btn" data-filter="cube">3D Cube</button>
+                    <button type="button" class="btn btn-outline-primary viz-filter-btn" data-filter="other">Other</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% if visualizations %}
+    <div class="viz-gallery">
+        {% for viz in visualizations %}
+        <div class="viz-card card" data-type="{{ viz.type }}">
+            <div class="viz-img-container">
+                <img src="{{ url_for('static_output', filename=viz.thumbnail) }}" alt="{{ viz.title }}" loading="lazy">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">{{ viz.title }}</h3>
+                <p class="card-text">{{ viz.description[:100] }}{% if viz.description|length > 100 %}...{% endif %}</p>
+                <div class="mb-2">
+                    <span class="badge bg-secondary">{{ viz.type }}</span>
+                    {% for domain in viz.domains %}
+                    <span class="badge bg-light text-dark">{{ domain }}</span>
+                    {% endfor %}
+                </div>
+                <p class="mb-2"><small class="text-muted">Generated: {{ viz.date }}</small></p>
+            </div>
+            <div class="card-footer">
+                <a href="{{ url_for('viz_bp.show_visualization', output_dir=viz.id) }}" class="btn btn-primary">View</a>
+                {% if viz.is_interactive %}
+                <span class="badge bg-info ms-2">Interactive</span>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="text-center py-5">
+        <h3>No visualizations available yet</h3>
+        <p>Visualizations will be displayed here once they are generated.</p>
+        <a href="{{ url_for('viz_generate_bp.show_generate_form') }}" class="btn btn-primary mt-3">Generate a Visualization</a>
+    </div>
+    {% endif %}
+</div>
+
+<section class="section bg-light">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-lg-6">
+                <h2>Generate a New Visualization</h2>
+                <p>
+                    Select domains and visualization options to generate a new visualization.
+                    The P3IF framework offers multiple visualization types to help understand
+                    pattern relationships across different domains.
+                </p>
+                <p>
+                    Generated visualizations will be saved and accessible from this gallery.
+                </p>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="mb-0">Visualization Types</h3>
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h4 class="mb-1">Similarity Matrix</h4>
+                                    <span class="badge bg-primary">Static</span>
+                                </div>
+                                <p class="mb-1">Displays pattern similarity across domains as a color-coded matrix.</p>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h4 class="mb-1">Network Graph</h4>
+                                    <span class="badge bg-info">Interactive</span>
+                                </div>
+                                <p class="mb-1">Shows patterns and their connections as an interactive force-directed graph.</p>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h4 class="mb-1">3D Pattern Cube</h4>
+                                    <span class="badge bg-info">Interactive</span>
+                                </div>
+                                <p class="mb-1">Visualizes pattern relationships in a three-dimensional, rotatable space.</p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="text-center mt-4">
+            <a href="{{ url_for('viz_generate_bp.show_generate_form') }}" class="btn btn-primary btn-lg">Generate a Visualization</a>
+        </div>
+    </div>
+</section>
+
+{% if featured_visualization %}
+<section class="section">
+    <div class="container">
+        <h2 class="text-center mb-5">Featured Visualization</h2>
+        
+        <div class="row align-items-center">
+            <div class="col-12 col-md-6">
+                <img src="{{ url_for('static_output', filename=featured_visualization.image) }}" 
+                     alt="{{ featured_visualization.title }}" 
+                     class="img-fluid rounded">
+            </div>
+            <div class="col-12 col-md-6">
+                <h3>{{ featured_visualization.title }}</h3>
+                <p>{{ featured_visualization.description }}</p>
+                
+                <h4 class="mt-4">Included Domains</h4>
+                <ul>
+                    {% for domain in featured_visualization.domains %}
+                    <li>{{ domain }}</li>
+                    {% endfor %}
+                </ul>
+                
+                <div class="mt-4">
+                    <a href="{{ url_for('viz_bp.show_visualization', output_dir=featured_visualization.id) }}" class="btn btn-primary">View Full Visualization</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Add filter functionality for visualization types
+    const filterBtns = document.querySelectorAll('.viz-filter-btn');
+    if (filterBtns.length > 0) {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                
+                // Remove active class from all buttons
+                filterBtns.forEach(b => b.classList.remove('active'));
+                
+                // Add active class to clicked button
+                this.classList.add('active');
+                
+                // Filter gallery items
+                const items = document.querySelectorAll('.viz-card');
+                items.forEach(item => {
+                    const type = item.getAttribute('data-type');
+                    if (filter === 'all' || type === filter) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    }
+});
+</script>
+{% endblock %} 

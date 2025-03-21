@@ -11,12 +11,12 @@ from pathlib import Path
 def open_website():
     """Open the P3IF website in the default web browser."""
     # Define the path to the website
-    website_path = Path("website/p3if_full_website.html")
+    website_path = Path("output/p3if_full_website.html")
     
     if not website_path.exists():
         print(f"Error: Website file not found at {website_path}")
-        print("Please run 'python3 p3if/scripts/test_3d_cube_with_domains.py' first to generate the website.")
-        print("Then move the generated files to the website directory.")
+        print("Please run 'python3 scripts/test_3d_cube_with_domains.py' first to generate the website.")
+        print("Then move the generated files to the output directory.")
         return False
     
     # Convert to absolute path with file:// protocol

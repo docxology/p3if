@@ -39,7 +39,7 @@ Before you begin, ensure you have:
 The quickest way to get started with P3IF is to generate a multi-domain visualization portal:
 
 ```bash
-python p3if/scripts/run_multidomain_portal.py --output-dir output
+python scripts/run_multidomain_portal.py --output-dir output
 ```
 
 This will:
@@ -84,7 +84,7 @@ graph TD
 If you want to create custom synthetic data:
 
 ```bash
-python p3if/scripts/run_multidomain_portal.py --domains cybersecurity,healthcare --relationships 100 --cross-domain 30 --output-dir output
+python scripts/run_multidomain_portal.py --domains cybersecurity,healthcare --relationships 100 --cross-domain 30 --output-dir output
 ```
 
 This command generates a portal with:
@@ -97,7 +97,7 @@ This command generates a portal with:
 To generate the complete set of visualizations for all domains:
 
 ```bash
-bash p3if/scripts/generate_visualizations.sh
+bash scripts/generate_visualizations.sh
 ```
 
 This creates:
@@ -143,4 +143,4 @@ If you encounter issues or have questions:
 - [Configuration Guide](configuration.md): Detailed configuration options
 - [Data Model Documentation](../technical/data-model.md): Understanding the P3IF data model
 - [API Reference](../api/README.md): Using the P3IF API
-- [Advanced Features](../tutorials/advanced-features.md): Advanced usage scenarios 
+- [Advanced Features](../tutorials/advanced-features.md): Advanced usage scenarios

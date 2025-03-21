@@ -14,12 +14,12 @@ import numpy as np
 import networkx as nx
 import datetime
 
-from p3if.core.framework import P3IFFramework
-from p3if.visualization.base import Visualizer
-from p3if.visualization.network import NetworkVisualizer
-from p3if.visualization.matrix import MatrixVisualizer
-from p3if.utils.config import Config
-from p3if.analysis.report import AnalysisReport
+from core.framework import P3IFFramework
+from visualization.base import Visualizer
+from visualization.network import NetworkVisualizer
+from visualization.matrix import MatrixVisualizer
+from utils.config import Config
+from analysis.report import AnalysisReport
 
 
 class DashboardGenerator(Visualizer):
@@ -301,7 +301,9 @@ class DashboardGenerator(Visualizer):
         domain_metrics_path = output_path / "domain_metrics.png"
         fig = self.matrix_visualizer.visualize_domain_metrics(
             file_path=domain_metrics_path,
-            normalize=True
+            domains=domains,
+            cmap="viridis",
+            title="Domain Metrics (Normalized)"
         )
         visualizations["domain_metrics"] = domain_metrics_path
         

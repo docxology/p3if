@@ -1,0 +1,642 @@
+{% extends "base.html" %}
+
+{% block title %}3D Pattern Cube | {{ visualization.title }} | P3IF{% endblock %}
+{% block description %}Explore patterns in a 3D space showing relationships and clusters across domains{% endblock %}
+
+{% block head_extra %}
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.6.1/dist/d3.min.js"></script>
+<style>
+    .cube-container {
+        position: relative;
+        width: 100%;
+        height: 80vh;
+        overflow: hidden;
+    }
+    
+    #pattern-cube {
+        width: 100%;
+        height: 100%;
+        background: #f8f9fa;
+    }
+    
+    .controls {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        z-index: 100;
+        padding: 0.5rem;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 4px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .info-panel {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        z-index: 100;
+        padding: 1rem;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 4px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        max-width: 300px;
+        display: none;
+    }
+    
+    .legend {
+        position: absolute;
+        bottom: 10px;
+        right: 10px;
+        z-index: 100;
+        padding: 0.5rem;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 4px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    .legend-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.25rem;
+    }
+    
+    .legend-color {
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
+        border-radius: 3px;
+    }
+    
+    .loading-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(255, 255, 255, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<section class="container mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('viz_bp.index') }}">Visualizations</a></li>
+            <li class="breadcrumb-item"><a href="{{ url_for('viz_bp.show_visualization', output_dir=output_dir) }}">{{ visualization.title }}</a></li>
+            <li class="breadcrumb-item active" aria-current="page">3D Pattern Cube</li>
+        </ol>
+    </nav>
+
+    <div class="row mb-4">
+        <div class="col">
+            <h1>3D Pattern Cube</h1>
+            <p class="lead">
+                Explore patterns in a three-dimensional space where proximity indicates similarity.
+                Patterns are colored by domain, and clusters represent related concepts across domains.
+            </p>
+        </div>
+    </div>
+
+    <div class="cube-container">
+        <div id="pattern-cube"></div>
+        
+        <div class="controls">
+            <div class="form-group mb-2">
+                <label for="domain-filter">Filter by Domain:</label>
+                <select id="domain-filter" class="form-control form-control-sm">
+                    <option value="all">All Domains</option>
+                    {% for domain in domains %}
+                    <option value="{{ domain.id }}">{{ domain.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            
+            <div class="form-group mb-2">
+                <label for="pattern-type-filter">Pattern Type:</label>
+                <select id="pattern-type-filter" class="form-control form-control-sm">
+                    <option value="all">All Types</option>
+                    <option value="structural">Structural</option>
+                    <option value="behavioral">Behavioral</option>
+                    <option value="conceptual">Conceptual</option>
+                </select>
+            </div>
+            
+            <div class="form-group mb-2">
+                <label for="node-size">Node Size:</label>
+                <input type="range" class="form-range" min="0.5" max="3" step="0.1" value="1" id="node-size">
+            </div>
+            
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="show-labels" checked>
+                <label class="form-check-label" for="show-labels">Show Labels</label>
+            </div>
+            
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" id="show-connections">
+                <label class="form-check-label" for="show-connections">Show Connections</label>
+            </div>
+            
+            <button id="reset-view" class="btn btn-sm btn-outline-primary mt-2 w-100">Reset View</button>
+        </div>
+        
+        <div class="info-panel" id="pattern-info">
+            <h4 id="pattern-name">Pattern Name</h4>
+            <div id="pattern-domain" class="badge bg-primary mb-2">Domain</div>
+            <div id="pattern-type" class="badge bg-secondary mb-2">Type</div>
+            <p id="pattern-description">Pattern description will appear here when you select a pattern.</p>
+            <div class="small text-muted">Related Patterns:</div>
+            <div id="related-patterns" class="mt-1"></div>
+        </div>
+        
+        <div class="legend" id="domain-legend">
+            <div class="small mb-1"><strong>Domains:</strong></div>
+            <!-- Legend items will be dynamically added here -->
+        </div>
+        
+        <div class="loading-overlay" id="loading">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="mb-0">How to Navigate</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>Rotate:</strong> Click and drag to orbit around the cube</li>
+                        <li><strong>Zoom:</strong> Use mouse wheel or pinch gesture</li>
+                        <li><strong>Pan:</strong> Right-click and drag or use two fingers</li>
+                        <li><strong>Select Pattern:</strong> Click on any node to view details</li>
+                        <li><strong>Filter:</strong> Use controls in the top-right panel</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="mb-0">Interpretation Guide</h3>
+                </div>
+                <div class="card-body">
+                    <ul>
+                        <li><strong>Proximity:</strong> Patterns close together are semantically related</li>
+                        <li><strong>Clusters:</strong> Groups indicate a common concept or function</li>
+                        <li><strong>Bridges:</strong> Patterns connecting clusters often represent important concepts</li>
+                        <li><strong>Outliers:</strong> Distant nodes may be unique to their domain</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const dataPath = "{{ url_for('static', filename='output/' + output_dir + '/data/cube_data.json') }}";
+    
+    // Initialize Three.js scene
+    let scene, camera, renderer, controls;
+    let pointsGroup, labelsGroup, connectionsGroup;
+    let nodesData, patternObjects = {}, domainColors = {}, patternConnections = [];
+    let selectedPattern = null;
+    let raycaster = new THREE.Raycaster();
+    let mouse = new THREE.Vector2();
+    
+    // Initialize the 3D scene
+    function init() {
+        // Create scene
+        scene = new THREE.Scene();
+        scene.background = new THREE.Color(0xf8f9fa);
+        
+        // Create camera
+        camera = new THREE.PerspectiveCamera(
+            60, 
+            document.getElementById('pattern-cube').clientWidth / document.getElementById('pattern-cube').clientHeight, 
+            0.1, 
+            1000
+        );
+        camera.position.z = 100;
+        
+        // Create renderer
+        renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(
+            document.getElementById('pattern-cube').clientWidth, 
+            document.getElementById('pattern-cube').clientHeight
+        );
+        document.getElementById('pattern-cube').appendChild(renderer.domElement);
+        
+        // Add orbit controls
+        controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        
+        // Add ambient light
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.7);
+        scene.add(ambientLight);
+        
+        // Add directional light
+        const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+        directionalLight.position.set(1, 1, 1);
+        scene.add(directionalLight);
+        
+        // Create groups for organization
+        pointsGroup = new THREE.Group();
+        labelsGroup = new THREE.Group();
+        connectionsGroup = new THREE.Group();
+        scene.add(pointsGroup);
+        scene.add(labelsGroup);
+        scene.add(connectionsGroup);
+        
+        // Add coordinate axes for reference
+        const axesHelper = new THREE.AxesHelper(50);
+        scene.add(axesHelper);
+        
+        // Load data and create visualization
+        loadData();
+        
+        // Add event listeners
+        window.addEventListener('resize', onWindowResize);
+        renderer.domElement.addEventListener('click', onMouseClick);
+        document.getElementById('reset-view').addEventListener('click', resetView);
+        document.getElementById('domain-filter').addEventListener('change', updateFilters);
+        document.getElementById('pattern-type-filter').addEventListener('change', updateFilters);
+        document.getElementById('node-size').addEventListener('input', updateNodeSize);
+        document.getElementById('show-labels').addEventListener('change', toggleLabels);
+        document.getElementById('show-connections').addEventListener('change', toggleConnections);
+        
+        // Start animation loop
+        animate();
+    }
+    
+    // Load pattern data from JSON
+    function loadData() {
+        fetch(dataPath)
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                nodesData = data.nodes;
+                patternConnections = data.connections;
+                setupVisualization(nodesData, patternConnections);
+                document.getElementById('loading').style.display = 'none';
+            })
+            .catch(error => {
+                console.error('Error loading data:', error);
+                document.getElementById('loading').innerHTML = `
+                    <div class="alert alert-danger">
+                        <h4>Error Loading Visualization</h4>
+                        <p>${error.message}</p>
+                        <p>Try regenerating the visualization or check the console for details.</p>
+                    </div>
+                `;
+            });
+    }
+    
+    // Set up the visualization with pattern data
+    function setupVisualization(nodes, connections) {
+        // First clear any existing objects
+        while(pointsGroup.children.length > 0) {
+            pointsGroup.remove(pointsGroup.children[0]);
+        }
+        while(labelsGroup.children.length > 0) {
+            labelsGroup.remove(labelsGroup.children[0]);
+        }
+        while(connectionsGroup.children.length > 0) {
+            connectionsGroup.remove(connectionsGroup.children[0]);
+        }
+        
+        // Generate consistent colors for each domain
+        const uniqueDomains = [...new Set(nodes.map(node => node.domain))];
+        const colorScale = d3.scaleOrdinal(d3.schemeCategory10);
+        
+        uniqueDomains.forEach((domain, i) => {
+            domainColors[domain] = colorScale(i);
+        });
+        
+        // Create a sphere for each pattern
+        nodes.forEach(node => {
+            const geometry = new THREE.SphereGeometry(node.size || 1, 32, 32);
+            const material = new THREE.MeshStandardMaterial({ 
+                color: new THREE.Color(domainColors[node.domain]),
+                emissive: new THREE.Color(domainColors[node.domain]).multiplyScalar(0.2)
+            });
+            
+            const sphere = new THREE.Mesh(geometry, material);
+            sphere.position.set(node.x, node.y, node.z);
+            sphere.userData = {
+                id: node.id,
+                name: node.name,
+                domain: node.domain,
+                domainName: node.domainName,
+                description: node.description,
+                type: node.type,
+                visible: true
+            };
+            
+            pointsGroup.add(sphere);
+            patternObjects[node.id] = sphere;
+            
+            // Create text label
+            const div = document.createElement('div');
+            div.className = 'pattern-label';
+            div.textContent = node.name;
+            div.style.fontSize = '12px';
+            div.style.fontWeight = 'bold';
+            div.style.color = '#333';
+            div.style.padding = '2px';
+            div.style.backgroundColor = 'rgba(255, 255, 255, 0.7)';
+            div.style.borderRadius = '2px';
+            
+            const label = new CSS2DRenderer.CSS2DObject(div);
+            label.position.set(0, node.size + 0.5, 0);
+            sphere.add(label);
+            label.visible = true;
+        });
+        
+        // Create connections between patterns
+        connections.forEach(conn => {
+            if (conn.weight > 0.3) { // Only show stronger connections
+                const sourceNode = patternObjects[conn.source];
+                const targetNode = patternObjects[conn.target];
+                
+                if (sourceNode && targetNode) {
+                    const geometry = new THREE.BufferGeometry().setFromPoints([
+                        sourceNode.position,
+                        targetNode.position
+                    ]);
+                    
+                    const material = new THREE.LineBasicMaterial({
+                        color: 0x999999,
+                        transparent: true,
+                        opacity: Math.min(conn.weight, 0.8),
+                        linewidth: conn.weight * 3
+                    });
+                    
+                    const line = new THREE.Line(geometry, material);
+                    line.userData = {
+                        source: conn.source,
+                        target: conn.target,
+                        weight: conn.weight,
+                        visible: false // Connections off by default
+                    };
+                    
+                    connectionsGroup.add(line);
+                }
+            }
+        });
+        
+        // Create domain legend
+        const legendContainer = document.getElementById('domain-legend');
+        
+        // Clear existing legend items
+        while (legendContainer.childElementCount > 1) {
+            legendContainer.removeChild(legendContainer.lastChild);
+        }
+        
+        // Add legend items for each domain
+        uniqueDomains.forEach(domain => {
+            const domainName = nodes.find(n => n.domain === domain).domainName || domain;
+            
+            const legendItem = document.createElement('div');
+            legendItem.className = 'legend-item';
+            
+            const colorBox = document.createElement('div');
+            colorBox.className = 'legend-color';
+            colorBox.style.backgroundColor = domainColors[domain];
+            
+            const label = document.createElement('div');
+            label.className = 'legend-label small';
+            label.textContent = domainName;
+            
+            legendItem.appendChild(colorBox);
+            legendItem.appendChild(label);
+            legendContainer.appendChild(legendItem);
+        });
+        
+        // Update connection visibility based on checkbox
+        toggleConnections();
+        toggleLabels();
+    }
+    
+    // Handle mouse clicks for selecting patterns
+    function onMouseClick(event) {
+        // Calculate mouse position in normalized device coordinates
+        mouse.x = (event.clientX / renderer.domElement.clientWidth) * 2 - 1;
+        mouse.y = -(event.clientY / renderer.domElement.clientHeight) * 2 + 1;
+        
+        // Update the raycaster with the camera and mouse position
+        raycaster.setFromCamera(mouse, camera);
+        
+        // Find intersections with pattern spheres
+        const intersects = raycaster.intersectObjects(pointsGroup.children);
+        
+        if (intersects.length > 0) {
+            const selectedObject = intersects[0].object;
+            selectPattern(selectedObject);
+        } else {
+            // Deselect if clicked empty space
+            deselectPattern();
+        }
+    }
+    
+    // Select a pattern and show its details
+    function selectPattern(object) {
+        // Reset previous selection
+        if (selectedPattern) {
+            selectedPattern.material.emissiveIntensity = 0.2;
+        }
+        
+        // Set new selection
+        selectedPattern = object;
+        selectedPattern.material.emissiveIntensity = 1;
+        
+        // Update info panel
+        const infoPanel = document.getElementById('pattern-info');
+        infoPanel.style.display = 'block';
+        
+        document.getElementById('pattern-name').textContent = object.userData.name;
+        document.getElementById('pattern-domain').textContent = object.userData.domainName || object.userData.domain;
+        document.getElementById('pattern-domain').style.backgroundColor = domainColors[object.userData.domain];
+        document.getElementById('pattern-type').textContent = object.userData.type || 'Unspecified';
+        document.getElementById('pattern-description').textContent = object.userData.description || 'No description available.';
+        
+        // Find related patterns
+        const relatedPatterns = patternConnections.filter(
+            conn => (conn.source === object.userData.id || conn.target === object.userData.id) && conn.weight > 0.4
+        );
+        
+        const relatedPatternsContainer = document.getElementById('related-patterns');
+        relatedPatternsContainer.innerHTML = '';
+        
+        if (relatedPatterns.length > 0) {
+            relatedPatterns
+                .sort((a, b) => b.weight - a.weight)
+                .slice(0, 5)
+                .forEach(conn => {
+                    const relatedId = conn.source === object.userData.id ? conn.target : conn.source;
+                    const relatedNode = nodesData.find(n => n.id === relatedId);
+                    
+                    if (relatedNode) {
+                        const relatedPatternElem = document.createElement('div');
+                        relatedPatternElem.className = 'badge bg-light text-dark me-1 mb-1';
+                        relatedPatternElem.textContent = relatedNode.name;
+                        relatedPatternElem.style.borderLeft = `3px solid ${domainColors[relatedNode.domain]}`;
+                        relatedPatternElem.title = `Similarity: ${Math.round(conn.weight * 100)}%`;
+                        relatedPatternElem.style.cursor = 'pointer';
+                        
+                        relatedPatternElem.addEventListener('click', () => {
+                            const patternObject = patternObjects[relatedId];
+                            if (patternObject) {
+                                selectPattern(patternObject);
+                            }
+                        });
+                        
+                        relatedPatternsContainer.appendChild(relatedPatternElem);
+                    }
+                });
+        } else {
+            relatedPatternsContainer.textContent = 'No strongly related patterns found.';
+        }
+        
+        // Highlight related connections
+        connectionsGroup.children.forEach(line => {
+            if (line.userData.source === object.userData.id || line.userData.target === object.userData.id) {
+                line.material.color.set(0x555555);
+                line.material.opacity = Math.min(line.userData.weight * 1.5, 1);
+            } else {
+                line.material.color.set(0x999999);
+                line.material.opacity = Math.min(line.userData.weight, 0.5);
+            }
+        });
+    }
+    
+    // Deselect the current pattern
+    function deselectPattern() {
+        if (selectedPattern) {
+            selectedPattern.material.emissiveIntensity = 0.2;
+            selectedPattern = null;
+        }
+        
+        document.getElementById('pattern-info').style.display = 'none';
+        
+        // Reset connections appearance
+        connectionsGroup.children.forEach(line => {
+            line.material.color.set(0x999999);
+            line.material.opacity = Math.min(line.userData.weight, 0.5);
+        });
+    }
+    
+    // Update filters based on user selection
+    function updateFilters() {
+        const domainFilter = document.getElementById('domain-filter').value;
+        const typeFilter = document.getElementById('pattern-type-filter').value;
+        
+        pointsGroup.children.forEach(node => {
+            // Check if the node passes both filters
+            const passesDomainFilter = domainFilter === 'all' || node.userData.domain === domainFilter;
+            const passesTypeFilter = typeFilter === 'all' || node.userData.type === typeFilter;
+            
+            // Update visibility
+            node.visible = passesDomainFilter && passesTypeFilter;
+            node.userData.visible = node.visible;
+        });
+        
+        // Update connections
+        connectionsGroup.children.forEach(line => {
+            const sourceNode = patternObjects[line.userData.source];
+            const targetNode = patternObjects[line.userData.target];
+            
+            // Only show connections between visible nodes
+            const showConnection = sourceNode && targetNode && 
+                                  sourceNode.userData.visible && 
+                                  targetNode.userData.visible;
+            
+            line.visible = showConnection && line.userData.visible;
+        });
+    }
+    
+    // Update node size based on slider
+    function updateNodeSize() {
+        const scaleFactor = parseFloat(document.getElementById('node-size').value);
+        
+        pointsGroup.children.forEach(node => {
+            const originalSize = nodesData.find(n => n.id === node.userData.id)?.size || 1;
+            node.scale.set(scaleFactor, scaleFactor, scaleFactor);
+        });
+    }
+    
+    // Toggle label visibility
+    function toggleLabels() {
+        const showLabels = document.getElementById('show-labels').checked;
+        
+        pointsGroup.children.forEach(node => {
+            if (node.children.length > 0) {
+                node.children[0].visible = showLabels;
+            }
+        });
+    }
+    
+    // Toggle connection visibility
+    function toggleConnections() {
+        const showConnections = document.getElementById('show-connections').checked;
+        
+        connectionsGroup.children.forEach(line => {
+            line.userData.visible = showConnections;
+            
+            // Only show if both connected nodes are visible
+            const sourceNode = patternObjects[line.userData.source];
+            const targetNode = patternObjects[line.userData.target];
+            
+            if (sourceNode && targetNode) {
+                line.visible = showConnections && sourceNode.userData.visible && targetNode.userData.visible;
+            } else {
+                line.visible = false;
+            }
+        });
+    }
+    
+    // Reset camera view
+    function resetView() {
+        camera.position.set(0, 0, 100);
+        camera.lookAt(0, 0, 0);
+        controls.reset();
+    }
+    
+    // Handle window resize
+    function onWindowResize() {
+        camera.aspect = document.getElementById('pattern-cube').clientWidth / document.getElementById('pattern-cube').clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(document.getElementById('pattern-cube').clientWidth, document.getElementById('pattern-cube').clientHeight);
+    }
+    
+    // Animation loop
+    function animate() {
+        requestAnimationFrame(animate);
+        controls.update();
+        renderer.render(scene, camera);
+    }
+    
+    // Initialize the visualization
+    init();
+});
+</script>
+{% endblock %} 

@@ -189,8 +189,8 @@ website/
 The website will be built using a script (`make_website.py`) that:
 
 1. Runs the necessary P3IF scripts to generate visualization outputs. 
-- p3if/scripts send all outputs to p3if/data . 
-- the make_website.py script will copy the outputs to the relevant website folder for reference by website and HTML and JS files in this folder. So all heavy visualization and analysis, is done via p3if/scripts which calls p3if/core and etc., this website folder is just the interactive and UX elements. 
+- scripts send all outputs to data . 
+- the make_website.py script will copy the outputs to the relevant website folder for reference by website and HTML and JS files in this folder. So all heavy visualization and analysis, is done via scripts which calls core and etc., this website folder is just the interactive and UX elements. 
 2. Processes template files to create HTML pages
 3. Optimizes assets (minification, compression)
 4. Assembles all components into the website directory

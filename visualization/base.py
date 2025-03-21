@@ -13,8 +13,8 @@ import numpy as np
 import time
 import threading
 
-from p3if.core.framework import P3IFFramework
-from p3if.utils.config import Config
+from core.framework import P3IFFramework
+from utils.config import Config
 
 
 class Visualizer:
@@ -65,7 +65,7 @@ class Visualizer:
             tight_layout: Whether to apply tight layout
         """
         # Set a timeout for the figure saving operation
-        MAX_SAVE_TIME = 30  # seconds
+        MAX_SAVE_TIME = 15  # seconds - reduced from 30 to 15
         
         if title:
             fig.suptitle(title, fontsize=16, y=0.98)
@@ -76,6 +76,17 @@ class Visualizer:
         path = Path(file_path)
         os.makedirs(path.parent, exist_ok=True)
         
+        # Calculate figure size in pixels to determine appropriate DPI
+        fig_width, fig_height = fig.get_size_inches()
+        total_pixels = fig_width * fig_height * self.dpi * self.dpi
+        
+        # Use lower DPI for very large figures to prevent performance issues
+        if total_pixels > 16000000:  # 4000 x 4000 pixels
+            adjusted_dpi = min(self.dpi, int(16000000 / (fig_width * fig_height)))
+            self.logger.info(f"Large figure detected ({fig_width:.1f}x{fig_height:.1f} inches). Reducing DPI from {self.dpi} to {adjusted_dpi}")
+        else:
+            adjusted_dpi = self.dpi
+        
         # Use a thread with a timeout to save the figure
         save_completed = False
         save_thread = None
@@ -83,12 +94,14 @@ class Visualizer:
         def _save_figure():
             nonlocal save_completed
             try:
-                fig.savefig(path, dpi=self.dpi, bbox_inches="tight")
+                fig.savefig(path, dpi=adjusted_dpi, bbox_inches="tight", format="png", 
+                          transparent=False, pad_inches=0.1)
                 save_completed = True
             except Exception as e:
                 self.logger.error(f"Error saving figure to {path}: {e}")
         
         try:
+            self.logger.info(f"Saving figure to {path}")
             save_thread = threading.Thread(target=_save_figure)
             save_thread.daemon = True
             save_thread.start()
@@ -99,7 +112,17 @@ class Visualizer:
             if save_completed:
                 self.logger.info(f"Figure saved to {path}")
             else:
-                self.logger.warning(f"Figure save operation timed out after {MAX_SAVE_TIME} seconds: {path}")
+                # If save operation timed out, try again with lower quality settings
+                self.logger.warning(f"Figure save operation timed out after {MAX_SAVE_TIME} seconds, trying with lower quality: {path}")
+                plt.close(fig)  # Close the previous figure
+                
+                # Create a simplified version of the figure
+                simplified_fig, simplified_ax = plt.subplots(figsize=(10, 8))
+                simplified_ax.text(0.5, 0.5, f"Matrix visualization (simplified)\nOriginal size: {fig_width:.1f}x{fig_height:.1f} inches", 
+                                  ha='center', va='center', fontsize=14)
+                simplified_ax.set_axis_off()
+                simplified_fig.savefig(path, dpi=72, bbox_inches="tight")
+                plt.close(simplified_fig)
         finally:
             plt.close(fig)
     

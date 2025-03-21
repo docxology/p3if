@@ -1,0 +1,287 @@
+{% extends "base.html" %}
+
+{% block title %}{{ domain.name }} | P3IF Domains{% endblock %}
+{% block description %}Explore the {{ domain.name }} domain within the P3IF framework, including patterns, connections, and visualizations{% endblock %}
+
+{% block content %}
+<section class="hero" style="background-image: linear-gradient(135deg, var(--secondary), var(--secondary-dark));">
+    <div class="container">
+        <h1 class="hero-title">{{ domain.name }}</h1>
+        <p class="hero-description">
+            {{ domain.description }}
+        </p>
+    </div>
+</section>
+
+<div class="container section-sm">
+    <nav class="breadcrumb">
+        <div class="breadcrumb-item"><a href="{{ url_for('home') }}">Home</a></div>
+        <div class="breadcrumb-item"><a href="{{ url_for('domains_bp.index') }}">Domains</a></div>
+        <div class="breadcrumb-item active">{{ domain.name }}</div>
+    </nav>
+
+    <div class="row">
+        <div class="col-12 col-md-8">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h2 class="mb-0">Overview</h2>
+                </div>
+                <div class="card-body">
+                    <p>{{ domain.description }}</p>
+                    
+                    {% if domain.metadata %}
+                    <h3 class="mt-4">Metadata</h3>
+                    <table class="table">
+                        <tbody>
+                            {% for key, value in domain.metadata.items() %}
+                            <tr>
+                                <th>{{ key|title }}</th>
+                                <td>{{ value }}</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% endif %}
+                    
+                    {% if domain.tags %}
+                    <h3 class="mt-4">Tags</h3>
+                    <div class="domain-tags">
+                        {% for tag in domain.tags %}
+                        <span class="badge bg-light text-dark">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h2 class="mb-0">Pattern Summary</h2>
+                </div>
+                <div class="card-body">
+                    <div class="domain-stats mb-4">
+                        <div class="domain-stat">
+                            <div class="domain-stat-value">{{ domain.pattern_count }}</div>
+                            <div class="domain-stat-label">Total Patterns</div>
+                        </div>
+                        <div class="domain-stat">
+                            <div class="domain-stat-value">{{ domain.connection_count }}</div>
+                            <div class="domain-stat-label">Internal Connections</div>
+                        </div>
+                        <div class="domain-stat">
+                            <div class="domain-stat-value">{{ domain.cross_domain_connections }}</div>
+                            <div class="domain-stat-label">Cross-Domain Links</div>
+                        </div>
+                    </div>
+                    
+                    {% if pattern_types %}
+                    <h3>Pattern Types</h3>
+                    <div class="row mt-3">
+                        {% for type, count in pattern_types.items() %}
+                        <div class="col-6 col-md-4 mb-3">
+                            <div class="card bg-light">
+                                <div class="card-body text-center">
+                                    <h4 class="card-title">{{ type }}</h4>
+                                    <p class="mb-0">{{ count }} patterns</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    
+                    <div class="text-center mt-4">
+                        <a href="{{ url_for('domains.show_patterns', domain_id=domain.id) }}" class="btn btn-primary">View All Patterns</a>
+                    </div>
+                </div>
+            </div>
+            
+            {% if domain.summary %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h2 class="mb-0">Domain Summary</h2>
+                </div>
+                <div class="card-body">
+                    {{ domain.summary|safe }}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        
+        <div class="col-12 col-md-4">
+            {% if related_domains %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3 class="mb-0">Related Domains</h3>
+                </div>
+                <div class="card-body">
+                    <ul class="list-group">
+                        {% for rel_domain in related_domains %}
+                        <li class="list-group-item">
+                            <a href="{{ url_for('domains_bp.show_domain', domain_id=rel_domain.id) }}">
+                                {{ rel_domain.name }}
+                            </a>
+                            <span class="badge bg-primary float-end">{{ rel_domain.similarity }}%</span>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            {% endif %}
+            
+            {% if visualizations %}
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3 class="mb-0">Visualizations</h3>
+                </div>
+                <div class="card-body">
+                    <div class="list-group">
+                        {% for viz in visualizations %}
+                        <a href="{{ url_for('viz_bp.show_visualization', output_dir=viz.id) }}" class="list-group-item list-group-item-action">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">{{ viz.title }}</h5>
+                                <small>{{ viz.date }}</small>
+                            </div>
+                            <p class="mb-1">{{ viz.description[:100] }}{% if viz.description|length > 100 %}...{% endif %}</p>
+                            <small>{{ viz.type }}</small>
+                        </a>
+                        {% endfor %}
+                    </div>
+                    
+                    <div class="text-center mt-3">
+                        <a href="{{ url_for('viz_bp.index') }}?domain={{ domain.id }}" class="btn btn-secondary">View All Visualizations</a>
+                    </div>
+                </div>
+            </div>
+            {% endif %}
+            
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3 class="mb-0">Actions</h3>
+                </div>
+                <div class="card-body">
+                    <div class="d-grid gap-2">
+                        <a href="{{ url_for('viz_generate_bp.show_generate_form') }}?domains={{ domain.id }}" class="btn btn-primary">Generate Visualization</a>
+                        <a href="#" class="btn btn-outline-secondary">Export Domain Data</a>
+                        <a href="{{ url_for('domains.show_patterns', domain_id=domain.id) }}" class="btn btn-outline-secondary">Browse Patterns</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if preview_visualization %}
+<section class="section bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">Domain Visualization Preview</h2>
+        
+        <div class="text-center mb-4">
+            <p>A preview of pattern relationships within this domain.</p>
+        </div>
+        
+        <div class="viz-preview mb-4">
+            <img src="{{ url_for('static_output', filename=preview_visualization.image) }}" 
+                 alt="{{ domain.name }} visualization" 
+                 class="img-fluid rounded mx-auto d-block"
+                 style="max-height: 500px; width: auto;">
+        </div>
+        
+        <div class="text-center">
+            <a href="{{ url_for('viz_bp.show_visualization', output_dir=preview_visualization.id) }}" class="btn btn-primary">View Full Visualization</a>
+            <a href="{{ url_for('viz_bp.index') }}?domain={{ domain.id }}" class="btn btn-outline-secondary ms-2">Explore More Visualizations</a>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<section class="section">
+    <div class="container">
+        <h2 class="text-center mb-5">Top Patterns in {{ domain.name }}</h2>
+        
+        <div class="row">
+            {% for pattern in top_patterns %}
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ pattern.name }}</h3>
+                        <div class="mb-2">
+                            <span class="badge bg-secondary">{{ pattern.type }}</span>
+                            {% if pattern.importance %}
+                            <span class="badge bg-primary">Importance: {{ pattern.importance }}</span>
+                            {% endif %}
+                        </div>
+                        <p class="card-text">{{ pattern.description }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">ID: {{ pattern.id }}</small>
+                        {% if pattern.connection_count %}
+                        <span class="float-end">{{ pattern.connection_count }} connections</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="col-12 text-center">
+                <p>No patterns available for this domain.</p>
+            </div>
+            {% endfor %}
+        </div>
+        
+        {% if top_patterns %}
+        <div class="text-center mt-3">
+            <a href="{{ url_for('domains.show_patterns', domain_id=domain.id) }}" class="btn btn-primary">View All Patterns</a>
+        </div>
+        {% endif %}
+    </div>
+</section>
+
+<section class="section bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Compare with Other Domains</h2>
+        
+        <form action="{{ url_for('viz_generate_bp.show_generate_form') }}" method="post" class="domain-compare-form">
+            <input type="hidden" name="domains" value="{{ domain.id }}">
+            
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title mb-3">Select Additional Domains</h3>
+                            
+                            <div class="domain-checkboxes mb-4">
+                                {% for other_domain in other_domains %}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="domains" value="{{ other_domain.id }}" id="domain-{{ other_domain.id }}">
+                                    <label class="form-check-label" for="domain-{{ other_domain.id }}">
+                                        {{ other_domain.name }}
+                                    </label>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            
+                            <h3 class="card-title mb-3">Visualization Options</h3>
+                            
+                            <div class="form-group mb-3">
+                                <label for="viz-type">Visualization Type</label>
+                                <select class="form-control" id="viz-type" name="viz_type">
+                                    <option value="matrix">Similarity Matrix</option>
+                                    <option value="network">Network Graph</option>
+                                    <option value="cube">3D Pattern Cube</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group mb-3">
+                                <label for="output-name">Output Name (optional)</label>
+                                <input type="text" class="form-control" id="output-name" name="output_name" placeholder="e.g., {{ domain.id }}_Comparison">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Generate Comparison</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %} 

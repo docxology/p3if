@@ -1,0 +1,51 @@
+# P3IF Project Rules
+
+## Directory Structure
+- Core modules are organized at the root level (core/, data/, utils/, analysis/, visualization/, scripts/)
+- Tests for each module are in tests/
+- Documentation is in docs/
+- Website-related files are in website/
+
+## Code Style
+- Follow PEP 8 for Python code style
+- Use docstrings for all public functions, classes, and methods
+- Keep lines under 100 characters
+- Use 4 spaces for indentation (no tabs)
+
+## Imports
+- Import order: standard library, third-party packages, local modules
+- Use absolute imports from the package root
+- Example: `from core.models import Pattern`
+
+## Documentation
+- All code should have appropriate documentation
+- Update docs when making changes to functionality
+- Keep documentation in sync with code changes
+- Reference docs are in Markdown format
+
+## Script Paths
+- All scripts should be invoked from the project root
+- Example: `python scripts/run_multidomain_portal.py`
+- Do not use relative imports that reach outside of a package
+
+## Version Control
+- Use semantic versioning for releases
+- Provide descriptive commit messages
+- Reference issue numbers when applicable
+
+## Testing
+- Write tests for new functionality
+- Run tests before submitting changes
+- Tests should be independent and deterministic
+- Use pytest for testing
+
+## Error Handling
+- Use appropriate error handling and provide helpful error messages
+- Log errors in a standardized format
+- Fail gracefully when possible
+
+## Visualization Standards
+- Maintain consistent styling across visualizations
+- Follow the color scheme defined in documentation
+- Support accessibility requirements
+- Include legends and explanatory text 

@@ -1,0 +1,298 @@
+{% extends "base.html" %}
+
+{% block title %}About P3IF | Pattern Portal for Interdisciplinary Frameworks{% endblock %}
+{% block description %}Learn about the P3IF project, its goals, methodology, and the team behind the Pattern Portal for Interdisciplinary Frameworks{% endblock %}
+
+{% block content %}
+<section class="hero" style="background-image: linear-gradient(135deg, var(--dark), var(--darker));">
+    <div class="container">
+        <h1 class="hero-title">About P3IF</h1>
+        <p class="hero-description">
+            Understanding the Pattern Portal for Interdisciplinary Frameworks project.
+        </p>
+    </div>
+</section>
+
+<div class="container section">
+    <div class="row">
+        <div class="col-12 col-lg-8">
+            <h2>Project Overview</h2>
+            <p>
+                The Properties, Processes, and Perspectives Inter-Framework (P3IF) is a computational framework designed to identify, 
+                analyze, and compare patterns across different domains of knowledge. By exploring recurring structures and 
+                relationships within and between disciplines, P3IF aims to foster cross-domain understanding and innovation.
+            </p>
+            
+            <p>
+                P3IF provides tools for domain experts to encode their knowledge in a structured format, allowing for
+                computational analysis and visualization of patterns. These visualizations help researchers identify
+                similarities and differences between domains that might not be apparent through traditional analysis.
+            </p>
+            
+            <h2 class="mt-5">Our Approach</h2>
+            <p>
+                The P3IF framework takes a systematic approach to pattern analysis across domains:
+            </p>
+            
+            <div class="row mt-4">
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">1. Domain Modeling</h3>
+                            <p class="card-text">
+                                Domains are represented as structured JSON files containing patterns, relationships, 
+                                and metadata. This standardized format enables consistent analysis across diverse fields.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">2. Pattern Identification</h3>
+                            <p class="card-text">
+                                The framework helps domain experts identify recurring patterns within their fields, 
+                                categorizing them by type and capturing their essential properties.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">3. Relationship Mapping</h3>
+                            <p class="card-text">
+                                Relationships between patterns are captured, both within domains and across domain
+                                boundaries, using metrics that quantify similarity and connection strength.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">4. Visualization</h3>
+                            <p class="card-text">
+                                Multiple visualization techniques help users understand pattern relationships,
+                                from similarity matrices to interactive network graphs and 3D representations.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h2 class="mt-5">Applications</h2>
+            <p>
+                P3IF has applications in various fields:
+            </p>
+            
+            <ul>
+                <li><strong>Research:</strong> Identifying cross-domain connections to inspire interdisciplinary research</li>
+                <li><strong>Education:</strong> Creating learning materials that highlight pattern similarities across subjects</li>
+                <li><strong>Innovation:</strong> Applying solutions from one domain to problems in another domain</li>
+                <li><strong>Knowledge Management:</strong> Organizing and connecting knowledge in complex organizations</li>
+                <li><strong>System Design:</strong> Understanding recurring patterns in complex systems design</li>
+            </ul>
+            
+            <h2 class="mt-5">Get Involved</h2>
+            <p>
+                P3IF is an open project that welcomes contributions from researchers, domain experts, developers, and designers.
+                There are several ways to get involved:
+            </p>
+            
+            <div class="row mt-4">
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Contribute Domain Data</h3>
+                            <p class="card-text">
+                                Add your domain expertise by creating structured representations of patterns in your field.
+                                Follow our documentation to create domain JSON files.
+                            </p>
+                            <a href="{{ url_for('docs.index') }}?doc=contributing-domains" class="btn btn-primary mt-2">Learn How</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-12 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h3 class="card-title">Contribute Code</h3>
+                            <p class="card-text">
+                                Help improve the framework's functionality, add new visualization types, enhance analytics,
+                                or work on the website and documentation.
+                            </p>
+                            <a href="{{ url_for('docs.index') }}?doc=contributing" class="btn btn-primary mt-2">Development Guide</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-lg-4">
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3 class="mb-0">Project Details</h3>
+                </div>
+                <div class="card-body">
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <th>Version</th>
+                                <td>1.0.0</td>
+                            </tr>
+                            <tr>
+                                <th>License</th>
+                                <td>MIT</td>
+                            </tr>
+                            <tr>
+                                <th>Repository</th>
+                                <td><a href="https://github.com/yourusername/p3if" target="_blank">GitHub</a></td>
+                            </tr>
+                            <tr>
+                                <th>Documentation</th>
+                                <td><a href="{{ url_for('docs.index') }}">View Docs</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3 class="mb-0">Core Features</h3>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">Structured domain representation</li>
+                    <li class="list-group-item">Pattern similarity analysis</li>
+                    <li class="list-group-item">Cross-domain connection identification</li>
+                    <li class="list-group-item">Interactive visualizations</li>
+                    <li class="list-group-item">Analytical metrics and reporting</li>
+                    <li class="list-group-item">API for integration with other tools</li>
+                </ul>
+            </div>
+            
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h3 class="mb-0">Current Domains</h3>
+                </div>
+                <div class="card-body">
+                    <p>P3IF currently includes {{ domain_count }} domains:</p>
+                    
+                    <ul class="mb-0">
+                        {% for domain in domains %}
+                        <li>
+                            <a href="{{ url_for('domains.show_domain', domain_id=domain.id) }}">{{ domain.name }}</a>
+                        </li>
+                        {% else %}
+                        <li>No domains available yet</li>
+                        {% endfor %}
+                    </ul>
+                    
+                    <div class="text-center mt-3">
+                        <a href="{{ url_for('domains.index') }}" class="btn btn-outline-primary">View All Domains</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="mb-0">Contact</h3>
+                </div>
+                <div class="card-body">
+                    <p>Have questions about P3IF? Get in touch with the team:</p>
+                    
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:info@p3if.org">info@p3if.org</a></li>
+                        <li><i class="fab fa-github"></i> <a href="https://github.com/yourusername/p3if/issues">GitHub Issues</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="section bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Methodology</h2>
+        
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <img src="{{ url_for('static', filename='img/methodology-diagram.png') }}" alt="P3IF Methodology Diagram" class="img-fluid rounded">
+            </div>
+            <div class="col-12 col-md-6">
+                <h3>How P3IF Works</h3>
+                <p>
+                    The P3IF framework employs a systematic approach to identifying and analyzing patterns:
+                </p>
+                
+                <ol>
+                    <li>
+                        <strong>Domain Data Collection:</strong> Domain experts provide structured information about patterns
+                        in their field, including descriptions, examples, and relationships.
+                    </li>
+                    <li>
+                        <strong>Data Processing:</strong> The framework processes this information, standardizing terminology
+                        and preparing it for comparative analysis.
+                    </li>
+                    <li>
+                        <strong>Pattern Matching:</strong> Using algorithms that consider semantic similarity, functional roles,
+                        and structural characteristics, the system identifies potential pattern matches across domains.
+                    </li>
+                    <li>
+                        <strong>Relationship Analysis:</strong> The strength and nature of relationships between patterns are
+                        calculated using various metrics, including similarity scores and connection density.
+                    </li>
+                    <li>
+                        <strong>Visualization Generation:</strong> Results are transformed into visual representations that
+                        highlight important connections and clusters of related patterns.
+                    </li>
+                    <li>
+                        <strong>Insight Extraction:</strong> The system generates summaries and highlights notable cross-domain
+                        connections that may warrant further investigation.
+                    </li>
+                </ol>
+                
+                <p>
+                    This methodology enables the discovery of non-obvious relationships between patterns across different fields,
+                    potentially leading to new insights and innovations.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="text-center mb-5">Research Publications</h2>
+        
+        <div class="row">
+            {% for publication in publications %}
+            <div class="col-12 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ publication.title }}</h3>
+                        <p class="card-text">{{ publication.authors }}</p>
+                        <p class="card-text"><em>{{ publication.venue }}</em>, {{ publication.year }}</p>
+                        <p class="card-text mb-0">{{ publication.abstract }}</p>
+                        
+                        {% if publication.doi %}
+                        <div class="mt-3">
+                            <a href="https://doi.org/{{ publication.doi }}" class="btn btn-outline-primary" target="_blank">View Publication</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="col-12 text-center">
+                <p>No publications available yet.</p>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %} 

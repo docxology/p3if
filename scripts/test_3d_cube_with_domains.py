@@ -8,10 +8,15 @@ import shutil
 from pathlib import Path
 import sys
 
-from p3if.core.framework import P3IFFramework
-from p3if.core.models import Property, Process, Perspective, Relationship
-from p3if.visualization.interactive import InteractiveVisualizer
-from p3if.utils.config import Config
+# Add the project root to the path
+current_dir = Path(__file__).parent
+project_root = current_dir.parent
+sys.path.insert(0, str(project_root))
+
+from core.framework import P3IFFramework
+from core.models import Property, Process, Perspective, Relationship
+from visualization.interactive import InteractiveVisualizer
+from utils.config import Config
 
 
 def load_domain_data(domain_file):
@@ -95,8 +100,8 @@ def get_domain_datasets():
         List of dataset information dicts
     """
     # Use absolute path to ensure directory exists
-    project_root = Path(__file__).parent.parent.parent
-    domains_dir = project_root / "p3if" / "data" / "domains"
+    project_root = Path(__file__).parent.parent
+    domains_dir = project_root / "data" / "domains"
     
     # Create domains directory if it doesn't exist
     domains_dir.mkdir(parents=True, exist_ok=True)
@@ -185,7 +190,7 @@ def generate_domain_cube(domain_id, output_dir="output"):
     Returns:
         Path to the generated visualization
     """
-    domains_dir = Path("p3if/data/domains")
+    domains_dir = Path("data/domains")
     domain_file = domains_dir / f"{domain_id}.json"
     
     if not domain_file.exists():

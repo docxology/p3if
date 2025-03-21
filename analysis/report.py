@@ -10,10 +10,10 @@ import os
 from pathlib import Path
 import datetime
 
-from p3if.core.framework import P3IFFramework
-from p3if.analysis.basic import BasicAnalyzer
-from p3if.analysis.network import NetworkAnalyzer
-from p3if.analysis.meta import MetaAnalyzer
+from core.framework import P3IFFramework
+from analysis.basic import BasicAnalyzer
+from analysis.network import NetworkAnalyzer
+from analysis.meta import MetaAnalyzer
 
 
 class AnalysisReport:

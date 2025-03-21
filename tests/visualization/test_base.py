@@ -9,10 +9,10 @@ import tempfile
 import matplotlib.pyplot as plt
 from pathlib import Path
 
-from p3if.core.framework import P3IFFramework
-from p3if.core.models import Property, Process, Perspective
-from p3if.visualization.base import Visualizer
-from p3if.utils.config import Config
+from core.framework import P3IFFramework
+from core.models import Property, Process, Perspective
+from visualization.base import Visualizer
+from utils.config import Config
 
 
 @pytest.fixture

@@ -17,6 +17,10 @@ import argparse
 import logging
 from pathlib import Path
 
+# Configure matplotlib to use the non-interactive Agg backend to prevent popups during tests
+import matplotlib
+matplotlib.use('Agg')
+
 # Add the project root to the path
 current_dir = Path(__file__).parent
 project_root = current_dir.parent.parent

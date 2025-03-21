@@ -4,8 +4,8 @@ Test utilities for P3IF tests.
 import random
 from typing import List, Dict, Any, Optional
 
-from p3if.core.framework import P3IFFramework
-from p3if.core.models import Property, Process, Perspective, Relationship
+from core.framework import P3IFFramework
+from core.models import Property, Process, Perspective, Relationship
 
 
 def create_test_framework(num_properties: int = 5,

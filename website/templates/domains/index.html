@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+
+{% block title %}P3IF Domains Explorer{% endblock %}
+{% block description %}Explore all domains in the P3IF framework and discover patterns across different fields{% endblock %}
+
+{% block content %}
+<section class="hero" style="background-image: linear-gradient(135deg, var(--secondary), var(--secondary-dark));">
+    <div class="container">
+        <h1 class="hero-title">Domain Explorer</h1>
+        <p class="hero-description">
+            Discover and explore the various domains analyzed within the P3IF framework.
+        </p>
+    </div>
+</section>
+
+<div class="container section domain-explorer">
+    <div class="row mb-4">
+        <div class="col-12 col-md-6">
+            <h2>Available Domains</h2>
+            <p>Explore {{ domains|length }} domains across various fields and disciplines.</p>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="input-group">
+                <input type="text" class="form-control domain-search" placeholder="Search domains...">
+            </div>
+        </div>
+    </div>
+
+    {% if domains %}
+    <div class="row">
+        {% for domain in domains %}
+        <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="card domain-card" data-domain-id="{{ domain.id }}">
+                <div class="card-body">
+                    <h3 class="card-title">{{ domain.name }}</h3>
+                    <p class="card-text">{{ domain.description[:150] }}{% if domain.description|length > 150 %}...{% endif %}</p>
+                    
+                    <div class="domain-stats mb-3">
+                        <div class="domain-stat">
+                            <div class="domain-stat-value">{{ domain.pattern_count }}</div>
+                            <div class="domain-stat-label">Patterns</div>
+                        </div>
+                        <div class="domain-stat">
+                            <div class="domain-stat-value">{{ domain.connection_count }}</div>
+                            <div class="domain-stat-label">Connections</div>
+                        </div>
+                        <div class="domain-stat">
+                            <div class="domain-stat-value">{{ domain.data_points }}</div>
+                            <div class="domain-stat-label">Data Points</div>
+                        </div>
+                    </div>
+                    
+                    <div class="domain-tags">
+                        {% for tag in domain.tags %}
+                        <span class="badge bg-light text-dark">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a href="{{ url_for('domains_bp.show_domain', domain_id=domain.id) }}" class="btn btn-primary">Explore</a>
+                    {% if domain.has_visualizations %}
+                    <a href="{{ url_for('viz_bp.index') }}?domain={{ domain.id }}" class="btn btn-outline" style="margin-left: 0.5rem;">View Visualizations</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="text-center py-5">
+        <h3>No domains available yet</h3>
+        <p>Domains will be displayed here once they are added to the system.</p>
+    </div>
+    {% endif %}
+</div>
+
+<section class="section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <h2>How Domains Work in P3IF</h2>
+                <p>
+                    A domain in P3IF represents a field of knowledge or discipline that contains patterns. 
+                    Each domain is analyzed for recurring patterns, which can then be compared with patterns
+                    from other domains to identify cross-disciplinary connections.
+                </p>
+                <p>
+                    Domain data is stored in structured JSON format, including metadata, patterns, relationships,
+                    and source references. This standardized approach allows for consistent analysis and visualization
+                    across different fields.
+                </p>
+                <a href="{{ url_for('docs_bp.index') }}?doc=domains" class="btn btn-primary mt-2">Learn More About Domains</a>
+            </div>
+            <div class="col-12 col-lg-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="mb-0">Domain Structure</h3>
+                    </div>
+                    <div class="card-body">
+                        <pre><code class="language-json">
+{
+  "id": "ArtificialIntelligence",
+  "name": "Artificial Intelligence",
+  "description": "The field of creating systems that can perform tasks that typically require human intelligence",
+  "metadata": {
+    "created": "2023-05-15",
+    "version": "1.0",
+    "author": "P3IF Team"
+  },
+  "patterns": [
+    {
+      "id": "AI-P-001",
+      "name": "Supervised Learning",
+      "description": "Learning from labeled training data",
+      "type": "Learning"
+    },
+    // More patterns...
+  ],
+  "relationships": [
+    {
+      "from": "AI-P-001",
+      "to": "AI-P-002",
+      "type": "related",
+      "strength": 0.8
+    },
+    // More relationships...
+  ]
+}
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="text-center mb-5">Compare Multiple Domains</h2>
+        <p class="text-center mb-4">
+            Select two or more domains to generate visualizations that highlight cross-domain pattern relationships.
+        </p>
+        
+        <form action="{{ url_for('viz_generate_bp.show_generate_form') }}" method="post" class="domain-compare-form">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-8">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="card-title mb-3">Domain Selection</h3>
+                            
+                            <div class="domain-checkboxes mb-4">
+                                {% for domain in domains %}
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="domains" value="{{ domain.id }}" id="domain-{{ domain.id }}">
+                                    <label class="form-check-label" for="domain-{{ domain.id }}">
+                                        {{ domain.name }}
+                                    </label>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            
+                            <h3 class="card-title mb-3">Visualization Options</h3>
+                            
+                            <div class="form-group mb-3">
+                                <label for="viz-type">Visualization Type</label>
+                                <select class="form-control" id="viz-type" name="viz_type">
+                                    <option value="matrix">Similarity Matrix</option>
+                                    <option value="network">Network Graph</option>
+                                    <option value="cube">3D Pattern Cube</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group mb-3">
+                                <label for="output-name">Output Name (optional)</label>
+                                <input type="text" class="form-control" id="output-name" name="output_name" placeholder="e.g., AI_Healthcare_Comparison">
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Generate Comparison</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+{% if code_highlighting %}
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.28.0/themes/prism.min.css" rel="stylesheet">
+{% endif %}
+{% endblock %} 

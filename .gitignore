@@ -9,3 +9,7 @@
 /tests/visualization/__pycache__
 /__pycache__
 /tests/__pycache__
+/p3if.egg-info
+/p3if/analysis/__pycache__
+/p3if/core/__pycache__
+*.pyc

@@ -9,16 +9,20 @@ import sys
 import json
 import glob
 
+# Configure matplotlib to use the non-interactive Agg backend for these tests
+import matplotlib
+matplotlib.use('Agg')
+
 # Add the project root to the path
 current_dir = Path(__file__).parent
 project_root = current_dir.parent.parent
 sys.path.insert(0, str(project_root))
 
 try:
-    from p3if.core.framework import P3IFFramework
-    from p3if.data.synthetic import SyntheticDataGenerator
-    from p3if.visualization.portal import VisualizationPortal
-    from p3if.utils.config import Config
+    from core.framework import P3IFFramework
+    from data.synthetic import SyntheticDataGenerator
+    from visualization.portal import VisualizationPortal
+    from utils.config import Config
 except ImportError:
     # Fallback import paths
     from core.framework import P3IFFramework

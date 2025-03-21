@@ -13,17 +13,17 @@ This directory contains executable scripts for the P3IF framework.
 
 ```bash
 # From project root
-python3 p3if/scripts/run_multidomain_portal.py --output-dir output
+python3 scripts/run_multidomain_portal.py --output-dir output
 
 # For help with options
-python3 p3if/scripts/run_multidomain_portal.py --help
+python3 scripts/run_multidomain_portal.py --help
 ```
 
 ### Generate All Visualizations
 
 ```bash
 # From project root
-bash p3if/scripts/generate_visualizations.sh
+bash scripts/generate_visualizations.sh
 ```
 
 Both scripts will output to the `/output` directory at the project root. 

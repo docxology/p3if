@@ -9,8 +9,8 @@ import logging
 from pathlib import Path
 from typing import Dict, List, Any, Union, Optional
 
-from p3if.core.framework import P3IFFramework
-from p3if.core.models import Property, Process, Perspective, Relationship
+from core.framework import P3IFFramework
+from core.models import Property, Process, Perspective, Relationship
 
 logger = logging.getLogger(__name__)
 

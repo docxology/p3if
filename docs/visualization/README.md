@@ -21,7 +21,7 @@ The 3D visualization allows users to explore the relationships between these dim
 
 ## Files and Directories
 
-- Python scripts (located in `p3if/scripts/`):
+- Python scripts (located in `scripts/`):
   - `update_domain_files.py`: Script to update domain files with relationship data
   - `test_3d_cube_with_domains.py`: Script to generate the visualization website
   - `view_p3if_website.py`: Helper script to open the website in a browser
@@ -43,17 +43,17 @@ The 3D visualization allows users to explore the relationships between these dim
 
 1. Update domain files with relationship data:
    ```bash
-   python3 p3if/scripts/update_domain_files.py
+   python3 scripts/update_domain_files.py
    ```
 
 2. Generate the website:
    ```bash
-   python3 p3if/scripts/test_3d_cube_with_domains.py
+   python3 scripts/test_3d_cube_with_domains.py
    ```
 
 3. View the website:
    ```bash
-   python3 p3if/scripts/view_p3if_website.py
+   python3 scripts/view_p3if_website.py
    ```
    Or manually open `output/p3if_full_website.html` in your browser.
 
@@ -120,6 +120,7 @@ If you encounter issues:
 
 - `technical_documentation.md`: Comprehensive technical documentation (in this directory)
 - `user_guide.md`: Step-by-step user guide (in this directory)
+- `domain_visualizations.md`: Documentation for domain-specific visualizations
 - `output/README.md`: Information about the output directory
 
 ## License

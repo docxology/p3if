@@ -11,11 +11,11 @@ import os
 import shutil
 import datetime
 
-from p3if.core.framework import P3IFFramework
-from p3if.visualization.base import Visualizer
-from p3if.visualization.dashboard import DashboardGenerator
-from p3if.visualization.interactive import InteractiveVisualizer
-from p3if.utils.config import Config
+from core.framework import P3IFFramework
+from visualization.base import Visualizer
+from visualization.dashboard import DashboardGenerator
+from visualization.interactive import InteractiveVisualizer
+from utils.config import Config
 
 
 class VisualizationPortal:
@@ -70,28 +70,33 @@ class VisualizationPortal:
         Returns:
             Path to the generated HTML file
         """
+        self.logger.info(f"Generating visualization portal at {output_file}")
+        
+        # Create the output directory if it doesn't exist
         output_path = Path(output_file)
         output_dir = output_path.parent
         os.makedirs(output_dir, exist_ok=True)
         
-        self.logger.info(f"Generating visualization portal at {output_path}")
-        
-        # Create directory structure for assets if it doesn't exist
-        assets_dir = output_dir / "assets"
-        css_dir = assets_dir / "css"
-        js_dir = assets_dir / "js"
-        img_dir = assets_dir / "img"
-        data_dir = output_dir / "data"
+        # Create the visualizations directory if it doesn't exist
         visualizations_dir = output_dir / "visualizations"
+        os.makedirs(visualizations_dir, exist_ok=True)
         
-        for directory in [assets_dir, css_dir, js_dir, img_dir, data_dir, visualizations_dir]:
-            os.makedirs(directory, exist_ok=True)
+        # Ensure the log directory exists
+        log_dir = output_dir / "logs"
+        os.makedirs(log_dir, exist_ok=True)
+        
+        # Set up a file handler for logging
+        file_handler = logging.FileHandler(log_dir / "visualization_portal.log")
+        file_handler.setLevel(logging.INFO)
+        file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+        self.logger.addHandler(file_handler)
         
         # Generate individual visualizations
-        self._generate_visualizations(visualizations_dir)
+        visualizations = self._generate_visualizations(visualizations_dir)
         
         # Create data files
-        self._generate_data_files(data_dir)
+        data_dir = output_dir / "data"
+        data_files = self._generate_data_files(data_dir)
         
         # Create main portal HTML file 
         self._create_portal_html(output_path, 
@@ -108,8 +113,8 @@ class VisualizationPortal:
                                include_export_buttons=include_export_buttons)
         
         # Copy assets (CSS, JS)
-        self._create_css_file(css_dir)
-        self._create_js_file(js_dir)
+        self._create_css_file(output_dir)
+        self._create_js_file(output_dir)
         
         self.logger.info(f"Portal generation complete. Access via {output_path}")
         return output_path
@@ -185,17 +190,17 @@ class VisualizationPortal:
         return html
     
     def _generate_visualizations(self, output_dir: Path) -> Dict[str, Path]:
-        """Generate individual visualizations for the portal."""
+        """Generate visualizations for the portal."""
         visualizations = {}
         
-        # Create 3D Cube Visualization (Main Visualization)
+        # Create 3D Cube Visualization
         cube_path = output_dir / "3d-cube.html"
         visualizations["3d_cube"] = self.interactive_visualizer.generate_3d_cube_html(
             output_file=cube_path,
             title="P3IF 3D Cube"
         )
         
-        # Create Force-Directed Graph
+        # Create Force Directed Graph
         graph_path = output_dir / "force-graph.html"
         visualizations["force_graph"] = self.interactive_visualizer.generate_force_directed_graph_html(
             output_file=graph_path,

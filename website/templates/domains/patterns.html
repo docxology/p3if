@@ -1,0 +1,294 @@
+{% extends "base.html" %}
+
+{% block title %}Patterns in {{ domain.name }} | P3IF Domains{% endblock %}
+{% block description %}Explore all patterns in the {{ domain.name }} domain within the P3IF framework{% endblock %}
+
+{% block content %}
+<div class="container section-sm">
+    <nav class="breadcrumb">
+        <div class="breadcrumb-item"><a href="{{ url_for('home') }}">Home</a></div>
+        <div class="breadcrumb-item"><a href="{{ url_for('domains_bp.index') }}">Domains</a></div>
+        <div class="breadcrumb-item"><a href="{{ url_for('domains_bp.show_domain', domain_id=domain.id) }}">{{ domain.name }}</a></div>
+        <div class="breadcrumb-item active">Patterns</div>
+    </nav>
+
+    <div class="row mb-4">
+        <div class="col-12 col-md-6">
+            <h1>Patterns in {{ domain.name }}</h1>
+            <p>Explore all {{ patterns|length }} patterns identified in this domain.</p>
+        </div>
+        <div class="col-12 col-md-6">
+            <div class="d-flex justify-content-md-end align-items-center">
+                <div class="input-group" style="max-width: 300px;">
+                    <input type="text" class="form-control domain-search" id="pattern-search" placeholder="Search patterns...">
+                </div>
+                
+                {% if pattern_types %}
+                <div class="dropdown ms-2">
+                    <button class="btn btn-outline-secondary dropdown-toggle" type="button" id="patternTypeFilter" data-bs-toggle="dropdown" aria-expanded="false">
+                        Filter by Type
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="patternTypeFilter">
+                        <li><a class="dropdown-item pattern-type-filter" href="#" data-type="all">All Types</a></li>
+                        {% for type in pattern_types|sort %}
+                        <li><a class="dropdown-item pattern-type-filter" href="#" data-type="{{ type }}">{{ type }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    <div class="domain-patterns">
+        <div class="mb-4">
+            <div class="pattern-tabs">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a class="nav-link active pattern-tab" data-target="#all-patterns" href="#">All Patterns</a>
+                    </li>
+                    {% if grouped_patterns %}
+                    {% for group_name in grouped_patterns.keys()|sort %}
+                    <li class="nav-item">
+                        <a class="nav-link pattern-tab" data-target="#patterns-{{ group_name|lower }}" href="#">{{ group_name }}</a>
+                    </li>
+                    {% endfor %}
+                    {% endif %}
+                </ul>
+            </div>
+            
+            <div class="pattern-panels mt-4">
+                <div class="pattern-panel active" id="all-patterns">
+                    <div class="row pattern-grid">
+                        {% for pattern in patterns %}
+                        <div class="col-12 col-md-6 col-lg-4 mb-4 pattern-card" data-type="{{ pattern.type }}">
+                            <div class="card h-100">
+                                <div class="card-header">
+                                    <h3 class="card-title">{{ pattern.name }}</h3>
+                                    <div class="mb-0">
+                                        <span class="badge bg-secondary">{{ pattern.type }}</span>
+                                        {% if pattern.importance %}
+                                        <span class="badge bg-primary">Importance: {{ pattern.importance }}</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">{{ pattern.description }}</p>
+                                    
+                                    {% if pattern.properties %}
+                                    <h4 class="mt-3">Properties</h4>
+                                    <ul>
+                                        {% for key, value in pattern.properties.items() %}
+                                        <li><strong>{{ key }}:</strong> {{ value }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                    
+                                    {% if pattern.examples %}
+                                    <h4 class="mt-3">Examples</h4>
+                                    <ul>
+                                        {% for example in pattern.examples %}
+                                        <li>{{ example }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">ID: {{ pattern.id }}</small>
+                                    {% if pattern.connection_count %}
+                                    <span class="float-end">{{ pattern.connection_count }} connections</span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="col-12 text-center">
+                            <p>No patterns available for this domain.</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                
+                {% if grouped_patterns %}
+                {% for group_name, group_patterns in grouped_patterns.items() %}
+                <div class="pattern-panel" id="patterns-{{ group_name|lower }}">
+                    <h2>{{ group_name }} Patterns</h2>
+                    <p>{{ group_descriptions.get(group_name, '') }}</p>
+                    
+                    <div class="row pattern-grid">
+                        {% for pattern in group_patterns %}
+                        <div class="col-12 col-md-6 col-lg-4 mb-4">
+                            <div class="card h-100">
+                                <div class="card-header">
+                                    <h3 class="card-title">{{ pattern.name }}</h3>
+                                    <div class="mb-0">
+                                        <span class="badge bg-secondary">{{ pattern.type }}</span>
+                                        {% if pattern.importance %}
+                                        <span class="badge bg-primary">Importance: {{ pattern.importance }}</span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">{{ pattern.description }}</p>
+                                    
+                                    {% if pattern.properties %}
+                                    <h4 class="mt-3">Properties</h4>
+                                    <ul>
+                                        {% for key, value in pattern.properties.items() %}
+                                        <li><strong>{{ key }}:</strong> {{ value }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                    
+                                    {% if pattern.examples %}
+                                    <h4 class="mt-3">Examples</h4>
+                                    <ul>
+                                        {% for example in pattern.examples %}
+                                        <li>{{ example }}</li>
+                                        {% endfor %}
+                                    </ul>
+                                    {% endif %}
+                                </div>
+                                <div class="card-footer">
+                                    <small class="text-muted">ID: {{ pattern.id }}</small>
+                                    {% if pattern.connection_count %}
+                                    <span class="float-end">{{ pattern.connection_count }} connections</span>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        {% else %}
+                        <div class="col-12 text-center">
+                            <p>No patterns available in this group.</p>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                {% endfor %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    {% if pattern_relationships %}
+    <div class="card mt-5">
+        <div class="card-header">
+            <h2 class="mb-0">Pattern Relationships</h2>
+        </div>
+        <div class="card-body">
+            <p>Explore relationships between patterns within the {{ domain.name }} domain.</p>
+            
+            <div class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>From Pattern</th>
+                            <th>Relationship</th>
+                            <th>To Pattern</th>
+                            <th>Strength</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for rel in pattern_relationships %}
+                        <tr>
+                            <td>{{ rel.from_pattern.name }}</td>
+                            <td>{{ rel.type }}</td>
+                            <td>{{ rel.to_pattern.name }}</td>
+                            <td>
+                                {% if rel.strength %}
+                                <div class="progress" style="height: 20px;">
+                                    <div class="progress-bar" role="progressbar" style="width: {{ rel.strength * 100 }}%;" 
+                                         aria-valuenow="{{ rel.strength * 100 }}" aria-valuemin="0" aria-valuemax="100">
+                                        {{ "%.0f"|format(rel.strength * 100) }}%
+                                    </div>
+                                </div>
+                                {% else %}
+                                -
+                                {% endif %}
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    
+    <div class="text-center mt-5">
+        <a href="{{ url_for('domains_bp.show_domain', domain_id=domain.id) }}" class="btn btn-outline-secondary">Back to Domain</a>
+        {% if visualizations %}
+        <a href="{{ url_for('viz_bp.index') }}?domain={{ domain.id }}" class="btn btn-primary">View Domain Visualizations</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Tab functionality
+    const patternTabs = document.querySelectorAll('.pattern-tab');
+    const patternPanels = document.querySelectorAll('.pattern-panel');
+    
+    patternTabs.forEach(tab => {
+        tab.addEventListener('click', function(e) {
+            e.preventDefault();
+            const target = this.getAttribute('data-target');
+            
+            // Deactivate all tabs and panels
+            patternTabs.forEach(t => t.classList.remove('active'));
+            patternPanels.forEach(p => p.classList.remove('active'));
+            
+            // Activate clicked tab and corresponding panel
+            this.classList.add('active');
+            document.querySelector(target).classList.add('active');
+        });
+    });
+    
+    // Pattern search functionality
+    const searchBox = document.getElementById('pattern-search');
+    if (searchBox) {
+        searchBox.addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const patternCards = document.querySelectorAll('.pattern-card');
+            
+            patternCards.forEach(card => {
+                const title = card.querySelector('.card-title').textContent.toLowerCase();
+                const desc = card.querySelector('.card-text').textContent.toLowerCase();
+                const type = card.getAttribute('data-type').toLowerCase();
+                
+                if (title.includes(searchTerm) || desc.includes(searchTerm) || type.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        });
+    }
+    
+    // Pattern type filter
+    const typeFilters = document.querySelectorAll('.pattern-type-filter');
+    if (typeFilters.length > 0) {
+        typeFilters.forEach(filter => {
+            filter.addEventListener('click', function(e) {
+                e.preventDefault();
+                const type = this.getAttribute('data-type');
+                const patternCards = document.querySelectorAll('.pattern-card');
+                
+                patternCards.forEach(card => {
+                    if (type === 'all' || card.getAttribute('data-type') === type) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                document.getElementById('patternTypeFilter').textContent = 
+                    type === 'all' ? 'Filter by Type' : `Type: ${type}`;
+            });
+        });
+    }
+});
+</script>
+{% endblock %} 

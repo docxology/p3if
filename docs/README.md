@@ -74,7 +74,7 @@ git clone https://github.com/yourusername/P3IF.git
 cd P3IF
 
 # Run setup script
-bash p3if/scripts/setup.sh
+bash scripts/setup.sh
 ```
 
 For detailed installation instructions, see [Installation Guide](guides/installation.md).
@@ -85,16 +85,16 @@ The P3IF system can be used through the provided scripts:
 
 ```bash
 # Generate a visualization portal
-python3 p3if/scripts/run_multidomain_portal.py --output-dir output
+python3 scripts/run_multidomain_portal.py --output-dir output
 
 # Generate the 3D cube visualization
-python3 p3if/scripts/test_3d_cube_with_domains.py
+python3 scripts/test_3d_cube_with_domains.py
 
 # Open the 3D visualization in your browser
-python3 p3if/scripts/view_p3if_website.py
+python3 scripts/view_p3if_website.py
 
 # Generate all visualizations
-bash p3if/scripts/generate_visualizations.sh
+bash scripts/generate_visualizations.sh
 ```
 
 For more detailed usage instructions, see [Getting Started](guides/getting-started.md).

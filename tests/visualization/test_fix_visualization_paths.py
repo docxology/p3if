@@ -14,7 +14,7 @@ project_root = current_dir.parent.parent
 sys.path.insert(0, str(project_root))
 
 try:
-    from p3if.scripts.fix_visualization_paths import VisualizationFixer
+    from scripts.fix_visualization_paths import VisualizationFixer
 except ImportError:
     # Fallback import path
     from scripts.fix_visualization_paths import VisualizationFixer

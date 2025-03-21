@@ -9,9 +9,15 @@ import logging
 from pathlib import Path
 from datetime import datetime
 from uuid import UUID
+import sys
 
-from p3if.core.models import Property, Process, Perspective, Relationship, Pattern
-from p3if.utils.storage import StorageInterface
+# Add the project root to the path if this module is run directly
+if __name__ == "__main__":
+    project_root = Path(__file__).parent.parent
+    sys.path.insert(0, str(project_root))
+
+from core.models import Property, Process, Perspective, Relationship, Pattern
+from utils.storage import StorageInterface
 
 
 class P3IFFramework:

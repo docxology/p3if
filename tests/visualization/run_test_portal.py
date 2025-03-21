@@ -20,9 +20,9 @@ tests_dir = os.path.dirname(current_dir)
 project_root = os.path.dirname(tests_dir)
 sys.path.append(project_root)
 
-from p3if.core.framework import P3IFFramework
-from p3if.visualization.portal import VisualizationPortal
-from p3if.utils.config import Config
+from core.framework import P3IFFramework
+from visualization.portal import VisualizationPortal
+from utils.config import Config
 
 # Use direct import from local path
 sys.path.append(tests_dir)

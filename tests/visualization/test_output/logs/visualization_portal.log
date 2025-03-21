@@ -1,0 +1,692 @@
+2025-03-21 07:22:15,894 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_portal.html
+2025-03-21 07:22:15,907 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_multi_domain_portal.html
+2025-03-21 07:22:21,792 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_multi_domain_portal.html
+2025-03-21 07:22:21,792 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_multi_domain_portal.html
+2025-03-21 07:22:21,810 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_css_portal.html
+2025-03-21 07:22:21,810 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_css_portal.html
+2025-03-21 07:22:26,356 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_css_portal.html
+2025-03-21 07:22:26,356 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_css_portal.html
+2025-03-21 07:22:26,356 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_css_portal.html
+2025-03-21 07:22:26,362 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_js_portal.html
+2025-03-21 07:22:26,362 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_js_portal.html
+2025-03-21 07:22:26,362 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_js_portal.html
+2025-03-21 07:22:30,884 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_js_portal.html
+2025-03-21 07:22:30,884 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_js_portal.html
+2025-03-21 07:22:30,884 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_js_portal.html
+2025-03-21 07:22:30,884 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_js_portal.html
+2025-03-21 07:22:36,434 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/artificialintelligence_test.html
+2025-03-21 07:22:36,434 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/artificialintelligence_test.html
+2025-03-21 07:22:36,434 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/artificialintelligence_test.html
+2025-03-21 07:22:36,434 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/artificialintelligence_test.html
+2025-03-21 07:22:50,414 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/artificialintelligence_test.html
+2025-03-21 07:22:50,414 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/artificialintelligence_test.html
+2025-03-21 07:22:50,414 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/artificialintelligence_test.html
+2025-03-21 07:22:50,414 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/artificialintelligence_test.html
+2025-03-21 07:22:50,414 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/artificialintelligence_test.html
+2025-03-21 07:22:50,418 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/healthcare_test.html
+2025-03-21 07:22:50,418 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/healthcare_test.html
+2025-03-21 07:22:50,418 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/healthcare_test.html
+2025-03-21 07:22:50,418 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/healthcare_test.html
+2025-03-21 07:22:50,418 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/healthcare_test.html
+2025-03-21 07:23:07,411 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/healthcare_test.html
+2025-03-21 07:23:07,411 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/healthcare_test.html
+2025-03-21 07:23:07,411 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/healthcare_test.html
+2025-03-21 07:23:07,411 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/healthcare_test.html
+2025-03-21 07:23:07,411 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/healthcare_test.html
+2025-03-21 07:23:07,411 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/healthcare_test.html
+2025-03-21 07:23:07,414 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/blockchain_test.html
+2025-03-21 07:23:07,414 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/blockchain_test.html
+2025-03-21 07:23:07,414 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/blockchain_test.html
+2025-03-21 07:23:07,414 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/blockchain_test.html
+2025-03-21 07:23:07,414 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/blockchain_test.html
+2025-03-21 07:23:07,414 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/blockchain_test.html
+2025-03-21 07:23:24,684 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/blockchain_test.html
+2025-03-21 07:23:24,684 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/blockchain_test.html
+2025-03-21 07:23:24,684 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/blockchain_test.html
+2025-03-21 07:23:24,684 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/blockchain_test.html
+2025-03-21 07:23:24,684 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/blockchain_test.html
+2025-03-21 07:23:24,684 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/blockchain_test.html
+2025-03-21 07:23:24,684 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/blockchain_test.html
+2025-03-21 07:23:24,687 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/william_blake_poetry_and_life_test.html
+2025-03-21 07:23:24,687 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/william_blake_poetry_and_life_test.html
+2025-03-21 07:23:24,687 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/william_blake_poetry_and_life_test.html
+2025-03-21 07:23:24,687 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/william_blake_poetry_and_life_test.html
+2025-03-21 07:23:24,687 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/william_blake_poetry_and_life_test.html
+2025-03-21 07:23:24,687 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/william_blake_poetry_and_life_test.html
+2025-03-21 07:23:24,687 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/william_blake_poetry_and_life_test.html
+2025-03-21 07:23:41,877 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/william_blake_poetry_and_life_test.html
+2025-03-21 07:23:41,877 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/william_blake_poetry_and_life_test.html
+2025-03-21 07:23:41,877 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/william_blake_poetry_and_life_test.html
+2025-03-21 07:23:41,877 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/william_blake_poetry_and_life_test.html
+2025-03-21 07:23:41,877 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/william_blake_poetry_and_life_test.html
+2025-03-21 07:23:41,877 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/william_blake_poetry_and_life_test.html
+2025-03-21 07:23:41,877 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/william_blake_poetry_and_life_test.html
+2025-03-21 07:23:41,877 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/william_blake_poetry_and_life_test.html
+2025-03-21 07:23:41,881 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/climatechange_test.html
+2025-03-21 07:23:41,881 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/climatechange_test.html
+2025-03-21 07:23:41,881 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/climatechange_test.html
+2025-03-21 07:23:41,881 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/climatechange_test.html
+2025-03-21 07:23:41,881 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/climatechange_test.html
+2025-03-21 07:23:41,881 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/climatechange_test.html
+2025-03-21 07:23:41,881 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/climatechange_test.html
+2025-03-21 07:23:41,881 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/climatechange_test.html
+2025-03-21 07:24:03,444 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/climatechange_test.html
+2025-03-21 07:24:03,444 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/climatechange_test.html
+2025-03-21 07:24:03,444 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/climatechange_test.html
+2025-03-21 07:24:03,444 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/climatechange_test.html
+2025-03-21 07:24:03,444 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/climatechange_test.html
+2025-03-21 07:24:03,444 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/climatechange_test.html
+2025-03-21 07:24:03,444 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/climatechange_test.html
+2025-03-21 07:24:03,444 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/climatechange_test.html
+2025-03-21 07:24:03,444 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/climatechange_test.html
+2025-03-21 07:24:03,448 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/immigration_test.html
+2025-03-21 07:24:03,448 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/immigration_test.html
+2025-03-21 07:24:03,448 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/immigration_test.html
+2025-03-21 07:24:03,448 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/immigration_test.html
+2025-03-21 07:24:03,448 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/immigration_test.html
+2025-03-21 07:24:03,448 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/immigration_test.html
+2025-03-21 07:24:03,448 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/immigration_test.html
+2025-03-21 07:24:03,448 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/immigration_test.html
+2025-03-21 07:24:03,448 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/immigration_test.html
+2025-03-21 07:24:21,892 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/immigration_test.html
+2025-03-21 07:24:21,892 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/immigration_test.html
+2025-03-21 07:24:21,892 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/immigration_test.html
+2025-03-21 07:24:21,892 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/immigration_test.html
+2025-03-21 07:24:21,892 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/immigration_test.html
+2025-03-21 07:24:21,892 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/immigration_test.html
+2025-03-21 07:24:21,892 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/immigration_test.html
+2025-03-21 07:24:21,892 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/immigration_test.html
+2025-03-21 07:24:21,892 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/immigration_test.html
+2025-03-21 07:24:21,892 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/immigration_test.html
+2025-03-21 07:24:21,897 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/governmentaccessibility_test.html
+2025-03-21 07:24:21,897 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/governmentaccessibility_test.html
+2025-03-21 07:24:21,897 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/governmentaccessibility_test.html
+2025-03-21 07:24:21,897 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/governmentaccessibility_test.html
+2025-03-21 07:24:21,897 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/governmentaccessibility_test.html
+2025-03-21 07:24:21,897 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/governmentaccessibility_test.html
+2025-03-21 07:24:21,897 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/governmentaccessibility_test.html
+2025-03-21 07:24:21,897 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/governmentaccessibility_test.html
+2025-03-21 07:24:21,897 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/governmentaccessibility_test.html
+2025-03-21 07:24:21,897 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/governmentaccessibility_test.html
+2025-03-21 07:24:41,273 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/governmentaccessibility_test.html
+2025-03-21 07:24:41,273 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/governmentaccessibility_test.html
+2025-03-21 07:24:41,273 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/governmentaccessibility_test.html
+2025-03-21 07:24:41,273 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/governmentaccessibility_test.html
+2025-03-21 07:24:41,273 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/governmentaccessibility_test.html
+2025-03-21 07:24:41,273 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/governmentaccessibility_test.html
+2025-03-21 07:24:41,273 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/governmentaccessibility_test.html
+2025-03-21 07:24:41,273 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/governmentaccessibility_test.html
+2025-03-21 07:24:41,273 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/governmentaccessibility_test.html
+2025-03-21 07:24:41,273 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/governmentaccessibility_test.html
+2025-03-21 07:24:41,273 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/governmentaccessibility_test.html
+2025-03-21 07:24:41,277 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/nationalsecurity_test.html
+2025-03-21 07:24:41,277 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/nationalsecurity_test.html
+2025-03-21 07:24:41,277 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/nationalsecurity_test.html
+2025-03-21 07:24:41,277 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/nationalsecurity_test.html
+2025-03-21 07:24:41,277 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/nationalsecurity_test.html
+2025-03-21 07:24:41,277 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/nationalsecurity_test.html
+2025-03-21 07:24:41,277 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/nationalsecurity_test.html
+2025-03-21 07:24:41,277 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/nationalsecurity_test.html
+2025-03-21 07:24:41,277 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/nationalsecurity_test.html
+2025-03-21 07:24:41,277 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/nationalsecurity_test.html
+2025-03-21 07:24:41,277 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/nationalsecurity_test.html
+2025-03-21 07:25:02,408 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/nationalsecurity_test.html
+2025-03-21 07:25:02,408 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/nationalsecurity_test.html
+2025-03-21 07:25:02,408 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/nationalsecurity_test.html
+2025-03-21 07:25:02,408 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/nationalsecurity_test.html
+2025-03-21 07:25:02,408 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/nationalsecurity_test.html
+2025-03-21 07:25:02,408 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/nationalsecurity_test.html
+2025-03-21 07:25:02,408 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/nationalsecurity_test.html
+2025-03-21 07:25:02,408 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/nationalsecurity_test.html
+2025-03-21 07:25:02,408 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/nationalsecurity_test.html
+2025-03-21 07:25:02,408 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/nationalsecurity_test.html
+2025-03-21 07:25:02,408 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/nationalsecurity_test.html
+2025-03-21 07:25:02,408 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/nationalsecurity_test.html
+2025-03-21 07:25:02,412 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:02,412 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:02,412 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:02,412 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:02,412 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:02,412 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:02,412 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:02,412 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:02,412 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:02,412 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:02,412 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:02,412 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:21,051 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:21,051 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:21,051 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:21,051 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:21,051 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:21,051 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:21,051 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:21,051 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:21,051 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:21,051 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:21,051 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:21,051 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:21,051 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/matheducation_test.html
+2025-03-21 07:25:21,059 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:21,059 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:21,059 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:21,059 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:21,059 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:21,059 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:21,059 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:21,059 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:21,059 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:21,059 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:21,059 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:21,059 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:21,059 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:39,958 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:39,958 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:39,958 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:39,958 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:39,958 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:39,958 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:39,958 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:39,958 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:39,958 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:39,958 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:39,958 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:39,958 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:39,958 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:39,958 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/powergrid_test.html
+2025-03-21 07:25:39,964 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:39,964 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:39,964 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:39,964 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:39,964 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:39,964 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:39,964 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:39,964 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:39,964 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:39,964 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:39,964 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:39,964 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:39,964 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:39,964 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:45,440 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_portal.html
+2025-03-21 07:25:45,454 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_multi_domain_portal.html
+2025-03-21 07:25:52,443 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_multi_domain_portal.html
+2025-03-21 07:25:52,443 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_multi_domain_portal.html
+2025-03-21 07:25:52,468 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_css_portal.html
+2025-03-21 07:25:52,468 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_css_portal.html
+2025-03-21 07:25:58,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_css_portal.html
+2025-03-21 07:25:58,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_css_portal.html
+2025-03-21 07:25:58,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_css_portal.html
+2025-03-21 07:25:58,405 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_js_portal.html
+2025-03-21 07:25:58,405 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_js_portal.html
+2025-03-21 07:25:58,405 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_js_portal.html
+2025-03-21 07:25:59,875 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:59,875 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:59,875 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:59,875 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:59,875 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:59,875 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:59,875 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:59,875 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:59,875 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:59,875 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:59,875 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:59,875 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:59,875 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:59,875 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:59,875 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/scienceresearch_test.html
+2025-03-21 07:25:59,880 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:25:59,880 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:25:59,880 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:25:59,880 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:25:59,880 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:25:59,880 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:25:59,880 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:25:59,880 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:25:59,880 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:25:59,880 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:25:59,880 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:25:59,880 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:25:59,880 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:25:59,880 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:25:59,880 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:26:04,036 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_js_portal.html
+2025-03-21 07:26:04,036 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_js_portal.html
+2025-03-21 07:26:04,036 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_js_portal.html
+2025-03-21 07:26:04,036 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_js_portal.html
+2025-03-21 07:26:18,414 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:26:18,414 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:26:18,414 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:26:18,414 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:26:18,414 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:26:18,414 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:26:18,414 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:26:18,414 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:26:18,414 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:26:18,414 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:26:18,414 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:26:18,414 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:26:18,414 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:26:18,414 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:26:18,414 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:26:18,414 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/videochat_test.html
+2025-03-21 07:26:18,417 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:18,417 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:18,417 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:18,417 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:18,417 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:18,417 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:18,417 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:18,417 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:18,417 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:18,417 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:18,417 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:18,417 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:18,417 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:18,417 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:18,417 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:18,417 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:23,611 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:23,611 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:23,611 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:23,611 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:23,611 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:23,611 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:23,611 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:23,611 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:23,611 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:23,611 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:23,611 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:23,611 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:23,611 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:23,611 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:23,611 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:23,611 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:23,611 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/quantumcomputing_test.html
+2025-03-21 07:26:23,615 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:23,615 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:23,615 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:23,615 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:23,615 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:23,615 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:23,615 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:23,615 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:23,615 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:23,615 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:23,615 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:23,615 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:23,615 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:23,615 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:23,615 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:23,615 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:23,615 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:42,539 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:42,539 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:42,539 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:42,539 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:42,539 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:42,539 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:42,539 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:42,539 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:42,539 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:42,539 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:42,539 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:42,539 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:42,539 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:42,539 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:42,539 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:42,539 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:42,539 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:42,539 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/atm_withdrawal_test.html
+2025-03-21 07:26:42,543 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:26:42,543 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:26:42,543 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:26:42,543 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:26:42,543 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:26:42,543 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:26:42,543 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:26:42,543 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:26:42,543 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:26:42,543 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:26:42,543 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:26:42,543 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:26:42,543 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:26:42,543 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:26:42,543 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:26:42,543 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:26:42,543 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:26:42,543 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:27:01,504 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:27:01,504 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:27:01,504 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:27:01,504 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:27:01,504 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:27:01,504 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:27:01,504 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:27:01,504 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:27:01,504 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:27:01,504 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:27:01,504 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:27:01,504 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:27:01,504 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:27:01,504 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:27:01,504 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:27:01,504 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:27:01,504 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:27:01,504 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:27:01,504 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/activeinferencegrantproposal_test.html
+2025-03-21 07:27:01,508 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:01,508 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:01,508 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:01,508 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:01,508 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:01,508 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:01,508 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:01,508 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:01,508 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:01,508 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:01,508 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:01,508 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:01,508 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:01,508 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:01,508 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:01,508 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:01,508 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:01,508 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:01,508 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:15,072 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:15,072 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:15,072 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:15,072 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:15,072 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:15,072 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:15,072 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:15,072 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:15,072 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:15,072 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:15,072 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:15,072 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:15,072 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:15,072 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:15,072 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:15,072 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:15,072 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:15,072 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:15,072 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:15,072 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/pipette_use_in_wet_lab_test.html
+2025-03-21 07:27:15,127 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:15,127 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:15,127 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:15,127 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:15,127 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:15,127 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:15,127 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:15,127 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:15,127 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:15,127 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:15,127 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:15,127 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:15,127 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:15,127 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:15,127 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:15,127 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:15,127 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:15,127 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:15,127 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:15,127 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:20,278 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:20,278 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:20,278 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:20,278 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:20,278 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:20,278 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:20,278 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:20,278 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:20,278 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:20,278 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:20,278 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:20,278 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:20,278 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:20,278 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:20,278 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:20,278 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:20,278 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:20,278 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:20,278 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:20,278 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:20,278 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_component_selector.html
+2025-03-21 07:27:20,294 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:20,294 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:20,294 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:20,294 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:20,294 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:20,294 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:20,294 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:20,294 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:20,294 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:20,294 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:20,294 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:20,294 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:20,294 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:20,294 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:20,294 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:20,294 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:20,294 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:20,294 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:20,294 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:20,294 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:20,294 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:25,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:25,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:25,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:25,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:25,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:25,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:25,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:25,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:25,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:25,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:25,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:25,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:25,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:25,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:25,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:25,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:25,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:25,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:25,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:25,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:25,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:25,398 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_selector.html
+2025-03-21 07:27:25,413 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:25,413 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:25,413 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:25,413 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:25,413 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:25,413 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:25,413 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:25,413 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:25,413 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:25,413 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:25,413 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:25,413 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:25,413 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:25,413 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:25,413 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:25,413 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:25,413 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:25,413 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:25,413 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:25,413 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:25,413 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:25,413 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:35,698 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:35,698 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:35,698 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:35,698 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:35,698 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:35,698 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:35,698 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:35,698 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:35,698 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:35,698 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:35,698 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:35,698 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:35,698 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:35,698 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:35,698 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:35,698 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:35,698 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:35,698 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:35,698 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:35,698 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:35,698 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:35,698 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:35,698 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_full_website.html
+2025-03-21 07:27:35,727 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:35,727 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:35,727 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:35,727 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:35,727 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:35,727 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:35,727 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:35,727 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:35,727 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:35,727 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:35,727 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:35,727 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:35,727 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:35,727 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:35,727 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:35,727 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:35,727 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:35,727 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:35,727 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:35,727 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:35,727 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:35,727 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:35,727 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,983 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,983 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,983 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,983 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,983 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,983 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,983 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,983 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,983 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,983 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,983 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,983 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,983 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,983 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,983 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,983 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,983 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,983 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,983 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,983 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,983 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,983 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,983 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,983 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_dataset_loading.html
+2025-03-21 07:27:39,997 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:39,997 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:39,997 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:39,997 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:39,997 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:39,997 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:39,997 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:39,997 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:39,997 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:39,997 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:39,997 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:39,997 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:39,997 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:39,997 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:39,997 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:39,997 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:39,997 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:39,997 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:39,997 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:39,997 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:39,997 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:39,997 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:39,997 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:39,997 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,119 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_responsive_layout.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:45,146 - INFO - Generating visualization portal at /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html
+2025-03-21 07:27:50,114 - INFO - Portal generation complete. Access via /home/trim/Documents/GitHub/p3if/tests/visualization/test_output/test_export.html

@@ -1,0 +1,258 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>P3IF Network Graph</title>
+            <style>
+                body { 
+                    margin: 0;
+                    font-family: Arial, sans-serif;
+                    overflow: hidden;
+                }
+                #info {
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 10px;
+                    border-radius: 5px;
+                    max-width: 300px;
+                    z-index: 100;
+                }
+                #canvas-container {
+                    width: 100%;
+                    height: 100vh;
+                }
+                .node {
+                    stroke: #fff;
+                    stroke-width: 1.5px;
+                }
+                .link {
+                    stroke: #999;
+                    stroke-opacity: 0.6;
+                }
+                .property { fill: #1f77b4; }
+                .process { fill: #ff7f0e; }
+                .perspective { fill: #2ca02c; }
+                #legend {
+                    position: absolute;
+                    bottom: 20px;
+                    right: 20px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 10px;
+                    border-radius: 5px;
+                    z-index: 100;
+                }
+                .legend-item {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 5px;
+                }
+                .legend-color {
+                    width: 15px;
+                    height: 15px;
+                    margin-right: 5px;
+                    border-radius: 50%;
+                }
+                .search-container {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    z-index: 100;
+                }
+                #search {
+                    padding: 5px;
+                    width: 200px;
+                    border-radius: 3px;
+                    border: 1px solid #ccc;
+                }
+            </style>
+            <script src="https://d3js.org/d3.v7.min.js"></script>
+        </head>
+        <body>
+            <div id="info">
+                <h2>P3IF Network Graph</h2>
+                <p>This visualization represents the relationships between P3IF patterns as a force-directed graph.</p>
+                <p>Nodes are color-coded by pattern type, and link thickness represents relationship strength.</p>
+                <p>Drag nodes to reposition them. Click on a node to see its details.</p>
+                <div id="selection-info"></div>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Search nodes...">
+            </div>
+            
+            <div id="canvas-container"></div>
+            
+            <div id="legend">
+                <h3>Legend</h3>
+                <div class="legend-item">
+                    <div class="legend-color property"></div>
+                    <div>Property</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color process"></div>
+                    <div>Process</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color perspective"></div>
+                    <div>Perspective</div>
+                </div>
+            </div>
+            
+            <script>
+                // P3IF data
+                const graphData = {"nodes": [{"id": "dd257213-7015-4800-be15-2f5cdc52ab95", "name": "Property 0", "type": "property", "domain": "Domain B"}, {"id": "8c165907-fc52-44fe-bec0-53d69f417219", "name": "Property 1", "type": "property", "domain": "Domain A"}, {"id": "9b1420ca-949f-4114-8156-0bb1254aa0ca", "name": "Property 2", "type": "property", "domain": "Domain A"}, {"id": "65786026-d25f-420e-9d95-99d125e7d193", "name": "Property 3", "type": "property", "domain": "Domain C"}, {"id": "aff8f912-e6bf-4e87-8697-bd004e92cd4a", "name": "Property 4", "type": "property", "domain": "Domain A"}, {"id": "58ec306e-fa93-4dca-aec0-e4ee26653dc3", "name": "Property 5", "type": "property", "domain": "Domain C"}, {"id": "023dc4eb-9bf5-4c76-bac8-2f2974c823e6", "name": "Property 6", "type": "property", "domain": "Domain B"}, {"id": "9d606bc0-869e-4e26-8c0d-7174dcb8529c", "name": "Property 7", "type": "property", "domain": "Domain B"}, {"id": "abdb45af-153e-4739-b5d3-556617046e30", "name": "Property 8", "type": "property", "domain": "Domain B"}, {"id": "7e745f93-838e-487b-87a3-52bf6b8a32f4", "name": "Property 9", "type": "property", "domain": "Domain B"}, {"id": "6954ac6c-dd51-4c35-ab1e-024fe6d4f05a", "name": "Process 0", "type": "process", "domain": "Domain C"}, {"id": "b895a2e1-9473-4032-82eb-7ea7ebb00bb7", "name": "Process 1", "type": "process", "domain": "Domain A"}, {"id": "e846c2f4-a4f3-4d3c-ab51-752790b6b1a0", "name": "Process 2", "type": "process", "domain": "Domain C"}, {"id": "c914f3cc-c173-41e9-af87-25062f920185", "name": "Process 3", "type": "process", "domain": "Domain B"}, {"id": "4d017b88-48d5-46be-80f9-623ae46c2c5c", "name": "Process 4", "type": "process", "domain": "Domain A"}, {"id": "4c35e94b-5835-4b41-bd69-3bf8fd15e63f", "name": "Process 5", "type": "process", "domain": "Domain C"}, {"id": "23b41f34-f77f-4b4b-bb97-bed2332e84dc", "name": "Process 6", "type": "process", "domain": "Domain A"}, {"id": "6c7a0b38-bd94-4b7f-a3c3-2026998ee105", "name": "Process 7", "type": "process", "domain": "Domain B"}, {"id": "c7af9259-7f45-4b1d-9e20-79ce9a8cfc8a", "name": "Process 8", "type": "process", "domain": "Domain A"}, {"id": "ba75eaa6-213f-408e-a807-95e7009142d6", "name": "Process 9", "type": "process", "domain": "Domain C"}, {"id": "952117a2-d2b9-4c03-9ce8-8f6a73ae6c48", "name": "Perspective 0", "type": "perspective", "domain": "Domain A"}, {"id": "59f80ac3-0ce2-41a8-9146-ca618b7f773e", "name": "Perspective 1", "type": "perspective", "domain": "Domain B"}, {"id": "fd23f330-1bce-47cc-ac11-bfa437fb6726", "name": "Perspective 2", "type": "perspective", "domain": "Domain C"}, {"id": "2e740207-2dee-4d58-a95d-9c176794d3f6", "name": "Perspective 3", "type": "perspective", "domain": "Domain C"}, {"id": "634933f5-37a6-4a8c-b787-52e92fb79f72", "name": "Perspective 4", "type": "perspective", "domain": "Domain B"}, {"id": "eacc8290-1aaf-4404-8427-dc5fb19a1e30", "name": "Perspective 5", "type": "perspective", "domain": "Domain C"}, {"id": "73e9cd91-12ed-447b-bcec-335a0a668bc8", "name": "Perspective 6", "type": "perspective", "domain": "Domain A"}, {"id": "67b017de-8a79-44a6-ab85-019649b94ff7", "name": "Perspective 7", "type": "perspective", "domain": "Domain B"}, {"id": "1e9184e4-7d1b-4080-a401-1c6a02a37af7", "name": "Perspective 8", "type": "perspective", "domain": "Domain C"}, {"id": "1d43efe5-afc1-40d6-af98-a92b40d8d2da", "name": "Perspective 9", "type": "perspective", "domain": "Domain C"}], "links": [{"source": "c7af9259-7f45-4b1d-9e20-79ce9a8cfc8a", "target": "eacc8290-1aaf-4404-8427-dc5fb19a1e30", "strength": 0.8313498611345496, "type": "process-perspective"}, {"source": "abdb45af-153e-4739-b5d3-556617046e30", "target": "ba75eaa6-213f-408e-a807-95e7009142d6", "strength": 0.743247057807871, "type": "property-process"}, {"source": "65786026-d25f-420e-9d95-99d125e7d193", "target": "1d43efe5-afc1-40d6-af98-a92b40d8d2da", "strength": 0.77318698737202, "type": "property-perspective"}, {"source": "65786026-d25f-420e-9d95-99d125e7d193", "target": "6954ac6c-dd51-4c35-ab1e-024fe6d4f05a", "strength": 0.9648633937948636, "type": "property-process"}, {"source": "65786026-d25f-420e-9d95-99d125e7d193", "target": "634933f5-37a6-4a8c-b787-52e92fb79f72", "strength": 0.9648633937948636, "type": "property-perspective"}, {"source": "6954ac6c-dd51-4c35-ab1e-024fe6d4f05a", "target": "634933f5-37a6-4a8c-b787-52e92fb79f72", "strength": 0.9648633937948636, "type": "process-perspective"}, {"source": "9b1420ca-949f-4114-8156-0bb1254aa0ca", "target": "c914f3cc-c173-41e9-af87-25062f920185", "strength": 0.9524958942910333, "type": "property-process"}, {"source": "9b1420ca-949f-4114-8156-0bb1254aa0ca", "target": "73e9cd91-12ed-447b-bcec-335a0a668bc8", "strength": 0.9524958942910333, "type": "property-perspective"}, {"source": "c914f3cc-c173-41e9-af87-25062f920185", "target": "73e9cd91-12ed-447b-bcec-335a0a668bc8", "strength": 0.9524958942910333, "type": "process-perspective"}, {"source": "aff8f912-e6bf-4e87-8697-bd004e92cd4a", "target": "4c35e94b-5835-4b41-bd69-3bf8fd15e63f", "strength": 0.9969727713187968, "type": "property-process"}, {"source": "aff8f912-e6bf-4e87-8697-bd004e92cd4a", "target": "67b017de-8a79-44a6-ab85-019649b94ff7", "strength": 0.9969727713187968, "type": "property-perspective"}, {"source": "4c35e94b-5835-4b41-bd69-3bf8fd15e63f", "target": "67b017de-8a79-44a6-ab85-019649b94ff7", "strength": 0.9969727713187968, "type": "process-perspective"}, {"source": "58ec306e-fa93-4dca-aec0-e4ee26653dc3", "target": "c7af9259-7f45-4b1d-9e20-79ce9a8cfc8a", "strength": 0.27562105623169275, "type": "property-process"}, {"source": "58ec306e-fa93-4dca-aec0-e4ee26653dc3", "target": "952117a2-d2b9-4c03-9ce8-8f6a73ae6c48", "strength": 0.27562105623169275, "type": "property-perspective"}, {"source": "c7af9259-7f45-4b1d-9e20-79ce9a8cfc8a", "target": "952117a2-d2b9-4c03-9ce8-8f6a73ae6c48", "strength": 0.27562105623169275, "type": "process-perspective"}, {"source": "c914f3cc-c173-41e9-af87-25062f920185", "target": "1e9184e4-7d1b-4080-a401-1c6a02a37af7", "strength": 0.08658479304012057, "type": "process-perspective"}, {"source": "6954ac6c-dd51-4c35-ab1e-024fe6d4f05a", "target": "1e9184e4-7d1b-4080-a401-1c6a02a37af7", "strength": 0.9374129805638585, "type": "process-perspective"}, {"source": "7e745f93-838e-487b-87a3-52bf6b8a32f4", "target": "6954ac6c-dd51-4c35-ab1e-024fe6d4f05a", "strength": 0.5373019885478088, "type": "property-process"}, {"source": "9d606bc0-869e-4e26-8c0d-7174dcb8529c", "target": "4d017b88-48d5-46be-80f9-623ae46c2c5c", "strength": 0.7320878636420471, "type": "property-process"}, {"source": "9d606bc0-869e-4e26-8c0d-7174dcb8529c", "target": "1e9184e4-7d1b-4080-a401-1c6a02a37af7", "strength": 0.7320878636420471, "type": "property-perspective"}, {"source": "4d017b88-48d5-46be-80f9-623ae46c2c5c", "target": "1e9184e4-7d1b-4080-a401-1c6a02a37af7", "strength": 0.7320878636420471, "type": "process-perspective"}, {"source": "abdb45af-153e-4739-b5d3-556617046e30", "target": "6c7a0b38-bd94-4b7f-a3c3-2026998ee105", "strength": 0.3045587372228603, "type": "property-process"}, {"source": "abdb45af-153e-4739-b5d3-556617046e30", "target": "1d43efe5-afc1-40d6-af98-a92b40d8d2da", "strength": 0.3045587372228603, "type": "property-perspective"}, {"source": "6c7a0b38-bd94-4b7f-a3c3-2026998ee105", "target": "1d43efe5-afc1-40d6-af98-a92b40d8d2da", "strength": 0.3045587372228603, "type": "process-perspective"}, {"source": "58ec306e-fa93-4dca-aec0-e4ee26653dc3", "target": "e846c2f4-a4f3-4d3c-ab51-752790b6b1a0", "strength": 0.08246067015836833, "type": "property-process"}, {"source": "58ec306e-fa93-4dca-aec0-e4ee26653dc3", "target": "fd23f330-1bce-47cc-ac11-bfa437fb6726", "strength": 0.08246067015836833, "type": "property-perspective"}, {"source": "e846c2f4-a4f3-4d3c-ab51-752790b6b1a0", "target": "fd23f330-1bce-47cc-ac11-bfa437fb6726", "strength": 0.08246067015836833, "type": "process-perspective"}, {"source": "023dc4eb-9bf5-4c76-bac8-2f2974c823e6", "target": "1e9184e4-7d1b-4080-a401-1c6a02a37af7", "strength": 0.06544439679408798, "type": "property-perspective"}, {"source": "58ec306e-fa93-4dca-aec0-e4ee26653dc3", "target": "c7af9259-7f45-4b1d-9e20-79ce9a8cfc8a", "strength": 0.33783607744771404, "type": "property-process"}, {"source": "58ec306e-fa93-4dca-aec0-e4ee26653dc3", "target": "67b017de-8a79-44a6-ab85-019649b94ff7", "strength": 0.33783607744771404, "type": "property-perspective"}, {"source": "c7af9259-7f45-4b1d-9e20-79ce9a8cfc8a", "target": "67b017de-8a79-44a6-ab85-019649b94ff7", "strength": 0.33783607744771404, "type": "process-perspective"}, {"source": "4c35e94b-5835-4b41-bd69-3bf8fd15e63f", "target": "eacc8290-1aaf-4404-8427-dc5fb19a1e30", "strength": 0.5693250376172815, "type": "process-perspective"}, {"source": "8c165907-fc52-44fe-bec0-53d69f417219", "target": "e846c2f4-a4f3-4d3c-ab51-752790b6b1a0", "strength": 0.8575645568339488, "type": "property-process"}, {"source": "4c35e94b-5835-4b41-bd69-3bf8fd15e63f", "target": "67b017de-8a79-44a6-ab85-019649b94ff7", "strength": 0.029636507038420357, "type": "process-perspective"}, {"source": "65786026-d25f-420e-9d95-99d125e7d193", "target": "6c7a0b38-bd94-4b7f-a3c3-2026998ee105", "strength": 0.6187009492941364, "type": "property-process"}, {"source": "65786026-d25f-420e-9d95-99d125e7d193", "target": "59f80ac3-0ce2-41a8-9146-ca618b7f773e", "strength": 0.6187009492941364, "type": "property-perspective"}, {"source": "6c7a0b38-bd94-4b7f-a3c3-2026998ee105", "target": "59f80ac3-0ce2-41a8-9146-ca618b7f773e", "strength": 0.6187009492941364, "type": "process-perspective"}, {"source": "aff8f912-e6bf-4e87-8697-bd004e92cd4a", "target": "e846c2f4-a4f3-4d3c-ab51-752790b6b1a0", "strength": 0.06056394530400222, "type": "property-process"}, {"source": "8c165907-fc52-44fe-bec0-53d69f417219", "target": "fd23f330-1bce-47cc-ac11-bfa437fb6726", "strength": 0.9688979599463964, "type": "property-perspective"}, {"source": "dd257213-7015-4800-be15-2f5cdc52ab95", "target": "fd23f330-1bce-47cc-ac11-bfa437fb6726", "strength": 0.4662857907365785, "type": "property-perspective"}, {"source": "9d606bc0-869e-4e26-8c0d-7174dcb8529c", "target": "e846c2f4-a4f3-4d3c-ab51-752790b6b1a0", "strength": 0.3175610435214269, "type": "property-process"}, {"source": "9d606bc0-869e-4e26-8c0d-7174dcb8529c", "target": "59f80ac3-0ce2-41a8-9146-ca618b7f773e", "strength": 0.3175610435214269, "type": "property-perspective"}, {"source": "e846c2f4-a4f3-4d3c-ab51-752790b6b1a0", "target": "59f80ac3-0ce2-41a8-9146-ca618b7f773e", "strength": 0.3175610435214269, "type": "process-perspective"}, {"source": "9d606bc0-869e-4e26-8c0d-7174dcb8529c", "target": "4c35e94b-5835-4b41-bd69-3bf8fd15e63f", "strength": 0.6138064318560106, "type": "property-process"}, {"source": "9d606bc0-869e-4e26-8c0d-7174dcb8529c", "target": "1d43efe5-afc1-40d6-af98-a92b40d8d2da", "strength": 0.6138064318560106, "type": "property-perspective"}, {"source": "4c35e94b-5835-4b41-bd69-3bf8fd15e63f", "target": "1d43efe5-afc1-40d6-af98-a92b40d8d2da", "strength": 0.6138064318560106, "type": "process-perspective"}, {"source": "abdb45af-153e-4739-b5d3-556617046e30", "target": "e846c2f4-a4f3-4d3c-ab51-752790b6b1a0", "strength": 0.9984420187238048, "type": "property-process"}, {"source": "abdb45af-153e-4739-b5d3-556617046e30", "target": "59f80ac3-0ce2-41a8-9146-ca618b7f773e", "strength": 0.9984420187238048, "type": "property-perspective"}, {"source": "e846c2f4-a4f3-4d3c-ab51-752790b6b1a0", "target": "59f80ac3-0ce2-41a8-9146-ca618b7f773e", "strength": 0.9984420187238048, "type": "process-perspective"}, {"source": "aff8f912-e6bf-4e87-8697-bd004e92cd4a", "target": "6954ac6c-dd51-4c35-ab1e-024fe6d4f05a", "strength": 0.5681393323056516, "type": "property-process"}, {"source": "aff8f912-e6bf-4e87-8697-bd004e92cd4a", "target": "2e740207-2dee-4d58-a95d-9c176794d3f6", "strength": 0.5681393323056516, "type": "property-perspective"}, {"source": "6954ac6c-dd51-4c35-ab1e-024fe6d4f05a", "target": "2e740207-2dee-4d58-a95d-9c176794d3f6", "strength": 0.5681393323056516, "type": "process-perspective"}, {"source": "58ec306e-fa93-4dca-aec0-e4ee26653dc3", "target": "1d43efe5-afc1-40d6-af98-a92b40d8d2da", "strength": 0.7768315909528696, "type": "property-perspective"}, {"source": "23b41f34-f77f-4b4b-bb97-bed2332e84dc", "target": "1e9184e4-7d1b-4080-a401-1c6a02a37af7", "strength": 0.13198903225042824, "type": "process-perspective"}, {"source": "ba75eaa6-213f-408e-a807-95e7009142d6", "target": "67b017de-8a79-44a6-ab85-019649b94ff7", "strength": 0.8851309682642095, "type": "process-perspective"}, {"source": "aff8f912-e6bf-4e87-8697-bd004e92cd4a", "target": "c914f3cc-c173-41e9-af87-25062f920185", "strength": 0.44547802817342774, "type": "property-process"}, {"source": "aff8f912-e6bf-4e87-8697-bd004e92cd4a", "target": "952117a2-d2b9-4c03-9ce8-8f6a73ae6c48", "strength": 0.44547802817342774, "type": "property-perspective"}, {"source": "c914f3cc-c173-41e9-af87-25062f920185", "target": "952117a2-d2b9-4c03-9ce8-8f6a73ae6c48", "strength": 0.44547802817342774, "type": "process-perspective"}, {"source": "023dc4eb-9bf5-4c76-bac8-2f2974c823e6", "target": "4d017b88-48d5-46be-80f9-623ae46c2c5c", "strength": 0.10147183305706042, "type": "property-process"}, {"source": "9d606bc0-869e-4e26-8c0d-7174dcb8529c", "target": "4d017b88-48d5-46be-80f9-623ae46c2c5c", "strength": 0.15568773614880682, "type": "property-process"}, {"source": "9d606bc0-869e-4e26-8c0d-7174dcb8529c", "target": "67b017de-8a79-44a6-ab85-019649b94ff7", "strength": 0.15568773614880682, "type": "property-perspective"}, {"source": "4d017b88-48d5-46be-80f9-623ae46c2c5c", "target": "67b017de-8a79-44a6-ab85-019649b94ff7", "strength": 0.15568773614880682, "type": "process-perspective"}, {"source": "8c165907-fc52-44fe-bec0-53d69f417219", "target": "ba75eaa6-213f-408e-a807-95e7009142d6", "strength": 0.2804897172856141, "type": "property-process"}, {"source": "8c165907-fc52-44fe-bec0-53d69f417219", "target": "952117a2-d2b9-4c03-9ce8-8f6a73ae6c48", "strength": 0.2804897172856141, "type": "property-perspective"}, {"source": "ba75eaa6-213f-408e-a807-95e7009142d6", "target": "952117a2-d2b9-4c03-9ce8-8f6a73ae6c48", "strength": 0.2804897172856141, "type": "process-perspective"}, {"source": "9b1420ca-949f-4114-8156-0bb1254aa0ca", "target": "4c35e94b-5835-4b41-bd69-3bf8fd15e63f", "strength": 0.7520978558631268, "type": "property-process"}, {"source": "9b1420ca-949f-4114-8156-0bb1254aa0ca", "target": "952117a2-d2b9-4c03-9ce8-8f6a73ae6c48", "strength": 0.7520978558631268, "type": "property-perspective"}, {"source": "4c35e94b-5835-4b41-bd69-3bf8fd15e63f", "target": "952117a2-d2b9-4c03-9ce8-8f6a73ae6c48", "strength": 0.7520978558631268, "type": "process-perspective"}, {"source": "8c165907-fc52-44fe-bec0-53d69f417219", "target": "b895a2e1-9473-4032-82eb-7ea7ebb00bb7", "strength": 0.5165814003347791, "type": "property-process"}, {"source": "8c165907-fc52-44fe-bec0-53d69f417219", "target": "2e740207-2dee-4d58-a95d-9c176794d3f6", "strength": 0.5165814003347791, "type": "property-perspective"}, {"source": "b895a2e1-9473-4032-82eb-7ea7ebb00bb7", "target": "2e740207-2dee-4d58-a95d-9c176794d3f6", "strength": 0.5165814003347791, "type": "process-perspective"}, {"source": "58ec306e-fa93-4dca-aec0-e4ee26653dc3", "target": "6954ac6c-dd51-4c35-ab1e-024fe6d4f05a", "strength": 0.8823393449162995, "type": "property-process"}, {"source": "7e745f93-838e-487b-87a3-52bf6b8a32f4", "target": "b895a2e1-9473-4032-82eb-7ea7ebb00bb7", "strength": 0.9240938224239639, "type": "property-process"}, {"source": "aff8f912-e6bf-4e87-8697-bd004e92cd4a", "target": "c914f3cc-c173-41e9-af87-25062f920185", "strength": 0.30462578046992184, "type": "property-process"}, {"source": "aff8f912-e6bf-4e87-8697-bd004e92cd4a", "target": "1e9184e4-7d1b-4080-a401-1c6a02a37af7", "strength": 0.30462578046992184, "type": "property-perspective"}, {"source": "c914f3cc-c173-41e9-af87-25062f920185", "target": "1e9184e4-7d1b-4080-a401-1c6a02a37af7", "strength": 0.30462578046992184, "type": "process-perspective"}, {"source": "aff8f912-e6bf-4e87-8697-bd004e92cd4a", "target": "23b41f34-f77f-4b4b-bb97-bed2332e84dc", "strength": 0.04254174023593216, "type": "property-process"}, {"source": "aff8f912-e6bf-4e87-8697-bd004e92cd4a", "target": "59f80ac3-0ce2-41a8-9146-ca618b7f773e", "strength": 0.04254174023593216, "type": "property-perspective"}, {"source": "23b41f34-f77f-4b4b-bb97-bed2332e84dc", "target": "59f80ac3-0ce2-41a8-9146-ca618b7f773e", "strength": 0.04254174023593216, "type": "process-perspective"}, {"source": "65786026-d25f-420e-9d95-99d125e7d193", "target": "23b41f34-f77f-4b4b-bb97-bed2332e84dc", "strength": 0.42330207391636787, "type": "property-process"}, {"source": "65786026-d25f-420e-9d95-99d125e7d193", "target": "73e9cd91-12ed-447b-bcec-335a0a668bc8", "strength": 0.42330207391636787, "type": "property-perspective"}, {"source": "23b41f34-f77f-4b4b-bb97-bed2332e84dc", "target": "73e9cd91-12ed-447b-bcec-335a0a668bc8", "strength": 0.42330207391636787, "type": "process-perspective"}, {"source": "aff8f912-e6bf-4e87-8697-bd004e92cd4a", "target": "6c7a0b38-bd94-4b7f-a3c3-2026998ee105", "strength": 0.6780038047728545, "type": "property-process"}, {"source": "aff8f912-e6bf-4e87-8697-bd004e92cd4a", "target": "c7af9259-7f45-4b1d-9e20-79ce9a8cfc8a", "strength": 0.8479041390785389, "type": "property-process"}, {"source": "aff8f912-e6bf-4e87-8697-bd004e92cd4a", "target": "eacc8290-1aaf-4404-8427-dc5fb19a1e30", "strength": 0.8479041390785389, "type": "property-perspective"}, {"source": "c7af9259-7f45-4b1d-9e20-79ce9a8cfc8a", "target": "eacc8290-1aaf-4404-8427-dc5fb19a1e30", "strength": 0.8479041390785389, "type": "process-perspective"}, {"source": "65786026-d25f-420e-9d95-99d125e7d193", "target": "b895a2e1-9473-4032-82eb-7ea7ebb00bb7", "strength": 0.9986366835417162, "type": "property-process"}, {"source": "23b41f34-f77f-4b4b-bb97-bed2332e84dc", "target": "634933f5-37a6-4a8c-b787-52e92fb79f72", "strength": 0.7505412480349768, "type": "process-perspective"}, {"source": "abdb45af-153e-4739-b5d3-556617046e30", "target": "6954ac6c-dd51-4c35-ab1e-024fe6d4f05a", "strength": 0.2045013244432795, "type": "property-process"}, {"source": "abdb45af-153e-4739-b5d3-556617046e30", "target": "634933f5-37a6-4a8c-b787-52e92fb79f72", "strength": 0.2045013244432795, "type": "property-perspective"}, {"source": "6954ac6c-dd51-4c35-ab1e-024fe6d4f05a", "target": "634933f5-37a6-4a8c-b787-52e92fb79f72", "strength": 0.2045013244432795, "type": "process-perspective"}, {"source": "9d606bc0-869e-4e26-8c0d-7174dcb8529c", "target": "c914f3cc-c173-41e9-af87-25062f920185", "strength": 0.6896701884700268, "type": "property-process"}, {"source": "9d606bc0-869e-4e26-8c0d-7174dcb8529c", "target": "59f80ac3-0ce2-41a8-9146-ca618b7f773e", "strength": 0.6896701884700268, "type": "property-perspective"}, {"source": "c914f3cc-c173-41e9-af87-25062f920185", "target": "59f80ac3-0ce2-41a8-9146-ca618b7f773e", "strength": 0.6896701884700268, "type": "process-perspective"}, {"source": "ba75eaa6-213f-408e-a807-95e7009142d6", "target": "634933f5-37a6-4a8c-b787-52e92fb79f72", "strength": 0.2289156100546803, "type": "process-perspective"}, {"source": "7e745f93-838e-487b-87a3-52bf6b8a32f4", "target": "eacc8290-1aaf-4404-8427-dc5fb19a1e30", "strength": 0.20290875034025924, "type": "property-perspective"}, {"source": "9d606bc0-869e-4e26-8c0d-7174dcb8529c", "target": "2e740207-2dee-4d58-a95d-9c176794d3f6", "strength": 0.5771738057814549, "type": "property-perspective"}, {"source": "dd257213-7015-4800-be15-2f5cdc52ab95", "target": "b895a2e1-9473-4032-82eb-7ea7ebb00bb7", "strength": 0.7452826636257738, "type": "property-process"}]};
+                
+                // Setup
+                const container = document.getElementById('canvas-container');
+                const width = container.clientWidth;
+                const height = container.clientHeight;
+                
+                // Create SVG
+                const svg = d3.select("#canvas-container")
+                    .append("svg")
+                    .attr("width", width)
+                    .attr("height", height);
+                
+                // Define arrow marker for directed links
+                svg.append("defs").append("marker")
+                    .attr("id", "arrowhead")
+                    .attr("viewBox", "0 -5 10 10")
+                    .attr("refX", 20)
+                    .attr("refY", 0)
+                    .attr("markerWidth", 6)
+                    .attr("markerHeight", 6)
+                    .attr("orient", "auto")
+                    .append("path")
+                    .attr("d", "M0,-5L10,0L0,5")
+                    .attr("fill", "#999");
+                
+                // Create the force simulation
+                const simulation = d3.forceSimulation(graphData.nodes)
+                    .force("link", d3.forceLink(graphData.links).id(d => d.id).distance(100))
+                    .force("charge", d3.forceManyBody().strength(-200))
+                    .force("center", d3.forceCenter(width / 2, height / 2))
+                    .force("collide", d3.forceCollide().radius(30));
+                
+                // Draw the links
+                const link = svg.append("g")
+                    .attr("class", "links")
+                    .selectAll("line")
+                    .data(graphData.links)
+                    .enter().append("line")
+                    .attr("class", "link")
+                    .attr("stroke-width", d => Math.max(1, d.strength * 5));
+                
+                // Draw the nodes
+                const node = svg.append("g")
+                    .attr("class", "nodes")
+                    .selectAll("circle")
+                    .data(graphData.nodes)
+                    .enter().append("circle")
+                    .attr("class", d => `node ${d.type}`)
+                    .attr("r", 7)
+                    .attr("title", d => d.name)
+                    .call(d3.drag()
+                        .on("start", dragstarted)
+                        .on("drag", dragged)
+                        .on("end", dragended));
+                
+                // Add node labels
+                const label = svg.append("g")
+                    .attr("class", "labels")
+                    .selectAll("text")
+                    .data(graphData.nodes)
+                    .enter().append("text")
+                    .attr("dx", 12)
+                    .attr("dy", ".35em")
+                    .text(d => d.name)
+                    .style("font-size", "10px")
+                    .style("pointer-events", "none");
+                
+                // Add tooltips and interaction
+                node.on("click", function(event, d) {
+                    const infoDiv = document.getElementById('selection-info');
+                    infoDiv.innerHTML = `
+                        <h3>Selected Pattern</h3>
+                        <p><strong>Name:</strong> ${d.name}</p>
+                        <p><strong>Type:</strong> ${d.type.charAt(0).toUpperCase() + d.type.slice(1)}</p>
+                        <p><strong>Domain:</strong> ${d.domain || "None"}</p>
+                    `;
+                    
+                    // Highlight connected links and nodes
+                    link.style("stroke", l => 
+                        (l.source.id === d.id || l.target.id === d.id) ? "#000" : "#999");
+                    link.style("stroke-width", l => 
+                        (l.source.id === d.id || l.target.id === d.id) ? 
+                        Math.max(2, l.strength * 6) : Math.max(1, l.strength * 5));
+                    
+                    node.style("stroke-width", n => 
+                        (n.id === d.id) ? 3 : 1.5);
+                });
+                
+                // Search functionality
+                const searchBox = document.getElementById('search');
+                searchBox.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    
+                    if (searchTerm === '') {
+                        // Reset visualization
+                        node.style("opacity", 1);
+                        link.style("opacity", 0.6);
+                        label.style("opacity", 1);
+                        return;
+                    }
+                    
+                    // Find matching nodes
+                    const matchingNodes = graphData.nodes.filter(n => 
+                        n.name.toLowerCase().includes(searchTerm));
+                    const matchingIds = new Set(matchingNodes.map(n => n.id));
+                    
+                    // Highlight matching nodes and their connections
+                    node.style("opacity", n => matchingIds.has(n.id) ? 1 : 0.2);
+                    link.style("opacity", l => 
+                        (matchingIds.has(l.source.id) || matchingIds.has(l.target.id)) ? 0.8 : 0.1);
+                    label.style("opacity", l => matchingIds.has(l.id) ? 1 : 0.2);
+                });
+                
+                // Update positions on each simulation tick
+                simulation.on("tick", () => {
+                    link
+                        .attr("x1", d => d.source.x)
+                        .attr("y1", d => d.source.y)
+                        .attr("x2", d => d.target.x)
+                        .attr("y2", d => d.target.y);
+                
+                    node
+                        .attr("cx", d => d.x)
+                        .attr("cy", d => d.y);
+                
+                    label
+                        .attr("x", d => d.x)
+                        .attr("y", d => d.y);
+                });
+                
+                // Drag functions
+                function dragstarted(event, d) {
+                    if (!event.active) simulation.alphaTarget(0.3).restart();
+                    d.fx = d.x;
+                    d.fy = d.y;
+                }
+                
+                function dragged(event, d) {
+                    d.fx = event.x;
+                    d.fy = event.y;
+                }
+                
+                function dragended(event, d) {
+                    if (!event.active) simulation.alphaTarget(0);
+                    d.fx = null;
+                    d.fy = null;
+                }
+            </script>
+        </body>
+        </html>
+        

@@ -9,9 +9,9 @@ import numpy as np
 import pandas as pd
 from collections import defaultdict, Counter
 
-from p3if.core.framework import P3IFFramework
-from p3if.core.models import Pattern, Relationship
-from p3if.data.domains import DomainManager
+from core.framework import P3IFFramework
+from core.models import Pattern, Relationship
+from data.domains import DomainManager
 
 
 class MetaAnalyzer:

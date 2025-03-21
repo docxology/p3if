@@ -1,0 +1,171 @@
+{% extends "base.html" %}
+
+{% block title %}P3IF - Pattern Portal for Interdisciplinary Frameworks{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="container">
+        <h1 class="hero-title">Pattern Portal for Interdisciplinary Frameworks</h1>
+        <p class="hero-description">
+            A computational framework for identifying, analyzing, and comparing patterns across domains.
+        </p>
+        <div>
+            <a href="{{ url_for('docs.index') }}" class="btn btn-primary btn-lg">Get Started</a>
+            <a href="{{ url_for('domains.index') }}" class="btn btn-outline btn-lg" style="color: white; margin-left: 1rem;">Explore Domains</a>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="text-center mb-5">What is P3IF?</h2>
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Discover Patterns</h3>
+                        <p class="card-text">Identify recurring patterns across different domains using advanced computational methods.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Analyze Data</h3>
+                        <p class="card-text">Extract insights from domain data using our suite of analytical tools and metrics.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Visualize Results</h3>
+                        <p class="card-text">View connections between domains through interactive and static visualizations.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h3 class="card-title">Compare Domains</h3>
+                        <p class="card-text">Explore the similarities and differences between diverse fields and disciplines.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section bg-light">
+    <div class="container">
+        <h2 class="text-center mb-5">Featured Domains</h2>
+        <div class="row">
+            {% for domain in featured_domains %}
+            <div class="col-12 col-md-6 col-lg-4 mb-4">
+                <div class="card domain-card">
+                    <div class="card-body">
+                        <h3 class="card-title">{{ domain.name }}</h3>
+                        <p class="card-text">{{ domain.description[:150] }}{% if domain.description|length > 150 %}...{% endif %}</p>
+                        <div class="domain-stats">
+                            <div class="domain-stat">
+                                <div class="domain-stat-value">{{ domain.pattern_count }}</div>
+                                <div class="domain-stat-label">Patterns</div>
+                            </div>
+                            <div class="domain-stat">
+                                <div class="domain-stat-value">{{ domain.connection_count }}</div>
+                                <div class="domain-stat-label">Connections</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ url_for('domains.show_domain', domain_id=domain.id) }}" class="btn btn-primary">Explore</a>
+                    </div>
+                </div>
+            </div>
+            {% else %}
+            <div class="col-12 text-center">
+                <p>No featured domains available yet.</p>
+                <a href="{{ url_for('domains.index') }}" class="btn btn-primary">View All Domains</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <h2 class="text-center mb-5">Recent Visualizations</h2>
+        <div class="viz-gallery">
+            {% for viz in recent_visualizations %}
+            <div class="viz-card card">
+                <div class="viz-img-container">
+                    <img src="{{ url_for('static', filename='images/visualizations/' + viz.type + '.png') }}" alt="{{ viz.title }}" loading="lazy">
+                </div>
+                <div class="card-body">
+                    <h3 class="card-title">{{ viz.title }}</h3>
+                    <p class="card-text">{{ viz.description[:100] }}{% if viz.description|length > 100 %}...{% endif %}</p>
+                    <p class="mb-2"><small class="text-muted">Generated: {{ viz.date }}</small></p>
+                </div>
+                <div class="card-footer">
+                    <a href="{{ url_for('visualizations.show_visualization', output_dir=viz.id) }}" class="btn btn-primary">View</a>
+                </div>
+            </div>
+            {% else %}
+            <div class="col-12 text-center">
+                <p>No visualizations available yet.</p>
+                <a href="{{ url_for('visualizations.index') }}" class="btn btn-primary">View Gallery</a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <h2>Get Started with P3IF</h2>
+                <p>P3IF is designed to be easy to use, whether you're a researcher, data scientist, or just curious about patterns across different fields.</p>
+                <ul>
+                    <li>Explore existing domains and their patterns</li>
+                    <li>Add your own domain data for analysis</li>
+                    <li>Generate visualizations to understand connections</li>
+                    <li>Compare patterns across multiple domains</li>
+                </ul>
+                <a href="{{ url_for('docs.index') }}" class="btn btn-primary mt-3">Read the Documentation</a>
+            </div>
+            <div class="col-12 col-md-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="mb-0">Quick Start Example</h3>
+                    </div>
+                    <div class="card-body">
+                        <pre><code class="language-python">
+# Import the P3IF framework
+from p3if.core import PatternFramework
+from p3if.visualization import MatrixVisualizer
+
+# Initialize with domains
+framework = PatternFramework()
+framework.add_domains(['ArtificialIntelligence', 'HealthCare'])
+
+# Analyze patterns
+results = framework.analyze()
+
+# Visualize the results
+viz = MatrixVisualizer(results)
+viz.generate(output_dir='output/quickstart')
+                        </code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+{% if code_highlighting %}
+<link href="https://cdn.jsdelivr.net/npm/prismjs@1.28.0/themes/prism.min.css" rel="stylesheet">
+{% endif %}
+{% endblock %} 
