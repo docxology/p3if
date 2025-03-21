@@ -1,0 +1,52 @@
+2025-03-20 16:54:36 - INFO - Loading visualization tests in specified order
+2025-03-20 16:54:36 - INFO - Adding base visualization component tests
+2025-03-20 16:54:37 - INFO - Adding portal visualization tests
+2025-03-20 16:54:37 - INFO - Adding network visualization tests
+2025-03-20 16:54:37 - INFO - Adding matrix visualization tests
+2025-03-20 16:54:37 - INFO - Adding interactive visualization tests
+2025-03-20 16:54:37 - INFO - Adding dashboard visualization tests
+2025-03-20 16:54:37 - INFO - Adding website reference tests
+2025-03-20 16:54:37 - INFO - Adding domain visualization tests
+2025-03-20 16:54:37 - INFO - Adding any remaining visualization tests
+2025-03-20 16:54:37 - INFO - NumExpr defaulting to 12 threads.
+2025-03-20 16:54:39 - WARNING - Missing required libraries: beautifulsoup4
+2025-03-20 16:54:39 - WARNING - Some tests may fail due to missing dependencies
+2025-03-20 16:54:39 - INFO - Running visualization tests...
+2025-03-20 16:54:39 - INFO - Copied documentation file: /tmp/tmpbu6ff5h6/docs/test_doc.md -> /tmp/tmpbu6ff5h6/website/dist/docs/test_doc.md
+2025-03-20 16:54:39 - INFO - Copied documentation file: /tmp/tmpbu6ff5h6/docs/another_doc.md -> /tmp/tmpbu6ff5h6/website/dist/docs/another_doc.md
+2025-03-20 16:54:39 - INFO - Copied documentation file: /tmp/tmpbu6ff5h6/docs/subdir/subdir_doc.md -> /tmp/tmpbu6ff5h6/website/dist/docs/subdir/subdir_doc.md
+2025-03-20 16:54:39 - INFO - Created documentation index: /tmp/tmpbu6ff5h6/website/dist/docs/index.html
+2025-03-20 16:54:39 - INFO - Starting website reference check...
+2025-03-20 16:54:39 - INFO - Copied documentation file: /tmp/tmpa0hdxwyj/docs/test_doc.md -> /tmp/tmpa0hdxwyj/website/dist/docs/test_doc.md
+2025-03-20 16:54:39 - INFO - Created documentation index: /tmp/tmpa0hdxwyj/website/dist/docs/index.html
+2025-03-20 16:54:39 - INFO - Documentation files successfully copied
+2025-03-20 16:54:39 - INFO - Found 2 HTML files to process
+2025-03-20 16:54:39 - INFO - Processing HTML file: /tmp/tmpa0hdxwyj/website/dist/index.html
+2025-03-20 16:54:39 - INFO - Successfully processed HTML file: /tmp/tmpa0hdxwyj/website/dist/index.html
+2025-03-20 16:54:39 - INFO - Processing HTML file: /tmp/tmpa0hdxwyj/website/dist/docs/index.html
+2025-03-20 16:54:39 - INFO - Successfully processed HTML file: /tmp/tmpa0hdxwyj/website/dist/docs/index.html
+2025-03-20 16:54:39 - INFO - HTML references successfully fixed
+2025-03-20 16:54:39 - INFO - Website reference check completed
+2025-03-20 16:54:39 - INFO - Found 1 HTML files to process
+2025-03-20 16:54:39 - INFO - Processing HTML file: /tmp/tmpxthoc9ln/website/dist/index.html
+2025-03-20 16:54:39 - INFO - Fixed documentation link: documentation/invalid_link.html -> /docs/invalid_link.html
+2025-03-20 16:54:39 - INFO - Fixed visualization link: /visualizations/3d-cube -> /visualizations/3d-cube/index.html
+2025-03-20 16:54:39 - INFO - Successfully processed HTML file: /tmp/tmpxthoc9ln/website/dist/index.html
+2025-03-20 16:54:39 - INFO - Created placeholder HTML: /tmp/tmpw6174nag/website/dist/visualizations/3d-cube/index.html
+2025-03-20 16:54:39 - INFO - Created placeholder HTML: /tmp/tmpw6174nag/website/dist/visualizations/network/index.html
+2025-03-20 16:54:39 - INFO - Created placeholder HTML: /tmp/tmpw6174nag/website/dist/visualizations/dashboard/index.html
+2025-03-20 16:54:39 - INFO - Created placeholder HTML: /tmp/tmpw6174nag/website/dist/visualizations/matrix/index.html
+2025-03-20 16:54:39 - INFO - Created directory structure
+2025-03-20 16:54:39 - INFO - Copied /tmp/tmpw6174nag/output/portal/visualizations/3d-cube.html to /tmp/tmpw6174nag/website/dist/visualizations/3d-cube/index.html
+2025-03-20 16:54:39 - INFO - Copied /tmp/tmpw6174nag/output/portal/visualizations/force-graph.html to /tmp/tmpw6174nag/website/dist/visualizations/network/index.html
+2025-03-20 16:54:39 - INFO - Copied /tmp/tmpw6174nag/output/portal/visualizations/overview/dashboard2.png to /tmp/tmpw6174nag/website/dist/visualizations/dashboard/dashboard2.png
+2025-03-20 16:54:39 - INFO - Copied /tmp/tmpw6174nag/output/portal/visualizations/overview/dashboard1.png to /tmp/tmpw6174nag/website/dist/visualizations/dashboard/dashboard1.png
+2025-03-20 16:54:39 - INFO - Created dashboard HTML: /tmp/tmpw6174nag/website/dist/visualizations/dashboard/index.html
+2025-03-20 16:54:39 - INFO - Created placeholder HTML: /tmp/tmpnr7f1rcs/website/dist/visualizations/3d-cube/index.html
+2025-03-20 16:54:39 - INFO - Created placeholder HTML: /tmp/tmpnr7f1rcs/website/dist/visualizations/network/index.html
+2025-03-20 16:54:39 - INFO - Created placeholder HTML: /tmp/tmpnr7f1rcs/website/dist/visualizations/dashboard/index.html
+2025-03-20 16:54:39 - INFO - Created placeholder HTML: /tmp/tmpnr7f1rcs/website/dist/visualizations/matrix/index.html
+2025-03-20 16:54:39 - INFO - Created directory structure
+2025-03-20 16:54:39 - INFO - Tests run: 11
+2025-03-20 16:54:39 - INFO - Errors: 6
+2025-03-20 16:54:39 - INFO - Failures: 3

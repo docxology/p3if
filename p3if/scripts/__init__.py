@@ -1,7 +1,7 @@
 """
-P3IF Scripts Module.
+P3IF Scripts Package
 
-This module contains utility scripts for the P3IF framework.
+Contains executable scripts for the P3IF framework.
 """
 
 __version__ = '0.1.0' 

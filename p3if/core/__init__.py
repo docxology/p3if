@@ -1,17 +1,9 @@
 """
-P3IF Core Module
+P3IF Core Package
 
-This module contains the core components of the Pattern, Process, Perspective Inter-Framework.
+Contains the core framework and models for the P3IF system.
 """
 
-from p3if.core.models import Property, Process, Perspective, Relationship, Pattern
+# Import main modules for easier access
 from p3if.core.framework import P3IFFramework
-
-__all__ = [
-    'Property', 
-    'Process', 
-    'Perspective', 
-    'Relationship', 
-    'Pattern',
-    'P3IFFramework'
-] 
+from p3if.core.models import Pattern, Process, Perspective, Relationship 

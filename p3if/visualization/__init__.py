@@ -1,24 +1,12 @@
 """
-P3IF Visualization Module.
+P3IF Visualization Package
 
-This module provides visualization tools for analyzing P3IF data 
-including 3D Cube, Network, Matrix, and Dashboard visualizations.
+Contains visualization tools for the P3IF framework.
 """
 
-__version__ = '0.1.0'
-
-from p3if.visualization.base import Visualizer
+# Import main visualization modules
+from p3if.visualization.portal import VisualizationPortal
 from p3if.visualization.network import NetworkVisualizer
 from p3if.visualization.matrix import MatrixVisualizer
 from p3if.visualization.dashboard import DashboardGenerator
-from p3if.visualization.interactive import InteractiveVisualizer
-from p3if.visualization.portal import VisualizationPortal
-
-__all__ = [
-    'Visualizer',
-    'NetworkVisualizer',
-    'MatrixVisualizer',
-    'DashboardGenerator',
-    'InteractiveVisualizer',
-    'VisualizationPortal'
-] 
+from p3if.visualization.interactive import InteractiveVisualizer 

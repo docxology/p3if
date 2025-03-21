@@ -11,9 +11,11 @@ setup(
         "networkx",
         "pytest",
         "pytest-asyncio",
+        "beautifulsoup4",
+        "markdown",
     ],
     extras_require={
-        "web": ["beautifulsoup4"],
+        "web": ["flask", "flask-cors"],
     },
     python_requires=">=3.7",
     description="Property-Process-Perspective Integration Framework",

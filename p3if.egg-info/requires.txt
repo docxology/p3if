@@ -1,9 +1,0 @@
-matplotlib
-networkx
-numpy
-pandas
-pytest
-pytest-asyncio
-
-[web]
-beautifulsoup4
