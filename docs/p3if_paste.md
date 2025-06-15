@@ -36,7 +36,7 @@ Decision-Making, Interdisciplinary Interoperable Frameworks, Shared Risk Managem
 Introduction
 Institutions and organizations that deal with complex systems and evidence-based
 decisions ultimately rely on people to process critical information, and this can challenge
-any individual’s cognitive capacity. Where high-consequence decisions are made, this
+any individual's cognitive capacity. Where high-consequence decisions are made, this
 represents an emerging vulnerability. The complex area of health security offers examples
 of these challenges, and this paper will draw multiple examples from that domain to
 illustrate an approach toward protecting the integrity and validity of those decisions.
@@ -49,20 +49,20 @@ evidence, cherry-picked results, misapplied statistics, or unwarranted conclusio
 Combined, these might be either innocently misleading or intentionally leveraged into a
 manipulated scientific narrative that appears technically sound, but is instead dangerously
 deceptive.
-The concept of “cognitive security” arises in response to these vulnerabilities at the
+The concept of "cognitive security" arises in response to these vulnerabilities at the
 interface of human cognitive capacities and organizational information needs. Where the
 decision maker is a traditional cybersecurity professional, decisions might be made more
 reliable by incorporating available external affordances, such as expanded cyber toolkits,
 novel sensors, additional people, and even artificial intelligence, to help guide individual
 and group decisions in relation to the complexity of the environment. That is, cognitive
 vulnerabilities might be mitigated by offloading some of the cognitive load through
-externalization within the environment, a phenomenon sometimes referred to as “situated
-cognition” [1]. However, with today’s massively distributed information networks affecting
+externalization within the environment, a phenomenon sometimes referred to as "situated
+cognition" [1]. However, with today's massively distributed information networks affecting
 all facets of society, the functional interaction surface between any organization and the
 rest of the world has become equivalent to its attack and accident surface, creating an
 urgent need to support human cognition across all domains, well beyond those
 traditionally grouped as cybersecurity. We need to focus on the broader domain of
-cognitive security and adapt yesterday’s cybersecurity tools for use by a broad range of
+cognitive security and adapt yesterday's cybersecurity tools for use by a broad range of
 organizational actors, while maintaining continuity and the best insights of prior models.
 We expand the notion of cognitive security beyond its cybersecurity roots to encompass
 evidence-based decision-making scenarios of all kinds and in any organization, but
@@ -70,8 +70,8 @@ especially those which are high-consequence and rely on evidence supplied from
 interdisciplinary information systems, such as food, water, and health security decisions.
 1
 We asked: how might cognitive security be institutionalized and standardized so that it can
-be integrated with all such evidence-based decisions? It’s not a question of securing the
-scientific or empirical “truth” from the evidence, an endeavor which will always be
+be integrated with all such evidence-based decisions? It's not a question of securing the
+scientific or empirical "truth" from the evidence, an endeavor which will always be
 imperfect. Instead, cognitive security deals with questions and measurements of the
 integrity of the information supply chain that feeds and expresses organizational decisions,
 and the validity of the evidence applied in such complex and technical decisions. Cognitive
@@ -91,7 +91,7 @@ demographics. Thereafter, the data are expected to have been analyzed by experts
 field, often in combination with other results from similar studies, until the conclusions
 drawn from the evidence appear to be settled. The results must then be disseminated
 through peer-reviewed publications and presentations, a process which provides
-something of a “stamp of approval” on the data and its interpretation, indicating that
+something of a "stamp of approval" on the data and its interpretation, indicating that
 healthcare professionals are generally able to rely on the findings for their clinical and
 public health decision-making. And finally, when the evidence has been successfully used
 for some time, those decisions often become formalized into clinical guidelines.
@@ -127,9 +127,9 @@ We need to bridge the information and decision security silos. What is needed is
 practical method for multiplexing interdisciplinary requirements frameworks to manage
 cognitive security and protect the integrity of high-consequence, high-complexity
 evidence-based decisions. If we can make requirements engineering and decision-making
-frameworks more conceptually “interoperable,” it will help organizations access the
+frameworks more conceptually "interoperable," it will help organizations access the
 benefits of additional decision-making frameworks. This would foster enhanced integrity
-from those additional frameworks’ information supply chain security requirements, helping
+from those additional frameworks' information supply chain security requirements, helping
 everyone to shift toward greater cognitive security. For that we require a deep
 understanding of existing frameworks and their patterns.
 In this paper, we (i) explore the form and function of frameworks in facilitating
@@ -156,26 +156,26 @@ serve multiple functions in their facilitatory role, helping to:
 7. enable formal and visual comparison of complex objects, components, and
 outcomes, and
 8. establish common vocabularies and narratives among practitioners and teams [6,7].
-Frameworks often function as a kind of “pre-flight safety checklist,” to ensure that certain
+Frameworks often function as a kind of "pre-flight safety checklist," to ensure that certain
 things have been addressed before work begins or before work is considered complete, [5]
 and as a tool to help taxonomize risks, approaches, phenomena, and objects [4,8–13].
 Requirements engineering frameworks bring rigor, repeatability, and comparability to
 otherwise complex processes, transforming implicit heuristics into formal patterns, and, in
 some cases, formal patterns into accountability and compliance. Where enforceability and
-compliance requirements are established and in place, frameworks can constitute “duties
-of care,” rendering the performance of activities more consistent, interoperable,
+compliance requirements are established and in place, frameworks can constitute "duties
+of care," rendering the performance of activities more consistent, interoperable,
 professional, insurable, and trustworthy.
 In order to support these benefits, a framework must have some level of accuracy in
 mapping the system of interest that the user is navigating, but it is also important to
-consider the tradeoffs between navigability (i.e. usability) and unyielding accuracy. A “1:1”
+consider the tradeoffs between navigability (i.e. usability) and unyielding accuracy. A "1:1"
 matching of the details of a framework with its subject system does little to reduce the
 cognitive load associated with decision-making. Don Norman observed that mental models
-“need not be technically accurate (and usually are not), but they must be functional” [14],
-which is a practice-oriented analog to the statistician’s maxim that “all models are wrong
-but some are useful” [15]. The same might be said of frameworks for information systems.
+"need not be technically accurate (and usually are not), but they must be functional" [14],
+which is a practice-oriented analog to the statistician's maxim that "all models are wrong
+but some are useful" [15]. The same might be said of frameworks for information systems.
 The imperative of frameworks is not to capture every minute aspect of the system of
 interest through overelaboration, but instead to generate economical and evocative
-models to facilitate the identification of salient relationships (Occam’s razor) and cultivate
+models to facilitate the identification of salient relationships (Occam's razor) and cultivate
 clarity for what is relevant for a system [15]. Frameworks are maps, not the territories they
 4
 represent; they facilitate navigation of the territory and must be updated when it changes,
@@ -201,7 +201,7 @@ Recent years have witnessed emergence of increasingly decentralized data streami
 microservices (i.e., the API economy [17]), new statistical and predictive analytics
 techniques, and expansive computational capabilities. Information systems and decision
 making have become more distributed and democratized, often requiring individuals to
-evaluate and act on information without having access to that information’s provenance or
+evaluate and act on information without having access to that information's provenance or
 to the frameworks and other tools which might help assess and secure its validity. This
 increased accessibility of large scale information repositories and intelligence fusion
 methodologies have allowed for the rapid development of new interdisciplinary and
@@ -230,14 +230,14 @@ alongside the derivative novelty and complexity that such growth causes, the ben
 transitioning from heuristics to evidence-based design and requirements engineering is
 needed across a variety of domains.
 Despite the availability of many relevant guidelines, standards, and frameworks [3,13,20],
-guidance as to what constitutes an optimal “fit”, at a strategic level, among a new or
-complex system’s components, mechanisms, context, and intended functions, remains
+guidance as to what constitutes an optimal "fit", at a strategic level, among a new or
+complex system's components, mechanisms, context, and intended functions, remains
 relatively obscure and ephemeral, even with integration of analytical and quantitative tools.
 After all, it is often the case that the only indication that a more optimal system might exist
-is the logical implication borne from errors or “mis-fits'' between the system and its
+is the logical implication borne from errors or "mis-fits'' between the system and its
 intended function. That is, if there is a system which currently demonstrates poor fit for
 purpose, then the implication is that another one might exist that does not [21,22]. In
-situations where a domain’s nascency, subjectivity, complexity, or rate of change prevents
+situations where a domain's nascency, subjectivity, complexity, or rate of change prevents
 functional or stable reduction of its systems into manageable parts and areas of concern,
 optimal fit must be achieved through operational art (i.e., creative and opportunistic
 decision-making) [5].
@@ -248,14 +248,14 @@ which they are applied [13,16]. An emergent pattern within this family of framew
 juxtaposition of potential requirements categories through the use of matrices and
 overlays, leveraging combinatorics to display a much larger number of relevant factors (see
 Figure 1). Given complex, continuous, and rapid change, pressure on performance within
-the information environment, and such frameworks’ roots in technical and operational
+the information environment, and such frameworks' roots in technical and operational
 aspects of data security, it is possible that inclusion of newly relevant factors has led to an
 6
 combinatorial explosion of factors and an overcomplication of frameworks which can
 create internal inconsistencies and hinder their functional utility (see Figure 1F and Figure
 2). Further, it has led to frameworks which confuse the map with the territory; that is, the
 attempt to capture all relevant factors can inadvertently encourage a framework to be
-applied as a “blueprint” for its respective system, a function for which abstract frameworks
+applied as a "blueprint" for its respective system, a function for which abstract frameworks
 are neither designed nor well-suited.
 Figure 1. Representation of the expansion of frameworks over time (A) Confidentiality, Integrity,
 Availability Triad (CIA) [23], (B) Parkerian Hexad (PHEXAD) [23], (C) McCumber Cube (MCS) [3], (D)
@@ -264,7 +264,7 @@ Expanded MSR Cube (MSR_Expanded) [18],
 7
 Figure 2. A representation of an apparent inconsistency in the documentation of the Federal
 Enterprise Architecture Framework adapted from [19]. Here, 6 sub-architecture domains are listed
-in the documentation, but the sixth, “security”, does not appear to be a part of the same category
+in the documentation, but the sixth, "security", does not appear to be a part of the same category
 with the other 5 listed domains in the visual model.
 8
 Multi-Organization Information Systems
@@ -276,7 +276,7 @@ time expose those organizations to vulnerabilities of misunderstanding and attac
 Frameworks which have been applied over the previous decades in these fields reflect a
 time when analysis and understanding of information systems was constrained within
 discrete disciplines and featured a single-organization focus (i.e., single enterprise focus).
-These bounded approaches are rendered anachronistic, and less “fit for function” in today’s
+These bounded approaches are rendered anachronistic, and less "fit for function" in today's
 setting due to the realities associated with developments across the API economy and
 platform integrations, advances in Artificial Intelligence (AI), new methods of statistical and
 predictive analytics, and the interorganizational and distributed nature of risk (e.g., food
@@ -292,16 +292,16 @@ regulatory requirements [24–27]. These and other similar factors have been sum
 elsewhere as Business, Operations, Legal, Technical, and Social (BOLTS) functions [28,29].
 Common frameworks appear unable to account for such factors without substantially
 bending their interpretation [16] or expanding their scope to address these factors to the
-point of overburdening the frameworks’ navigability [18,19].
+point of overburdening the frameworks' navigability [18,19].
 Methodology
 Here we perform a literature analysis and synthesis exploring the history, form, and
 function of a set of common professional requirements engineering frameworks for
 organizational decision making and supporting information systems. We present and
-summarize these frameworks’ properties and evolution, and explore how we might
+summarize these frameworks' properties and evolution, and explore how we might
 integrate such diverse frameworks without falling into the common trap of adding new
 standards [30] to replace the old. This line of inquiry will result in the introduction of the
 9
-“Properties, Processes, and Perspectives Inter-Framework” (P3IF), an integrating abstraction
+"Properties, Processes, and Perspectives Inter-Framework" (P3IF), an integrating abstraction
 layer that is described in later sections of the paper.
 Our analysis is intended to derive common patterns [10,11,31] from among existing
 frameworks for information systems, with a particular focus on combinatorial frameworks
@@ -316,7 +316,7 @@ First a front-end user interface (UI) and an underlying knowledge management sys
 developed using the low-code data management platform Coda.io to facilitate collection
 (Figure 3).
 A collection of requirements frameworks was identified and characterized. An exploratory,
-literature-based “snowballing” method was employed to capture the most relevant
+literature-based "snowballing" method was employed to capture the most relevant
 combinatorial frameworks for information systems, based upon citations and in-text
 mentions. The initial scope of search was initiated using widely recognized and used
 frameworks such as the CIA triad [16], McCumber Cube [3], Department of Defense
@@ -358,7 +358,7 @@ Multilevel Model of Enterprise Architecture Modeling MLM [51] 2023
 NATO Architecture Framework 2018 NAF [52] 2007
 NIST Cybersecurity Framework NIST-CF [40] 2014
 Observe Orient Decide Act Loop OODA [34] 1976
-Ostrom’s Knowledge Commons Principles OSTROM [34] 2011
+Ostrom's Knowledge Commons Principles OSTROM [34] 2011
 Parkerian Hexad PHEXAD [23] 1998
 Revised CIA Rev_CIA [16] 2014
 Rumsfeld Matrix RUMSFELD [34] 2002
@@ -401,7 +401,7 @@ The individual attributes of each dimension were cataloged and named. The underl
 data structure was amended to treat attributes as distinct objects, to facilitate common
 reference in cases where framework derivations or syntheses included the same attributes
 (e.g. PHEXAD, CIA, CIAS, Rev_CIA, IAC, MC_UserCentric, MCS, MC_Modified, SOA C, MSR, and
-MSR_Expanded all share the attribute “Confidentiality”).
+MSR_Expanded all share the attribute "Confidentiality").
 Influences
 Where one framework was found to be combined or synthesized with, considered in the
 development of, or was otherwise an influence on another framework, or where the
@@ -451,9 +451,9 @@ Finally, a detailed lineage of the different frameworks was assembled. Parent an
 relationships were identified based on citation histories and direct references, in order to
 understand the developmental trajectories and intellectual inheritances among them. This
 lineage information was processed into a phylogenetic-type arrangement, resulting in
-“clades” of frameworks based on their common characteristics and lineages. This biological
+"clades" of frameworks based on their common characteristics and lineages. This biological
 metaphor provides a clear visualization of framework evolution over time. In this context,
-the arrangement could be helpfully described as “phylo-memetic”. Phylo-memetic trees of
+the arrangement could be helpfully described as "phylo-memetic". Phylo-memetic trees of
 each analysis group were rendered, showing influence from frameworks outside the clade
 (shaded dark), frameworks within the clade (shaded white), and frameworks which
 represent syntheses among clades (shaded gray) (see Figures 5 through 11). Frameworks
@@ -483,26 +483,25 @@ From evaluation of the frameworks collected, in the context of their history and
 of their origin, structure, and implementation, the following patterns and insights were
 gleaned:
 ● Previous attempts at interoperability layers for frameworks tended to focus on
-generating one-to-one maps between the interoperability layer’s components and
-those of other frameworks and reference architectures as a basis for comparison
-[61,62]. While this may have been a feasible goal at the time of initial development,
+generating one-to-one maps between the interoperability layer's components and
+those of other frameworks and reference architectures as a basis for comparison [61,62]. While this may have been a feasible goal at the time of initial development,
 the sheer volume of frameworks makes this untenable, and the bilateral matching
 arrests further integration across multiple frameworks.
-● Requirements “Cubes” are a norm across multiple disciplines (reflecting the
+● Requirements "Cubes" are a norm across multiple disciplines (reflecting the
 ambition of expanding their dimensionality from 2 sets of factors (i.e., a matrix) to 3
 sets.
 ● Expansion and adaptation of existing frameworks to fit particular use-cases or
 contexts is not uncommon, but each derivative release tends to be considered its
 own, standalone novel framework to replace the previous one. Later frameworks
-tend to not be “backwards compatible.”
+tend to not be "backwards compatible."
 ● All dimensions and underlying attributes of all examined frameworks fit into one of
 the following emergent categories: Properties, Processes, or Perspectives (see Table
 3).
 ● As noted in Table 2 above, the following categories, or clades, of common contexts
-for the development of frameworks emerged during early review: “Defense Systems
-Engineering”, “Enterprise Requirements Engineering”, “Government Requirements
-Engineering”, “Finance, Accounting, and Banking”, “Data/Cyber Security”, “Military
-Science”, and “Interorganizational Collaboration.”
+for the development of frameworks emerged during early review: "Defense Systems
+Engineering", "Enterprise Requirements Engineering", "Government Requirements
+Engineering", "Finance, Accounting, and Banking", "Data/Cyber Security", "Military
+Science", and "Interorganizational Collaboration."
 ● As suggested in prior sections, the more expansive (multi-factor) frameworks
 tended to be the most difficult to document, due to inconsistencies in
 documentation, proliferation of variables, and limitations of visualization.
@@ -527,9 +526,9 @@ meta-analysis of all available frameworks for information systems, nor of all ve
 frameworks which have been included.
 ● Mentions of frameworks in the reviewed literature rarely specify the version being
 referenced, and on some occasions actually predate the releases of the referenced
-frameworks found in the “snowball” review, possibly due to the proprietary nature
+frameworks found in the "snowball" review, possibly due to the proprietary nature
 of some enterprise frameworks and their development through working groups
-(e.g., C4ISR and government working groups’ influence on one another and on
+(e.g., C4ISR and government working groups' influence on one another and on
 industry working groups [45]).
 ● Full literature meta-analysis would have been unwieldy, as not all frameworks are
 fully available or fully documented in the literature. Future research could add other
@@ -555,7 +554,7 @@ dimension or discrete collection of attributes).
 The analysis presented here reflects an initial snapshot of a sampling of frameworks, one
 that is resolved enough to reveal underlying patterns and foundations for the development
 of the P3IF; it is presented here as a foundation for future work. The database and
-accompanying UI have been hosted publicly as a “P3IF Framework Library,” allowing for the
+accompanying UI have been hosted publicly as a "P3IF Framework Library," allowing for the
 incremental addition of frameworks via community suggestion and future analyses [33],
 beyond the 41 frameworks included already (see Table 1).
 The Properties, Processes, and Perspectives Inter-Framework (P3IF)
@@ -618,6 +617,48 @@ which the system operates.
 Business, Operations, Legal, Technical,
 Social, Medical
 Table 3. Definition of Properties, Processes, and Perspectives (P3) associated with P3IF.
+
+```mermaid
+graph TB
+    subgraph "Figure 12: P3IF Dimensional Representations"
+        subgraph "1D: Properties Only"
+            P1[Properties]
+        end
+        
+        subgraph "2D: Processes × Perspectives"
+            P2[Processes] --- PE2[Perspectives]
+        end
+        
+        subgraph "3D: Properties × Processes × Perspectives"
+            P3[Properties]
+            PR3[Processes]
+            PE3[Perspectives]
+            P3 --- PR3
+            PR3 --- PE3
+            PE3 --- P3
+        end
+        
+        subgraph "3D Multi-Perspective: Processes × Perspectives × Perspectives"
+            PR4[Processes]
+            PE4A[Perspectives A]
+            PE4B[Perspectives B]
+            PR4 --- PE4A
+            PE4A --- PE4B
+            PE4B --- PR4
+        end
+    end
+    
+    style P1 fill:#ffcdd2
+    style P2 fill:#c8e6c9
+    style PE2 fill:#bbdefb
+    style P3 fill:#ffcdd2
+    style PR3 fill:#c8e6c9
+    style PE3 fill:#bbdefb
+    style PR4 fill:#c8e6c9
+    style PE4A fill:#bbdefb
+    style PE4B fill:#e1f5fe
+```
+
 23
 Figure 12. Abstract representation of four potential constructions of the P3IF, showing
 examples of (i) 1-dimensional (bottom right, Properties), (ii) 2-dimensional (bottom left,
@@ -640,10 +681,10 @@ framework. P3IF can help users in a given framework silo to discover and apply o
 neighboring frameworks, and subfactors thereof, which were previously isolated and
 unavailable. Indeed, P3IF permits frameworks such as the McCumber Cube to remain
 unencumbered and unchanged by new considerations and adaptations, by enabling it to
-be provisionally combined through P3IF with other frameworks’ factors on a
+be provisionally combined through P3IF with other frameworks' factors on a
 situation-specific basis. The P3IF anticipates and facilitates a user- and context-guided
 access to more granular views.
-The n-dimensional P3 space is referred to as an “information requirements cube” to fit the
+The n-dimensional P3 space is referred to as an "information requirements cube" to fit the
 professional norms of the cyber domain and the expectation of 3-dimensional
 representations, but the P3IF can be presented in reduced or expanded dimensionality,
 from a one-dimensional vector to a 4-dimensional hypercube or beyond, depending on the
@@ -652,6 +693,106 @@ dimensional flexibility, due to its origin in the patterns of P3 found in the ot
 frameworks. This composability enables assembly of novel actionable frameworks, for
 example by providing a processual and multi-perspective view on the classic CIA properties
 (Figure 13), or providing a processual view on cross-BOLTS engagements (Figure 14).
+
+```mermaid
+graph TB
+    subgraph "Figure 13: CIA Properties with Processes and Perspectives"
+        subgraph "Properties (CIA)"
+            C[Confidentiality]
+            I[Integrity]  
+            A[Availability]
+        end
+        
+        subgraph "Processes"
+            S[Sourcing]
+            D[Data]
+            AN[Analytics]
+        end
+        
+        subgraph "Perspectives (BOLT)"
+            B[Business]
+            O[Operations]
+            L[Legal]
+            T[Technical]
+        end
+        
+        C -.-> S
+        C -.-> D
+        I -.-> D
+        I -.-> AN
+        A -.-> S
+        A -.-> AN
+        
+        S -.-> B
+        S -.-> O
+        D -.-> O
+        D -.-> T
+        AN -.-> B
+        AN -.-> T
+        
+        B -.-> C
+        O -.-> I
+        L -.-> C
+        T -.-> A
+    end
+    
+    style C fill:#ffcdd2
+    style I fill:#ffcdd2
+    style A fill:#ffcdd2
+    style S fill:#c8e6c9
+    style D fill:#c8e6c9
+    style AN fill:#c8e6c9
+    style B fill:#bbdefb
+    style O fill:#bbdefb
+    style L fill:#bbdefb
+    style T fill:#bbdefb
+```
+
+```mermaid
+graph TB
+    subgraph "Figure 14: BOLTS Perspectives with Processes"
+        subgraph "Processes"
+            S[Sourcing]
+            D[Data Processing]
+            A[Analytics]
+        end
+        
+        subgraph "BOLTS Perspectives"
+            B[Business]
+            O[Operations]
+            L[Legal]
+            T[Technical]
+            SO[Social]
+        end
+        
+        S --- B
+        S --- O
+        S --- L
+        
+        D --- O
+        D --- T
+        D --- L
+        
+        A --- B
+        A --- T
+        A --- SO
+        
+        B --- O
+        O --- L
+        L --- T
+        T --- SO
+    end
+    
+    style S fill:#c8e6c9
+    style D fill:#c8e6c9
+    style A fill:#c8e6c9
+    style B fill:#bbdefb
+    style O fill:#bbdefb
+    style L fill:#bbdefb
+    style T fill:#bbdefb
+    style SO fill:#e1f5fe
+```
+
 25
 Figure 13. This cubic visualization presents the Processes (Sourcing, Data, Analytics) associated with
 required Properties (Confidentiality, Integrity, Availability) evaluated in terms of relevant
@@ -666,7 +807,7 @@ features, in the specific context of the impetus for this work and this paper. W
 was motivated by the particular requirements of health security, it reaches beyond those
 origins and generalizes to address a need for common interorganizational infrastructure
 shared among government agencies, military service branches, academia, journalists, and
-the general public, which we can describe here as a “knowledge commons” [25,81]. Our
+the general public, which we can describe here as a "knowledge commons" [25,81]. Our
 intention was to assist in developing interaction reliability, information provenance,
 information value liquidity, and enhanced navigability of such infrastructure within the
 larger information supply chain.
@@ -677,7 +818,7 @@ among abstract objects (e.g., a direct reference within one paper to another pap
 reference within a news article to a specific press release). Other features can be readily
 imagined that might help address concerns across large swaths of current security, privacy,
 liability, risk, trust and related information system risks. With so many variables to address
-on the pathway toward such a “knowledge commons,” no single existing framework will
+on the pathway toward such a "knowledge commons," no single existing framework will
 ever be sufficient to facilitate situational awareness across all of the dimensions needed for
 reliable navigation of associated requirements, vulnerabilities, risks, and practices. For
 example, variables that might need be considered could include: (i) diverse stakeholders,
@@ -692,7 +833,7 @@ variety of existing perspectives on expectations and performance measurements ac
 multiple types of interactions.
 With BOLTS as an initial dimension, the P3IF rendering for the knowledge commons
 continues with the second dimension. Given that the entire information supply chain is of
-interest, the team might make use of the “intelligence production cycle” as a Processes
+interest, the team might make use of the "intelligence production cycle" as a Processes
 dimension, as it has been used as a generalized description for information supply chains
 elsewhere [82]. The knowledge commons will be an emergent phenomenon of the
 27
@@ -703,10 +844,10 @@ intelligence context as a potential source of patterns for application in the kn
 commons. In this way, the P3IF also functions as a knowledge discovery tool, the
 interlocking patterns reveal novel potential use cases and create networks for innovation
 and new solutions to shared challenges.
-Finally, as a Properties dimension, the team might “hot swap” components from the CIA
+Finally, as a Properties dimension, the team might "hot swap" components from the CIA
 triad and its progeny on an ad hoc basis, depending on the particular component of the
 knowledge commons to which it is being applied. With a diverse potential user base,
-different “neighborhoods” in the commons network will have different expectations of the
+different "neighborhoods" in the commons network will have different expectations of the
 properties of the system with which they engage. The analytical stability offered by the
 application of uniform Perspectives and Processes dimensions allows for the hot swapping
 of Properties factors, enabling the localization of features to satisfy the expectations of
@@ -721,8 +862,8 @@ given framework within P3IF by selecting a previously-published combination of
 dimensions and aspects). As a consequence of its use across different systems, it can also
 function as a foundation for integration and innovation, supporting and contributing to
 trade association functions, and facilitating distribution of relevant cognitive security
-factors across trades and other forms of human organization, i.e., the “knowledge
-commons.”
+factors across trades and other forms of human organization, i.e., the "knowledge
+commons."
 P3IF renderings are not static. They are entirely flexible, inviting exploration of new
 combinations of variables, and even swapping of factors within each category, which can
 help lead to new discoveries of strategies for information risk mitigation and cognitive
@@ -742,6 +883,74 @@ checklist to consider. When applied to the healthcare domain, this rendering sug
 entire suite of new considerations are needed to fully ensure the integrity and validity of
 evidence-based decision-making in medicine and public health. These observations will be
 explored in more detail in future work.
+
+```mermaid
+graph TB
+    subgraph "Figure 15: Comprehensive P3IF Cube - Cyber/Data Security to Cognitive Security"
+        subgraph "Properties"
+            U[Usability]
+            IN[Integrity]
+            C[Compliance]
+            INT[Interoperability]
+            E[Efficiency]
+        end
+        
+        subgraph "Processes"
+            S[Sourcing]
+            D[Data]
+            A[Analytics]
+            SE[Semantics]
+            P[Policy]
+        end
+        
+        subgraph "Perspectives"
+            B[Business]
+            O[Operations]
+            L[Legal]
+            T[Technical]
+            SO[Social]
+        end
+        
+        U -.-> S
+        U -.-> SE
+        IN -.-> D
+        IN -.-> A
+        C -.-> P
+        C -.-> L
+        INT -.-> S
+        INT -.-> D
+        E -.-> A
+        E -.-> P
+        
+        S -.-> B
+        S -.-> O
+        D -.-> T
+        D -.-> O
+        A -.-> T
+        A -.-> B
+        SE -.-> SO
+        SE -.-> L
+        P -.-> L
+        P -.-> B
+    end
+    
+    style U fill:#ffcdd2
+    style IN fill:#e8f5e8
+    style C fill:#e8f5e8
+    style INT fill:#ffcdd2
+    style E fill:#e8f5e8
+    style S fill:#c8e6c9
+    style D fill:#e0f2f1
+    style A fill:#e0f2f1
+    style SE fill:#f3e5f5
+    style P fill:#f3e5f5
+    style B fill:#bbdefb
+    style O fill:#e1f5fe
+    style L fill:#e1f5fe
+    style T fill:#e0f2f1
+    style SO fill:#f3e5f5
+```
+
 Figure 15. A P3IF cube that enumerates combinations of system Properties (Usability, Integrity,
 Compliance, Interoperability, Efficiency), Processes (Sourcing, Data, Analytics, Semantics, Policy), and
 Perspectives (Business, Operations, Legal, Technical, Social). Cells in the figure are shaded on a
@@ -750,10 +959,10 @@ oriented).
 29
 Discussion
 In this work, we conducted a review of requirements engineering frameworks for
-information systems via a “snowballing” literature method. This allowed us to trace the
+information systems via a "snowballing" literature method. This allowed us to trace the
 lineage and influence of these frameworks, giving rise to an understanding of their
 evolution across time, sectors, and use cases. We then annotated and analyzed each
-framework’s aspects and dimensional structure, organizing them according to a
+framework's aspects and dimensional structure, organizing them according to a
 phylo-memetic scheme, elucidating their evolutionary trajectories and intellectual
 inheritances. This analytic work prepared the foundation for a comprehensive comparative
 analysis, culminating in the development of the Properties, Processes, and Perspectives
@@ -823,7 +1032,7 @@ sector. Where the dominant frameworks are known for a given potential object of
 regulatory attention, P3IF provides a shared vocabulary for intervention and
 interaction, and a foundation for the presentation of alternatives.
 ● Academics and research funding agencies should consider helping to extend the
-P3IF approach to so-called “wicked problems” in which multiple, disparate complex
+P3IF approach to so-called "wicked problems" in which multiple, disparate complex
 problems intersect and where convergence among multiple approaches, disciplines,
 or organizations is required for analysis and addressment, and should consider
 potential opportunities for synthesis among fields.
@@ -868,7 +1077,7 @@ Methodology. CRC Press; 2004.
 4. Easttom C, Butler W. A Modified McCumber Cube as a Basis for a Taxonomy of Cyber
 Attacks. 2019 IEEE 9th Annual Computing and Communication Workshop and
 Conference (CCWC). 2019. pp. 0943–0949.
-5. Cordes RJ, Friedman DA. The Facilitator’s Catechism. In: Friedman DA, Cordes RJ,
+5. Cordes RJ, Friedman DA. The Facilitator's Catechism. In: Friedman DA, Cordes RJ,
 editors. The Great Preset: Remote Teams and Operational Art. COGSEC; 2020. pp.
 65–107.
 6. Cordes RJ, Applegate-Swanson S, Friedman DA, Knight VB, Mikhailova A. Narrative
@@ -889,7 +1098,6 @@ Patterns and Pattern Languages. John Wiley & Sons; 2007.
 12. ISO. ISO 9241-11:2018 Ergonomics of human-system interaction - Part 11: Usability.
 2023. Available: https://www.iso.org/standard/63500.html
 13. Schinagl S, Paans R, Schoon K. The Revival of Ancient Information Security Models,
-34
 Insight in Risks and Selection of Measures. 2016 49th Hawaii International Conference
 on System Sciences (HICSS). unknown; 2016. pp. 4041–4050.
 14. Norman DA. Some Observations on Mental Models. In: Gentner D, Stevens AL, editors.
@@ -922,7 +1130,6 @@ Standards and Cognitive Security. COGSEC; 2022.
 26. Daneva M, Wieringa RJ. A requirements engineering framework for
 cross-organizational ERP systems. Requirements Engineering. 2006;11: 194–204.
 27. David S, Abu-Ghazaleh J, Friedman D, Cordes RJ. Comments on AI Accountability Policy
-35
 Submitted to NTIA Docket 2023-0005-0001 by IRSIRI, AII, PFH, and COGSEC. 2023.
 doi:10.5281/zenodo.8025957
 28. David S, Cordes RJ, Friedman DA. Active Inference in Modeling Conflict. 2021.
@@ -956,7 +1163,6 @@ Available: https://www.sox-online.com/documents/COSO_ERM_ExecutiveSummary.pdf
 40. Dutta A, Al-Shaer E. Cyber defense matrix: a new model for optimal composition of
 cybersecurity controls to construct resilient risk mitigation. Proceedings of the 6th
 Annual Symposium on Hot Topics in the Science of Security. New York, NY, USA:
-36
 Association for Computing Machinery; 2019. pp. 1–2.
 41. Yu S. Cyber Defense Matrix: Reloaded. RSA Conference; 2019. Available:
 https://www.slideshare.net/sounilyu/cyber-defense-matrix-reloaded
@@ -991,7 +1197,6 @@ notations. diva-portal.org; 2023 [cited 16 Jun 2023]. Available:
 https://www.diva-portal.org/smash/get/diva2:1756401/FULLTEXT01.pdf
 52. NATO. NATO Architecture Framework. NATO C3 Board Brussels, Belgium; 2018.
 Available:
-37
 https://www.nato.int/nato_static_fl2014/assets/pdf/2021/1/pdf/NAFv4_2020.09.pdf
 53. SOA Source Book. [cited 11 Jul 2023]. Available:
 http://www.opengroup.org/soa/source-book/intro/index.htm
@@ -1025,7 +1230,6 @@ Office; 2014.
 https://www.cio.gov/handbook/it-laws/clinger-cohen-act/
 65. Carper, [d-De] TR. Federal Information Security Modernization Act of 2014. 2521 Dec
 18, 2014. Available: http://www.congress.gov/bill/113th-congress/senate-bill/2521
-38
 66. 2.4 Chief Financial Officers Act (1990). [cited 18 Aug 2023]. Available:
 https://www.cio.gov/handbook/it-laws/cfo-act/
 67. Overview of The Privacy Act of 1974 (2020 Edition). 14 Oct 2020 [cited 18 Aug 2023].
@@ -1059,8 +1263,6 @@ ct/
 79. Wikipedia contributors. General Data Protection Regulation. In: Wikipedia, The Free
 Encyclopedia [Internet]. 7 Aug 2023. Available:
 https://en.wikipedia.org/w/index.php?title=General_Data_Protection_Regulation&oldid
-39
-=1169147491
 80. California Consumer Privacy Act (CCPA) (2018). In: State of California - Department of
 Justice - Office of the Attorney General [Internet]. 15 Oct 2018 [cited 18 Aug 2023].
 Available: https://oag.ca.gov/privacy/ccpa
