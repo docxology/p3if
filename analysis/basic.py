@@ -10,7 +10,7 @@ import numpy as np
 from collections import Counter
 
 from core.framework import P3IFFramework
-from core.models import Pattern, Relationship
+from core.models import BasePattern, Relationship
 
 
 class BasicAnalyzer:

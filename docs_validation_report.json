@@ -1,0 +1,273 @@
+{
+  "timestamp": "2025-09-23T14:47:09.625608",
+  "validation_type": "documentation_compliance",
+  "project_root": "/Users/4d/Documents/GitHub/p3if",
+  "standards_version": "1.0",
+  "results": {
+    "directory_structure": true,
+    "documentation_format": true,
+    "code_documentation": true,
+    "script_paths": true,
+    "import_order": true,
+    "pep8_compliance": true
+  },
+  "issues": [
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/FAQ.md",
+      "file": "docs/FAQ.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/FAQ.md",
+      "file": "docs/FAQ.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/FAQ.md",
+      "file": "docs/FAQ.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "File should start with H1 header: /Users/4d/Documents/GitHub/p3if/docs/p3if_paste.md",
+      "file": "docs/p3if_paste.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/LLM_DEVELOPMENT_GUIDE.md",
+      "file": "docs/LLM_DEVELOPMENT_GUIDE.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/LLM_DEVELOPMENT_GUIDE.md",
+      "file": "docs/LLM_DEVELOPMENT_GUIDE.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "File should start with H1 header: /Users/4d/Documents/GitHub/p3if/docs/website_design_spec.md",
+      "file": "docs/website_design_spec.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 0 to 2): /Users/4d/Documents/GitHub/p3if/docs/website_design_spec.md",
+      "file": "docs/website_design_spec.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/guides/configuration.md",
+      "file": "docs/guides/configuration.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/guides/configuration.md",
+      "file": "docs/guides/configuration.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/guides/configuration.md",
+      "file": "docs/guides/configuration.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/guides/configuration.md",
+      "file": "docs/guides/configuration.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/guides/configuration.md",
+      "file": "docs/guides/configuration.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/guides/configuration.md",
+      "file": "docs/guides/configuration.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/guides/configuration.md",
+      "file": "docs/guides/configuration.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/guides/configuration.md",
+      "file": "docs/guides/configuration.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/guides/installation.md",
+      "file": "docs/guides/installation.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/guides/installation.md",
+      "file": "docs/guides/installation.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/guides/installation.md",
+      "file": "docs/guides/installation.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 4): /Users/4d/Documents/GitHub/p3if/docs/guides/installation.md",
+      "file": "docs/guides/installation.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 4): /Users/4d/Documents/GitHub/p3if/docs/guides/installation.md",
+      "file": "docs/guides/installation.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/guides/installation.md",
+      "file": "docs/guides/installation.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/examples/README.md",
+      "file": "docs/examples/README.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/examples/README.md",
+      "file": "docs/examples/README.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 4): /Users/4d/Documents/GitHub/p3if/docs/concepts/P3IF.md",
+      "file": "docs/concepts/P3IF.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "File should start with H1 header: /Users/4d/Documents/GitHub/p3if/docs/concepts/p3if_paste.md",
+      "file": "docs/concepts/p3if_paste.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "File should start with H1 header: /Users/4d/Documents/GitHub/p3if/docs/concepts/Minecraf-P3IF.md",
+      "file": "docs/concepts/Minecraf-P3IF.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/api/README.md",
+      "file": "docs/api/README.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/tutorials/basic-usage.md",
+      "file": "docs/tutorials/basic-usage.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/tutorials/basic-usage.md",
+      "file": "docs/tutorials/basic-usage.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/tutorials/basic-usage.md",
+      "file": "docs/tutorials/basic-usage.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/tutorials/basic-usage.md",
+      "file": "docs/tutorials/basic-usage.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/tutorials/basic-usage.md",
+      "file": "docs/tutorials/basic-usage.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/tutorials/basic-usage.md",
+      "file": "docs/tutorials/basic-usage.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/tutorials/basic-usage.md",
+      "file": "docs/tutorials/basic-usage.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/tutorials/basic-usage.md",
+      "file": "docs/tutorials/basic-usage.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/tutorials/basic-usage.md",
+      "file": "docs/tutorials/basic-usage.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/tutorials/basic-usage.md",
+      "file": "docs/tutorials/basic-usage.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/tutorials/multi-domain-analysis.md",
+      "file": "docs/tutorials/multi-domain-analysis.md"
+    },
+    {
+      "type": "code_documentation",
+      "severity": "warning",
+      "message": "Files missing docstrings: ['utils/output_organizer.py', 'scripts/run_multidomain_portal.py', 'scripts/update_domain_files.py', 'scripts/demo_organized_output_simple.py', 'scripts/validate_documentation.py', 'scripts/verify_imports.py', 'scripts/update_imports.py', 'scripts/benchmark_performance.py', 'scripts/test_3d_cube_with_domains.py', 'scripts/ensure_website_references.py']",
+      "file": "code_files"
+    },
+    {
+      "type": "script_paths",
+      "severity": "warning",
+      "message": "Script missing shebang: /Users/4d/Documents/GitHub/p3if/scripts/__init__.py",
+      "file": "scripts/__init__.py"
+    },
+    {
+      "type": "import_order",
+      "severity": "warning",
+      "message": "Import order violations in: ['core/models.py', 'core/framework.py', 'data/synthetic.py', 'data/__init__.py', 'data/importers.py']",
+      "file": "code_files"
+    }
+  ],
+  "summary": {
+    "total_issues": 42,
+    "error_count": 0,
+    "warning_count": 42
+  }
+}

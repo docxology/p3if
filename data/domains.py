@@ -8,7 +8,7 @@ import json
 from pathlib import Path
 import logging
 
-from core.models import Pattern, Property, Process, Perspective
+from core.models import BasePattern, Property, Process, Perspective
 from core.framework import P3IFFramework
 
 
@@ -44,7 +44,7 @@ class DomainManager:
         
         return domains
     
-    def get_patterns_by_domain(self, domain: str) -> Dict[str, List[Pattern]]:
+    def get_patterns_by_domain(self, domain: str) -> Dict[str, List[BasePattern]]:
         """
         Get all patterns in a domain.
         
@@ -232,7 +232,16 @@ class DomainManager:
             elif pattern_type == "perspective":
                 pattern = Perspective(**pattern_data)
             else:
-                pattern = Pattern(**pattern_data)
+                # Create appropriate pattern type based on data
+                pattern_type = pattern_data.get('type', 'property')
+                if pattern_type == 'property':
+                    pattern = Property(**pattern_data)
+                elif pattern_type == 'process':
+                    pattern = Process(**pattern_data)
+                elif pattern_type == 'perspective':
+                    pattern = Perspective(**pattern_data)
+                else:
+                    pattern = Property(**pattern_data)  # Default to Property
             
             old_id = pattern.id
             new_id = self.framework.add_pattern(pattern)

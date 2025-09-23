@@ -6,7 +6,7 @@ Contains the core framework and models for the P3IF system.
 
 # Import main modules for easier access
 from core.framework import P3IFFramework
-from core.models import Pattern, Process, Perspective, Relationship
+from core.models import Property, Process, Perspective, Relationship
 
 # For backward compatibility with p3if.core imports
 try:
@@ -18,10 +18,10 @@ except Exception:
     pass
 
 __all__ = [
-    'Property', 
-    'Process', 
-    'Perspective', 
-    'Relationship', 
-    'Pattern',
+    'Property',
+    'Process',
+    'Perspective',
+    'Relationship',
+    'BasePattern',
     'P3IFFramework'
 ] 

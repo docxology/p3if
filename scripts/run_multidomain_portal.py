@@ -22,6 +22,7 @@ sys.path.insert(0, str(project_root))
 # Only use SyntheticDataGenerator
 from data.synthetic import SyntheticDataGenerator
 from visualization.portal import VisualizationPortal
+from utils.output_organizer import create_standard_output_structure
 
 # Configure logging
 logging.basicConfig(
@@ -33,10 +34,8 @@ logger = logging.getLogger(__name__)
 
 from core.framework import P3IFFramework
 from utils.config import Config
-from visualization.portal import VisualizationPortal
-from data.synthetic import SyntheticDataGenerator
 
-# Import domain functionality 
+# Import domain functionality
 from data.domains import DomainManager
 
 def run_multidomain_portal(
@@ -88,8 +87,9 @@ def run_multidomain_portal(
     project_root = Path(__file__).parent.parent  # Two levels up from this script
     
     if output_dir is None:
-        # Default to output/portal if no output_dir specified
-        output_path = project_root / "output" / "portal"
+        # Use the standard output structure
+        output_organizer = create_standard_output_structure()
+        output_path = output_organizer
     else:
         # Handle both absolute and relative paths
         output_path = Path(output_dir)

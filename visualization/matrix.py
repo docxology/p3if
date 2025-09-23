@@ -15,7 +15,7 @@ import datetime
 import os
 
 from core.framework import P3IFFramework
-from core.models import Pattern
+from core.models import BasePattern
 from visualization.base import Visualizer
 from utils.config import Config
 from analysis.basic import BasicAnalyzer
@@ -565,8 +565,8 @@ class MatrixVisualizer(Visualizer):
         file_path: Union[str, Path],
         pattern_type_x: str,
         pattern_type_y: str,
-        patterns_x: List[Pattern],
-        patterns_y: List[Pattern],
+        patterns_x: List[BasePattern],
+        patterns_y: List[BasePattern],
         relationship_type: Optional[str] = None,
         cmap: str = "YlOrRd",
         min_relationship_strength: float = 0.0,

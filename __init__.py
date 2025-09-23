@@ -9,4 +9,4 @@ __version__ = "0.1.0"
 
 # Import main modules for easier access
 from .core.framework import P3IFFramework
-from .core.models import Pattern, Process, Perspective, Relationship 
+from .core.models import Property, Process, Perspective, Relationship 

@@ -13,7 +13,7 @@ from typing import Dict, List, Optional, Any, Union
 from datetime import datetime
 from pathlib import Path
 
-from core.models import Pattern, Relationship
+from core.models import BasePattern, Relationship
 
 
 class StorageInterface(ABC):

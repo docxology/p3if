@@ -16,7 +16,7 @@ if __name__ == "__main__":
     project_root = Path(__file__).parent.parent
     sys.path.insert(0, str(project_root))
 
-from core.models import Property, Process, Perspective, Relationship, Pattern
+from core.models import Property, Process, Perspective, Relationship, BasePattern
 from core.framework import P3IFFramework
 
 

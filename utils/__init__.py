@@ -6,7 +6,7 @@ Contains utility functions and classes for the P3IF framework.
 
 # Import main utility modules
 from utils.config import Config
-from utils.storage import StorageInterface as StorageManager
+# Storage interface is imported directly where needed to avoid circular imports
 
 # For backward compatibility with p3if.utils imports
 try:

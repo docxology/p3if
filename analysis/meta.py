@@ -10,7 +10,7 @@ import pandas as pd
 from collections import defaultdict, Counter
 
 from core.framework import P3IFFramework
-from core.models import Pattern, Relationship
+from core.models import BasePattern, Relationship
 from data.domains import DomainManager
 
 

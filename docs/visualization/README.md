@@ -1,6 +1,26 @@
-# P3IF 3D Interactive Visualization
+# P3IF Visualization System
 
-This project provides an interactive 3D visualization of the P3IF (Properties, Processes, and Perspectives Inter-Framework) data across multiple domains. The visualization represents the three dimensions of the P3IF framework (properties, processes, and perspectives) in a 3D cube, with points indicating relationships between elements from each dimension.
+The P3IF Visualization System provides comprehensive visual analysis capabilities for Properties, Processes, and Perspectives Inter-Framework data. The system generates high-quality static visualizations, animated sequences, and interactive 3D environments for exploring complex multi-domain relationships.
+
+## 🎨 Visualization Types
+
+### Static Visualizations (PNG)
+- **Network Graphs**: Force-directed layouts showing pattern relationships
+- **Statistical Charts**: Distribution analysis, confidence metrics, domain comparisons
+- **Matrix Views**: Cross-tabulation of relationships across dimensions
+- **High Resolution**: 300 DPI output suitable for publications and presentations
+
+### Animated Visualizations (GIF)
+- **Component Rotation**: P3IF framework components rotating around central core
+- **Pattern Evolution**: Time-series visualization of relationship changes
+- **Domain Transitions**: Smooth transitions between different domain views
+- **Optimized Output**: Compressed GIFs with smooth frame transitions
+
+### Interactive Visualizations (HTML/WebGL)
+- **3D Cube Visualization**: Interactive representation of the P3IF framework
+- **Network Exploration**: Clickable nodes and edges with detailed information
+- **Multi-Domain Portals**: Unified interface for exploring multiple domains
+- **Real-time Filtering**: Dynamic filtering and search capabilities
 
 ## Overview
 
@@ -12,12 +32,19 @@ The P3IF framework organizes knowledge across three dimensions:
 
 The 3D visualization allows users to explore the relationships between these dimensions across 16 different domains, from Artificial Intelligence to Healthcare to Climate Change.
 
-## Features
+## 🚀 Current Capabilities
 
-- **3D Cube Visualization**: Interactive representation of the P3IF framework
-- **Domain Selection**: Dropdown to choose from 16 different domains
-- **Interactive Controls**: Rotate, zoom, and pan to explore the data
-- **Relationship Visualization**: Points sized and colored by relationship strength and confidence
+### Comprehensive Output Generation
+- **Automated Pipeline**: Single command generates all visualization types
+- **Organized Structure**: Session-based output organization with metadata
+- **Performance Optimized**: Caching and concurrent processing for large datasets
+- **Quality Assurance**: Validation and error handling throughout pipeline
+
+### Advanced Features
+- **Multi-Scale Analysis**: Small (6 patterns) and large (96+ patterns) dataset support
+- **Cross-Domain Integration**: Healthcare, finance, cybersecurity, education domains
+- **Relationship Analysis**: Strength and confidence scoring with statistical validation
+- **Pattern Recognition**: Automatic classification and clustering of related elements
 
 ## Files and Directories
 
@@ -39,23 +66,38 @@ The 3D visualization allows users to explore the relationships between these dim
 - Python 3.6 or higher
 - Modern web browser (Chrome, Firefox, Safari, or Edge)
 
-### Generating the Website
+### Generate Comprehensive Visualizations
 
-1. Update domain files with relationship data:
+1. **Complete Visualization Suite** (Recommended):
    ```bash
-   python3 scripts/update_domain_files.py
+   python scripts/generate_final_visualizations.py
    ```
+   Generates:
+   - High-resolution PNG network graphs and statistics
+   - Animated GIF showing P3IF component rotation
+   - Comprehensive analysis report
+   - Organized output structure with metadata
 
-2. Generate the website:
+2. **Multi-Domain Portal**:
    ```bash
-   python3 scripts/test_3d_cube_with_domains.py
+   python scripts/run_multidomain_portal.py
    ```
+   Creates interactive web portal with multiple domains
 
-3. View the website:
+3. **Performance Analysis**:
    ```bash
-   python3 scripts/view_p3if_website.py
+   python scripts/benchmark_performance.py
    ```
-   Or manually open `output/p3if_full_website.html` in your browser.
+   Generates performance metrics and optimization reports
+
+4. **View Generated Outputs**:
+   ```bash
+   # List all visualization files
+   find output/p3if_output_*/ -name "*.png" -o -name "*.gif" -o -name "*.html"
+   
+   # Open latest session directory
+   open output/p3if_output_$(ls output/ | grep p3if_output | tail -1)/
+   ```
 
 ## Using the Visualization
 

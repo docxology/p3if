@@ -73,20 +73,52 @@ graph TD
 - [Pattern Recognition](analytics/pattern-recognition.md)
 - [Trend Analysis](analytics/trend-analysis.md)
 
-## Quick Start Examples
+## 🚀 Quick Start Examples
 
-### Example 1: Basic Cybersecurity Domain
+### Example 1: Generate Complete Visualization Suite
 
-This example demonstrates a simple cybersecurity domain with core CIA (Confidentiality, Integrity, Availability) properties.
+The fastest way to see P3IF in action:
 
-**Data Structure:**
-```json
-{
-  "name": "Basic Cybersecurity",
-  "properties": ["Confidentiality", "Integrity", "Availability"],
-  "processes": ["Authentication", "Encryption", "Monitoring"],
-  "perspectives": ["Technical", "Business", "Compliance"]
-}
+```bash
+# Generate comprehensive visualizations
+python scripts/generate_final_visualizations.py
+
+# Output includes:
+# - High-resolution PNG network graphs (small_network.png, large_network.png)
+# - Statistical analysis charts (pattern_statistics.png)
+# - Animated GIF showing P3IF components (p3if_components.gif)
+# - Comprehensive analysis report (visualization_report.md)
+```
+
+**Generated Files Structure:**
+```
+output/p3if_output_YYYYMMDD_HHMMSS/
+├── visualizations/
+│   ├── networks/
+│   │   ├── small_network.png      # 6-pattern network (300 DPI)
+│   │   └── large_network.png      # 96-pattern network (300 DPI)
+│   └── statistics/
+│       └── pattern_statistics.png # Distribution analysis
+├── animations/
+│   └── framework/
+│       └── p3if_components.gif    # Rotating components
+└── reports/
+    └── visualization_report.md    # Comprehensive report
+```
+
+### Example 2: Multi-Domain Analysis Portal
+
+Generate interactive web portal with multiple domains:
+
+```bash
+# Create multi-domain portal
+python scripts/run_multidomain_portal.py
+
+# Generates interactive visualizations for:
+# - Healthcare domain (patient privacy, clinical workflows)
+# - Finance domain (risk management, compliance)
+# - Cybersecurity domain (CIA triad, threat modeling)
+# - Education domain (learning management, data protection)
 ```
 
 **Key Relationships:**

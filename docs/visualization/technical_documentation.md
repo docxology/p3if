@@ -1,19 +1,65 @@
-# P3IF Interactive Visualization Website Documentation
+# P3IF Visualization System Technical Documentation
 
 ## Overview
 
-The P3IF (Properties, Processes, and Perspectives Inter-Framework) interactive visualization website provides an intuitive 3D visualization of the P3IF framework data across multiple domains. The website features a 3D cube visualization that represents the three dimensions of the P3IF framework (properties, processes, and perspectives) and allows users to select different datasets/domains through a dropdown menu.
+The P3IF Visualization System is a comprehensive suite of visualization tools that generates static images, animated sequences, and interactive web interfaces for exploring Properties, Processes, and Perspectives Inter-Framework data. The system is built with performance optimization, scalability, and extensibility in mind.
 
-## Features
+## Architecture
 
-### 1. 3D Cube Visualization
+### Core Components
 
-The core of the website is a 3D interactive cube visualization that represents:
-- Properties (X-axis)
-- Processes (Y-axis)
-- Perspectives (Z-axis)
+1. **Visualization Engine** (`visualization/interactive.py`)
+   - High-performance rendering with caching and concurrency
+   - Multiple visualization types (network, 3D cube, matrix, dashboard)
+   - Theme support and customizable styling
+   - Performance monitoring and optimization
 
-Each point within the cube represents a relationship between a property, process, and perspective. The size and color of the points indicate the strength and confidence of the relationships.
+2. **Output Organization** (`utils/output_organizer.py`)
+   - Session-based directory structure
+   - Metadata tracking and file organization
+   - Standardized output formats and naming conventions
+
+3. **Data Processing Pipeline**
+   - Synthetic data generation with configurable parameters
+   - Cross-domain relationship analysis
+   - Statistical validation and confidence scoring
+   - Pattern classification and clustering
+
+## Visualization Types
+
+### 1. Static PNG Visualizations
+
+**Network Graphs**
+- Force-directed layouts using NetworkX and Matplotlib
+- Node sizing based on connection count and importance
+- Edge thickness represents relationship strength
+- Color coding by pattern type (Properties: red, Processes: teal, Perspectives: blue)
+- High-resolution output (300 DPI) for publication quality
+
+**Statistical Charts**
+- Pattern type distribution (pie charts)
+- Domain distribution (bar charts) 
+- Confidence score histograms
+- Dataset comparison visualizations
+- Multi-panel layouts with consistent styling
+
+### 2. Animated GIF Sequences
+
+**Component Rotation Animation**
+- 12-frame rotation sequence (30° increments)
+- P3IF framework components orbiting central core
+- Smooth transitions with optimized frame timing
+- Compressed output with loop optimization
+- Demonstrates framework structure and relationships
+
+### 3. Interactive 3D Visualizations
+
+**WebGL-based 3D Cube**
+- Properties (X-axis), Processes (Y-axis), Perspectives (Z-axis)
+- Point cloud representation of relationships
+- Interactive rotation, zoom, and pan controls
+- Real-time filtering and selection
+- Responsive design for multiple screen sizes
 
 ### 2. Domain Selection
 

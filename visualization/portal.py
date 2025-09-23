@@ -16,6 +16,9 @@ from visualization.base import Visualizer
 from visualization.dashboard import DashboardGenerator
 from visualization.interactive import InteractiveVisualizer
 from utils.config import Config
+from utils.output_organizer import (
+    get_output_organizer, create_standard_output_structure
+)
 
 
 class VisualizationPortal:
@@ -72,30 +75,26 @@ class VisualizationPortal:
         """
         self.logger.info(f"Generating visualization portal at {output_file}")
         
-        # Create the output directory if it doesn't exist
-        output_path = Path(output_file)
-        output_dir = output_path.parent
-        os.makedirs(output_dir, exist_ok=True)
+        # Use output organizer for consistent directory structure
+        organizer = get_output_organizer()
+        session_path = organizer.create_session_structure(f"portal_{datetime.now().strftime('%Y%m%d_%H%M%S')}")
+
+        # Set the output path to the main index file in the organized structure
+        output_path = session_path / "index.html"
         
-        # Create the visualizations directory if it doesn't exist
-        visualizations_dir = output_dir / "visualizations"
-        os.makedirs(visualizations_dir, exist_ok=True)
-        
-        # Ensure the log directory exists
-        log_dir = output_dir / "logs"
-        os.makedirs(log_dir, exist_ok=True)
-        
-        # Set up a file handler for logging
+        # Set up a file handler for logging using organized structure
+        log_dir = session_path / "logs"
         file_handler = logging.FileHandler(log_dir / "visualization_portal.log")
         file_handler.setLevel(logging.INFO)
         file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
         self.logger.addHandler(file_handler)
-        
-        # Generate individual visualizations
+
+        # Generate individual visualizations using organized structure
+        visualizations_dir = session_path / "visualizations"
         visualizations = self._generate_visualizations(visualizations_dir)
-        
-        # Create data files
-        data_dir = output_dir / "data"
+
+        # Create data files using organized structure
+        data_dir = session_path / "data"
         data_files = self._generate_data_files(data_dir)
         
         # Create main portal HTML file 

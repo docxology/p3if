@@ -1,0 +1,33 @@
+# Testing dependencies for P3IF
+pytest>=7.0.0
+pytest-cov>=4.0.0
+pytest-xdist>=3.0.0
+pytest-mock>=3.10.0
+pytest-asyncio>=0.21.0
+pytest-benchmark>=4.0.0
+
+# Coverage tools
+coverage>=7.0.0
+pytest-html>=3.1.0
+
+# Type checking
+mypy>=1.0.0
+
+# Linting
+flake8>=5.0.0
+flake8-docstrings>=1.7.0
+flake8-import-order>=0.18.0
+
+# Security scanning
+bandit>=1.7.0
+
+# Mocking and testing utilities
+responses>=0.23.0
+freezegun>=1.2.0
+factory-boy>=3.2.0
+
+# API testing
+httpx>=0.24.0
+
+# Data generation
+faker>=15.0.0
