@@ -24,8 +24,8 @@ The domain dashboard provides a comprehensive view of data for a single domain, 
 ### Generation
 
 ```python
-from core.framework import P3IFFramework
-from visualization.dashboard import DashboardGenerator
+from p3if_methods.framework import P3IFFramework
+from p3if_visualization.dashboard import DashboardGenerator
 from utils.config import Config
 
 # Initialize framework and load data
@@ -70,7 +70,7 @@ Domain network visualizations show relationships between domains, with:
 ### Generation
 
 ```python
-from visualization.network import NetworkVisualizer
+from p3if_visualization.network import NetworkVisualizer
 
 network_viz = NetworkVisualizer(framework, Config())
 domain_network_path = "output/domain_network.png"
@@ -88,7 +88,7 @@ P3IF can generate similarity matrices comparing domains:
 ### Generation
 
 ```python
-from visualization.matrix import MatrixVisualizer
+from p3if_visualization.matrix import MatrixVisualizer
 
 matrix_viz = MatrixVisualizer(framework, Config())
 similarity_path = "output/domain_similarity.png"
@@ -100,7 +100,7 @@ matrix_viz.visualize_domain_similarity(file_path=similarity_path)
 All domain visualizations can be accessed through the main visualization portal:
 
 ```python
-from visualization.portal import VisualizationPortal
+from p3if_visualization.portal import VisualizationPortal
 
 portal = VisualizationPortal(framework, Config())
 portal.generate_portal(

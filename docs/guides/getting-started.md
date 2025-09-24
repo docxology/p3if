@@ -141,6 +141,6 @@ If you encounter issues or have questions:
 ## Further Reading
 
 - [Configuration Guide](configuration.md): Detailed configuration options
-- [Data Model Documentation](../technical/data-model.md): Understanding the P3IF data model
+- [Data Model Documentation](../technical/data_model.md): Understanding the P3IF data model
 - [API Reference](../api/README.md): Using the P3IF API
-- [Advanced Features](../tutorials/advanced-features.md): Advanced usage scenarios
+- [Multi-Domain Analysis](../tutorials/multi-domain-analysis.md): Advanced usage scenarios

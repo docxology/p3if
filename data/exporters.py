@@ -11,7 +11,8 @@ from typing import Dict, List, Any, Union, Optional
 
 import networkx as nx
 
-from core.framework import P3IFFramework
+from p3if_methods.framework import P3IFFramework
+from p3if_methods.models import Property, Process, Perspective, Relationship
 
 logger = logging.getLogger(__name__)
 

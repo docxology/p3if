@@ -20,13 +20,13 @@ import sys
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
-from core.framework import P3IFFramework
-from visualization.interactive import InteractiveVisualizer
+from p3if_methods.framework import P3IFFramework
+from p3if_visualization.interactive import InteractiveVisualizer
 from utils.performance import (
     get_performance_monitor, clear_all_caches,
     create_performance_report, optimize_memory_usage
 )
-from tests.utils import (
+from p3if_tests.utils import (
     create_test_patterns_with_relationships,
     create_multi_domain_test_framework,
     create_large_test_framework
@@ -218,7 +218,7 @@ class PerformanceBenchmark:
         import concurrent.futures
 
         def add_pattern_operation(pattern_id: int):
-            from core.models import Property
+            from p3if_methods.models import Property
             pattern = Property(
                 name=f"Benchmark Property {pattern_id}",
                 description=f"Test property {pattern_id}",

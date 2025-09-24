@@ -5,8 +5,16 @@ This module provides comprehensive performance monitoring, profiling, caching,
 and optimization utilities for the P3IF framework.
 """
 import time
-import psutil
 import functools
+
+# Optional imports
+try:
+    import psutil
+    PSUTIL_AVAILABLE = True
+except ImportError:
+    psutil = None
+    PSUTIL_AVAILABLE = False
+
 import threading
 import asyncio
 from typing import Dict, Any, List, Optional, Callable, Union
@@ -203,8 +211,14 @@ class PerformanceMonitor:
 
             # Collect system metrics
             execution_time = time.time() - start_time
-            memory_usage = psutil.Process().memory_info().rss
-            cpu_usage = psutil.cpu_percent(interval=0.1)
+
+            # System metrics (conditional on psutil availability)
+            if PSUTIL_AVAILABLE and psutil:
+                memory_usage = psutil.Process().memory_info().rss
+                cpu_usage = psutil.cpu_percent(interval=0.1)
+            else:
+                memory_usage = 0  # Default value when psutil not available
+                cpu_usage = 0.0
 
             metrics = PerformanceMetrics(
                 execution_time=execution_time,
@@ -442,50 +456,54 @@ def optimize_dataframe_operations():
 
 def optimize_memory_usage():
     """Optimize memory usage for the application."""
-    try:
-        import gc
+    import gc
 
-        # Force garbage collection
-        gc.collect()
+    # Force garbage collection
+    gc.collect()
 
-        # Get memory usage info
-        process = psutil.Process()
-        memory_info = process.memory_info()
+    # Get memory usage info (conditional on psutil availability)
+    if PSUTIL_AVAILABLE and psutil:
+        try:
+            process = psutil.Process()
+            memory_info = process.memory_info()
 
-        return {
-            'rss': memory_info.rss,  # Resident Set Size
-            'vms': memory_info.vms,  # Virtual Memory Size
-            'percent': process.memory_percent()
-        }
-
-    except ImportError:
+            return {
+                'rss': memory_info.rss,  # Resident Set Size
+                'vms': memory_info.vms,  # Virtual Memory Size
+                'percent': process.memory_percent()
+            }
+        except Exception as e:
+            return {'error': f'psutil error: {e}'}
+    else:
         return {'error': 'psutil not available'}
 
 
 def get_system_resources():
     """Get current system resource usage."""
-    try:
-        cpu_percent = psutil.cpu_percent(interval=1)
-        memory = psutil.virtual_memory()
-        disk = psutil.disk_usage('/')
+    if PSUTIL_AVAILABLE and psutil:
+        try:
+            cpu_percent = psutil.cpu_percent(interval=1)
+            memory = psutil.virtual_memory()
+            disk = psutil.disk_usage('/')
 
-        return {
-            'cpu_percent': cpu_percent,
-            'memory': {
-                'total': memory.total,
-                'available': memory.available,
-                'percent': memory.percent,
-                'used': memory.used
-            },
-            'disk': {
-                'total': disk.total,
-                'free': disk.free,
-                'percent': disk.percent,
-                'used': disk.used
+            return {
+                'cpu_percent': cpu_percent,
+                'memory': {
+                    'total': memory.total,
+                    'available': memory.available,
+                    'percent': memory.percent,
+                    'used': memory.used
+                },
+                'disk': {
+                    'total': disk.total,
+                    'free': disk.free,
+                    'percent': disk.percent,
+                    'used': disk.used
+                }
             }
-        }
-
-    except ImportError:
+        except Exception as e:
+            return {'error': f'psutil error: {e}'}
+    else:
         return {'error': 'psutil not available'}
 
 

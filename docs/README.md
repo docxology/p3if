@@ -9,14 +9,18 @@ The **Properties, Processes, and Perspectives Inter-Framework (P3IF)** is a soph
 ## 🚀 Quick Start
 
 ```bash
-# Generate comprehensive visualizations
-python scripts/generate_final_visualizations.py
+# Option 1: Use the interactive terminal (recommended)
+../interactive_terminal.sh
 
-# Run multi-domain analysis portal  
-python scripts/run_multidomain_portal.py
+# Option 2: Run individual commands
+# Generate comprehensive visualizations
+python ../scripts/generate_final_visualizations.py
+
+# Run multi-domain analysis portal
+python ../scripts/run_multidomain_portal.py
 
 # View generated outputs
-ls output/p3if_output_*/
+ls ../output/p3if_output_*/
 ```
 
 ## ✨ Key Features
@@ -43,58 +47,84 @@ ls output/p3if_output_*/
 
 The P3IF documentation is organized into the following sections:
 
-### Core Concepts
+## Core Concepts
+
+### P3IF Framework
 - **[P3IF.md](concepts/P3IF.md)**: Comprehensive technical overview of the Properties, Processes, and Perspectives Inter-Framework
 - **[CategoryTheory_P3IF.md](concepts/CategoryTheory_P3IF.md)**: In-depth exploration of P3IF through the lens of category theory
 - **[CognitiveSecurity_P3IF.md](concepts/CognitiveSecurity_P3IF.md)**: Analysis of P3IF in addressing cognitive security challenges
 
-### Technical Documentation
+## Technical Documentation
+
+### System Architecture
 - **[Architecture](technical/architecture.md)**: System architecture and component interactions
-- **[Data Model](technical/data-model.md)**: Detailed explanation of the P3IF data model
+- **[Data Model](technical/data_model.md)**: Detailed explanation of the P3IF data model
 - **[API Reference](api/README.md)**: Complete API documentation for the P3IF framework
 
-### User Guides
+## User Guides
+
+### Installation and Setup
 - **[Getting Started](guides/getting-started.md)**: Quick start guide for new users
 - **[Installation Guide](guides/installation.md)**: Detailed installation instructions
 - **[Configuration](guides/configuration.md)**: Configuration options and best practices
 
-### Tutorials and Examples
+## Tutorials and Examples
+
+### Learning Resources
 - **[Basic Usage](tutorials/basic-usage.md)**: Step-by-step tutorial for basic usage
-- **[Advanced Features](tutorials/advanced-features.md)**: Guide to advanced features
 - **[Multi-Domain Analysis](tutorials/multi-domain-analysis.md)**: Tutorial on cross-domain analysis
 - **[Example Projects](examples/README.md)**: Example implementations and case studies
 
-### Visualization
+## Visualization
+
+### Visual Analysis
 - **[3D Visualization](visualization/README.md)**: Documentation for the 3D cube visualization
 - **[Technical Documentation](visualization/technical_documentation.md)**: Detailed technical specifications
 - **[User Guide](visualization/user_guide.md)**: Step-by-step guide for using the visualization
 
-### Diagrams
+## Diagrams
+
+### Visual Documentation
 - **[System Diagrams](diagrams/system-diagrams.md)**: Visual representations of the P3IF system
 - **[Process Flows](diagrams/process-flows.md)**: Workflow and process diagrams
-- **[Data Flows](diagrams/data-flows.md)**: Data flow diagrams and entity relationships
 
-### LLM & AI Development
+## LLM & AI Development
+
+### AI Development Resources
 - **[LLM Development Guide](LLM_DEVELOPMENT_GUIDE.md)**: Comprehensive guide for LLMs developing for P3IF
 - **[AI Prompt Library](AI_PROMPT_LIBRARY.md)**: Collection of prompts for P3IF development tasks
 
+## Project Reports & Validation
+
+### Quality Assurance
+- **[Documentation Validation Report](docs_validation_report.json)**: Quality assurance and validation results
+- **[Documentation Improvements Summary](DOCUMENTATION_IMPROVEMENTS_SUMMARY.md)**: Enhancement tracking and improvements
+- **[P3IF Improvements Summary](P3IF_IMPROVEMENTS_SUMMARY.md)**: System evolution and architectural changes
+- **[FAQ](FAQ.md)**: Frequently asked questions and answers
+
 ## 📋 Current Capabilities
 
-### Visualization & Animation
+## Visualization & Animation
+
+### Static and Animated Outputs
 - **PNG Visualizations**: High-resolution (300 DPI) network graphs and statistical charts
 - **GIF Animations**: Rotating P3IF component animations showcasing framework dynamics
 - **Interactive 3D Cubes**: Web-based interactive visualizations with real-time manipulation
 - **Network Graphs**: Force-directed layouts with customizable node and edge styling
 - **Statistical Dashboards**: Pattern distribution, confidence analysis, and domain metrics
 
-### Data Processing & Analysis
+## Data Processing & Analysis
+
+### Advanced Analytics
 - **Synthetic Data Generation**: Multi-domain pattern and relationship generation
 - **Cross-Domain Analysis**: Pattern recognition across healthcare, finance, cybersecurity, education
 - **Performance Monitoring**: Caching, concurrency, and optimization with detailed metrics
 - **Relationship Analysis**: Strength and confidence scoring with validation
 - **Pattern Classification**: Automatic categorization into Properties, Processes, Perspectives
 
-### Framework Integration
+## Framework Integration
+
+### Integration Features
 - **Hot-Swapping**: Dynamic dimension replacement and framework reconfiguration
 - **Multi-Domain Portals**: Unified visualization of multiple domain frameworks
 - **Export Capabilities**: JSON, CSV, database export with metadata preservation
@@ -107,30 +137,37 @@ The P3IF documentation is organized into the following sections:
 git clone https://github.com/yourusername/P3IF.git
 cd P3IF
 
-# Run setup script
-bash scripts/setup.sh
+# Option 1: Use the interactive setup (recommended)
+../interactive_terminal.sh --setup-only
+
+# Option 2: Manual setup
+python scripts/setup_development.py
 ```
 
 For detailed installation instructions, see [Installation Guide](guides/installation.md).
 
 ## 🎯 Usage Examples
 
+## Visualization Generation
+
 ### Generate Comprehensive Visualizations
 ```bash
 # Create PNG graphs, GIF animations, and reports
-python scripts/generate_final_visualizations.py
+python ../scripts/generate_final_visualizations.py
 
 # Output includes:
 # - High-resolution network graphs (small_network.png, large_network.png)
-# - Statistical analysis charts (pattern_statistics.png) 
+# - Statistical analysis charts (pattern_statistics.png)
 # - Animated GIF (p3if_components.gif)
 # - Comprehensive report (visualization_report.md)
 ```
 
+## Multi-Domain Analysis
+
 ### Multi-Domain Analysis Portal
 ```bash
 # Generate interactive web portal with multiple domains
-python scripts/run_multidomain_portal.py
+python ../scripts/run_multidomain_portal.py
 
 # Creates cross-domain visualizations for:
 # - Healthcare, Finance, Cybersecurity, Education domains
@@ -138,13 +175,17 @@ python scripts/run_multidomain_portal.py
 # - Cross-domain relationship analysis
 ```
 
+## Performance Analysis
+
 ### Performance Benchmarking
 ```bash
 # Run performance analysis and optimization
-python scripts/benchmark_performance.py
+python ../scripts/benchmark_performance.py
 
 # Generates performance metrics and optimization reports
 ```
+
+## Output Management
 
 ### View Generated Outputs
 ```bash

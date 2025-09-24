@@ -3,14 +3,14 @@ P3IF Data Importers
 
 This module provides functions for importing P3IF data from various file formats.
 """
-import json
 import csv
+import json
 import logging
 from pathlib import Path
 from typing import Dict, List, Any, Union, Optional
 
-from core.framework import P3IFFramework
-from core.models import Property, Process, Perspective, Relationship
+from p3if_methods.framework import P3IFFramework
+from p3if_methods.models import Property, Process, Perspective, Relationship
 
 logger = logging.getLogger(__name__)
 

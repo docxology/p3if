@@ -2,21 +2,21 @@
 """
 Script to test the 3D cube visualization with domain dataset selection.
 """
-import os
+from typing import Dict, List, Any
 import json
 import shutil
 from pathlib import Path
 import sys
 
-# Add the project root to the path
-current_dir = Path(__file__).parent
-project_root = current_dir.parent
+# Add project root to path
+project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
-from core.framework import P3IFFramework
-from core.models import Property, Process, Perspective, Relationship
-from visualization.interactive import InteractiveVisualizer
+from p3if_methods.framework import P3IFFramework
+from p3if_methods.models import Property, Process, Perspective, Relationship
+from p3if_visualization.interactive import InteractiveVisualizer
 from utils.config import Config
+from utils.output_organizer import get_output_organizer, create_standard_output_structure
 
 
 def load_domain_data(domain_file):

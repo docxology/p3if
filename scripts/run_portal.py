@@ -1,1 +1,0 @@
-run_multidomain_portal.py

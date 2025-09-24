@@ -21,13 +21,13 @@ from functools import wraps
 sys.path.insert(0, str(Path(__file__).parent.parent.parent))
 
 # Import enhanced core modules
-from core.framework import P3IFFramework, FrameworkMetrics
-from core.models import (
+from p3if_methods.framework import P3IFFramework, FrameworkMetrics
+from p3if_methods.models import (
     BasePattern, Property, Process, Perspective, Relationship,
     PatternType, PatternCollection, RelationshipAnalysis
 )
 from data.synthetic import SyntheticDataGenerator
-from analysis.meta import MetaAnalyzer
+from p3if_methods.analysis.meta import MetaAnalyzer
 from utils.config import Config
 
 # Configure logging

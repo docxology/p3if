@@ -39,16 +39,17 @@ class DocumentationValidator:
 
     def validate_directory_structure(self) -> bool:
         """Validate that directory structure follows .cursorrules."""
+        # Updated for new modular architecture
         required_dirs = [
-            "core/",
-            "data/",
-            "utils/",
-            "analysis/",
-            "visualization/",
-            "scripts/",
-            "tests/",
-            "docs/",
-            "website/"
+            "p3if_methods/",      # Core framework methods
+            "p3if_examples/",     # Thin orchestrators
+            "p3if_visualization/", # Visualization system
+            "p3if_tests/",        # Test suite
+            "utils/",             # Shared utilities
+            "data/",              # Domain data and generators
+            "scripts/",           # Executable scripts
+            "docs/",              # Documentation
+            "website/"            # Web portal
         ]
 
         print("📁 Validating directory structure...")
@@ -89,7 +90,12 @@ class DocumentationValidator:
             "docs/concepts/P3IF.md",
             "docs/guides/getting-started.md",
             "docs/guides/installation.md",
-            "docs/technical/architecture.md"
+            "docs/guides/configuration.md",
+            "docs/technical/architecture.md",
+            "docs/technical/data_model.md",
+            "docs/tutorials/basic-usage.md",
+            "docs/visualization/README.md",
+            "docs/api/README.md"
         ]
 
         missing_docs = []
@@ -294,7 +300,7 @@ class DocumentationValidator:
 
         # Check Python files for import order
         python_files = []
-        for root_dir in ["core", "data", "utils", "analysis", "visualization", "scripts"]:
+        for root_dir in ["p3if_methods", "p3if_examples", "p3if_visualization", "p3if_tests", "utils", "data", "scripts"]:
             root_path = self.project_root / root_dir
             if root_path.exists():
                 python_files.extend(root_path.rglob("*.py"))

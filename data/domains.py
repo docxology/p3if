@@ -3,13 +3,15 @@ P3IF Domain Manager
 
 This module provides domain management functionality for P3IF.
 """
-from typing import Dict, List, Any, Optional, Set, Union
+from typing import Set, Dict, List, Any, Optional, Union
 import json
 from pathlib import Path
 import logging
 
-from core.models import BasePattern, Property, Process, Perspective
-from core.framework import P3IFFramework
+from p3if_methods.framework import P3IFFramework
+from p3if_methods.models import BasePattern
+from data.importers import import_from_json
+from data.exporters import export_to_json
 
 
 class DomainManager:
@@ -262,7 +264,7 @@ class DomainManager:
                 continue  # Skip existing relationship
             
             # Create new relationship
-            from core.models import Relationship
+            from p3if_methods.models import Relationship
             relationship = Relationship(**rel_data)
             
             try:

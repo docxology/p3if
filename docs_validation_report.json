@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-09-23T14:47:09.625608",
+  "timestamp": "2025-09-24T08:02:00.060221",
   "validation_type": "documentation_compliance",
   "project_root": "/Users/4d/Documents/GitHub/p3if",
   "standards_version": "1.0",
@@ -159,6 +159,24 @@
     {
       "type": "markdown_format",
       "severity": "warning",
+      "message": "Heading level skips (from 1 to 3): /Users/4d/Documents/GitHub/p3if/docs/examples/README.md",
+      "file": "docs/examples/README.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 4): /Users/4d/Documents/GitHub/p3if/docs/concepts/P3IF.md",
+      "file": "docs/concepts/P3IF.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
+      "message": "Heading level skips (from 1 to 4): /Users/4d/Documents/GitHub/p3if/docs/concepts/P3IF.md",
+      "file": "docs/concepts/P3IF.md"
+    },
+    {
+      "type": "markdown_format",
+      "severity": "warning",
       "message": "Heading level skips (from 1 to 4): /Users/4d/Documents/GitHub/p3if/docs/concepts/P3IF.md",
       "file": "docs/concepts/P3IF.md"
     },
@@ -249,25 +267,25 @@
     {
       "type": "code_documentation",
       "severity": "warning",
-      "message": "Files missing docstrings: ['utils/output_organizer.py', 'scripts/run_multidomain_portal.py', 'scripts/update_domain_files.py', 'scripts/demo_organized_output_simple.py', 'scripts/validate_documentation.py', 'scripts/verify_imports.py', 'scripts/update_imports.py', 'scripts/benchmark_performance.py', 'scripts/test_3d_cube_with_domains.py', 'scripts/ensure_website_references.py']",
+      "message": "Files missing docstrings: ['utils/output_organizer.py', 'scripts/run_multidomain_portal.py', 'scripts/update_domain_files.py', 'scripts/validate_documentation_accuracy.py', 'scripts/run_tests.py', 'scripts/validate_documentation.py', 'scripts/verify_imports.py', 'scripts/update_imports.py', 'scripts/demo_modular_system.py', 'scripts/__init__.py']",
       "file": "code_files"
     },
     {
       "type": "script_paths",
       "severity": "warning",
-      "message": "Script missing shebang: /Users/4d/Documents/GitHub/p3if/scripts/__init__.py",
-      "file": "scripts/__init__.py"
+      "message": "Script missing shebang: /Users/4d/Documents/GitHub/p3if/scripts/run_multidomain_portal.py",
+      "file": "scripts/run_multidomain_portal.py"
     },
     {
       "type": "import_order",
       "severity": "warning",
-      "message": "Import order violations in: ['core/models.py', 'core/framework.py', 'data/synthetic.py', 'data/__init__.py', 'data/importers.py']",
+      "message": "Import order violations in: ['p3if_methods/models.py', 'p3if_methods/dimensions.py', 'p3if_methods/framework.py', 'p3if_methods/__init__.py', 'p3if_methods/core.py']",
       "file": "code_files"
     }
   ],
   "summary": {
-    "total_issues": 42,
+    "total_issues": 45,
     "error_count": 0,
-    "warning_count": 42
+    "warning_count": 45
   }
 }

@@ -484,7 +484,7 @@ python scripts/validate_domain.py --file data/domains/my_domain.json
 
 Congratulations! You've completed the basic P3IF tutorial. You can now:
 
-1. **Explore Advanced Features**: Check out the [Advanced Features Tutorial](advanced-features.md)
+1. **Explore Advanced Features**: Check out the [Multi-Domain Analysis Tutorial](multi-domain-analysis.md)
 2. **Work with Multiple Domains**: See [Multi-Domain Analysis Tutorial](multi-domain-analysis.md)
 3. **Customize the Framework**: Read the [Configuration Guide](../guides/configuration.md)
 4. **Integrate with Your Systems**: Review the [API Documentation](../api/README.md)

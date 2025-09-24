@@ -22,17 +22,17 @@ sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(
 
 # Import necessary functionality from the visualization module
 try:
-    from visualization.matrix import MatrixVisualizer
-    from visualization.network import NetworkVisualizer
-    from visualization.interactive import InteractiveVisualizer
-    
+    from p3if_visualization.matrix import MatrixVisualizer
+    from p3if_visualization.network import NetworkVisualizer
+    from p3if_visualization.interactive import InteractiveVisualizer
+
     VISUALIZATION_AVAILABLE = True
 except ImportError as e:
     logging.error(f"Failed to import from visualization module: {str(e)}")
     VISUALIZATION_AVAILABLE = False
 
 try:
-    from core.framework import P3IFFramework
+    from p3if_methods.framework import P3IFFramework
     FRAMEWORK_AVAILABLE = True
 except ImportError as e:
     logging.error(f"Failed to import P3IFFramework: {str(e)}")

@@ -1,10 +1,14 @@
 # P3IF Project Rules
 
 ## Directory Structure
-- Core modules are organized at the root level (core/, data/, utils/, analysis/, visualization/, scripts/)
-- Tests for each module are in tests/
-- Documentation is in docs/
-- Website-related files are in website/
+- Core methods are in `p3if_methods/`
+- Thin orchestrator examples are in `p3if_examples/`
+- Visualization modules are in `p3if_visualization/`
+- The unified test suite is in `p3if_tests/`
+- Shared utilities are in `utils/`
+- Domain data is in `data/`
+- Documentation is in `docs/`
+- The web portal is in `website/`
 
 ## Code Style
 - Follow PEP 8 for Python code style
@@ -15,7 +19,7 @@
 ## Imports
 - Import order: standard library, third-party packages, local modules
 - Use absolute imports from the package root
-- Example: `from core.models import Pattern`
+- Example: `from p3if_methods.models import BasePattern`
 
 ## Documentation
 - All code should have appropriate documentation

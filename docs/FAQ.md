@@ -32,7 +32,7 @@ Unlike traditional frameworks that are static and domain-specific, P3IF is:
 
 ## Technical Questions
 
-### What are the system requirements?
+### System Requirements
 
 **Minimum Requirements:**
 - Python 3.8+
@@ -47,6 +47,8 @@ Unlike traditional frameworks that are static and domain-specific, P3IF is:
 - Multi-core processor
 
 See the [Installation Guide](guides/installation.md) for detailed requirements.
+
+### Installation
 
 ### How do I install P3IF?
 
@@ -88,6 +90,30 @@ Yes! P3IF is designed to work with existing frameworks. You can:
 
 ## Usage Questions
 
+### Data Formats
+
+### What data formats does P3IF support?
+
+P3IF supports multiple data formats:
+
+- **Input**: JSON, CSV, YAML, XML
+- **Output**: JSON, CSV, HTML, PNG, SVG, PDF
+- **Visualization**: Interactive HTML, static images
+- **Export**: Multiple formats for integration
+
+### Framework Integration
+
+### Can I use P3IF with my existing frameworks?
+
+Yes! P3IF is designed to work with existing frameworks. You can:
+
+1. Map your framework elements to P3IF dimensions
+2. Import data using our conversion tools
+3. Combine multiple frameworks for analysis
+4. Export results back to your preferred format
+
+### Domain Creation
+
 ### How do I create a new domain?
 
 There are several ways to create a domain:
@@ -119,6 +145,8 @@ Create a domain definition file and load it:
 python scripts/load_domain.py --file my_domain.json
 ```
 
+### Relationship Interpretation
+
 ### How do I interpret relationship strength and confidence?
 
 **Strength (0.0 - 1.0):**
@@ -133,6 +161,8 @@ python scripts/load_domain.py --file my_domain.json
 - 0.7-0.8: High confidence (strong evidence)
 - 0.9-1.0: Very high confidence (validated/proven)
 
+### Visualization Types
+
 ### What visualization types are available?
 
 P3IF offers several visualization types:
@@ -143,6 +173,8 @@ P3IF offers several visualization types:
 - **Heatmap**: Color-coded relationship strengths
 - **Tree View**: Hierarchical representation
 - **Timeline**: Evolution of relationships over time
+
+### Data Export
 
 ### How do I export results?
 
@@ -163,6 +195,8 @@ python scripts/export_data.py --domain mydomain --format json --output export.js
 ```
 
 ## Troubleshooting
+
+### Application Issues
 
 ### The application won't start
 
@@ -186,6 +220,8 @@ lsof -i :5000  # See if port 5000 is in use
 tail -f logs/p3if.log
 ```
 
+### Visualization Issues
+
 ### Visualizations aren't loading
 
 **Check browser console:**
@@ -199,6 +235,8 @@ tail -f logs/p3if.log
 ```bash
 python scripts/validate_domain.py --file data/domains/mydomain.json
 ```
+
+### Performance Issues
 
 ### Performance is slow
 
@@ -226,7 +264,7 @@ top -p $(pgrep -f python)
 df -h
 ```
 
-### Import/Export issues
+### Import/Export Issues
 
 **Validate JSON format:**
 ```bash
@@ -246,15 +284,19 @@ python scripts/validate_schema.py --file mydomain.json
 
 ## Data and Analysis Questions
 
+### Relationship Analysis
+
 ### How do I determine relationship strength?
 
 Relationship strength can be determined through:
 
 1. **Expert Judgment**: Subject matter experts rate relationships
-2. **Statistical Analysis**: Correlation analysis of quantitative data  
+2. **Statistical Analysis**: Correlation analysis of quantitative data
 3. **Literature Review**: Frequency of co-occurrence in literature
 4. **Survey Data**: Stakeholder surveys on relationship importance
 5. **Historical Data**: Analysis of past system behaviors
+
+### Multi-Domain Analysis
 
 ### Can I analyze multiple domains simultaneously?
 
@@ -287,6 +329,8 @@ A single domain might combine elements from multiple frameworks, or a single fra
 
 ## Integration Questions
 
+### Tool Integration
+
 ### Can I integrate P3IF with other tools?
 
 Yes! P3IF provides several integration options:
@@ -306,6 +350,8 @@ Yes! P3IF provides several integration options:
 - Export to common formats
 - Custom visualization development
 
+### Community and Contribution
+
 ### How do I contribute to P3IF?
 
 **Ways to contribute:**
@@ -323,6 +369,8 @@ Yes! P3IF provides several integration options:
 4. Submit a pull request
 
 See our [Contributing Guide](CONTRIBUTING.md) for detailed instructions.
+
+### Commercial Support
 
 ### Is there commercial support available?
 
@@ -360,6 +408,8 @@ Currently, P3IF is an open-source project maintained by the research community. 
 
 ## Getting Help
 
+### Support Resources
+
 ### Where can I get more help?
 
 **Documentation:**
@@ -377,6 +427,8 @@ Currently, P3IF is an open-source project maintained by the research community. 
 - [Template Gallery](templates/)
 - [Case Studies](case-studies/)
 
+### Bug Reports
+
 ### How do I report a bug?
 
 1. **Check existing issues**: Search [GitHub Issues](https://github.com/p3if/p3if/issues)
@@ -388,6 +440,8 @@ Currently, P3IF is an open-source project maintained by the research community. 
    - Steps to reproduce
 3. **Create detailed issue**: Include all relevant information
 4. **Provide minimal example**: If possible, create a minimal test case
+
+### Feature Requests
 
 ### How do I request a feature?
 
