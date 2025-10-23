@@ -27,7 +27,7 @@ class P3IFVisualizationOrchestrator:
         self.session_path = Path(session_path)
         self.output_organizer = get_output_organizer()
 
-        # Create session structure
+        # Create session structure in output directory
         self.session_path.mkdir(exist_ok=True)
         (self.session_path / "visualizations").mkdir(exist_ok=True)
         (self.session_path / "animations").mkdir(exist_ok=True)

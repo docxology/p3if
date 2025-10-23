@@ -1,12 +1,9 @@
-The Properties, Processes, and
-Perspectives Inter-Framework (P3IF)
-Multiplexing interdisciplinary requirements frameworks to manage
-information risk and foster cognitive security
-Thomas M. Wilkinson
-1* RJ Cordes
-2,3,4 Scott David
-3,5 Daniel Ari Friedman
-2,3,6
+# The Properties, Processes, and Perspectives Inter-Framework (P3IF)
+
+## Multiplexing interdisciplinary requirements frameworks to manage information risk and foster cognitive security
+
+**Thomas M. Wilkinson¹*, RJ Cordes²,³,⁴, Scott David³,⁵, Daniel Ari Friedman²,³,⁶**
+
 1. Office of Health Security, U.S. Department of Homeland Security
 2. Cognitive Security and Education Forum (COGSEC)
 3. Active Inference Institute

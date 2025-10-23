@@ -17,10 +17,10 @@ or via a standard test runner like pytest.
 import matplotlib
 matplotlib.use('Agg')
 
-from test_interactive import TestInteractiveVisualizer
-from test_portal import TestVisualizationPortal
-from test_dashboard import TestDashboardGenerator
-from test_integrated_website import TestIntegratedWebsite
+from .test_interactive import TestInteractiveVisualizer
+from .test_portal import TestVisualizationPortal
+from .test_dashboard import TestDashboardGenerator
+from .test_integrated_website import TestIntegratedWebsite
 
 __all__ = [
     'TestInteractiveVisualizer',

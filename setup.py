@@ -6,6 +6,8 @@ setup(
     packages=find_packages(include=['p3if_*', 'utils', 'data']),
     install_requires=[
         "pandas>=2.2.2",
+        "numexpr>=2.8.4",
+        "bottleneck>=1.3.6",
         "numpy>=1.26.0",
         "scipy>=1.11.0",
         "scikit-learn>=1.3.0",
@@ -19,13 +21,16 @@ setup(
         "markdown>=3.3.0",
         "pydantic>=2.0.0",
         "networkx>=3.0",
-        "pytest>=8.0.0",
+        "pytest>=7.4.0",
+        "pytest-cov>=4.1.0",
+        "coverage>=7.2.0",
         "pytest-asyncio>=0.21.0",
         "tqdm>=4.65.0",
         "pyyaml>=6.0.0",
         "csscompressor>=0.9.5",
         "jsmin>=3.0.1",
-        "Pillow>=10.0.0"
+        "Pillow>=10.0.0",
+        "psutil>=5.9.0"
     ],
     python_requires=">=3.8",
     description="Property-Process-Perspective Integration Framework",

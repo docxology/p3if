@@ -357,6 +357,35 @@ class P3IFFramework(MetadataMixin):
             relationship_ids = self._relationship_index['type'].get(relationship_type, [])
             return [self._relationships[rid] for rid in relationship_ids if rid in self._relationships]
 
+    def get_all_relationships(self) -> List[Relationship]:
+        """
+        Get all relationships in the framework.
+
+        Returns:
+            List of all relationships in the framework
+        """
+        with self._lock:
+            return list(self._relationships.values())
+
+    def copy(self) -> 'P3IFFramework':
+        """
+        Create a deep copy of the framework.
+
+        Returns:
+            A new P3IFFramework instance with copied patterns and relationships
+        """
+        new_framework = P3IFFramework()
+        
+        # Copy patterns
+        for pattern in self._patterns.values():
+            new_framework.add_pattern(pattern)
+        
+        # Copy relationships
+        for relationship in self._relationships.values():
+            new_framework.add_relationship(relationship)
+        
+        return new_framework
+
     def remove_pattern(self, pattern_id: str) -> bool:
         """
         Remove a pattern and all its relationships.

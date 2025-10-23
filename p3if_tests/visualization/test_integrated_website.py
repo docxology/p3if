@@ -18,7 +18,7 @@ from p3if_tests.utils import (
     create_multi_domain_test_framework,
     create_large_test_framework
 )
-from test_config import DEFAULT_TEST_SETTINGS
+from .test_config import DEFAULT_TEST_SETTINGS
 
 
 class TestIntegratedWebsite(unittest.TestCase):

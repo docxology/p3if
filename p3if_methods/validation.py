@@ -7,7 +7,9 @@ This module provides validation and constraint checking methods for P3IF framewo
 from typing import Dict, List, Any, Optional, Union, Callable
 from dataclasses import dataclass, field
 from enum import Enum
+from datetime import datetime
 import re
+import time
 from collections import defaultdict
 import logging
 
@@ -79,20 +81,66 @@ class ValidationEngine:
             }
         }
 
-        # Run all applicable rules
-        for rule_name, rule in self.rules.items():
-            issues = rule.validate(framework)
-            validation_result["issues"].extend(issues)
+        # Validate all patterns in the framework
+        try:
+            collection = getattr(framework, 'get_pattern_collection', lambda: None)()
+            if collection:
+                # Validate all properties
+                for prop in collection.properties:
+                    for rule_name, rule in self.rules.items():
+                        if rule_name.startswith('has_name') or rule_name.startswith('meaningful_description'):
+                            issues = rule.validate(prop)
+                            validation_result["issues"].extend(issues)
 
-            for issue in issues:
-                severity = issue["severity"]
-                if severity == "error":
-                    validation_result["summary"]["error_count"] += 1
-                    validation_result["overall_valid"] = False
-                elif severity == "warning":
-                    validation_result["summary"]["warning_count"] += 1
-                elif severity == "info":
-                    validation_result["summary"]["info_count"] += 1
+                # Validate all processes
+                for proc in collection.processes:
+                    for rule_name, rule in self.rules.items():
+                        if rule_name.startswith('has_name') or rule_name.startswith('meaningful_description'):
+                            issues = rule.validate(proc)
+                            validation_result["issues"].extend(issues)
+
+                # Validate all perspectives
+                for pers in collection.perspectives:
+                    for rule_name, rule in self.rules.items():
+                        if rule_name.startswith('has_name') or rule_name.startswith('meaningful_description'):
+                            issues = rule.validate(pers)
+                            validation_result["issues"].extend(issues)
+
+                # Validate all relationships
+                relationships = getattr(framework, 'get_all_relationships', lambda: [])()
+                for rel in relationships:
+                    for rule_name, rule in self.rules.items():
+                        if rule_name.startswith('relationship_validity') or rule_name.startswith('strength_range'):
+                            issues = rule.validate(rel)
+                            validation_result["issues"].extend(issues)
+
+            # Run framework-level rules
+            for rule_name, rule in self.rules.items():
+                if rule_name in ['minimum_elements', 'dimension_balance']:
+                    issues = rule.validate(framework)
+                    validation_result["issues"].extend(issues)
+
+        except Exception as e:
+            validation_result["issues"].append({
+                "rule": "framework_validation",
+                "severity": "error",
+                "description": f"Framework validation failed: {str(e)}",
+                "details": {},
+                "suggestions": []
+            })
+            validation_result["overall_valid"] = False
+            validation_result["summary"]["error_count"] += 1
+
+        # Count final summary
+        for issue in validation_result["issues"]:
+            severity = issue["severity"]
+            if severity == "error":
+                validation_result["summary"]["error_count"] += 1
+                validation_result["overall_valid"] = False
+            elif severity == "warning":
+                validation_result["summary"]["warning_count"] += 1
+            elif severity == "info":
+                validation_result["summary"]["info_count"] += 1
 
         self.validation_history.append(validation_result)
         return validation_result
@@ -250,9 +298,17 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
 
     # Rule: Element must have a name
     def check_name(element):
-        if not hasattr(element, 'name') or not element.name:
-            return {"valid": False, "details": {"missing": "name"}}
-        return {"valid": True}
+        try:
+            # Try to access the name field from Pydantic model
+            if hasattr(element, 'name') and element.name:
+                return {"valid": True}
+            # Try to access as a dictionary (for JSON data)
+            elif isinstance(element, dict) and 'name' in element and element['name']:
+                return {"valid": True}
+            else:
+                return {"valid": False, "details": {"missing": "name"}}
+        except:
+            return {"valid": False, "details": {"error": "cannot_access_name"}}
 
     rules["has_name"] = ValidationRule(
         "has_name",
@@ -278,20 +334,125 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
 
     # Rule: Framework should have minimum elements
     def check_minimum_elements(framework):
-        total_elements = 0
-        for dimension in ['properties', 'processes', 'perspectives']:
-            elements = getattr(framework, dimension, [])
-            total_elements += len(elements)
+        try:
+            collection = getattr(framework, 'get_pattern_collection', lambda: None)()
+            if collection is None:
+                return {"valid": False, "details": {"error": "cannot_access_pattern_collection"}}
 
-        if total_elements < 3:
-            return {"valid": False, "details": {"total": total_elements}}
-        return {"valid": True}
+            total_elements = len(collection.properties) + len(collection.processes) + len(collection.perspectives)
+
+            if total_elements < 3:
+                return {"valid": False, "details": {"total": total_elements}}
+            return {"valid": True}
+        except:
+            return {"valid": False, "details": {"error": "cannot_access_dimensions"}}
 
     rules["minimum_elements"] = ValidationRule(
         "minimum_elements",
         check_minimum_elements,
         ValidationSeverity.WARNING,
         "Framework should have at least 3 elements total"
+    )
+
+    # Rule: Relationship must connect at least two dimensions
+    def check_relationship_validity(relationship):
+        try:
+            # Try to access as Pydantic model
+            if hasattr(relationship, 'property_id'):
+                property_id = relationship.property_id
+                process_id = relationship.process_id
+                perspective_id = relationship.perspective_id
+            # Try to access as dictionary (for JSON data)
+            elif isinstance(relationship, dict):
+                property_id = relationship.get('property_id')
+                process_id = relationship.get('process_id')
+                perspective_id = relationship.get('perspective_id')
+            else:
+                return {"valid": False, "details": {"missing_attributes": True}}
+
+            if property_id is None and process_id is None and perspective_id is None:
+                return {"valid": False, "details": {"missing_attributes": True}}
+
+            # Count connected dimensions
+            connected_dims = sum(1 for dim_id in [property_id, process_id, perspective_id] if dim_id)
+            if connected_dims < 2:
+                return {"valid": False, "details": {"connected_dimensions": connected_dims}}
+
+            return {"valid": True}
+        except:
+            return {"valid": False, "details": {"error": "cannot_access_relationship_data"}}
+
+    rules["relationship_validity"] = ValidationRule(
+        "relationship_validity",
+        check_relationship_validity,
+        ValidationSeverity.ERROR,
+        "Relationship must connect at least two dimensions"
+    )
+
+    # Rule: Relationship strength should be in valid range
+    def check_strength_range(relationship):
+        if hasattr(relationship, 'strength'):
+            strength = getattr(relationship, 'strength', 0.5)
+            if not (0.0 <= strength <= 1.0):
+                return {"valid": False, "details": {"strength": strength}}
+        return {"valid": True}
+
+    rules["strength_range"] = ValidationRule(
+        "strength_range",
+        check_strength_range,
+        ValidationSeverity.ERROR,
+        "Relationship strength must be between 0.0 and 1.0"
+    )
+
+    # Rule: Relationship confidence should be in valid range
+    def check_confidence_range(relationship):
+        if hasattr(relationship, 'confidence'):
+            confidence = getattr(relationship, 'confidence', 1.0)
+            if not (0.0 <= confidence <= 1.0):
+                return {"valid": False, "details": {"confidence": confidence}}
+        return {"valid": True}
+
+    rules["confidence_range"] = ValidationRule(
+        "confidence_range",
+        check_confidence_range,
+        ValidationSeverity.WARNING,
+        "Relationship confidence should be between 0.0 and 1.0"
+    )
+
+    # Rule: Framework should have balanced dimensions
+    def check_dimension_balance(framework):
+        prop_count = len(getattr(framework, 'properties', []))
+        proc_count = len(getattr(framework, 'processes', []))
+        pers_count = len(getattr(framework, 'perspectives', []))
+
+        # Check for severely unbalanced dimensions
+        total = prop_count + proc_count + pers_count
+        if total == 0:
+            return {"valid": False, "details": {"reason": "no_elements"}}
+
+        # Check each dimension ratio
+        ratios = []
+        if prop_count > 0:
+            ratios.append(prop_count / total)
+        if proc_count > 0:
+            ratios.append(proc_count / total)
+        if pers_count > 0:
+            ratios.append(pers_count / total)
+
+        max_ratio = max(ratios) if ratios else 0
+        min_ratio = min(ratios) if ratios else 0
+
+        # Flag if any dimension dominates (>70% of total)
+        if max_ratio > 0.7:
+            return {"valid": False, "details": {"max_ratio": max_ratio, "min_ratio": min_ratio}}
+
+        return {"valid": True}
+
+    rules["dimension_balance"] = ValidationRule(
+        "dimension_balance",
+        check_dimension_balance,
+        ValidationSeverity.INFO,
+        "Framework dimensions should be reasonably balanced"
     )
 
     return rules

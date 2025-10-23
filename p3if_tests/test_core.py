@@ -127,6 +127,148 @@ class TestP3IFCore(unittest.TestCase):
         self.assertEqual(history[0].operation_type, OperationType.CREATE)
         self.assertEqual(history[0].description, "Create property: Test Property")
 
+    def test_create_relationship_with_strength_and_confidence(self):
+        """Test creating a relationship with custom strength and confidence."""
+        prop = self.core.create_pattern("property", "Test Property", "test_domain")
+        proc = self.core.create_pattern("process", "Test Process", "test_domain")
+
+        rel = self.core.create_relationship(
+            prop.id, proc.id, None,
+            strength=0.8,
+            confidence=0.9
+        )
+        self.assertEqual(rel.strength, 0.8)
+        self.assertEqual(rel.confidence, 0.9)
+
+    def test_create_relationship_invalid_patterns(self):
+        """Test creating a relationship with invalid pattern IDs."""
+        with self.assertRaises(ValueError):
+            self.core.create_relationship("invalid_prop", "invalid_proc", "invalid_pers")
+
+    def test_create_pattern_bulk(self):
+        """Test creating multiple patterns in bulk."""
+        patterns_data = [
+            {"pattern_type": "property", "name": "Prop1", "domain": "test"},
+            {"pattern_type": "property", "name": "Prop2", "domain": "test"},
+            {"pattern_type": "process", "name": "Proc1", "domain": "test"}
+        ]
+
+        patterns = self.core.create_pattern_bulk(patterns_data)
+        self.assertEqual(len(patterns), 3)
+        self.assertEqual(patterns[0].name, "Prop1")
+        self.assertEqual(patterns[1].name, "Prop2")
+        self.assertEqual(patterns[2].name, "Proc1")
+
+    def test_update_pattern(self):
+        """Test updating an existing pattern."""
+        pattern = self.core.create_pattern("property", "Original Name", "test_domain")
+
+        updated = self.core.update_pattern(pattern.id, {"name": "Updated Name"})
+        self.assertEqual(updated.name, "Updated Name")
+        self.assertEqual(updated.id, pattern.id)  # ID should remain the same
+
+    def test_update_pattern_not_found(self):
+        """Test updating a non-existent pattern."""
+        with self.assertRaises(ValueError):
+            self.core.update_pattern("nonexistent_id", {"name": "New Name"})
+
+    def test_delete_pattern(self):
+        """Test deleting a pattern."""
+        pattern = self.core.create_pattern("property", "To Delete", "test_domain")
+
+        result = self.core.delete_pattern(pattern.id)
+        self.assertTrue(result)
+
+        # Verify pattern is gone
+        deleted_pattern = self.core.framework.get_pattern(pattern.id)
+        self.assertIsNone(deleted_pattern)
+
+    def test_delete_pattern_with_relationships(self):
+        """Test deleting a pattern that has relationships."""
+        prop = self.core.create_pattern("property", "Property", "test_domain")
+        proc = self.core.create_pattern("process", "Process", "test_domain")
+        pers = self.core.create_pattern("perspective", "Perspective", "test_domain")
+
+        rel = self.core.create_relationship(prop.id, proc.id, pers.id)
+
+        # Delete the property pattern
+        result = self.core.delete_pattern(prop.id)
+        self.assertTrue(result)
+
+        # Verify relationship is also removed
+        deleted_rel = self.core.framework.get_relationship(rel.id)
+        self.assertIsNone(deleted_rel)
+
+    def test_pattern_validation(self):
+        """Test pattern validation functionality."""
+        # Valid pattern
+        valid_pattern = self.core.create_pattern("property", "Valid Property", "test_domain")
+        self.assertIsNotNone(valid_pattern)
+
+        # Invalid pattern type
+        with self.assertRaises(ValueError):
+            self.core.create_pattern("invalid_type", "Test", "test_domain")
+
+        # Empty name
+        with self.assertRaises(ValueError):
+            self.core.create_pattern("property", "", "test_domain")
+
+        # Invalid domain length
+        with self.assertRaises(ValueError):
+            long_domain = "a" * 101  # Too long
+            self.core.create_pattern("property", "Test", long_domain)
+
+    def test_relationship_validation(self):
+        """Test relationship validation."""
+        prop = self.core.create_pattern("property", "Property", "test_domain")
+        proc = self.core.create_pattern("process", "Process", "test_domain")
+
+        # Valid relationship
+        rel = self.core.create_relationship(prop.id, proc.id, None)
+        self.assertIsNotNone(rel)
+
+        # Invalid strength
+        with self.assertRaises(ValueError):
+            self.core.create_relationship(prop.id, proc.id, None, strength=1.5)
+
+        # Invalid confidence
+        with self.assertRaises(ValueError):
+            self.core.create_relationship(prop.id, proc.id, None, confidence=-0.1)
+
+    def test_framework_analysis(self):
+        """Test framework analysis capabilities."""
+        # Create test framework with multiple patterns and relationships
+        prop1 = self.core.create_pattern("property", "Confidentiality", "security")
+        prop2 = self.core.create_pattern("property", "Integrity", "security")
+        proc = self.core.create_pattern("process", "Encryption", "security")
+
+        rel1 = self.core.create_relationship(prop1.id, proc.id, None, strength=0.9)
+        rel2 = self.core.create_relationship(prop2.id, proc.id, None, strength=0.8)
+
+        analysis = self.core.analyze_patterns()
+
+        self.assertIn("total_patterns", analysis)
+        self.assertIn("total_relationships", analysis)
+        self.assertIn("domains", analysis)
+        self.assertEqual(analysis["total_patterns"], 3)
+        self.assertEqual(analysis["total_relationships"], 2)
+
+    def test_pattern_search(self):
+        """Test pattern search functionality."""
+        # Create patterns with different attributes
+        prop1 = self.core.create_pattern("property", "Data Security", "cybersecurity")
+        prop2 = self.core.create_pattern("property", "Access Control", "security")
+        proc = self.core.create_pattern("process", "Authentication", "security")
+
+        # Test search by name
+        security_patterns = self.core.find_patterns({"name": "Security"})
+        self.assertTrue(any("Security" in p.name for p in security_patterns))
+
+        # Test search by domain
+        cyber_patterns = self.core.find_patterns({"domain": "cybersecurity"})
+        self.assertEqual(len(cyber_patterns), 1)
+        self.assertEqual(cyber_patterns[0].id, prop1.id)
+
     def test_export_framework(self):
         """Test framework export functionality."""
         # Create test data

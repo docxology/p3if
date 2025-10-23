@@ -330,7 +330,7 @@ class TestProcess(unittest.TestCase):
             description="Custom description",
             domain="custom_domain",
             complexity="high",
-            automation_level="high",
+            automation_level="fully-automated",
             inputs=["input1", "input2"],
             outputs=["output1", "output2"],
             duration="1 hour",
@@ -341,7 +341,7 @@ class TestProcess(unittest.TestCase):
         )
 
         self.assertEqual(proc.complexity, "high")
-        self.assertEqual(proc.automation_level, "high")
+        self.assertEqual(proc.automation_level, "fully-automated")
         self.assertEqual(proc.inputs, ["input1", "input2"])
         self.assertEqual(proc.outputs, ["output1", "output2"])
         self.assertEqual(proc.duration, "1 hour")

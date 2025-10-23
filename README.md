@@ -23,6 +23,9 @@ The P3IF codebase has been streamlined into a cohesive, modular architecture to 
 - **🎨 Advanced Visualization** - 3D animations, interactive portals, and multi-domain analysis.
 - **🧪 Comprehensive Testing** - A unified test suite ensures reliability.
 - **⚡ Performance Optimization** - Caching, concurrency, and memory management.
+- **🔬 Enhanced Validation** - Comprehensive validation framework with constraint checking.
+- **📊 Performance Monitoring** - Real-time performance tracking and optimization.
+- **🔧 Framework Integration** - Multi-framework composition and conflict resolution.
 
 ### **Architecture Overview**
 
@@ -94,6 +97,9 @@ python3 scripts/run_tests.py
 
 # Run example orchestrators
 python3 scripts/run_examples.py
+
+# Option 3: Run the complete pipeline (recommended)
+python3 scripts/run_complete_p3if_pipeline.py
 ```
 
 ## Documentation
@@ -104,14 +110,90 @@ P3IF follows a clean, modular architecture with clear separation of concerns:
 
 ```
 ├── p3if_methods/          # Core framework methods and models
+│   ├── core.py            # Enhanced core operations with validation
+│   ├── composition.py     # Framework composition and integration
+│   ├── dimensions.py      # Property, Process, Perspective managers
+│   ├── orchestration.py   # Thin orchestrators and workflow engine
+│   ├── validation.py      # Enhanced validation framework
+│   ├── caching.py         # Performance optimization and caching
+│   ├── framework.py       # Main P3IFFramework class
+│   ├── models.py          # Pydantic data models with validation
+│   └── analysis/          # Analysis tools and pattern recognition
 ├── p3if_examples/         # Thin orchestrator examples
-├── p3if_visualization/    # Visualization and animation system
+│   ├── cognitive_security_orchestrator.py    # Information pipeline security
+│   ├── framework_integration_orchestrator.py # Multi-framework integration
+│   ├── healthcare_domain_orchestrator.py     # Healthcare domain analysis
+│   └── integration_examples.py               # Comprehensive integration examples
+├── p3if_visualization/    # Advanced visualization system
+│   ├── base.py            # Base visualizer classes
+│   ├── interactive.py      # Interactive visualization engine
+│   ├── interactive_3d.py  # 3D visualization components
+│   ├── animated_dimensions.py # Animation and dimension visualization
+│   ├── portal.py          # Multi-domain portal generation
+│   ├── multi_domain_portal.py # Multi-domain analysis portal
+│   ├── orchestrator.py    # Visualization orchestration
+│   ├── network.py         # Network graph visualizations
+│   ├── matrix.py          # Matrix visualization engine
+│   ├── cube_visualizations.py # 3D cube visualization generators
+│   ├── list_visualizations.py # List-based visualizations
+│   ├── grid_visualizations.py # Grid-based visualizations
+│   ├── heatmap_visualizations.py # Heatmap visualization generators
+│   ├── hierarchy_visualizations.py # Hierarchical visualizations
+│   ├── statistical_visualizations.py # Statistical analysis visualizations
+│   ├── animation_visualizations.py # Animation sequence generators
+│   └── dashboard.py       # Dashboard generation
 ├── p3if_tests/           # Comprehensive test suite
+│   ├── core/             # Core framework tests
+│   ├── test_core.py      # Enhanced core functionality tests
+│   ├── test_composition.py # Composition and multiplexing tests
+│   ├── test_validation.py # Validation framework tests
+│   ├── utils.py          # Test utilities and fixtures
+│   ├── run_all_tests.py  # Comprehensive test runner
+│   └── visualization/    # Visualization system tests
 ├── utils/                # Shared utility modules
-├── data/                 # Domain data and synthetic generators
-├── scripts/              # All executable scripts and tools
+│   ├── config.py         # Configuration management
+│   ├── json.py           # JSON utilities with P3IF encoders
+│   ├── output_organizer.py # Output organization and metadata
+│   ├── performance.py    # Performance monitoring and optimization
+│   └── storage.py        # Data storage interfaces and implementations
+├── data/                 # Domain data and generators
+│   ├── domains/          # Domain-specific data files
+│   ├── synthetic.py      # Enhanced synthetic data generation
+│   ├── importers.py      # Data import utilities
+│   ├── exporters.py      # Data export utilities
+│   └── domains.py        # Domain management
+├── website/              # Web portal and API
+│   ├── app.py           # Main Flask application
+│   ├── routes/          # API routes and endpoints
+│   ├── static/          # Static assets (CSS, JS, images)
+│   ├── templates/       # HTML templates
+│   ├── run.py           # Development server
+│   └── run_stable.py    # Production server
 ├── docs/                 # Comprehensive documentation
-└── website/              # Web portal and interactive interface
+│   ├── concepts/        # Core concepts and theory
+│   ├── technical/       # Technical specifications
+│   ├── guides/          # User guides and tutorials
+│   ├── tutorials/       # Step-by-step tutorials
+│   ├── examples/        # Example implementations
+│   ├── api/            # API documentation
+│   ├── visualization/  # Visualization documentation
+│   └── diagrams/        # Architecture and process diagrams
+├── scripts/              # Executable scripts and tools
+│   ├── generate_final_visualizations.py # Complete visualization pipeline
+│   ├── run_multidomain_portal.py       # Multi-domain portal generation
+│   ├── benchmark_performance.py        # Performance analysis
+│   ├── validate_documentation.py       # Documentation quality checks
+│   ├── setup_development.py           # Development environment setup
+│   └── run_tests.py                   # Test execution
+└── Root Files
+    ├── README.md              # Main project overview
+    ├── setup.py               # Package installation
+    ├── requirements.txt       # Runtime dependencies
+    ├── AGENTS.md              # AI agent development guide
+    ├── CONTRIBUTING.md        # Contribution guidelines
+    ├── PACKAGE_README.md      # Comprehensive package overview
+    ├── interactive_terminal.sh # Interactive development environment
+    └── .cursorrules           # Code organization rules
 ```
 
 ### Key Directories

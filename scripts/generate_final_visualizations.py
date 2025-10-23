@@ -9,9 +9,14 @@ import logging
 from pathlib import Path
 from datetime import datetime
 
-from p3if_visualization.orchestrator import P3IFVisualizationOrchestrator
 import sys
-sys.path.insert(0, str(Path(__file__).parent.parent))
+from pathlib import Path
+
+# Add the project root to the path for imports
+project_root = Path(__file__).parent.parent
+sys.path.insert(0, str(project_root))
+
+from p3if_visualization.orchestrator import P3IFVisualizationOrchestrator
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')

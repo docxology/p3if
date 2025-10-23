@@ -75,36 +75,125 @@ class HealthcareDomainOrchestrator:
                 "patient_demographics": {
                     "sensitivity": "high",
                     "regulations": ["HIPAA", "GDPR"],
-                    "retention": "permanent"
+                    "retention": "permanent",
+                    "access_level": "restricted",
+                    "encryption_required": True,
+                    "audit_required": True,
+                    "consent_required": True
                 },
                 "clinical_data": {
                     "sensitivity": "high",
                     "regulations": ["HIPAA", "HITECH"],
-                    "retention": "7_years"
+                    "retention": "7_years",
+                    "access_level": "clinical_staff",
+                    "encryption_required": True,
+                    "audit_required": True,
+                    "consent_required": True
                 },
                 "research_data": {
                     "sensitivity": "medium",
                     "regulations": ["Common Rule", "HIPAA"],
-                    "retention": "10_years"
+                    "retention": "10_years",
+                    "access_level": "research_staff",
+                    "encryption_required": True,
+                    "audit_required": True,
+                    "consent_required": True
                 },
                 "administrative_data": {
                     "sensitivity": "medium",
                     "regulations": ["HIPAA"],
-                    "retention": "5_years"
+                    "retention": "5_years",
+                    "access_level": "administrative_staff",
+                    "encryption_required": False,
+                    "audit_required": True,
+                    "consent_required": False
                 }
             },
             "access_patterns": {
-                "emergency_access": "24/7 availability",
-                "routine_care": "business hours",
-                "research_access": "controlled access",
-                "administrative_access": "audit logged"
+                "emergency_access": {
+                    "availability": "24/7 availability",
+                    "authorization": "emergency_credentials",
+                    "audit_level": "comprehensive",
+                    "response_time": "< 30 seconds"
+                },
+                "routine_care": {
+                    "availability": "business hours",
+                    "authorization": "clinical_credentials",
+                    "audit_level": "standard",
+                    "response_time": "< 2 minutes"
+                },
+                "research_access": {
+                    "availability": "controlled access",
+                    "authorization": "research_approval",
+                    "audit_level": "comprehensive",
+                    "response_time": "< 24 hours"
+                },
+                "administrative_access": {
+                    "availability": "audit logged",
+                    "authorization": "administrative_credentials",
+                    "audit_level": "comprehensive",
+                    "response_time": "< 5 minutes"
+                }
+            },
+            "data_flows": {
+                "patient_intake": ["demographics", "clinical"],
+                "clinical_care": ["clinical", "research"],
+                "research_studies": ["clinical", "research"],
+                "administrative_tasks": ["administrative", "clinical"]
             }
         }
 
         return {
             "requirements_analysis": requirements,
             "total_data_types": len(requirements["data_types"]),
-            "total_access_patterns": len(requirements["access_patterns"])
+            "total_access_patterns": len(requirements["access_patterns"]),
+            "compliance_requirements": self._analyze_compliance_requirements(requirements),
+            "risk_assessment": self._assess_data_risks(requirements)
+        }
+
+    def _analyze_compliance_requirements(self, requirements: Dict[str, Any]) -> Dict[str, Any]:
+        """Analyze compliance requirements for healthcare data."""
+        return {
+            "hipaa_requirements": [
+                "Privacy Rule compliance",
+                "Security Rule implementation",
+                "Breach notification procedures",
+                "Business associate agreements"
+            ],
+            "gdpr_requirements": [
+                "Data protection by design",
+                "Consent management",
+                "Data subject rights",
+                "Data portability"
+            ],
+            "state_regulations": [
+                "California Consumer Privacy Act",
+                "State-specific patient privacy laws",
+                "Medical record retention requirements"
+            ]
+        }
+
+    def _assess_data_risks(self, requirements: Dict[str, Any]) -> Dict[str, Any]:
+        """Assess risks associated with healthcare data handling."""
+        return {
+            "high_risk_areas": [
+                "Patient demographic data exposure",
+                "Clinical data breaches",
+                "Emergency access failures",
+                "Research data misuse"
+            ],
+            "mitigation_strategies": {
+                "encryption": "Implement end-to-end encryption",
+                "access_control": "Deploy role-based access control",
+                "audit_logging": "Comprehensive audit trail maintenance",
+                "consent_management": "Automated consent tracking"
+            },
+            "risk_scores": {
+                "data_breach": 0.8,
+                "unauthorized_access": 0.7,
+                "consent_violation": 0.6,
+                "data_loss": 0.5
+            }
         }
 
     def _map_regulatory_compliance(self, orchestrator_context: Dict[str, Any] = None) -> Dict[str, Any]:

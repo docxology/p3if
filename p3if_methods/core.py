@@ -51,7 +51,18 @@ class P3IFCore:
 
     def create_pattern(self, pattern_type: str, name: str, domain: str = None,
                       description: str = None, **attributes) -> BasePattern:
-        """Create a new pattern with specified attributes."""
+        """Create a new pattern with specified attributes and validation."""
+        # Input validation
+        if not name or not name.strip():
+            raise ValueError("Pattern name cannot be empty")
+
+        if not pattern_type:
+            raise ValueError("Pattern type must be specified")
+
+        valid_types = ["property", "process", "perspective"]
+        if pattern_type.lower() not in valid_types:
+            raise ValueError(f"Pattern type must be one of: {valid_types}")
+
         operation = P3IFOperation(
             operation_type=OperationType.CREATE,
             description=f"Create {pattern_type}: {name}",
@@ -60,23 +71,43 @@ class P3IFCore:
         )
 
         try:
-            # Create pattern based on type
+            # Validate domain if provided
+            if domain and len(domain) > 100:
+                raise ValueError("Domain name too long (max 100 characters)")
+
+            # Validate description if provided
+            if description and len(description) > 2000:
+                raise ValueError("Description too long (max 2000 characters)")
+
+            # Create pattern based on type with proper validation
             if pattern_type.lower() == "property":
-                pattern = Property(name=name, domain=domain or "default",
-                                 description=description or "", **attributes)
+                pattern = Property(
+                    name=name.strip(),
+                    domain=domain or "default",
+                    description=description or "",
+                    **attributes
+                )
             elif pattern_type.lower() == "process":
-                pattern = Process(name=name, domain=domain or "default",
-                                description=description or "", **attributes)
+                pattern = Process(
+                    name=name.strip(),
+                    domain=domain or "default",
+                    description=description or "",
+                    **attributes
+                )
             elif pattern_type.lower() == "perspective":
-                # Remove viewpoint from attributes to avoid duplicate parameter
+                # Handle viewpoint parameter specially for perspectives
                 perspective_attributes = attributes.copy()
                 viewpoint = perspective_attributes.pop("viewpoint", "default")
-                pattern = Perspective(name=name, domain=domain or "default",
-                                    description=description or "",
-                                    viewpoint=viewpoint,
-                                    **perspective_attributes)
-            else:
-                raise ValueError(f"Unknown pattern type: {pattern_type}")
+                pattern = Perspective(
+                    name=name.strip(),
+                    domain=domain or "default",
+                    description=description or "",
+                    viewpoint=viewpoint,
+                    **perspective_attributes
+                )
+
+            # Validate the created pattern
+            self._validate_pattern(pattern)
 
             # Add to framework
             self.framework.add_pattern(pattern)
@@ -85,14 +116,161 @@ class P3IFCore:
             operation.result = pattern
 
             self.operations.append(operation)
-            self.logger.info(f"Created pattern: {pattern.name}")
+            self.logger.info(f"Created pattern: {pattern.name} (ID: {pattern.id})")
 
             return pattern
 
         except Exception as e:
             operation.status = "failed"
             operation.result = str(e)
-            self.logger.error(f"Failed to create pattern: {e}")
+            self.logger.error(f"Failed to create pattern '{name}': {e}")
+            raise
+
+    def _validate_pattern(self, pattern: BasePattern) -> None:
+        """Validate a pattern for consistency and required fields."""
+        errors = []
+
+        # Check required fields
+        if not pattern.name or not pattern.name.strip():
+            errors.append("Pattern name is required")
+
+        if not pattern.type:
+            errors.append("Pattern type is required")
+
+        # Type-specific validation
+        if pattern.type == "property":
+            if hasattr(pattern, 'category') and pattern.category:
+                valid_categories = ['security', 'quality', 'business', 'technical', 'compliance']
+                if pattern.category not in valid_categories:
+                    errors.append(f"Invalid property category: {pattern.category}")
+
+        elif pattern.type == "process":
+            if hasattr(pattern, 'complexity') and pattern.complexity:
+                valid_complexities = ['low', 'medium', 'high']
+                if pattern.complexity not in valid_complexities:
+                    errors.append(f"Invalid process complexity: {pattern.complexity}")
+
+        elif pattern.type == "perspective":
+            if hasattr(pattern, 'viewpoint') and not pattern.viewpoint:
+                errors.append("Perspective viewpoint is required")
+
+        if errors:
+            raise ValueError(f"Pattern validation failed: {'; '.join(errors)}")
+
+    def create_pattern_bulk(self, patterns_data: List[Dict[str, Any]]) -> List[BasePattern]:
+        """Create multiple patterns in bulk with validation."""
+        created_patterns = []
+
+        for pattern_data in patterns_data:
+            try:
+                pattern = self.create_pattern(**pattern_data)
+                created_patterns.append(pattern)
+            except Exception as e:
+                self.logger.warning(f"Failed to create pattern: {e}")
+                # Continue with other patterns
+
+        return created_patterns
+
+    def update_pattern(self, pattern_id: str, updates: Dict[str, Any]) -> BasePattern:
+        """Update an existing pattern with validation."""
+        operation = P3IFOperation(
+            operation_type=OperationType.UPDATE,
+            description=f"Update pattern: {pattern_id}",
+            parameters={"pattern_id": pattern_id, "updates": updates}
+        )
+
+        try:
+            # Get existing pattern
+            pattern = self.framework.get_pattern(pattern_id)
+            if not pattern:
+                raise ValueError(f"Pattern not found: {pattern_id}")
+
+            # Validate updates
+            self._validate_pattern_updates(pattern, updates)
+
+            # Apply updates
+            for key, value in updates.items():
+                if hasattr(pattern, key):
+                    setattr(pattern, key, value)
+
+            # Update timestamp
+            pattern.updated_at = datetime.now()
+
+            operation.status = "completed"
+            operation.result = pattern
+
+            self.operations.append(operation)
+            self.logger.info(f"Updated pattern: {pattern.name}")
+
+            return pattern
+
+        except Exception as e:
+            operation.status = "failed"
+            operation.result = str(e)
+            self.logger.error(f"Failed to update pattern: {e}")
+            raise
+
+    def _validate_pattern_updates(self, pattern: BasePattern, updates: Dict[str, Any]) -> None:
+        """Validate pattern updates."""
+        errors = []
+
+        # Check name update
+        if "name" in updates:
+            new_name = updates["name"]
+            if not new_name or not new_name.strip():
+                errors.append("Updated name cannot be empty")
+            elif len(new_name) > 200:
+                errors.append("Updated name too long (max 200 characters)")
+
+        # Check description update
+        if "description" in updates:
+            new_desc = updates["description"]
+            if new_desc and len(new_desc) > 2000:
+                errors.append("Updated description too long (max 2000 characters)")
+
+        # Type-specific validation
+        if "category" in updates and pattern.type == "property":
+            valid_categories = ['security', 'quality', 'business', 'technical', 'compliance']
+            if updates["category"] not in valid_categories:
+                errors.append(f"Invalid property category: {updates['category']}")
+
+        if errors:
+            raise ValueError(f"Pattern update validation failed: {'; '.join(errors)}")
+
+    def delete_pattern(self, pattern_id: str) -> bool:
+        """Delete a pattern and its relationships."""
+        operation = P3IFOperation(
+            operation_type=OperationType.DELETE,
+            description=f"Delete pattern: {pattern_id}",
+            parameters={"pattern_id": pattern_id}
+        )
+
+        try:
+            # Check if pattern exists
+            pattern = self.framework.get_pattern(pattern_id)
+            if not pattern:
+                raise ValueError(f"Pattern not found: {pattern_id}")
+
+            # Remove relationships first
+            relationships = self.framework.get_relationships_by_pattern(pattern_id)
+            for rel in relationships:
+                self.framework.remove_relationship(rel.id)
+
+            # Remove pattern
+            success = self.framework.remove_pattern(pattern_id)
+
+            operation.status = "completed"
+            operation.result = success
+
+            self.operations.append(operation)
+            self.logger.info(f"Deleted pattern: {pattern.name}")
+
+            return success
+
+        except Exception as e:
+            operation.status = "failed"
+            operation.result = str(e)
+            self.logger.error(f"Failed to delete pattern: {e}")
             raise
 
     def find_patterns(self, criteria: Dict[str, Any]) -> List[BasePattern]:
@@ -102,54 +280,75 @@ class P3IFCore:
         for pattern_id, pattern in self.framework._patterns.items():
             match = True
             for key, value in criteria.items():
-                if not hasattr(pattern, key) or getattr(pattern, key) != value:
+                if not hasattr(pattern, key):
                     match = False
                     break
+                
+                pattern_value = getattr(pattern, key)
+                
+                # Special handling for name field - substring matching
+                if key == "name" and isinstance(value, str) and isinstance(pattern_value, str):
+                    if value.lower() not in pattern_value.lower():
+                        match = False
+                        break
+                else:
+                    # Exact matching for other fields
+                    if pattern_value != value:
+                        match = False
+                        break
 
             if match:
                 matching_patterns.append(pattern)
 
         return matching_patterns
 
-    def create_relationship(self, source_pattern: Union[str, BasePattern],
-                          target_pattern: Union[str, BasePattern],
-                          strength: float = 1.0, confidence: float = 1.0,
-                          relationship_type: str = "general") -> Relationship:
-        """Create relationship between two patterns."""
-        # Resolve pattern IDs if needed
-        source_id = source_pattern.id if hasattr(source_pattern, 'id') else str(source_pattern)
-        target_id = target_pattern.id if hasattr(target_pattern, 'id') else str(target_pattern)
+    def create_relationship(self, property_id: str = None, process_id: str = None, 
+                          perspective_id: str = None, strength: float = 1.0, 
+                          confidence: float = 1.0, relationship_type: str = "general") -> Relationship:
+        """Create relationship between patterns using their IDs or pattern objects."""
+        # Handle pattern objects passed as first two arguments (legacy support)
+        if hasattr(property_id, 'id') and hasattr(process_id, 'id'):
+            # Legacy call: create_relationship(pattern1, pattern2, ...)
+            if property_id.type == "property" and process_id.type == "process":
+                actual_property_id = property_id.id
+                actual_process_id = process_id.id
+                actual_perspective_id = perspective_id.id if hasattr(perspective_id, 'id') else perspective_id
+            elif property_id.type == "process" and process_id.type == "perspective":
+                actual_property_id = None
+                actual_process_id = property_id.id
+                actual_perspective_id = process_id.id
+            elif property_id.type == "property" and process_id.type == "perspective":
+                actual_property_id = property_id.id
+                actual_process_id = None
+                actual_perspective_id = process_id.id
+            else:
+                raise ValueError("Invalid pattern type combination")
+        else:
+            # New call: create_relationship(property_id, process_id, perspective_id, ...)
+            actual_property_id = property_id
+            actual_process_id = process_id
+            actual_perspective_id = perspective_id
 
-        # Find the actual patterns
-        source = self.framework._patterns.get(source_id)
-        target = self.framework._patterns.get(target_id)
+        # Validate that at least two dimensions are provided
+        provided_dims = sum(1 for dim_id in [actual_property_id, actual_process_id, actual_perspective_id] if dim_id is not None)
+        if provided_dims < 2:
+            raise ValueError("At least two pattern IDs must be provided")
 
-        if not source or not target:
-            raise ValueError(f"Could not find patterns: {source_id}, {target_id}")
+        # Validate pattern existence
+        if actual_property_id and not self.framework.get_pattern(actual_property_id):
+            raise ValueError(f"Property with ID {actual_property_id} not found")
+        if actual_process_id and not self.framework.get_pattern(actual_process_id):
+            raise ValueError(f"Process with ID {actual_process_id} not found")
+        if actual_perspective_id and not self.framework.get_pattern(actual_perspective_id):
+            raise ValueError(f"Perspective with ID {actual_perspective_id} not found")
 
-        # Determine IDs based on pattern types first
-        property_id = None
-        process_id = None
-        perspective_id = None
-
-        if hasattr(source, 'type') and hasattr(target, 'type'):
-            if source.type == "property" and target.type == "process":
-                property_id = source.id
-                process_id = target.id
-            elif source.type == "process" and target.type == "perspective":
-                process_id = source.id
-                perspective_id = target.id
-            elif source.type == "property" and target.type == "perspective":
-                property_id = source.id
-                perspective_id = target.id
-
-        # Create relationship with the determined IDs
+        # Create relationship with the provided IDs
         relationship = Relationship(
             strength=strength,
             confidence=confidence,
-            property_id=property_id,
-            process_id=process_id,
-            perspective_id=perspective_id,
+            property_id=actual_property_id,
+            process_id=actual_process_id,
+            perspective_id=actual_perspective_id,
             metadata={"type": relationship_type}
         )
 

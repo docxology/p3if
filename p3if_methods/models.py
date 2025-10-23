@@ -207,13 +207,22 @@ class Process(BasePattern):
     prerequisites: List[str] = Field(default_factory=list)  # Required patterns
     dependencies: List[str] = Field(default_factory=list)  # Dependent patterns
 
-    @field_validator('complexity', 'automation_level')
+    @field_validator('complexity')
     @classmethod
     def validate_complexity_level(cls, v):
-        """Validate complexity and automation level values."""
+        """Validate complexity level values."""
         valid_levels = ['low', 'medium', 'high']
         if v not in valid_levels:
-            raise ValueError(f'Value must be one of: {valid_levels}')
+            raise ValueError(f'Complexity must be one of: {valid_levels}')
+        return v
+
+    @field_validator('automation_level')
+    @classmethod
+    def validate_automation_level(cls, v):
+        """Validate automation level values."""
+        valid_levels = ['manual', 'semi-automated', 'fully-automated']
+        if v not in valid_levels:
+            raise ValueError(f'Automation level must be one of: {valid_levels}')
         return v
 
 
