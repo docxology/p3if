@@ -1,0 +1,1504 @@
+{
+  "metadata": {
+    "generated_at": "2025-12-18T09:48:59.739901",
+    "total_properties": 55,
+    "total_processes": 55,
+    "total_perspectives": 55,
+    "domains": "all",
+    "max_elements": 1000
+  },
+  "dimensions": {
+    "property": [
+      {
+        "id": "44e0d1bf-8c75-4863-b263-69529ccd4c84",
+        "name": "Machine Learning",
+        "description": "Property: Machine Learning",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "88be293e-726e-4dbd-8179-53aca5f9cbcb",
+        "name": "Neural Networks",
+        "description": "Property: Neural Networks",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "56931e9b-0a15-4134-9278-be32dfec4ad4",
+        "name": "Natural Language Processing",
+        "description": "Property: Natural Language Processing",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "eaa02539-269f-4c8e-b4c2-2133d6ffbdd1",
+        "name": "Computer Vision",
+        "description": "Property: Computer Vision",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "b97cb523-c640-422a-93bd-799e7f2bffa4",
+        "name": "Robotics",
+        "description": "Property: Robotics",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "8ca89f09-fb78-4320-997a-477aad827453",
+        "name": "Expert Systems",
+        "description": "Property: Expert Systems",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "acf32e32-8a6d-4a14-94a2-3efe36f75b45",
+        "name": "Reinforcement Learning",
+        "description": "Property: Reinforcement Learning",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "b66dc649-5028-499f-a9a8-dd397115a16a",
+        "name": "Explainable AI",
+        "description": "Property: Explainable AI",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "f3a53b92-e848-4c2b-b0ed-977d380e958c",
+        "name": "Ethical AI",
+        "description": "Property: Ethical AI",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "85de9714-7d30-44c3-a23a-e484ffc698a0",
+        "name": "AI Governance",
+        "description": "Property: AI Governance",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "58475080-fa3a-4333-821e-56a9739617d9",
+        "name": "Data Privacy",
+        "description": "Property: Data Privacy",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "32859f9e-c89a-433a-88ed-fe3a471d2799",
+        "name": "AI Bias",
+        "description": "Property: AI Bias",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "16adcc57-e42c-4bc1-889f-48f91395f77b",
+        "name": "AI Safety",
+        "description": "Property: AI Safety",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "17b87dd8-4a8d-434e-af56-be3f99b74d36",
+        "name": "Quantum AI",
+        "description": "Property: Quantum AI",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "39e1c619-b43b-4db3-8b53-9fd527586635",
+        "name": "Edge AI",
+        "description": "Property: Edge AI",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "52cd90cb-c9ac-4ee2-bcd2-829b4d4ff18f",
+        "name": "Federated Learning",
+        "description": "Property: Federated Learning",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "57f78041-87df-4858-85d3-078cb14b0403",
+        "name": "Transfer Learning",
+        "description": "Property: Transfer Learning",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "b82c66c1-59e2-431b-9539-be00fabc9631",
+        "name": "Generative AI",
+        "description": "Property: Generative AI",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "717a629c-45fd-4fd7-b6e7-039d071c5094",
+        "name": "Autonomous Systems",
+        "description": "Property: Autonomous Systems",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "6aef0851-1270-4170-9684-0271a0a0f773",
+        "name": "Human-AI Interaction",
+        "description": "Property: Human-AI Interaction",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "e8ceefeb-3b8d-4464-927b-e560b5829734",
+        "name": "Deep Learning",
+        "description": "Property: Deep Learning",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "f6721c61-9689-4458-b65b-565622db04bb",
+        "name": "Cognitive Computing",
+        "description": "Property: Cognitive Computing",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "90ca314b-f0d7-44ed-ae5d-f350018ea094",
+        "name": "Swarm Intelligence",
+        "description": "Property: Swarm Intelligence",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "8a18a659-144e-47e5-97ff-2b1e2b4ff4f8",
+        "name": "Evolutionary Computation",
+        "description": "Property: Evolutionary Computation",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "64fc8811-168a-4a1b-91b1-6e7136d67309",
+        "name": "Fuzzy Logic",
+        "description": "Property: Fuzzy Logic",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "65f6e3f2-a3c8-42b9-962d-cc2bbdb3c8c7",
+        "name": "Knowledge Representation",
+        "description": "Property: Knowledge Representation",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "368630c7-5443-4814-b778-1578ceb8a4cc",
+        "name": "Automated Reasoning",
+        "description": "Property: Automated Reasoning",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "733a3a21-d8b4-4c78-824a-cbc3f47b6384",
+        "name": "Speech Recognition",
+        "description": "Property: Speech Recognition",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "bd942c92-0a5f-48e0-bbea-f170ec7e6e62",
+        "name": "Image Processing",
+        "description": "Property: Image Processing",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "011f7f52-8d91-451e-a71c-1dc878cfbd74",
+        "name": "Predictive Analytics",
+        "description": "Property: Predictive Analytics",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "895f6e06-24ed-4f88-bc2a-65873fee6515",
+        "name": "Anomaly Detection",
+        "description": "Property: Anomaly Detection",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "bad5d0ee-d959-4ec2-95a9-9c49b05c10a7",
+        "name": "Recommendation Systems",
+        "description": "Property: Recommendation Systems",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "0fd6e6fd-9027-49d8-a940-d23107af5de4",
+        "name": "Sentiment Analysis",
+        "description": "Property: Sentiment Analysis",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "2a6a806b-4a1c-4e70-bc6e-46cc1b3ad552",
+        "name": "Chatbots",
+        "description": "Property: Chatbots",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "57fb28c3-67e3-4ffe-8a62-7c878a5bb2f4",
+        "name": "Virtual Assistants",
+        "description": "Property: Virtual Assistants",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "2ba61005-0068-4a3d-a768-9336ae464237",
+        "name": "Automated Decision Making",
+        "description": "Property: Automated Decision Making",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "f9291367-efd3-4105-9a42-b9cc66969305",
+        "name": "AI-Powered Simulation",
+        "description": "Property: AI-Powered Simulation",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "a432c402-96c4-4b83-a941-de1e66ca47f6",
+        "name": "AI in Cybersecurity",
+        "description": "Property: AI in Cybersecurity",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "daa62961-0d4e-42d9-a3b1-fcb0e225ebe5",
+        "name": "AI for Scientific Discovery",
+        "description": "Property: AI for Scientific Discovery",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "482642cd-0cd8-48fd-a960-fc2e2ac052be",
+        "name": "AI in Healthcare",
+        "description": "Property: AI in Healthcare",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "f2e0e8f8-2024-4db2-8b8e-3ca3e356ce1b",
+        "name": "AI in Finance",
+        "description": "Property: AI in Finance",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "b1fbde53-2833-48df-914f-d85be443ecb2",
+        "name": "AI in Education",
+        "description": "Property: AI in Education",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "0ad68d41-c24a-435e-902d-fc11704bb572",
+        "name": "AI in Manufacturing",
+        "description": "Property: AI in Manufacturing",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "15694211-71ab-42a4-923e-33fe91314916",
+        "name": "AI in Agriculture",
+        "description": "Property: AI in Agriculture",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "17718117-8398-4aba-a6b4-3ba3f472198e",
+        "name": "AI in Transportation",
+        "description": "Property: AI in Transportation",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "1ade8268-4a3c-4648-b7a3-aa15014a4f27",
+        "name": "AI Ethics",
+        "description": "Property: AI Ethics",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "af0bac50-6c3b-40b3-8975-fcf70a470ccf",
+        "name": "AI Regulation",
+        "description": "Property: AI Regulation",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "345a4c67-f1a9-4b33-af9a-7f6d18cad766",
+        "name": "AI Transparency",
+        "description": "Property: AI Transparency",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "e48a72cd-b89d-48f3-8b58-c69518d34187",
+        "name": "AI Accountability",
+        "description": "Property: AI Accountability",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "0df889b2-d8db-4421-8c73-ec8af67f70e8",
+        "name": "AI Fairness",
+        "description": "Property: AI Fairness",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "4977e7a3-b880-438d-ba82-c1110317bf12",
+        "name": "AI Robustness",
+        "description": "Property: AI Robustness",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "9c07fa3f-b27a-42d8-8e8b-de5651a10edf",
+        "name": "AI Scalability",
+        "description": "Property: AI Scalability",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "eedc359a-d8fb-432c-95aa-9f8b5c20d8a8",
+        "name": "AI Energy Efficiency",
+        "description": "Property: AI Energy Efficiency",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "90bc30dc-a836-491f-b791-580ea90100d8",
+        "name": "AI Hardware Acceleration",
+        "description": "Property: AI Hardware Acceleration",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "0d526d13-8528-4839-b7f8-0e482f4e1dd1",
+        "name": "AI Model Compression",
+        "description": "Property: AI Model Compression",
+        "domain": "ArtificialIntelligence",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      }
+    ],
+    "process": [
+      {
+        "id": "44e0d1bf-8c75-4863-b263-69529ccd4c84",
+        "name": "Machine Learning",
+        "description": "Property: Machine Learning",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "88be293e-726e-4dbd-8179-53aca5f9cbcb",
+        "name": "Neural Networks",
+        "description": "Property: Neural Networks",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "56931e9b-0a15-4134-9278-be32dfec4ad4",
+        "name": "Natural Language Processing",
+        "description": "Property: Natural Language Processing",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "eaa02539-269f-4c8e-b4c2-2133d6ffbdd1",
+        "name": "Computer Vision",
+        "description": "Property: Computer Vision",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "b97cb523-c640-422a-93bd-799e7f2bffa4",
+        "name": "Robotics",
+        "description": "Property: Robotics",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "8ca89f09-fb78-4320-997a-477aad827453",
+        "name": "Expert Systems",
+        "description": "Property: Expert Systems",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "acf32e32-8a6d-4a14-94a2-3efe36f75b45",
+        "name": "Reinforcement Learning",
+        "description": "Property: Reinforcement Learning",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "b66dc649-5028-499f-a9a8-dd397115a16a",
+        "name": "Explainable AI",
+        "description": "Property: Explainable AI",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "f3a53b92-e848-4c2b-b0ed-977d380e958c",
+        "name": "Ethical AI",
+        "description": "Property: Ethical AI",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "85de9714-7d30-44c3-a23a-e484ffc698a0",
+        "name": "AI Governance",
+        "description": "Property: AI Governance",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "58475080-fa3a-4333-821e-56a9739617d9",
+        "name": "Data Privacy",
+        "description": "Property: Data Privacy",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "32859f9e-c89a-433a-88ed-fe3a471d2799",
+        "name": "AI Bias",
+        "description": "Property: AI Bias",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "16adcc57-e42c-4bc1-889f-48f91395f77b",
+        "name": "AI Safety",
+        "description": "Property: AI Safety",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "17b87dd8-4a8d-434e-af56-be3f99b74d36",
+        "name": "Quantum AI",
+        "description": "Property: Quantum AI",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "39e1c619-b43b-4db3-8b53-9fd527586635",
+        "name": "Edge AI",
+        "description": "Property: Edge AI",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "52cd90cb-c9ac-4ee2-bcd2-829b4d4ff18f",
+        "name": "Federated Learning",
+        "description": "Property: Federated Learning",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "57f78041-87df-4858-85d3-078cb14b0403",
+        "name": "Transfer Learning",
+        "description": "Property: Transfer Learning",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "b82c66c1-59e2-431b-9539-be00fabc9631",
+        "name": "Generative AI",
+        "description": "Property: Generative AI",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "717a629c-45fd-4fd7-b6e7-039d071c5094",
+        "name": "Autonomous Systems",
+        "description": "Property: Autonomous Systems",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "6aef0851-1270-4170-9684-0271a0a0f773",
+        "name": "Human-AI Interaction",
+        "description": "Property: Human-AI Interaction",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "e8ceefeb-3b8d-4464-927b-e560b5829734",
+        "name": "Deep Learning",
+        "description": "Property: Deep Learning",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "f6721c61-9689-4458-b65b-565622db04bb",
+        "name": "Cognitive Computing",
+        "description": "Property: Cognitive Computing",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "90ca314b-f0d7-44ed-ae5d-f350018ea094",
+        "name": "Swarm Intelligence",
+        "description": "Property: Swarm Intelligence",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "8a18a659-144e-47e5-97ff-2b1e2b4ff4f8",
+        "name": "Evolutionary Computation",
+        "description": "Property: Evolutionary Computation",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "64fc8811-168a-4a1b-91b1-6e7136d67309",
+        "name": "Fuzzy Logic",
+        "description": "Property: Fuzzy Logic",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "65f6e3f2-a3c8-42b9-962d-cc2bbdb3c8c7",
+        "name": "Knowledge Representation",
+        "description": "Property: Knowledge Representation",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "368630c7-5443-4814-b778-1578ceb8a4cc",
+        "name": "Automated Reasoning",
+        "description": "Property: Automated Reasoning",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "733a3a21-d8b4-4c78-824a-cbc3f47b6384",
+        "name": "Speech Recognition",
+        "description": "Property: Speech Recognition",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "bd942c92-0a5f-48e0-bbea-f170ec7e6e62",
+        "name": "Image Processing",
+        "description": "Property: Image Processing",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "011f7f52-8d91-451e-a71c-1dc878cfbd74",
+        "name": "Predictive Analytics",
+        "description": "Property: Predictive Analytics",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "895f6e06-24ed-4f88-bc2a-65873fee6515",
+        "name": "Anomaly Detection",
+        "description": "Property: Anomaly Detection",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "bad5d0ee-d959-4ec2-95a9-9c49b05c10a7",
+        "name": "Recommendation Systems",
+        "description": "Property: Recommendation Systems",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "0fd6e6fd-9027-49d8-a940-d23107af5de4",
+        "name": "Sentiment Analysis",
+        "description": "Property: Sentiment Analysis",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "2a6a806b-4a1c-4e70-bc6e-46cc1b3ad552",
+        "name": "Chatbots",
+        "description": "Property: Chatbots",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "57fb28c3-67e3-4ffe-8a62-7c878a5bb2f4",
+        "name": "Virtual Assistants",
+        "description": "Property: Virtual Assistants",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "2ba61005-0068-4a3d-a768-9336ae464237",
+        "name": "Automated Decision Making",
+        "description": "Property: Automated Decision Making",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "f9291367-efd3-4105-9a42-b9cc66969305",
+        "name": "AI-Powered Simulation",
+        "description": "Property: AI-Powered Simulation",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "a432c402-96c4-4b83-a941-de1e66ca47f6",
+        "name": "AI in Cybersecurity",
+        "description": "Property: AI in Cybersecurity",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "daa62961-0d4e-42d9-a3b1-fcb0e225ebe5",
+        "name": "AI for Scientific Discovery",
+        "description": "Property: AI for Scientific Discovery",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "482642cd-0cd8-48fd-a960-fc2e2ac052be",
+        "name": "AI in Healthcare",
+        "description": "Property: AI in Healthcare",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "f2e0e8f8-2024-4db2-8b8e-3ca3e356ce1b",
+        "name": "AI in Finance",
+        "description": "Property: AI in Finance",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "b1fbde53-2833-48df-914f-d85be443ecb2",
+        "name": "AI in Education",
+        "description": "Property: AI in Education",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "0ad68d41-c24a-435e-902d-fc11704bb572",
+        "name": "AI in Manufacturing",
+        "description": "Property: AI in Manufacturing",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "15694211-71ab-42a4-923e-33fe91314916",
+        "name": "AI in Agriculture",
+        "description": "Property: AI in Agriculture",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "17718117-8398-4aba-a6b4-3ba3f472198e",
+        "name": "AI in Transportation",
+        "description": "Property: AI in Transportation",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "1ade8268-4a3c-4648-b7a3-aa15014a4f27",
+        "name": "AI Ethics",
+        "description": "Property: AI Ethics",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "af0bac50-6c3b-40b3-8975-fcf70a470ccf",
+        "name": "AI Regulation",
+        "description": "Property: AI Regulation",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "345a4c67-f1a9-4b33-af9a-7f6d18cad766",
+        "name": "AI Transparency",
+        "description": "Property: AI Transparency",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "e48a72cd-b89d-48f3-8b58-c69518d34187",
+        "name": "AI Accountability",
+        "description": "Property: AI Accountability",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "0df889b2-d8db-4421-8c73-ec8af67f70e8",
+        "name": "AI Fairness",
+        "description": "Property: AI Fairness",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "4977e7a3-b880-438d-ba82-c1110317bf12",
+        "name": "AI Robustness",
+        "description": "Property: AI Robustness",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "9c07fa3f-b27a-42d8-8e8b-de5651a10edf",
+        "name": "AI Scalability",
+        "description": "Property: AI Scalability",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "eedc359a-d8fb-432c-95aa-9f8b5c20d8a8",
+        "name": "AI Energy Efficiency",
+        "description": "Property: AI Energy Efficiency",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "90bc30dc-a836-491f-b791-580ea90100d8",
+        "name": "AI Hardware Acceleration",
+        "description": "Property: AI Hardware Acceleration",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "0d526d13-8528-4839-b7f8-0e482f4e1dd1",
+        "name": "AI Model Compression",
+        "description": "Property: AI Model Compression",
+        "domain": "ArtificialIntelligence",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      }
+    ],
+    "perspective": [
+      {
+        "id": "44e0d1bf-8c75-4863-b263-69529ccd4c84",
+        "name": "Machine Learning",
+        "description": "Property: Machine Learning",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "88be293e-726e-4dbd-8179-53aca5f9cbcb",
+        "name": "Neural Networks",
+        "description": "Property: Neural Networks",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "56931e9b-0a15-4134-9278-be32dfec4ad4",
+        "name": "Natural Language Processing",
+        "description": "Property: Natural Language Processing",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "eaa02539-269f-4c8e-b4c2-2133d6ffbdd1",
+        "name": "Computer Vision",
+        "description": "Property: Computer Vision",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "b97cb523-c640-422a-93bd-799e7f2bffa4",
+        "name": "Robotics",
+        "description": "Property: Robotics",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "8ca89f09-fb78-4320-997a-477aad827453",
+        "name": "Expert Systems",
+        "description": "Property: Expert Systems",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "acf32e32-8a6d-4a14-94a2-3efe36f75b45",
+        "name": "Reinforcement Learning",
+        "description": "Property: Reinforcement Learning",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "b66dc649-5028-499f-a9a8-dd397115a16a",
+        "name": "Explainable AI",
+        "description": "Property: Explainable AI",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "f3a53b92-e848-4c2b-b0ed-977d380e958c",
+        "name": "Ethical AI",
+        "description": "Property: Ethical AI",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "85de9714-7d30-44c3-a23a-e484ffc698a0",
+        "name": "AI Governance",
+        "description": "Property: AI Governance",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "58475080-fa3a-4333-821e-56a9739617d9",
+        "name": "Data Privacy",
+        "description": "Property: Data Privacy",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "32859f9e-c89a-433a-88ed-fe3a471d2799",
+        "name": "AI Bias",
+        "description": "Property: AI Bias",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "16adcc57-e42c-4bc1-889f-48f91395f77b",
+        "name": "AI Safety",
+        "description": "Property: AI Safety",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "17b87dd8-4a8d-434e-af56-be3f99b74d36",
+        "name": "Quantum AI",
+        "description": "Property: Quantum AI",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "39e1c619-b43b-4db3-8b53-9fd527586635",
+        "name": "Edge AI",
+        "description": "Property: Edge AI",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "52cd90cb-c9ac-4ee2-bcd2-829b4d4ff18f",
+        "name": "Federated Learning",
+        "description": "Property: Federated Learning",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "57f78041-87df-4858-85d3-078cb14b0403",
+        "name": "Transfer Learning",
+        "description": "Property: Transfer Learning",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "b82c66c1-59e2-431b-9539-be00fabc9631",
+        "name": "Generative AI",
+        "description": "Property: Generative AI",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "717a629c-45fd-4fd7-b6e7-039d071c5094",
+        "name": "Autonomous Systems",
+        "description": "Property: Autonomous Systems",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "6aef0851-1270-4170-9684-0271a0a0f773",
+        "name": "Human-AI Interaction",
+        "description": "Property: Human-AI Interaction",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "e8ceefeb-3b8d-4464-927b-e560b5829734",
+        "name": "Deep Learning",
+        "description": "Property: Deep Learning",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "f6721c61-9689-4458-b65b-565622db04bb",
+        "name": "Cognitive Computing",
+        "description": "Property: Cognitive Computing",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "90ca314b-f0d7-44ed-ae5d-f350018ea094",
+        "name": "Swarm Intelligence",
+        "description": "Property: Swarm Intelligence",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "8a18a659-144e-47e5-97ff-2b1e2b4ff4f8",
+        "name": "Evolutionary Computation",
+        "description": "Property: Evolutionary Computation",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "64fc8811-168a-4a1b-91b1-6e7136d67309",
+        "name": "Fuzzy Logic",
+        "description": "Property: Fuzzy Logic",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "65f6e3f2-a3c8-42b9-962d-cc2bbdb3c8c7",
+        "name": "Knowledge Representation",
+        "description": "Property: Knowledge Representation",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "368630c7-5443-4814-b778-1578ceb8a4cc",
+        "name": "Automated Reasoning",
+        "description": "Property: Automated Reasoning",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "733a3a21-d8b4-4c78-824a-cbc3f47b6384",
+        "name": "Speech Recognition",
+        "description": "Property: Speech Recognition",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "bd942c92-0a5f-48e0-bbea-f170ec7e6e62",
+        "name": "Image Processing",
+        "description": "Property: Image Processing",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "011f7f52-8d91-451e-a71c-1dc878cfbd74",
+        "name": "Predictive Analytics",
+        "description": "Property: Predictive Analytics",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "895f6e06-24ed-4f88-bc2a-65873fee6515",
+        "name": "Anomaly Detection",
+        "description": "Property: Anomaly Detection",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "bad5d0ee-d959-4ec2-95a9-9c49b05c10a7",
+        "name": "Recommendation Systems",
+        "description": "Property: Recommendation Systems",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "0fd6e6fd-9027-49d8-a940-d23107af5de4",
+        "name": "Sentiment Analysis",
+        "description": "Property: Sentiment Analysis",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "2a6a806b-4a1c-4e70-bc6e-46cc1b3ad552",
+        "name": "Chatbots",
+        "description": "Property: Chatbots",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "57fb28c3-67e3-4ffe-8a62-7c878a5bb2f4",
+        "name": "Virtual Assistants",
+        "description": "Property: Virtual Assistants",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "2ba61005-0068-4a3d-a768-9336ae464237",
+        "name": "Automated Decision Making",
+        "description": "Property: Automated Decision Making",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "f9291367-efd3-4105-9a42-b9cc66969305",
+        "name": "AI-Powered Simulation",
+        "description": "Property: AI-Powered Simulation",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "a432c402-96c4-4b83-a941-de1e66ca47f6",
+        "name": "AI in Cybersecurity",
+        "description": "Property: AI in Cybersecurity",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "daa62961-0d4e-42d9-a3b1-fcb0e225ebe5",
+        "name": "AI for Scientific Discovery",
+        "description": "Property: AI for Scientific Discovery",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "482642cd-0cd8-48fd-a960-fc2e2ac052be",
+        "name": "AI in Healthcare",
+        "description": "Property: AI in Healthcare",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "f2e0e8f8-2024-4db2-8b8e-3ca3e356ce1b",
+        "name": "AI in Finance",
+        "description": "Property: AI in Finance",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "b1fbde53-2833-48df-914f-d85be443ecb2",
+        "name": "AI in Education",
+        "description": "Property: AI in Education",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "0ad68d41-c24a-435e-902d-fc11704bb572",
+        "name": "AI in Manufacturing",
+        "description": "Property: AI in Manufacturing",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "15694211-71ab-42a4-923e-33fe91314916",
+        "name": "AI in Agriculture",
+        "description": "Property: AI in Agriculture",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "17718117-8398-4aba-a6b4-3ba3f472198e",
+        "name": "AI in Transportation",
+        "description": "Property: AI in Transportation",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "1ade8268-4a3c-4648-b7a3-aa15014a4f27",
+        "name": "AI Ethics",
+        "description": "Property: AI Ethics",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "af0bac50-6c3b-40b3-8975-fcf70a470ccf",
+        "name": "AI Regulation",
+        "description": "Property: AI Regulation",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "345a4c67-f1a9-4b33-af9a-7f6d18cad766",
+        "name": "AI Transparency",
+        "description": "Property: AI Transparency",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "e48a72cd-b89d-48f3-8b58-c69518d34187",
+        "name": "AI Accountability",
+        "description": "Property: AI Accountability",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "0df889b2-d8db-4421-8c73-ec8af67f70e8",
+        "name": "AI Fairness",
+        "description": "Property: AI Fairness",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "4977e7a3-b880-438d-ba82-c1110317bf12",
+        "name": "AI Robustness",
+        "description": "Property: AI Robustness",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "9c07fa3f-b27a-42d8-8e8b-de5651a10edf",
+        "name": "AI Scalability",
+        "description": "Property: AI Scalability",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "eedc359a-d8fb-432c-95aa-9f8b5c20d8a8",
+        "name": "AI Energy Efficiency",
+        "description": "Property: AI Energy Efficiency",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "90bc30dc-a836-491f-b791-580ea90100d8",
+        "name": "AI Hardware Acceleration",
+        "description": "Property: AI Hardware Acceleration",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      },
+      {
+        "id": "0d526d13-8528-4839-b7f8-0e482f4e1dd1",
+        "name": "AI Model Compression",
+        "description": "Property: AI Model Compression",
+        "domain": "ArtificialIntelligence",
+        "viewpoint": "",
+        "stakeholder_type": "",
+        "quality_score": 1.0
+      }
+    ]
+  },
+  "connections": []
+}

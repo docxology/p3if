@@ -55,7 +55,7 @@ The 3D visualization allows users to explore the relationships between these dim
 - Documentation (located in `docs/visualization/`):
   - `technical_documentation.md`: Comprehensive technical documentation
   - `user_guide.md`: Step-by-step user guide
-- Output directory (`output/`):
+- Output directory (`outputs/`):
   - `p3if_full_website.html`: The main visualization website
   - `README.md`: Information about the output directory
 
@@ -93,10 +93,10 @@ The 3D visualization allows users to explore the relationships between these dim
 4. **View Generated Outputs**:
    ```bash
    # List all visualization files
-   find output/p3if_output_*/ -name "*.png" -o -name "*.gif" -o -name "*.html"
+   find outputs/p3if_output_*/ -name "*.png" -o -name "*.gif" -o -name "*.html"
    
    # Open latest session directory
-   open output/p3if_output_$(ls output/ | grep p3if_output | tail -1)/
+   open outputs/p3if_output_$(ls outputs/ | grep p3if_output | tail -1)/
    ```
 
 ## Using the Visualization
@@ -163,7 +163,7 @@ If you encounter issues:
 - `technical_documentation.md`: Comprehensive technical documentation (in this directory)
 - `user_guide.md`: Step-by-step user guide (in this directory)
 - `domain_visualizations.md`: Documentation for domain-specific visualizations
-- `output/README.md`: Information about the output directory
+- `outputs/README.md`: Information about the output directory
 
 ## License
 

@@ -184,7 +184,7 @@ Replace `domain_id` with the ID of the domain you want to visualize (e.g., `arti
 The generated website can be viewed by opening the HTML file in a web browser:
 
 ```bash
-open output/p3if_full_website.html
+open outputs/p3if_full_website.html
 ```
 
 ## Future Enhancements

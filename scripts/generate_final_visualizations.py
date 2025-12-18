@@ -16,7 +16,11 @@ from pathlib import Path
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
-from p3if_visualization.orchestrator import P3IFVisualizationOrchestrator
+# Add src directory to path for p3if imports
+src_path = project_root / 'src'
+sys.path.insert(0, str(src_path))
+
+from p3if.visualization.portals.orchestrator import P3IFVisualizationOrchestrator
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -28,7 +32,10 @@ class P3IFVisualizationCoordinator:
 
     def __init__(self):
         """Initialize coordinator with session tracking."""
-        self.session_path = Path(f"p3if_visualizations_{datetime.now().strftime('%Y%m%d_%H%M%S')}")
+        # Use outputs directory instead of separate visualization folders
+        outputs_dir = Path("outputs")
+        outputs_dir.mkdir(exist_ok=True)
+        self.session_path = outputs_dir / f"visualizations_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
         self.session_path.mkdir(exist_ok=True)
 
         logger.info(f"Created visualization session: {self.session_path}")

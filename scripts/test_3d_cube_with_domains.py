@@ -12,11 +12,11 @@ import sys
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
-from p3if_methods.framework import P3IFFramework
-from p3if_methods.models import Property, Process, Perspective, Relationship
-from p3if_visualization.interactive import InteractiveVisualizer
-from utils.config import Config
-from utils.output_organizer import get_output_organizer, create_standard_output_structure
+from p3if.core.framework import P3IFFramework
+from p3if.core.models import Property, Process, Perspective, Relationship
+from p3if.visualization.interactive import InteractiveVisualizer
+from p3if.utils.config import Config
+from p3if.utils.output_organizer import get_output_organizer, create_standard_output_structure
 
 
 def load_domain_data(domain_file):

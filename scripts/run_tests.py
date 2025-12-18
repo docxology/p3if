@@ -35,7 +35,7 @@ from p3if_tests.core.test_framework import TestP3IFFramework
 # Setup comprehensive logging
 def setup_logging() -> logging.Logger:
     """Setup comprehensive logging for test execution."""
-    log_dir = Path("output/tests")
+    log_dir = Path("outputs/tests")
     log_dir.mkdir(parents=True, exist_ok=True)
 
     # Create timestamped log file
@@ -69,7 +69,7 @@ class P3IFTestSuite:
         """Initialize the test suite."""
         self.logger = logger
         self.results = {}
-        self.output_dir = Path("output/tests")
+        self.output_dir = Path("outputs/tests")
         self.output_dir.mkdir(parents=True, exist_ok=True)
 
     def run_core_tests(self) -> Dict[str, Any]:
@@ -439,14 +439,14 @@ class P3IFTestSuite:
                 f.write("---\n\n")
 
             f.write("## Coverage Information\n\n")
-            f.write("Coverage reports are available in the `output/tests/coverage/` directory:\n")
+            f.write("Coverage reports are available in the `outputs/tests/coverage/` directory:\n")
             f.write("- **HTML Report:** Interactive coverage analysis\n")
             f.write("- **JSON Report:** Machine-readable coverage data\n\n")
 
             f.write("## Files Generated\n\n")
             for file_path in results['files_generated']:
                 f.write(f"- `{file_path}`\n")
-            f.write("- `output/tests/coverage/` - Coverage reports and analysis\n")
+            f.write("- `outputs/tests/coverage/` - Coverage reports and analysis\n")
             f.write("- Test execution logs in `logs/` directory\n\n")
 
             f.write("## Next Steps\n\n")
@@ -522,7 +522,7 @@ def main():
         print("🎉 The P3IF system is working correctly.")
     else:
         print(f"⚠️  SOME TESTS FAILED! ({summary['total_failures']} failures, {summary['total_errors']} errors)")
-        print("🔧 Check the output/tests/ directory for detailed results.")
+        print("🔧 Check the outputs/tests/ directory for detailed results.")
 
     print(f"📊 Total Tests: {summary['total_tests_run']}")
     print(f"📈 Success Rate: {summary['overall_success_rate']:.1f}%")

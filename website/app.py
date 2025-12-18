@@ -28,20 +28,29 @@ from website.routes.viz_generate import viz_generate_bp
 # Ensure directories exist
 os.makedirs(os.path.join(os.path.dirname(__file__), 'logs'), exist_ok=True)
 
-# Initialize Flask app
-app = Flask(__name__, 
-           static_folder="static",
-           template_folder="templates")
+def create_app(testing=False):
+    """Create and configure the Flask application."""
+    app = Flask(__name__,
+                static_folder="static",
+                template_folder="templates")
 
-# Set a secret key for session management
-app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'p3if-development-key')
+    # Set a secret key for session management
+    app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'p3if-development-key')
 
-# Register blueprints
-app.register_blueprint(docs_bp, url_prefix='/docs')
-app.register_blueprint(domains_bp, url_prefix='/domains')
-app.register_blueprint(viz_bp, url_prefix='/visualizations')
-app.register_blueprint(api_bp, url_prefix='/api')
-app.register_blueprint(viz_generate_bp, url_prefix='/visualizations')
+    # Register blueprints
+    app.register_blueprint(docs_bp, url_prefix='/docs')
+    app.register_blueprint(domains_bp, url_prefix='/domains')
+    app.register_blueprint(viz_bp, url_prefix='/visualizations')
+    app.register_blueprint(api_bp, url_prefix='/api')
+    app.register_blueprint(viz_generate_bp, url_prefix='/visualizations')
+
+    if testing:
+        app.config['TESTING'] = True
+
+    return app
+
+# Initialize Flask app for direct usage
+app = create_app()
 
 # Configure logging
 logging.basicConfig(
@@ -57,7 +66,7 @@ logger = logging.getLogger(__name__)
 # Set the project root
 PROJECT_ROOT = Path(__file__).parent.parent
 DOCS_ROOT = PROJECT_ROOT / 'docs'
-OUTPUT_ROOT = PROJECT_ROOT / 'output'
+OUTPUT_ROOT = PROJECT_ROOT / 'outputs'
 DOMAINS_ROOT = PROJECT_ROOT / 'data' / 'domains'
 
 # Main routes

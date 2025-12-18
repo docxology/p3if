@@ -17,6 +17,10 @@ from typing import Dict, Any, List
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
+# Add src directory to path for p3if imports
+src_path = project_root / 'src'
+sys.path.insert(0, str(src_path))
+
 # Ensure p3if package is importable
 p3if_package_path = project_root
 sys.path.insert(0, str(p3if_package_path))
@@ -26,16 +30,16 @@ current_dir = Path(__file__).parent
 sys.path.insert(0, str(current_dir))
 
 import logging
-from p3if_examples.cognitive_security_orchestrator import CognitiveSecurityOrchestrator
-from p3if_examples.healthcare_domain_orchestrator import HealthcareDomainOrchestrator
-from p3if_examples.framework_integration_orchestrator import FrameworkIntegrationOrchestrator
+from p3if.orchestrators.cognitive_security import CognitiveSecurityOrchestrator
+from p3if.orchestrators.healthcare_domain import HealthcareDomainOrchestrator
+from p3if.orchestrators.framework_integration import FrameworkIntegrationOrchestrator
 
 # Setup logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('output/examples_execution.log'),
+        logging.FileHandler('outputs/examples_execution.log'),
         logging.StreamHandler(sys.stdout)
     ]
 )
@@ -47,7 +51,7 @@ class ExamplesRunner:
 
     def __init__(self):
         """Initialize the examples runner."""
-        self.output_dir = Path("output/examples")
+        self.output_dir = Path("outputs/examples")
         self.output_dir.mkdir(parents=True, exist_ok=True)
         self.results = {}
 
@@ -276,10 +280,10 @@ def main():
     print("=" * 50)
     if exit_code == 0:
         print("✅ ALL EXAMPLES COMPLETED SUCCESSFULLY!")
-        print("🎉 Check the output/examples/ directory for results.")
+        print("🎉 Check the outputs/examples/ directory for results.")
     else:
         print("⚠️  SOME EXAMPLES FAILED!")
-        print("🔧 Check the output/examples/ directory for details.")
+        print("🔧 Check the outputs/examples/ directory for details.")
 
     return exit_code
 

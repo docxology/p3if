@@ -11,7 +11,7 @@ from pathlib import Path
 def open_website():
     """Open the P3IF website in the default web browser."""
     # Define the path to the website
-    website_path = Path("output/p3if_full_website.html")
+    website_path = Path("outputs/p3if_full_website.html")
     
     if not website_path.exists():
         print(f"Error: Website file not found at {website_path}")

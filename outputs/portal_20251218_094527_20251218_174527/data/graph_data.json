@@ -1,0 +1,906 @@
+{
+  "nodes": [
+    {
+      "id": "39d73c1a-6ff0-459a-bdd4-c731bcc9b39c",
+      "name": "Machine Learning",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "af4c6ebe-655a-4f3a-85fd-2ac102338ff7",
+      "name": "Neural Networks",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "4a3076b0-e936-481f-b103-95273a88a047",
+      "name": "Natural Language Processing",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "7bd72871-37d2-4299-b65a-04890700abca",
+      "name": "Computer Vision",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "3800a3c3-3f80-4e57-a556-0a9e934df7e8",
+      "name": "Robotics",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "37567f79-a2c8-4ac8-8976-fbf20f7d47f6",
+      "name": "Expert Systems",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "9ddf9670-fd6d-451a-b727-c787df628ff2",
+      "name": "Reinforcement Learning",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "85b3d023-b91a-4e61-9381-872eb389e367",
+      "name": "Explainable AI",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "199a7271-4513-4137-a182-45f3e44fc7ae",
+      "name": "Ethical AI",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "3e981c66-c6b3-4934-9bea-cdbcd9ece03b",
+      "name": "AI Governance",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "418cb0f6-6b24-43cb-a0b4-62118de5e257",
+      "name": "Data Privacy",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "230d0f8d-bff2-4825-b753-77275e9d64d3",
+      "name": "AI Bias",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "6d7ab5da-dd0a-462d-a6ef-3b2917de9e18",
+      "name": "AI Safety",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "dbcfa912-88c5-4641-a6f7-16cbe0656caf",
+      "name": "Quantum AI",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "2075b2e5-5fb9-41bb-b549-c2ff560b61c5",
+      "name": "Edge AI",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "227c72e5-94a5-4b89-bd3a-13d6ebd34cd3",
+      "name": "Federated Learning",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "2049cab7-ba03-4de5-b8b5-27ce046e625d",
+      "name": "Transfer Learning",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "241ffcf0-33c4-4d5d-8502-87eb708d3d92",
+      "name": "Generative AI",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "a1d2fdcf-e5ac-44a8-b1d9-4a459f55de4b",
+      "name": "Autonomous Systems",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "3061215e-20fb-4344-a4eb-10916b6ce0f0",
+      "name": "Human-AI Interaction",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "e887fa3b-8f33-4e55-bc36-946384e8be3f",
+      "name": "Deep Learning",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "ca5c60c9-85bb-4b55-a66e-9cc2ef3da1bb",
+      "name": "Cognitive Computing",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "1767b1d3-9449-4447-b00c-c660bf68d133",
+      "name": "Swarm Intelligence",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "055d344e-2815-4e34-a2be-4c7094296327",
+      "name": "Evolutionary Computation",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "9575ad81-dcad-4bc4-a1cb-336822c35d29",
+      "name": "Fuzzy Logic",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "563b7848-58eb-4b6e-9ec5-42f6a0e99942",
+      "name": "Knowledge Representation",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "e3847e25-1660-4478-8cde-eb4e0146fa5c",
+      "name": "Automated Reasoning",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "cd23ff83-0848-4713-99cb-4d96ea63f3f5",
+      "name": "Speech Recognition",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "dc95c555-b3de-48a3-bdff-297efd388c9a",
+      "name": "Image Processing",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "4a4e99d8-bed0-47bc-a333-5aa40b60d6b9",
+      "name": "Predictive Analytics",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "728dab87-2916-4294-a97e-37266e69662e",
+      "name": "Anomaly Detection",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "1d274e0b-79a8-423a-8cb4-ca45351fdc91",
+      "name": "Recommendation Systems",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "485c629c-305f-4a5a-910b-c4f774a02143",
+      "name": "Sentiment Analysis",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "406b890d-a0fe-41e3-9373-cb3966611556",
+      "name": "Chatbots",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "4417cc98-6735-4d37-a1aa-5ff3178e2dde",
+      "name": "Virtual Assistants",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "41604690-8970-4765-97e1-6d01b18ec82d",
+      "name": "Automated Decision Making",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "eb1d8241-be0f-44ff-8998-e2e53eb88b2c",
+      "name": "AI-Powered Simulation",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "df9c0222-972d-4d84-8f82-92176553244a",
+      "name": "AI in Cybersecurity",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "dc3e45d2-0d7a-45ba-ad46-36815ff1f866",
+      "name": "AI for Scientific Discovery",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "97a06699-4ebe-4bc0-a24e-b3a69c5c0051",
+      "name": "AI in Healthcare",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "2ca8c4c5-6c5a-4ee9-a920-39fbc22281cd",
+      "name": "AI in Finance",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "8b5709ad-e76e-4ec8-b3d1-c052be7ebbe3",
+      "name": "AI in Education",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "8a180d4a-0306-4d87-8bc9-b900c985ad3b",
+      "name": "AI in Manufacturing",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "fca1a33c-a155-4058-915f-34246b6ff904",
+      "name": "AI in Agriculture",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "fc8db750-e8d3-4fb7-ad9f-67e2659e5abe",
+      "name": "AI in Transportation",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "ce18320d-37ed-4a60-a2d9-b3e5122e2029",
+      "name": "AI Ethics",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "d5faf756-b4f4-425b-b6ac-39ec253b06f2",
+      "name": "AI Regulation",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "2d0c1e0c-add1-49d5-a19f-29485b327da5",
+      "name": "AI Transparency",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "3d99568a-28e2-4e10-8b16-f8587de2f949",
+      "name": "AI Accountability",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "36b5a013-b878-477d-9c50-d96690f8356d",
+      "name": "AI Fairness",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "c9fb2705-ab37-4c83-b377-8e840863452f",
+      "name": "AI Robustness",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "53223365-5313-4e98-8811-02a472fc0b52",
+      "name": "AI Scalability",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "7997a6f8-1ff2-44a9-adf0-494bfedb67af",
+      "name": "AI Energy Efficiency",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "0cb27a99-12c1-4e69-8f2b-d4eae9be5ead",
+      "name": "AI Hardware Acceleration",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "a5a70a37-f66a-472b-9c80-278227f4be56",
+      "name": "AI Model Compression",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "45eed164-6774-4d84-9d84-0130f2234630",
+      "name": "Data Collection",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "28a59221-ae76-46d3-a660-3c67039aeb3b",
+      "name": "Data Preprocessing",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "da002fd9-3581-4ff9-8a3c-9045dd85fb46",
+      "name": "Model Training",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "17afb420-9282-4386-a891-c9fce7ae502c",
+      "name": "Model Evaluation",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "20800d49-2950-432d-a5ca-b3eed8ba4661",
+      "name": "Hyperparameter Tuning",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "9af06065-54e8-40d3-aa01-07478232df78",
+      "name": "Feature Engineering",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "de83d08a-3651-4d38-af44-8205ca442a8e",
+      "name": "Algorithm Selection",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "26bf80c3-6771-40fc-84a9-072409e7e8b2",
+      "name": "Deployment",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "054a7f2e-e493-4616-bbb5-707e692035e6",
+      "name": "Monitoring",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "c57a4f41-7fcd-4a08-b765-0297a852771a",
+      "name": "Maintenance",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "b13a9b3d-6247-4dfc-9e53-b27a1c14dff0",
+      "name": "Ethical Review",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "46069e4f-cfd2-4bfb-9ab2-5c65e6621dfc",
+      "name": "Bias Detection",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "1619d105-c322-4f0e-a925-5ded957c1a04",
+      "name": "Privacy Preservation",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "3d4fcf14-a8d2-468d-8f1e-821fdd3f6ce8",
+      "name": "Explainability Analysis",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "95c731e2-6c16-4410-bc9b-107519e7bf27",
+      "name": "Safety Testing",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "4d3ec24b-59c7-47c2-9bc5-1860670a6dd6",
+      "name": "User Interface Design",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "121a92e3-d41a-4d47-b0b6-07c60aecfdbd",
+      "name": "Integration with Existing Systems",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "156e82e3-c2fe-411b-8fd8-248d995bc15b",
+      "name": "Continuous Learning",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "09f612a2-d6d7-43a5-aab2-a6c301bd80d4",
+      "name": "Version Control",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "ac0024e9-d3a7-4395-8d09-213027c0ed4e",
+      "name": "Documentation",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "fa016580-b906-4fae-9d75-aa23bf3f96df",
+      "name": "Data Augmentation",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "26ab7f37-8388-46ef-abf9-af96c92fb17c",
+      "name": "Cross-Validation",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "6a584e9c-4606-41c2-8485-5fd07ab8aed3",
+      "name": "Ensemble Learning",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "c9f8ed1e-faf2-4660-b6d9-ea14da121126",
+      "name": "Transfer Learning",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "22bfbff4-59b5-4a32-9e57-a1126791f9db",
+      "name": "Federated Learning",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "c2a9d9a1-43a9-4953-9e5e-15a77b13fe16",
+      "name": "Model Compression",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "3466971d-bac8-433d-bae6-a91406534ec1",
+      "name": "Hardware Acceleration",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "eaf57118-6642-43bf-a4f6-f56075a1fe71",
+      "name": "Edge Deployment",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "d2b93f6d-7e8d-4417-8d7d-6acea9fafc6f",
+      "name": "Cloud Deployment",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "e6c9c87b-4269-430d-8ed7-1bec3e55377f",
+      "name": "A/B Testing",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "7dbe8148-6530-4db3-ab30-1618d74a1dcc",
+      "name": "Error Analysis",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "0b141d06-6e77-438a-bce7-f1e931ae1d96",
+      "name": "Performance Optimization",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "96641161-3252-451e-af90-96a2db3a4508",
+      "name": "Scalability Testing",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "f189a9b3-d602-40e3-bf9e-a6e58a354021",
+      "name": "Security Auditing",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "6e7774f7-fe1c-493f-8513-bd8c2f5ce741",
+      "name": "Compliance Checking",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "c9b48767-ea79-48b1-8845-101e5a61b098",
+      "name": "Data Visualization",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "5b56cf7a-6d1f-45d2-886a-f452d53702d6",
+      "name": "Interpretability Analysis",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "66abd509-ea22-4b94-a19f-d12d256bc9e3",
+      "name": "Fairness Assessment",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "0bb87523-6709-4d1e-8b05-d0ec136e4373",
+      "name": "Robustness Testing",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "807daae6-5ff9-4529-a72e-4e3586780c71",
+      "name": "Adversarial Testing",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "82f636c6-de75-4e78-aff9-327118239f63",
+      "name": "Energy Efficiency Optimization",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "c8ec2e91-93fb-4536-9b09-1a93fdd97e7d",
+      "name": "Model Versioning",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "1b95560a-ee2e-45f7-81ea-e6aad9af22f7",
+      "name": "Data Pipeline Management",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "a1b2fd68-4905-4674-88f8-fe7544a372d2",
+      "name": "Model Serving",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "e1b4c854-c2c4-4cf8-9ddb-9445ed4b2e17",
+      "name": "Online Learning",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "cb1da304-3d9b-4ad9-8aae-2e72e51522eb",
+      "name": "Reinforcement Learning Training",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "6b25fd3c-1eec-4feb-8462-2207e83cf667",
+      "name": "Generative Model Training",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "13da0f21-f9d2-4013-a725-5091b7021dc6",
+      "name": "Unsupervised Learning",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "06725f04-ed42-46bd-a9c0-b446b28efcae",
+      "name": "Semi-Supervised Learning",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "e2fffdff-33a6-4e68-b217-a28a3372144a",
+      "name": "Active Learning",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "54ba36b4-2adc-443c-bfac-39c1096b4bcd",
+      "name": "AI Researcher",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "0897160c-8cc3-4843-84b0-d94c65385672",
+      "name": "Data Scientist",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "9b0e9b44-de93-4887-ad08-9b645b47aa79",
+      "name": "Machine Learning Engineer",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "7e724c95-8311-49a3-80e6-120cac8072d6",
+      "name": "AI Ethicist",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "d5354b63-e71f-4b81-a453-dd6ddc35642a",
+      "name": "AI Policy Maker",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "c10c3788-96c1-4dab-9070-cfcdedb6b317",
+      "name": "Domain Expert",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "49410c81-72b2-433d-bd46-946f6e9c1f81",
+      "name": "End User",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "53cba73c-ead7-4bc2-a2e4-e389004ecebe",
+      "name": "AI Product Manager",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "7f49b36c-d960-4b58-a1b0-bfd2d81eb513",
+      "name": "AI Safety Specialist",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "c76f864b-c2f0-43a2-b008-ce6eb0332723",
+      "name": "AI Governance Expert",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "9a9b78a2-7b11-400c-af18-5acb0dcb6da9",
+      "name": "AI Educator",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "a3c3c286-8484-46bb-8b41-354a7602e7e8",
+      "name": "AI Entrepreneur",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "c8ccc150-5bc4-4ead-b4d8-5a8bc23d1d46",
+      "name": "AI Investor",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "d2049e9c-45b6-4af3-9b21-cc5af52364a7",
+      "name": "AI Critic",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "390937e6-fdef-430c-a348-7b3943f2dc0c",
+      "name": "AI Rights Advocate",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    }
+  ],
+  "links": [
+    {
+      "source": "ce18320d-37ed-4a60-a2d9-b3e5122e2029",
+      "target": "fa016580-b906-4fae-9d75-aa23bf3f96df",
+      "strength": 0.4456247017810784,
+      "type": "property-process"
+    },
+    {
+      "source": "ce18320d-37ed-4a60-a2d9-b3e5122e2029",
+      "target": "c76f864b-c2f0-43a2-b008-ce6eb0332723",
+      "strength": 0.4456247017810784,
+      "type": "property-perspective"
+    },
+    {
+      "source": "fa016580-b906-4fae-9d75-aa23bf3f96df",
+      "target": "c76f864b-c2f0-43a2-b008-ce6eb0332723",
+      "strength": 0.4456247017810784,
+      "type": "process-perspective"
+    },
+    {
+      "source": "8b5709ad-e76e-4ec8-b3d1-c052be7ebbe3",
+      "target": "eaf57118-6642-43bf-a4f6-f56075a1fe71",
+      "strength": 0.46530904055142497,
+      "type": "property-process"
+    },
+    {
+      "source": "8b5709ad-e76e-4ec8-b3d1-c052be7ebbe3",
+      "target": "c10c3788-96c1-4dab-9070-cfcdedb6b317",
+      "strength": 0.46530904055142497,
+      "type": "property-perspective"
+    },
+    {
+      "source": "eaf57118-6642-43bf-a4f6-f56075a1fe71",
+      "target": "c10c3788-96c1-4dab-9070-cfcdedb6b317",
+      "strength": 0.46530904055142497,
+      "type": "process-perspective"
+    },
+    {
+      "source": "4a3076b0-e936-481f-b103-95273a88a047",
+      "target": "4d3ec24b-59c7-47c2-9bc5-1860670a6dd6",
+      "strength": 0.9807947527729678,
+      "type": "property-process"
+    },
+    {
+      "source": "4a3076b0-e936-481f-b103-95273a88a047",
+      "target": "9b0e9b44-de93-4887-ad08-9b645b47aa79",
+      "strength": 0.9807947527729678,
+      "type": "property-perspective"
+    },
+    {
+      "source": "4d3ec24b-59c7-47c2-9bc5-1860670a6dd6",
+      "target": "9b0e9b44-de93-4887-ad08-9b645b47aa79",
+      "strength": 0.9807947527729678,
+      "type": "process-perspective"
+    },
+    {
+      "source": "2049cab7-ba03-4de5-b8b5-27ce046e625d",
+      "target": "5b56cf7a-6d1f-45d2-886a-f452d53702d6",
+      "strength": 0.4177412123728337,
+      "type": "property-process"
+    },
+    {
+      "source": "2049cab7-ba03-4de5-b8b5-27ce046e625d",
+      "target": "7f49b36c-d960-4b58-a1b0-bfd2d81eb513",
+      "strength": 0.4177412123728337,
+      "type": "property-perspective"
+    },
+    {
+      "source": "5b56cf7a-6d1f-45d2-886a-f452d53702d6",
+      "target": "7f49b36c-d960-4b58-a1b0-bfd2d81eb513",
+      "strength": 0.4177412123728337,
+      "type": "process-perspective"
+    },
+    {
+      "source": "af4c6ebe-655a-4f3a-85fd-2ac102338ff7",
+      "target": "96641161-3252-451e-af90-96a2db3a4508",
+      "strength": 0.12342909467653418,
+      "type": "property-process"
+    },
+    {
+      "source": "af4c6ebe-655a-4f3a-85fd-2ac102338ff7",
+      "target": "c8ccc150-5bc4-4ead-b4d8-5a8bc23d1d46",
+      "strength": 0.12342909467653418,
+      "type": "property-perspective"
+    },
+    {
+      "source": "96641161-3252-451e-af90-96a2db3a4508",
+      "target": "c8ccc150-5bc4-4ead-b4d8-5a8bc23d1d46",
+      "strength": 0.12342909467653418,
+      "type": "process-perspective"
+    },
+    {
+      "source": "2d0c1e0c-add1-49d5-a19f-29485b327da5",
+      "target": "da002fd9-3581-4ff9-8a3c-9045dd85fb46",
+      "strength": 0.2861731171623043,
+      "type": "property-process"
+    },
+    {
+      "source": "2d0c1e0c-add1-49d5-a19f-29485b327da5",
+      "target": "d2049e9c-45b6-4af3-9b21-cc5af52364a7",
+      "strength": 0.2861731171623043,
+      "type": "property-perspective"
+    },
+    {
+      "source": "da002fd9-3581-4ff9-8a3c-9045dd85fb46",
+      "target": "d2049e9c-45b6-4af3-9b21-cc5af52364a7",
+      "strength": 0.2861731171623043,
+      "type": "process-perspective"
+    },
+    {
+      "source": "3d99568a-28e2-4e10-8b16-f8587de2f949",
+      "target": "0bb87523-6709-4d1e-8b05-d0ec136e4373",
+      "strength": 0.781054349836424,
+      "type": "property-process"
+    },
+    {
+      "source": "3d99568a-28e2-4e10-8b16-f8587de2f949",
+      "target": "c10c3788-96c1-4dab-9070-cfcdedb6b317",
+      "strength": 0.781054349836424,
+      "type": "property-perspective"
+    },
+    {
+      "source": "0bb87523-6709-4d1e-8b05-d0ec136e4373",
+      "target": "c10c3788-96c1-4dab-9070-cfcdedb6b317",
+      "strength": 0.781054349836424,
+      "type": "process-perspective"
+    },
+    {
+      "source": "53223365-5313-4e98-8811-02a472fc0b52",
+      "target": "e2fffdff-33a6-4e68-b217-a28a3372144a",
+      "strength": 0.7184865981399701,
+      "type": "property-process"
+    },
+    {
+      "source": "53223365-5313-4e98-8811-02a472fc0b52",
+      "target": "390937e6-fdef-430c-a348-7b3943f2dc0c",
+      "strength": 0.7184865981399701,
+      "type": "property-perspective"
+    },
+    {
+      "source": "e2fffdff-33a6-4e68-b217-a28a3372144a",
+      "target": "390937e6-fdef-430c-a348-7b3943f2dc0c",
+      "strength": 0.7184865981399701,
+      "type": "process-perspective"
+    },
+    {
+      "source": "241ffcf0-33c4-4d5d-8502-87eb708d3d92",
+      "target": "7dbe8148-6530-4db3-ab30-1618d74a1dcc",
+      "strength": 0.9563417222205505,
+      "type": "property-process"
+    },
+    {
+      "source": "241ffcf0-33c4-4d5d-8502-87eb708d3d92",
+      "target": "7f49b36c-d960-4b58-a1b0-bfd2d81eb513",
+      "strength": 0.9563417222205505,
+      "type": "property-perspective"
+    },
+    {
+      "source": "7dbe8148-6530-4db3-ab30-1618d74a1dcc",
+      "target": "7f49b36c-d960-4b58-a1b0-bfd2d81eb513",
+      "strength": 0.9563417222205505,
+      "type": "process-perspective"
+    },
+    {
+      "source": "7997a6f8-1ff2-44a9-adf0-494bfedb67af",
+      "target": "c9b48767-ea79-48b1-8845-101e5a61b098",
+      "strength": 0.2573758896997481,
+      "type": "property-process"
+    },
+    {
+      "source": "7997a6f8-1ff2-44a9-adf0-494bfedb67af",
+      "target": "49410c81-72b2-433d-bd46-946f6e9c1f81",
+      "strength": 0.2573758896997481,
+      "type": "property-perspective"
+    },
+    {
+      "source": "c9b48767-ea79-48b1-8845-101e5a61b098",
+      "target": "49410c81-72b2-433d-bd46-946f6e9c1f81",
+      "strength": 0.2573758896997481,
+      "type": "process-perspective"
+    }
+  ]
+}

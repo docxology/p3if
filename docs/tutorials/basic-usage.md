@@ -157,10 +157,10 @@ graph TD
 
 ```bash
 # Create a multi-domain portal
-python scripts/run_multidomain_portal.py --domains cybersecurity,healthcare --output output/
+python scripts/run_multidomain_portal.py --domains cybersecurity,healthcare --output outputs/
 ```
 
-This creates an interactive portal at `output/index.html`.
+This creates an interactive portal at `outputs/index.html`.
 
 ### Understanding the Portal
 
@@ -271,7 +271,7 @@ python scripts/run_multidomain_portal.py \
   --min-strength 0.6 \
   --layout-algorithm spring \
   --color-scheme dark \
-  --output output/custom/
+  --output outputs/custom/
 ```
 
 ### Color Schemes and Themes
@@ -347,7 +347,7 @@ Create a domain file in JSON format:
 python scripts/load_domain.py --file data/domains/my_custom_domain.json
 
 # Generate visualization for your domain
-python scripts/run_multidomain_portal.py --domains my_custom_domain --output output/
+python scripts/run_multidomain_portal.py --domains my_custom_domain --output outputs/
 ```
 
 ## Step 8: Exporting and Sharing Results

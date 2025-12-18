@@ -4,27 +4,27 @@
 
 P3IF is a sophisticated framework for integrating and visualizing complex data relationships across multiple domains. It provides a flexible, interoperable approach to requirements engineering that bridges gaps between existing methodologies and fosters cross-domain collaboration.
 
-## 🏗️ **Unified Modular Architecture**
+## 🏗️ **Modular Architecture**
 
-The P3IF codebase has been streamlined into a cohesive, modular architecture to enhance maintainability, scalability, and ease of use.
+The P3IF codebase follows a modular architecture for maintainability and scalability.
 
 ### **Core Packages**
-- **`p3if_methods/`** - Core framework, models, analysis, and composition methods.
-- **`p3if_examples/`** - Thin orchestrators demonstrating flexible composition patterns.
-- **`p3if_visualization/`** - Advanced visualization and animation system.
-- **`p3if_tests/`** - Comprehensive test suite with validation framework.
-- **`utils/`** - Shared utility modules for configuration, performance, and storage.
-- **`data/`** - Domain data, importers, exporters, and synthetic data generators.
-- **`website/`** - Web-based portal and interactive methods.
+- **`src/p3if/core/`** - Core framework, models, analysis, composition, and orchestration methods with comprehensive error handling.
+- **`src/p3if/orchestrators/`** - Thin orchestrators demonstrating flexible composition patterns for domain-specific workflows.
+- **`src/p3if/visualization/`** - Advanced visualization and animation system with static, interactive, and portal-based approaches.
+- **`src/p3if/utils/`** - Shared utility modules for configuration, performance monitoring, logging, and storage.
+- **`src/p3if/data/`** - Domain data management, importers, exporters, and synthetic data generators.
+- **`tests/`** - Comprehensive test suite with unit, integration, and visualization tests.
+- **`website/`** - Web-based portal and interactive methods with API endpoints.
 
 ### **Key Capabilities**
 - **🔗 Framework Multiplexing** - Dynamic composition of multiple frameworks.
 - **🎭 Thin Orchestrators** - Lightweight, reusable workflow patterns.
-- **🎨 Advanced Visualization** - 3D animations, interactive portals, and multi-domain analysis.
-- **🧪 Comprehensive Testing** - A unified test suite ensures reliability.
-- **⚡ Performance Optimization** - Caching, concurrency, and memory management.
-- **🔬 Enhanced Validation** - Comprehensive validation framework with constraint checking.
-- **📊 Performance Monitoring** - Real-time performance tracking and optimization.
+- **🎨 Visualization** - 3D animations, interactive portals, and multi-domain analysis.
+- **🧪 Testing** - Unified test suite ensures reliability.
+- **⚡ Performance** - Caching, concurrency, and memory management.
+- **🔬 Validation** - Validation framework with constraint checking.
+- **📊 Monitoring** - Real-time performance tracking.
 - **🔧 Framework Integration** - Multi-framework composition and conflict resolution.
 
 ### **Architecture Overview**
@@ -38,40 +38,45 @@ graph TD
 
     subgraph "Application Layer"
         API[P3IF API Layer]
-        Examples[p3if_examples]
+        Examples[examples/]
     end
 
     subgraph "Core Logic"
-        Methods[p3if_methods]
-        Visualization[p3if_visualization]
+        Core[src/p3if/core/]
+        Viz[src/p3if/visualization/]
+        Orch[src/p3if/orchestrators/]
     end
 
     subgraph "Data & Utilities"
-        Data[data]
-        Utils[utils]
+        Data[src/p3if/data/]
+        Utils[src/p3if/utils/]
     end
 
     subgraph "Testing"
-        Tests[p3if_tests]
+        Tests[tests/]
     end
 
     User --> CLI
     User --> Portal
     CLI --> API
     Portal --> API
-    
-    API --> Examples
-    API --> Methods
-    API --> Visualization
 
-    Examples --> Methods
-    Visualization --> Methods
-    Methods --> Data
-    Methods --> Utils
-    
-    Tests --> Methods
-    Tests --> Visualization
-    Tests --> Examples
+    API --> Examples
+    API --> Core
+    API --> Viz
+
+    Examples --> Core
+    Examples --> Orch
+    Examples --> Viz
+
+    Orch --> Core
+    Viz --> Core
+    Core --> Data
+    Core --> Utils
+
+    Tests --> Core
+    Tests --> Viz
+    Tests --> Orch
 ```
 
 ## Quick Start
@@ -81,9 +86,8 @@ graph TD
 git clone https://github.com/yourusername/p3if.git
 cd p3if
 
-# Install dependencies
-pip install -r requirements.txt
-pip install .
+# Install with modern packaging
+pip install -e .
 
 # Option 1: Use the interactive terminal (recommended)
 ./interactive_terminal.sh
@@ -106,33 +110,47 @@ python3 scripts/run_complete_p3if_pipeline.py
 
 ## Project Structure
 
-P3IF follows a clean, modular architecture with clear separation of concerns:
+P3IF 2.0 follows a modern `src/` layout with unified namespace:
 
 ```
-├── p3if_methods/          # Core framework methods and models
-│   ├── core.py            # Enhanced core operations with validation
-│   ├── composition.py     # Framework composition and integration
-│   ├── dimensions.py      # Property, Process, Perspective managers
-│   ├── orchestration.py   # Thin orchestrators and workflow engine
-│   ├── validation.py      # Enhanced validation framework
-│   ├── caching.py         # Performance optimization and caching
-│   ├── framework.py       # Main P3IFFramework class
-│   ├── models.py          # Pydantic data models with validation
-│   └── analysis/          # Analysis tools and pattern recognition
-├── p3if_examples/         # Thin orchestrator examples
-│   ├── cognitive_security_orchestrator.py    # Information pipeline security
-│   ├── framework_integration_orchestrator.py # Multi-framework integration
-│   ├── healthcare_domain_orchestrator.py     # Healthcare domain analysis
-│   └── integration_examples.py               # Comprehensive integration examples
-├── p3if_visualization/    # Advanced visualization system
-│   ├── base.py            # Base visualizer classes
-│   ├── interactive.py      # Interactive visualization engine
-│   ├── interactive_3d.py  # 3D visualization components
-│   ├── animated_dimensions.py # Animation and dimension visualization
-│   ├── portal.py          # Multi-domain portal generation
-│   ├── multi_domain_portal.py # Multi-domain analysis portal
-│   ├── orchestrator.py    # Visualization orchestration
-│   ├── network.py         # Network graph visualizations
+├── src/p3if/              # Main package
+│   ├── core/              # Core framework methods and models
+│   │   ├── core.py        # Core operations with custom exceptions
+│   │   ├── composition.py # Framework composition and integration
+│   │   ├── dimensions.py  # Property, Process, Perspective managers
+│   │   ├── orchestration.py # Thin orchestrators and workflow engine
+│   │   ├── validation.py  # Validation framework
+│   │   ├── caching.py     # Performance optimization and caching
+│   │   ├── framework.py   # Main P3IFFramework class
+│   │   ├── models.py      # Pydantic data models
+│   │   ├── exceptions.py  # Custom exception classes
+│   │   └── analysis/      # Analysis tools and pattern recognition
+│   ├── orchestrators/     # Thin orchestrator examples
+│   │   ├── cognitive_security.py    # Information pipeline security
+│   │   ├── framework_integration.py # Multi-framework integration
+│   │   ├── healthcare_domain.py     # Healthcare domain analysis
+│   │   └── integration_examples.py  # Integration examples
+│   ├── visualization/     # Advanced visualization system
+│   │   ├── base.py        # Base visualizer classes
+│   │   ├── interactive/   # Interactive 3D visualizations
+│   │   ├── static/        # Static chart and graph generators
+│   │   ├── animated/      # Animation and sequence generation
+│   │   └── portals/       # Web portal and dashboard systems
+│   ├── utils/             # Shared utility modules
+│   │   ├── config.py      # Configuration management
+│   │   ├── logging.py     # Unified logging system
+│   │   ├── performance.py # Performance monitoring
+│   │   ├── storage.py     # Data persistence
+│   │   └── json.py        # JSON utilities
+│   └── data/              # Data management
+│       ├── domains.py     # Domain data management
+│       ├── importers.py   # Data import utilities
+│       ├── exporters.py   # Data export utilities
+│       └── synthetic.py   # Synthetic data generation
+├── tests/                 # Test suite
+│   ├── unit/              # Unit tests
+│   ├── integration/       # Integration tests
+│   └── visualization/     # Visualization tests
 │   ├── matrix.py          # Matrix visualization engine
 │   ├── cube_visualizations.py # 3D cube visualization generators
 │   ├── list_visualizations.py # List-based visualizations
@@ -144,25 +162,45 @@ P3IF follows a clean, modular architecture with clear separation of concerns:
 │   └── dashboard.py       # Dashboard generation
 ├── p3if_tests/           # Comprehensive test suite
 │   ├── core/             # Core framework tests
-│   ├── test_core.py      # Enhanced core functionality tests
-│   ├── test_composition.py # Composition and multiplexing tests
-│   ├── test_validation.py # Validation framework tests
-│   ├── utils.py          # Test utilities and fixtures
-│   ├── run_all_tests.py  # Comprehensive test runner
-│   └── visualization/    # Visualization system tests
-├── utils/                # Shared utility modules
-│   ├── config.py         # Configuration management
-│   ├── json.py           # JSON utilities with P3IF encoders
-│   ├── output_organizer.py # Output organization and metadata
-│   ├── performance.py    # Performance monitoring and optimization
-│   └── storage.py        # Data storage interfaces and implementations
-├── data/                 # Domain data and generators
-│   ├── domains/          # Domain-specific data files
-│   ├── synthetic.py      # Enhanced synthetic data generation
-│   ├── importers.py      # Data import utilities
-│   ├── exporters.py      # Data export utilities
-│   └── domains.py        # Domain management
+├── tests/                 # Comprehensive test suite
+│   ├── unit/             # Unit tests for core functionality
+│   ├── integration/      # Integration tests
+│   ├── visualization/    # Visualization system tests
+│   ├── conftest.py       # Pytest configuration and fixtures
+│   └── run_all_tests.py  # Test runner
+├── examples/             # Usage examples and demonstrations
+├── data/                 # Domain data files
+│   └── domains/          # Domain-specific data files
 ├── website/              # Web portal and API
+
+## Python Usage
+
+```python
+from p3if import P3IFFramework, Property, Process, Perspective
+from p3if.core import P3IFCore
+from p3if.orchestrators import CognitiveSecurityOrchestrator
+from p3if.visualization import InteractiveVisualizer
+
+# Create framework
+framework = P3IFFramework()
+
+# Add patterns
+prop = Property(name="Security", domain="cybersecurity")
+proc = Process(name="Authentication", domain="cybersecurity")
+persp = Perspective(name="Technical", domain="cybersecurity", viewpoint="developer")
+
+framework.add_pattern(prop)
+framework.add_pattern(proc)
+framework.add_pattern(persp)
+
+# Use orchestrators
+orchestrator = CognitiveSecurityOrchestrator()
+results = orchestrator.execute_analysis()
+
+# Create visualizations
+viz = InteractiveVisualizer(framework)
+viz.generate_3d_cube_html("output/cube.html")
+```
 │   ├── app.py           # Main Flask application
 │   ├── routes/          # API routes and endpoints
 │   ├── static/          # Static assets (CSS, JS, images)

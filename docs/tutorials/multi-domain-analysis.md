@@ -35,7 +35,7 @@ This command:
 
 ## Step 2: Explore Cross-Domain Connections
 
-Open the generated portal at `output/index.html` and follow these steps:
+Open the generated portal at `outputs/index.html` and follow these steps:
 
 1. **Select "All Domains"** from the domain dropdown
 2. **Switch to the Network View** to visualize cross-domain connections
@@ -68,7 +68,7 @@ from p3if.analysis.patterns import PatternAnalyzer
 
 # Load the framework data
 framework = P3IFFramework()
-framework.load_data("output/data/framework_data.json")
+framework.load_data("outputs/data/framework_data.json")
 
 # Create a pattern analyzer
 analyzer = PatternAnalyzer(framework)
@@ -117,7 +117,7 @@ from p3if.visualization.heatmap import HeatmapGenerator
 
 # Load the framework data
 framework = P3IFFramework()
-framework.load_data("output/data/framework_data.json")
+framework.load_data("outputs/data/framework_data.json")
 
 # Create a cross-domain analyzer
 analyzer = CrossDomainAnalyzer(framework)
@@ -134,7 +134,7 @@ heatmap = HeatmapGenerator()
 heatmap.generate(
     data=similarity_matrix,
     title="Domain Similarity Heatmap",
-    output_file="output/visualizations/domain_similarity.html"
+    output_file="outputs/visualizations/domain_similarity.html"
 )
 
 # Find potential domain translations
@@ -182,7 +182,7 @@ from p3if.analysis.mapping import DomainMapper
 
 # Load the framework data
 framework = P3IFFramework()
-framework.load_data("output/data/framework_data.json")
+framework.load_data("outputs/data/framework_data.json")
 
 # Create a domain mapper
 mapper = DomainMapper(framework)
@@ -209,7 +209,7 @@ custom_mappings = [
 mapper.apply_custom_mappings(custom_mappings)
 
 # Save the updated framework
-framework.save_data("output/data/framework_data_mapped.json")
+framework.save_data("outputs/data/framework_data_mapped.json")
 ```
 
 This code allows you to define custom mappings between entities in different domains, enhancing the cross-domain analysis capabilities.
@@ -226,9 +226,9 @@ import datetime
 
 # Load multiple framework snapshots
 snapshots = {
-    "2022-01": P3IFFramework().load_data("output/data/framework_2022_01.json"),
-    "2022-06": P3IFFramework().load_data("output/data/framework_2022_06.json"),
-    "2023-01": P3IFFramework().load_data("output/data/framework_2023_01.json")
+    "2022-01": P3IFFramework().load_data("outputs/data/framework_2022_01.json"),
+    "2022-06": P3IFFramework().load_data("outputs/data/framework_2022_06.json"),
+    "2023-01": P3IFFramework().load_data("outputs/data/framework_2023_01.json")
 }
 
 # Create a temporal analyzer

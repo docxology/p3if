@@ -93,7 +93,7 @@ When generating tests:
 
 1. Create unit tests for each new function or class
 2. Include both nominal (expected) cases and edge cases
-3. Mock external dependencies to isolate the unit being tested
+3. Use real P3IF methods and classes. For external dependencies, use pytest.skip if unavailable
 4. Use parameterized tests for multiple test cases
 5. Follow the same directory structure in `tests/` as in the source code
 

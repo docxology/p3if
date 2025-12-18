@@ -24,7 +24,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler(f'output/complete_pipeline_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log'),
+        logging.FileHandler(f'outputs/complete_pipeline_{datetime.now().strftime("%Y%m%d_%H%M%S")}.log'),
         logging.StreamHandler(sys.stdout)
     ]
 )
@@ -180,7 +180,7 @@ class P3IFPipelineRunner:
 
             f.write("### 📁 Output Directory Structure\n\n")
             f.write("```\n")
-            f.write("output/\n")
+            f.write("outputs/\n")
             f.write("├── examples/                    # Orchestrator results\n")
             f.write("│   ├── examples_results.json    # Detailed execution data\n")
             f.write("│   └── examples_summary.md      # Human-readable summary\n")
@@ -327,7 +327,7 @@ class P3IFPipelineRunner:
         logger.info("🎉 COMPLETE P3IF PIPELINE EXECUTION FINISHED!")
         logger.info(f"⏱️  Total Duration: {duration}")
         logger.info(f"📊 Session ID: {self.session_id}")
-        logger.info("📁 Check output/ directory for all generated content")
+        logger.info("📁 Check outputs/ directory for all generated content")
         return True
 
 

@@ -2,7 +2,7 @@
 """
 P3IF Website Runner - Stable Version
 
-This script starts the P3IF website with improved stability by ignoring 
+This script starts the P3IF website with stability by ignoring 
 most project files to prevent constant restarting.
 """
 

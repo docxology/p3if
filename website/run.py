@@ -2,7 +2,7 @@
 """
 P3IF Website Runner
 
-This script starts the P3IF website with improved startup information
+This script starts the P3IF website with startup information
 and handles shutdown more gracefully.
 """
 

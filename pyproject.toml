@@ -1,0 +1,80 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "p3if"
+version = "2.0.0"
+description = "Properties, Processes, and Perspectives Inter-Framework"
+readme = "README.md"
+requires-python = ">=3.8"
+license = {text = "MIT"}
+authors = [
+    {name = "P3IF Contributors"}
+]
+keywords = ["framework", "meta-framework", "requirements", "analysis", "visualization"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    "numpy>=1.26.0",
+    "pandas>=2.2.2",
+    "matplotlib>=3.7.0",
+    "plotly>=5.14.0",
+    "networkx>=3.0",
+    "pydantic>=2.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=4.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.0",
+    "ruff>=0.1.0",
+]
+visualization = [
+    "plotly>=5.14.0",
+    "kaleido>=0.2.0",
+]
+web = [
+    "flask>=3.0.0",
+    "flask-cors>=4.0.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/yourusername/p3if"
+Documentation = "https://p3if.readthedocs.io"
+Repository = "https://github.com/yourusername/p3if"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+p3if = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+
+[tool.black]
+line-length = 100
+target-version = ['py38', 'py39', 'py310', 'py311']
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
+
+
+
+
+

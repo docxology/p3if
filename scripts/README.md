@@ -86,9 +86,9 @@ python3 scripts/validate_documentation_accuracy.py
 ## Output Locations
 
 All scripts generate outputs in organized directories:
-- **Test Results**: `output/tests/` - Test reports, coverage, logs
-- **Example Results**: `output/examples/` - Example execution outputs
-- **Visualizations**: `output/visualizations/` - PNG, GIF, HTML outputs
+- **Test Results**: `outputs/tests/` - Test reports, coverage, logs
+- **Example Results**: `outputs/examples/` - Example execution outputs
+- **Visualizations**: `outputs/visualizations/` - PNG, GIF, HTML outputs
 - **Documentation**: `docs/` - Generated documentation and reports
 - **Logs**: `logs/` - Execution logs and error reports
 

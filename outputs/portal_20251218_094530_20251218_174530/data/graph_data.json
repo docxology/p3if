@@ -1,0 +1,3090 @@
+{
+  "nodes": [
+    {
+      "id": "dcc121ca-7d99-4d5f-b03b-edf58a42a92c",
+      "name": "Machine Learning",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "6153567e-3faa-4970-bbf6-098807a5893a",
+      "name": "Neural Networks",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "87259f54-7393-4935-99c0-c737498345f0",
+      "name": "Natural Language Processing",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "d22986b5-c302-4830-bd39-e6f16fa12432",
+      "name": "Computer Vision",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "c11abaf5-c685-41a7-9e53-314c29d9f4ab",
+      "name": "Robotics",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "faa542d4-b01d-4265-82f7-a413f9a8fe01",
+      "name": "Expert Systems",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "2d005afe-b9ee-412e-ac3c-7451c2958ae6",
+      "name": "Reinforcement Learning",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "74451ba0-d54a-41f5-9fa5-62a673eb576a",
+      "name": "Explainable AI",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "40e79553-d67b-443e-9668-d37450e3597c",
+      "name": "Ethical AI",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "2a4d2399-bd81-4c11-b3f9-4d9356d5eb89",
+      "name": "AI Governance",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "b59748df-9e3e-4526-9a07-f5d1d5d29e0c",
+      "name": "Data Privacy",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "98e184c4-5bbe-47b3-9dae-7980e7eb9d03",
+      "name": "AI Bias",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "0acf904e-fe97-4297-bfa6-285cfea68f2d",
+      "name": "AI Safety",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "16ad7411-e768-4f44-8061-311e09c19bd5",
+      "name": "Quantum AI",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "8695bdc3-f64e-400b-b3bd-540a3f0d6151",
+      "name": "Edge AI",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "2ca9bd36-b14b-4a54-8079-e18801e95487",
+      "name": "Federated Learning",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "58678843-9757-4069-9ffe-40a39bd287ad",
+      "name": "Transfer Learning",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "c57c6e8d-74fd-417e-bdc0-ec753f122627",
+      "name": "Generative AI",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "3b6b2aca-005f-4e4d-9ade-fe4ed61a29ba",
+      "name": "Autonomous Systems",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "ffb3d878-8da3-4ba2-8f45-e61c393dd857",
+      "name": "Human-AI Interaction",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "a530be9a-4c15-45c0-a0cf-7409120b0d14",
+      "name": "Deep Learning",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "2f6b8826-a222-47cf-81c2-a5211d907287",
+      "name": "Cognitive Computing",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "b55fd996-e38c-40e6-8a99-cdc13f8095f8",
+      "name": "Swarm Intelligence",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "43d6b0bc-a887-4381-9731-fd0e1affae85",
+      "name": "Evolutionary Computation",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "56281a54-d45b-442d-8b49-320c3b43faa1",
+      "name": "Fuzzy Logic",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "d63a3a4e-b3b3-4560-9ad1-5995c4c3e396",
+      "name": "Knowledge Representation",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "3fa3246c-fb82-4f33-8c4d-14a0e5911e07",
+      "name": "Automated Reasoning",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "8d852c83-a14e-48c7-97e9-05b11e83cbdb",
+      "name": "Speech Recognition",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "6f9da2ae-a65d-4e01-9c6e-e9257306e68c",
+      "name": "Image Processing",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "d5a76ad7-e23a-49fb-8078-beaa689d7eb3",
+      "name": "Predictive Analytics",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "a95ba88f-492b-4213-a4de-579e883d2802",
+      "name": "Anomaly Detection",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "57d905a3-0921-4980-93d3-b75c833a8f0d",
+      "name": "Recommendation Systems",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "9edf6619-03e1-4fbb-8548-6854994edd11",
+      "name": "Sentiment Analysis",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "4ed31792-289a-4fd7-939f-601ae9bf684e",
+      "name": "Chatbots",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "b9e3e7d1-c392-47e0-801c-da9ba8340a5e",
+      "name": "Virtual Assistants",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "92d73b6e-9735-4173-a544-ca60a8d8998e",
+      "name": "Automated Decision Making",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "4b257e90-f9c4-448b-a2b0-75b0459cbe98",
+      "name": "AI-Powered Simulation",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "ac276673-ba1f-4203-bcfa-d5fbf5609975",
+      "name": "AI in Cybersecurity",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "0c69907e-9fe5-464d-825d-54a997cf32b1",
+      "name": "AI for Scientific Discovery",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "cc984a80-57c2-4416-aea3-518edc75b186",
+      "name": "AI in Healthcare",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "2204a9ec-5aae-4e84-8f75-4462f630872f",
+      "name": "AI in Finance",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "6f185a4f-95ae-4dd1-8de3-307e656e4df6",
+      "name": "AI in Education",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "9c022c5a-caa8-4976-8654-d93c487afa2c",
+      "name": "AI in Manufacturing",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "baa42956-fed5-44bd-8518-ea08e77f0830",
+      "name": "AI in Agriculture",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "68471388-8fe5-49dc-ab91-5963b960e46b",
+      "name": "AI in Transportation",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "6f5c6757-dff8-47e9-84eb-39bfce60ed94",
+      "name": "AI Ethics",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "6670b185-7c32-4662-9354-fae0609ed23e",
+      "name": "AI Regulation",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "77ced206-b2db-449d-b712-a45ca9d55a37",
+      "name": "AI Transparency",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "03a57be9-85f8-4e51-b23a-f1183dee0c11",
+      "name": "AI Accountability",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "76b6cb66-4077-46ce-a55b-b9f02f617f88",
+      "name": "AI Fairness",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "7c543ad9-840e-4854-abb0-516a12447426",
+      "name": "AI Robustness",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "2cc58a80-d3c6-4bb6-b479-b42294aca35d",
+      "name": "AI Scalability",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "0a6ee814-bb27-4c0d-bfc2-c524670fa547",
+      "name": "AI Energy Efficiency",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "20ffd027-2d9a-4952-addc-a8b3829a7b3f",
+      "name": "AI Hardware Acceleration",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "74cd868e-76a9-40ff-8f37-2bf123314c99",
+      "name": "AI Model Compression",
+      "type": "property",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "0a6bb2dd-b702-4867-8439-277160d5e467",
+      "name": "Data Collection",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "facaa6cf-b906-453f-82fc-3f2ba6919ada",
+      "name": "Data Preprocessing",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "f85ae8f2-f398-444d-b3c4-c46533c2b000",
+      "name": "Model Training",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "70811dce-2ab4-437b-8b97-618b0c9e122f",
+      "name": "Model Evaluation",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "247539a4-d91a-4628-b367-20d4cdcd067f",
+      "name": "Hyperparameter Tuning",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "715a3998-9c4d-4a03-97b1-496543511785",
+      "name": "Feature Engineering",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "433cb806-fdd6-4d9c-969c-57729f8068a2",
+      "name": "Algorithm Selection",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "39b9ef3e-6d9b-4801-b3e5-2ece68caf0b6",
+      "name": "Deployment",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "b5f1dac3-f23f-4733-b44c-0cb1d867165b",
+      "name": "Monitoring",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "eba173f0-a63a-4ede-acc1-bc0bf36d1aff",
+      "name": "Maintenance",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "6fa6581e-08be-482d-9b17-b7fac4e6e39d",
+      "name": "Ethical Review",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "f62b7c19-f815-495f-8f25-efcee3aa99de",
+      "name": "Bias Detection",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "a23623bd-edcb-4ef7-9d79-70fa43b78cb1",
+      "name": "Privacy Preservation",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "aed42067-a4a1-4769-b832-549aeb2cab87",
+      "name": "Explainability Analysis",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "4d159748-3126-45c0-9b4c-67e573a92112",
+      "name": "Safety Testing",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "ac92bc58-8e9c-4908-af8c-224497011871",
+      "name": "User Interface Design",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "8fe2d825-4427-4a81-9b90-4b0a1702fee8",
+      "name": "Integration with Existing Systems",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "448389c0-f5c7-4b58-854e-13f7f344b47d",
+      "name": "Continuous Learning",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "81faa3d0-0338-4ef1-8679-df8a7af850e5",
+      "name": "Version Control",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "b809a368-4665-4a56-92c1-17e0f4c8457f",
+      "name": "Documentation",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "9c63d1a6-8247-4628-b0c0-e53d3251fdb0",
+      "name": "Data Augmentation",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "5d83df4b-e3b8-4f8d-a08d-3a2febafaf52",
+      "name": "Cross-Validation",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "5866c269-f1b5-407f-bd7a-743f3ebb548a",
+      "name": "Ensemble Learning",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "1e420fce-f7d2-41d8-8df0-5a12d163065a",
+      "name": "Transfer Learning",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "81ce3eae-b772-4da4-9f95-8bca0da51480",
+      "name": "Federated Learning",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "accc1560-7720-4192-9fe0-12b251404d5d",
+      "name": "Model Compression",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "d7c96cd1-f290-4b7f-94e3-7d4e06e7ba76",
+      "name": "Hardware Acceleration",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "e181e627-4dc5-483d-b360-4bfbf616b885",
+      "name": "Edge Deployment",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "1a60c9a8-f721-441e-9551-e2b171caaf65",
+      "name": "Cloud Deployment",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "c8190283-44bf-409a-a469-d3e6ce675c80",
+      "name": "A/B Testing",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "e291a81d-d509-4e25-bfcf-2d8185701975",
+      "name": "Error Analysis",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "d99c19b4-ca43-4304-aef8-01461d7e00c1",
+      "name": "Performance Optimization",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "2c0e82dc-d044-4676-9bac-224c084d936b",
+      "name": "Scalability Testing",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "4f5e33ea-08c0-408d-be31-dbdbd631464b",
+      "name": "Security Auditing",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "b565d1f4-b585-45a5-a965-35afffe0ad38",
+      "name": "Compliance Checking",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "05dc3589-8826-49b9-a86e-61d4c7dc1b4f",
+      "name": "Data Visualization",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "b38191e2-147e-4086-ae28-1e8cde77e29b",
+      "name": "Interpretability Analysis",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "53a2771a-e20e-4e42-badc-a50446756644",
+      "name": "Fairness Assessment",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "7e412126-e4f9-40d8-8df0-a06c09168a19",
+      "name": "Robustness Testing",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "c3a01774-a6da-4c98-9c32-612e9e0e2a39",
+      "name": "Adversarial Testing",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "f7ec92e8-d9e6-4a26-b082-34999ed96161",
+      "name": "Energy Efficiency Optimization",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "4f15be96-6fc1-4426-bb2c-15463265d3d9",
+      "name": "Model Versioning",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "ba04b14e-0416-444d-b8a2-b922be08c233",
+      "name": "Data Pipeline Management",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "770d5ec5-b8ff-4c49-9cea-d9363364e659",
+      "name": "Model Serving",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "3fc81f44-119c-4b35-a8bd-35be9de841b3",
+      "name": "Online Learning",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "924fab5f-3aee-433e-8119-458c2f3166b2",
+      "name": "Reinforcement Learning Training",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "dc77c665-372d-4db5-8d0e-4846bc60bf64",
+      "name": "Generative Model Training",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "bea8ffd3-fad0-429b-95ad-56597bff56c3",
+      "name": "Unsupervised Learning",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "d24d0c7a-d943-4b34-b34b-14b011228322",
+      "name": "Semi-Supervised Learning",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "3e695fde-8c72-4ff6-9814-986b5a9af438",
+      "name": "Active Learning",
+      "type": "process",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "2b75023e-a502-48e8-b9d4-d30806987043",
+      "name": "AI Researcher",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "bb6fb646-e142-400b-9d20-0934e62de364",
+      "name": "Data Scientist",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "63028a13-8377-4308-950d-9a42e6e2accd",
+      "name": "Machine Learning Engineer",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "e3ef6cb6-8dbc-47da-9f33-d2bc598cc58d",
+      "name": "AI Ethicist",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "2a347b5e-eb3c-474c-b6f2-d7faf36e8be0",
+      "name": "AI Policy Maker",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "cb8206f2-31a2-44fd-9cdc-8490f0d5a6bb",
+      "name": "Domain Expert",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "78fa9474-77e4-4a2a-8d44-182196df4d2d",
+      "name": "End User",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "7e8470e2-fdcf-4ef6-8cf3-903e7fd403dc",
+      "name": "AI Product Manager",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "f77e1e16-558e-4a4a-aa20-107af162054b",
+      "name": "AI Safety Specialist",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "2dac398f-b84d-4623-8aec-f89e563436cd",
+      "name": "AI Governance Expert",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "30fb835f-23ed-4b6e-8262-e4ba0c5915f5",
+      "name": "AI Educator",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "e9f1ca80-8beb-4d4b-b0cb-b5da24309911",
+      "name": "AI Entrepreneur",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "21b7bf3d-e8cc-4a1e-82ec-9bff3329d7df",
+      "name": "AI Investor",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "8fe1a7f6-a31d-4251-8614-fa5afe0e5edf",
+      "name": "AI Critic",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "27a99f6e-e290-452f-a52d-d65199f943d6",
+      "name": "AI Rights Advocate",
+      "type": "perspective",
+      "domain": "ArtificialIntelligence"
+    },
+    {
+      "id": "d1e4abd6-2a60-48e3-bd84-3590884ef876",
+      "name": "Patient Safety",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "013c24c4-6ec5-4f61-9330-b8085fe50348",
+      "name": "Data Privacy",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "b83a2097-38c8-48fd-8790-4f6e0abccfce",
+      "name": "Treatment Efficacy",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "81fc69cb-0157-4f4e-9fd1-3dc090dc3b4d",
+      "name": "Cost Effectiveness",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "6ad2c2e1-b61a-41b9-bfb7-2f07e52d825c",
+      "name": "Accessibility",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "a185f057-3f25-4902-bf2e-9c03f66166c1",
+      "name": "Interoperability",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "1b4996d7-c65c-435d-87d3-aebb8965d84b",
+      "name": "Regulatory Compliance",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "946c733e-8c01-4c8e-9747-8e35745ee1e3",
+      "name": "Patient Satisfaction",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "08bd4d60-dc55-49e4-a78f-007a66ed7f8f",
+      "name": "Staff Efficiency",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "4b10fe59-7544-4d5d-98cc-cf258dbcb67b",
+      "name": "Equipment Reliability",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "2240c9fc-3ce4-4de3-a559-ad6bc8dafe3f",
+      "name": "Infection Control",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "88fad663-06c2-48bb-a5aa-4dd8799f0e37",
+      "name": "Medication Accuracy",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "21669579-6d87-4e73-892b-ca75717387bd",
+      "name": "Diagnostic Precision",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "52cfcee3-7130-4901-abd4-06ee69ffb255",
+      "name": "Emergency Readiness",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "0fe5ff95-7fe7-4398-aac0-b503ae173002",
+      "name": "Continuity of Care",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "6d92a5a4-6b39-4b0e-9479-06ccbf65f221",
+      "name": "Informed Consent",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "65d65189-4af8-4786-b39a-36f9ab35d9df",
+      "name": "Cultural Competence",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "c07a1541-0789-4aeb-b19f-b74361017f15",
+      "name": "Ethical Practice",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "d371f6a9-0471-4573-b484-09cf24bdea42",
+      "name": "Evidence-Based Care",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "29c89359-ddba-4ef7-b000-91dee11c17c0",
+      "name": "Patient Empowerment",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "2d491294-6ebe-4b1b-850f-253d3386093d",
+      "name": "Preventive Care",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "e1fbc943-6285-475d-9809-a752e659a997",
+      "name": "Chronic Disease Management",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "d9ec4b3c-0bb1-4d07-bf24-a9c3d1e87f5b",
+      "name": "Pain Management",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "70ba1f3e-47d3-4141-abe5-f5723b3a00c7",
+      "name": "End-of-Life Care",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "7053d116-e7bb-41aa-9660-ceb3f1d39164",
+      "name": "Mental Health Integration",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "c00c01c4-47f8-4764-b26d-3c526a7856f8",
+      "name": "Telemedicine Capability",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "4958e921-2d79-4a90-b98c-15e61807fb08",
+      "name": "Health Literacy",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "c6cb6e4c-69c2-4cb0-ac8a-d097322666fe",
+      "name": "Patient Engagement",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "85b6f5a7-61b3-4907-8369-7c839e08faa5",
+      "name": "Care Coordination",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "58eb1a92-ee78-470e-a335-782ca2f93f4f",
+      "name": "Quality Assurance",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "3e21c8cb-2567-4629-ae28-71170ba24dd5",
+      "name": "Resource Allocation",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "266ba0fe-f39f-415a-ab8d-722c696d97fa",
+      "name": "Staff Competency",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "3a103878-21d4-4fc7-9305-d4dab8a91ab2",
+      "name": "Technology Integration",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "c4b10f0c-d0d3-4edb-aa21-a44e7a6bd797",
+      "name": "Patient Rights",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "d09b8b75-9fb1-4d00-8e92-9abfd3d0c195",
+      "name": "Environmental Safety",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "e23f5dfe-5a9e-46dc-a4d8-fd899b879ad2",
+      "name": "Nutritional Care",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "5c4c7e5e-fbc1-403d-a632-f2cd26862709",
+      "name": "Rehabilitation Services",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "2f3b6c65-309a-4890-b1ea-e049439624ba",
+      "name": "Pharmaceutical Management",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "41467914-8ed4-4e22-bed6-f43da6b9d658",
+      "name": "Genetic Testing",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "23d0afe8-d86c-4d41-b4c0-cf6ea2678116",
+      "name": "Personalized Medicine",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "75702860-df3b-4952-a253-2d209ae9081d",
+      "name": "Palliative Care",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "fc1a5d74-f317-4fa3-8f82-b871bc836c63",
+      "name": "Organ Donation",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "ae1d9742-9976-4e96-8d0d-5c690afd0c8f",
+      "name": "Blood Safety",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "b7bafb10-87b4-4816-b544-916206628972",
+      "name": "Radiation Safety",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "be8a2b66-ca47-492b-bf53-f775c0b874f7",
+      "name": "Waste Management",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "c0b7ebf5-5693-4811-a85c-82c09ba9684f",
+      "name": "Disaster Preparedness",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "0c43c3c8-8689-43cf-a04e-adc20624292b",
+      "name": "Community Outreach",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "ff059834-1727-4285-97eb-8a095a4d661b",
+      "name": "Research Ethics",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "da0aff1d-8cf4-4191-8a08-0f05a82454a9",
+      "name": "Medical Education",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "899514b8-4924-46ea-a64a-809ae0372944",
+      "name": "Patient Advocacy",
+      "type": "property",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "8e84ad1a-2f1a-47c5-8d28-708185097154",
+      "name": "Patient Registration",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "b47744ce-5265-4cb0-bad8-63ca65336499",
+      "name": "Triage",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "d79de42d-eea1-49f6-a84c-80fc9ec44610",
+      "name": "Diagnosis",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "1858c494-37ae-48cb-8f4e-e901bc6b1ac3",
+      "name": "Treatment Planning",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "1363657e-3f65-474d-815b-aa6662c656e4",
+      "name": "Medication Administration",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "64b1b434-5fb4-4425-8e44-7f9b02845929",
+      "name": "Surgery",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "03955d47-41e3-4594-8364-e18b87ed9c5e",
+      "name": "Laboratory Testing",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "481ef195-cfe4-4c8f-b918-eb2704a12a43",
+      "name": "Imaging",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "8c7bbb6b-be09-4400-9357-be8c74dc23c3",
+      "name": "Patient Monitoring",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "a17c66bd-0770-4450-bc75-efd8394eac11",
+      "name": "Discharge Planning",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "4df2448b-52e4-48b2-a85f-cddc60fbb6a9",
+      "name": "Follow-up Care",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "38f092ed-1903-4475-a2d7-02d4cc966a2a",
+      "name": "Referral Management",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "1762d476-e579-4bdc-bc0e-da4af36e443a",
+      "name": "Emergency Response",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "2f2893b7-001c-4953-acea-e07a6b4aeb08",
+      "name": "Infection Prevention",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "4f6d50e3-b5e7-4e64-a7b1-294bea6f56b8",
+      "name": "Quality Assurance",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "c10357c6-4796-4eb9-bf8c-0f505d7aa08b",
+      "name": "Staff Training",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "862369f3-3ffd-42fb-a4d2-4741b53b543c",
+      "name": "Medical Records Management",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "d7bca76f-20ff-46f0-8cb1-33f2d7168d65",
+      "name": "Inventory Management",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "66fe809f-fbd9-4d8c-b6d8-f24ff26465de",
+      "name": "Billing and Coding",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "6a25718f-a403-4135-8aac-8f370e30c4d3",
+      "name": "Insurance Verification",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "96de5bae-7b14-4bc3-bf48-ee45a88e871c",
+      "name": "Appointment Scheduling",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "2abc25dc-5ab8-4e3a-8728-13485ebfe596",
+      "name": "Patient Education",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "84f3ab26-a955-49cc-a90a-ca5bc4522094",
+      "name": "Consent Obtaining",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "b1bf76c3-44d7-425a-b4d6-decaf1d2e8cf",
+      "name": "Care Coordination",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "5e4c9a23-792d-4f3c-9e06-9ff2d8e1b4a4",
+      "name": "Risk Assessment",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "e3bfe6c3-0e0c-4a04-9870-d28a4cfe5a11",
+      "name": "Clinical Trials",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "2dd054bf-a697-42be-a65b-40e1e03d74a5",
+      "name": "Telemedicine Consultation",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "709ffb16-6857-41bd-a2f7-2dcdb5503d11",
+      "name": "Prescription Management",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "00b560dd-1497-492c-a2b9-a2bf0d0c2e69",
+      "name": "Rehabilitation",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "2420ac8f-2e5f-48df-a9aa-601e231dae2d",
+      "name": "Palliative Care",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "01b1343e-5672-4567-9b3e-662b020dc4f6",
+      "name": "Mental Health Assessment",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "c90ec0f3-98ef-4f5a-9b4e-55101660c1d4",
+      "name": "Nutritional Assessment",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "0a21dfc2-3b9a-49e9-b5f7-80708d3b00ac",
+      "name": "Pain Management",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "11d0bf29-6592-4ff8-8f66-f5611052eaee",
+      "name": "Health Screening",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "9e15e3c2-decb-453e-8919-0b8fbeb67aa4",
+      "name": "Immunization",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "af8bc84b-c891-493a-abe0-a3065c03b2bc",
+      "name": "Genetic Counseling",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "ad92f64f-61ce-45b4-aee2-ccd820f435bd",
+      "name": "Organ Transplantation",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "ec82dba6-e411-48c0-96bf-28efbc8e0075",
+      "name": "Blood Transfusion",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "0719e265-f7af-488e-bc76-c81889ed8032",
+      "name": "Radiation Therapy",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "f93635c8-658b-4436-b1ec-4e7f648adef2",
+      "name": "Chemotherapy",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "c0dc2efd-6b93-49c1-8bde-ca2288cd3f47",
+      "name": "Physical Therapy",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "2d948680-cffb-42b2-a9e9-dd8c46d383de",
+      "name": "Occupational Therapy",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "dd0b21cb-9e9e-4f3e-87be-14616b43a874",
+      "name": "Speech Therapy",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "6f818564-2a7f-4b09-8e8b-45a4a37d2a12",
+      "name": "Respiratory Therapy",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "d1a0bc53-7f0e-44d2-97ec-9406cd4bfe3b",
+      "name": "Dialysis",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "60b0c808-603e-4c90-8c68-7661dd547273",
+      "name": "Wound Care",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "99e59b53-d113-456f-afde-c7018484527e",
+      "name": "Anesthesia Administration",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "1137955a-098d-4a11-aa42-7ecb64944071",
+      "name": "Patient Transport",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "550b0ea1-7b4a-4bcf-8c79-24fed076b948",
+      "name": "Sterilization",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "dc3da374-10cb-43bc-b030-cf2e8fbcd799",
+      "name": "Waste Disposal",
+      "type": "process",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "151f75f3-803a-4a0a-b624-ebce30546c49",
+      "name": "Patient",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "c293d177-6f12-496f-a8a9-da8a88dbe62a",
+      "name": "Physician",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "6bb9e25b-67ec-4c57-9c57-43c902d75045",
+      "name": "Nurse",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "3e1b0a12-0ef0-4f4c-8862-40151aeef7f0",
+      "name": "Administrator",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "b132caa1-41c8-400b-9b84-299cab36c7cb",
+      "name": "Insurer",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "4405942e-b4c6-4795-8dad-4b4261e7c1d7",
+      "name": "Regulator",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "5cdbaeb8-8610-4a54-ae5f-42e7b2e348cf",
+      "name": "Researcher",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "0f38c255-9b09-4b4f-bec6-c62e10d8bdcc",
+      "name": "Pharmacist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "19d78a4a-4278-42c8-8244-caad096faf15",
+      "name": "Technician",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "ff2da267-0770-413d-af1a-976061f006f1",
+      "name": "Caregiver",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "34afcca2-4521-4385-82a7-86c298d43c3c",
+      "name": "Public Health Official",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "5eeb1cd6-dce1-45d1-9a50-e86e89531565",
+      "name": "Ethicist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "637d97da-f918-4a85-8842-c2e4c59d5a14",
+      "name": "Legal Counsel",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "a3d81b5d-8d57-4ae6-ae7d-f1ad5db0dbb7",
+      "name": "Financial Analyst",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "93aa6681-0452-4807-9ba8-b2fcda1ce9cb",
+      "name": "IT Specialist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "0b683906-0736-41cc-8150-7f47823f7272",
+      "name": "Social Worker",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "dff51505-5dde-455a-85d6-f0fde0c5d965",
+      "name": "Psychologist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "515a1251-105f-4b0c-b70a-6ce7c4f0ae62",
+      "name": "Nutritionist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "efa08f6c-d4b0-4d4f-95eb-34648ae947a5",
+      "name": "Physical Therapist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "5357e64b-e2e3-4305-b2bc-c2f21d4d3e59",
+      "name": "Occupational Therapist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "af04cf17-d249-41f2-ae92-d6082cfe3765",
+      "name": "Speech Therapist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "02b22aa4-f0e5-432a-b1af-1df05e0b2db5",
+      "name": "Radiologist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "cd12b583-740b-487e-8096-ec558616d233",
+      "name": "Surgeon",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "d5f74899-630b-417a-a5d7-d70dd5c14ed8",
+      "name": "Anesthesiologist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "85e77cb2-f149-45d0-a7fc-ee568cb8c011",
+      "name": "Emergency Medical Technician",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "ae42e306-23f7-4a55-a64c-12630b4fdfd6",
+      "name": "Laboratory Technician",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "957cbedc-819e-4e57-b813-d44adbaebdb8",
+      "name": "Pathologist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "ff73e492-9776-4361-895d-3e3b6726d338",
+      "name": "Geneticist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "00d3072f-b4a8-43ee-a334-3728ada2dc30",
+      "name": "Oncologist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "e22521e5-a563-4827-9058-db3eb2d03bd2",
+      "name": "Pediatrician",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "b42ac7c0-1b78-4c47-a84f-59ed36cc35be",
+      "name": "Geriatrician",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "8aa66f35-d3d1-4e07-8e30-759addc1d83f",
+      "name": "Psychiatrist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "35807fea-1f34-4efe-a499-fb029cf5dd17",
+      "name": "Neurologist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "997123f6-b177-4175-85b7-ffea8588dca5",
+      "name": "Cardiologist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "c8076d8b-5fa0-44dc-a6a0-eb2ede936ad4",
+      "name": "Endocrinologist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "2c89b32d-a983-40b4-9c77-273291b76926",
+      "name": "Dermatologist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "2eb8d56f-c1ae-4df9-8fdf-c846ebc893ee",
+      "name": "Ophthalmologist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "4b4ae809-10d3-4e83-9d7f-a8dec272cde4",
+      "name": "Dentist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "0ff1c44b-26ba-45fc-8bae-769f97c006e6",
+      "name": "Pharmacologist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "d6385e5c-3bc7-4280-a294-f0da2218424e",
+      "name": "Biomedical Engineer",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "f63c1fdd-d75d-4164-a111-a127a35ef30f",
+      "name": "Health Economist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "3f2d1460-db67-4343-a8c2-3635e5a7f422",
+      "name": "Epidemiologist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "6c37baf2-dbca-41d1-8a43-74dc4540316a",
+      "name": "Biostatistician",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "77975e60-9e3d-43fb-ab88-931e1081fa9d",
+      "name": "Medical Illustrator",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "6297ee44-9d8c-45b2-a814-69b8698b6f1c",
+      "name": "Health Educator",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "933602df-3880-4012-aee2-de6086ca69a8",
+      "name": "Patient Advocate",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "eb469f6f-7588-42e7-9301-c879f3622df1",
+      "name": "Hospital Chaplain",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "757e5883-2b9e-4d81-bf38-5ea149b02e7a",
+      "name": "Risk Manager",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "d5f09152-5a7e-44be-84d4-b778de742f24",
+      "name": "Quality Improvement Specialist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "55a29c5c-e3f3-4f6d-8606-8905cca1fc89",
+      "name": "Infection Control Specialist",
+      "type": "perspective",
+      "domain": "HealthCare"
+    },
+    {
+      "id": "4883d7a9-cac0-4410-bfd3-3a9e8ce3f3c9",
+      "name": "Decentralization",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "96cc39b4-5ac7-4173-be0b-ee1a267fb7d4",
+      "name": "Transparency",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "b5c3874c-6ae8-4e95-83d7-e3e69a5115ff",
+      "name": "Immutability",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "9d21fca1-4e7f-4053-9bd5-8d364e7916d6",
+      "name": "Security",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "b8708e32-7485-44d2-9873-67dda4d655e8",
+      "name": "Consensus",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "86dcba17-3e04-4cef-8cef-0861bbf85d29",
+      "name": "Cryptography",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "451fd619-2fb7-4d3a-b2f2-8a64127026d4",
+      "name": "Scalability",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "aed32f92-5284-4549-9de2-acb6a987a516",
+      "name": "Interoperability",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "0101e5d9-565e-4a7d-bb97-883c62e8c827",
+      "name": "Privacy",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "93bbf7ec-07e2-400f-93bd-dc5c2440ed20",
+      "name": "Smart Contract Functionality",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "d0543612-9833-4aea-9796-1201f7bec61a",
+      "name": "Energy Efficiency",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "23f26fb9-1ffa-4ad1-9634-ddb3fbb6cf5e",
+      "name": "Transaction Speed",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "9aad510f-345f-4a37-a4c3-693330c5391d",
+      "name": "Governance",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "d890119a-ca16-4bb9-8574-ef173b7bd463",
+      "name": "Tokenization",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "83cb3239-fd2f-4fc2-9b74-d88c78030a7a",
+      "name": "Auditability",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "766d689f-4d44-4886-a4ce-87ed87fab8df",
+      "name": "Fault Tolerance",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "8424e89b-26f9-4728-85d6-de6b0e2b6469",
+      "name": "Anonymity",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "8a361d34-2ba4-4714-a38e-0efc640f0777",
+      "name": "Programmability",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "f27c2720-a6f1-4d70-a344-350e655ba60b",
+      "name": "Finality",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "b6552b90-8f54-4896-ad54-76f03c3c08ba",
+      "name": "Determinism",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "bcb54c1d-d941-442c-9eb1-3da31125f767",
+      "name": "Latency",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "bec2448c-dc1a-42ae-8bfb-1b1a1ebed004",
+      "name": "Throughput",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "04aba231-4822-4a42-8f80-29dddf43167b",
+      "name": "Network Effect",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "8571250f-4bf5-49fb-9b54-05d716131368",
+      "name": "Incentive Mechanism",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "3e7f862c-1d6f-4642-8769-6c15a67054f9",
+      "name": "Adaptability",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "d99da901-a03d-44ab-8568-c96214b6373c",
+      "name": "Compliance",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "641b8907-c1f1-41e4-9d74-97d0c979d423",
+      "name": "Upgradability",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "4ffa19a6-afd5-4585-b1af-3579c5cbdd8f",
+      "name": "Quantum Resistance",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "683619d6-abae-410f-bc22-1dd8ae494837",
+      "name": "Cross-Chain Communication",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "545f9cd8-209e-42ef-8cc0-cdd340df8593",
+      "name": "Data Integrity",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "4b25e39d-da23-4d7a-b9ca-8dd50a5bc96e",
+      "name": "Accessibility",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "7514c3bb-c606-4793-b0b4-a5025b4b5ed6",
+      "name": "Usability",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "543a6864-d611-4c07-aea8-babb7575a67f",
+      "name": "Reversibility",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "7b89925c-3808-4527-ab04-3a57490b26f6",
+      "name": "Sustainability",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "a04db0f8-ae2a-4664-97c4-cc6542fe7102",
+      "name": "Resilience",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "f533d0ab-5ba5-42e4-b7b7-876ed7a7d6e7",
+      "name": "Composability",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "a9c89b9f-8124-4129-a4e3-04b8a6d24616",
+      "name": "Liquidity",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "105e2dba-9750-4ac1-95f4-dfbc96183416",
+      "name": "Atomicity",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "5794ca01-c603-42f4-b30c-007b0b544732",
+      "name": "Consistency",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "49752b08-b4f5-42d9-8d75-21e0d8a12228",
+      "name": "Isolation",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "92dcf0b8-4bae-49f0-8bc0-74aea3ce2ab0",
+      "name": "Durability",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "effd7ff4-3015-413d-af9f-0eb3100cadb7",
+      "name": "Sharding",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "d4b370a7-ee5a-44a4-8fbc-8871a222e78e",
+      "name": "Staking",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "8eab7c66-05e1-415e-aa21-db5dc05552dc",
+      "name": "Mining Efficiency",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "7f738dbb-067f-4f77-a642-8b0f1182576c",
+      "name": "Forking Resistance",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "73bd2418-ce11-4e59-aa9e-1a6c7e4e0cee",
+      "name": "Censorship Resistance",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "55add67d-370f-43cd-9fc5-70b0e52a7f81",
+      "name": "Permissionless Nature",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "f481fe4a-dc02-489a-becd-d0178908336f",
+      "name": "Trustlessness",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "734a84dc-1508-4819-9680-73389b971b4d",
+      "name": "Verifiability",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "a1a39f2e-548d-4b96-bf6e-ea0b0712b773",
+      "name": "Portability",
+      "type": "property",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "15b837ae-d698-4f47-afe1-f26d573d53eb",
+      "name": "Transaction Validation",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "7c668753-fba0-4b11-8916-886b9c6cde7b",
+      "name": "Block Creation",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "9e4bb2fb-12f8-4dc9-8878-9b97a2bcbb4e",
+      "name": "Consensus Mechanism",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "8551bf05-9895-4490-b0c1-6410ad2eda2f",
+      "name": "Mining",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "a6a8034c-b583-4ebc-a22b-31aab3c8d0ce",
+      "name": "Staking",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "96bc7857-036c-491e-9ee2-d9bc92b6864a",
+      "name": "Smart Contract Execution",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "c7143e13-a3da-43de-b3f0-33876dd3788e",
+      "name": "Wallet Management",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "587be03c-72dc-45ab-ac52-1067b7603c2f",
+      "name": "Key Generation",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "e96f7a04-71d2-4477-b83c-e00300ad9de6",
+      "name": "Signature Verification",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "77647cfb-46d1-41ea-8708-33b1cb188395",
+      "name": "Hashing",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "b69df173-28bd-4d8c-bdea-45bd005684da",
+      "name": "Node Synchronization",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "67929a46-39f1-434a-acb4-2013574b1fd8",
+      "name": "Network Propagation",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "dbea5291-fbe7-42f9-9b45-fec6d8e3b4e1",
+      "name": "Fork Resolution",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "a1a3447b-be92-4c20-8ee2-1e4e41b6c6c5",
+      "name": "Chain Reorganization",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "0cdf0ac0-f42d-41ff-beec-b983751f941b",
+      "name": "Merkle Tree Construction",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "0b6f452f-ba6f-4f9e-9d43-32a7f14fed0b",
+      "name": "Address Generation",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "f9ab29df-bffc-4e6b-a820-80c05734587d",
+      "name": "Token Minting",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "95ca77c9-fcbd-40c8-aa37-0efab3f16c17",
+      "name": "Token Burning",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "42b1364e-757d-4da5-8112-5337a0aeda67",
+      "name": "Gas Fee Calculation",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "7bfa8131-302c-41bb-85f5-30e0f274405c",
+      "name": "State Transition",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "79bbe8d3-928a-43b2-bac1-fdc053e22ad9",
+      "name": "Sharding",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "c26d1736-b5c5-4373-94f4-e99dcb620d47",
+      "name": "Layer 2 Scaling",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "ae22f108-7e8d-4d3b-8899-b08b5318e236",
+      "name": "Cross-Chain Transfer",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "46ac3d77-53f0-4f52-b261-749c633da5ee",
+      "name": "Atomic Swap",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "0100d9ba-ea2b-459c-ad48-00146592f57a",
+      "name": "Governance Voting",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "f51b0caa-be78-4800-b095-74a89bd965dc",
+      "name": "Oracle Data Feeding",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "2ce13fd3-ccdb-49cb-9c97-100c553105e6",
+      "name": "Identity Verification",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "d6185254-714a-46c3-9747-7f1ef13ee8d5",
+      "name": "Tokenization",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "0197dd3b-66f7-45e8-9890-9d009c7d23a1",
+      "name": "Initial Coin Offering",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "d674b18e-eaaa-47c0-a379-11819654e7d2",
+      "name": "Airdrop",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "6fd5d72f-1d0a-4d5a-9fa4-c1d304a7053b",
+      "name": "Yield Farming",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "27284e14-d037-4dec-ad6a-c0bfa1af0e1b",
+      "name": "Liquidity Provision",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "4817d1e3-82c2-464f-a672-16e3f6d25274",
+      "name": "Decentralized Exchange",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "e78e57ff-c091-4e18-bf8c-c77b89c2b057",
+      "name": "Lending and Borrowing",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "1f5bb376-05bd-4473-814e-098667960602",
+      "name": "Insurance Claim Processing",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "fe628850-f714-4bef-aee9-b0bef5e6c190",
+      "name": "Non-Fungible Token (NFT) Creation",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "61254518-ab99-4218-8dbb-f3c446b609c3",
+      "name": "Decentralized Autonomous Organization (DAO) Operation",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "5186d209-7aa5-4e67-8452-8102eb9050c1",
+      "name": "Stablecoin Pegging",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "bfadf244-09dd-4bd9-bc40-873f4001d8ae",
+      "name": "Privacy Preservation",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "ec04e3a0-d134-4818-8186-884a82536602",
+      "name": "Zero-Knowledge Proof Generation",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "8d2f0801-708e-4be4-80ec-cb1cb980848e",
+      "name": "Sidechain Operation",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "43a17ea3-c215-4ca0-a705-82a0c5efd0da",
+      "name": "Interoperability Protocol",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "7165e648-faf5-43d6-ac7b-90c07b3d0ebf",
+      "name": "Blockchain Indexing",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "675eccc8-d2c3-47c2-a3f3-47075d14ecf5",
+      "name": "Block Explorer Operation",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "8b9fe15c-34a8-4b7e-9fee-765648ad3ac1",
+      "name": "Hard Fork Implementation",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "b4bf6d32-832f-4b0a-94e0-5319612d6933",
+      "name": "Soft Fork Implementation",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "e913e6a6-6b39-48c8-9af6-ab0ff8c1c889",
+      "name": "Node Discovery",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "44350865-f593-4c32-8fbe-f973379d0d1e",
+      "name": "Peer-to-Peer Communication",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "610c35b5-1bcf-44cf-9351-96f5d57b6524",
+      "name": "Mempool Management",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "a728d278-fd46-415e-b070-e7b9675148a7",
+      "name": "Chain Analysis",
+      "type": "process",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "e47c6d88-8608-4caa-9ab0-894b79dd0f9e",
+      "name": "Developer",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "a737c504-d063-4041-8032-0744416be5db",
+      "name": "Miner",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "ca17b7e4-2f80-4e69-b2ca-ad0865d4e533",
+      "name": "Node Operator",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "278a9492-8abd-47d6-b058-f0b1d6f966c0",
+      "name": "Token Holder",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "6eee88b0-5191-450f-b7c8-49ca411074e9",
+      "name": "Smart Contract Auditor",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "58605a8a-1391-4b09-b5f9-acf2a52b9797",
+      "name": "Regulator",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "71497e30-ee11-4bde-b73b-9ba457f32ff3",
+      "name": "Investor",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "67634a24-7338-45e1-9eb8-6b17441ed600",
+      "name": "Exchange Operator",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "d1117a13-0947-4ff9-8e6c-8de29ae19765",
+      "name": "Blockchain Analyst",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "f2bd9469-6810-41df-8f38-7334e06f41ab",
+      "name": "Cryptographer",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "74896b5c-270b-47df-801e-54146b076a76",
+      "name": "Economist",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "b091abc2-444f-47f3-b521-5f48a890adba",
+      "name": "Legal Expert",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "775d2be3-2c7d-43a1-94f1-baad859dfd4f",
+      "name": "Privacy Advocate",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "5c814598-4e9e-4e3f-8346-710e350f00be",
+      "name": "Security Researcher",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "09d91d00-7503-4ab5-9e33-abcf801fea82",
+      "name": "User Experience Designer",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "e6a91a10-6ac8-4e50-a9bd-5f9267a4dac6",
+      "name": "Enterprise Adopter",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "073c756f-c765-4052-9a9c-d61ac01e9806",
+      "name": "Central Bank",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "63d96368-0dc7-4507-893a-188e474b8ad7",
+      "name": "Decentralized Finance (DeFi) User",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "669f4f8b-7723-493c-b847-5081488ed85a",
+      "name": "NFT Artist",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "7b4d08fb-717f-4847-bba6-298f2c819257",
+      "name": "Governance Participant",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "f5e35ea1-e348-480c-bf2f-faf357387884",
+      "name": "Protocol Designer",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "47e403a5-051a-4f5e-a7e3-48b5d4a8dbfc",
+      "name": "Blockchain Architect",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "726244ea-6396-48a5-b83b-e1e6a2f4d52f",
+      "name": "Consensus Algorithm Researcher",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "007861cf-cc69-4062-928b-1b6cdbcf811a",
+      "name": "Cryptoeconomist",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "256a4beb-4282-473c-aeac-1a2ae3d2ae39",
+      "name": "Blockchain Educator",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "166cadf9-b118-4770-8a6c-7d38bda4807c",
+      "name": "Blockchain Journalist",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "ff0d398f-f2f8-42fc-a468-26a2cb5e0ddd",
+      "name": "Venture Capitalist",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "896bc437-14dd-463f-9abb-81c1439748a2",
+      "name": "Blockchain Consultant",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "983f4732-8055-4d38-b8b2-60500df31992",
+      "name": "Compliance Officer",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "8082f698-ce31-4383-a8a6-f669353a5e2a",
+      "name": "Blockchain Ethicist",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "defd1a83-1b45-4632-9c71-4fdefc6e4c22",
+      "name": "Blockchain Governance Specialist",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "6b25323d-c28d-44d8-be68-2ddf55c8ec93",
+      "name": "Tokenomics Expert",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "ef117426-fa95-4a9d-8b70-172a2d6e62dd",
+      "name": "Blockchain Data Scientist",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "6f23bc0b-182a-4134-ba7a-5404e53b6107",
+      "name": "Smart Contract Developer",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "aedab8cd-4d33-458b-837f-99e406f6d35c",
+      "name": "Blockchain Infrastructure Provider",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "7cd34b3e-7909-4cf3-b7ad-2cf23a0ba621",
+      "name": "Blockchain Marketing Specialist",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "3c57b1ea-25a3-4d31-ad20-88a48082a3a2",
+      "name": "Blockchain Community Manager",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "8a975b21-e039-4a38-804a-5abbc1414e7f",
+      "name": "Blockchain Product Manager",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "54bbdc7a-cfb9-4ada-aa27-ad14e744731f",
+      "name": "Blockchain UI/UX Designer",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "e6a2176f-32fb-490b-bcaa-b117aac424ca",
+      "name": "Blockchain Quality Assurance Tester",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "714cd69c-30ef-49f0-8fd9-4643ce68564f",
+      "name": "Blockchain Integration Specialist",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "0b7e811d-89c3-43ec-b99f-2492ef74df0d",
+      "name": "Blockchain Security Auditor",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "78d75ff7-bbd8-4bc6-bf4f-009f57ab13d9",
+      "name": "Blockchain Scalability Researcher",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "e46705d0-8f31-4c21-9deb-efda09dc4369",
+      "name": "Blockchain Interoperability Specialist",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "2df67763-4dcd-4de8-9f64-99e8e48e8786",
+      "name": "Blockchain Sustainability Expert",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "de55be88-33b2-4b1d-b679-479bfd664abf",
+      "name": "Blockchain Policy Advisor",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "9a2815cf-4998-4971-b14e-e9dac12309c1",
+      "name": "Blockchain Social Impact Specialist",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "a1b70fc8-5132-4db3-a102-fd9d165ad998",
+      "name": "Blockchain Identity Management Expert",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "6354c3b9-4b55-411d-acc0-163e3e4b4373",
+      "name": "Blockchain Privacy Researcher",
+      "type": "perspective",
+      "domain": "Blockchain"
+    },
+    {
+      "id": "11506e15-86a2-4f2a-bf92-c049be36e7e9",
+      "name": "Blockchain Forensics Analyst",
+      "type": "perspective",
+      "domain": "Blockchain"
+    }
+  ],
+  "links": [
+    {
+      "source": "d5a76ad7-e23a-49fb-8078-beaa689d7eb3",
+      "target": "eba173f0-a63a-4ede-acc1-bc0bf36d1aff",
+      "strength": 0.3320473463872192,
+      "type": "property-process"
+    },
+    {
+      "source": "d5a76ad7-e23a-49fb-8078-beaa689d7eb3",
+      "target": "63028a13-8377-4308-950d-9a42e6e2accd",
+      "strength": 0.3320473463872192,
+      "type": "property-perspective"
+    },
+    {
+      "source": "eba173f0-a63a-4ede-acc1-bc0bf36d1aff",
+      "target": "63028a13-8377-4308-950d-9a42e6e2accd",
+      "strength": 0.3320473463872192,
+      "type": "process-perspective"
+    },
+    {
+      "source": "b59748df-9e3e-4526-9a07-f5d1d5d29e0c",
+      "target": "81ce3eae-b772-4da4-9f95-8bca0da51480",
+      "strength": 0.9871456378851658,
+      "type": "property-process"
+    },
+    {
+      "source": "b59748df-9e3e-4526-9a07-f5d1d5d29e0c",
+      "target": "30fb835f-23ed-4b6e-8262-e4ba0c5915f5",
+      "strength": 0.9871456378851658,
+      "type": "property-perspective"
+    },
+    {
+      "source": "81ce3eae-b772-4da4-9f95-8bca0da51480",
+      "target": "30fb835f-23ed-4b6e-8262-e4ba0c5915f5",
+      "strength": 0.9871456378851658,
+      "type": "process-perspective"
+    },
+    {
+      "source": "03a57be9-85f8-4e51-b23a-f1183dee0c11",
+      "target": "facaa6cf-b906-453f-82fc-3f2ba6919ada",
+      "strength": 0.164978251149015,
+      "type": "property-process"
+    },
+    {
+      "source": "03a57be9-85f8-4e51-b23a-f1183dee0c11",
+      "target": "7e8470e2-fdcf-4ef6-8cf3-903e7fd403dc",
+      "strength": 0.164978251149015,
+      "type": "property-perspective"
+    },
+    {
+      "source": "facaa6cf-b906-453f-82fc-3f2ba6919ada",
+      "target": "7e8470e2-fdcf-4ef6-8cf3-903e7fd403dc",
+      "strength": 0.164978251149015,
+      "type": "process-perspective"
+    },
+    {
+      "source": "b59748df-9e3e-4526-9a07-f5d1d5d29e0c",
+      "target": "9c63d1a6-8247-4628-b0c0-e53d3251fdb0",
+      "strength": 0.5597739971866083,
+      "type": "property-process"
+    },
+    {
+      "source": "b59748df-9e3e-4526-9a07-f5d1d5d29e0c",
+      "target": "63028a13-8377-4308-950d-9a42e6e2accd",
+      "strength": 0.5597739971866083,
+      "type": "property-perspective"
+    },
+    {
+      "source": "9c63d1a6-8247-4628-b0c0-e53d3251fdb0",
+      "target": "63028a13-8377-4308-950d-9a42e6e2accd",
+      "strength": 0.5597739971866083,
+      "type": "process-perspective"
+    },
+    {
+      "source": "6670b185-7c32-4662-9354-fae0609ed23e",
+      "target": "9c63d1a6-8247-4628-b0c0-e53d3251fdb0",
+      "strength": 0.5286410148592473,
+      "type": "property-process"
+    },
+    {
+      "source": "6670b185-7c32-4662-9354-fae0609ed23e",
+      "target": "2a347b5e-eb3c-474c-b6f2-d7faf36e8be0",
+      "strength": 0.5286410148592473,
+      "type": "property-perspective"
+    },
+    {
+      "source": "9c63d1a6-8247-4628-b0c0-e53d3251fdb0",
+      "target": "2a347b5e-eb3c-474c-b6f2-d7faf36e8be0",
+      "strength": 0.5286410148592473,
+      "type": "process-perspective"
+    },
+    {
+      "source": "cc984a80-57c2-4416-aea3-518edc75b186",
+      "target": "5866c269-f1b5-407f-bd7a-743f3ebb548a",
+      "strength": 0.5024409474797035,
+      "type": "property-process"
+    },
+    {
+      "source": "cc984a80-57c2-4416-aea3-518edc75b186",
+      "target": "e3ef6cb6-8dbc-47da-9f33-d2bc598cc58d",
+      "strength": 0.5024409474797035,
+      "type": "property-perspective"
+    },
+    {
+      "source": "5866c269-f1b5-407f-bd7a-743f3ebb548a",
+      "target": "e3ef6cb6-8dbc-47da-9f33-d2bc598cc58d",
+      "strength": 0.5024409474797035,
+      "type": "process-perspective"
+    },
+    {
+      "source": "c11abaf5-c685-41a7-9e53-314c29d9f4ab",
+      "target": "b38191e2-147e-4086-ae28-1e8cde77e29b",
+      "strength": 0.20629114771740809,
+      "type": "property-process"
+    },
+    {
+      "source": "c11abaf5-c685-41a7-9e53-314c29d9f4ab",
+      "target": "2dac398f-b84d-4623-8aec-f89e563436cd",
+      "strength": 0.20629114771740809,
+      "type": "property-perspective"
+    },
+    {
+      "source": "b38191e2-147e-4086-ae28-1e8cde77e29b",
+      "target": "2dac398f-b84d-4623-8aec-f89e563436cd",
+      "strength": 0.20629114771740809,
+      "type": "process-perspective"
+    },
+    {
+      "source": "9edf6619-03e1-4fbb-8548-6854994edd11",
+      "target": "81ce3eae-b772-4da4-9f95-8bca0da51480",
+      "strength": 0.6757137817208011,
+      "type": "property-process"
+    },
+    {
+      "source": "9edf6619-03e1-4fbb-8548-6854994edd11",
+      "target": "8fe1a7f6-a31d-4251-8614-fa5afe0e5edf",
+      "strength": 0.6757137817208011,
+      "type": "property-perspective"
+    },
+    {
+      "source": "81ce3eae-b772-4da4-9f95-8bca0da51480",
+      "target": "8fe1a7f6-a31d-4251-8614-fa5afe0e5edf",
+      "strength": 0.6757137817208011,
+      "type": "process-perspective"
+    },
+    {
+      "source": "76b6cb66-4077-46ce-a55b-b9f02f617f88",
+      "target": "53a2771a-e20e-4e42-badc-a50446756644",
+      "strength": 0.620463726049944,
+      "type": "property-process"
+    },
+    {
+      "source": "76b6cb66-4077-46ce-a55b-b9f02f617f88",
+      "target": "21b7bf3d-e8cc-4a1e-82ec-9bff3329d7df",
+      "strength": 0.620463726049944,
+      "type": "property-perspective"
+    },
+    {
+      "source": "53a2771a-e20e-4e42-badc-a50446756644",
+      "target": "21b7bf3d-e8cc-4a1e-82ec-9bff3329d7df",
+      "strength": 0.620463726049944,
+      "type": "process-perspective"
+    },
+    {
+      "source": "faa542d4-b01d-4265-82f7-a413f9a8fe01",
+      "target": "eba173f0-a63a-4ede-acc1-bc0bf36d1aff",
+      "strength": 0.35964643454918976,
+      "type": "property-process"
+    },
+    {
+      "source": "faa542d4-b01d-4265-82f7-a413f9a8fe01",
+      "target": "30fb835f-23ed-4b6e-8262-e4ba0c5915f5",
+      "strength": 0.35964643454918976,
+      "type": "property-perspective"
+    },
+    {
+      "source": "eba173f0-a63a-4ede-acc1-bc0bf36d1aff",
+      "target": "30fb835f-23ed-4b6e-8262-e4ba0c5915f5",
+      "strength": 0.35964643454918976,
+      "type": "process-perspective"
+    },
+    {
+      "source": "a185f057-3f25-4902-bf2e-9c03f66166c1",
+      "target": "d79de42d-eea1-49f6-a84c-80fc9ec44610",
+      "strength": 0.5658298060190154,
+      "type": "property-process"
+    },
+    {
+      "source": "a185f057-3f25-4902-bf2e-9c03f66166c1",
+      "target": "00d3072f-b4a8-43ee-a334-3728ada2dc30",
+      "strength": 0.5658298060190154,
+      "type": "property-perspective"
+    },
+    {
+      "source": "d79de42d-eea1-49f6-a84c-80fc9ec44610",
+      "target": "00d3072f-b4a8-43ee-a334-3728ada2dc30",
+      "strength": 0.5658298060190154,
+      "type": "process-perspective"
+    },
+    {
+      "source": "0fe5ff95-7fe7-4398-aac0-b503ae173002",
+      "target": "c90ec0f3-98ef-4f5a-9b4e-55101660c1d4",
+      "strength": 0.27239815670303535,
+      "type": "property-process"
+    },
+    {
+      "source": "0fe5ff95-7fe7-4398-aac0-b503ae173002",
+      "target": "a3d81b5d-8d57-4ae6-ae7d-f1ad5db0dbb7",
+      "strength": 0.27239815670303535,
+      "type": "property-perspective"
+    },
+    {
+      "source": "c90ec0f3-98ef-4f5a-9b4e-55101660c1d4",
+      "target": "a3d81b5d-8d57-4ae6-ae7d-f1ad5db0dbb7",
+      "strength": 0.27239815670303535,
+      "type": "process-perspective"
+    },
+    {
+      "source": "e1fbc943-6285-475d-9809-a752e659a997",
+      "target": "1762d476-e579-4bdc-bc0e-da4af36e443a",
+      "strength": 0.2809287582442588,
+      "type": "property-process"
+    },
+    {
+      "source": "e1fbc943-6285-475d-9809-a752e659a997",
+      "target": "55a29c5c-e3f3-4f6d-8606-8905cca1fc89",
+      "strength": 0.2809287582442588,
+      "type": "property-perspective"
+    },
+    {
+      "source": "1762d476-e579-4bdc-bc0e-da4af36e443a",
+      "target": "55a29c5c-e3f3-4f6d-8606-8905cca1fc89",
+      "strength": 0.2809287582442588,
+      "type": "process-perspective"
+    },
+    {
+      "source": "6d92a5a4-6b39-4b0e-9479-06ccbf65f221",
+      "target": "6f818564-2a7f-4b09-8e8b-45a4a37d2a12",
+      "strength": 0.37358224389934647,
+      "type": "property-process"
+    },
+    {
+      "source": "6d92a5a4-6b39-4b0e-9479-06ccbf65f221",
+      "target": "a3d81b5d-8d57-4ae6-ae7d-f1ad5db0dbb7",
+      "strength": 0.37358224389934647,
+      "type": "property-perspective"
+    },
+    {
+      "source": "6f818564-2a7f-4b09-8e8b-45a4a37d2a12",
+      "target": "a3d81b5d-8d57-4ae6-ae7d-f1ad5db0dbb7",
+      "strength": 0.37358224389934647,
+      "type": "process-perspective"
+    },
+    {
+      "source": "013c24c4-6ec5-4f61-9330-b8085fe50348",
+      "target": "c0dc2efd-6b93-49c1-8bde-ca2288cd3f47",
+      "strength": 0.6464347254666917,
+      "type": "property-process"
+    },
+    {
+      "source": "013c24c4-6ec5-4f61-9330-b8085fe50348",
+      "target": "34afcca2-4521-4385-82a7-86c298d43c3c",
+      "strength": 0.6464347254666917,
+      "type": "property-perspective"
+    },
+    {
+      "source": "c0dc2efd-6b93-49c1-8bde-ca2288cd3f47",
+      "target": "34afcca2-4521-4385-82a7-86c298d43c3c",
+      "strength": 0.6464347254666917,
+      "type": "process-perspective"
+    },
+    {
+      "source": "4958e921-2d79-4a90-b98c-15e61807fb08",
+      "target": "1363657e-3f65-474d-815b-aa6662c656e4",
+      "strength": 0.40958915696763987,
+      "type": "property-process"
+    },
+    {
+      "source": "4958e921-2d79-4a90-b98c-15e61807fb08",
+      "target": "f63c1fdd-d75d-4164-a111-a127a35ef30f",
+      "strength": 0.40958915696763987,
+      "type": "property-perspective"
+    },
+    {
+      "source": "1363657e-3f65-474d-815b-aa6662c656e4",
+      "target": "f63c1fdd-d75d-4164-a111-a127a35ef30f",
+      "strength": 0.40958915696763987,
+      "type": "process-perspective"
+    },
+    {
+      "source": "a185f057-3f25-4902-bf2e-9c03f66166c1",
+      "target": "b47744ce-5265-4cb0-bad8-63ca65336499",
+      "strength": 0.12844972344127348,
+      "type": "property-process"
+    },
+    {
+      "source": "a185f057-3f25-4902-bf2e-9c03f66166c1",
+      "target": "151f75f3-803a-4a0a-b624-ebce30546c49",
+      "strength": 0.12844972344127348,
+      "type": "property-perspective"
+    },
+    {
+      "source": "b47744ce-5265-4cb0-bad8-63ca65336499",
+      "target": "151f75f3-803a-4a0a-b624-ebce30546c49",
+      "strength": 0.12844972344127348,
+      "type": "process-perspective"
+    },
+    {
+      "source": "da0aff1d-8cf4-4191-8a08-0f05a82454a9",
+      "target": "550b0ea1-7b4a-4bcf-8c79-24fed076b948",
+      "strength": 0.0671154974530993,
+      "type": "property-process"
+    },
+    {
+      "source": "da0aff1d-8cf4-4191-8a08-0f05a82454a9",
+      "target": "8aa66f35-d3d1-4e07-8e30-759addc1d83f",
+      "strength": 0.0671154974530993,
+      "type": "property-perspective"
+    },
+    {
+      "source": "550b0ea1-7b4a-4bcf-8c79-24fed076b948",
+      "target": "8aa66f35-d3d1-4e07-8e30-759addc1d83f",
+      "strength": 0.0671154974530993,
+      "type": "process-perspective"
+    },
+    {
+      "source": "d09b8b75-9fb1-4d00-8e92-9abfd3d0c195",
+      "target": "5e4c9a23-792d-4f3c-9e06-9ff2d8e1b4a4",
+      "strength": 0.3456315672085447,
+      "type": "property-process"
+    },
+    {
+      "source": "d09b8b75-9fb1-4d00-8e92-9abfd3d0c195",
+      "target": "d5f74899-630b-417a-a5d7-d70dd5c14ed8",
+      "strength": 0.3456315672085447,
+      "type": "property-perspective"
+    },
+    {
+      "source": "5e4c9a23-792d-4f3c-9e06-9ff2d8e1b4a4",
+      "target": "d5f74899-630b-417a-a5d7-d70dd5c14ed8",
+      "strength": 0.3456315672085447,
+      "type": "process-perspective"
+    },
+    {
+      "source": "4958e921-2d79-4a90-b98c-15e61807fb08",
+      "target": "ec82dba6-e411-48c0-96bf-28efbc8e0075",
+      "strength": 0.31899354437020233,
+      "type": "property-process"
+    },
+    {
+      "source": "4958e921-2d79-4a90-b98c-15e61807fb08",
+      "target": "c293d177-6f12-496f-a8a9-da8a88dbe62a",
+      "strength": 0.31899354437020233,
+      "type": "property-perspective"
+    },
+    {
+      "source": "ec82dba6-e411-48c0-96bf-28efbc8e0075",
+      "target": "c293d177-6f12-496f-a8a9-da8a88dbe62a",
+      "strength": 0.31899354437020233,
+      "type": "process-perspective"
+    },
+    {
+      "source": "7f738dbb-067f-4f77-a642-8b0f1182576c",
+      "target": "b69df173-28bd-4d8c-bdea-45bd005684da",
+      "strength": 0.517383945878558,
+      "type": "property-process"
+    },
+    {
+      "source": "7f738dbb-067f-4f77-a642-8b0f1182576c",
+      "target": "669f4f8b-7723-493c-b847-5081488ed85a",
+      "strength": 0.517383945878558,
+      "type": "property-perspective"
+    },
+    {
+      "source": "b69df173-28bd-4d8c-bdea-45bd005684da",
+      "target": "669f4f8b-7723-493c-b847-5081488ed85a",
+      "strength": 0.517383945878558,
+      "type": "process-perspective"
+    },
+    {
+      "source": "86dcba17-3e04-4cef-8cef-0861bbf85d29",
+      "target": "e913e6a6-6b39-48c8-9af6-ab0ff8c1c889",
+      "strength": 0.44386575811108564,
+      "type": "property-process"
+    },
+    {
+      "source": "86dcba17-3e04-4cef-8cef-0861bbf85d29",
+      "target": "e47c6d88-8608-4caa-9ab0-894b79dd0f9e",
+      "strength": 0.44386575811108564,
+      "type": "property-perspective"
+    },
+    {
+      "source": "e913e6a6-6b39-48c8-9af6-ab0ff8c1c889",
+      "target": "e47c6d88-8608-4caa-9ab0-894b79dd0f9e",
+      "strength": 0.44386575811108564,
+      "type": "process-perspective"
+    },
+    {
+      "source": "55add67d-370f-43cd-9fc5-70b0e52a7f81",
+      "target": "9e4bb2fb-12f8-4dc9-8878-9b97a2bcbb4e",
+      "strength": 0.043314828745943834,
+      "type": "property-process"
+    },
+    {
+      "source": "55add67d-370f-43cd-9fc5-70b0e52a7f81",
+      "target": "726244ea-6396-48a5-b83b-e1e6a2f4d52f",
+      "strength": 0.043314828745943834,
+      "type": "property-perspective"
+    },
+    {
+      "source": "9e4bb2fb-12f8-4dc9-8878-9b97a2bcbb4e",
+      "target": "726244ea-6396-48a5-b83b-e1e6a2f4d52f",
+      "strength": 0.043314828745943834,
+      "type": "process-perspective"
+    },
+    {
+      "source": "3e7f862c-1d6f-4642-8769-6c15a67054f9",
+      "target": "0cdf0ac0-f42d-41ff-beec-b983751f941b",
+      "strength": 0.05900652540148521,
+      "type": "property-process"
+    },
+    {
+      "source": "3e7f862c-1d6f-4642-8769-6c15a67054f9",
+      "target": "ca17b7e4-2f80-4e69-b2ca-ad0865d4e533",
+      "strength": 0.05900652540148521,
+      "type": "property-perspective"
+    },
+    {
+      "source": "0cdf0ac0-f42d-41ff-beec-b983751f941b",
+      "target": "ca17b7e4-2f80-4e69-b2ca-ad0865d4e533",
+      "strength": 0.05900652540148521,
+      "type": "process-perspective"
+    },
+    {
+      "source": "96cc39b4-5ac7-4173-be0b-ee1a267fb7d4",
+      "target": "d6185254-714a-46c3-9747-7f1ef13ee8d5",
+      "strength": 0.010804616793213762,
+      "type": "property-process"
+    },
+    {
+      "source": "96cc39b4-5ac7-4173-be0b-ee1a267fb7d4",
+      "target": "47e403a5-051a-4f5e-a7e3-48b5d4a8dbfc",
+      "strength": 0.010804616793213762,
+      "type": "property-perspective"
+    },
+    {
+      "source": "d6185254-714a-46c3-9747-7f1ef13ee8d5",
+      "target": "47e403a5-051a-4f5e-a7e3-48b5d4a8dbfc",
+      "strength": 0.010804616793213762,
+      "type": "process-perspective"
+    },
+    {
+      "source": "d4b370a7-ee5a-44a4-8fbc-8871a222e78e",
+      "target": "43a17ea3-c215-4ca0-a705-82a0c5efd0da",
+      "strength": 0.49793513430207703,
+      "type": "property-process"
+    },
+    {
+      "source": "d4b370a7-ee5a-44a4-8fbc-8871a222e78e",
+      "target": "de55be88-33b2-4b1d-b679-479bfd664abf",
+      "strength": 0.49793513430207703,
+      "type": "property-perspective"
+    },
+    {
+      "source": "43a17ea3-c215-4ca0-a705-82a0c5efd0da",
+      "target": "de55be88-33b2-4b1d-b679-479bfd664abf",
+      "strength": 0.49793513430207703,
+      "type": "process-perspective"
+    },
+    {
+      "source": "86dcba17-3e04-4cef-8cef-0861bbf85d29",
+      "target": "ec04e3a0-d134-4818-8186-884a82536602",
+      "strength": 0.3624961667077681,
+      "type": "property-process"
+    },
+    {
+      "source": "86dcba17-3e04-4cef-8cef-0861bbf85d29",
+      "target": "669f4f8b-7723-493c-b847-5081488ed85a",
+      "strength": 0.3624961667077681,
+      "type": "property-perspective"
+    },
+    {
+      "source": "ec04e3a0-d134-4818-8186-884a82536602",
+      "target": "669f4f8b-7723-493c-b847-5081488ed85a",
+      "strength": 0.3624961667077681,
+      "type": "process-perspective"
+    },
+    {
+      "source": "b5c3874c-6ae8-4e95-83d7-e3e69a5115ff",
+      "target": "67929a46-39f1-434a-acb4-2013574b1fd8",
+      "strength": 0.4887962110629346,
+      "type": "property-process"
+    },
+    {
+      "source": "b5c3874c-6ae8-4e95-83d7-e3e69a5115ff",
+      "target": "6354c3b9-4b55-411d-acc0-163e3e4b4373",
+      "strength": 0.4887962110629346,
+      "type": "property-perspective"
+    },
+    {
+      "source": "67929a46-39f1-434a-acb4-2013574b1fd8",
+      "target": "6354c3b9-4b55-411d-acc0-163e3e4b4373",
+      "strength": 0.4887962110629346,
+      "type": "process-perspective"
+    },
+    {
+      "source": "b5c3874c-6ae8-4e95-83d7-e3e69a5115ff",
+      "target": "c7143e13-a3da-43de-b3f0-33876dd3788e",
+      "strength": 0.9988526999705457,
+      "type": "property-process"
+    },
+    {
+      "source": "b5c3874c-6ae8-4e95-83d7-e3e69a5115ff",
+      "target": "e6a91a10-6ac8-4e50-a9bd-5f9267a4dac6",
+      "strength": 0.9988526999705457,
+      "type": "property-perspective"
+    },
+    {
+      "source": "c7143e13-a3da-43de-b3f0-33876dd3788e",
+      "target": "e6a91a10-6ac8-4e50-a9bd-5f9267a4dac6",
+      "strength": 0.9988526999705457,
+      "type": "process-perspective"
+    },
+    {
+      "source": "d99da901-a03d-44ab-8568-c96214b6373c",
+      "target": "e96f7a04-71d2-4477-b83c-e00300ad9de6",
+      "strength": 0.8092971186140371,
+      "type": "property-process"
+    },
+    {
+      "source": "d99da901-a03d-44ab-8568-c96214b6373c",
+      "target": "256a4beb-4282-473c-aeac-1a2ae3d2ae39",
+      "strength": 0.8092971186140371,
+      "type": "property-perspective"
+    },
+    {
+      "source": "e96f7a04-71d2-4477-b83c-e00300ad9de6",
+      "target": "256a4beb-4282-473c-aeac-1a2ae3d2ae39",
+      "strength": 0.8092971186140371,
+      "type": "process-perspective"
+    },
+    {
+      "source": "16ad7411-e768-4f44-8061-311e09c19bd5",
+      "target": "2c89b32d-a983-40b4-9c77-273291b76926",
+      "strength": 0.5402384966804319,
+      "type": "property-perspective"
+    },
+    {
+      "source": "d9ec4b3c-0bb1-4d07-bf24-a9c3d1e87f5b",
+      "target": "2c0e82dc-d044-4676-9bac-224c084d936b",
+      "strength": 0.9662048019178999,
+      "type": "property-process"
+    },
+    {
+      "source": "15b837ae-d698-4f47-afe1-f26d573d53eb",
+      "target": "ae42e306-23f7-4a55-a64c-12630b4fdfd6",
+      "strength": 0.5163706868742195,
+      "type": "process-perspective"
+    },
+    {
+      "source": "3a103878-21d4-4fc7-9305-d4dab8a91ab2",
+      "target": "6eee88b0-5191-450f-b7c8-49ca411074e9",
+      "strength": 0.726446050378264,
+      "type": "property-perspective"
+    }
+  ]
+}

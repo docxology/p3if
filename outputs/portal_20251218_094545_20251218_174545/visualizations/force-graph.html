@@ -1,0 +1,258 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>P3IF Network Graph</title>
+            <style>
+                body { 
+                    margin: 0;
+                    font-family: Arial, sans-serif;
+                    overflow: hidden;
+                }
+                #info {
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 10px;
+                    border-radius: 5px;
+                    max-width: 300px;
+                    z-index: 100;
+                }
+                #canvas-container {
+                    width: 100%;
+                    height: 100vh;
+                }
+                .node {
+                    stroke: #fff;
+                    stroke-width: 1.5px;
+                }
+                .link {
+                    stroke: #999;
+                    stroke-opacity: 0.6;
+                }
+                .property { fill: #1f77b4; }
+                .process { fill: #ff7f0e; }
+                .perspective { fill: #2ca02c; }
+                #legend {
+                    position: absolute;
+                    bottom: 20px;
+                    right: 20px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 10px;
+                    border-radius: 5px;
+                    z-index: 100;
+                }
+                .legend-item {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 5px;
+                }
+                .legend-color {
+                    width: 15px;
+                    height: 15px;
+                    margin-right: 5px;
+                    border-radius: 50%;
+                }
+                .search-container {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    z-index: 100;
+                }
+                #search {
+                    padding: 5px;
+                    width: 200px;
+                    border-radius: 3px;
+                    border: 1px solid #ccc;
+                }
+            </style>
+            <script src="https://d3js.org/d3.v7.min.js"></script>
+        </head>
+        <body>
+            <div id="info">
+                <h2>P3IF Network Graph</h2>
+                <p>This visualization represents the relationships between P3IF patterns as a force-directed graph.</p>
+                <p>Nodes are color-coded by pattern type, and link thickness represents relationship strength.</p>
+                <p>Drag nodes to reposition them. Click on a node to see its details.</p>
+                <div id="selection-info"></div>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Search nodes...">
+            </div>
+            
+            <div id="canvas-container"></div>
+            
+            <div id="legend">
+                <h3>Legend</h3>
+                <div class="legend-item">
+                    <div class="legend-color property"></div>
+                    <div>Property</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color process"></div>
+                    <div>Process</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color perspective"></div>
+                    <div>Perspective</div>
+                </div>
+            </div>
+            
+            <script>
+                // P3IF data
+                const graphData = {"nodes": [{"id": "8a37e6d1-fc95-450d-a536-db83b2b841be", "name": "Property 0", "type": "property", "domain": "Domain A"}, {"id": "17c48d68-ebaf-4697-b4df-2948b224531d", "name": "Property 1", "type": "property", "domain": "Domain B"}, {"id": "49800b20-b05a-4943-a78a-8998300a274a", "name": "Property 2", "type": "property", "domain": "Domain A"}, {"id": "499fd91f-76bc-48f9-93bc-32db53768795", "name": "Property 3", "type": "property", "domain": "Domain B"}, {"id": "70077738-4f72-4ded-b943-bd43504b6f57", "name": "Property 4", "type": "property", "domain": "Domain B"}, {"id": "d9b96a18-62c4-479f-a654-447adcefc2d6", "name": "Process 0", "type": "process", "domain": "Domain B"}, {"id": "b529fa9e-5073-4c86-880e-ba0e74316ca6", "name": "Process 1", "type": "process", "domain": "Domain C"}, {"id": "a8edc729-7cb8-4fc8-8287-710f419eee77", "name": "Process 2", "type": "process", "domain": "Domain A"}, {"id": "212e2d67-4b87-4604-88d9-7e9e5c86e803", "name": "Process 3", "type": "process", "domain": "Domain C"}, {"id": "7150b553-8188-4dba-b424-e6505293bfdd", "name": "Process 4", "type": "process", "domain": "Domain B"}, {"id": "d0507fbb-56e3-4cab-830f-d90e713ff908", "name": "Perspective 0", "type": "perspective", "domain": "Domain C"}, {"id": "db81da55-e3ec-4346-be22-85bf60ae9859", "name": "Perspective 1", "type": "perspective", "domain": "Domain A"}, {"id": "6d9f0f79-58dc-4ef0-b4fe-36f46cae77e6", "name": "Perspective 2", "type": "perspective", "domain": "Domain B"}, {"id": "f74f0689-2535-4c4f-a0e0-097d43ecf1db", "name": "Perspective 3", "type": "perspective", "domain": "Domain C"}, {"id": "1de45f16-bfbf-4fb8-b9f3-7b33fa1f72cb", "name": "Perspective 4", "type": "perspective", "domain": "Domain C"}], "links": [{"source": "b529fa9e-5073-4c86-880e-ba0e74316ca6", "target": "f74f0689-2535-4c4f-a0e0-097d43ecf1db", "strength": 0.47515914797437064, "type": "process-perspective"}, {"source": "499fd91f-76bc-48f9-93bc-32db53768795", "target": "d9b96a18-62c4-479f-a654-447adcefc2d6", "strength": 0.3533699577372711, "type": "property-process"}, {"source": "212e2d67-4b87-4604-88d9-7e9e5c86e803", "target": "d0507fbb-56e3-4cab-830f-d90e713ff908", "strength": 0.6264908373645783, "type": "process-perspective"}, {"source": "8a37e6d1-fc95-450d-a536-db83b2b841be", "target": "d9b96a18-62c4-479f-a654-447adcefc2d6", "strength": 0.02694757858970631, "type": "property-process"}, {"source": "8a37e6d1-fc95-450d-a536-db83b2b841be", "target": "f74f0689-2535-4c4f-a0e0-097d43ecf1db", "strength": 0.02694757858970631, "type": "property-perspective"}, {"source": "d9b96a18-62c4-479f-a654-447adcefc2d6", "target": "f74f0689-2535-4c4f-a0e0-097d43ecf1db", "strength": 0.02694757858970631, "type": "process-perspective"}, {"source": "17c48d68-ebaf-4697-b4df-2948b224531d", "target": "b529fa9e-5073-4c86-880e-ba0e74316ca6", "strength": 0.07391676139162584, "type": "property-process"}, {"source": "17c48d68-ebaf-4697-b4df-2948b224531d", "target": "212e2d67-4b87-4604-88d9-7e9e5c86e803", "strength": 0.2480157715972755, "type": "property-process"}, {"source": "17c48d68-ebaf-4697-b4df-2948b224531d", "target": "1de45f16-bfbf-4fb8-b9f3-7b33fa1f72cb", "strength": 0.2480157715972755, "type": "property-perspective"}, {"source": "212e2d67-4b87-4604-88d9-7e9e5c86e803", "target": "1de45f16-bfbf-4fb8-b9f3-7b33fa1f72cb", "strength": 0.2480157715972755, "type": "process-perspective"}, {"source": "a8edc729-7cb8-4fc8-8287-710f419eee77", "target": "db81da55-e3ec-4346-be22-85bf60ae9859", "strength": 0.27141799204422534, "type": "process-perspective"}, {"source": "499fd91f-76bc-48f9-93bc-32db53768795", "target": "6d9f0f79-58dc-4ef0-b4fe-36f46cae77e6", "strength": 0.551393248372629, "type": "property-perspective"}, {"source": "17c48d68-ebaf-4697-b4df-2948b224531d", "target": "7150b553-8188-4dba-b424-e6505293bfdd", "strength": 0.0024473090446311963, "type": "property-process"}, {"source": "70077738-4f72-4ded-b943-bd43504b6f57", "target": "212e2d67-4b87-4604-88d9-7e9e5c86e803", "strength": 0.6376590035620495, "type": "property-process"}, {"source": "70077738-4f72-4ded-b943-bd43504b6f57", "target": "1de45f16-bfbf-4fb8-b9f3-7b33fa1f72cb", "strength": 0.6376590035620495, "type": "property-perspective"}, {"source": "212e2d67-4b87-4604-88d9-7e9e5c86e803", "target": "1de45f16-bfbf-4fb8-b9f3-7b33fa1f72cb", "strength": 0.6376590035620495, "type": "process-perspective"}, {"source": "8a37e6d1-fc95-450d-a536-db83b2b841be", "target": "212e2d67-4b87-4604-88d9-7e9e5c86e803", "strength": 0.3838973430476912, "type": "property-process"}, {"source": "8a37e6d1-fc95-450d-a536-db83b2b841be", "target": "d0507fbb-56e3-4cab-830f-d90e713ff908", "strength": 0.3838973430476912, "type": "property-perspective"}, {"source": "212e2d67-4b87-4604-88d9-7e9e5c86e803", "target": "d0507fbb-56e3-4cab-830f-d90e713ff908", "strength": 0.3838973430476912, "type": "process-perspective"}, {"source": "17c48d68-ebaf-4697-b4df-2948b224531d", "target": "b529fa9e-5073-4c86-880e-ba0e74316ca6", "strength": 0.7306069492859097, "type": "property-process"}, {"source": "17c48d68-ebaf-4697-b4df-2948b224531d", "target": "f74f0689-2535-4c4f-a0e0-097d43ecf1db", "strength": 0.7306069492859097, "type": "property-perspective"}, {"source": "b529fa9e-5073-4c86-880e-ba0e74316ca6", "target": "f74f0689-2535-4c4f-a0e0-097d43ecf1db", "strength": 0.7306069492859097, "type": "process-perspective"}, {"source": "499fd91f-76bc-48f9-93bc-32db53768795", "target": "b529fa9e-5073-4c86-880e-ba0e74316ca6", "strength": 0.7742114656721737, "type": "property-process"}, {"source": "499fd91f-76bc-48f9-93bc-32db53768795", "target": "6d9f0f79-58dc-4ef0-b4fe-36f46cae77e6", "strength": 0.7742114656721737, "type": "property-perspective"}, {"source": "b529fa9e-5073-4c86-880e-ba0e74316ca6", "target": "6d9f0f79-58dc-4ef0-b4fe-36f46cae77e6", "strength": 0.7742114656721737, "type": "process-perspective"}, {"source": "17c48d68-ebaf-4697-b4df-2948b224531d", "target": "a8edc729-7cb8-4fc8-8287-710f419eee77", "strength": 0.4249507659770304, "type": "property-process"}, {"source": "17c48d68-ebaf-4697-b4df-2948b224531d", "target": "1de45f16-bfbf-4fb8-b9f3-7b33fa1f72cb", "strength": 0.4249507659770304, "type": "property-perspective"}, {"source": "a8edc729-7cb8-4fc8-8287-710f419eee77", "target": "1de45f16-bfbf-4fb8-b9f3-7b33fa1f72cb", "strength": 0.4249507659770304, "type": "process-perspective"}, {"source": "70077738-4f72-4ded-b943-bd43504b6f57", "target": "6d9f0f79-58dc-4ef0-b4fe-36f46cae77e6", "strength": 0.43476853337692933, "type": "property-perspective"}, {"source": "8a37e6d1-fc95-450d-a536-db83b2b841be", "target": "1de45f16-bfbf-4fb8-b9f3-7b33fa1f72cb", "strength": 0.4622388751243556, "type": "property-perspective"}, {"source": "70077738-4f72-4ded-b943-bd43504b6f57", "target": "a8edc729-7cb8-4fc8-8287-710f419eee77", "strength": 0.4264022765752128, "type": "property-process"}, {"source": "49800b20-b05a-4943-a78a-8998300a274a", "target": "b529fa9e-5073-4c86-880e-ba0e74316ca6", "strength": 0.10383953722137973, "type": "property-process"}, {"source": "49800b20-b05a-4943-a78a-8998300a274a", "target": "f74f0689-2535-4c4f-a0e0-097d43ecf1db", "strength": 0.10383953722137973, "type": "property-perspective"}, {"source": "b529fa9e-5073-4c86-880e-ba0e74316ca6", "target": "f74f0689-2535-4c4f-a0e0-097d43ecf1db", "strength": 0.10383953722137973, "type": "process-perspective"}, {"source": "a8edc729-7cb8-4fc8-8287-710f419eee77", "target": "d0507fbb-56e3-4cab-830f-d90e713ff908", "strength": 0.7123764569711082, "type": "process-perspective"}, {"source": "a8edc729-7cb8-4fc8-8287-710f419eee77", "target": "db81da55-e3ec-4346-be22-85bf60ae9859", "strength": 0.9699437774441324, "type": "process-perspective"}]};
+                
+                // Setup
+                const container = document.getElementById('canvas-container');
+                const width = container.clientWidth;
+                const height = container.clientHeight;
+                
+                // Create SVG
+                const svg = d3.select("#canvas-container")
+                    .append("svg")
+                    .attr("width", width)
+                    .attr("height", height);
+                
+                // Define arrow marker for directed links
+                svg.append("defs").append("marker")
+                    .attr("id", "arrowhead")
+                    .attr("viewBox", "0 -5 10 10")
+                    .attr("refX", 20)
+                    .attr("refY", 0)
+                    .attr("markerWidth", 6)
+                    .attr("markerHeight", 6)
+                    .attr("orient", "auto")
+                    .append("path")
+                    .attr("d", "M0,-5L10,0L0,5")
+                    .attr("fill", "#999");
+                
+                // Create the force simulation
+                const simulation = d3.forceSimulation(graphData.nodes)
+                    .force("link", d3.forceLink(graphData.links).id(d => d.id).distance(100))
+                    .force("charge", d3.forceManyBody().strength(-200))
+                    .force("center", d3.forceCenter(width / 2, height / 2))
+                    .force("collide", d3.forceCollide().radius(30));
+                
+                // Draw the links
+                const link = svg.append("g")
+                    .attr("class", "links")
+                    .selectAll("line")
+                    .data(graphData.links)
+                    .enter().append("line")
+                    .attr("class", "link")
+                    .attr("stroke-width", d => Math.max(1, d.strength * 5));
+                
+                // Draw the nodes
+                const node = svg.append("g")
+                    .attr("class", "nodes")
+                    .selectAll("circle")
+                    .data(graphData.nodes)
+                    .enter().append("circle")
+                    .attr("class", d => `node ${d.type}`)
+                    .attr("r", 7)
+                    .attr("title", d => d.name)
+                    .call(d3.drag()
+                        .on("start", dragstarted)
+                        .on("drag", dragged)
+                        .on("end", dragended));
+                
+                // Add node labels
+                const label = svg.append("g")
+                    .attr("class", "labels")
+                    .selectAll("text")
+                    .data(graphData.nodes)
+                    .enter().append("text")
+                    .attr("dx", 12)
+                    .attr("dy", ".35em")
+                    .text(d => d.name)
+                    .style("font-size", "10px")
+                    .style("pointer-events", "none");
+                
+                // Add tooltips and interaction
+                node.on("click", function(event, d) {
+                    const infoDiv = document.getElementById('selection-info');
+                    infoDiv.innerHTML = `
+                        <h3>Selected Pattern</h3>
+                        <p><strong>Name:</strong> ${d.name}</p>
+                        <p><strong>Type:</strong> ${d.type.charAt(0).toUpperCase() + d.type.slice(1)}</p>
+                        <p><strong>Domain:</strong> ${d.domain || "None"}</p>
+                    `;
+                    
+                    // Highlight connected links and nodes
+                    link.style("stroke", l => 
+                        (l.source.id === d.id || l.target.id === d.id) ? "#000" : "#999");
+                    link.style("stroke-width", l => 
+                        (l.source.id === d.id || l.target.id === d.id) ? 
+                        Math.max(2, l.strength * 6) : Math.max(1, l.strength * 5));
+                    
+                    node.style("stroke-width", n => 
+                        (n.id === d.id) ? 3 : 1.5);
+                });
+                
+                // Search functionality
+                const searchBox = document.getElementById('search');
+                searchBox.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    
+                    if (searchTerm === '') {
+                        // Reset visualization
+                        node.style("opacity", 1);
+                        link.style("opacity", 0.6);
+                        label.style("opacity", 1);
+                        return;
+                    }
+                    
+                    // Find matching nodes
+                    const matchingNodes = graphData.nodes.filter(n => 
+                        n.name.toLowerCase().includes(searchTerm));
+                    const matchingIds = new Set(matchingNodes.map(n => n.id));
+                    
+                    // Highlight matching nodes and their connections
+                    node.style("opacity", n => matchingIds.has(n.id) ? 1 : 0.2);
+                    link.style("opacity", l => 
+                        (matchingIds.has(l.source.id) || matchingIds.has(l.target.id)) ? 0.8 : 0.1);
+                    label.style("opacity", l => matchingIds.has(l.id) ? 1 : 0.2);
+                });
+                
+                // Update positions on each simulation tick
+                simulation.on("tick", () => {
+                    link
+                        .attr("x1", d => d.source.x)
+                        .attr("y1", d => d.source.y)
+                        .attr("x2", d => d.target.x)
+                        .attr("y2", d => d.target.y);
+                
+                    node
+                        .attr("cx", d => d.x)
+                        .attr("cy", d => d.y);
+                
+                    label
+                        .attr("x", d => d.x)
+                        .attr("y", d => d.y);
+                });
+                
+                // Drag functions
+                function dragstarted(event, d) {
+                    if (!event.active) simulation.alphaTarget(0.3).restart();
+                    d.fx = d.x;
+                    d.fy = d.y;
+                }
+                
+                function dragged(event, d) {
+                    d.fx = event.x;
+                    d.fy = event.y;
+                }
+                
+                function dragended(event, d) {
+                    if (!event.active) simulation.alphaTarget(0);
+                    d.fx = null;
+                    d.fy = null;
+                }
+            </script>
+        </body>
+        </html>
+        

@@ -1,0 +1,34 @@
+{
+  "pattern_counts": {
+    "property": 155,
+    "process": 150,
+    "perspective": 115
+  },
+  "relationship_count": 34,
+  "domains": [
+    {
+      "name": "ArtificialIntelligence",
+      "patterns": {
+        "property": 55,
+        "process": 50,
+        "perspective": 15
+      }
+    },
+    {
+      "name": "Blockchain",
+      "patterns": {
+        "property": 50,
+        "process": 50,
+        "perspective": 50
+      }
+    },
+    {
+      "name": "HealthCare",
+      "patterns": {
+        "property": 50,
+        "process": 50,
+        "perspective": 50
+      }
+    }
+  ]
+}

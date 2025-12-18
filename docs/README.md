@@ -20,7 +20,7 @@ python ../scripts/generate_final_visualizations.py
 python ../scripts/run_multidomain_portal.py
 
 # View generated outputs
-ls ../output/p3if_output_*/
+ls ../outputs/p3if_output_*/
 ```
 
 ## ✨ Key Features
@@ -146,6 +146,15 @@ python scripts/setup_development.py
 
 For detailed installation instructions, see [Installation Guide](guides/installation.md).
 
+## Testing Principles
+
+### Real Methods Only
+- **NEVER use mock methods or mock classes for P3IF components**
+- **ALWAYS use real P3IF classes**: P3IFFramework, P3IFCore, Property, Process, Perspective
+- **ALWAYS use real P3IF methods** for all operations
+- For external dependencies (matplotlib, PIL), use pytest.skip if unavailable
+- All tests must validate real behavior, not mocked behavior
+
 ## 🎯 Usage Examples
 
 ## Visualization Generation
@@ -190,10 +199,10 @@ python ../scripts/benchmark_performance.py
 ### View Generated Outputs
 ```bash
 # List all generated visualization files
-find output/p3if_output_*/ -name "*.png" -o -name "*.gif" -o -name "*.html"
+find outputs/p3if_output_*/ -name "*.png" -o -name "*.gif" -o -name "*.html"
 
 # View latest session outputs
-ls -la output/p3if_output_$(date +%Y%m%d)_*/
+ls -la outputs/p3if_output_$(date +%Y%m%d)_*/
 ```
 
 For detailed usage instructions, see [Getting Started](guides/getting-started.md).

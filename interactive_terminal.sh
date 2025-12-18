@@ -84,7 +84,7 @@ install_deps() {
 # Run tests
 run_tests() {
     echo "Running test suite..."
-    mkdir -p "$PROJECT_ROOT/output/tests"
+    mkdir -p "$PROJECT_ROOT/outputs/tests"
     cd "$PROJECT_ROOT"
     python scripts/run_tests.py
 }
@@ -92,7 +92,7 @@ run_tests() {
 # Run examples
 run_examples() {
     echo "Running examples..."
-    mkdir -p "$PROJECT_ROOT/output/examples"
+    mkdir -p "$PROJECT_ROOT/outputs/examples"
     cd "$PROJECT_ROOT"
     python scripts/run_examples.py
 }
@@ -100,7 +100,7 @@ run_examples() {
 # Generate visualizations
 gen_viz() {
     echo "Generating visualizations..."
-    mkdir -p "$PROJECT_ROOT/output/visualizations"
+    mkdir -p "$PROJECT_ROOT/outputs/visualizations"
     cd "$PROJECT_ROOT"
     python scripts/generate_final_visualizations.py
 }
@@ -130,9 +130,9 @@ show_status() {
 
     echo ""
     echo "Output directories:"
-    echo "  Tests: $PROJECT_ROOT/output/tests/"
-    echo "  Examples: $PROJECT_ROOT/output/examples/"
-    echo "  Visualizations: $PROJECT_ROOT/output/visualizations/"
+    echo "  Tests: $PROJECT_ROOT/outputs/tests/"
+    echo "  Examples: $PROJECT_ROOT/outputs/examples/"
+    echo "  Visualizations: $PROJECT_ROOT/outputs/visualizations/"
     echo ""
 }
 

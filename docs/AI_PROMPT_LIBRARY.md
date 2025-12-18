@@ -114,7 +114,7 @@ Include tests for:
 - Error handling and exception cases
 - Any performance concerns or considerations
 
-Use pytest conventions with appropriate fixtures and mocks.
+Use pytest conventions with real P3IF fixtures. Never use mocks for P3IF components.
 ```
 
 ### Integration Test Design

@@ -36,7 +36,7 @@ framework = P3IFFramework()
 dashboard = DashboardGenerator(framework, Config())
 
 # Generate domain dashboard
-output_dir = "output/domain_dashboard"
+output_dir = "outputs/domain_dashboard"
 visualizations = dashboard.generate_domain_dashboard("ArtificialIntelligence", output_dir)
 ```
 
@@ -54,7 +54,7 @@ The comparative dashboard allows analysis of multiple domains side-by-side, incl
 ```python
 # Using the dashboard generator from above
 domains = ["ArtificialIntelligence", "HealthCare", "Blockchain"]
-output_dir = "output/comparative_dashboard"
+output_dir = "outputs/comparative_dashboard"
 visualizations = dashboard.generate_comparative_dashboard(domains, output_dir)
 ```
 
@@ -73,7 +73,7 @@ Domain network visualizations show relationships between domains, with:
 from p3if_visualization.network import NetworkVisualizer
 
 network_viz = NetworkVisualizer(framework, Config())
-domain_network_path = "output/domain_network.png"
+domain_network_path = "outputs/domain_network.png"
 network_viz.visualize_domain_network(file_path=domain_network_path)
 ```
 
@@ -91,7 +91,7 @@ P3IF can generate similarity matrices comparing domains:
 from p3if_visualization.matrix import MatrixVisualizer
 
 matrix_viz = MatrixVisualizer(framework, Config())
-similarity_path = "output/domain_similarity.png"
+similarity_path = "outputs/domain_similarity.png"
 matrix_viz.visualize_domain_similarity(file_path=similarity_path)
 ```
 
@@ -104,7 +104,7 @@ from p3if_visualization.portal import VisualizationPortal
 
 portal = VisualizationPortal(framework, Config())
 portal.generate_portal(
-    output_file="output/index.html", 
+    output_file="outputs/index.html", 
     include_dataset_dropdown=True,  # Enable domain selection
     datasets=[
         {"id": "artificial_intelligence", "name": "Artificial Intelligence"},
@@ -119,7 +119,7 @@ portal.generate_portal(
 The `run_multidomain_portal.py` script in the `scripts` directory provides a convenient way to generate domain visualizations:
 
 ```bash
-python scripts/run_multidomain_portal.py --domains ArtificialIntelligence,HealthCare --relationships-per-domain 50 --cross-domain-connections 20 --output-dir output/domains
+python scripts/run_multidomain_portal.py --domains ArtificialIntelligence,HealthCare --relationships-per-domain 50 --cross-domain-connections 20 --output-dir outputs/domains
 ```
 
 This command will:

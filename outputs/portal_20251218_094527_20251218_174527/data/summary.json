@@ -1,0 +1,18 @@
+{
+  "pattern_counts": {
+    "property": 55,
+    "process": 50,
+    "perspective": 15
+  },
+  "relationship_count": 10,
+  "domains": [
+    {
+      "name": "ArtificialIntelligence",
+      "patterns": {
+        "property": 55,
+        "process": 50,
+        "perspective": 15
+      }
+    }
+  ]
+}

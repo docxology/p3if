@@ -108,7 +108,7 @@ This creates:
 
 ### Step 3: Analyze Relationships
 
-1. Open the generated portal at `output/index.html`
+1. Open the generated portal at `outputs/index.html`
 2. Use the domain selector to navigate between domains
 3. Explore the different visualization types
 4. Export data for further analysis
