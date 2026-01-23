@@ -9,9 +9,10 @@ import sys
 import os
 import json
 import time
+import argparse
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, Any, List
+from typing import Dict, Any, List, Optional
 
 # Add project root to path for imports
 project_root = Path(__file__).parent.parent
@@ -34,24 +35,32 @@ from p3if.orchestrators.cognitive_security import CognitiveSecurityOrchestrator
 from p3if.orchestrators.healthcare_domain import HealthcareDomainOrchestrator
 from p3if.orchestrators.framework_integration import FrameworkIntegrationOrchestrator
 
-# Setup logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler('outputs/examples_execution.log'),
-        logging.StreamHandler(sys.stdout)
-    ]
-)
 logger = logging.getLogger(__name__)
+
+
+def setup_logging(output_dir: Path) -> None:
+    """Configure logging with output directory."""
+    log_file = output_dir / "examples_execution.log"
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.FileHandler(str(log_file)),
+            logging.StreamHandler(sys.stdout)
+        ]
+    )
 
 
 class ExamplesRunner:
     """Runner for all P3IF examples with comprehensive validation."""
 
-    def __init__(self):
-        """Initialize the examples runner."""
-        self.output_dir = Path("outputs/examples")
+    def __init__(self, output_dir: Optional[Path] = None):
+        """Initialize the examples runner.
+        
+        Args:
+            output_dir: Optional output directory path. Defaults to outputs/examples.
+        """
+        self.output_dir = output_dir or Path("outputs/examples")
         self.output_dir.mkdir(parents=True, exist_ok=True)
         self.results = {}
 
@@ -265,12 +274,24 @@ class ExamplesRunner:
 
 def main():
     """Main function to run all examples."""
+    parser = argparse.ArgumentParser(description='Run P3IF examples')
+    parser.add_argument('--output-dir', type=str, help='Output directory for results')
+    args = parser.parse_args()
+    
+    # Set output directory
+    output_dir = Path(args.output_dir) if args.output_dir else Path("outputs/examples")
+    output_dir.mkdir(parents=True, exist_ok=True)
+    
+    # Setup logging to output directory
+    setup_logging(output_dir)
+    
     print("P3IF Examples Runner")
     print("====================")
     print(f"Started at: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"Output directory: {output_dir}")
     print()
 
-    runner = ExamplesRunner()
+    runner = ExamplesRunner(output_dir=output_dir)
     results = runner.run_all_examples()
 
     # Exit with appropriate code
@@ -280,10 +301,10 @@ def main():
     print("=" * 50)
     if exit_code == 0:
         print("✅ ALL EXAMPLES COMPLETED SUCCESSFULLY!")
-        print("🎉 Check the outputs/examples/ directory for results.")
+        print(f"🎉 Check {output_dir}/ for results.")
     else:
         print("⚠️  SOME EXAMPLES FAILED!")
-        print("🔧 Check the outputs/examples/ directory for details.")
+        print(f"🔧 Check {output_dir}/ for details.")
 
     return exit_code
 

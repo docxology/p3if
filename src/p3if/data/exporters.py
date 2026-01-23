@@ -92,7 +92,7 @@ def export_to_json(framework: P3IFFramework, file_path: Union[str, Path]) -> Pat
         }
         
         # Export properties
-        for prop in framework.get_all_patterns("property"):
+        for prop in framework.get_patterns_by_type("property"):
             data["properties"].append({
                 "id": prop.id,
                 "name": prop.name,
@@ -102,7 +102,7 @@ def export_to_json(framework: P3IFFramework, file_path: Union[str, Path]) -> Pat
             })
         
         # Export processes
-        for proc in framework.get_all_patterns("process"):
+        for proc in framework.get_patterns_by_type("process"):
             data["processes"].append({
                 "id": proc.id,
                 "name": proc.name,
@@ -112,7 +112,7 @@ def export_to_json(framework: P3IFFramework, file_path: Union[str, Path]) -> Pat
             })
         
         # Export perspectives
-        for persp in framework.get_all_patterns("perspective"):
+        for persp in framework.get_patterns_by_type("perspective"):
             data["perspectives"].append({
                 "id": persp.id,
                 "name": persp.name,
@@ -171,7 +171,7 @@ def export_to_csv(framework: P3IFFramework, patterns_file: Union[str, Path],
             writer.writeheader()
             
             # Export properties
-            for prop in framework.get_all_patterns("property"):
+            for prop in framework.get_patterns_by_type("property"):
                 writer.writerow({
                     'id': prop.id,
                     'type': 'property',
@@ -182,7 +182,7 @@ def export_to_csv(framework: P3IFFramework, patterns_file: Union[str, Path],
                 })
             
             # Export processes
-            for proc in framework.get_all_patterns("process"):
+            for proc in framework.get_patterns_by_type("process"):
                 writer.writerow({
                     'id': proc.id,
                     'type': 'process',
@@ -193,7 +193,7 @@ def export_to_csv(framework: P3IFFramework, patterns_file: Union[str, Path],
                 })
             
             # Export perspectives
-            for persp in framework.get_all_patterns("perspective"):
+            for persp in framework.get_patterns_by_type("perspective"):
                 writer.writerow({
                     'id': persp.id,
                     'type': 'perspective',
@@ -250,7 +250,7 @@ def export_to_graphml(framework: P3IFFramework, file_path: Union[str, Path]) -> 
         
         # Add nodes for all patterns
         for pattern_type in ["property", "process", "perspective"]:
-            for pattern in framework.get_all_patterns(pattern_type):
+            for pattern in framework.get_patterns_by_type(pattern_type):
                 G.add_node(
                     pattern.id,
                     type=pattern_type,

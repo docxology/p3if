@@ -1,0 +1,34 @@
+{
+  "pattern_counts": {
+    "property": 10,
+    "process": 10,
+    "perspective": 10
+  },
+  "relationship_count": 50,
+  "domains": [
+    {
+      "name": "Domain C",
+      "patterns": {
+        "property": 1,
+        "process": 3,
+        "perspective": 2
+      }
+    },
+    {
+      "name": "Domain A",
+      "patterns": {
+        "property": 4,
+        "process": 3,
+        "perspective": 5
+      }
+    },
+    {
+      "name": "Domain B",
+      "patterns": {
+        "property": 5,
+        "process": 4,
+        "perspective": 3
+      }
+    }
+  ]
+}

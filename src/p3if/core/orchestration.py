@@ -228,9 +228,8 @@ class ThinOrchestrator:
                         # Use the dependency name as the parameter name
                         result_key = method_sig[1]  # Second parameter after 'self'
                         params[result_key] = self.context[last_dependency]
-                        print(f"DEBUG: Passing {last_dependency} result to {result_key}")
                     else:
-                        print(f"DEBUG: Parameter {method_sig[1]} already in params or not found in method signature")
+                        pass  # Parameter already provided or not in method signature
 
             # For methods that expect orchestrator_context, pass the entire context
             method_sig = step.method.__code__.co_varnames[:step.method.__code__.co_argcount]

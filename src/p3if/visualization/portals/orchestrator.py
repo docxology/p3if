@@ -176,15 +176,15 @@ class P3IFVisualizationOrchestrator:
     def _load_visualization_module(self, module_name: str):
         """Dynamically load a visualization module."""
         try:
-            # Try to import directly first
+            # Try to import from static subpackage first
             try:
-                module = __import__(f"p3if_visualization.{module_name}", fromlist=[module_name])
+                module = __import__(f"p3if.visualization.static.{module_name}", fromlist=[module_name])
                 return module
             except ImportError:
                 pass
 
-            # Fallback to file path loading
-            module_path = Path(__file__).parent / f"{module_name}.py"
+            # Fallback to file path loading in static/ directory
+            module_path = Path(__file__).parent.parent / "static" / f"{module_name}.py"
             if module_path.exists():
                 spec = importlib.util.spec_from_file_location(module_name, module_path)
                 module = importlib.util.module_from_spec(spec)

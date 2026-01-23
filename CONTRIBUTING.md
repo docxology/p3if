@@ -29,13 +29,12 @@ Before contributing, ensure you have:
 
 3. **Install dependencies:**
    ```bash
-   pip install -r requirements.txt
-   pip install -r p3if_tests/requirements-test.txt
+   pip install -e ".[dev]"
    ```
 
 4. **Run tests to ensure everything works:**
    ```bash
-   python p3if_tests/run_all_tests.py
+   pytest tests/ -v
    ```
 
 ## 🤝 How to Contribute
@@ -67,13 +66,14 @@ git checkout -b fix/issue-number-description
 
 ```bash
 # Run all tests
-python p3if_tests/run_all_tests.py
+pytest tests/ -v
 
 # Run specific test categories
-python -m pytest p3if_tests/test_core.py -v
+pytest tests/unit/ -v
+pytest tests/integration/ -v
 
 # Check code quality
-python -m flake8 your_file.py
+ruff check src/ tests/
 ```
 
 ### 5. Commit Your Changes
@@ -165,17 +165,94 @@ Then visit the repository on GitHub and create a pull request from your branch.
 
 ```bash
 # Run all tests
-python p3if_tests/run_all_tests.py
+pytest tests/ -v
 
 # Run with coverage
-python p3if_tests/run_all_tests.py --coverage
+pytest tests/ --cov=src/p3if --cov-report=html
 
 # Run specific test file
-python -m pytest p3if_tests/test_core.py -v
+pytest tests/unit/test_models.py -v
 
 # Run tests for specific component
-python -m pytest p3if_tests/test_composition.py -v
+pytest tests/unit/test_composition.py -v
 ```
+
+## 🖥️ Interactive Terminal
+
+P3IF includes an interactive terminal for streamlined development workflows:
+
+### Running the Terminal
+
+```bash
+./interactive_terminal.sh
+```
+
+### Available Options
+
+| Option | Description |
+|--------|-------------|
+| 1 | Setup Environment (UV, venv, dependencies) |
+| 2 | Run All Tests |
+| 3 | Run All Examples |
+| 4 | Generate Visualizations |
+| 5 | Show System Status |
+| 6 | Help & Information |
+| 7 | **Run All (1-4)** - Complete workflow |
+| 0 | Exit |
+
+### Run All Workflow
+
+Option **7 (Run All)** executes the complete development workflow:
+1. Sets up the environment (UV, venv, dependencies)
+2. Runs all tests with comprehensive reporting
+3. Runs all examples with validation
+4. Generates all visualizations
+
+This is the recommended way to verify that everything works correctly.
+
+### Command Line Usage
+
+```bash
+# Automated workflow (non-interactive)
+./interactive_terminal.sh --auto
+
+# Custom commands
+./interactive_terminal.sh --commands setup_uv,run_tests,run_examples,gen_viz
+
+# Show status
+./interactive_terminal.sh --status
+```
+
+## 📁 Output Organization
+
+When using **Run All (Option 7)**, all outputs are organized in a single timestamped session folder:
+
+```
+outputs/
+└── run_YYYYMMDD_HHMMSS/           # Unified session folder
+    ├── tests/                      # Test reports and logs
+    │   ├── test_report.json        # Detailed test results
+    │   └── test_output.log         # Test execution log
+    ├── examples/                   # Example execution results
+    │   ├── examples_results.json   # Detailed JSON results
+    │   ├── examples_summary.md     # Human-readable summary
+    │   └── examples_execution.log  # Execution log
+    ├── visualizations/             # Generated visualizations
+    │   ├── networks/               # Network graphs
+    │   ├── heatmaps/               # Heatmap visualizations
+    │   ├── cubes/                  # 3D cube visualizations
+    │   ├── hierarchies/            # Hierarchy diagrams
+    │   ├── matrices/               # Matrix visualizations
+    │   ├── statistics/             # Statistical charts
+    │   ├── grids/                  # Grid visualizations
+    │   └── reports/                # Comprehensive reports
+    ├── logs/                       # Session logs
+    │   ├── examples.log
+    │   └── visualizations.log
+    └── session_metadata.json       # Session tracking info
+```
+
+This unified structure ensures all outputs from a single run are organized together for easy access and comparison.
 
 ### Writing Tests
 
@@ -183,7 +260,7 @@ Follow the established testing patterns:
 
 ```python
 import pytest
-from p3if_tests.utils import create_test_framework
+from tests.fixtures import create_test_framework
 
 class TestNewFeature(unittest.TestCase):
     def setUp(self):
@@ -295,10 +372,10 @@ python scripts/validate_documentation_accuracy.py
 
 ```bash
 # Run test suite
-python p3if_tests/run_all_tests.py
+pytest tests/ -v
 
 # Coverage analysis
-python -m pytest --cov=p3if_methods --cov-report=html
+pytest tests/ --cov=src/p3if --cov-report=html
 
 # Performance testing
 python scripts/benchmark_performance.py

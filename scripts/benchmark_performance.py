@@ -26,7 +26,7 @@ from p3if.utils.performance import (
     get_performance_monitor, clear_all_caches,
     create_performance_report, optimize_memory_usage
 )
-from p3if_tests.utils import (
+from tests.fixtures.helpers import (
     create_test_patterns_with_relationships,
     create_multi_domain_test_framework,
     create_large_test_framework
@@ -422,8 +422,8 @@ class PerformanceBenchmark:
         summary = self.results['summary']
         print("📊 SUMMARY")
         print(f"  Total Operations: {summary['total_operations']}")
-        print(f"  Total Execution Time: {summary['total_execution_time']".4f"}s")
-        print(f"  Average Execution Time: {summary['average_execution_time']".4f"}s")
+        print(f"  Total Execution Time: {summary['total_execution_time']:.4f}s")
+        print(f"  Average Execution Time: {summary['average_execution_time']:.4f}s")
         print()
 
         # Detailed results by category
@@ -433,25 +433,25 @@ class PerformanceBenchmark:
 
             if category == 'framework_creation':
                 for size_key, result in results.items():
-                    print(f"  Size {size_key}: {result['execution_time']".4f"}s "
-                          f"({result['memory_delta'] / 1024 / 1024".1f"} MB)")
+                    print(f"  Size {size_key}: {result['execution_time']:.4f}s "
+                          f"({result['memory_delta'] / 1024 / 1024:.1f} MB)")
 
             elif 'individual_results' in results:
                 avg_time = results['statistics']['average_time']
                 min_time = results['statistics']['min_time']
                 max_time = results['statistics']['max_time']
-                print(f"  Average: {avg_time".4f"}s")
-                print(f"  Range: {min_time".4f"}s - {max_time".4f"}s")
+                print(f"  Average: {avg_time:.4f}s")
+                print(f"  Range: {min_time:.4f}s - {max_time:.4f}s")
 
             elif category == 'memory_usage':
                 for op_name, mem_data in results.items():
-                    print(f"  {op_name}: {mem_data['memory_delta'] / 1024 / 1024".1f"} MB")
+                    print(f"  {op_name}: {mem_data['memory_delta'] / 1024 / 1024:.1f} MB")
 
             elif category == 'concurrent_operations':
                 add_stats = results['concurrent_add']
                 query_stats = results['concurrent_query']
-                print(f"  Pattern Addition: {add_stats['time_per_pattern']".4f"}s/pattern")
-                print(f"  Query Performance: {query_stats['time_per_query']".4f"}s/query")
+                print(f"  Pattern Addition: {add_stats['time_per_pattern']:.4f}s/pattern")
+                print(f"  Query Performance: {query_stats['time_per_query']:.4f}s/query")
 
             print()
 

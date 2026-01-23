@@ -544,7 +544,7 @@ class Interactive3DVisualizer:
         return fig
 
     def export_visualization(self, fig: Any, format: str = "html",
-                           filename: str = "p3if_visualization") -> str:
+                           filename: str = "p3if_cube") -> str:
         """Export visualization to various formats."""
         if not PLOTLY_AVAILABLE:
             return "Export not available without Plotly"

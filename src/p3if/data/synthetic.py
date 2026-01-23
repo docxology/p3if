@@ -4,7 +4,7 @@ P3IF Synthetic Data Generator
 This module provides functionality for generating synthetic P3IF data.
 """
 import random
-import logging
+from p3if.utils.logging import get_logger
 from typing import List, Dict, Any, Optional, Union, Tuple
 import json
 from pathlib import Path
@@ -30,7 +30,7 @@ class SyntheticDataGenerator:
         Args:
             domain_data_path: Optional path to domain data file or directory
         """
-        self.logger = logging.getLogger(__name__)
+        self.logger = get_logger(__name__)
         self.domains = {}
         self.domain_index = None
         
@@ -148,16 +148,8 @@ class SyntheticDataGenerator:
                     self.load_domain_file(file_path)
             
             self.logger.info(f"Loaded {len(self.domains)} domains from directory {data_path}")
-            return
-            
-        # Otherwise, assume it's a legacy format file with all domains
-        try:
-            with open(data_path, 'r') as f:
-                data = json.load(f)
-                self.domains = data.get("DOMAINS", {})
-            self.logger.info(f"Loaded {len(self.domains)} domains from legacy file {data_path}")
-        except Exception as e:
-            self.logger.error(f"Error loading domain data: {str(e)}")
+        else:
+            self.logger.warning(f"Path {data_path} is not a directory. Legacy file loading has been removed.")
     
     def get_available_domains(self) -> List[str]:
         """

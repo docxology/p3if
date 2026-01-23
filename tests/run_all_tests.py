@@ -118,7 +118,7 @@ class TestRunner:
         if self.verbose:
             print("\n🧠 Running Core Module Tests")
 
-        return self.run_pytest('tests/core/', [
+        return self.run_pytest('tests/unit/', [
             '--maxfail=5',
             '--durations=10'
         ])
@@ -128,7 +128,7 @@ class TestRunner:
         if self.verbose:
             print("\n🌐 Running API Tests")
 
-        return self.run_pytest('tests/website/', [
+        return self.run_pytest('tests/integration/', [
             '--maxfail=3'
         ])
 
@@ -169,7 +169,7 @@ class TestRunner:
 
         return self.run_command([
             'python', '-m', 'mypy',
-            'core/', 'website/', 'utils/', 'analysis/', 'visualization/',
+            'src/p3if/',
             '--ignore-missing-imports',
             '--no-strict-optional'
         ], "Running mypy type checking")
@@ -181,7 +181,7 @@ class TestRunner:
 
         return self.run_command([
             'python', '-m', 'flake8',
-            'core/', 'website/', 'utils/', 'analysis/', 'visualization/',
+            'src/p3if/',
             '--max-line-length=100',
             '--extend-ignore=E203,W503'
         ], "Running flake8 linting")
@@ -193,7 +193,7 @@ class TestRunner:
 
         return self.run_command([
             'python', '-m', 'bandit',
-            '-r', 'core/', 'website/', 'utils/', 'analysis/', 'visualization/',
+            '-r', 'src/p3if/',
             '-f', 'json'
         ], "Running bandit security check")
 

@@ -5,6 +5,7 @@ This module provides configuration management for P3IF.
 """
 import os
 import json
+import copy
 from pathlib import Path
 from typing import Any, Dict, Optional, Union
 
@@ -52,7 +53,7 @@ class Config:
         Args:
             config_file: Optional path to configuration file
         """
-        self._config = self.DEFAULT_CONFIG.copy()
+        self._config = copy.deepcopy(self.DEFAULT_CONFIG)
         
         # Load from file if provided
         if config_file:

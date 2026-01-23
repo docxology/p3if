@@ -501,12 +501,14 @@ def optimize_dataframe_operations():
     try:
         import pandas as pd
 
-        # Set performance-oriented options
-        pd.set_option('mode.chained_assignment', None)  # Disable chained assignment warnings
-        pd.set_option('mode.use_inf_as_na', True)  # Handle inf as NaN
+        # Set performance-oriented options with compatibility checks
+        try:
+            pd.set_option('mode.chained_assignment', None)  # Disable chained assignment warnings
+        except Exception:
+            pass  # Option may not exist in this pandas version
 
-        # Use more efficient dtypes where possible
-        # This would be applied in data processing functions
+        # Note: 'mode.use_inf_as_na' was deprecated in pandas 2.1.0 and removed in later versions
+        # Instead, use pd.options.mode.use_inf_as_null if available, or handle inf explicitly
 
     except ImportError:
         pass  # pandas not available

@@ -41,6 +41,7 @@ dev = [
     "pytest-asyncio>=0.21.0",
     "black>=23.0",
     "ruff>=0.1.0",
+    "mypy>=1.0",
 ]
 visualization = [
     "plotly>=5.14.0",
@@ -52,9 +53,10 @@ web = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/yourusername/p3if"
-Documentation = "https://p3if.readthedocs.io"
-Repository = "https://github.com/yourusername/p3if"
+Homepage = "https://github.com/danielmiessler/p3if"
+Documentation = "https://github.com/danielmiessler/p3if#readme"
+Repository = "https://github.com/danielmiessler/p3if"
+Issues = "https://github.com/danielmiessler/p3if/issues"
 
 [tool.setuptools.packages.find]
 where = ["src"]

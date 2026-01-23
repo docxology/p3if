@@ -150,17 +150,24 @@ class InteractiveVisualizer(Visualizer):
                 return self._cache[cache_key]
             else:
                 # Remove expired cache entry
-                del self._cache[cache_key]
-                del self._cache_expiry[cache_key]
+                try:
+                    del self._cache[cache_key]
+                except (KeyError, TypeError):
+                    pass
+                self._cache_expiry.pop(cache_key, None)
         return None
 
     def _cache_data(self, cache_key: str, data: Dict[str, Any]) -> None:
         """Cache visualization data."""
         if len(self._cache) >= self._max_cache_size:
             # Remove oldest entries
-            oldest_key = min(self._cache_expiry.keys(), key=self._cache_expiry.get)
-            del self._cache[oldest_key]
-            del self._cache_expiry[oldest_key]
+            if self._cache_expiry:
+                oldest_key = min(self._cache_expiry.keys(), key=self._cache_expiry.get)
+                try:
+                    del self._cache[oldest_key]
+                except (KeyError, TypeError):
+                    pass
+                self._cache_expiry.pop(oldest_key, None)
 
         self._cache[cache_key] = data
         self._cache_expiry[cache_key] = time.time()

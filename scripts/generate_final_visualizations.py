@@ -6,6 +6,7 @@ Coordinates multiple specialized visualization generators to create comprehensiv
 visual representations of Properties, Processes, and Perspectives.
 """
 import logging
+import argparse
 from pathlib import Path
 from datetime import datetime
 
@@ -30,14 +31,21 @@ logger = logging.getLogger(__name__)
 class P3IFVisualizationCoordinator:
     """Coordinates all P3IF visualization generation."""
 
-    def __init__(self):
-        """Initialize coordinator with session tracking."""
-        # Use outputs directory instead of separate visualization folders
-        outputs_dir = Path("outputs")
-        outputs_dir.mkdir(exist_ok=True)
-        self.session_path = outputs_dir / f"visualizations_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
-        self.session_path.mkdir(exist_ok=True)
-
+    def __init__(self, output_dir: Path = None):
+        """Initialize coordinator with session tracking.
+        
+        Args:
+            output_dir: Optional output directory. If not provided, creates timestamped dir.
+        """
+        if output_dir:
+            self.session_path = Path(output_dir)
+        else:
+            # Use outputs directory with timestamp for standalone runs
+            outputs_dir = Path("outputs")
+            outputs_dir.mkdir(exist_ok=True)
+            self.session_path = outputs_dir / f"visualizations_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
+        
+        self.session_path.mkdir(parents=True, exist_ok=True)
         logger.info(f"Created visualization session: {self.session_path}")
 
     def generate_comprehensive_visualizations(self):
@@ -78,7 +86,14 @@ class P3IFVisualizationCoordinator:
 
 def main():
     """Main entry point for P3IF visualization generation."""
-    coordinator = P3IFVisualizationCoordinator()
+    parser = argparse.ArgumentParser(description='Generate P3IF visualizations')
+    parser.add_argument('--output-dir', type=str, help='Output directory for visualizations')
+    args = parser.parse_args()
+    
+    # Set output directory
+    output_dir = Path(args.output_dir) if args.output_dir else None
+    
+    coordinator = P3IFVisualizationCoordinator(output_dir=output_dir)
     session_path = coordinator.generate_comprehensive_visualizations()
     logger.info(f"\n✅ P3IF visualization generation completed successfully!")
     logger.info(f"📁 Session directory: {session_path}")
@@ -86,3 +101,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

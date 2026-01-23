@@ -19,7 +19,7 @@ The `utils` package contains essential utility modules that support the core P3I
 Centralized configuration management system supporting JSON files, environment variables, and programmatic access.
 
 ```python
-from utils.config import Config
+from p3if.utils.config import Config
 
 # Load configuration
 config = Config("config.json")
@@ -38,7 +38,7 @@ config.save()
 Enhanced JSON handling with automatic datetime conversion and P3IF object serialization.
 
 ```python
-from utils.json import dumps, loads, P3IFEncoder
+from p3if.utils.json import dumps, loads, P3IFEncoder
 
 # Serialize P3IF objects
 data = {"framework": framework, "timestamp": datetime.now()}
@@ -53,7 +53,7 @@ decoded = loads(json_str)
 Abstract storage interface with JSON and SQLite implementations for P3IF data persistence.
 
 ```python
-from utils.storage import JSONStorage, SQLiteStorage
+from p3if.utils.storage import JSONStorage, SQLiteStorage
 
 # JSON file storage
 storage = JSONStorage("data.json")
@@ -69,7 +69,7 @@ patterns = db_storage.get_patterns_by_type("property")
 Comprehensive performance tracking with caching, timing decorators, and memory monitoring.
 
 ```python
-from utils.performance import PerformanceMonitor, timed, cached
+from p3if.utils.performance import PerformanceMonitor, timed, cached
 
 @timed
 def analyze_data():
@@ -92,7 +92,7 @@ print(f"Execution time: {monitor.get_metrics()['execution_time']}")
 Structured output management with session-based organization and metadata tracking.
 
 ```python
-from utils.output_organizer import OutputOrganizer
+from p3if.utils.output_organizer import OutputOrganizer
 
 organizer = OutputOrganizer()
 session_path = organizer.create_session("analysis_2024")
@@ -110,7 +110,8 @@ metadata = organizer.generate_metadata(session_path)
 ### Configuration Setup
 
 ```python
-from utils.config import Config
+from p3if.utils.config import Config
+import os
 
 # Initialize with defaults
 config = Config()
@@ -127,8 +128,8 @@ if os.getenv("ENV") == "production":
 ### Data Persistence
 
 ```python
-from utils.storage import SQLiteStorage
-from p3if_methods.models import Property
+from p3if.utils.storage import SQLiteStorage
+from p3if.core.models import Property
 
 # Initialize storage
 storage = SQLiteStorage("p3if.db")
@@ -145,8 +146,7 @@ security_props = [p for p in properties if "security" in p.name.lower()]
 ### Performance Optimization
 
 ```python
-from utils.performance import PerformanceMonitor, cached
-import time
+from p3if.utils.performance import PerformanceMonitor, cached
 
 @cached(max_size=50, ttl=600)  # Cache 50 items for 10 minutes
 def load_domain_data(domain_name):
@@ -166,8 +166,8 @@ print(f"Time elapsed: {metrics['execution_time']:.3f}s")
 ### Output Management
 
 ```python
-from utils.output_organizer import OutputOrganizer
-from p3if_visualization.interactive import InteractiveVisualizer
+from p3if.utils.output_organizer import OutputOrganizer
+from p3if.visualization.interactive import InteractiveVisualizer
 
 # Create organized output session
 organizer = OutputOrganizer("output")
@@ -210,10 +210,10 @@ Run utility tests:
 
 ```bash
 # Test all utilities
-python -m pytest p3if_tests/ -k "config or json or storage or performance" -v
+pytest tests/ -k "config or json or storage or performance" -v
 
 # Test specific module
-python -m pytest p3if_tests/test_config.py -v
+pytest tests/unit/test_config.py -v
 ```
 
 ## Error Handling

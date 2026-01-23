@@ -30,6 +30,8 @@ os.makedirs(os.path.join(os.path.dirname(__file__), 'logs'), exist_ok=True)
 
 def create_app(testing=False):
     """Create and configure the Flask application."""
+    from flask import jsonify
+
     app = Flask(__name__,
                 static_folder="static",
                 template_folder="templates")
@@ -46,6 +48,52 @@ def create_app(testing=False):
 
     if testing:
         app.config['TESTING'] = True
+
+    # Register error handlers inside create_app so they work with test clients
+    @app.errorhandler(404)
+    def page_not_found(e):
+        """Handle 404 errors."""
+        if request.path.startswith('/api/'):
+            return jsonify({
+                "status": "error",
+                "error": "Not Found",
+                "message": "The requested resource was not found",
+                "status_code": 404
+            }), 404
+        try:
+            return render_template('404.html'), 404
+        except Exception:
+            return jsonify({"status": "error", "message": "Not found"}), 404
+
+    @app.errorhandler(405)
+    def method_not_allowed(e):
+        """Handle 405 errors."""
+        if request.path.startswith('/api/'):
+            return jsonify({
+                "status": "error",
+                "error": "Method Not Allowed",
+                "message": "Method not allowed for this endpoint",
+                "status_code": 405
+            }), 405
+        try:
+            return render_template('404.html'), 405
+        except Exception:
+            return jsonify({"status": "error", "message": "Method not allowed"}), 405
+
+    @app.errorhandler(500)
+    def server_error(e):
+        """Handle 500 errors."""
+        if request.path.startswith('/api/'):
+            return jsonify({
+                "status": "error",
+                "error": "Internal Server Error",
+                "message": "An unexpected error occurred",
+                "status_code": 500
+            }), 500
+        try:
+            return render_template('500.html'), 500
+        except Exception:
+            return jsonify({"status": "error", "message": "Server error"}), 500
 
     return app
 
@@ -87,17 +135,6 @@ def utility_processor():
         return markdown.markdown(md_content, extensions=['fenced_code', 'tables'])
     
     return dict(markdown_to_html=markdown_to_html)
-
-@app.errorhandler(404)
-def page_not_found(e):
-    """Handle 404 errors."""
-    return render_template('404.html'), 404
-
-@app.errorhandler(500)
-def server_error(e):
-    """Handle 500 errors."""
-    logger.error(f"Server error: {str(e)}")
-    return render_template('500.html'), 500
 
 # Direct static file serving for specific directories
 @app.route('/output/<path:path>')

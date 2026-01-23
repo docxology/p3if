@@ -4,15 +4,15 @@ This directory provides documentation for P3IF examples and practical implementa
 
 ## Available Examples
 
-### Orchestrator Examples (`p3if_examples/`)
+### Orchestrator Examples (`src/p3if/orchestrators/`)
 
-The main examples are implemented as thin orchestrators in the `p3if_examples/` package:
+The main examples are implemented as thin orchestrators in the `p3if.orchestrators` package:
 
 #### Cognitive Security Orchestrator
 Analyzes information pipelines for cognitive security vulnerabilities:
 
 ```python
-from p3if_examples.cognitive_security_orchestrator import CognitiveSecurityOrchestrator
+from p3if.orchestrators import CognitiveSecurityOrchestrator
 
 orchestrator = CognitiveSecurityOrchestrator()
 results = orchestrator.execute_analysis("healthcare")
@@ -28,7 +28,7 @@ results = orchestrator.execute_analysis("healthcare")
 Integrates multiple frameworks into unified P3IF models:
 
 ```python
-from p3if_examples.framework_integration_orchestrator import FrameworkIntegrationOrchestrator
+from p3if.orchestrators import FrameworkIntegrationOrchestrator
 
 orchestrator = FrameworkIntegrationOrchestrator()
 results = orchestrator.execute_integration(["NIST_CSF", "ISO_27001", "COBIT"])
@@ -44,7 +44,7 @@ results = orchestrator.execute_integration(["NIST_CSF", "ISO_27001", "COBIT"])
 Healthcare-specific analysis and compliance mapping:
 
 ```python
-from p3if_examples.healthcare_domain_orchestrator import HealthcareDomainOrchestrator
+from p3if.orchestrators import HealthcareDomainOrchestrator
 
 orchestrator = HealthcareDomainOrchestrator()
 results = orchestrator.execute_healthcare_analysis("hospital")
@@ -85,7 +85,7 @@ Run specific orchestrators:
 ```bash
 # Cognitive security analysis
 python -c "
-from p3if_examples.cognitive_security_orchestrator import CognitiveSecurityOrchestrator
+from p3if.orchestrators import CognitiveSecurityOrchestrator
 orchestrator = CognitiveSecurityOrchestrator()
 results = orchestrator.execute_analysis()
 print('Cognitive security analysis completed')
@@ -93,7 +93,7 @@ print('Cognitive security analysis completed')
 
 # Framework integration
 python -c "
-from p3if_examples.framework_integration_orchestrator import FrameworkIntegrationOrchestrator
+from p3if.orchestrators import FrameworkIntegrationOrchestrator
 orchestrator = FrameworkIntegrationOrchestrator()
 results = orchestrator.execute_integration(['NIST_CSF', 'ISO_27001'])
 print('Framework integration completed')
@@ -101,7 +101,7 @@ print('Framework integration completed')
 
 # Healthcare domain analysis
 python -c "
-from p3if_examples.healthcare_domain_orchestrator import HealthcareDomainOrchestrator
+from p3if.orchestrators import HealthcareDomainOrchestrator
 orchestrator = HealthcareDomainOrchestrator()
 results = orchestrator.execute_healthcare_analysis()
 print('Healthcare analysis completed')
@@ -150,7 +150,7 @@ Run example validation:
 
 ```bash
 # Test all examples
-python -m pytest p3if_tests/ -k "orchestrator" -v
+pytest tests/ -k "orchestrator" -v
 
 # Validate example outputs
 python scripts/run_examples.py --validate
@@ -168,7 +168,7 @@ To create new examples:
 
 ## Resources
 
-- [Orchestrator Documentation](../../p3if_methods/orchestration.py)
-- [Framework Guide](../../p3if_methods/framework.py)
-- [Analysis Tools](../../p3if_methods/analysis/)
-- [Visualization Examples](../../p3if_visualization/) 
+- [Orchestrator Documentation](../../src/p3if/core/orchestration.py)
+- [Framework Guide](../../src/p3if/core/framework.py)
+- [Analysis Tools](../../src/p3if/core/analysis/)
+- [Visualization Examples](../../src/p3if/visualization/) 

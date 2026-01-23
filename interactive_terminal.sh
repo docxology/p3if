@@ -18,6 +18,31 @@ PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VENV_NAME=".venv"
 REQUIREMENTS_FILE="requirements.txt"
 
+# Session management for unified output
+SESSION_TIMESTAMP=""
+SESSION_DIR=""
+
+# Create unified session directory for Run All
+create_session_dir() {
+    SESSION_TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
+    SESSION_DIR="$PROJECT_ROOT/outputs/run_${SESSION_TIMESTAMP}"
+    mkdir -p "$SESSION_DIR/tests"
+    mkdir -p "$SESSION_DIR/examples"
+    mkdir -p "$SESSION_DIR/visualizations"
+    mkdir -p "$SESSION_DIR/logs"
+    
+    # Create session metadata
+    cat > "$SESSION_DIR/session_metadata.json" << EOF
+{
+    "session_id": "run_${SESSION_TIMESTAMP}",
+    "created_at": "$(date -u +"%Y-%m-%dT%H:%M:%SZ")",
+    "project": "$PROJECT_NAME",
+    "components": ["tests", "examples", "visualizations"]
+}
+EOF
+    echo -e "${GREEN}Created session: $SESSION_DIR${NC}"
+}
+
 # Show header
 show_header() {
     clear
@@ -45,10 +70,11 @@ show_main_menu() {
     echo "4)  Generate Visualizations"
     echo "5)  Show System Status"
     echo "6)  Help & Information"
+    echo "7)  Run All (1-4)"
     echo ""
     echo "0)  Exit"
     echo ""
-    echo -n "Choose an option (0-6): "
+    echo -n "Choose an option (0-7): "
 }
 
 # Setup UV if not present
@@ -84,25 +110,28 @@ install_deps() {
 # Run tests
 run_tests() {
     echo "Running test suite..."
-    mkdir -p "$PROJECT_ROOT/outputs/tests"
+    local output_dir="${SESSION_DIR:-$PROJECT_ROOT/outputs}/tests"
+    mkdir -p "$output_dir"
     cd "$PROJECT_ROOT"
-    python scripts/run_tests.py
+    python tests/run_all_tests.py -v --output "$output_dir/test_report.json" 2>&1 | tee "$output_dir/test_output.log"
 }
 
 # Run examples
 run_examples() {
     echo "Running examples..."
-    mkdir -p "$PROJECT_ROOT/outputs/examples"
+    local output_dir="${SESSION_DIR:-$PROJECT_ROOT/outputs/examples}"
+    mkdir -p "$output_dir"
     cd "$PROJECT_ROOT"
-    python scripts/run_examples.py
+    python scripts/run_examples.py --output-dir "$output_dir" 2>&1 | tee "${SESSION_DIR:-$PROJECT_ROOT/outputs}/logs/examples.log"
 }
 
 # Generate visualizations
 gen_viz() {
     echo "Generating visualizations..."
-    mkdir -p "$PROJECT_ROOT/outputs/visualizations"
+    local output_dir="${SESSION_DIR:-$PROJECT_ROOT/outputs}/visualizations"
+    mkdir -p "$output_dir"
     cd "$PROJECT_ROOT"
-    python scripts/generate_final_visualizations.py
+    python scripts/generate_final_visualizations.py --output-dir "$output_dir" 2>&1 | tee "${SESSION_DIR:-$PROJECT_ROOT/outputs}/logs/visualizations.log"
 }
 
 # Show status
@@ -177,6 +206,9 @@ show_help() {
     echo "  6) Help & Information"
     echo "     - Show this help message"
     echo ""
+    echo "  7) Run All (1-4)"
+    echo "     - Setup, run tests, run examples, and generate visualizations"
+    echo ""
     echo "  0) Exit"
     echo "     - Exit the terminal"
     echo ""
@@ -220,12 +252,39 @@ interactive_loop() {
             6)
                 show_help
                 ;;
+            7)
+                echo -e "${GREEN}Running all operations (1-4)...${NC}"
+                echo ""
+                # Create unified session directory for all outputs
+                create_session_dir
+                echo ""
+                echo -e "${BLUE}Step 1/4: Setting up environment...${NC}"
+                setup_uv
+                setup_venv
+                install_deps
+                echo -e "${GREEN}Environment setup completed!${NC}"
+                echo ""
+                echo -e "${BLUE}Step 2/4: Running all tests...${NC}"
+                run_tests
+                echo -e "${GREEN}Tests completed!${NC}"
+                echo ""
+                echo -e "${BLUE}Step 3/4: Running all examples...${NC}"
+                run_examples
+                echo -e "${GREEN}Examples completed!${NC}"
+                echo ""
+                echo -e "${BLUE}Step 4/4: Generating visualizations...${NC}"
+                gen_viz
+                echo -e "${GREEN}Visualizations completed!${NC}"
+                echo ""
+                echo -e "${GREEN}All operations completed successfully!${NC}"
+                echo -e "${BLUE}📁 All outputs saved to: ${SESSION_DIR}${NC}"
+                ;;
             0)
                 echo -e "${GREEN}Goodbye!${NC}"
                 break
                 ;;
             *)
-                echo -e "${RED}Invalid choice. Please select 0-6.${NC}"
+                echo -e "${RED}Invalid choice. Please select 0-7.${NC}"
                 ;;
         esac
 

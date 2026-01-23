@@ -1,114 +1,131 @@
 # P3IF Scripts
 
-This directory contains all executable scripts and utilities for the P3IF framework.
+Thin orchestrator scripts for running P3IF components. All outputs go to `outputs/` subdirectories.
+
+## Quick Start
+
+```bash
+# Run everything (tests, visualizations, benchmarks, examples, validation)
+python scripts/run_all.py
+
+# Run specific components
+python scripts/run_all.py --tests
+python scripts/run_all.py --viz
+python scripts/run_all.py --bench
+python scripts/run_all.py --examples
+python scripts/run_all.py --validate
+
+# Combine components
+python scripts/run_all.py --tests --viz
+```
 
 ## Core Scripts
 
-### System Management
-- **setup_development.py** - Set up development environment and install dependencies
-- **demo_modular_system.py** - Comprehensive demonstration of P3IF modular capabilities
+| Script | Purpose | Output Directory |
+|--------|---------|------------------|
+| `run_all.py` | Master orchestrator - runs all components | `outputs/p3if_run_{timestamp}/` |
+| `run_examples.py` | Run example orchestrators (cognitive security, healthcare, framework integration) | `outputs/examples/` |
+| `generate_final_visualizations.py` | Generate all visualization types | `outputs/visualizations_{timestamp}/` |
+| `benchmark_performance.py` | Performance benchmarks and metrics | User-specified or stdout |
+| `validate_system.py` | System validation and health checks | `/tmp/p3if_comprehensive_report.json` |
+| `setup_development.py` | Development environment setup | - |
+| `view_p3if_website.py` | Launch local website for viewing | - |
 
-### Testing & Validation
-- **run_tests.py** - Comprehensive test suite with detailed reporting
-- **run_tests_simple.py** - Simple test runner for quick validation
-- **run_p3if_tests.py** - Legacy test runner (redirects to comprehensive runner)
-- **run_examples.py** - Execute all P3IF example orchestrators with validation
-- **validate_documentation.py** - Validate documentation against project standards
-- **validate_documentation_accuracy.py** - Verify documentation accuracy and completeness
-- **benchmark_performance.py** - Performance benchmarking and analysis
+## Output Structure
 
-### Development & Maintenance
-- **update_domain_files.py** - Update domain files with relationship data
-- **update_imports.py** - Update import statements across codebase
-- **verify_imports.py** - Verify all imports are working correctly
-- **test_3d_cube_with_domains.py** - Test 3D cube visualization with domain datasets
+When running `run_all.py`, outputs are organized as:
 
-### Visualization & Output
-- **run_multidomain_portal.py** - Generate multi-domain visualization portal
-- **generate_final_visualizations.py** - Generate PNG/GIF visualizations and animations
-- **fix_visualization_paths.py** - Fix website visualization file paths
-- **ensure_website_references.py** - Ensure proper website file references
-- **view_p3if_website.py** - Open P3IF website in browser
+```
+outputs/
+  p3if_run_{timestamp}/
+    tests/
+      junit.xml           # Test results in JUnit format
+      coverage/           # HTML coverage report
+      pytest_output.txt   # Raw pytest output
+    visualizations/
+      network/            # Network visualizations
+      heatmap/            # Heatmap visualizations
+      cube/               # 3D cube visualizations
+      ...
+    benchmarks/
+      benchmark_results.json
+      benchmark_output.txt
+    examples/
+      examples_results.json
+    validation/
+      validation_output.txt
+    logs/
+    run_all_results.json  # Summary of entire run
+```
 
 ## Usage Examples
 
-### Interactive Terminal
+### Run Everything
 ```bash
-# Start interactive terminal (now at repository root)
-./interactive_terminal.sh
-
-# Or run all tests and examples
-./interactive_terminal.sh --run-all
+python scripts/run_all.py
 ```
+This runs all tests, generates visualizations, runs benchmarks, executes examples, and validates the system. Results are saved to a timestamped directory in `outputs/`.
 
-### Development Setup
+### Run Tests Only
 ```bash
-# Set up development environment
-python3 scripts/setup_development.py
-```
-
-### Run Tests
-```bash
-# Comprehensive test suite
-python3 scripts/run_tests.py
-
-# Simple test validation
-python3 scripts/run_tests_simple.py
-
-# Run example orchestrators
-python3 scripts/run_examples.py
+python scripts/run_all.py --tests
+# Or use pytest directly
+python -m pytest tests/ -v
 ```
 
 ### Generate Visualizations
 ```bash
-# Generate all visualizations and animations
-python3 scripts/generate_final_visualizations.py
-
-# Multi-domain portal
-python3 scripts/run_multidomain_portal.py --output-dir output
+python scripts/run_all.py --viz
+# Or use the visualization script directly
+python scripts/generate_final_visualizations.py
 ```
 
-### Performance Benchmarking
+### Run Performance Benchmarks
 ```bash
-# Run comprehensive benchmarks
-python3 scripts/benchmark_performance.py --output results.json
+python scripts/run_all.py --bench
+# Or run directly with options
+python scripts/benchmark_performance.py --quick
+python scripts/benchmark_performance.py --full --output results.json
 ```
 
-### Documentation Validation
+### Run Example Orchestrators
 ```bash
-# Validate documentation standards
-python3 scripts/validate_documentation.py
-
-# Verify documentation accuracy
-python3 scripts/validate_documentation_accuracy.py
+python scripts/run_all.py --examples
+# Or run directly
+python scripts/run_examples.py
 ```
 
-## Output Locations
+### Validate System
+```bash
+python scripts/run_all.py --validate
+# Or run directly
+python scripts/validate_system.py
+```
 
-All scripts generate outputs in organized directories:
-- **Test Results**: `outputs/tests/` - Test reports, coverage, logs
-- **Example Results**: `outputs/examples/` - Example execution outputs
-- **Visualizations**: `outputs/visualizations/` - PNG, GIF, HTML outputs
-- **Documentation**: `docs/` - Generated documentation and reports
-- **Logs**: `logs/` - Execution logs and error reports
+### View Website
+```bash
+python scripts/view_p3if_website.py
+```
 
 ## Script Categories
 
-### 🏗️ **System Setup & Management**
-Scripts for setting up and managing the P3IF development environment.
+### Master Orchestration
+- **run_all.py** - Runs all components with organized output
 
-**Note:** The interactive terminal (`./interactive_terminal.sh`) is located at the repository root for easy access. A wrapper script is available at `./interactive_terminal_wrapper.sh` for backward compatibility.
+### Testing & Validation
+- **validate_system.py** - System health checks
 
-### 🧪 **Testing & Validation**
-Comprehensive test suites and validation tools to ensure code quality.
+### Visualization
+- **generate_final_visualizations.py** - Generate all visualization types
 
-### 🎨 **Visualization & Output**
-Tools for generating visualizations, animations, and output files.
+### Performance
+- **benchmark_performance.py** - Performance benchmarking
 
-### 🔧 **Development & Maintenance**
-Utilities for maintaining code quality, updating imports, and managing domains.
+### Examples
+- **run_examples.py** - Execute example orchestrators
 
-### 📚 **Documentation**
-Tools for validating and maintaining project documentation.
+### Development
+- **setup_development.py** - Development environment setup
+- **view_p3if_website.py** - View website locally
 
-All scripts are designed to be run from the project root directory and follow consistent patterns for logging, error handling, and output organization. 
+All scripts are designed to be run from the project root directory and follow consistent patterns for logging, error handling, and output organization.

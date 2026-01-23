@@ -434,14 +434,21 @@ def create_test_patterns_with_relationships(num_patterns: int = 10,
         framework.add_pattern(persp)
 
     # Create relationships
+    # Mapping for correct pluralization of pattern types
+    pattern_lists = {
+        "property": properties,
+        "process": processes,
+        "perspective": perspectives
+    }
+
     for i in range(num_relationships):
         # Randomly select pattern types to connect
         pattern_types = random.sample(["property", "process", "perspective"], 2)
         type1, type2 = pattern_types
 
-        # Randomly select patterns
-        pattern1 = random.choice(locals()[f"{type1}es"] if type1 == "process" else locals()[f"{type1}s"])
-        pattern2 = random.choice(locals()[f"{type2}es"] if type2 == "process" else locals()[f"{type2}s"])
+        # Randomly select patterns using the mapping
+        pattern1 = random.choice(pattern_lists[type1])
+        pattern2 = random.choice(pattern_lists[type2])
 
         # Create relationship data
         rel_data = {

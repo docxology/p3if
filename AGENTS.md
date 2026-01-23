@@ -13,19 +13,21 @@ P3IF is a sophisticated meta-framework for integrating, analyzing, and visualizi
 ## 🏗️ Architecture Understanding
 
 ### Modular Design
-P3IF follows a clean modular architecture:
+P3IF follows a clean modular architecture with a modern `src/` layout:
 
 ```
 p3if/
-├── p3if_methods/          # Core framework methods
-├── p3if_examples/         # Thin orchestrator examples
-├── p3if_visualization/    # Visualization and animation system
-├── p3if_tests/           # Comprehensive test suite
-├── utils/                # Shared utility modules
-├── data/                 # Domain data and generators
-├── website/              # Web portal and API
-├── docs/                 # Comprehensive documentation
-└── scripts/              # All executable tools
+├── src/p3if/              # Main package
+│   ├── core/              # Core framework, models, analysis, composition, orchestration
+│   ├── orchestrators/     # Thin orchestrator examples
+│   ├── visualization/     # Visualization and animation system
+│   ├── utils/             # Shared utility modules
+│   └── data/              # Data management, importers, exporters
+├── tests/                 # Comprehensive test suite
+├── data/                  # Domain data files
+├── website/               # Web portal and API
+├── docs/                  # Comprehensive documentation
+└── scripts/               # All executable tools
 ```
 
 ### Key Concepts
@@ -114,7 +116,7 @@ Key Features:
 - Feature 3: Description
 
 Usage:
-    from p3if_new_module import NewClass
+    from p3if.core.models import Property
 
     instance = NewClass()
     results = instance.process_data(data)
@@ -159,7 +161,7 @@ Every new function/class must have corresponding unit tests:
 
 ```python
 import pytest
-from p3if_new_module import NewClass
+from p3if.core.models import Property
 
 class TestNewClass(unittest.TestCase):
     def setUp(self):
@@ -182,7 +184,7 @@ Include integration tests for component interactions:
 ```python
 def test_integration_with_core():
     """Test integration with P3IF core components."""
-    from p3if_methods.core import P3IFCore
+    from p3if.core import P3IFCore
 
     core = P3IFCore()
     new_component = NewClass()
@@ -200,7 +202,7 @@ def test_integration_with_core():
 Implement comprehensive error handling:
 
 ```python
-from p3if_methods.validation import ValidationEngine
+from p3if.core.validation import ValidationEngine
 
 def robust_function(data: Dict[str, Any]) -> Dict[str, Any]:
     """Function with robust error handling."""
@@ -230,7 +232,7 @@ def robust_function(data: Dict[str, Any]) -> Dict[str, Any]:
 
 #### Caching for Expensive Operations
 ```python
-from p3if_methods.caching import CacheManager, CacheStrategy
+from p3if.core.caching import CacheManager, CacheStrategy
 
 @cached(CacheStrategy.LRU, ttl=3600)
 def expensive_operation(data: Dict[str, Any]) -> Dict[str, Any]:
@@ -274,7 +276,7 @@ New Features:
 - Feature B: Description and benefits
 
 Usage Examples:
-    from p3if_new_module import NewFeature
+    from p3if.visualization.interactive import InteractiveVisualizer
 
     # Basic usage
     feature = NewFeature()
@@ -298,7 +300,7 @@ Usage Examples:
 Use P3IF's test utilities:
 
 ```python
-from p3if_tests.utils import create_test_framework, create_multi_domain_test_framework
+from tests.fixtures import create_test_framework, create_multi_domain_test_framework
 
 # Create test data
 framework = create_test_framework(num_properties=10, num_processes=8)
@@ -347,12 +349,12 @@ Key Features:
 
 Integration:
     This module integrates with:
-    - p3if_methods.core: Core framework functionality
-    - p3if_visualization: Visualization capabilities
-    - p3if_tests: Testing framework
+    - p3if.core: Core framework functionality
+    - p3if.visualization: Visualization capabilities
+    - tests: Testing framework
 
 Usage:
-    from p3if_new_module import NewClass
+    from p3if.core.models import Property
 
     instance = NewClass()
     result = instance.process_data(data)
@@ -456,8 +458,7 @@ def process_complex_data(
 
 ### Development Tools
 - **Interactive Terminal**: `./interactive_terminal.sh` - Full development environment
-- **Test Runner**: `python p3if_tests/run_all_tests.py` - Comprehensive testing
-- **Documentation Validator**: `python scripts/validate_documentation.py` - Quality checks
+- **Test Runner**: `pytest tests/ -v` - Comprehensive testing
 - **Performance Benchmark**: `python scripts/benchmark_performance.py` - Performance analysis
 
 ### Documentation Resources
@@ -467,10 +468,11 @@ def process_complex_data(
 - **Examples**: [docs/examples/](docs/examples/)
 
 ### Code Resources
-- **P3IF Methods**: [p3if_methods/](p3if_methods/)
-- **Examples**: [p3if_examples/](p3if_examples/)
-- **Tests**: [p3if_tests/](p3if_tests/)
-- **Utilities**: [utils/](utils/)
+- **Core Framework**: [src/p3if/core/](src/p3if/core/)
+- **Orchestrators**: [src/p3if/orchestrators/](src/p3if/orchestrators/)
+- **Visualization**: [src/p3if/visualization/](src/p3if/visualization/)
+- **Tests**: [tests/](tests/)
+- **Utilities**: [src/p3if/utils/](src/p3if/utils/)
 
 ## 🤝 Contributing as an AI Agent
 

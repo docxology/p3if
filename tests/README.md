@@ -4,7 +4,7 @@ This package contains comprehensive test suites for the P3IF (Properties, Proces
 
 ## Overview
 
-The `p3if_tests` package provides a complete testing framework:
+The `tests` package provides a complete testing framework:
 
 - **Unit Tests**: Individual component testing with comprehensive coverage
 - **Integration Tests**: Cross-component interaction validation
@@ -15,27 +15,25 @@ The `p3if_tests` package provides a complete testing framework:
 ## Architecture
 
 ```
-p3if_tests/
+tests/
 ├── __init__.py                    # Package initialization
-├── core/                          # Core framework tests
+├── conftest.py                    # Pytest configuration and fixtures
+├── unit/                          # Unit tests
 │   ├── test_framework.py         # P3IFFramework tests
-│   └── test_models.py           # Data model tests
-├── test_composition.py           # Composition and multiplexing tests
-├── test_core.py                  # Core functionality tests
-├── utils.py                      # Test utilities and fixtures
-├── run_all_tests.py              # Comprehensive test runner
-├── requirements-test.txt         # Test-specific dependencies
-├── visualization/                # Visualization system tests
-│   ├── __init__.py              # Visualization test package
-│   ├── run_all_tests.py         # Visualization test runner
-│   ├── test_base.py             # Base visualizer tests
-│   ├── test_interactive.py      # Interactive visualization tests
-│   ├── test_portal.py           # Portal system tests
-│   ├── test_dashboard.py        # Dashboard generation tests
-│   ├── test_integrated_website.py # Full integration tests
-│   └── requirements-test.txt    # Visualization test dependencies
-└── website/                      # Website and API tests
-    └── test_api.py               # API endpoint tests
+│   ├── test_models.py            # Data model tests
+│   ├── test_composition.py       # Composition and multiplexing tests
+│   └── test_core.py              # Core functionality tests
+├── integration/                   # Integration tests
+│   └── test_integration.py       # Cross-component tests
+├── fixtures/                      # Test fixtures and utilities
+│   ├── __init__.py               # Fixture exports
+│   └── helpers.py                # Test utilities and helpers
+└── visualization/                 # Visualization system tests
+    ├── __init__.py               # Visualization test package
+    ├── test_base.py              # Base visualizer tests
+    ├── test_interactive.py       # Interactive visualization tests
+    ├── test_portal.py            # Portal system tests
+    └── test_dashboard.py         # Dashboard generation tests
 ```
 
 ## Test Categories
@@ -78,35 +76,37 @@ Tests for system performance and optimization:
 ### All Tests
 ```bash
 # Run complete test suite
-python p3if_tests/run_all_tests.py
+pytest tests/ -v
 
 # Run with coverage analysis
-python p3if_tests/run_all_tests.py --coverage
+pytest tests/ --cov=src/p3if --cov-report=html
 
 # Run with parallel execution
-python p3if_tests/run_all_tests.py --parallel
+pytest tests/ -n auto
 ```
 
 ### Specific Test Categories
 ```bash
-# Core framework tests
-python -m pytest p3if_tests/test_core.py -v
+# Unit tests only
+pytest tests/unit/ -v
 
-# Composition tests
-python -m pytest p3if_tests/test_composition.py -v
+# Integration tests only
+pytest tests/integration/ -v
 
-# Visualization tests
-python -m pytest p3if_tests/visualization/ -v
+# Visualization tests only
+pytest tests/visualization/ -v
 
-# Performance tests
-python -m pytest p3if_tests/test_performance.py -v
+# Tests by marker
+pytest tests/ -m unit -v
+pytest tests/ -m integration -v
+pytest tests/ -m visualization -v
 ```
 
 ### Individual Test Files
 ```bash
 # Test specific components
-python -m pytest p3if_tests/core/test_framework.py -v
-python -m pytest p3if_tests/visualization/test_interactive.py -v
+pytest tests/unit/test_framework.py -v
+pytest tests/visualization/test_interactive.py -v
 ```
 
 ## Test Utilities
@@ -115,7 +115,7 @@ python -m pytest p3if_tests/visualization/test_interactive.py -v
 Reusable test data and setup utilities:
 
 ```python
-from p3if_tests.utils import create_test_framework, create_multi_domain_test_framework
+from tests.fixtures import create_test_framework, create_multi_domain_test_framework
 
 # Create standard test framework
 framework = create_test_framework(num_properties=10, num_processes=8)
@@ -128,7 +128,7 @@ multi_domain = create_multi_domain_test_framework(domains=["healthcare", "financ
 Utilities for creating test datasets:
 
 ```python
-from p3if_tests.utils import generate_test_json_data, create_pattern_with_metadata
+from tests.fixtures import generate_test_json_data, create_pattern_with_metadata
 
 # Generate test JSON data
 test_data = generate_test_json_data(num_patterns=20, num_relationships=50)
@@ -144,13 +144,10 @@ pattern = create_pattern_with_metadata(
 Utilities for common test assertions:
 
 ```python
-from p3if_tests.utils import assert_framework_integrity, assert_relationship_validity
+from tests.fixtures import assert_framework_integrity
 
 # Validate framework structure
 assert_framework_integrity(framework)
-
-# Validate relationship properties
-assert_relationship_validity(relationship, expected_strength=0.8)
 ```
 
 ## Test Coverage
@@ -164,7 +161,7 @@ assert_relationship_validity(relationship, expected_strength=0.8)
 ### Coverage Analysis
 ```bash
 # Generate coverage report
-python -m pytest --cov=p3if_methods --cov-report=html
+pytest tests/ --cov=src/p3if --cov-report=html
 
 # View coverage in browser
 open htmlcov/index.html
@@ -221,9 +218,9 @@ jobs:
       - name: Install dependencies
         run: |
           pip install -r requirements.txt
-          pip install -r p3if_tests/requirements-test.txt
+          pip install -e ".[dev]"
       - name: Run tests
-        run: python p3if_tests/run_all_tests.py --coverage
+        run: pytest tests/ --cov=src/p3if
 ```
 
 ## Debugging Tests
@@ -235,14 +232,16 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 
 # Run test with debugging
-python -m pytest p3if_tests/test_core.py::TestP3IFCore::test_create_pattern -v -s
+pytest tests/unit/test_core.py::TestP3IFCore::test_create_pattern -v -s
 ```
 
 ### Test Data Inspection
 ```python
 # Inspect test framework data
+from tests.fixtures import create_test_framework
+
 framework = create_test_framework()
-print(f"Framework has {len(framework)} patterns")
+print(f"Framework has {len(framework._patterns)} patterns")
 
 # Inspect relationships
 relationships = framework.get_all_relationships()
@@ -252,22 +251,16 @@ print(f"Framework has {len(relationships)} relationships")
 ## Performance Testing
 
 ### Benchmarking Framework
-```python
-from p3if_tests.utils import benchmark_operation
-
-# Benchmark framework operations
-results = benchmark_operation(
-    "framework_creation",
-    lambda: create_test_framework(num_patterns=100),
-    iterations=10
-)
-print(f"Average creation time: {results['avg_time']:.4f}s")
+```bash
+# Run performance benchmarks
+python scripts/benchmark_performance.py
 ```
 
 ### Memory Profiling
 ```python
 # Profile memory usage
 import tracemalloc
+from tests.fixtures import create_large_test_framework
 
 tracemalloc.start()
 framework = create_large_test_framework()
@@ -281,6 +274,9 @@ print(f"Memory usage: {current / 10**6:.2f}MB (peak: {peak / 10**6:.2f}MB)")
 Tests use in-memory SQLite databases by default:
 
 ```python
+from p3if.core.framework import P3IFFramework
+from p3if.utils.storage import SQLiteStorage
+
 # Test with persistent database
 framework = P3IFFramework(SQLiteStorage("test_framework.db"))
 ```
@@ -289,7 +285,7 @@ framework = P3IFFramework(SQLiteStorage("test_framework.db"))
 ```python
 # Clean up test files
 import tempfile
-import shutil
+import os
 
 with tempfile.TemporaryDirectory() as tmpdir:
     # Create test files
@@ -315,96 +311,9 @@ with tempfile.TemporaryDirectory() as tmpdir:
 - [ ] Tests have clear, descriptive names
 - [ ] Tests include comprehensive docstrings
 
-## Test Results and Reporting
+## Critical Rules
 
-### Test Report Generation
-```python
-from p3if_tests.run_all_tests import TestRunner
-
-runner = TestRunner(verbose=True, coverage=True)
-report = runner.run_all_tests()
-print(f"Tests passed: {report['passed']}")
-print(f"Tests failed: {report['failed']}")
-```
-
-### Coverage Reporting
-```python
-# Generate detailed coverage report
-runner = TestRunner(coverage=True)
-report = runner.run_all_tests()
-coverage_data = report['coverage']
-print(f"Overall coverage: {coverage_data['overall']:.2%}")
-```
-
-## Troubleshooting
-
-### Common Test Issues
-
-**Import Errors**
-- Ensure all dependencies are installed
-- Check Python path and virtual environment
-- Verify package structure is correct
-
-**Test Timeouts**
-- Increase timeout for slow tests
-- Use smaller test datasets for quick iteration
-- Implement test data caching
-
-**Memory Issues**
-- Use smaller datasets for memory-intensive tests
-- Implement cleanup in test teardown
-- Monitor memory usage during test runs
-
-**Flaky Tests**
-- Add retry logic for network-dependent tests
-- Use deterministic test data
-- Avoid time-dependent assertions
-
-## Integration with Development Workflow
-
-### Pre-commit Hooks
-```yaml
-# .pre-commit-config.yaml
-repos:
-  - repo: local
-    hooks:
-      - id: pytest
-        name: pytest
-        entry: python -m pytest
-        language: system
-        pass_filenames: false
-        args: [p3if_tests/test_core.py, --tb=short]
-```
-
-### GitHub Actions Integration
-```yaml
-# .github/workflows/ci.yml
-name: CI
-on: [push, pull_request]
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Run tests
-        run: python p3if_tests/run_all_tests.py
-```
-
-## Maintenance
-
-### Test Data Updates
-Regularly update test data to reflect:
-- New framework features
-- Performance improvements
-- API changes
-- Bug fixes
-
-### Test Suite Expansion
-Add tests for:
-- New visualization types
-- Additional framework integrations
-- Performance optimizations
-- Edge cases and error conditions
+**NEVER use mocks for P3IF classes.** Always use real `Property`, `Process`, `Perspective`, and `Relationship` objects from `p3if.core.models`. Test with actual P3IF data structures.
 
 ## Quality Assurance
 
@@ -424,4 +333,3 @@ For test-related issues:
 4. Create issues for test infrastructure problems
 
 The comprehensive test suite ensures the P3IF system maintains high quality and reliability across all components and use cases.
-

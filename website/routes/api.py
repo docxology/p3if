@@ -39,6 +39,7 @@ api_bp = Blueprint('api', __name__)
 # API Configuration
 API_VERSION = "v2"
 API_BASE_URL = f"/{API_VERSION}"
+API_AVAILABLE = True
 
 # Enable CORS for cross-origin requests
 CORS(api_bp)
@@ -53,6 +54,7 @@ def handle_api_errors(f):
         except ValueError as e:
             logger.warning(f"API validation error: {e}")
             return jsonify({
+                "status": "error",
                 "error": "Validation Error",
                 "message": str(e),
                 "status_code": 400
@@ -60,6 +62,7 @@ def handle_api_errors(f):
         except FileNotFoundError as e:
             logger.error(f"API file not found: {e}")
             return jsonify({
+                "status": "error",
                 "error": "Resource Not Found",
                 "message": "The requested resource was not found",
                 "status_code": 404
@@ -67,6 +70,7 @@ def handle_api_errors(f):
         except Exception as e:
             logger.error(f"API internal error: {e}")
             return jsonify({
+                "status": "error",
                 "error": "Internal Server Error",
                 "message": "An unexpected error occurred",
                 "status_code": 500
@@ -80,6 +84,7 @@ def validate_json(f):
         try:
             if not request.is_json:
                 return jsonify({
+                    "status": "error",
                     "error": "Invalid Content Type",
                     "message": "Request must have Content-Type: application/json",
                     "status_code": 400
@@ -87,6 +92,7 @@ def validate_json(f):
             return f(*args, **kwargs)
         except Exception as e:
             return jsonify({
+                "status": "error",
                 "error": "Invalid JSON",
                 "message": "Request contains invalid JSON",
                 "status_code": 400
@@ -120,11 +126,14 @@ def get_domains():
             with open(index_path, 'r', encoding='utf-8') as f:
                 domain_index = json.load(f)
                 return jsonify({
-                    "domains": domain_index.get('domains', []),
-                    "total": len(domain_index.get('domains', [])),
-                    "metadata": {
-                        "source": "index_file",
-                        "last_updated": datetime.fromtimestamp(index_path.stat().st_mtime, tz=timezone.utc).isoformat()
+                    "status": "success",
+                    "data": {
+                        "domains": domain_index.get('domains', []),
+                        "total": len(domain_index.get('domains', [])),
+                        "metadata": {
+                            "source": "index_file",
+                            "last_updated": datetime.fromtimestamp(index_path.stat().st_mtime, tz=timezone.utc).isoformat()
+                        }
                     }
                 })
     except (FileNotFoundError, json.JSONDecodeError) as e:
@@ -164,11 +173,14 @@ def get_domains():
             continue
 
     return jsonify({
-        "domains": domains,
-        "total": len(domains),
-        "metadata": {
-            "source": "file_scan",
-            "generated_at": datetime.now(timezone.utc).isoformat()
+        "status": "success",
+        "data": {
+            "domains": domains,
+            "total": len(domains),
+            "metadata": {
+                "source": "file_scan",
+                "generated_at": datetime.now(timezone.utc).isoformat()
+            }
         }
     })
 
@@ -181,8 +193,9 @@ def get_domain(domain_id: str):
     
     if not domain_path.exists():
         return jsonify({
+            "status": "error",
             "error": "Domain Not Found",
-            "message": f"Domain '{domain_id}' does not exist",
+            "message": f"Domain '{domain_id}' not found",
             "available_domains": [f.stem for f in domains_dir.glob('*.json')
                                 if f.name not in ['index.json', 'template_domain.json']],
             "status_code": 404
@@ -200,9 +213,13 @@ def get_domain(domain_id: str):
             'requested_at': datetime.now(timezone.utc).isoformat()
         }
 
-        return jsonify(domain_data)
+        return jsonify({
+            "status": "success",
+            "data": domain_data
+        })
     except json.JSONDecodeError as e:
         return jsonify({
+            "status": "error",
             "error": "Invalid Domain Data",
             "message": f"Domain file '{domain_id}.json' contains invalid JSON",
             "details": str(e),
@@ -210,6 +227,7 @@ def get_domain(domain_id: str):
         }), 500
     except Exception as e:
         return jsonify({
+            "status": "error",
             "error": "Internal Error",
             "message": f"Error reading domain file '{domain_id}.json'",
             "status_code": 500
@@ -248,6 +266,7 @@ def get_framework_metrics():
         })
     except Exception as e:
         return jsonify({
+            "status": "error",
             "error": "Framework Error",
             "message": f"Error retrieving framework metrics: {str(e)}",
             "status_code": 500
@@ -263,13 +282,19 @@ def validate_framework():
 
         return jsonify({
             "status": "success",
-            "data": validation_result,
+            "data": {
+                "is_valid": validation_result.get("valid", True),
+                "issues": validation_result.get("issues", []),
+                "warnings": validation_result.get("warnings", []),
+                "recommendations": validation_result.get("recommendations", [])
+            },
             "metadata": {
                 "validated_at": datetime.now(timezone.utc).isoformat()
             }
         })
     except Exception as e:
         return jsonify({
+            "status": "error",
             "error": "Validation Error",
             "message": f"Error validating framework: {str(e)}",
             "status_code": 500
@@ -333,6 +358,7 @@ def get_patterns():
         })
     except Exception as e:
         return jsonify({
+            "status": "error",
             "error": "Query Error",
             "message": f"Error retrieving patterns: {str(e)}",
             "status_code": 500
@@ -348,6 +374,7 @@ def get_pattern(pattern_id: str):
 
         if not pattern:
             return jsonify({
+                "status": "error",
                 "error": "Pattern Not Found",
                 "message": f"Pattern with ID '{pattern_id}' not found",
                 "status_code": 404
@@ -368,6 +395,7 @@ def get_pattern(pattern_id: str):
         })
     except Exception as e:
         return jsonify({
+            "status": "error",
             "error": "Retrieval Error",
             "message": f"Error retrieving pattern: {str(e)}",
             "status_code": 500
@@ -442,6 +470,7 @@ def get_relationships():
         })
     except Exception as e:
         return jsonify({
+            "status": "error",
             "error": "Query Error",
             "message": f"Error retrieving relationships: {str(e)}",
             "status_code": 500
@@ -483,7 +512,10 @@ def analyze_patterns():
         return jsonify({
             "status": "success",
             "message": "Pattern analysis completed successfully",
-            "data": analysis_results,
+            "data": {
+                "analysis": analysis_results,
+                "timestamp": datetime.now(timezone.utc).isoformat()
+            },
             "metadata": {
                 "analyzed_at": datetime.now(timezone.utc).isoformat(),
                 "framework_patterns": len(framework._patterns),
@@ -493,6 +525,7 @@ def analyze_patterns():
         })
     except Exception as e:
         return jsonify({
+            "status": "error",
             "error": "Analysis Error",
             "message": f"Error performing pattern analysis: {str(e)}",
             "status_code": 500
@@ -555,15 +588,12 @@ def generate_visualization():
 
         # Validate required parameters
         if not params:
-            return jsonify({
-                "error": "Invalid Request",
-                "message": "Request body is required",
-                "status_code": 400
-            }), 400
+            params = {}
 
         visualization_type = params.get('type')
         if not visualization_type:
             return jsonify({
+                "status": "error",
                 "error": "Missing Parameter",
                 "message": "Visualization type is required",
                 "status_code": 400
@@ -589,6 +619,7 @@ def generate_visualization():
         })
     except Exception as e:
         return jsonify({
+            "status": "error",
             "error": "Generation Error",
             "message": f"Error generating visualization: {str(e)}",
             "status_code": 500
@@ -607,6 +638,7 @@ def get_visualization_status(viz_id: str):
 
         if not viz_status:
             return jsonify({
+                "status": "error",
                 "error": "Visualization Not Found",
                 "message": f"No visualization found with ID: {viz_id}",
                 "status_code": 404
@@ -638,6 +670,7 @@ def get_visualization_status(viz_id: str):
         })
     except Exception as e:
         return jsonify({
+            "status": "error",
             "error": "Status Check Error",
             "message": f"Error retrieving visualization status: {str(e)}",
             "status_code": 500
@@ -691,20 +724,150 @@ def export_data():
                         "total_relationships": len(filtered_relationships)
                     }
                 }
+            else:
+                # Export all data without domain filtering
+                all_patterns = []
+                for pattern_type in ['property', 'process', 'perspective']:
+                    all_patterns.extend(framework.get_patterns_by_type(pattern_type))
 
-                response = jsonify(export_data)
-                response.headers['Content-Disposition'] = f'attachment; filename=p3if_export_{datetime.now().strftime("%Y%m%d_%H%M%S")}.json'
-                return response
+                all_relationships = list(framework._relationships.values()) if include_relationships else []
+
+                export_data = {
+                    "patterns": [p.dict(by_alias=True) for p in all_patterns],
+                    "relationships": [r.dict(by_alias=True) for r in all_relationships],
+                    "metadata": {
+                        "exported_at": datetime.now(timezone.utc).isoformat(),
+                        "export_format": "json",
+                        "domains": [],
+                        "total_patterns": len(all_patterns),
+                        "total_relationships": len(all_relationships)
+                    }
+                }
+
+            response = jsonify(export_data)
+            response.headers['Content-Disposition'] = f'attachment; filename=p3if_export_{datetime.now().strftime("%Y%m%d_%H%M%S")}.json'
+            return response
+
+        elif export_format.lower() == 'csv':
+            import io
+            import csv
+
+            # Create CSV data for patterns
+            patterns_output = io.StringIO()
+            patterns_writer = csv.writer(patterns_output)
+            patterns_writer.writerow(['id', 'type', 'name', 'description', 'domain', 'tags'])
+
+            for pattern_type in ['property', 'process', 'perspective']:
+                for pattern in framework.get_patterns_by_type(pattern_type):
+                    tags_str = ','.join(pattern.tags) if pattern.tags else ''
+                    patterns_writer.writerow([
+                        pattern.id,
+                        pattern_type,
+                        pattern.name,
+                        pattern.description,
+                        pattern.domain or '',
+                        tags_str
+                    ])
+
+            # Create CSV data for relationships
+            relationships_output = io.StringIO()
+            relationships_writer = csv.writer(relationships_output)
+            relationships_writer.writerow(['id', 'property_id', 'process_id', 'perspective_id', 'strength', 'confidence'])
+
+            for rel in framework.get_all_relationships():
+                relationships_writer.writerow([
+                    rel.id,
+                    rel.property_id or '',
+                    rel.process_id or '',
+                    rel.perspective_id or '',
+                    rel.strength,
+                    rel.confidence
+                ])
+
+            # Return combined CSV data
+            response_data = {
+                "patterns_csv": patterns_output.getvalue(),
+                "relationships_csv": relationships_output.getvalue(),
+                "metadata": {
+                    "exported_at": datetime.now(timezone.utc).isoformat(),
+                    "export_format": "csv"
+                }
+            }
+
+            response = jsonify(response_data)
+            response.headers['Content-Disposition'] = f'attachment; filename=p3if_export_{datetime.now().strftime("%Y%m%d_%H%M%S")}.json'
+            return response
+
+        elif export_format.lower() == 'graphml':
+            import networkx as nx
+
+            # Create a NetworkX graph
+            G = nx.Graph()
+
+            # Add nodes for all patterns
+            for pattern_type in ["property", "process", "perspective"]:
+                for pattern in framework.get_patterns_by_type(pattern_type):
+                    G.add_node(
+                        pattern.id,
+                        type=pattern_type,
+                        name=pattern.name,
+                        description=pattern.description or "",
+                        domain=pattern.domain or "",
+                        tags=','.join(pattern.tags) if pattern.tags else ""
+                    )
+
+            # Add edges for all relationships
+            for rel in framework.get_all_relationships():
+                patterns = []
+                if rel.property_id:
+                    patterns.append(rel.property_id)
+                if rel.process_id:
+                    patterns.append(rel.process_id)
+                if rel.perspective_id:
+                    patterns.append(rel.perspective_id)
+
+                # Add edges between all patterns in the relationship
+                for i in range(len(patterns)):
+                    for j in range(i+1, len(patterns)):
+                        G.add_edge(
+                            patterns[i],
+                            patterns[j],
+                            rel_id=rel.id,
+                            strength=rel.strength,
+                            confidence=rel.confidence
+                        )
+
+            # Generate GraphML string
+            import io
+            graphml_output = io.BytesIO()
+            nx.write_graphml(G, graphml_output)
+            graphml_str = graphml_output.getvalue().decode('utf-8')
+
+            response_data = {
+                "graphml": graphml_str,
+                "metadata": {
+                    "exported_at": datetime.now(timezone.utc).isoformat(),
+                    "export_format": "graphml",
+                    "node_count": G.number_of_nodes(),
+                    "edge_count": G.number_of_edges()
+                }
+            }
+
+            response = jsonify(response_data)
+            response.headers['Content-Disposition'] = f'attachment; filename=p3if_export_{datetime.now().strftime("%Y%m%d_%H%M%S")}.graphml.json'
+            return response
 
         return jsonify({
+            "status": "error",
             "error": "Unsupported Format",
             "message": f"Export format '{export_format}' is not supported",
-            "supported_formats": ["json"],
+            "supported_formats": ["json", "csv", "graphml"],
             "status_code": 400
         }), 400
 
     except Exception as e:
         return jsonify({
+            "status": "error",
             "error": "Export Error",
             "message": f"Error exporting data: {str(e)}",
             "status_code": 500

@@ -456,6 +456,6 @@ def _draw_evolving_interactions(ax, framework: P3IFFramework, colors: Dict[str, 
         n_rels = min(int(rel_progress * len(framework._relationships)), len(framework._relationships))
 
         for i, rel in enumerate(list(framework._relationships.values())[:n_rels]):
-            # Draw relationship connection
-            alpha = min(1.0, rel_progress - i * 0.1)
+            # Draw relationship connection - clamp alpha to valid [0, 1] range
+            alpha = max(0.0, min(1.0, rel_progress - i * 0.1))
             ax.plot([-2.5, -0.5, 1.5], [0.5, 0.5, 0.5], color='gray', alpha=alpha * 0.5, linewidth=2)

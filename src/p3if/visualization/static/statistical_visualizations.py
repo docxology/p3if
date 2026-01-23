@@ -467,16 +467,21 @@ def _create_statistical_overview(small_framework: P3IFFramework,
     ax1.set_xticklabels(datasets)
     ax1.legend()
 
-    # Component type breakdown
+    # Component type breakdown by dataset
     small_components = [small_stats['properties'], small_stats['processes'], small_stats['perspectives']]
     large_components = [large_stats['properties'], large_stats['processes'], large_stats['perspectives']]
+    component_types = ['Properties', 'Processes', 'Perspectives']
+    x = np.arange(len(component_types))
+    width = 0.35
 
-    ax2.bar(datasets, small_components, label='Small', color=colors['property'], alpha=0.7)
-    ax2.bar(datasets, large_components, bottom=small_components, label='Large', color=colors['process'], alpha=0.7)
+    ax2.bar(x - width/2, small_components, width, label='Small Dataset', color=colors['property'], alpha=0.7)
+    ax2.bar(x + width/2, large_components, width, label='Large Dataset', color=colors['process'], alpha=0.7)
 
-    ax2.set_xlabel('Dataset')
+    ax2.set_xlabel('Component Type')
     ax2.set_ylabel('Component Count')
     ax2.set_title('Component Breakdown')
+    ax2.set_xticks(x)
+    ax2.set_xticklabels(component_types)
     ax2.legend()
 
     # Quality metrics comparison

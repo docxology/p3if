@@ -36,21 +36,19 @@ def import_from_json(file_path: Union[str, Path], framework: Optional[P3IFFramew
         with open(file_path, 'r') as f:
             data = json.load(f)
         
-        # Import patterns
-        for pattern_type in ['properties', 'processes', 'perspectives']:
+        # Import patterns with correct type mapping
+        type_mapping = {
+            'properties': ('property', Property),
+            'processes': ('process', Process),
+            'perspectives': ('perspective', Perspective)
+        }
+
+        for pattern_type, (singular_type, PatternClass) in type_mapping.items():
             if pattern_type in data:
                 for pattern_data in data[pattern_type]:
-                    # Convert to singular for class name
-                    singular_type = pattern_type[:-3] if pattern_type.endswith('ies') else pattern_type[:-1]
-                    
                     # Create the pattern object
-                    if singular_type == 'property':
-                        pattern = Property(**pattern_data)
-                    elif singular_type == 'process':
-                        pattern = Process(**pattern_data)
-                    elif singular_type == 'perspective':
-                        pattern = Perspective(**pattern_data)
-                    
+                    pattern = PatternClass(**pattern_data)
+
                     # Add to framework
                     framework.add_pattern(pattern)
         
@@ -100,27 +98,25 @@ def import_from_csv(
             for row in reader:
                 pattern_type = row.get('type')
                 
+                # Common pattern fields
+                pattern_kwargs = {
+                    'name': row.get('name'),
+                    'description': row.get('description', ''),
+                    'domain': row.get('domain', None) or None,
+                    'tags': row.get('tags', '').split(',') if row.get('tags') else []
+                }
+
+                # Preserve ID if provided in CSV
+                if row.get('id'):
+                    pattern_kwargs['id'] = row.get('id')
+
                 if pattern_type == 'property':
-                    pattern = Property(
-                        name=row.get('name'),
-                        description=row.get('description', ''),
-                        domain=row.get('domain', None),
-                        tags=row.get('tags', '').split(',') if row.get('tags') else []
-                    )
+                    pattern = Property(**pattern_kwargs)
                 elif pattern_type == 'process':
-                    pattern = Process(
-                        name=row.get('name'),
-                        description=row.get('description', ''),
-                        domain=row.get('domain', None),
-                        tags=row.get('tags', '').split(',') if row.get('tags') else []
-                    )
+                    pattern = Process(**pattern_kwargs)
                 elif pattern_type == 'perspective':
-                    pattern = Perspective(
-                        name=row.get('name'),
-                        description=row.get('description', ''),
-                        domain=row.get('domain', None),
-                        tags=row.get('tags', '').split(',') if row.get('tags') else []
-                    )
+                    pattern_kwargs['viewpoint'] = row.get('viewpoint', 'default')
+                    pattern = Perspective(**pattern_kwargs)
                 else:
                     logger.warning(f"Unknown pattern type: {pattern_type}")
                     continue

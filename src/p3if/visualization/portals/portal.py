@@ -74,27 +74,31 @@ class VisualizationPortal:
             Path to the generated HTML file
         """
         self.logger.info(f"Generating visualization portal at {output_file}")
-        
-        # Use output organizer for consistent directory structure
-        organizer = get_output_organizer()
-        session_path = organizer.create_session_structure(f"portal_{datetime.datetime.now().strftime('%Y%m%d_%H%M%S')}")
 
-        # Set the output path to the main index file in the organized structure
-        output_path = session_path / "index.html"
-        
-        # Set up a file handler for logging using organized structure
-        log_dir = session_path / "logs"
-        file_handler = logging.FileHandler(log_dir / "visualization_portal.log")
-        file_handler.setLevel(logging.INFO)
-        file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
-        self.logger.addHandler(file_handler)
+        # Respect the user-specified output path
+        output_path = Path(output_file)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        session_path = output_path.parent
 
-        # Generate individual visualizations using organized structure
+        # Create subdirectories relative to output file
         visualizations_dir = session_path / "visualizations"
+        visualizations_dir.mkdir(parents=True, exist_ok=True)
+
+        data_dir = session_path / "data"
+        data_dir.mkdir(parents=True, exist_ok=True)
+
+        # Optional: Set up logging if logs directory exists
+        log_dir = session_path / "logs"
+        if log_dir.exists():
+            file_handler = logging.FileHandler(log_dir / "visualization_portal.log")
+            file_handler.setLevel(logging.INFO)
+            file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+            self.logger.addHandler(file_handler)
+
+        # Generate individual visualizations
         visualizations = self._generate_visualizations(visualizations_dir)
 
-        # Create data files using organized structure
-        data_dir = session_path / "data"
+        # Create data files
         data_files = self._generate_data_files(data_dir)
         
         # Create main portal HTML file 
@@ -955,8 +959,10 @@ class VisualizationPortal:
         
         return output_path
     
-    def _create_css_file(self, css_dir: Path) -> Path:
+    def _create_css_file(self, base_dir: Path) -> Path:
         """Create CSS file for the portal."""
+        css_dir = base_dir / "assets" / "css"
+        css_dir.mkdir(parents=True, exist_ok=True)
         css_path = css_dir / "styles.css"
         css_content = """
 /* P3IF Portal Styles */
@@ -1120,12 +1126,13 @@ footer {
         
         return css_path
     
-    def _create_js_file(self, assets_dir, js_filename="portal.js"):
+    def _create_js_file(self, base_dir, js_filename="portal.js"):
         """Create the JavaScript file for the portal."""
-        js_path = os.path.join(assets_dir, "js", js_filename)
-        
+        js_dir = os.path.join(base_dir, "assets", "js")
+        js_path = os.path.join(js_dir, js_filename)
+
         # Create the directory if it doesn't exist
-        os.makedirs(os.path.dirname(js_path), exist_ok=True)
+        os.makedirs(js_dir, exist_ok=True)
         
         js_content = """
             // P3IF Visualization Portal JavaScript

@@ -148,27 +148,12 @@ P3IF 2.0 follows a modern `src/` layout with unified namespace:
 │       ├── exporters.py   # Data export utilities
 │       └── synthetic.py   # Synthetic data generation
 ├── tests/                 # Test suite
-│   ├── unit/              # Unit tests
+│   ├── unit/              # Unit tests for core functionality
 │   ├── integration/       # Integration tests
-│   └── visualization/     # Visualization tests
-│   ├── matrix.py          # Matrix visualization engine
-│   ├── cube_visualizations.py # 3D cube visualization generators
-│   ├── list_visualizations.py # List-based visualizations
-│   ├── grid_visualizations.py # Grid-based visualizations
-│   ├── heatmap_visualizations.py # Heatmap visualization generators
-│   ├── hierarchy_visualizations.py # Hierarchical visualizations
-│   ├── statistical_visualizations.py # Statistical analysis visualizations
-│   ├── animation_visualizations.py # Animation sequence generators
-│   └── dashboard.py       # Dashboard generation
-├── p3if_tests/           # Comprehensive test suite
-│   ├── core/             # Core framework tests
-├── tests/                 # Comprehensive test suite
-│   ├── unit/             # Unit tests for core functionality
-│   ├── integration/      # Integration tests
-│   ├── visualization/    # Visualization system tests
-│   ├── conftest.py       # Pytest configuration and fixtures
-│   └── run_all_tests.py  # Test runner
-├── examples/             # Usage examples and demonstrations
+│   ├── visualization/     # Visualization system tests
+│   ├── fixtures/          # Test fixtures and helpers
+│   └── conftest.py        # Pytest configuration and fixtures
+├── examples/              # Usage examples and demonstrations
 ├── data/                 # Domain data files
 │   └── domains/          # Domain-specific data files
 ├── website/              # Web portal and API
@@ -238,9 +223,10 @@ viz.generate_3d_cube_html("output/cube.html")
 
 - **Scripts**: All executable tools are in `scripts/` - see [scripts/README.md](scripts/README.md)
 - **Documentation**: Comprehensive docs in `docs/` - see [docs/README.md](docs/README.md)
-- **Core Methods**: Framework implementation in `p3if_methods/`
-- **Examples**: Orchestrator examples in `p3if_examples/`
-- **Tests**: Test suite in `p3if_tests/`
+- **Core Framework**: Main package implementation in `src/p3if/core/`
+- **Orchestrators**: Orchestrator examples in `src/p3if/orchestrators/`
+- **Visualization**: Visualization system in `src/p3if/visualization/`
+- **Tests**: Test suite in `tests/`
 - **Website**: Web interface in `website/`
 
 ## Development Resources
