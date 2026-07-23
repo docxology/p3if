@@ -46,6 +46,9 @@ class ThinOrchestrator:
     context: Dict[str, Any] = field(default_factory=dict)
     max_concurrent: int = 5
 
+    def __repr__(self) -> str:
+        return f"ThinOrchestrator(name={self.name!r}, type={self.orchestrator_type.value}, steps={len(self.steps)})"
+
     def add_step(self, step: OrchestrationStep):
         """Add a step to the orchestrator with validation."""
         # Validate step
@@ -362,10 +365,20 @@ class WorkflowEngine:
             for orch_name in orchestrators:
                 orchestrator = self.orchestrators[orch_name]
                 for step in orchestrator.steps:
+                    # Deep copy the step to avoid mutating the original
+                    new_step = OrchestrationStep(
+                        name=step.name,
+                        method=step.method,
+                        parameters=step.parameters.copy(),
+                        dependencies=list(step.dependencies),
+                        outputs=list(step.outputs),
+                        error_handling=step.error_handling,
+                        description=step.description
+                    )
                     # Add dependency on previous orchestrator's last step
                     if composite.steps:
-                        step.dependencies.append(composite.steps[-1].name)
-                    composite.add_step(step)
+                        new_step.dependencies.append(composite.steps[-1].name)
+                    composite.add_step(new_step)
 
             return composite
 

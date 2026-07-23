@@ -57,6 +57,9 @@ class CompositionEngine:
         self.composition_history: List[Dict[str, Any]] = []
         self.logger = logging.getLogger(__name__)
 
+    def __repr__(self) -> str:
+        return f"CompositionEngine(adapters={len(self.adapters)}, history={len(self.composition_history)})"
+
     def register_adapter(self, adapter: FrameworkAdapter):
         """Register a framework adapter."""
         self.adapters[adapter.name] = adapter
@@ -65,7 +68,11 @@ class CompositionEngine:
     def overlay_frameworks(self, base_framework: Any, overlay_framework: Any,
                           strategy: MultiplexingStrategy = MultiplexingStrategy.UNION) -> Any:
         """Overlay one framework on top of another."""
-        result = base_framework.copy()
+        try:
+            result = base_framework.copy()
+        except Exception as e:
+            self.logger.error(f"Failed to copy base framework: {e}")
+            raise ValueError(f"Framework must implement a working copy() method: {e}") from e
 
         for dimension in ['properties', 'processes', 'perspectives']:
             base_elements = set(getattr(base_framework, dimension, []))

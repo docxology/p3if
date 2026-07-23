@@ -2,6 +2,12 @@
 P3IF Caching and Performance Optimization
 
 This module provides caching and performance optimization methods for P3IF operations.
+
+Note: The CacheManager and cached decorator in this module are a standalone alternative
+to the performance utilities in utils/performance.py. The framework uses
+performance.py's cached decorator (which handles @cached without parentheses).
+This module's cached decorator requires a CacheManager argument. Both coexist
+for backward compatibility — new code should use utils/performance.py.
 """
 
 from typing import Dict, List, Any, Optional, Union, Callable, Hashable

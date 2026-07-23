@@ -5,7 +5,7 @@ A sophisticated meta-framework for integrating, analyzing, and visualizing
 complex data relationships across multiple domains.
 """
 
-__version__ = "2.1.0"
+__version__ = "2.2.0"
 
 from .core import (
     P3IFFramework, P3IFCore,

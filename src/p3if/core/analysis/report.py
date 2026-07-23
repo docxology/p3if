@@ -156,10 +156,14 @@ class AnalysisReport:
             "strongest_relationships": strongest_relationships[:top_n]
         }
     
-    def get_network_summary(self) -> Dict[str, Any]:
+    def get_network_summary(self, top_n_nodes: int = 5, top_n_communities: int = 3) -> Dict[str, Any]:
         """
         Get a summary of network analysis results.
-        
+
+        Args:
+            top_n_nodes: Number of top nodes to include by degree centrality
+            top_n_communities: Number of top communities to include
+
         Returns:
             Dictionary containing network summary
         """
@@ -179,7 +183,7 @@ class AnalysisReport:
         top_nodes = {}
         for graph_type, measures in centrality.items():
             if "degree" in measures:
-                top_nodes[graph_type] = measures["degree"][:5]  # Top 5 nodes
+                top_nodes[graph_type] = measures["degree"][:top_n_nodes]
         
         # Get community summary
         community_summary = {}
@@ -194,7 +198,7 @@ class AnalysisReport:
                         "size": c["size"],
                         "node_types": self._count_node_types(c["nodes"])
                     }
-                    for c in comm_data.get("communities", [])[:3]  # Top 3 communities
+                    for c in comm_data.get("communities", [])[:top_n_communities]
                 ]
             }
         

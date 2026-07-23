@@ -3,6 +3,11 @@ P3IF Dimension-Specific Methods
 
 This module provides specialized methods for working with individual P3IF dimensions:
 Properties, Processes, and Perspectives.
+
+Note: These managers use plain dictionaries for lightweight management, separate from
+the Pydantic models in core.models. This is intentional for scenarios that need
+simple in-memory tracking without model validation overhead. Use the core.models
+classes (Property, Process, Perspective) when validation and serialization are needed.
 """
 
 from typing import Dict, List, Any, Optional, Union, Set, Callable

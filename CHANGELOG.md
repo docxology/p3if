@@ -5,6 +5,66 @@ All notable changes to P3IF are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0] - 2026-07-22
+
+### Summary
+
+Quality and correctness release. Fixes all remaining TODO items from the v2.1.0 audit.
+Improves Flask security, removes pointless batch slicing, fixes mutation bugs in
+orchestration, aligns validation rule usage, adds `__repr__` to 3 more classes,
+updates CI config, and untracks 61 output artifacts from git.
+
+### Fixed — Code Quality
+
+- `report.py`: Hardcoded `[:5]` and `[:3]` magic numbers replaced with
+  `top_n_nodes` and `top_n_communities` parameters on `get_network_summary()`.
+- `framework.py`: Removed pointless batch slicing in `_calculate_metrics_internal`
+  — `list(dict.values())[i:i+batch_size]` materialized the entire collection first.
+- `framework.py`: `get_performance_stats` only counted the 'property' dimension
+  in relationship index size. Fixed to sum across all dimensions.
+- `orchestration.py`: `WorkflowEngine.compose_orchestrators` mutated original
+  orchestrator step dependencies. Now deep-copies steps before modifying.
+- `validation.py`: `_validate_element` did its own hardcoded checks instead of
+  using registered rules. Now iterates applicable rules, with fallback to basic
+  checks when no rules are registered.
+- `composition.py`: `overlay_frameworks` didn't handle `framework.copy()` failing.
+  Added try/except with clear error message.
+- `storage.py`: `SQLiteStorage.__init__` didn't close the connection on schema
+  initialization failure. Added try/except to close on error.
+- `website/app.py`: Hardcoded Flask secret key replaced with environment variable
+  check + warning when not set in production.
+- `framework_integration.py`: `_resolve_conflicts` accessed `conflicts["element_conflicts"]`
+  without `.get()`. Fixed to use `.get("element_conflicts", {})`.
+- `integration_examples.py`: `strategy="union"` string replaced with
+  `MultiplexingStrategy.UNION` enum.
+- `integration_examples.py`: Class-level `logger` attribute (shared mutable) moved
+  to `__post_init__` instance attribute.
+- `cognitive_security.py`: Duplicate module docstring removed.
+
+### Fixed — Documentation
+
+- AGENTS.md: Updated install command, script references, removed 3.8 references.
+- `.github/workflows/ci.yml`: Python matrix updated from '3.8' to '3.9'.
+- `docs/guides/installation.md`: `python setup.py install` → `pip install -e ".[dev,web]"`.
+- `website/app.py`, `website/run.py`: Removed stale `setup.py` from exclude_patterns.
+- `examples/README.md`: Added content pointing to actual example locations.
+- `dimensions.py`: Added docstring note explaining plain-dict design is intentional.
+- `caching.py`: Added docstring note explaining dual cached decorators.
+
+### Added
+
+- `__repr__` on `P3IFCore`, `ThinOrchestrator`, `CompositionEngine`.
+- `TODO.md` with 40+ scoped improvements (MAJOR/MEDIUM/MINOR/Architecture).
+
+### Changed
+
+- Untracked 61 output artifacts from git (`git rm --cached -r outputs/`).
+- Version 2.1.0 → 2.2.0.
+
+### Tests
+
+341 passed, 3 skipped, 0 failures, 0 deprecation warnings.
+
 ## [2.1.0] - 2026-07-22
 
 ### Summary

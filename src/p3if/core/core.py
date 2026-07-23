@@ -54,6 +54,9 @@ class P3IFCore:
         self.operations: List[P3IFOperation] = []
         self.logger = get_logger(__name__)
 
+    def __repr__(self) -> str:
+        return f"P3IFCore(patterns={len(self.framework)}, operations={len(self.operations)})"
+
     @performance_monitor(threshold_ms=500)
     def create_pattern(self, pattern_type: str, name: str, domain: str = None,
                       description: str = None, **attributes) -> BasePattern:

@@ -171,18 +171,21 @@ class SQLiteStorage(StorageInterface):
     def __init__(self, db_path: Union[str, Path]):
         """
         Initialize SQLite storage.
-        
+
         Args:
             db_path: Path to the SQLite database file
         """
         self.db_path = Path(db_path)
         os.makedirs(self.db_path.parent, exist_ok=True)
-        
+
         self.conn = sqlite3.connect(str(self.db_path))
         self.conn.row_factory = sqlite3.Row
-        
-        # Initialize database schema
-        self._initialize_schema()
+
+        try:
+            self._initialize_schema()
+        except Exception:
+            self.conn.close()
+            raise
     
     def _initialize_schema(self) -> None:
         """Initialize the database schema."""

@@ -1,58 +1,36 @@
 # P3IF Examples
 
-Usage examples and demonstrations for the P3IF framework.
+This directory contains example usage and integration demonstrations for P3IF.
 
-## Available Examples
+## Where Examples Live
 
-### Basic Usage
-- **Framework Creation**: Create and configure P3IF frameworks
-- **Pattern Management**: Add properties, processes, and perspectives
-- **Basic Operations**: Common framework operations
+Practical examples are in the `src/p3if/orchestrators/` package:
 
-### Advanced Patterns
-- **Multi-domain Analysis**: Work with multiple domains
-- **Framework Composition**: Combine different frameworks
-- **Custom Orchestrators**: Build specialized workflows
+| Module | Description |
+|--------|-------------|
+| `cognitive_security.py` | Cognitive security analysis orchestrator |
+| `framework_integration.py` | Multi-framework integration with conflict resolution |
+| `healthcare_domain.py` | Healthcare domain analysis (HIPAA, HITECH, GDPR) |
+| `integration_examples.py` | NIST CSF, Healthcare, and multi-framework integration examples |
 
 ## Running Examples
 
 ```bash
-# List available examples
-ls examples/
+# Run all example orchestrators
+python scripts/run_examples.py
 
-# Run a specific example
-python examples/basic_framework.py
-
-# Run with parameters
-python examples/advanced_analysis.py --domain healthcare --output results.json
+# Run via the master orchestrator
+python scripts/run_all.py --examples
 ```
 
-## Example Structure
+## Quick Start
 
-Each example includes:
-- **Implementation**: Working code demonstrating P3IF usage
-- **Documentation**: README explaining the example
-- **Tests**: Validation of example functionality
-- **Data**: Sample data for the example (when applicable)
+```python
+from p3if import P3IFFramework, Property, Process, Perspective
 
-## Contributing Examples
-
-When adding new examples:
-
-1. Create a new directory under `examples/`
-2. Include comprehensive documentation
-3. Add tests for the example
-4. Follow the established code patterns
-5. Update this README
-
-## Testing
-
-```bash
-# Test all examples
-python -m pytest tests/examples/
+fw = P3IFFramework()
+fw.add_pattern(Property(name="Security", description="Security property", domain="cybersec"))
+fw.add_pattern(Process(name="Authentication", description="Auth process", domain="cybersec"))
+fw.add_pattern(Perspective(name="Technical", description="Tech perspective", domain="cybersec", viewpoint="developer"))
+print(f"Framework: {fw}")
 ```
-
-
-
-
-

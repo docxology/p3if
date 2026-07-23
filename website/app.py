@@ -37,7 +37,20 @@ def create_app(testing=False):
                 template_folder="templates")
 
     # Set a secret key for session management
-    app.secret_key = os.environ.get('FLASK_SECRET_KEY', 'p3if-development-key')
+    secret_key = os.environ.get('FLASK_SECRET_KEY')
+    if not secret_key:
+        if testing:
+            app.secret_key = 'p3if-testing-key'
+        else:
+            import warnings
+            warnings.warn(
+                "FLASK_SECRET_KEY not set — using insecure development key. "
+                "Set FLASK_SECRET_KEY environment variable in production.",
+                stacklevel=2,
+            )
+            app.secret_key = 'p3if-development-key'
+    else:
+        app.secret_key = secret_key
 
     # Register blueprints
     app.register_blueprint(docs_bp, url_prefix='/docs')

@@ -112,7 +112,7 @@ class P3IFFramework(MetadataMixin):
         # Initialize metadata
         self.metadata = {
             'created_at': datetime.now(timezone.utc),
-            'version': '2.1.0',
+            'version': '2.2.0',
             'framework_type': 'enhanced_p3if'
         }
 
@@ -597,7 +597,10 @@ class P3IFFramework(MetadataMixin):
             },
             'index_stats': {
                 'pattern_index_size': sum(len(ids) for ids in self._pattern_index.get('domain', {}).values()),
-                'relationship_index_size': sum(len(ids) for ids in self._relationship_index.get('property', {}).values())
+                'relationship_index_size': sum(
+                    len(ids) for dim in self._relationship_index.values()
+                    for ids in dim.values()
+                )
             },
             'memory_usage': len(self._patterns) + len(self._relationships)
         }
@@ -655,29 +658,18 @@ class P3IFFramework(MetadataMixin):
         # Domain count using index
         domain_count = len(self._pattern_index.get('domain', {}))
 
-        # Relationship metrics with batch processing
+        # Relationship metrics
         strengths = []
         confidences = []
         relationship_types_count = Counter()
 
-        # Process in batches for better memory efficiency
-        batch_size = 1000
+        for rel in self._relationships.values():
+            strengths.append(rel.strength)
+            confidences.append(rel.confidence)
+            relationship_types_count[rel.relationship_type] += 1
 
-        if total_relationships > 0:
-            for i in range(0, total_relationships, batch_size):
-                batch_relationships = list(self._relationships.values())[i:i+batch_size]
-
-                for rel in batch_relationships:
-                    strengths.append(rel.strength)
-                    confidences.append(rel.confidence)
-                    relationship_types_count[rel.relationship_type] += 1
-
-            avg_strength = sum(strengths) / len(strengths) if strengths else 0.0
-            avg_confidence = sum(confidences) / len(confidences) if confidences else 0.0
-        else:
-            avg_strength = 0.0
-            avg_confidence = 0.0
-            relationship_types_count = Counter()
+        avg_strength = sum(strengths) / len(strengths) if strengths else 0.0
+        avg_confidence = sum(confidences) / len(confidences) if confidences else 0.0
 
         # Orphaned patterns using set operations for efficiency
         all_pattern_ids = set(self._patterns.keys())
@@ -692,11 +684,8 @@ class P3IFFramework(MetadataMixin):
 
         orphaned_patterns = len(all_pattern_ids - connected_pattern_ids)
 
-        # Deprecated patterns with batch processing
-        deprecated_patterns = 0
-        for i in range(0, total_patterns, batch_size):
-            batch_patterns = list(self._patterns.values())[i:i+batch_size]
-            deprecated_patterns += sum(1 for p in batch_patterns if p.is_deprecated())
+        # Deprecated patterns
+        deprecated_patterns = sum(1 for p in self._patterns.values() if p.is_deprecated())
 
         # Validation issues (simplified)
         validation_issues = self._validate_framework_quick()
@@ -750,7 +739,7 @@ class P3IFFramework(MetadataMixin):
                 "relationships": [r.model_dump(by_alias=True) for r in self._relationships.values()],
                 "framework_metadata": {
                     "exported_at": datetime.now(timezone.utc).isoformat(),
-                    "framework_version": "2.1.0",
+                    "framework_version": "2.2.0",
                     "total_patterns": len(self._patterns),
                     "total_relationships": len(self._relationships),
                     "exporter": "p3if-enhanced"

@@ -162,25 +162,30 @@ class ValidationEngine:
         return validation_result
 
     def _validate_element(self, element: Any) -> List[Dict[str, Any]]:
-        """Validate a single element."""
+        """Validate a single element using registered rules."""
         issues = []
 
-        # Basic validation rules
-        if not hasattr(element, 'name') or not element.name:
-            issues.append({
-                "element": getattr(element, 'name', 'unknown'),
-                "severity": "error",
-                "description": "Element missing name attribute",
-                "suggestions": ["Add a descriptive name to the element"]
-            })
+        for rule_name, rule in self.rules.items():
+            if rule.applies_to in (None, 'pattern'):
+                issues.extend(rule.validate(element))
 
-        if hasattr(element, 'description') and (not element.description or len(element.description) < 10):
-            issues.append({
-                "element": getattr(element, 'name', 'unknown'),
-                "severity": "warning",
-                "description": "Element has very short or empty description",
-                "suggestions": ["Add a more detailed description (at least 10 characters)"]
-            })
+        # If no rules are registered, fall back to basic checks
+        if not self.rules:
+            if not hasattr(element, 'name') or not element.name:
+                issues.append({
+                    "element": getattr(element, 'name', 'unknown'),
+                    "severity": "error",
+                    "description": "Element missing name attribute",
+                    "suggestions": ["Add a descriptive name to the element"]
+                })
+
+            if hasattr(element, 'description') and (not element.description or len(element.description) < 10):
+                issues.append({
+                    "element": getattr(element, 'name', 'unknown'),
+                    "severity": "warning",
+                    "description": "Element has very short or empty description",
+                    "suggestions": ["Add a more detailed description (at least 10 characters)"]
+                })
 
         return issues
 
