@@ -13,7 +13,7 @@ from datetime import datetime
 from pathlib import Path
 import logging
 
-from .models import BasePattern, Property, Process, Perspective, Relationship, PatternType
+from .models import BasePattern, Property, Process, Perspective, Relationship, PatternType, RelationshipStrength, ConfidenceScore
 from .framework import P3IFFramework
 from .exceptions import (
     P3IFError, PatternError, PatternNotFoundError, PatternValidationError,
@@ -49,7 +49,7 @@ class P3IFOperation:
 class P3IFCore:
     """Core P3IF functionality with modular operations."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.framework = P3IFFramework()
         self.operations: List[P3IFOperation] = []
         self.logger = get_logger(__name__)
@@ -58,8 +58,8 @@ class P3IFCore:
         return f"P3IFCore(patterns={len(self.framework)}, operations={len(self.operations)})"
 
     @performance_monitor(threshold_ms=500)
-    def create_pattern(self, pattern_type: str, name: str, domain: str = None,
-                      description: str = None, **attributes) -> BasePattern:
+    def create_pattern(self, pattern_type: str, name: str, domain: Optional[str] = None,
+                      description: Optional[str] = None, **attributes: Any) -> BasePattern:
         """Create a new pattern with specified attributes and validation."""
         # Input validation
         if not name or not name.strip():
@@ -98,7 +98,7 @@ class P3IFCore:
 
             # Create pattern based on type with proper validation
             if pattern_type.lower() == "property":
-                pattern = Property(
+                pattern: BasePattern = Property(
                     name=name.strip(),
                     domain=domain,
                     description=description,
@@ -387,8 +387,8 @@ class P3IFCore:
 
             # Create relationship
             relationship = Relationship(
-                strength=strength,
-                confidence=confidence,
+                strength=RelationshipStrength(strength),  # type: ignore[arg-type]
+                confidence=ConfidenceScore(confidence),  # type: ignore[arg-type]
                 property_id=actual_property_id,
                 process_id=actual_process_id,
                 perspective_id=actual_perspective_id,
@@ -464,9 +464,9 @@ class P3IFCore:
         if validation_errors:
             raise RelationshipValidationError(validation_errors, pattern_ids)
 
-    def analyze_patterns(self, domain: str = None) -> Dict[str, Any]:
+    def analyze_patterns(self, domain: Optional[str] = None) -> Dict[str, Any]:
         """Analyze patterns and relationships."""
-        analysis = {
+        analysis: Dict[str, Any] = {
             "total_patterns": len(self.framework._patterns),
             "total_relationships": len(self.framework._relationships),
             "domains": {},
@@ -513,9 +513,10 @@ class P3IFCore:
                 from p3if.utils.json import dump
                 with open(path, 'w') as f:
                     dump(export_data, f, indent=2)
-                return path
+                return str(path)
             else:
                 from p3if.utils.json import dumps
-                return dumps(export_data, indent=2)
+                result: str = dumps(export_data, indent=2)
+                return result
         else:
             raise ValueError(f"Unsupported export format: {format}")

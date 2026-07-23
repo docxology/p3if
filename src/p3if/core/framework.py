@@ -112,7 +112,7 @@ class P3IFFramework(MetadataMixin):
         # Initialize metadata
         self.metadata = {
             'created_at': datetime.now(timezone.utc),
-            'version': '2.2.0',
+            'version': '2.3.0',
             'framework_type': 'enhanced_p3if'
         }
 
@@ -573,12 +573,12 @@ class P3IFFramework(MetadataMixin):
             'total': len(relationships)
         }
 
-    @cached
+    @cached  # type: ignore[arg-type]
     def get_patterns_by_domain_optimized(self, domain: str) -> List[BasePattern]:
         """Get patterns by domain with caching."""
         return self.get_patterns_by_domain(domain)
 
-    @cached
+    @cached  # type: ignore[arg-type]
     def get_patterns_by_type_optimized(self, pattern_type: str) -> List[BasePattern]:
         """Get patterns by type with caching."""
         return self.get_patterns_by_type(pattern_type)
@@ -631,7 +631,7 @@ class P3IFFramework(MetadataMixin):
             if cached_metrics and not force_refresh:
                 self._metrics_cache = cached_metrics
                 self._metrics_cache_time = now
-                return cached_metrics
+                return cached_metrics  # type: ignore[no-any-return]
 
         # Calculate metrics with performance monitoring
         with performance_context("metrics_calculation"):
@@ -651,7 +651,7 @@ class P3IFFramework(MetadataMixin):
         total_relationships = len(self._relationships)
 
         # Use indexes for faster counting
-        pattern_types_count = Counter()
+        pattern_types_count: Counter = Counter()
         for ptype, pattern_ids in self._pattern_index.get('type', {}).items():
             pattern_types_count[ptype] = len(pattern_ids)
 
@@ -659,9 +659,9 @@ class P3IFFramework(MetadataMixin):
         domain_count = len(self._pattern_index.get('domain', {}))
 
         # Relationship metrics
-        strengths = []
-        confidences = []
-        relationship_types_count = Counter()
+        strengths: List[float] = []
+        confidences: List[float] = []
+        relationship_types_count: Counter = Counter()
 
         for rel in self._relationships.values():
             strengths.append(rel.strength)
@@ -739,14 +739,14 @@ class P3IFFramework(MetadataMixin):
                 "relationships": [r.model_dump(by_alias=True) for r in self._relationships.values()],
                 "framework_metadata": {
                     "exported_at": datetime.now(timezone.utc).isoformat(),
-                    "framework_version": "2.2.0",
+                    "framework_version": "2.3.0",
                     "total_patterns": len(self._patterns),
                     "total_relationships": len(self._relationships),
                     "exporter": "p3if-enhanced"
                 } if include_metadata else None
             }
 
-            def custom_serializer(obj):
+            def custom_serializer(obj: Any) -> Any:
                 """Custom JSON serializer for datetime and other objects."""
                 if hasattr(obj, 'isoformat'):
                     return obj.isoformat()
@@ -802,6 +802,7 @@ class P3IFFramework(MetadataMixin):
                 try:
                     # Determine pattern type and class
                     pattern_type = pattern_data.get("type")
+                    pattern: BasePattern
                     if pattern_type == "property":
                         pattern = Property(**pattern_data)
                     elif pattern_type == "process":
@@ -897,7 +898,7 @@ class P3IFFramework(MetadataMixin):
             self.logger.info(f"Hot-swapped {modified_count} relationships from {old_dimension} to {new_dimension}")
             return modified_count
 
-    def multiplex_frameworks(self, external_framework: Dict[str, List[Dict[str, Any]]]) -> Dict[str, int]:
+    def multiplex_frameworks(self, external_framework: Dict[str, List[Dict[str, Any]]]) -> Dict[str, Dict[str, int]]:
         """
         Integrate patterns from an external framework with advanced conflict resolution.
         
@@ -990,13 +991,13 @@ class P3IFFramework(MetadataMixin):
 
         with self._lock:
             # Domain analysis
-            domain_stats = defaultdict(int)
+            domain_stats: Dict[str, int] = defaultdict(int)
             for pattern in self._patterns.values():
                 if pattern.domain:
                     domain_stats[pattern.domain] += 1
 
             # Tag analysis
-            all_tags = Counter()
+            all_tags: Counter = Counter()
             for pattern in self._patterns.values():
                 all_tags.update(pattern.tags)
 
@@ -1109,7 +1110,7 @@ class P3IFFramework(MetadataMixin):
                 f"relationships={len(self._relationships)}, "
                 f"domains={len(self._pattern_index.get('domain', {}))})")
 
-    def __del__(self):
+    def __del__(self) -> None:
         """Cleanup when framework is destroyed."""
         if hasattr(self, '_executor'):
             self._executor.shutdown(wait=False)

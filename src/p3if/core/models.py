@@ -27,10 +27,10 @@ class RelationshipStrength(float):
     """Custom type for relationship strength with validation."""
 
     @classmethod
-    def __get_pydantic_core_schema__(cls, source_type, handler):
+    def __get_pydantic_core_schema__(cls, source_type: Any, handler: Any) -> Any:
         from pydantic_core import core_schema
 
-        def validate_strength(v):
+        def validate_strength(v: Any) -> float:
             if not isinstance(v, (int, float)):
                 raise TypeError('strength must be a number')
             if not (0.0 <= v <= 1.0):
@@ -51,10 +51,10 @@ class ConfidenceScore(float):
     """Custom type for confidence scores with validation."""
 
     @classmethod
-    def __get_pydantic_core_schema__(cls, source_type, handler):
+    def __get_pydantic_core_schema__(cls, source_type: Any, handler: Any) -> Any:
         from pydantic_core import core_schema
 
-        def validate_confidence(v):
+        def validate_confidence(v: Any) -> float:
             if not isinstance(v, (int, float)):
                 raise TypeError('confidence must be a number')
             if not (0.0 <= v <= 1.0):
@@ -72,7 +72,14 @@ class ConfidenceScore(float):
 
 
 class MetadataMixin:
-    """Mixin class providing metadata functionality."""
+    """Mixin class providing metadata functionality.
+
+    Expects the host class to have a 'metadata' dict field and an 'updated_at' datetime field.
+    When used with Pydantic BaseModel, these are declared on the concrete model.
+    """
+
+    metadata: Dict[str, Any]
+    updated_at: datetime
     def update_metadata(self, key: str, value: Any) -> None:
         """Update metadata field."""
         self.metadata[key] = value
@@ -121,7 +128,7 @@ class BasePattern(BaseModel, MetadataMixin):
 
     @field_validator('tags')
     @classmethod
-    def validate_tags(cls, v):
+    def validate_tags(cls, v: List[str]) -> List[str]:
         """Ensure tags are valid."""
         if not all(isinstance(tag, str) and tag.strip() for tag in v):
             raise ValueError('All tags must be non-empty strings')
@@ -129,7 +136,7 @@ class BasePattern(BaseModel, MetadataMixin):
 
     @field_validator('name')
     @classmethod
-    def validate_name(cls, v):
+    def validate_name(cls, v: str) -> str:
         """Ensure name is properly formatted."""
         if not v.strip():
             raise ValueError('Name cannot be empty')
@@ -138,16 +145,10 @@ class BasePattern(BaseModel, MetadataMixin):
     @logged_method()
     def add_tag(self, tag: str) -> None:
         """Add a tag to the pattern."""
-        logger = get_logger(__name__)
-        logger.debug(f"Adding tag '{tag}' to pattern {self.id}")
-
         tag = tag.strip().lower()
         if tag not in self.tags:
             self.tags.append(tag)
             self.updated_at = datetime.now(timezone.utc)
-            logger.debug(f"Tag '{tag}' added to pattern {self.id}")
-        else:
-            logger.debug(f"Tag '{tag}' already exists on pattern {self.id}")
 
     def remove_tag(self, tag: str) -> None:
         """Remove a tag from the pattern."""
@@ -189,7 +190,7 @@ class Property(BasePattern):
 
     @field_validator('priority')
     @classmethod
-    def validate_priority(cls, v):
+    def validate_priority(cls, v: str) -> str:
         """Validate priority values."""
         valid_priorities = ['low', 'medium', 'high', 'critical']
         if v not in valid_priorities:
@@ -217,7 +218,7 @@ class Process(BasePattern):
 
     @field_validator('complexity')
     @classmethod
-    def validate_complexity_level(cls, v):
+    def validate_complexity_level(cls, v: str) -> str:
         """Validate complexity level values."""
         valid_levels = ['low', 'medium', 'high']
         if v not in valid_levels:
@@ -226,7 +227,7 @@ class Process(BasePattern):
 
     @field_validator('automation_level')
     @classmethod
-    def validate_automation_level(cls, v):
+    def validate_automation_level(cls, v: str) -> str:
         """Validate automation level values."""
         valid_levels = ['manual', 'semi-automated', 'fully-automated']
         if v not in valid_levels:
@@ -253,7 +254,7 @@ class Perspective(BasePattern):
 
     @field_validator('scope')
     @classmethod
-    def validate_scope(cls, v):
+    def validate_scope(cls, v: str) -> str:
         """Validate scope values."""
         valid_scopes = ['general', 'specific', 'detailed']
         if v not in valid_scopes:
@@ -262,7 +263,7 @@ class Perspective(BasePattern):
 
     @field_validator('expertise_level')
     @classmethod
-    def validate_expertise_level(cls, v):
+    def validate_expertise_level(cls, v: str) -> str:
         """Validate expertise level values."""
         valid_levels = ['novice', 'intermediate', 'expert']
         if v not in valid_levels:
@@ -312,7 +313,7 @@ class Relationship(BaseModel, MetadataMixin):
 
     @model_validator(mode='before')
     @classmethod
-    def validate_connections(cls, values):
+    def validate_connections(cls, values: Any) -> Any:
         """Ensure at least two dimensions are connected."""
         if isinstance(values, dict):
             connections = [
@@ -333,7 +334,7 @@ class Relationship(BaseModel, MetadataMixin):
 
     @field_validator('relationship_type')
     @classmethod
-    def validate_relationship_type(cls, v):
+    def validate_relationship_type(cls, v: str) -> str:
         """Validate relationship type."""
         valid_types = ['general', 'causal', 'dependency', 'composition', 'aggregation', 'specialization']
         if v not in valid_types:
@@ -372,7 +373,11 @@ class PatternCollection:
 
     def all_patterns(self) -> List[BasePattern]:
         """Get all patterns as a single list."""
-        return self.properties + self.processes + self.perspectives
+        result: List[BasePattern] = []
+        result.extend(self.properties)
+        result.extend(self.processes)
+        result.extend(self.perspectives)
+        return result
 
     def get_by_id(self, pattern_id: str) -> Optional[BasePattern]:
         """Find pattern by ID across all types."""

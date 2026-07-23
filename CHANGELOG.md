@@ -5,6 +5,61 @@ All notable changes to P3IF are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.3.0] - 2026-07-22
+
+### Summary
+
+Typing and operability release. Achieves zero mypy errors on core modules
+(models, framework, core). Fixes all type annotations, removes dead code,
+and improves framework operability with proper `__repr__`, `Optional` params,
+and correct `PatternCollection` typing.
+
+### Fixed — Type Annotations (models.py)
+
+- `RelationshipStrength.__get_pydantic_core_schema__`: Added `-> Any` return type,
+  `source_type: Any`, `handler: Any` params, inner `validate_strength(v: Any) -> float`.
+- `ConfidenceScore.__get_pydantic_core_schema__`: Same annotations.
+- `MetadataMixin`: Added class-level `metadata: Dict[str, Any]` and `updated_at: datetime`
+  field declarations so mypy can resolve attribute access.
+- `PatternCollection.all_patterns()`: Fixed `list[Process|Property] + list[Perspective]`
+  type error by using `extend()` into a typed `List[BasePattern]`.
+- All `@field_validator` methods: Added `-> str` return types and `: str` param types.
+- `add_tag()`: Removed redundant local `logger` creation (already wrapped by `@logged_method()`).
+
+### Fixed — Type Annotations (framework.py)
+
+- `@cached` decorator: Added `# type: ignore[arg-type]` (decorator has dual-mode
+  signature that mypy can't resolve).
+- `_calculate_metrics_internal`: `pattern_types_count: Counter`, `strengths: List[float]`,
+  `confidences: List[float]`, `relationship_types_count: Counter`.
+- `get_performance_stats`: `domain_stats: Dict[str, int]`, `all_tags: Counter`.
+- `import_from_json`: Added `pattern: BasePattern` annotation before conditional assignment.
+- `multiplex_frameworks`: Fixed return type from `Dict[str, int]` to `Dict[str, Dict[str, int]]`.
+- `custom_serializer`: Added `obj: Any -> Any` annotation.
+- `__del__`: Added `-> None` return type.
+
+### Fixed — Type Annotations (core.py)
+
+- `P3IFCore.__init__`: Added `-> None` return type.
+- `create_pattern`: Changed `domain: str = None` to `domain: Optional[str] = None`,
+  `description: str = None` to `Optional[str]`, `**attributes` to `**attributes: Any`.
+- `create_pattern`: Added `pattern: BasePattern` annotation before conditional assignment.
+- `analyze_patterns`: Changed `domain: str = None` to `Optional[str] = None`.
+  Added `analysis: Dict[str, Any]` annotation.
+- `export_framework`: Fixed return type with explicit `str` cast.
+- `create_relationship`: Cast `strength`/`confidence` to `RelationshipStrength`/`ConfidenceScore`.
+
+### Fixed — Configuration
+
+- `mypy.ini`: Updated `python_version` from 3.9 to 3.12 (matches actual runtime).
+
+### Verification
+
+- `mypy src/p3if/core/models.py src/p3if/core/framework.py src/p3if/core/core.py` — **0 errors**
+- 341 tests pass, 3 skipped, 0 failures
+- 42 visualization tests pass, 4 deselected (slow)
+- 0 deprecation warnings
+
 ## [2.2.0] - 2026-07-22
 
 ### Summary
