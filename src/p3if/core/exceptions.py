@@ -127,14 +127,5 @@ class OperationFailedError(OperationError):
     """Raised when an operation fails to complete."""
 
     def __init__(self, operation_type: str, operation_id: str, error_message: str):
-        self.operation_type = operation_type
-        self.operation_id = operation_id
-        self.error_message = error_message
-        message = f"Operation failed: {operation_type} ({operation_id}) - {error_message}"
-        details = {
-            "operation_type": operation_type,
-            "operation_id": operation_id,
-            "error_message": error_message
-        }
-        super().__init__(message, details)
+        super().__init__(operation_type, operation_id, error_message)
 

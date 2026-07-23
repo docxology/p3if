@@ -5,6 +5,41 @@ All notable changes to P3IF are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.5.0] - 2026-07-23
+
+### Summary
+
+Type safety and test coverage release. Extends mypy to 5 more core modules
+(73 fewer errors), adds 32 tests for analysis and orchestrator modules,
+adds `__repr__` to AnalysisReport, fixes OperationFailedError constructor bug.
+
+### Fixed
+
+- `exceptions.py`: `OperationFailedError.__init__` called `super().__init__(message, details)`
+  but parent `OperationError.__init__` expects `(operation_type, operation_id, message)`.
+  Fixed to call `super().__init__(operation_type, operation_id, error_message)`.
+- `caching.py`: 16 missing type annotations added (`-> None`, `-> Any`, `Optional[Dict]`,
+  `Dict[Any, List[Any]]`, `List[str]`, `Optional[float]`).
+- `validation.py`: `validation_result` typed as `Dict[str, Any]`, `relationships` as
+  `List[Any]`, `add_constraint` return type added.
+- `composition.py`: `__init__`, `register_adapter`, `add_multiplexing_rule` return types
+  added, `process_map`/`perspective_map` typed as `Dict[str, List[Any]]`.
+- `orchestration.py`: `__init__`, `add_step`, `add_dependency`, `add_output_mapping`
+  return types added.
+
+### Added
+
+- `__repr__` on `AnalysisReport`.
+- 12 tests for analysis modules (BasicAnalyzer: 8, AnalysisReport: 4).
+- 20 tests for orchestrators (CognitiveSecurity: 8, FrameworkIntegration: 5, Healthcare: 7).
+- 32 total new tests.
+
+### Verification
+
+- mypy on 8 core modules: 32 errors (down from 105, all in validation/caching constraint checks)
+- 393 tests pass, 4 skipped, 0 failures
+- 0 deprecation warnings
+
 ## [2.4.0] - 2026-07-22
 
 ### Summary

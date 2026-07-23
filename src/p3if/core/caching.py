@@ -44,7 +44,7 @@ class CacheEntry:
             return False
         return time.time() - self.timestamp > self.ttl
 
-    def access(self):
+    def access(self) -> None:
         """Record an access to this entry."""
         self.access_count += 1
         self.timestamp = time.time()
@@ -127,7 +127,7 @@ class CacheManager:
 
         self.cache[key] = entry
 
-    def clear(self):
+    def clear(self) -> None:
         """Clear all cache entries."""
         self.cache.clear()
         self.hits = 0
@@ -150,11 +150,11 @@ class CacheManager:
 
 
 def cached(cache_manager: Optional[CacheManager] = None,
-           ttl: Optional[float] = None, cache_key: Optional[str] = None):
+           ttl: Optional[float] = None, cache_key: Optional[str] = None) -> Any:
     """Decorator for caching function results."""
-    def decorator(func):
+    def decorator(func: Callable) -> Callable:
         @functools.wraps(func)
-        def wrapper(*args, **kwargs):
+        def wrapper(*args: Any, **kwargs: Any) -> Any:
             # Use provided cache manager or global default
             cm = cache_manager or _global_cache_manager
 
@@ -183,15 +183,15 @@ def cached(cache_manager: Optional[CacheManager] = None,
 class PerformanceOptimizer:
     """Optimizes P3IF operations for better performance."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.metrics: Dict[str, List[float]] = defaultdict(list)
         self.logger = logging.getLogger(__name__)
 
-    def time_operation(self, operation_name: str):
+    def time_operation(self, operation_name: str) -> "PerformanceTimer":
         """Context manager for timing operations."""
         return PerformanceTimer(self, operation_name)
 
-    def record_metric(self, metric_name: str, value: float):
+    def record_metric(self, metric_name: str, value: float) -> None:
         """Record a performance metric."""
         self.metrics[metric_name].append(value)
         self.logger.debug(f"Recorded {metric_name}: {value}")
@@ -217,7 +217,7 @@ class PerformanceOptimizer:
         return summary
 
     def optimize_query(self, query_func: Callable, data: List[Any],
-                      optimization_hints: Dict[str, Any] = None) -> Any:
+                      optimization_hints: Optional[Dict[str, Any]] = None) -> Any:
         """Optimize a query operation based on data characteristics."""
         optimization_hints = optimization_hints or {}
 
@@ -255,13 +255,13 @@ class PerformanceOptimizer:
 
         if hints.get("use_index", False):
             # Create index if beneficial
-            index = {}
+            index: Dict[Any, List[Any]] = {}
             for item in data:
                 key_value = getattr(item, hints.get("index_key", "name"), "")
                 if key_value not in index:
                     index[key_value] = []
                 index[key_value].append(item)
-            data = index  # Replace with indexed structure
+            data = list(index.values())  # Replace with indexed structure
 
         result = query_func(data)
         execution_time = time.time() - start_time
@@ -271,7 +271,7 @@ class PerformanceOptimizer:
 
     def suggest_optimizations(self, operation_history: List[Dict[str, Any]]) -> List[str]:
         """Suggest optimizations based on operation history."""
-        suggestions = []
+        suggestions: List[str] = []
 
         if not operation_history:
             return suggestions
@@ -300,13 +300,13 @@ class PerformanceTimer:
     def __init__(self, optimizer: PerformanceOptimizer, operation_name: str):
         self.optimizer = optimizer
         self.operation_name = operation_name
-        self.start_time = None
+        self.start_time: Optional[float] = None
 
-    def __enter__(self):
+    def __enter__(self) -> "PerformanceTimer":
         self.start_time = time.time()
         return self
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
+    def __exit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None:
         if self.start_time is not None:
             execution_time = time.time() - self.start_time
             self.optimizer.record_metric(f"{self.operation_name}_time", execution_time)
@@ -322,7 +322,7 @@ def get_cache_manager() -> CacheManager:
 
 
 def configure_global_cache(strategy: CacheStrategy = CacheStrategy.LRU,
-                          max_size: int = 1000, ttl: Optional[float] = None):
+                          max_size: int = 1000, ttl: Optional[float] = None) -> None:
     """Configure the global cache manager."""
     global _global_cache_manager
     _global_cache_manager = CacheManager(strategy, max_size, ttl)

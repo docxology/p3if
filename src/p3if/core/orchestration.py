@@ -49,7 +49,7 @@ class ThinOrchestrator:
     def __repr__(self) -> str:
         return f"ThinOrchestrator(name={self.name!r}, type={self.orchestrator_type.value}, steps={len(self.steps)})"
 
-    def add_step(self, step: OrchestrationStep):
+    def add_step(self, step: OrchestrationStep) -> None:
         """Add a step to the orchestrator with validation."""
         # Validate step
         if not step.name or not step.name.strip():
@@ -70,7 +70,7 @@ class ThinOrchestrator:
 
         self.steps.append(step)
 
-    def add_dependency(self, step_name: str, depends_on: str):
+    def add_dependency(self, step_name: str, depends_on: str) -> None:
         """Add a dependency relationship between steps."""
         for step in self.steps:
             if step.name == step_name:
@@ -78,7 +78,7 @@ class ThinOrchestrator:
                     step.dependencies.append(depends_on)
                 break
 
-    def add_output_mapping(self, step_name: str, output_name: str):
+    def add_output_mapping(self, step_name: str, output_name: str) -> None:
         """Add an output mapping for a step."""
         for step in self.steps:
             if step.name == step_name:
@@ -344,7 +344,7 @@ class ThinOrchestrator:
 class WorkflowEngine:
     """Advanced workflow engine for complex orchestrations."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.orchestrators: Dict[str, ThinOrchestrator] = {}
         self.global_context: Dict[str, Any] = {}
 

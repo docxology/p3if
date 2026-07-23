@@ -52,7 +52,7 @@ class FrameworkAdapter:
 class CompositionEngine:
     """Engine for composing and manipulating P3IF frameworks."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.adapters: Dict[str, FrameworkAdapter] = {}
         self.composition_history: List[Dict[str, Any]] = []
         self.logger = logging.getLogger(__name__)
@@ -60,7 +60,7 @@ class CompositionEngine:
     def __repr__(self) -> str:
         return f"CompositionEngine(adapters={len(self.adapters)}, history={len(self.composition_history)})"
 
-    def register_adapter(self, adapter: FrameworkAdapter):
+    def register_adapter(self, adapter: FrameworkAdapter) -> None:
         """Register a framework adapter."""
         self.adapters[adapter.name] = adapter
         self.logger.info(f"Registered adapter for {adapter.source_framework}")
@@ -191,11 +191,11 @@ class CompositionEngine:
 class Multiplexer:
     """Handles multiplexing of framework elements across dimensions."""
 
-    def __init__(self):
+    def __init__(self) -> None:
         self.multiplexing_rules: Dict[str, Dict[str, Any]] = {}
         self.logger = logging.getLogger(__name__)
 
-    def add_multiplexing_rule(self, rule_name: str, rule_config: Dict[str, Any]):
+    def add_multiplexing_rule(self, rule_name: str, rule_config: Dict[str, Any]) -> None:
         """Add a multiplexing rule."""
         self.multiplexing_rules[rule_name] = rule_config
 

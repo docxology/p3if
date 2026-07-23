@@ -69,13 +69,13 @@ class ValidationEngine:
     def __repr__(self) -> str:
         return f"ValidationEngine(rules={len(self.rules)}, history={len(self.validation_history)})"
 
-    def add_rule(self, rule: ValidationRule):
+    def add_rule(self, rule: ValidationRule) -> None:
         """Add a validation rule."""
         self.rules[rule.name] = rule
 
     def validate_framework(self, framework: Any) -> Dict[str, Any]:
         """Validate an entire P3IF framework."""
-        validation_result = {
+        validation_result: Dict[str, Any] = {
             "framework": getattr(framework, 'name', 'unknown'),
             "timestamp": datetime.now().isoformat(),
             "overall_valid": True,
@@ -100,7 +100,7 @@ class ValidationEngine:
                             validation_result["issues"].extend(issues)
 
                 # Validate all relationships with relationship rules
-                relationships = getattr(framework, 'get_all_relationships', lambda: [])()
+                relationships: List[Any] = getattr(framework, 'get_all_relationships', lambda: [])()
                 for rel in relationships:
                     for rule_name, rule in self.rules.items():
                         if rule.applies_to in (None, 'relationship'):
@@ -140,7 +140,7 @@ class ValidationEngine:
 
     def validate_dimension(self, dimension_name: str, elements: List[Any]) -> Dict[str, Any]:
         """Validate a specific dimension."""
-        validation_result = {
+        validation_result: Dict[str, Any] = {
             "dimension": dimension_name,
             "element_count": len(elements),
             "timestamp": datetime.now().isoformat(),
@@ -227,7 +227,7 @@ class ConstraintManager:
 
     constraints: Dict[str, List[Dict[str, Any]]] = field(default_factory=dict)
 
-    def add_constraint(self, element_type: str, constraint: Dict[str, Any]):
+    def add_constraint(self, element_type: str, constraint: Dict[str, Any]) -> None:
         """Add a constraint for an element type."""
         if element_type not in self.constraints:
             self.constraints[element_type] = []

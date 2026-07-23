@@ -36,8 +36,11 @@ class AnalysisReport:
         
         # Analysis results cache
         self._results = None
-    
-    def run_analysis(self, include_basic: bool = True, include_network: bool = True, 
+
+    def __repr__(self) -> str:
+        return f"AnalysisReport(patterns={len(self.framework)}, results={'available' if self._results else 'none'})"
+
+    def run_analysis(self, include_basic: bool = True, include_network: bool = True,
                     include_meta: bool = True) -> Dict[str, Any]:
         """
         Run comprehensive analysis on the framework.

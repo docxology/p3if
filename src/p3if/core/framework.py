@@ -113,7 +113,7 @@ class P3IFFramework(MetadataMixin):
         # Initialize metadata
         self.metadata = {
             'created_at': datetime.now(timezone.utc),
-            'version': '2.4.0',
+            'version': '2.5.0',
             'framework_type': 'enhanced_p3if'
         }
 
@@ -740,7 +740,7 @@ class P3IFFramework(MetadataMixin):
                 "relationships": [r.model_dump(by_alias=True) for r in self._relationships.values()],
                 "framework_metadata": {
                     "exported_at": datetime.now(timezone.utc).isoformat(),
-                    "framework_version": "2.4.0",
+                    "framework_version": "2.5.0",
                     "total_patterns": len(self._patterns),
                     "total_relationships": len(self._relationships),
                     "exporter": "p3if-enhanced"
