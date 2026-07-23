@@ -169,7 +169,7 @@ class LRUCache:
                     size_bytes = len(value)
                 elif isinstance(value, (list, tuple, dict)):
                     size_bytes = len(str(value).encode())
-            except:
+            except Exception:
                 size_bytes = 64  # Default size estimate
 
             entry = CacheEntry(

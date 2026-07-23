@@ -189,7 +189,7 @@ class NetworkAnalyzer:
         if graph_type != "bipartite":
             try:
                 stats["avg_clustering"] = nx.average_clustering(G)
-            except:
+            except Exception:
                 stats["avg_clustering"] = 0
         
         # Calculate diameter and average path length for the largest component
@@ -200,7 +200,7 @@ class NetworkAnalyzer:
             try:
                 stats["diameter"] = nx.diameter(largest_subgraph)
                 stats["avg_path_length"] = nx.average_shortest_path_length(largest_subgraph)
-            except:
+            except Exception:
                 stats["diameter"] = 0
                 stats["avg_path_length"] = 0
         else:
@@ -387,7 +387,7 @@ class NetworkAnalyzer:
         """
         try:
             return nx.community.modularity(G, communities)
-        except:
+        except Exception:
             # Fall back to manual calculation if NetworkX function fails
             m = G.number_of_edges()
             if m == 0:

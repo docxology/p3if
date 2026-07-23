@@ -3,7 +3,7 @@ P3IF Meta-Analyzer
 
 This module provides meta-analysis capabilities for P3IF data across domains.
 """
-from typing import Dict, List, Any, Optional, Tuple, Set, Union
+from typing import Dict, List, Any, Optional, Tuple, Set
 import logging
 import numpy as np
 import pandas as pd

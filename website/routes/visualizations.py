@@ -146,5 +146,5 @@ def get_directory_date(dir_path):
     """Get the modification date of a directory."""
     try:
         return dir_path.stat().st_mtime
-    except:
+    except Exception:
         return 0 

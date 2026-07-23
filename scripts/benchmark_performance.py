@@ -117,7 +117,7 @@ class PerformanceBenchmark:
         """Get approximate size of an object in bytes."""
         try:
             return len(str(obj).encode('utf-8'))
-        except:
+        except Exception:
             return 0
 
     def benchmark_framework_creation(self, sizes: List[int]) -> Dict[str, Any]:

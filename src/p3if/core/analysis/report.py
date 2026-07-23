@@ -8,7 +8,7 @@ import logging
 import json
 import os
 from pathlib import Path
-import datetime
+from datetime import datetime
 
 from p3if.core.framework import P3IFFramework
 from .basic import BasicAnalyzer
@@ -51,7 +51,7 @@ class AnalysisReport:
             Dictionary containing all analysis results
         """
         results = {
-            "timestamp": datetime.datetime.now().isoformat(),
+            "timestamp": datetime.now().isoformat(),
             "summary": {
                 "num_patterns": len(self.framework._patterns),
                 "num_relationships": len(self.framework._relationships)
