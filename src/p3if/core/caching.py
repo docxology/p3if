@@ -63,6 +63,9 @@ class CacheManager:
         self.misses = 0
         self.logger = logging.getLogger(__name__)
 
+    def __repr__(self) -> str:
+        return f"CacheManager(strategy={self.strategy.value}, size={len(self.cache)}, max={self.max_size})"
+
     def _generate_key(self, func_name: str, args: tuple, kwargs: dict) -> str:
         """Generate a cache key from function call information."""
         # Create a hash of the function name and arguments

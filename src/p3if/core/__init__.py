@@ -5,7 +5,7 @@ This module provides the foundational components for the P3IF framework.
 """
 
 from .core import P3IFCore
-from .framework import P3IFFramework
+from .framework import P3IFFramework, FrameworkBuilder
 from .models import (
     BasePattern, Property, Process, Perspective, Relationship,
     PatternType, PatternCollection

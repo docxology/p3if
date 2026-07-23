@@ -16,7 +16,8 @@ from concurrent.futures import ThreadPoolExecutor
 
 from .models import (
     Property, Process, Perspective, Relationship, BasePattern,
-    PatternType, PatternCollection, RelationshipAnalysis, MetadataMixin
+    PatternType, PatternCollection, RelationshipAnalysis, MetadataMixin,
+    RelationshipStrength, ConfidenceScore
 )
 from p3if.utils.storage import StorageInterface
 from p3if.utils.config import Config
@@ -112,7 +113,7 @@ class P3IFFramework(MetadataMixin):
         # Initialize metadata
         self.metadata = {
             'created_at': datetime.now(timezone.utc),
-            'version': '2.3.0',
+            'version': '2.4.0',
             'framework_type': 'enhanced_p3if'
         }
 
@@ -739,7 +740,7 @@ class P3IFFramework(MetadataMixin):
                 "relationships": [r.model_dump(by_alias=True) for r in self._relationships.values()],
                 "framework_metadata": {
                     "exported_at": datetime.now(timezone.utc).isoformat(),
-                    "framework_version": "2.3.0",
+                    "framework_version": "2.4.0",
                     "total_patterns": len(self._patterns),
                     "total_relationships": len(self._relationships),
                     "exporter": "p3if-enhanced"
@@ -1114,4 +1115,57 @@ class P3IFFramework(MetadataMixin):
         """Cleanup when framework is destroyed."""
         if hasattr(self, '_executor'):
             self._executor.shutdown(wait=False)
-    
+
+
+class FrameworkBuilder:
+    """Fluent builder API for constructing P3IF frameworks with method chaining.
+
+    Usage:
+        fw = (FrameworkBuilder()
+              .add_property(name="Security", description="...", domain="cybersec")
+              .add_process(name="Authentication", description="...", domain="cybersec")
+              .add_perspective(name="Technical", description="...", domain="cybersec", viewpoint="dev")
+              .build())
+    """
+
+    def __init__(self, framework: Optional[P3IFFramework] = None):
+        self._framework = framework or P3IFFramework()
+
+    def add_property(self, name: str, description: str, domain: str, **kwargs: Any) -> 'FrameworkBuilder':
+        """Add a Property pattern and return self for chaining."""
+        self._framework.add_pattern(Property(name=name, description=description, domain=domain, **kwargs))
+        return self
+
+    def add_process(self, name: str, description: str, domain: str, **kwargs: Any) -> 'FrameworkBuilder':
+        """Add a Process pattern and return self for chaining."""
+        self._framework.add_pattern(Process(name=name, description=description, domain=domain, **kwargs))
+        return self
+
+    def add_perspective(self, name: str, description: str, domain: str, viewpoint: str = "default", **kwargs: Any) -> 'FrameworkBuilder':
+        """Add a Perspective pattern and return self for chaining."""
+        self._framework.add_pattern(Perspective(name=name, description=description, domain=domain, viewpoint=viewpoint, **kwargs))
+        return self
+
+    def add_relationship(self, property_id: Optional[str] = None, process_id: Optional[str] = None,
+                         perspective_id: Optional[str] = None, strength: float = 0.5,
+                         confidence: float = 1.0, relationship_type: str = "general") -> 'FrameworkBuilder':
+        """Add a Relationship and return self for chaining."""
+        self._framework.add_relationship(Relationship(
+            property_id=property_id, process_id=process_id, perspective_id=perspective_id,
+            strength=RelationshipStrength(strength),  # type: ignore[arg-type]
+            confidence=ConfidenceScore(confidence),  # type: ignore[arg-type]
+            relationship_type=relationship_type
+        ))
+        return self
+
+    def add_pattern(self, pattern: BasePattern) -> 'FrameworkBuilder':
+        """Add any pattern and return self for chaining."""
+        self._framework.add_pattern(pattern)
+        return self
+
+    def build(self) -> P3IFFramework:
+        """Return the constructed framework."""
+        return self._framework
+
+    def __repr__(self) -> str:
+        return f"FrameworkBuilder(framework={self._framework!r})"    

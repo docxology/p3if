@@ -16,16 +16,19 @@ from .exporters import export_to_json
 
 class DomainManager:
     """Manager for P3IF domains."""
-    
+
     def __init__(self, framework: P3IFFramework):
         """
         Initialize domain manager.
-        
+
         Args:
             framework: P3IF framework instance
         """
         self.framework = framework
         self.logger = logging.getLogger(__name__)
+
+    def __repr__(self) -> str:
+        return f"DomainManager(domains={len(self.framework.get_all_domains())})"
     
     def get_domains(self) -> Set[str]:
         """

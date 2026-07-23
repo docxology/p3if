@@ -1,13 +1,9 @@
 include README.md
 include LICENSE
+include CHANGELOG.md
 include pyproject.toml
-recursive-include src/p3if *.py
+recursive-include src/p3if *.py py.typed
 recursive-include data/domains *.json
 recursive-exclude * __pycache__
 recursive-exclude * *.pyc
 recursive-exclude * *.pyo
-
-
-
-
-

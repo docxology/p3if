@@ -5,10 +5,10 @@ A sophisticated meta-framework for integrating, analyzing, and visualizing
 complex data relationships across multiple domains.
 """
 
-__version__ = "2.3.0"
+__version__ = "2.4.0"
 
 from .core import (
-    P3IFFramework, P3IFCore,
+    P3IFFramework, P3IFCore, FrameworkBuilder,
     BasePattern, Property, Process, Perspective, Relationship,
     PatternType, PatternCollection,
     ThinOrchestrator, OrchestrationStep, OrchestratorType,
@@ -16,15 +16,15 @@ from .core import (
     ValidationEngine, ValidationRule,
     CacheManager, CacheStrategy,
 )
-from .data import DomainManager, SyntheticDataGenerator
+from .data import DomainManager, SyntheticDataGenerator, DomainData
 
 __all__ = [
-    'P3IFFramework', 'P3IFCore',
+    'P3IFFramework', 'P3IFCore', 'FrameworkBuilder',
     'BasePattern', 'Property', 'Process', 'Perspective', 'Relationship',
     'PatternType', 'PatternCollection',
     'ThinOrchestrator', 'OrchestrationStep', 'OrchestratorType',
     'CompositionEngine', 'FrameworkAdapter',
     'ValidationEngine', 'ValidationRule',
     'CacheManager', 'CacheStrategy',
-    'DomainManager', 'SyntheticDataGenerator',
+    'DomainManager', 'SyntheticDataGenerator', 'DomainData',
 ]

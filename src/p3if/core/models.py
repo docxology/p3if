@@ -172,6 +172,14 @@ class BasePattern(BaseModel, MetadataMixin):
     def __repr__(self) -> str:
         return f"{self.__class__.__name__}(name={self.name!r}, domain={self.domain!r}, id={self.id})"
 
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, BasePattern):
+            return False
+        return self.name == other.name and self.domain == other.domain and self.type == other.type
+
+    def __hash__(self) -> int:
+        return hash((self.name, self.domain, self.type))
+
 
 class Property(BasePattern):
     """Enhanced property pattern with additional functionality."""
@@ -361,6 +369,17 @@ class Relationship(BaseModel, MetadataMixin):
         connected = self.get_connected_patterns()
         return (f"Relationship(id={self.id}, type={self.relationship_type}, "
                 f"strength={float(self.strength):.2f}, connected={connected})")
+
+    def __eq__(self, other: object) -> bool:
+        if not isinstance(other, Relationship):
+            return False
+        return (self.property_id == other.property_id and
+                self.process_id == other.process_id and
+                self.perspective_id == other.perspective_id and
+                self.relationship_type == other.relationship_type)
+
+    def __hash__(self) -> int:
+        return hash((self.property_id, self.process_id, self.perspective_id, self.relationship_type))
 
 
 # Utility classes for enhanced functionality

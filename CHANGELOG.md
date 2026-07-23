@@ -5,6 +5,37 @@ All notable changes to P3IF are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.4.0] - 2026-07-22
+
+### Summary
+
+Architecture and operability release. Adds fluent FrameworkBuilder API,
+model equality/hash support, typed domain data validation, `__repr__` on
+all remaining core classes, type stubs for external packages, and 20 new tests.
+
+### Added
+
+- `FrameworkBuilder` fluent API for constructing frameworks with method chaining:
+  `FrameworkBuilder().add_property(...).add_process(...).build()`
+- `__eq__` and `__hash__` on `BasePattern` (by name+domain+type) and
+  `Relationship` (by connected IDs + type). Enables set-based deduplication.
+- `DomainData` Pydantic model for validating domain JSON files at load time.
+  Validates structure, strips whitespace, rejects empty entries.
+- `__repr__` on `ValidationEngine`, `CacheManager`, `DomainManager`.
+- `types-requests` and `types-PyYAML` to dev dependencies.
+- 20 new tests: FrameworkBuilder chaining, model equality, DomainData validation.
+
+### Changed
+
+- `MANIFEST.in` updated to include `CHANGELOG.md` and `py.typed`.
+- `FrameworkBuilder` exported from top-level `p3if` package.
+- `DomainData` exported from `p3if.data` and top-level `p3if`.
+- Version 2.3.0 → 2.4.0.
+
+### Tests
+
+361 passed, 4 skipped, 0 failures, 0 deprecation warnings.
+
 ## [2.3.0] - 2026-07-22
 
 ### Summary

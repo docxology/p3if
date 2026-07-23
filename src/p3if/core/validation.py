@@ -66,6 +66,9 @@ class ValidationEngine:
     rules: Dict[str, ValidationRule] = field(default_factory=dict)
     validation_history: List[Dict[str, Any]] = field(default_factory=list)
 
+    def __repr__(self) -> str:
+        return f"ValidationEngine(rules={len(self.rules)}, history={len(self.validation_history)})"
+
     def add_rule(self, rule: ValidationRule):
         """Add a validation rule."""
         self.rules[rule.name] = rule

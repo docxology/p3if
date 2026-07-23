@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "p3if"
-version = "2.3.0"
+version = "2.4.0"
 description = "Properties, Processes, and Perspectives Inter-Framework"
 readme = "README.md"
 requires-python = ">=3.9"
@@ -42,6 +42,8 @@ dev = [
     "black>=23.0",
     "ruff>=0.1.0",
     "mypy>=1.0",
+    "types-requests",
+    "types-PyYAML",
 ]
 visualization = [
     "plotly>=5.14.0",

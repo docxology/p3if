@@ -232,9 +232,18 @@ class TestBasePattern(unittest.TestCase):
             id="test_id"
         )
 
-        # Pydantic models with mutable fields are not hashable by default
-        with self.assertRaises(TypeError):
-            hash(pattern)
+        # Patterns are hashable by name+domain+type
+        h = hash(pattern)
+        self.assertIsInstance(h, int)
+
+        # Equal patterns have equal hashes
+        pattern2 = Property(
+            name="Test Pattern",
+            description="Different description",
+            domain="test_domain",
+            id="different_id"
+        )
+        self.assertEqual(hash(pattern), hash(pattern2))
 
 
 class TestProperty(unittest.TestCase):
