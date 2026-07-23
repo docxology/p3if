@@ -116,7 +116,7 @@ portal.generate_portal(
 
 ## Running Domain Visualizations from Command Line
 
-The `run_multidomain_portal.py` script in the `scripts` directory provides a convenient way to generate domain visualizations:
+The `generate_final_visualizations.py` script in the `scripts` directory provides a convenient way to generate domain visualizations:
 
 ```bash
 python scripts/generate_final_visualizations.py --domains ArtificialIntelligence,HealthCare --relationships-per-domain 50 --cross-domain-connections 20 --output-dir outputs/domains
