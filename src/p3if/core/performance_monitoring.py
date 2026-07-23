@@ -9,7 +9,12 @@ from typing import Dict, List, Any, Optional, Callable, Union
 from dataclasses import dataclass, field
 from datetime import datetime, timedelta
 import time
-import psutil
+try:
+    import psutil
+    PSUTIL_AVAILABLE = True
+except ImportError:
+    psutil = None
+    PSUTIL_AVAILABLE = False
 import threading
 import logging
 from collections import defaultdict, deque
@@ -66,7 +71,7 @@ class PerformanceMonitor:
         self.logger = logging.getLogger(__name__)
 
         # System monitoring
-        self.process = psutil.Process()
+        self.process = psutil.Process() if PSUTIL_AVAILABLE else None
         self.system_start_time = time.time()
 
     def start_operation(self, operation_name: str, metadata: Optional[Dict[str, Any]] = None) -> str:
@@ -91,7 +96,7 @@ class PerformanceMonitor:
         metrics = self.active_operations[operation_id]
 
         # Get current system metrics
-        if self.enable_system_metrics:
+        if self.enable_system_metrics and self.process:
             try:
                 memory_info = self.process.memory_info()
                 cpu_percent = self.process.cpu_percent()
@@ -137,6 +142,8 @@ class PerformanceMonitor:
 
     def get_system_metrics(self) -> Dict[str, Any]:
         """Get current system metrics."""
+        if not PSUTIL_AVAILABLE:
+            return {"uptime_seconds": time.time() - self.system_start_time}
         try:
             memory = psutil.virtual_memory()
             cpu_percent = psutil.cpu_percent(interval=0.1)

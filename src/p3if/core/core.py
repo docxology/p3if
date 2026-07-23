@@ -14,7 +14,7 @@ from datetime import datetime
 from pathlib import Path
 import logging
 
-from .models import BasePattern, Property, Process, Perspective, Relationship
+from .models import BasePattern, Property, Process, Perspective, Relationship, PatternType
 from .framework import P3IFFramework
 from .exceptions import (
     P3IFError, PatternError, PatternNotFoundError, PatternValidationError,
@@ -153,19 +153,19 @@ class P3IFCore:
             errors.append("Pattern type is required")
 
         # Type-specific validation
-        if pattern.type == "property":
+        if pattern.type == PatternType.PROPERTY:
             if hasattr(pattern, 'category') and pattern.category:
                 valid_categories = ['security', 'quality', 'business', 'technical', 'compliance']
                 if pattern.category not in valid_categories:
                     errors.append(f"Invalid property category: {pattern.category}")
 
-        elif pattern.type == "process":
+        elif pattern.type == PatternType.PROCESS:
             if hasattr(pattern, 'complexity') and pattern.complexity:
                 valid_complexities = ['low', 'medium', 'high']
                 if pattern.complexity not in valid_complexities:
                     errors.append(f"Invalid process complexity: {pattern.complexity}")
 
-        elif pattern.type == "perspective":
+        elif pattern.type == PatternType.PERSPECTIVE:
             if hasattr(pattern, 'viewpoint') and not pattern.viewpoint:
                 errors.append("Perspective viewpoint is required")
 
@@ -390,7 +390,7 @@ class P3IFCore:
                 property_id=actual_property_id,
                 process_id=actual_process_id,
                 perspective_id=actual_perspective_id,
-                metadata={"type": relationship_type}
+                relationship_type=relationship_type
             )
 
             # Add to framework
@@ -499,8 +499,8 @@ class P3IFCore:
         """Export framework in specified format."""
         if format.lower() == "json":
             export_data = {
-                "patterns": {pid: pattern.dict() for pid, pattern in self.framework._patterns.items()},
-                "relationships": {rid: rel.dict() for rid, rel in self.framework._relationships.items()},
+                "patterns": {pid: pattern.model_dump() for pid, pattern in self.framework._patterns.items()},
+                "relationships": {rid: rel.model_dump() for rid, rel in self.framework._relationships.items()},
                 "metadata": {
                     "export_time": datetime.now().isoformat(),
                     "version": "1.0"

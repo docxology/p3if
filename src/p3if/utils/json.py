@@ -12,19 +12,22 @@ class P3IFEncoder(json.JSONEncoder):
     
     This encoder will:
     1. Convert datetime objects to ISO format strings
-    2. Convert P3IF objects to dictionaries using their dict() method if available
+    2. Convert P3IF objects to dictionaries using their model_dump() method if available
     """
     def default(self, obj):
         if isinstance(obj, datetime):
             return obj.isoformat()
-        elif hasattr(obj, 'dict'):
-            # Convert all P3IF objects to dict
-            obj_dict = obj.dict()
+        elif hasattr(obj, 'model_dump'):
+            # Convert all Pydantic v2 objects to dict
+            obj_dict = obj.model_dump()
             # Also handle datetime objects in the dict
             for key, value in obj_dict.items():
                 if isinstance(value, datetime):
                     obj_dict[key] = value.isoformat()
             return obj_dict
+        elif hasattr(obj, 'dict'):
+            # Fallback for non-Pydantic objects with a dict() method
+            return obj.dict()
         return super().default(obj)
 
 def convert_to_serializable(obj):
@@ -37,13 +40,15 @@ def convert_to_serializable(obj):
     Returns:
         A JSON-serializable version of the object
     """
-    if hasattr(obj, 'dict'):
-        result = obj.dict()
+    if hasattr(obj, 'model_dump'):
+        result = obj.model_dump()
         # Convert datetime objects to ISO format
         for key, value in result.items():
             if isinstance(value, datetime):
                 result[key] = value.isoformat()
         return result
+    elif hasattr(obj, 'dict'):
+        return obj.dict()
     return obj
 
 def dumps(obj, **kwargs):

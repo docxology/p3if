@@ -9,51 +9,52 @@ import json
 import os
 import sqlite3
 from abc import ABC, abstractmethod
-from typing import Dict, List, Optional, Any, Union
+from typing import Dict, List, Optional, Any, Union, TYPE_CHECKING
 from datetime import datetime
 from pathlib import Path
 
-# Import models only when needed to avoid circular imports
+if TYPE_CHECKING:
+    from p3if.core.models import BasePattern, Relationship
 
 
 class StorageInterface(ABC):
     """Abstract interface for P3IF data storage."""
-    
+
     @abstractmethod
-    def save_pattern(self, pattern: Pattern) -> None:
+    def save_pattern(self, pattern: BasePattern) -> None:
         """Save a pattern to storage."""
         pass
-    
+
     @abstractmethod
-    def get_pattern(self, pattern_id: str) -> Optional[Pattern]:
+    def get_pattern(self, pattern_id: str) -> Optional[BasePattern]:
         """Retrieve a pattern by ID."""
         pass
-    
+
     @abstractmethod
-    def get_patterns_by_type(self, pattern_type: str) -> List[Pattern]:
+    def get_patterns_by_type(self, pattern_type: str) -> List[BasePattern]:
         """Retrieve all patterns of a specific type."""
         pass
-    
+
     @abstractmethod
     def delete_pattern(self, pattern_id: str) -> bool:
         """Delete a pattern by ID."""
         pass
-    
+
     @abstractmethod
     def save_relationship(self, relationship: Relationship) -> None:
         """Save a relationship to storage."""
         pass
-    
+
     @abstractmethod
     def get_relationship(self, relationship_id: str) -> Optional[Relationship]:
         """Retrieve a relationship by ID."""
         pass
-    
+
     @abstractmethod
     def delete_relationship(self, relationship_id: str) -> bool:
         """Delete a relationship by ID."""
         pass
-    
+
     @abstractmethod
     def clear(self) -> None:
         """Clear all data from storage."""
@@ -92,12 +93,12 @@ class JSONStorage(StorageInterface):
         with open(self.file_path, 'w') as f:
             json.dump(self._data, f, indent=2, default=str)
     
-    def save_pattern(self, pattern: Pattern) -> None:
+    def save_pattern(self, pattern: BasePattern) -> None:
         """Save a pattern to storage."""
-        self._data["patterns"][pattern.id] = pattern.dict()
+        self._data["patterns"][pattern.id] = pattern.model_dump()
         self._save_to_file()
     
-    def get_pattern(self, pattern_id: str) -> Optional[Pattern]:
+    def get_pattern(self, pattern_id: str) -> Optional[BasePattern]:
         """Retrieve a pattern by ID."""
         pattern_data = self._data["patterns"].get(pattern_id)
         if pattern_data:
@@ -112,11 +113,11 @@ class JSONStorage(StorageInterface):
                 from p3if.core.models import Perspective
                 return Perspective(**pattern_data)
             else:
-                from p3if.core.models import BasePattern as Pattern
+                from p3if.core.models import BasePattern
                 return Pattern(**pattern_data)
         return None
     
-    def get_patterns_by_type(self, pattern_type: str) -> List[Pattern]:
+    def get_patterns_by_type(self, pattern_type: str) -> List[BasePattern]:
         """Retrieve all patterns of a specific type."""
         result = []
         for pattern_id, pattern_data in self._data["patterns"].items():
@@ -136,7 +137,7 @@ class JSONStorage(StorageInterface):
     
     def save_relationship(self, relationship: Relationship) -> None:
         """Save a relationship to storage."""
-        self._data["relationships"][relationship.id] = relationship.dict()
+        self._data["relationships"][relationship.id] = relationship.model_dump()
         self._save_to_file()
     
     def get_relationship(self, relationship_id: str) -> Optional[Relationship]:
@@ -220,7 +221,7 @@ class SQLiteStorage(StorageInterface):
         
         self.conn.commit()
     
-    def save_pattern(self, pattern: Pattern) -> None:
+    def save_pattern(self, pattern: BasePattern) -> None:
         """Save a pattern to storage."""
         cursor = self.conn.cursor()
         
@@ -239,7 +240,7 @@ class SQLiteStorage(StorageInterface):
             pattern.id,
             pattern.name,
             pattern.description,
-            pattern.type,
+            pattern.type.value if hasattr(pattern.type, 'value') else str(pattern.type),
             tags_json,
             metadata_json,
             domain,
@@ -249,7 +250,7 @@ class SQLiteStorage(StorageInterface):
         
         self.conn.commit()
     
-    def get_pattern(self, pattern_id: str) -> Optional[Pattern]:
+    def get_pattern(self, pattern_id: str) -> Optional[BasePattern]:
         """Retrieve a pattern by ID."""
         cursor = self.conn.cursor()
         cursor.execute('SELECT * FROM patterns WHERE id = ?', (pattern_id,))
@@ -275,12 +276,12 @@ class SQLiteStorage(StorageInterface):
                 from p3if.core.models import Perspective
                 return Perspective(**pattern_data)
             else:
-                from p3if.core.models import BasePattern as Pattern
+                from p3if.core.models import BasePattern
                 return Pattern(**pattern_data)
         
         return None
     
-    def get_patterns_by_type(self, pattern_type: str) -> List[Pattern]:
+    def get_patterns_by_type(self, pattern_type: str) -> List[BasePattern]:
         """Retrieve all patterns of a specific type."""
         cursor = self.conn.cursor()
         cursor.execute('SELECT id FROM patterns WHERE type = ?', (pattern_type,))

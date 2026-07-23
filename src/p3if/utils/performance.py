@@ -488,7 +488,7 @@ async def async_performance_timer(name: str, metadata: Optional[Dict[str, Any]] 
     monitor = get_performance_monitor()
     monitor.start_timer(name)
     try:
-        return await asyncio.coroutine(lambda: None)()
+        yield
     finally:
         monitor.end_timer(name, metadata)
 

@@ -112,16 +112,16 @@ class ThinOrchestrator:
 
     def execute_sync(self) -> Dict[str, Any]:
         """Execute the orchestrator synchronously."""
-        # Simple synchronous wrapper for async execution
-        loop = asyncio.get_event_loop()
-        if loop.is_running():
-            # If we're already in an async context, create a new loop
+        try:
+            loop = asyncio.get_running_loop()
+            # If we're already in an async context, create a new loop in a thread
             import concurrent.futures
             with concurrent.futures.ThreadPoolExecutor() as executor:
                 future = executor.submit(self._run_in_new_loop)
                 return future.result()
-        else:
-            return loop.run_until_complete(self.execute_async())
+        except RuntimeError:
+            # No running event loop — safe to create one
+            return asyncio.run(self.execute_async())
 
     def _run_in_new_loop(self):
         """Run the orchestrator in a new event loop."""
@@ -214,43 +214,32 @@ class ThinOrchestrator:
     async def _execute_step_async(self, step: OrchestrationStep) -> Any:
         """Execute a single step asynchronously."""
         try:
-            # Prepare parameters - include result from previous step if dependencies exist
             params = step.parameters.copy()
+
+            # Inspect method signature once
+            method_sig = ()
+            if hasattr(step.method, '__code__'):
+                method_sig = step.method.__code__.co_varnames[:step.method.__code__.co_argcount]
 
             # For steps with dependencies, pass the result from the last dependency
             if step.dependencies:
-                last_dependency = step.dependencies[-1]  # Get the most recent dependency
+                last_dependency = step.dependencies[-1]
                 if last_dependency in self.context:
-                    # Add the result from the previous step as the first parameter
-                    # The method signature should expect this as its first parameter after 'self'
-                    method_sig = step.method.__code__.co_varnames[:step.method.__code__.co_argcount]
-                    if len(method_sig) > 1 and method_sig[1] not in params:  # Skip 'self' parameter
-                        # Use the dependency name as the parameter name
-                        result_key = method_sig[1]  # Second parameter after 'self'
-                        params[result_key] = self.context[last_dependency]
-                    else:
-                        pass  # Parameter already provided or not in method signature
+                    if len(method_sig) > 1 and method_sig[1] not in params:
+                        params[method_sig[1]] = self.context[last_dependency]
 
             # For methods that expect orchestrator_context, pass the entire context
-            method_sig = step.method.__code__.co_varnames[:step.method.__code__.co_argcount]
             if len(method_sig) > 1 and method_sig[1] == 'orchestrator_context':
                 params['orchestrator_context'] = self.context
 
             if asyncio.iscoroutinefunction(step.method):
                 return await step.method(**params)
             else:
-                # For methods that expect orchestrator_context, pass the entire context
-                method_sig = step.method.__code__.co_varnames[:step.method.__code__.co_argcount]
-                if len(method_sig) > 1 and method_sig[1] == 'orchestrator_context':
-                    params['orchestrator_context'] = self.context
-
-                # Create a wrapper function that accepts positional args for run_in_executor
                 def execute_with_params():
                     return step.method(**params)
 
-                return await asyncio.get_event_loop().run_in_executor(
-                    None, execute_with_params
-                )
+                loop = asyncio.get_running_loop()
+                return await loop.run_in_executor(None, execute_with_params)
         except Exception as e:
             self.logger.error(f"Step execution failed: {e}")
             raise

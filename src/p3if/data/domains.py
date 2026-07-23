@@ -9,7 +9,7 @@ from pathlib import Path
 import logging
 
 from p3if.core.framework import P3IFFramework
-from p3if.core.models import BasePattern
+from p3if.core.models import BasePattern, Property, Process, Perspective, Relationship
 from .importers import import_from_json
 from .exporters import export_to_json
 
@@ -197,8 +197,8 @@ class DomainManager:
         # Export to JSON
         data = {
             "domain": domain,
-            "patterns": [p.dict() for p in all_patterns],
-            "relationships": [r.dict() for r in domain_relationships]
+            "patterns": [p.model_dump() for p in all_patterns],
+            "relationships": [r.model_dump() for r in domain_relationships]
         }
         
         with open(file_path, 'w') as f:
@@ -318,7 +318,8 @@ class DomainManager:
                     description=pattern.description,
                     tags=pattern.tags.copy(),
                     metadata=pattern.metadata.copy(),
-                    domain=target_domain
+                    domain=target_domain,
+                    viewpoint=getattr(pattern, 'viewpoint', 'default')
                 )
             else:
                 continue

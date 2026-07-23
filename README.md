@@ -1,4 +1,4 @@
-# P3IF - Patterns, Processes, Perspectives Inter-Framework (P3IF)
+# P3IF - Properties, Processes, and Perspectives Inter-Framework
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -83,11 +83,11 @@ graph TD
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/p3if.git
+git clone https://github.com/docxology/p3if.git
 cd p3if
 
 # Install with modern packaging
-pip install -e .
+pip install -e ".[dev,web]"
 
 # Option 1: Use the interactive terminal (recommended)
 ./interactive_terminal.sh
@@ -97,16 +97,14 @@ pip install -e .
 python3 scripts/generate_final_visualizations.py
 
 # Run the comprehensive test suite
-python3 scripts/run_tests.py
+python3 scripts/run_all.py
 
 # Run example orchestrators
 python3 scripts/run_examples.py
 
-# Option 3: Run the complete pipeline (recommended)
-python3 scripts/run_complete_p3if_pipeline.py
+# Validate the system
+python3 scripts/validate_system.py
 ```
-
-## Documentation
 
 ## Project Structure
 
@@ -186,6 +184,11 @@ results = orchestrator.execute_analysis()
 viz = InteractiveVisualizer(framework)
 viz.generate_3d_cube_html("output/cube.html")
 ```
+
+### Website
+
+```
+├── website/              # Web portal and API
 │   ├── app.py           # Main Flask application
 │   ├── routes/          # API routes and endpoints
 │   ├── static/          # Static assets (CSS, JS, images)
@@ -203,18 +206,16 @@ viz.generate_3d_cube_html("output/cube.html")
 │   └── diagrams/        # Architecture and process diagrams
 ├── scripts/              # Executable scripts and tools
 │   ├── generate_final_visualizations.py # Complete visualization pipeline
-│   ├── run_multidomain_portal.py       # Multi-domain portal generation
 │   ├── benchmark_performance.py        # Performance analysis
-│   ├── validate_documentation.py       # Documentation quality checks
+│   ├── validate_system.py              # System validation
 │   ├── setup_development.py           # Development environment setup
-│   └── run_tests.py                   # Test execution
+│   └── run_all.py                      # Test execution
 └── Root Files
     ├── README.md              # Main project overview
-    ├── setup.py               # Package installation
+    ├── pyproject.toml         # Package configuration
     ├── requirements.txt       # Runtime dependencies
     ├── AGENTS.md              # AI agent development guide
     ├── CONTRIBUTING.md        # Contribution guidelines
-    ├── PACKAGE_README.md      # Comprehensive package overview
     ├── interactive_terminal.sh # Interactive development environment
     └── .cursorrules           # Code organization rules
 ```
@@ -234,8 +235,8 @@ viz.generate_3d_cube_html("output/cube.html")
 ### For Developers
 - **[Interactive Terminal](interactive_terminal.sh)** - Full development environment
 - **[Setup Script](scripts/setup_development.py)** - Environment setup
-- **[Test Suite](scripts/run_tests.py)** - Comprehensive testing
-- **[Documentation Validation](scripts/validate_documentation.py)** - Quality checks
+- **[Test Suite](scripts/run_all.py)** - Comprehensive testing
+- **[System Validation](scripts/validate_system.py)** - Quality checks
 
 ### For AI/LLM Development
 - [LLM Development Guide](docs/LLM_DEVELOPMENT_GUIDE.md) - AI agent guidelines

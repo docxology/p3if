@@ -26,11 +26,14 @@ class ValidationRule:
 
     def __init__(self, name: str, check_function: Callable,
                  severity: ValidationSeverity = ValidationSeverity.ERROR,
-                 description: str = ""):
+                 description: str = "",
+                 applies_to: Optional[str] = None):
         self.name = name
         self.check_function = check_function
         self.severity = severity
         self.description = description
+        # applies_to: 'pattern', 'relationship', 'framework', or None for all
+        self.applies_to = applies_to
 
     def validate(self, target: Any) -> List[Dict[str, Any]]:
         """Run validation check and return issues."""
@@ -85,38 +88,25 @@ class ValidationEngine:
         try:
             collection = getattr(framework, 'get_pattern_collection', lambda: None)()
             if collection:
-                # Validate all properties
-                for prop in collection.properties:
+                # Validate all properties, processes, perspectives with pattern rules
+                all_patterns = collection.properties + collection.processes + collection.perspectives
+                for pattern in all_patterns:
                     for rule_name, rule in self.rules.items():
-                        if rule_name.startswith('has_name') or rule_name.startswith('meaningful_description'):
-                            issues = rule.validate(prop)
+                        if rule.applies_to in (None, 'pattern'):
+                            issues = rule.validate(pattern)
                             validation_result["issues"].extend(issues)
 
-                # Validate all processes
-                for proc in collection.processes:
-                    for rule_name, rule in self.rules.items():
-                        if rule_name.startswith('has_name') or rule_name.startswith('meaningful_description'):
-                            issues = rule.validate(proc)
-                            validation_result["issues"].extend(issues)
-
-                # Validate all perspectives
-                for pers in collection.perspectives:
-                    for rule_name, rule in self.rules.items():
-                        if rule_name.startswith('has_name') or rule_name.startswith('meaningful_description'):
-                            issues = rule.validate(pers)
-                            validation_result["issues"].extend(issues)
-
-                # Validate all relationships
+                # Validate all relationships with relationship rules
                 relationships = getattr(framework, 'get_all_relationships', lambda: [])()
                 for rel in relationships:
                     for rule_name, rule in self.rules.items():
-                        if rule_name.startswith('relationship_validity') or rule_name.startswith('strength_range'):
+                        if rule.applies_to in (None, 'relationship'):
                             issues = rule.validate(rel)
                             validation_result["issues"].extend(issues)
 
             # Run framework-level rules
             for rule_name, rule in self.rules.items():
-                if rule_name in ['minimum_elements', 'dimension_balance']:
+                if rule.applies_to in (None, 'framework'):
                     issues = rule.validate(framework)
                     validation_result["issues"].extend(issues)
 
@@ -314,7 +304,8 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
         "has_name",
         check_name,
         ValidationSeverity.ERROR,
-        "Element must have a non-empty name"
+        "Element must have a non-empty name",
+        applies_to='pattern'
     )
 
     # Rule: Description should be meaningful
@@ -329,7 +320,8 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
         "meaningful_description",
         check_description,
         ValidationSeverity.WARNING,
-        "Element should have a meaningful description (at least 10 characters)"
+        "Element should have a meaningful description (at least 10 characters)",
+        applies_to='pattern'
     )
 
     # Rule: Framework should have minimum elements
@@ -351,7 +343,8 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
         "minimum_elements",
         check_minimum_elements,
         ValidationSeverity.WARNING,
-        "Framework should have at least 3 elements total"
+        "Framework should have at least 3 elements total",
+        applies_to='framework'
     )
 
     # Rule: Relationship must connect at least two dimensions
@@ -386,7 +379,8 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
         "relationship_validity",
         check_relationship_validity,
         ValidationSeverity.ERROR,
-        "Relationship must connect at least two dimensions"
+        "Relationship must connect at least two dimensions",
+        applies_to='relationship'
     )
 
     # Rule: Relationship strength should be in valid range
@@ -401,7 +395,8 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
         "strength_range",
         check_strength_range,
         ValidationSeverity.ERROR,
-        "Relationship strength must be between 0.0 and 1.0"
+        "Relationship strength must be between 0.0 and 1.0",
+        applies_to='relationship'
     )
 
     # Rule: Relationship confidence should be in valid range
@@ -416,7 +411,8 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
         "confidence_range",
         check_confidence_range,
         ValidationSeverity.WARNING,
-        "Relationship confidence should be between 0.0 and 1.0"
+        "Relationship confidence should be between 0.0 and 1.0",
+        applies_to='relationship'
     )
 
     # Rule: Framework should have balanced dimensions
@@ -452,7 +448,8 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
         "dimension_balance",
         check_dimension_balance,
         ValidationSeverity.INFO,
-        "Framework dimensions should be reasonably balanced"
+        "Framework dimensions should be reasonably balanced",
+        applies_to='framework'
     )
 
     return rules

@@ -1,7 +1,7 @@
 # P3IF System Documentation
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
 [![Documentation Status](https://img.shields.io/badge/docs-latest-brightgreen.svg)](https://p3if.com/docs)
 
 The **Properties, Processes, and Perspectives Inter-Framework (P3IF)** is a sophisticated meta-framework designed to integrate, analyze, and visualize complex data relationships across multiple domains. P3IF enables seamless interoperability between existing frameworks while providing powerful visualization, analysis, and cognitive security capabilities.
@@ -16,8 +16,8 @@ The **Properties, Processes, and Perspectives Inter-Framework (P3IF)** is a soph
 # Generate comprehensive visualizations
 python ../scripts/generate_final_visualizations.py
 
-# Run multi-domain analysis portal
-python ../scripts/run_multidomain_portal.py
+# Run multi-domain analysis
+python ../scripts/generate_final_visualizations.py
 
 # View generated outputs
 ls ../outputs/p3if_output_*/
@@ -134,7 +134,7 @@ The P3IF documentation is organized into the following sections:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/P3IF.git
+git clone https://github.com/docxology/p3if.git
 cd P3IF
 
 # Option 1: Use the interactive setup (recommended)
@@ -176,7 +176,7 @@ python ../scripts/generate_final_visualizations.py
 ### Multi-Domain Analysis Portal
 ```bash
 # Generate interactive web portal with multiple domains
-python ../scripts/run_multidomain_portal.py
+python ../scripts/generate_final_visualizations.py
 
 # Creates cross-domain visualizations for:
 # - Healthcare, Finance, Cybersecurity, Education domains

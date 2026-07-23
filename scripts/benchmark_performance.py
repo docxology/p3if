@@ -6,7 +6,10 @@ This script measures and compares performance of various P3IF operations
 to identify bottlenecks and validate optimizations.
 """
 import time
-import psutil
+try:
+    import psutil
+except ImportError:
+    psutil = None
 import tracemalloc
 import asyncio
 import argparse

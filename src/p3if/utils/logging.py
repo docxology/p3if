@@ -9,11 +9,11 @@ import logging
 import sys
 import time
 import json
+import functools
 from typing import Optional, Dict, Any, List
 from pathlib import Path
 from datetime import datetime
 from collections import defaultdict
-from functools import wraps
 
 
 class P3IFLogger:
@@ -184,10 +184,11 @@ def log_method_result(logger: logging.Logger, method_name: str, result, duration
     logger.debug(f"Completed {method_name} -> {result_str}{duration_str}")
 
     # Log performance metrics for slow operations
-    if duration and duration > 1.0:
-        logger.warning(f"Slow operation: {method_name} took {duration:.3f}s")
-    elif duration and duration > 5.0:
-        logger.error(f"Very slow operation: {method_name} took {duration:.3f}s")
+    if duration:
+        if duration > 5.0:
+            logger.error(f"Very slow operation: {method_name} took {duration:.3f}s")
+        elif duration > 1.0:
+            logger.warning(f"Slow operation: {method_name} took {duration:.3f}s")
 
 
 def log_error(logger: logging.Logger, method_name: str, error: Exception, context: dict = None) -> None:
@@ -392,9 +393,4 @@ def export_performance_report(path: Path) -> None:
 
 # Initialize default logging on import
 setup_default_logging()
-
-
-# Import time and functools here to avoid circular imports
-import time
-import functools
 

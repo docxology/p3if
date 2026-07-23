@@ -10,7 +10,7 @@ import uuid
 from datetime import datetime, timezone
 from typing import Optional, Dict, Any, List, Union, Set, Literal
 from enum import Enum
-from pydantic import BaseModel, Field, validator, root_validator, field_validator, model_validator
+from pydantic import BaseModel, Field, field_validator, model_validator
 from dataclasses import dataclass
 import json
 from p3if.utils.logging import get_logger, logged_method
@@ -115,12 +115,9 @@ class BasePattern(BaseModel, MetadataMixin):
     references: List[str] = Field(default_factory=list)  # URLs, citations, etc.
     related_patterns: List[str] = Field(default_factory=list)  # IDs of related patterns
 
-    class Config:
-        validate_assignment = True
-        json_encoders = {
-            datetime: lambda v: v.isoformat(),
-            PatternType: lambda v: v.value
-        }
+    model_config = {
+        "validate_assignment": True,
+    }
 
     @field_validator('tags')
     @classmethod
@@ -165,11 +162,14 @@ class BasePattern(BaseModel, MetadataMixin):
 
     def to_dict(self) -> Dict[str, Any]:
         """Convert to dictionary with all fields."""
-        return self.dict(by_alias=True)
+        return self.model_dump(by_alias=True)
 
     def to_json(self) -> str:
         """Convert to JSON string."""
-        return self.json(by_alias=True, indent=2)
+        return self.model_dump_json(by_alias=True, indent=2)
+
+    def __repr__(self) -> str:
+        return f"{self.__class__.__name__}(name={self.name!r}, domain={self.domain!r}, id={self.id})"
 
 
 class Property(BasePattern):
@@ -251,15 +251,22 @@ class Perspective(BasePattern):
     stakeholder_type: Optional[str] = None  # internal, external, customer, etc.
     expertise_level: str = Field(default="intermediate")  # novice, intermediate, expert
 
-    @field_validator('scope', 'expertise_level')
+    @field_validator('scope')
     @classmethod
-    def validate_scope_level(cls, v):
-        """Validate scope and expertise level values."""
+    def validate_scope(cls, v):
+        """Validate scope values."""
         valid_scopes = ['general', 'specific', 'detailed']
+        if v not in valid_scopes:
+            raise ValueError(f'Scope must be one of: {valid_scopes}')
+        return v
+
+    @field_validator('expertise_level')
+    @classmethod
+    def validate_expertise_level(cls, v):
+        """Validate expertise level values."""
         valid_levels = ['novice', 'intermediate', 'expert']
-        if v not in valid_scopes + valid_levels:
-            valid_values = valid_scopes + valid_levels
-            raise ValueError(f'Value must be one of: {valid_values}')
+        if v not in valid_levels:
+            raise ValueError(f'Expertise level must be one of: {valid_levels}')
         return v
 
 
@@ -299,13 +306,9 @@ class Relationship(BaseModel, MetadataMixin):
     status: str = Field(default="active")  # active, deprecated, experimental
     quality_score: float = Field(default=1.0, ge=0.0, le=1.0)
 
-    class Config:
-        validate_assignment = True
-        json_encoders = {
-            datetime: lambda v: v.isoformat(),
-            RelationshipStrength: lambda v: float(v),
-            ConfidenceScore: lambda v: float(v)
-        }
+    model_config = {
+        "validate_assignment": True,
+    }
 
     @model_validator(mode='before')
     @classmethod
@@ -347,11 +350,16 @@ class Relationship(BaseModel, MetadataMixin):
 
     def to_dict(self) -> Dict[str, Any]:
         """Convert to dictionary with all fields."""
-        return self.dict(by_alias=True)
+        return self.model_dump(by_alias=True)
 
     def to_json(self) -> str:
         """Convert to JSON string."""
-        return self.json(by_alias=True, indent=2)
+        return self.model_dump_json(by_alias=True, indent=2)
+
+    def __repr__(self) -> str:
+        connected = self.get_connected_patterns()
+        return (f"Relationship(id={self.id}, type={self.relationship_type}, "
+                f"strength={float(self.strength):.2f}, connected={connected})")
 
 
 # Utility classes for enhanced functionality

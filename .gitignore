@@ -99,5 +99,6 @@ dmypy.json
 
 # P3IF specific
 output/
+outputs/
 *.log
 .DS_Store

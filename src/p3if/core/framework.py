@@ -4,7 +4,7 @@ P3IF Core Framework
 This module contains the main P3IF framework class with performance,
 validation, and analysis capabilities.
 """
-from typing import Dict, List, Optional, Union, Any, Tuple, Set, Iterator
+from typing import Dict, List, Optional, Union, Any, Tuple, Set, Iterator, Callable
 import json
 import asyncio
 import os
@@ -121,7 +121,7 @@ class P3IFFramework(MetadataMixin):
         # Initialize metadata
         self.metadata = {
             'created_at': datetime.now(timezone.utc),
-            'version': '2.0.0',
+            'version': '2.1.0',
             'framework_type': 'enhanced_p3if'
         }
 
@@ -175,20 +175,20 @@ class P3IFFramework(MetadataMixin):
                 self.logger.warning(f"Adding deprecated pattern: {pattern.name}")
 
             # Add pattern
-        self._patterns[pattern.id] = pattern
+            self._patterns[pattern.id] = pattern
 
-        # Update indexes
-        self._update_indexes(pattern=pattern)
+            # Update indexes
+            self._update_indexes(pattern=pattern)
 
             # Persist if storage is available
-        if self._storage:
-            self._storage.save_pattern(pattern)
+            if self._storage:
+                self._storage.save_pattern(pattern)
 
             # Invalidate cache
             self._invalidate_metrics_cache()
 
             self.logger.info(f"Added pattern: {pattern.name} ({pattern.id})")
-        return pattern.id
+            return pattern.id
         
     def get_pattern(self, pattern_id: str) -> Optional[BasePattern]:
         """
@@ -298,20 +298,20 @@ class P3IFFramework(MetadataMixin):
                     raise ValueError(f"Referenced pattern {pattern_id} does not exist")
 
             # Add relationship
-        self._relationships[relationship.id] = relationship
+            self._relationships[relationship.id] = relationship
 
-        # Update indexes
-        self._update_indexes(relationship=relationship)
+            # Update indexes
+            self._update_indexes(relationship=relationship)
 
-        # Persist if storage is available
-        if self._storage:
-            self._storage.save_relationship(relationship)
+            # Persist if storage is available
+            if self._storage:
+                self._storage.save_relationship(relationship)
 
-        # Invalidate cache
-        self._invalidate_metrics_cache()
+            # Invalidate cache
+            self._invalidate_metrics_cache()
 
-        self.logger.info(f"Added relationship: {relationship.id}")
-        return relationship.id
+            self.logger.info(f"Added relationship: {relationship.id}")
+            return relationship.id
     
     def get_relationship(self, relationship_id: str) -> Optional[Relationship]:
         """
@@ -342,7 +342,14 @@ class P3IFFramework(MetadataMixin):
                 self._relationship_index['process'].get(pattern_id, []) +
                 self._relationship_index['perspective'].get(pattern_id, [])
             )
-            return [self._relationships[rid] for rid in relationship_ids if rid in self._relationships]
+            # Deduplicate — same relationship can appear in multiple dimension indexes
+            seen = set()
+            results = []
+            for rid in relationship_ids:
+                if rid not in seen and rid in self._relationships:
+                    seen.add(rid)
+                    results.append(self._relationships[rid])
+            return results
 
     def get_relationships_by_type(self, relationship_type: str) -> List[Relationship]:
         """
@@ -367,6 +374,26 @@ class P3IFFramework(MetadataMixin):
         """
         with self._lock:
             return list(self._relationships.values())
+
+    def get_all_patterns(self) -> List[BasePattern]:
+        """
+        Get all patterns in the framework.
+
+        Returns:
+            List of all patterns in the framework
+        """
+        with self._lock:
+            return list(self._patterns.values())
+
+    def get_all_domains(self) -> Set[str]:
+        """
+        Get all domains present in the framework.
+
+        Returns:
+            Set of domain names
+        """
+        with self._lock:
+            return set(self._pattern_index.get('domain', {}).keys())
 
     def copy(self) -> 'P3IFFramework':
         """
@@ -510,14 +537,13 @@ class P3IFFramework(MetadataMixin):
         failed = 0
         errors = []
 
-        with self._lock:
-            for pattern in patterns:
-                try:
-                    self.add_pattern(pattern)
-                    successful += 1
-                except Exception as e:
-                    failed += 1
-                    errors.append(f"Pattern {pattern.name}: {str(e)}")
+        for pattern in patterns:
+            try:
+                self.add_pattern(pattern)
+                successful += 1
+            except Exception as e:
+                failed += 1
+                errors.append(f"Pattern {pattern.name}: {str(e)}")
 
         return {
             'successful': successful,
@@ -541,14 +567,13 @@ class P3IFFramework(MetadataMixin):
         failed = 0
         errors = []
 
-        with self._lock:
-            for relationship in relationships:
-                try:
-                    self.add_relationship(relationship)
-                    successful += 1
-                except Exception as e:
-                    failed += 1
-                    errors.append(f"Relationship {relationship.id}: {str(e)}")
+        for relationship in relationships:
+            try:
+                self.add_relationship(relationship)
+                successful += 1
+            except Exception as e:
+                failed += 1
+                errors.append(f"Relationship {relationship.id}: {str(e)}")
 
         return {
             'successful': successful,
@@ -633,9 +658,8 @@ class P3IFFramework(MetadataMixin):
 
         # Use indexes for faster counting
         pattern_types_count = Counter()
-        for pattern_ids in self._pattern_index.get('type', {}).values():
-            pattern_type = pattern_ids[0].split('_')[0] if pattern_ids else 'unknown'
-            pattern_types_count[pattern_type] += len(pattern_ids)
+        for ptype, pattern_ids in self._pattern_index.get('type', {}).items():
+            pattern_types_count[ptype] = len(pattern_ids)
 
         # Domain count using index
         domain_count = len(self._pattern_index.get('domain', {}))
@@ -731,11 +755,11 @@ class P3IFFramework(MetadataMixin):
         """
         with self._lock:
             data = {
-                "patterns": [p.dict(by_alias=True) for p in self._patterns.values()],
-                "relationships": [r.dict(by_alias=True) for r in self._relationships.values()],
+                "patterns": [p.model_dump(by_alias=True) for p in self._patterns.values()],
+                "relationships": [r.model_dump(by_alias=True) for r in self._relationships.values()],
                 "framework_metadata": {
                     "exported_at": datetime.now(timezone.utc).isoformat(),
-                    "framework_version": "2.0.0",
+                    "framework_version": "2.1.0",
                     "total_patterns": len(self._patterns),
                     "total_relationships": len(self._relationships),
                     "exporter": "p3if-enhanced"
@@ -772,16 +796,20 @@ class P3IFFramework(MetadataMixin):
         """
         with self._lock:
             # Load data from various sources
-            if isinstance(json_data, str) and Path(json_data).exists():
-                with open(json_data, 'r', encoding='utf-8') as f:
-                    data = json.load(f)
-            elif isinstance(json_data, str):
-                data = json.loads(json_data)
-            elif isinstance(json_data, Path):
+            if isinstance(json_data, Path):
                 with open(json_data, 'r', encoding='utf-8') as f:
                     data = json.load(f)
             elif isinstance(json_data, dict):
                 data = json_data
+            elif isinstance(json_data, str):
+                stripped = json_data.strip()
+                if stripped.startswith(('{', '[')):
+                    # JSON string
+                    data = json.loads(json_data)
+                else:
+                    # File path
+                    with open(json_data, 'r', encoding='utf-8') as f:
+                        data = json.load(f)
             else:
                 raise ValueError("Invalid JSON data format")
 
@@ -853,14 +881,12 @@ class P3IFFramework(MetadataMixin):
         with self._lock:
             if isinstance(old_dimension, PatternType):
                 old_dimension = old_dimension.value
-            elif hasattr(old_dimension, 'type'):
-                # Handle Pattern objects
+            elif hasattr(old_dimension, 'type') and isinstance(getattr(old_dimension, 'type', None), PatternType):
                 old_dimension = old_dimension.type.value
 
             if isinstance(new_dimension, PatternType):
                 new_dimension = new_dimension.value
-            elif hasattr(new_dimension, 'type'):
-                # Handle Pattern objects
+            elif hasattr(new_dimension, 'type') and isinstance(getattr(new_dimension, 'type', None), PatternType):
                 new_dimension = new_dimension.type.value
 
             if old_dimension not in ['property', 'process', 'perspective']:
@@ -902,21 +928,21 @@ class P3IFFramework(MetadataMixin):
             Dictionary with integration statistics
         """
         with self._lock:
-            integrated = {"properties": 0, "processes": 0, "perspectives": 0}
-            skipped = {"properties": 0, "processes": 0, "perspectives": 0}
+            integrated = {"property": 0, "process": 0, "perspective": 0}
+            skipped = {"property": 0, "process": 0, "perspective": 0}
 
-        for dimension, items in external_framework.items():
-            if dimension not in ['property', 'process', 'perspective']:
-                self.logger.warning(f"Skipping unknown dimension: {dimension}")
-                continue
+            for dimension, items in external_framework.items():
+                if dimension not in ['property', 'process', 'perspective']:
+                    self.logger.warning(f"Skipping unknown dimension: {dimension}")
+                    continue
 
-            dimension_class = {
-                'property': Property,
-                'process': Process,
-                'perspective': Perspective
-            }[dimension]
+                dimension_class = {
+                    'property': Property,
+                    'process': Process,
+                    'perspective': Perspective
+                }[dimension]
 
-            for item_data in items:
+                for item_data in items:
                     try:
                         # Check if item already exists (by name and domain)
                         existing_items = [
@@ -1074,10 +1100,7 @@ class P3IFFramework(MetadataMixin):
             if invalid_relationships:
                 issues.append(f"Found {len(invalid_relationships)} relationships with no connections")
 
-            # Check for circular relationships (simplified)
-            # This would need more sophisticated logic for complex cases
-        
-        return {
+            return {
                 "valid": len(issues) == 0,
                 "issues": issues,
                 "warnings": warnings,
@@ -1100,6 +1123,11 @@ class P3IFFramework(MetadataMixin):
     def __iter__(self) -> Iterator[BasePattern]:
         """Iterate over all patterns in the framework."""
         return iter(self._patterns.values())
+
+    def __repr__(self) -> str:
+        return (f"P3IFFramework(patterns={len(self._patterns)}, "
+                f"relationships={len(self._relationships)}, "
+                f"domains={len(self._pattern_index.get('domain', {}))})")
 
     def __del__(self):
         """Cleanup when framework is destroyed."""

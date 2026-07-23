@@ -819,7 +819,7 @@ class TestModelIntegration(unittest.TestCase):
         )
 
         # Test serialization
-        prop_dict = prop.dict(by_alias=True)
+        prop_dict = prop.model_dump(by_alias=True)
         assert isinstance(prop_dict, dict)
         assert prop_dict["name"] == "Complex Property"
         assert prop_dict["domain"] == "test_domain"

@@ -13,7 +13,7 @@ P3IF (Properties, Processes, Perspectives Inter-Framework) is a Python meta-fram
 
 ```bash
 # Install development version
-pip install -e .
+pip install -e ".[dev,web]"
 
 # Run complete pipeline (tests, visualizations, benchmarks, examples, validation)
 python scripts/run_all.py

@@ -30,7 +30,7 @@
 
 ## Script Paths
 - All scripts should be invoked from the project root
-- Example: `python scripts/run_multidomain_portal.py`
+- Example: `python scripts/run_all.py`
 - Do not use relative imports that reach outside of a package
 
 ## Version Control

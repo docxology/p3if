@@ -65,13 +65,11 @@ class CompositionEngine:
     def overlay_frameworks(self, base_framework: Any, overlay_framework: Any,
                           strategy: MultiplexingStrategy = MultiplexingStrategy.UNION) -> Any:
         """Overlay one framework on top of another."""
-        # Implementation would depend on framework structure
-        # This is a conceptual implementation
         result = base_framework.copy()
 
         for dimension in ['properties', 'processes', 'perspectives']:
-            base_elements = getattr(base_framework, dimension, set())
-            overlay_elements = getattr(overlay_framework, dimension, set())
+            base_elements = set(getattr(base_framework, dimension, []))
+            overlay_elements = set(getattr(overlay_framework, dimension, []))
 
             if strategy == MultiplexingStrategy.UNION:
                 combined = base_elements | overlay_elements
@@ -80,9 +78,14 @@ class CompositionEngine:
             elif strategy == MultiplexingStrategy.COMPLEMENT:
                 combined = base_elements - overlay_elements
             else:
-                combined = base_elements | overlay_elements  # Default to union
+                combined = base_elements | overlay_elements
 
-            setattr(result, dimension, combined)
+            # Preserve the original container type
+            original = getattr(base_framework, dimension, None)
+            if isinstance(original, set):
+                setattr(result, dimension, combined)
+            else:
+                setattr(result, dimension, list(combined))
 
         self._record_composition("overlay", base_framework, overlay_framework, result)
         return result

@@ -337,7 +337,7 @@ def get_patterns():
         return jsonify({
             "status": "success",
             "data": {
-                "patterns": [pattern.dict(by_alias=True) for pattern in paginated_patterns],
+                "patterns": [pattern.model_dump(by_alias=True) for pattern in paginated_patterns],
                 "total_count": total_count,
                 "returned_count": len(paginated_patterns),
                 "pagination": {
@@ -386,8 +386,8 @@ def get_pattern(pattern_id: str):
         return jsonify({
             "status": "success",
             "data": {
-                "pattern": pattern.dict(by_alias=True),
-                "relationships": [rel.dict(by_alias=True) for rel in relationships]
+                "pattern": pattern.model_dump(by_alias=True),
+                "relationships": [rel.model_dump(by_alias=True) for rel in relationships]
             },
             "metadata": {
                 "retrieved_at": datetime.now(timezone.utc).isoformat()
@@ -447,7 +447,7 @@ def get_relationships():
         return jsonify({
             "status": "success",
             "data": {
-                "relationships": [rel.dict(by_alias=True) for rel in paginated_relationships],
+                "relationships": [rel.model_dump(by_alias=True) for rel in paginated_relationships],
                 "total_count": total_count,
                 "returned_count": len(paginated_relationships),
                 "pagination": {
@@ -714,8 +714,8 @@ def export_data():
                             filtered_relationships[rel.id] = rel
 
                 export_data = {
-                    "patterns": [p.dict(by_alias=True) for p in filtered_patterns.values()],
-                    "relationships": [r.dict(by_alias=True) for r in filtered_relationships.values()],
+                    "patterns": [p.model_dump(by_alias=True) for p in filtered_patterns.values()],
+                    "relationships": [r.model_dump(by_alias=True) for r in filtered_relationships.values()],
                     "metadata": {
                         "exported_at": datetime.now(timezone.utc).isoformat(),
                         "export_format": "json",
@@ -733,8 +733,8 @@ def export_data():
                 all_relationships = list(framework._relationships.values()) if include_relationships else []
 
                 export_data = {
-                    "patterns": [p.dict(by_alias=True) for p in all_patterns],
-                    "relationships": [r.dict(by_alias=True) for r in all_relationships],
+                    "patterns": [p.model_dump(by_alias=True) for p in all_patterns],
+                    "relationships": [r.model_dump(by_alias=True) for r in all_relationships],
                     "metadata": {
                         "exported_at": datetime.now(timezone.utc).isoformat(),
                         "export_format": "json",

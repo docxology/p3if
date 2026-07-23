@@ -5,21 +5,26 @@ A sophisticated meta-framework for integrating, analyzing, and visualizing
 complex data relationships across multiple domains.
 """
 
-__version__ = "2.0.0"
+__version__ = "2.1.0"
 
-from .core import P3IFFramework, P3IFCore
-from .core.models import Property, Process, Perspective, Relationship
+from .core import (
+    P3IFFramework, P3IFCore,
+    BasePattern, Property, Process, Perspective, Relationship,
+    PatternType, PatternCollection,
+    ThinOrchestrator, OrchestrationStep, OrchestratorType,
+    CompositionEngine, FrameworkAdapter,
+    ValidationEngine, ValidationRule,
+    CacheManager, CacheStrategy,
+)
+from .data import DomainManager, SyntheticDataGenerator
 
 __all__ = [
-    'P3IFFramework',
-    'P3IFCore',
-    'Property',
-    'Process',
-    'Perspective',
-    'Relationship',
+    'P3IFFramework', 'P3IFCore',
+    'BasePattern', 'Property', 'Process', 'Perspective', 'Relationship',
+    'PatternType', 'PatternCollection',
+    'ThinOrchestrator', 'OrchestrationStep', 'OrchestratorType',
+    'CompositionEngine', 'FrameworkAdapter',
+    'ValidationEngine', 'ValidationRule',
+    'CacheManager', 'CacheStrategy',
+    'DomainManager', 'SyntheticDataGenerator',
 ]
-
-
-
-
-
