@@ -17,7 +17,7 @@ Before contributing, ensure you have:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/p3if.git
+   git clone https://github.com/docxology/p3if.git
    cd p3if
    ```
 
@@ -362,10 +362,10 @@ python -m mypy your_file.py
 
 ```bash
 # Validate documentation
-python scripts/validate_documentation.py
+python scripts/validate_system.py
 
 # Check documentation accuracy
-python scripts/validate_documentation_accuracy.py
+python scripts/validate_system.py
 ```
 
 ### Testing Tools

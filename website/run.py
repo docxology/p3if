@@ -76,7 +76,7 @@ if __name__ == '__main__':
             use_reloader=True,
             reloader_interval=1,
             reloader_type="watchdog",
-            exclude_patterns=["**/tests/*", "**/setup.py"]
+            exclude_patterns=["**/tests/*"]
         )
     except KeyboardInterrupt:
         print("\nServer shutdown requested. Goodbye!")

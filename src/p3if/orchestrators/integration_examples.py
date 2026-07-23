@@ -10,9 +10,10 @@ from dataclasses import dataclass, field
 import logging
 import json
 from pathlib import Path
+from datetime import datetime
 
 from p3if.core.core import P3IFCore
-from p3if.core.composition import CompositionEngine, FrameworkAdapter
+from p3if.core.composition import CompositionEngine, FrameworkAdapter, MultiplexingStrategy
 from p3if.core.framework import P3IFFramework
 from p3if.core.models import Property, Process, Perspective, Relationship
 
@@ -24,7 +25,9 @@ class IntegrationExample:
     name: str
     description: str
     core: P3IFCore = field(default_factory=P3IFCore)
-    logger = logging.getLogger(__name__)
+
+    def __post_init__(self):
+        self.logger = logging.getLogger(self.__class__.__name__)
 
     def execute(self) -> Dict[str, Any]:
         """Execute the integration example."""
@@ -187,7 +190,7 @@ class NISTIntegrationExample(IntegrationExample):
             "nist_categories_covered": 4,
             "nist_tiers_covered": 4,
             "integration_successful": True,
-            "analysis_timestamp": "2024-01-01T00:00:00Z"
+            "analysis_timestamp": datetime.now().isoformat()
         }
 
 
@@ -376,11 +379,11 @@ class MultiFrameworkIntegrationExample(IntegrationExample):
 
         # Compose frameworks
         composition_result = composition_engine.overlay_frameworks(
-            nist_framework, hipaa_framework, strategy="union"
+            nist_framework, hipaa_framework, strategy=MultiplexingStrategy.UNION
         )
 
         final_framework = composition_engine.overlay_frameworks(
-            composition_result, iso_framework, strategy="union"
+            composition_result, iso_framework, strategy=MultiplexingStrategy.UNION
         )
 
         # Generate analysis

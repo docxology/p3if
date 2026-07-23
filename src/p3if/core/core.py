@@ -6,7 +6,6 @@ including pattern management, relationship analysis, and basic framework operati
 """
 
 import uuid
-import asyncio
 from typing import Dict, List, Any, Optional, Union, Set, Callable
 from dataclasses import dataclass, field
 from enum import Enum

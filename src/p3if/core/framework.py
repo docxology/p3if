@@ -6,22 +6,13 @@ validation, and analysis capabilities.
 """
 from typing import Dict, List, Optional, Union, Any, Tuple, Set, Iterator, Callable
 import json
-import asyncio
 import os
 from pathlib import Path
 from datetime import datetime, timezone
 from collections import defaultdict, Counter
 from dataclasses import dataclass
-import sys
-import hashlib
-from functools import lru_cache
 import threading
 from concurrent.futures import ThreadPoolExecutor
-
-# Add the project root to the path if this module is run directly
-if __name__ == "__main__":
-    project_root = Path(__file__).parent.parent
-    sys.path.insert(0, str(project_root))
 
 from .models import (
     Property, Process, Perspective, Relationship, BasePattern,

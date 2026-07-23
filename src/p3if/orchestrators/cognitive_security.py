@@ -3,13 +3,6 @@ Cognitive Security Orchestrator
 
 This thin orchestrator demonstrates how to analyze and protect cognitive security
 across information pipelines using P3IF composition.
-"""
-
-"""
-Cognitive Security Orchestrator
-
-This thin orchestrator demonstrates how to analyze and protect cognitive security
-across information pipelines using P3IF composition.
 
 The orchestrator follows thin orchestration principles:
 - Minimal coupling between components

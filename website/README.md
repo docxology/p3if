@@ -13,7 +13,7 @@ The Pattern Portal for Interdisciplinary Frameworks (P3IF) web interface provide
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/p3if.git
+   git clone https://github.com/docxology/p3if.git
    cd p3if
    ```
 

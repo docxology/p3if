@@ -304,7 +304,7 @@ Yes! P3IF supports multi-domain analysis:
 
 ```bash
 # Generate multi-domain visualization
-python scripts/run_multidomain_portal.py --domains "cybersecurity,healthcare,finance"
+python scripts/generate_final_visualizations.py --domains "cybersecurity,healthcare,finance"
 
 # Compare domains via API
 curl "http://localhost:5000/api/v1/cross-domain/relationships?domains=cybersecurity,healthcare"

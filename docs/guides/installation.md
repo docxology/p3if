@@ -85,7 +85,7 @@ brew install python3 git
 4. **Run Setup Script**
 
    ```bash
-   python setup.py install
+   pip install -e ".[dev,web]"
    ```
 
 5. **Verify Installation**

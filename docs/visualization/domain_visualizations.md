@@ -119,7 +119,7 @@ portal.generate_portal(
 The `run_multidomain_portal.py` script in the `scripts` directory provides a convenient way to generate domain visualizations:
 
 ```bash
-python scripts/run_multidomain_portal.py --domains ArtificialIntelligence,HealthCare --relationships-per-domain 50 --cross-domain-connections 20 --output-dir outputs/domains
+python scripts/generate_final_visualizations.py --domains ArtificialIntelligence,HealthCare --relationships-per-domain 50 --cross-domain-connections 20 --output-dir outputs/domains
 ```
 
 This command will:

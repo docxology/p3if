@@ -24,7 +24,7 @@ Multi-domain analysis in P3IF allows you to:
 First, let's generate data for multiple domains:
 
 ```bash
-python scripts/run_multidomain_portal.py --domains cybersecurity,healthcare,finance --relationships 100 --cross-domain 50 --output-dir output
+python scripts/generate_final_visualizations.py --domains cybersecurity,healthcare,finance --relationships 100 --cross-domain 50 --output-dir output
 ```
 
 This command:

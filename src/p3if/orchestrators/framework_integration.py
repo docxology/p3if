@@ -231,7 +231,7 @@ class FrameworkIntegrationOrchestrator:
             framework_prefix = framework_name.lower().replace(" ", "_") + "_"
 
             # Create prefixed versions of conflicting elements
-            for conflict_type, duplicates in conflicts["element_conflicts"].items():
+            for conflict_type, duplicates in conflicts.get("element_conflicts", {}).items():
                 if duplicates:
                     for duplicate in duplicates:
                         prefixed_name = f"{framework_prefix}{duplicate.lower().replace(' ', '_')}"

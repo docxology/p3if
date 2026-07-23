@@ -80,7 +80,7 @@ The 3D visualization allows users to explore the relationships between these dim
 
 2. **Multi-Domain Portal**:
    ```bash
-   python scripts/run_multidomain_portal.py
+   python scripts/generate_final_visualizations.py
    ```
    Creates interactive web portal with multiple domains
 

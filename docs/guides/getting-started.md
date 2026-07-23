@@ -15,7 +15,7 @@ Before you begin, ensure you have:
 1. Clone the P3IF repository:
 
    ```bash
-   git clone https://github.com/yourusername/p3if.git
+   git clone https://github.com/docxology/p3if.git
    cd p3if
    ```
 
@@ -39,7 +39,7 @@ Before you begin, ensure you have:
 The quickest way to get started with P3IF is to generate a multi-domain visualization portal:
 
 ```bash
-python scripts/run_multidomain_portal.py --output-dir output
+python scripts/generate_final_visualizations.py --output-dir output
 ```
 
 This will:
@@ -84,7 +84,7 @@ graph TD
 If you want to create custom synthetic data:
 
 ```bash
-python scripts/run_multidomain_portal.py --domains cybersecurity,healthcare --relationships 100 --cross-domain 30 --output-dir output
+python scripts/generate_final_visualizations.py --domains cybersecurity,healthcare --relationships 100 --cross-domain 30 --output-dir output
 ```
 
 This command generates a portal with:

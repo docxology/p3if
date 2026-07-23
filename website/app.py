@@ -158,4 +158,4 @@ if __name__ == '__main__':
            use_reloader=True,
            reloader_interval=1,
            reloader_type="watchdog",
-           exclude_patterns=["**/tests/*", "**/setup.py"])  # Exclude test files and setup.py 
+           exclude_patterns=["**/tests/*"])  # Exclude test files from reloader
