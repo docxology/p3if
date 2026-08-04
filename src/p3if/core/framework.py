@@ -22,8 +22,8 @@ from .models import (
 from p3if.utils.storage import StorageInterface
 from p3if.utils.config import Config
 from p3if.utils.performance import (
-    get_performance_monitor, get_cache, performance_timer,
-    cached, memoize, performance_context, LRUCache
+    get_performance_monitor, performance_timer,
+    performance_context, LRUCache
 )
 from p3if.utils.logging import get_logger, logged_method, LogContext
 
@@ -574,19 +574,23 @@ class P3IFFramework(MetadataMixin):
             'total': len(relationships)
         }
 
-    @cached  # type: ignore[arg-type]
     def get_patterns_by_domain_optimized(self, domain: str) -> List[BasePattern]:
-        """Get patterns by domain with caching."""
+        """Get patterns by domain.
+
+        Delegates to the index-backed :meth:`get_patterns_by_domain`. Kept as a
+        thin wrapper for API compatibility; the index lookup is already O(1).
+        """
         return self.get_patterns_by_domain(domain)
 
-    @cached  # type: ignore[arg-type]
     def get_patterns_by_type_optimized(self, pattern_type: str) -> List[BasePattern]:
-        """Get patterns by type with caching."""
+        """Get patterns by type.
+
+        Delegates to the index-backed :meth:`get_patterns_by_type`.
+        """
         return self.get_patterns_by_type(pattern_type)
 
-    @memoize
     def search_patterns_optimized(self, query: str, limit: int = 100) -> List[BasePattern]:
-        """Search patterns with memoization."""
+        """Search patterns by query, limited to ``limit`` results."""
         return self.search_patterns(query)[:limit]
 
     def get_performance_stats(self) -> Dict[str, Any]:

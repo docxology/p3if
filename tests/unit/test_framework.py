@@ -255,6 +255,35 @@ class TestP3IFFramework(unittest.TestCase):
         assert len(important_results) == 2
         assert len(different_results) == 1
 
+    def test_optimized_lookups_reflect_mutations(self):
+        """Optimized lookup wrappers must reflect new patterns and must not
+        leak results across framework instances (regression: these were backed
+        by a global cache keyed on args alone, so mutations were invisible and
+        data leaked between unrelated frameworks)."""
+        framework = P3IFFramework()
+        framework.add_pattern(Property(name="A", description="Test", domain="domain1"))
+
+        names = lambda fw: sorted(p.name for p in fw.get_patterns_by_domain_optimized("domain1"))
+        self.assertEqual(names(framework), ["A"])
+
+        # Mutation must be visible through the wrapper.
+        framework.add_pattern(Property(name="B", description="Test", domain="domain1"))
+        self.assertEqual(names(framework), ["A", "B"])
+
+        # An unrelated instance must not see this framework's patterns.
+        other = P3IFFramework()
+        self.assertEqual(names(other), [])
+
+        # By-type wrapper must not leak search results either.
+        types = lambda fw: [p.type.value for p in fw.get_patterns_by_type_optimized("property")]
+        self.assertEqual(sorted(types(framework)), ["property", "property"])
+        self.assertEqual(types(other), [])
+
+        # search wrapper is mutation-aware.
+        self.assertEqual(len(framework.search_patterns_optimized("Test")), 2)
+        framework.add_pattern(Property(name="C", description="Test", domain="domain1"))
+        self.assertEqual(len(framework.search_patterns_optimized("Test")), 3)
+
     def test_get_metrics_empty_framework(self):
         """Test getting metrics for an empty framework."""
         framework = P3IFFramework()

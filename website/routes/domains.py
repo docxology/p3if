@@ -11,6 +11,19 @@ from flask import Blueprint, render_template, abort, current_app, jsonify
 
 domains_bp = Blueprint('domains', __name__, template_folder='../templates')
 
+
+def _safe_domain_path(domain_id: str) -> Path:
+    """Resolve a domain id to a file inside data/domains, rejecting traversal.
+
+    Returns a path that is guaranteed to sit directly inside the domains
+    directory, or a path that resolves outside it (which callers treat as a
+    not-found). Guards against ``domain_id`` values with path separators or
+    parent references.
+    """
+    domain_id = Path(domain_id).name
+    domains_dir = Path(current_app.root_path).parent / 'data' / 'domains'
+    return (domains_dir / f"{domain_id}.json").resolve()
+
 @domains_bp.route('/')
 def index():
     """Domains overview page."""
@@ -56,9 +69,9 @@ def index():
 def show_domain(domain_id):
     """Display a specific domain."""
     domains_dir = Path(current_app.root_path).parent / 'data' / 'domains'
-    domain_path = domains_dir / f"{domain_id}.json"
-    
-    if not domain_path.exists():
+    domain_path = _safe_domain_path(domain_id)
+
+    if domain_path.parent != domains_dir.resolve() or not domain_path.exists():
         abort(404)
     
     # Load the domain data
@@ -102,9 +115,9 @@ def show_domain(domain_id):
 def domain_patterns(domain_id):
     """Show patterns for a specific domain."""
     domains_dir = Path(current_app.root_path).parent / 'data' / 'domains'
-    domain_path = domains_dir / f"{domain_id}.json"
-    
-    if not domain_path.exists():
+    domain_path = _safe_domain_path(domain_id)
+
+    if domain_path.parent != domains_dir.resolve() or not domain_path.exists():
         abort(404)
     
     # Load the domain data
@@ -137,9 +150,9 @@ def domain_patterns(domain_id):
 def domain_api_data(domain_id):
     """API endpoint to get domain data as JSON."""
     domains_dir = Path(current_app.root_path).parent / 'data' / 'domains'
-    domain_path = domains_dir / f"{domain_id}.json"
-    
-    if not domain_path.exists():
+    domain_path = _safe_domain_path(domain_id)
+
+    if domain_path.parent != domains_dir.resolve() or not domain_path.exists():
         return jsonify({'error': 'Domain not found'}), 404
     
     # Load the domain data

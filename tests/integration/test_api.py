@@ -294,6 +294,16 @@ class TestDomainEndpoints:
         assert data['status'] == 'error'
         assert 'not found' in data['message'].lower()
 
+    def test_get_domain_details_path_traversal_rejected(self, client):
+        """A domain id containing path separators must not read files outside
+        the domains directory (regression: the id was concatenated into a path
+        unsanitized, enabling traversal)."""
+        # Attempt to traverse out of data/domains via the route value.
+        response = client.get('/api/v2/domains/../../requirements.txt')
+        assert response.status_code == 404
+        data = response.get_json()
+        assert data['status'] == 'error'
+
 
 class TestVisualizationEndpoints:
     """Test cases for visualization-related endpoints."""

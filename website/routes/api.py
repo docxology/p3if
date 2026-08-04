@@ -189,8 +189,20 @@ def get_domains():
 def get_domain(domain_id: str):
     """Get detailed data for a specific domain."""
     domains_dir = Path(current_app.root_path).parent / 'data' / 'domains'
-    domain_path = domains_dir / f"{domain_id}.json"
-    
+
+    # Guard against path traversal: only accept a domain id that resolves to a
+    # file inside the domains directory (no separators or parent references).
+    domain_id = Path(domain_id).name
+    domain_path = (domains_dir / f"{domain_id}.json").resolve()
+    domains_root = domains_dir.resolve()
+    if domain_path.parent != domains_root:
+        return jsonify({
+            "status": "error",
+            "error": "Domain Not Found",
+            "message": f"Domain '{domain_id}' not found",
+            "status_code": 404
+        }), 404
+
     if not domain_path.exists():
         return jsonify({
             "status": "error",

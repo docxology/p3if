@@ -5,6 +5,29 @@ All notable changes to P3IF are documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Fixed
+
+- **Correctness**: `get_patterns_by_domain_optimized`, `get_patterns_by_type_optimized`,
+  and `search_patterns_optimized` were decorated with a global-process cache keyed only
+  on arguments. Results went stale after mutations (a new pattern was invisible to the
+  wrapper) and leaked across unrelated `P3IFFramework` instances. The redundant caching
+  decorators were removed; the wrappers now delegate to the already-index-backed methods
+  (`framework.py`). This preserves the public API while fixing both staleness and
+  cross-instance leakage.
+- **Security**: Domain-file lookup paths in the web API (`website/routes/api.py`) and
+  domain routes (`website/routes/domains.py`) concatenated the route-supplied `domain_id`
+  straight into a filesystem path, enabling path traversal (e.g. `../../passwd`). Domain
+  IDs are now sanitized and each resolved path is checked to sit inside `data/domains`.
+- **CI**: Removed a duplicate `'3.9'` entry in the test matrix.
+
+### Tests
+
+- `test_framework.py`: regression test asserting optimized wrappers reflect mutations and
+  do not leak across instances.
+- `test_api.py`: regression test asserting path-traversal domain IDs are rejected with 404.
+
 ## [2.5.0] - 2026-07-23
 
 ### Summary
