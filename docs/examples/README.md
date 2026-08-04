@@ -169,6 +169,6 @@ To create new examples:
 ## Resources
 
 - [Orchestrator Documentation](../../src/p3if/core/orchestration.py)
-- [Framework Guide](../../src/p3if/core/framework.py)
+- [Framework Guide](../../src/p3if/core/framework/)
 - [Analysis Tools](../../src/p3if/core/analysis/)
 - [Visualization Examples](../../src/p3if/visualization/) 

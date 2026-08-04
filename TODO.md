@@ -8,8 +8,9 @@ Remaining items scoped for future releases:
 ## Architecture & Design (Future)
 
 ### A1. Split `framework.py` (~1170 lines) into smaller modules
-Potential split: `framework/core.py`, `framework/patterns.py`, `framework/relationships.py`,
-`framework/metrics.py`, `framework/io.py`, `framework/composition.py`.
+DONE in this release: `core/framework.py` is now a `core/framework/` package
+(`core.py`, `metrics.py`, `builder.py`, `__init__.py` re-exporting the public
+API). All `from p3if.core.framework import ...` imports remain source-compatible.
 
 ### A2. Add async versions of add_pattern/add_relationship
 The framework is fully synchronous. For I/O-bound storage backends, async methods would help.

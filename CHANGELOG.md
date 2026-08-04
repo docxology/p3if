@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **Framework split (TODO A1)**: `core/framework.py` (1250 lines) is now a
+  `core/framework/` package — `core.py` (P3IFFramework), `metrics.py`
+  (FrameworkMetrics), `builder.py` (FrameworkBuilder) — with `__init__.py`
+  re-exporting the public API so all existing imports keep working.
+
 ### Fixed
 
 - **Correctness**: `get_patterns_by_domain_optimized`, `get_patterns_by_type_optimized`,
