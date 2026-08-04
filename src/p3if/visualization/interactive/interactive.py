@@ -378,11 +378,9 @@ class InteractiveVisualizer(Visualizer):
                         "relationship_type": rel.relationship_type,
                         "bidirectional": rel.bidirectional,
                         "status": rel.status,
-                        "position": {
-                            "x": property_map[rel.property_id],
-                            "y": process_map[rel.process_id],
-                            "z": perspective_map[rel.perspective_id],
-                        },
+                        "x": property_map[rel.property_id],
+                        "y": process_map[rel.process_id],
+                        "z": perspective_map[rel.perspective_id],
                     }
                     cube_data["connections"].append(connection)
 
