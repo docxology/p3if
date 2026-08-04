@@ -5,28 +5,29 @@ This module provides comprehensive performance monitoring, profiling, and optimi
 capabilities for P3IF operations and frameworks.
 """
 
-from typing import Dict, List, Any, Optional, Callable, Union
+from typing import Dict, List, Any, Optional
 from dataclasses import dataclass, field
-from datetime import datetime, timedelta
+from datetime import datetime
 import time
+
 try:
     import psutil
+
     PSUTIL_AVAILABLE = True
 except ImportError:
     psutil = None
     PSUTIL_AVAILABLE = False
-import threading
 import logging
-from collections import defaultdict, deque
+from collections import defaultdict
 from contextlib import contextmanager
 
-from .caching import CacheManager, CacheStrategy
 from .framework import P3IFFramework
 
 
 @dataclass
 class PerformanceMetrics:
     """Performance metrics for a specific operation."""
+
     operation_name: str
     start_time: float
     end_time: Optional[float] = None
@@ -55,7 +56,7 @@ class PerformanceMetrics:
             "cache_hits": self.cache_hits,
             "cache_misses": self.cache_misses,
             "error_count": self.error_count,
-            "metadata": self.metadata
+            "metadata": self.metadata,
         }
 
 
@@ -74,20 +75,22 @@ class PerformanceMonitor:
         self.process = psutil.Process() if PSUTIL_AVAILABLE else None
         self.system_start_time = time.time()
 
-    def start_operation(self, operation_name: str, metadata: Optional[Dict[str, Any]] = None) -> str:
+    def start_operation(
+        self, operation_name: str, metadata: Optional[Dict[str, Any]] = None
+    ) -> str:
         """Start monitoring an operation."""
         operation_id = f"{operation_name}_{int(time.time() * 1000)}"
 
         metrics = PerformanceMetrics(
-            operation_name=operation_name,
-            start_time=time.time(),
-            metadata=metadata or {}
+            operation_name=operation_name, start_time=time.time(), metadata=metadata or {}
         )
 
         self.active_operations[operation_id] = metrics
         return operation_id
 
-    def end_operation(self, operation_id: str, error: Optional[Exception] = None) -> Optional[PerformanceMetrics]:
+    def end_operation(
+        self, operation_id: str, error: Optional[Exception] = None
+    ) -> Optional[PerformanceMetrics]:
         """End monitoring an operation."""
         if operation_id not in self.active_operations:
             self.logger.warning(f"Operation {operation_id} not found in active operations")
@@ -125,12 +128,11 @@ class PerformanceMonitor:
 
         return metrics
 
-    def get_operation_metrics(self, operation_name: str, limit: Optional[int] = None) -> List[PerformanceMetrics]:
+    def get_operation_metrics(
+        self, operation_name: str, limit: Optional[int] = None
+    ) -> List[PerformanceMetrics]:
         """Get metrics for a specific operation."""
-        matching_metrics = [
-            m for m in self.metrics_history
-            if m.operation_name == operation_name
-        ]
+        matching_metrics = [m for m in self.metrics_history if m.operation_name == operation_name]
 
         if limit:
             return matching_metrics[-limit:]
@@ -147,7 +149,7 @@ class PerformanceMonitor:
         try:
             memory = psutil.virtual_memory()
             cpu_percent = psutil.cpu_percent(interval=0.1)
-            disk_usage = psutil.disk_usage('/')
+            disk_usage = psutil.disk_usage("/")
 
             return {
                 "memory_total": memory.total,
@@ -157,7 +159,7 @@ class PerformanceMonitor:
                 "disk_total": disk_usage.total,
                 "disk_used": disk_usage.used,
                 "disk_percent": disk_usage.percent,
-                "uptime_seconds": time.time() - self.system_start_time
+                "uptime_seconds": time.time() - self.system_start_time,
             }
         except Exception as e:
             self.logger.error(f"Failed to get system metrics: {e}")
@@ -182,7 +184,7 @@ class PerformanceMonitor:
             "error_count": error_operations,
             "error_rate": error_rate,
             "active_operations": len(self.active_operations),
-            "system_metrics": self.get_system_metrics()
+            "system_metrics": self.get_system_metrics(),
         }
 
     def _update_aggregates(self, metrics: PerformanceMetrics):
@@ -192,7 +194,9 @@ class PerformanceMonitor:
 
         # Update counters
         current_agg["count"] = current_agg.get("count", 0) + 1
-        current_agg["total_duration"] = current_agg.get("total_duration", 0) + (metrics.duration or 0)
+        current_agg["total_duration"] = current_agg.get("total_duration", 0) + (
+            metrics.duration or 0
+        )
         current_agg["total_memory"] = current_agg.get("total_memory", 0) + metrics.memory_usage
         current_agg["total_errors"] = current_agg.get("total_errors", 0) + metrics.error_count
 
@@ -215,8 +219,11 @@ class PerformanceMonitor:
 
 
 @contextmanager
-def monitor_operation(operation_name: str, monitor: Optional[PerformanceMonitor] = None,
-                     metadata: Optional[Dict[str, Any]] = None):
+def monitor_operation(
+    operation_name: str,
+    monitor: Optional[PerformanceMonitor] = None,
+    metadata: Optional[Dict[str, Any]] = None,
+):
     """Context manager for monitoring operations."""
     if monitor is None:
         monitor = get_global_performance_monitor()
@@ -252,7 +259,7 @@ class P3IFPerformanceOptimizer:
                 "query_patterns": query_patterns,
                 "estimated_cost": len(query_patterns) * 10,  # Simple cost model
                 "suggested_indexing": [],
-                "caching_strategy": "lru"
+                "caching_strategy": "lru",
             }
 
             # Analyze query patterns and suggest optimizations
@@ -263,7 +270,9 @@ class P3IFPerformanceOptimizer:
             self.optimization_cache[cache_key] = optimization
             return optimization
 
-    def optimize_relationship_queries(self, relationship_criteria: Dict[str, Any]) -> Dict[str, Any]:
+    def optimize_relationship_queries(
+        self, relationship_criteria: Dict[str, Any]
+    ) -> Dict[str, Any]:
         """Optimize relationship queries."""
         cache_key = f"relationship_query_{hash(str(relationship_criteria))}"
 
@@ -273,9 +282,13 @@ class P3IFPerformanceOptimizer:
         with monitor_operation("relationship_query_optimization", self.monitor):
             optimization = {
                 "criteria": relationship_criteria,
-                "estimated_cost": sum(len(str(v)) if hasattr(v, '__len__') else 1 for v in relationship_criteria.values()) * 5,
+                "estimated_cost": sum(
+                    len(str(v)) if hasattr(v, "__len__") else 1
+                    for v in relationship_criteria.values()
+                )
+                * 5,
                 "suggested_filters": [],
-                "caching_strategy": "lru"
+                "caching_strategy": "lru",
             }
 
             # Analyze criteria and suggest optimizations
@@ -305,7 +318,9 @@ class P3IFPerformanceOptimizer:
             recommendations.append("Consider relationship caching for improved performance")
 
         if self.monitor.get_system_metrics().get("memory_percent", 0) > 80:
-            recommendations.append("High memory usage detected - consider data sampling or pagination")
+            recommendations.append(
+                "High memory usage detected - consider data sampling or pagination"
+            )
 
         return recommendations
 
@@ -315,12 +330,14 @@ class P3IFPerformanceOptimizer:
             "framework_stats": {
                 "total_patterns": len(self.framework),
                 "total_relationships": len(self.framework.get_all_relationships()),
-                "domains": len(set(p.domain for p in self.framework if hasattr(p, 'domain') and p.domain))
+                "domains": len(
+                    set(p.domain for p in self.framework if hasattr(p, "domain") and p.domain)
+                ),
             },
             "performance_summary": self.monitor.get_performance_summary(),
             "optimization_recommendations": self.get_optimization_recommendations(),
             "cache_stats": self._get_cache_statistics(),
-            "timestamp": datetime.now().isoformat()
+            "timestamp": datetime.now().isoformat(),
         }
 
     def _get_cache_statistics(self) -> Dict[str, Any]:
@@ -329,7 +346,7 @@ class P3IFPerformanceOptimizer:
             "cache_enabled": True,
             "cache_size": len(self.optimization_cache),
             "cache_memory_usage": sum(len(str(v)) for v in self.optimization_cache.values()),
-            "recommendations": "Consider cache size limits for large datasets"
+            "recommendations": "Consider cache size limits for large datasets",
         }
 
 
@@ -366,4 +383,3 @@ def performance_monitored(operation_name: str, metadata: Optional[Dict[str, Any]
 
     with monitor_operation(operation_name, monitor, metadata):
         yield
-

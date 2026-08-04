@@ -7,7 +7,6 @@ that provide performance tracking and optimization capabilities.
 
 import pytest
 import time
-from unittest.mock import MagicMock, patch
 
 from p3if.core.performance_monitoring import (
     PerformanceMetrics,
@@ -17,7 +16,6 @@ from p3if.core.performance_monitoring import (
     get_global_performance_monitor,
     configure_global_monitoring,
     reset_global_monitoring,
-    performance_monitored
 )
 from p3if.core.framework import P3IFFramework
 from p3if.core.models import Property
@@ -29,6 +27,7 @@ class TestPerformanceMetrics:
     def test_initialization(self):
         """Test PerformanceMetrics initialization."""
         import time
+
         start_time = time.time()
         metrics = PerformanceMetrics("test_operation", start_time)
         assert metrics.operation_name == "test_operation"
@@ -42,6 +41,7 @@ class TestPerformanceMetrics:
     def test_finish(self):
         """Test finishing a performance measurement."""
         import time
+
         start_time = time.time()
         metrics = PerformanceMetrics("test_operation", start_time)
         time.sleep(0.01)  # Small delay
@@ -54,9 +54,10 @@ class TestPerformanceMetrics:
     def test_finish_with_error(self):
         """Test finishing with an error."""
         import time
+
         start_time = time.time()
         metrics = PerformanceMetrics("test_operation", start_time)
-        error = ValueError("test error")
+
         metrics.finish()
 
         # Note: The current implementation doesn't take an error parameter
@@ -67,6 +68,7 @@ class TestPerformanceMetrics:
     def test_to_dict(self):
         """Test converting metrics to dictionary."""
         import time
+
         start_time = time.time()
         metrics = PerformanceMetrics("test_operation", start_time, metadata={"key": "value"})
         metrics.finish()
@@ -163,7 +165,7 @@ class TestPerformanceMonitor:
     def test_get_system_metrics(self):
         """Test getting system metrics."""
         try:
-            import psutil
+            import psutil  # noqa: F401 - availability probe
         except ImportError:
             pytest.skip("psutil not available")
 
@@ -228,7 +230,11 @@ class TestP3IFPerformanceOptimizer:
         optimizer = P3IFPerformanceOptimizer(framework)
 
         # Add some test patterns
-        prop = Property(name="Test Property", description="Test property for performance optimization", domain="test")
+        prop = Property(
+            name="Test Property",
+            description="Test property for performance optimization",
+            domain="test",
+        )
         framework.add_pattern(prop)
 
         result = optimizer.optimize_pattern_queries(["Test Property"])

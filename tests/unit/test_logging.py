@@ -11,9 +11,16 @@ import json
 from pathlib import Path
 
 from p3if.utils.logging import (
-    P3IFLogger, get_logger, log_method_call, log_method_result,
-    log_error, LogContext, logged_method, performance_monitor,
-    get_performance_report, log_system_status, export_performance_report
+    P3IFLogger,
+    log_method_call,
+    log_method_result,
+    log_error,
+    LogContext,
+    logged_method,
+    performance_monitor,
+    get_performance_report,
+    log_system_status,
+    export_performance_report,
 )
 
 
@@ -68,13 +75,13 @@ class TestP3IFLogger(unittest.TestCase):
         """Test metrics export to file."""
         P3IFLogger.record_metric("export_test", 1.0, True)
 
-        with tempfile.NamedTemporaryFile(mode='w+', suffix='.json', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w+", suffix=".json", delete=False) as f:
             temp_path = Path(f.name)
 
         try:
             P3IFLogger.export_metrics(temp_path)
 
-            with open(temp_path, 'r') as f:
+            with open(temp_path, "r") as f:
                 data = json.load(f)
 
             self.assertIn("timestamp", data)
@@ -149,6 +156,7 @@ class TestDecorators(unittest.TestCase):
 
     def test_logged_method_decorator(self):
         """Test logged method decorator."""
+
         @logged_method()
         def test_function(x, y=10):
             return x + y
@@ -162,6 +170,7 @@ class TestDecorators(unittest.TestCase):
 
     def test_performance_monitor_decorator(self):
         """Test performance monitor decorator."""
+
         @performance_monitor(threshold_ms=1000)  # Higher threshold
         def slow_function():
             time.sleep(0.001)  # Real sleep for timing test
@@ -178,6 +187,7 @@ class TestDecorators(unittest.TestCase):
 
     def test_performance_monitor_slow_operation(self):
         """Test performance monitor with slow operation."""
+
         @performance_monitor(threshold_ms=1)  # Very low threshold to ensure warning
         def very_slow_function():
             time.sleep(0.01)  # Real sleep to trigger warning
@@ -235,13 +245,13 @@ class TestPerformanceReporting(unittest.TestCase):
         """Test performance report export."""
         P3IFLogger.record_metric("export_test", 1.0, True)
 
-        with tempfile.NamedTemporaryFile(mode='w+', suffix='.json', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w+", suffix=".json", delete=False) as f:
             temp_path = Path(f.name)
 
         try:
             export_performance_report(temp_path)
 
-            with open(temp_path, 'r') as f:
+            with open(temp_path, "r") as f:
                 data = json.load(f)
 
             self.assertIn("summary", data)
@@ -299,5 +309,5 @@ class TestUtilityFunctions(unittest.TestCase):
         # Error should be logged (we can see it in the captured log output)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

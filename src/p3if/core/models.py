@@ -8,16 +8,16 @@ from __future__ import annotations
 
 import uuid
 from datetime import datetime, timezone
-from typing import Optional, Dict, Any, List, Union, Set, Literal
+from typing import Optional, Dict, Any, List, Set
 from enum import Enum
 from pydantic import BaseModel, Field, field_validator, model_validator
 from dataclasses import dataclass
-import json
-from p3if.utils.logging import get_logger, logged_method
+from p3if.utils.logging import logged_method
 
 
 class PatternType(str, Enum):
     """Enumeration of valid pattern types."""
+
     PROPERTY = "property"
     PROCESS = "process"
     PERSPECTIVE = "perspective"
@@ -32,18 +32,16 @@ class RelationshipStrength(float):
 
         def validate_strength(v: Any) -> float:
             if not isinstance(v, (int, float)):
-                raise TypeError('strength must be a number')
+                raise TypeError("strength must be a number")
             if not (0.0 <= v <= 1.0):
-                raise ValueError('strength must be between 0.0 and 1.0')
+                raise ValueError("strength must be between 0.0 and 1.0")
             return float(v)
 
         return core_schema.no_info_plain_validator_function(
             validate_strength,
             serialization=core_schema.plain_serializer_function_ser_schema(
-                float,
-                return_schema=core_schema.str_schema(),
-                when_used='always'
-            )
+                float, return_schema=core_schema.str_schema(), when_used="always"
+            ),
         )
 
 
@@ -56,18 +54,16 @@ class ConfidenceScore(float):
 
         def validate_confidence(v: Any) -> float:
             if not isinstance(v, (int, float)):
-                raise TypeError('confidence must be a number')
+                raise TypeError("confidence must be a number")
             if not (0.0 <= v <= 1.0):
-                raise ValueError('confidence must be between 0.0 and 1.0')
+                raise ValueError("confidence must be between 0.0 and 1.0")
             return float(v)
 
         return core_schema.no_info_plain_validator_function(
             validate_confidence,
             serialization=core_schema.plain_serializer_function_ser_schema(
-                float,
-                return_schema=core_schema.str_schema(),
-                when_used='always'
-            )
+                float, return_schema=core_schema.str_schema(), when_used="always"
+            ),
         )
 
 
@@ -80,6 +76,7 @@ class MetadataMixin:
 
     metadata: Dict[str, Any]
     updated_at: datetime
+
     def update_metadata(self, key: str, value: Any) -> None:
         """Update metadata field."""
         self.metadata[key] = value
@@ -126,20 +123,20 @@ class BasePattern(BaseModel, MetadataMixin):
         "validate_assignment": True,
     }
 
-    @field_validator('tags')
+    @field_validator("tags")
     @classmethod
     def validate_tags(cls, v: List[str]) -> List[str]:
         """Ensure tags are valid."""
         if not all(isinstance(tag, str) and tag.strip() for tag in v):
-            raise ValueError('All tags must be non-empty strings')
+            raise ValueError("All tags must be non-empty strings")
         return [tag.strip().lower() for tag in v]
 
-    @field_validator('name')
+    @field_validator("name")
     @classmethod
     def validate_name(cls, v: str) -> str:
         """Ensure name is properly formatted."""
         if not v.strip():
-            raise ValueError('Name cannot be empty')
+            raise ValueError("Name cannot be empty")
         return v.strip()
 
     @logged_method()
@@ -170,7 +167,9 @@ class BasePattern(BaseModel, MetadataMixin):
         return self.model_dump_json(by_alias=True, indent=2)
 
     def __repr__(self) -> str:
-        return f"{self.__class__.__name__}(name={self.name!r}, domain={self.domain!r}, id={self.id})"
+        return (
+            f"{self.__class__.__name__}(name={self.name!r}, domain={self.domain!r}, id={self.id})"
+        )
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, BasePattern):
@@ -183,6 +182,7 @@ class BasePattern(BaseModel, MetadataMixin):
 
 class Property(BasePattern):
     """Enhanced property pattern with additional functionality."""
+
     type: PatternType = PatternType.PROPERTY
 
     # Property-specific attributes
@@ -196,18 +196,19 @@ class Property(BasePattern):
     category: Optional[str] = None  # security, performance, usability, etc.
     priority: str = Field(default="medium")  # low, medium, high, critical
 
-    @field_validator('priority')
+    @field_validator("priority")
     @classmethod
     def validate_priority(cls, v: str) -> str:
         """Validate priority values."""
-        valid_priorities = ['low', 'medium', 'high', 'critical']
+        valid_priorities = ["low", "medium", "high", "critical"]
         if v not in valid_priorities:
-            raise ValueError(f'Priority must be one of: {valid_priorities}')
+            raise ValueError(f"Priority must be one of: {valid_priorities}")
         return v
 
 
 class Process(BasePattern):
     """Enhanced process pattern with workflow capabilities."""
+
     type: PatternType = PatternType.PROCESS
 
     # Process-specific attributes
@@ -224,27 +225,28 @@ class Process(BasePattern):
     prerequisites: List[str] = Field(default_factory=list)  # Required patterns
     dependencies: List[str] = Field(default_factory=list)  # Dependent patterns
 
-    @field_validator('complexity')
+    @field_validator("complexity")
     @classmethod
     def validate_complexity_level(cls, v: str) -> str:
         """Validate complexity level values."""
-        valid_levels = ['low', 'medium', 'high']
+        valid_levels = ["low", "medium", "high"]
         if v not in valid_levels:
-            raise ValueError(f'Complexity must be one of: {valid_levels}')
+            raise ValueError(f"Complexity must be one of: {valid_levels}")
         return v
 
-    @field_validator('automation_level')
+    @field_validator("automation_level")
     @classmethod
     def validate_automation_level(cls, v: str) -> str:
         """Validate automation level values."""
-        valid_levels = ['manual', 'semi-automated', 'fully-automated']
+        valid_levels = ["manual", "semi-automated", "fully-automated"]
         if v not in valid_levels:
-            raise ValueError(f'Automation level must be one of: {valid_levels}')
+            raise ValueError(f"Automation level must be one of: {valid_levels}")
         return v
 
 
 class Perspective(BasePattern):
     """Enhanced perspective pattern with viewpoint modeling."""
+
     type: PatternType = PatternType.PERSPECTIVE
 
     # Perspective-specific attributes
@@ -260,27 +262,28 @@ class Perspective(BasePattern):
     stakeholder_type: Optional[str] = None  # internal, external, customer, etc.
     expertise_level: str = Field(default="intermediate")  # novice, intermediate, expert
 
-    @field_validator('scope')
+    @field_validator("scope")
     @classmethod
     def validate_scope(cls, v: str) -> str:
         """Validate scope values."""
-        valid_scopes = ['general', 'specific', 'detailed']
+        valid_scopes = ["general", "specific", "detailed"]
         if v not in valid_scopes:
-            raise ValueError(f'Scope must be one of: {valid_scopes}')
+            raise ValueError(f"Scope must be one of: {valid_scopes}")
         return v
 
-    @field_validator('expertise_level')
+    @field_validator("expertise_level")
     @classmethod
     def validate_expertise_level(cls, v: str) -> str:
         """Validate expertise level values."""
-        valid_levels = ['novice', 'intermediate', 'expert']
+        valid_levels = ["novice", "intermediate", "expert"]
         if v not in valid_levels:
-            raise ValueError(f'Expertise level must be one of: {valid_levels}')
+            raise ValueError(f"Expertise level must be one of: {valid_levels}")
         return v
 
 
 class Relationship(BaseModel, MetadataMixin):
     """Enhanced relationship model with comprehensive metadata support."""
+
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
 
     # Core relationship connections
@@ -319,34 +322,41 @@ class Relationship(BaseModel, MetadataMixin):
         "validate_assignment": True,
     }
 
-    @model_validator(mode='before')
+    @model_validator(mode="before")
     @classmethod
     def validate_connections(cls, values: Any) -> Any:
         """Ensure at least two dimensions are connected."""
         if isinstance(values, dict):
             connections = [
-                values.get('property_id'),
-                values.get('process_id'),
-                values.get('perspective_id')
+                values.get("property_id"),
+                values.get("process_id"),
+                values.get("perspective_id"),
             ]
         else:
             connections = [
-                getattr(values, 'property_id', None),
-                getattr(values, 'process_id', None),
-                getattr(values, 'perspective_id', None)
+                getattr(values, "property_id", None),
+                getattr(values, "process_id", None),
+                getattr(values, "perspective_id", None),
             ]
         connected_dims = sum(1 for conn in connections if conn is not None)
         if connected_dims < 2:
             raise ValueError("A relationship must connect at least two dimensions")
         return values
 
-    @field_validator('relationship_type')
+    @field_validator("relationship_type")
     @classmethod
     def validate_relationship_type(cls, v: str) -> str:
         """Validate relationship type."""
-        valid_types = ['general', 'causal', 'dependency', 'composition', 'aggregation', 'specialization']
+        valid_types = [
+            "general",
+            "causal",
+            "dependency",
+            "composition",
+            "aggregation",
+            "specialization",
+        ]
         if v not in valid_types:
-            raise ValueError(f'Relationship type must be one of: {valid_types}')
+            raise ValueError(f"Relationship type must be one of: {valid_types}")
         return v
 
     def get_connected_patterns(self) -> List[str]:
@@ -355,7 +365,7 @@ class Relationship(BaseModel, MetadataMixin):
 
     def is_bidirectional(self) -> bool:
         """Check if relationship is bidirectional."""
-        return self.bidirectional or self.direction == 'bidirectional'
+        return self.bidirectional or self.direction == "bidirectional"
 
     def to_dict(self) -> Dict[str, Any]:
         """Convert to dictionary with all fields."""
@@ -367,25 +377,32 @@ class Relationship(BaseModel, MetadataMixin):
 
     def __repr__(self) -> str:
         connected = self.get_connected_patterns()
-        return (f"Relationship(id={self.id}, type={self.relationship_type}, "
-                f"strength={float(self.strength):.2f}, connected={connected})")
+        return (
+            f"Relationship(id={self.id}, type={self.relationship_type}, "
+            f"strength={float(self.strength):.2f}, connected={connected})"
+        )
 
     def __eq__(self, other: object) -> bool:
         if not isinstance(other, Relationship):
             return False
-        return (self.property_id == other.property_id and
-                self.process_id == other.process_id and
-                self.perspective_id == other.perspective_id and
-                self.relationship_type == other.relationship_type)
+        return (
+            self.property_id == other.property_id
+            and self.process_id == other.process_id
+            and self.perspective_id == other.perspective_id
+            and self.relationship_type == other.relationship_type
+        )
 
     def __hash__(self) -> int:
-        return hash((self.property_id, self.process_id, self.perspective_id, self.relationship_type))
+        return hash(
+            (self.property_id, self.process_id, self.perspective_id, self.relationship_type)
+        )
 
 
 # Utility classes for enhanced functionality
 @dataclass
 class PatternCollection:
     """Collection of patterns with utility methods."""
+
     properties: List[Property]
     processes: List[Process]
     perspectives: List[Perspective]
@@ -405,21 +422,22 @@ class PatternCollection:
                 return pattern
         return None
 
-    def get_by_domain(self, domain: str) -> 'PatternCollection':
+    def get_by_domain(self, domain: str) -> "PatternCollection":
         """Filter collection by domain."""
         return PatternCollection(
             properties=[p for p in self.properties if p.domain == domain],
             processes=[p for p in self.processes if p.domain == domain],
-            perspectives=[p for p in self.perspectives if p.domain == domain]
+            perspectives=[p for p in self.perspectives if p.domain == domain],
         )
 
 
 @dataclass
 class RelationshipAnalysis:
     """Analysis results for relationships."""
+
     total_relationships: int
     average_strength: float
     average_confidence: float
     relationship_types: Dict[str, int]
     domains_involved: Set[str]
-    orphaned_patterns: List[str]  # Patterns with no relationships 
+    orphaned_patterns: List[str]  # Patterns with no relationships

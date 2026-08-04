@@ -5,11 +5,9 @@ This module provides practical examples of how to integrate P3IF with various
 external systems, frameworks, and data sources.
 """
 
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any
 from dataclasses import dataclass, field
 import logging
-import json
-from pathlib import Path
 from datetime import datetime
 
 from p3if.core.core import P3IFCore
@@ -48,7 +46,7 @@ class NISTIntegrationExample(IntegrationExample):
     def __init__(self):
         super().__init__(
             name="nist_csf_integration",
-            description="Integrate NIST Cybersecurity Framework with P3IF for enhanced security analysis"
+            description="Integrate NIST Cybersecurity Framework with P3IF for enhanced security analysis",
         )
 
     def execute(self) -> Dict[str, Any]:
@@ -81,7 +79,7 @@ class NISTIntegrationExample(IntegrationExample):
             "relationships_created": len(relationships),
             "analysis": analysis,
             "example_type": "framework_integration",
-            "source_framework": "NIST_CSF"
+            "source_framework": "NIST_CSF",
         }
 
     def _create_nist_patterns(self) -> List[Any]:
@@ -90,11 +88,27 @@ class NISTIntegrationExample(IntegrationExample):
 
         # Properties (NIST Functions)
         nist_functions = [
-            ("identify", "Identify", "Asset Management, Business Environment, Governance, Risk Assessment, Risk Management Strategy, Supply Chain Risk Management"),
-            ("protect", "Protect", "Identity Management, Authentication, Access Control, Awareness & Training, Data Security, Info Protection Processes & Procedures, Maintenance, Protective Technology"),
-            ("detect", "Detect", "Anomalies and Events, Security Continuous Monitoring, Detection Processes"),
-            ("respond", "Respond", "Response Planning, Communications, Analysis, Mitigation, Improvements"),
-            ("recover", "Recover", "Recovery Planning, Improvements, Communications")
+            (
+                "identify",
+                "Identify",
+                "Asset Management, Business Environment, Governance, Risk Assessment, Risk Management Strategy, Supply Chain Risk Management",
+            ),
+            (
+                "protect",
+                "Protect",
+                "Identity Management, Authentication, Access Control, Awareness & Training, Data Security, Info Protection Processes & Procedures, Maintenance, Protective Technology",
+            ),
+            (
+                "detect",
+                "Detect",
+                "Anomalies and Events, Security Continuous Monitoring, Detection Processes",
+            ),
+            (
+                "respond",
+                "Respond",
+                "Response Planning, Communications, Analysis, Mitigation, Improvements",
+            ),
+            ("recover", "Recover", "Recovery Planning, Improvements, Communications"),
         ]
 
         for func_id, func_name, func_desc in nist_functions:
@@ -103,7 +117,7 @@ class NISTIntegrationExample(IntegrationExample):
                 description=f"NIST {func_name}: {func_desc}",
                 domain="cybersecurity",
                 category="security",
-                priority="high"
+                priority="high",
             )
             patterns.append(prop)
 
@@ -112,7 +126,7 @@ class NISTIntegrationExample(IntegrationExample):
             ("asset_management", "Asset Management", "Identify and manage organizational assets"),
             ("access_control", "Access Control", "Control access to assets and systems"),
             ("incident_response", "Incident Response", "Plan and execute incident response"),
-            ("risk_assessment", "Risk Assessment", "Assess and manage cybersecurity risks")
+            ("risk_assessment", "Risk Assessment", "Assess and manage cybersecurity risks"),
         ]
 
         for cat_id, cat_name, cat_desc in nist_categories:
@@ -121,16 +135,20 @@ class NISTIntegrationExample(IntegrationExample):
                 description=f"NIST {cat_name}: {cat_desc}",
                 domain="cybersecurity",
                 complexity="medium",
-                automation_level="semi-automated"
+                automation_level="semi-automated",
             )
             patterns.append(proc)
 
         # Perspectives (NIST Implementation Tiers)
         nist_tiers = [
             ("partial", "Partial", "Limited awareness of cybersecurity risks"),
-            ("risk_informed", "Risk Informed", "Organization-wide approach to managing cybersecurity risk"),
+            (
+                "risk_informed",
+                "Risk Informed",
+                "Organization-wide approach to managing cybersecurity risk",
+            ),
             ("repeatable", "Repeatable", "Consistent cybersecurity practices across organization"),
-            ("adaptive", "Adaptive", "Continuous improvement and adaptation")
+            ("adaptive", "Adaptive", "Continuous improvement and adaptation"),
         ]
 
         for tier_id, tier_name, tier_desc in nist_tiers:
@@ -139,7 +157,7 @@ class NISTIntegrationExample(IntegrationExample):
                 description=f"NIST {tier_name}: {tier_desc}",
                 domain="cybersecurity",
                 viewpoint="implementation",
-                stakeholder_type="organizational"
+                stakeholder_type="organizational",
             )
             patterns.append(pers)
 
@@ -152,7 +170,6 @@ class NISTIntegrationExample(IntegrationExample):
         # Find pattern IDs by name
         identify_prop = next(p for p in patterns if p.name == "nist_identify")
         protect_prop = next(p for p in patterns if p.name == "nist_protect")
-        detect_prop = next(p for p in patterns if p.name == "nist_detect")
 
         asset_proc = next(p for p in patterns if p.name == "nist_asset_management")
         access_proc = next(p for p in patterns if p.name == "nist_access_control")
@@ -166,7 +183,7 @@ class NISTIntegrationExample(IntegrationExample):
             process_id=asset_proc.id,
             perspective_id=partial_pers.id,
             strength=0.9,
-            confidence=0.95
+            confidence=0.95,
         )
         relationships.append(rel1)
 
@@ -175,7 +192,7 @@ class NISTIntegrationExample(IntegrationExample):
             process_id=access_proc.id,
             perspective_id=adaptive_pers.id,
             strength=0.8,
-            confidence=0.9
+            confidence=0.9,
         )
         relationships.append(rel2)
 
@@ -190,7 +207,7 @@ class NISTIntegrationExample(IntegrationExample):
             "nist_categories_covered": 4,
             "nist_tiers_covered": 4,
             "integration_successful": True,
-            "analysis_timestamp": datetime.now().isoformat()
+            "analysis_timestamp": datetime.now().isoformat(),
         }
 
 
@@ -200,7 +217,7 @@ class HealthcareIntegrationExample(IntegrationExample):
     def __init__(self):
         super().__init__(
             name="healthcare_integration",
-            description="Integrate healthcare frameworks (HIPAA, HITECH) with P3IF"
+            description="Integrate healthcare frameworks (HIPAA, HITECH) with P3IF",
         )
 
     def execute(self) -> Dict[str, Any]:
@@ -233,7 +250,7 @@ class HealthcareIntegrationExample(IntegrationExample):
             "relationships_created": len(relationships),
             "analysis": analysis,
             "example_type": "domain_integration",
-            "domain": "healthcare"
+            "domain": "healthcare",
         }
 
     def _create_healthcare_patterns(self) -> List[Any]:
@@ -246,7 +263,7 @@ class HealthcareIntegrationExample(IntegrationExample):
             description="Patient privacy and data protection",
             domain="healthcare",
             category="compliance",
-            priority="critical"
+            priority="critical",
         )
         patterns.append(privacy_prop)
 
@@ -255,7 +272,7 @@ class HealthcareIntegrationExample(IntegrationExample):
             description="Healthcare data security and integrity",
             domain="healthcare",
             category="security",
-            priority="high"
+            priority="high",
         )
         patterns.append(security_prop)
 
@@ -265,7 +282,7 @@ class HealthcareIntegrationExample(IntegrationExample):
             description="Patient consent collection and management",
             domain="healthcare",
             complexity="medium",
-            automation_level="semi-automated"
+            automation_level="semi-automated",
         )
         patterns.append(consent_proc)
 
@@ -274,7 +291,7 @@ class HealthcareIntegrationExample(IntegrationExample):
             description="Comprehensive audit logging for healthcare data",
             domain="healthcare",
             complexity="high",
-            automation_level="fully-automated"
+            automation_level="fully-automated",
         )
         patterns.append(audit_proc)
 
@@ -284,7 +301,7 @@ class HealthcareIntegrationExample(IntegrationExample):
             description="Patient-centered healthcare perspective",
             domain="healthcare",
             viewpoint="patient_outcomes",
-            stakeholder_type="patient"
+            stakeholder_type="patient",
         )
         patterns.append(patient_pers)
 
@@ -293,7 +310,7 @@ class HealthcareIntegrationExample(IntegrationExample):
             description="Healthcare provider operational perspective",
             domain="healthcare",
             viewpoint="clinical_efficiency",
-            stakeholder_type="provider"
+            stakeholder_type="provider",
         )
         patterns.append(provider_pers)
 
@@ -317,7 +334,7 @@ class HealthcareIntegrationExample(IntegrationExample):
             process_id=consent_proc.id,
             perspective_id=patient_pers.id,
             strength=0.95,
-            confidence=0.98
+            confidence=0.98,
         )
         relationships.append(rel1)
 
@@ -326,7 +343,7 @@ class HealthcareIntegrationExample(IntegrationExample):
             process_id=audit_proc.id,
             perspective_id=provider_pers.id,
             strength=0.85,
-            confidence=0.92
+            confidence=0.92,
         )
         relationships.append(rel2)
 
@@ -342,7 +359,7 @@ class HealthcareIntegrationExample(IntegrationExample):
             "stakeholder_perspectives": 2,
             "hipaa_compliance": "High",
             "patient_centricity": "Strong",
-            "integration_successful": True
+            "integration_successful": True,
         }
 
 
@@ -352,7 +369,7 @@ class MultiFrameworkIntegrationExample(IntegrationExample):
     def __init__(self):
         super().__init__(
             name="multi_framework_integration",
-            description="Integrate NIST CSF, HIPAA, and ISO 27001 with P3IF"
+            description="Integrate NIST CSF, HIPAA, and ISO 27001 with P3IF",
         )
 
     def execute(self) -> Dict[str, Any]:
@@ -397,7 +414,7 @@ class MultiFrameworkIntegrationExample(IntegrationExample):
             "adapters_used": 3,
             "frameworks_integrated": ["NIST_CSF", "HIPAA", "ISO_27001"],
             "analysis": analysis,
-            "example_type": "multi_framework_integration"
+            "example_type": "multi_framework_integration",
         }
 
     def _create_nist_adapter(self) -> FrameworkAdapter:
@@ -409,13 +426,13 @@ class MultiFrameworkIntegrationExample(IntegrationExample):
             mapping_rules={
                 "function": lambda obj: {"name": f"nist_{obj.id}", "type": "property"},
                 "category": lambda obj: {"name": f"nist_{obj.id}", "type": "process"},
-                "subcategory": lambda obj: {"name": f"nist_{obj.id}", "type": "property"}
+                "subcategory": lambda obj: {"name": f"nist_{obj.id}", "type": "property"},
             },
             transformation_functions={
                 "property_transform": lambda x: x,
                 "process_transform": lambda x: x,
-                "perspective_transform": lambda x: x
-            }
+                "perspective_transform": lambda x: x,
+            },
         )
 
     def _create_hipaa_adapter(self) -> FrameworkAdapter:
@@ -426,13 +443,13 @@ class MultiFrameworkIntegrationExample(IntegrationExample):
             source_framework="HIPAA Privacy Rule",
             mapping_rules={
                 "rule": lambda obj: {"name": f"hipaa_{obj.id}", "type": "property"},
-                "safeguard": lambda obj: {"name": f"hipaa_{obj.id}", "type": "process"}
+                "safeguard": lambda obj: {"name": f"hipaa_{obj.id}", "type": "process"},
             },
             transformation_functions={
                 "property_transform": lambda x: x,
                 "process_transform": lambda x: x,
-                "perspective_transform": lambda x: x
-            }
+                "perspective_transform": lambda x: x,
+            },
         )
 
     def _create_iso_adapter(self) -> FrameworkAdapter:
@@ -443,13 +460,13 @@ class MultiFrameworkIntegrationExample(IntegrationExample):
             source_framework="ISO 27001",
             mapping_rules={
                 "control": lambda obj: {"name": f"iso_{obj.id}", "type": "property"},
-                "clause": lambda obj: {"name": f"iso_{obj.id}", "type": "process"}
+                "clause": lambda obj: {"name": f"iso_{obj.id}", "type": "process"},
             },
             transformation_functions={
                 "property_transform": lambda x: x,
                 "process_transform": lambda x: x,
-                "perspective_transform": lambda x: x
-            }
+                "perspective_transform": lambda x: x,
+            },
         )
 
     def _create_nist_framework(self) -> P3IFFramework:
@@ -479,7 +496,7 @@ class MultiFrameworkIntegrationExample(IntegrationExample):
             "conflict_resolution": "Automatic",
             "unified_security_posture": "Comprehensive",
             "compliance_coverage": "Multi-standard",
-            "integration_successful": True
+            "integration_successful": True,
         }
 
 
@@ -489,7 +506,7 @@ class DatabaseIntegrationExample(IntegrationExample):
     def __init__(self):
         super().__init__(
             name="database_integration",
-            description="Integrate P3IF with PostgreSQL database for persistent storage"
+            description="Integrate P3IF with PostgreSQL database for persistent storage",
         )
 
     def execute(self) -> Dict[str, Any]:
@@ -506,9 +523,9 @@ class DatabaseIntegrationExample(IntegrationExample):
                 "Persistent storage",
                 "Query optimization",
                 "Transaction support",
-                "Backup and recovery"
+                "Backup and recovery",
             ],
-            "example_type": "infrastructure_integration"
+            "example_type": "infrastructure_integration",
         }
 
 
@@ -518,7 +535,7 @@ class APIIntegrationExample(IntegrationExample):
     def __init__(self):
         super().__init__(
             name="api_integration",
-            description="Integrate P3IF with external REST APIs for data exchange"
+            description="Integrate P3IF with external REST APIs for data exchange",
         )
 
     def execute(self) -> Dict[str, Any]:
@@ -535,9 +552,9 @@ class APIIntegrationExample(IntegrationExample):
                 "Data import/export",
                 "Real-time synchronization",
                 "Authentication and authorization",
-                "Rate limiting and error handling"
+                "Rate limiting and error handling",
             ],
-            "example_type": "service_integration"
+            "example_type": "service_integration",
         }
 
 
@@ -548,7 +565,7 @@ def run_all_integration_examples() -> Dict[str, Any]:
         HealthcareIntegrationExample(),
         MultiFrameworkIntegrationExample(),
         DatabaseIntegrationExample(),
-        APIIntegrationExample()
+        APIIntegrationExample(),
     ]
 
     results = {}
@@ -574,4 +591,3 @@ if __name__ == "__main__":
             print(f"✅ {example_name}")
         else:
             print(f"❌ {example_name}")
-

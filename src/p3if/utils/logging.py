@@ -10,7 +10,7 @@ import sys
 import time
 import json
 import functools
-from typing import Optional, Dict, Any, List
+from typing import Optional, Dict, Any
 from pathlib import Path
 from datetime import datetime
 from collections import defaultdict
@@ -28,8 +28,7 @@ class P3IFLogger:
 
     # Default log format
     DEFAULT_FORMAT = (
-        '%(asctime)s | %(levelname)-8s | %(name)-30s | '
-        '%(filename)s:%(lineno)d | %(message)s'
+        "%(asctime)s | %(levelname)-8s | %(name)-30s | " "%(filename)s:%(lineno)d | %(message)s"
     )
 
     # Structured log format for JSON output
@@ -50,7 +49,7 @@ class P3IFLogger:
         format_string: Optional[str] = None,
         log_file: Optional[Path] = None,
         json_format: bool = False,
-        enable_console: bool = True
+        enable_console: bool = True,
     ) -> None:
         """Configure the global logging system."""
         if cls._configured:
@@ -125,18 +124,15 @@ class P3IFLogger:
                 "total_time": data["total_time"],
                 "average_time": data["total_time"] / data["count"] if data["count"] > 0 else 0,
                 "error_rate": data["errors"] / data["count"] if data["count"] > 0 else 0,
-                "errors": data["errors"]
+                "errors": data["errors"],
             }
         return metrics
 
     @classmethod
     def export_metrics(cls, path: Path) -> None:
         """Export metrics to JSON file."""
-        metrics = {
-            "timestamp": datetime.now().isoformat(),
-            "metrics": cls.get_metrics()
-        }
-        with open(path, 'w') as f:
+        metrics = {"timestamp": datetime.now().isoformat(), "metrics": cls.get_metrics()}
+        with open(path, "w") as f:
             json.dump(metrics, f, indent=2)
 
     @classmethod
@@ -150,7 +146,9 @@ def get_logger(name: str) -> logging.Logger:
     return P3IFLogger.get_logger(name)
 
 
-def log_method_call(logger: logging.Logger, method_name: str, args: tuple = (), kwargs: dict = None) -> None:
+def log_method_call(
+    logger: logging.Logger, method_name: str, args: tuple = (), kwargs: dict = None
+) -> None:
     """Log method entry with parameters."""
     if kwargs is None:
         kwargs = {}
@@ -176,7 +174,9 @@ def log_method_call(logger: logging.Logger, method_name: str, args: tuple = (), 
     )
 
 
-def log_method_result(logger: logging.Logger, method_name: str, result, duration: float = None) -> None:
+def log_method_result(
+    logger: logging.Logger, method_name: str, result, duration: float = None
+) -> None:
     """Log method completion with result."""
     result_str = str(result)[:200] if result is not None else "None"
     duration_str = f" in {duration:.3f}s" if duration else ""
@@ -191,19 +191,29 @@ def log_method_result(logger: logging.Logger, method_name: str, result, duration
             logger.warning(f"Slow operation: {method_name} took {duration:.3f}s")
 
 
-def log_error(logger: logging.Logger, method_name: str, error: Exception, context: dict = None) -> None:
+def log_error(
+    logger: logging.Logger, method_name: str, error: Exception, context: dict = None
+) -> None:
     """Log method errors with context."""
     context_str = f" | Context: {context}" if context else ""
     logger.error(f"Error in {method_name}: {error}{context_str}", exc_info=True)
 
 
-def log_operation(logger: logging.Logger, operation: str, status: str, details: dict = None, duration: float = None) -> None:
+def log_operation(
+    logger: logging.Logger,
+    operation: str,
+    status: str,
+    details: dict = None,
+    duration: float = None,
+) -> None:
     """Log operations with structured data for better observability."""
     details = details or {}
     duration_str = f" | Duration: {duration:.3f}s" if duration else ""
 
     if status == "success":
-        logger.info(f"Operation {operation} completed successfully{details_str(details)}{duration_str}")
+        logger.info(
+            f"Operation {operation} completed successfully{details_str(details)}{duration_str}"
+        )
     elif status == "failed":
         logger.error(f"Operation {operation} failed{details_str(details)}{duration_str}")
     elif status == "started":
@@ -241,8 +251,7 @@ class LogContext:
         if exc_type:
             self.success = False
             self.logger.error(
-                f"Exception in {self.method_name} after {duration:.3f}s: {exc_val}",
-                exc_info=True
+                f"Exception in {self.method_name} after {duration:.3f}s: {exc_val}", exc_info=True
             )
         elif self.logger.isEnabledFor(self.log_level):
             self.logger.log(self.log_level, f"Completed {self.method_name} in {duration:.3f}s")
@@ -253,6 +262,7 @@ class LogContext:
 
 def logged_method(level: int = logging.DEBUG):
     """Decorator to add comprehensive logging and metrics to methods."""
+
     def decorator(func):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
@@ -264,15 +274,22 @@ def logged_method(level: int = logging.DEBUG):
                     result = func(*args, **kwargs)
                     return result
                 except Exception as e:
-                    log_error(logger, method_name, e, {"args_count": len(args), "kwargs_keys": list(kwargs.keys())})
+                    log_error(
+                        logger,
+                        method_name,
+                        e,
+                        {"args_count": len(args), "kwargs_keys": list(kwargs.keys())},
+                    )
                     raise
 
         return wrapper
+
     return decorator
 
 
 def performance_monitor(threshold_ms: float = 1000.0):
     """Decorator to monitor method performance and log slow operations."""
+
     def decorator(func):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
@@ -292,28 +309,25 @@ def performance_monitor(threshold_ms: float = 1000.0):
                     )
 
                 # Record metrics
-                P3IFLogger.record_metric(method_name, duration / 1000, True)  # Convert back to seconds
+                P3IFLogger.record_metric(
+                    method_name, duration / 1000, True
+                )  # Convert back to seconds
 
                 return result
             except Exception as e:
                 duration = (time.time() - start_time) * 1000
-                logger.error(
-                    f"Failed operation: {method_name} took {duration:.2f}ms - {e}"
-                )
+                logger.error(f"Failed operation: {method_name} took {duration:.2f}ms - {e}")
                 P3IFLogger.record_metric(method_name, duration / 1000, False)
                 raise
 
         return wrapper
+
     return decorator
 
 
 def setup_default_logging(log_file: Optional[Path] = None) -> None:
     """Setup default P3IF logging configuration."""
-    P3IFLogger.configure(
-        level=logging.INFO,
-        log_file=log_file,
-        enable_console=True
-    )
+    P3IFLogger.configure(level=logging.INFO, log_file=log_file, enable_console=True)
 
 
 def get_performance_report() -> Dict[str, Any]:
@@ -329,14 +343,14 @@ def get_performance_report() -> Dict[str, Any]:
     slowest_ops = sorted(
         [(op, data["average_time"]) for op, data in metrics.items()],
         key=lambda x: x[1],
-        reverse=True
+        reverse=True,
     )[:5]
 
     # Find operations with highest error rates
     error_prone_ops = sorted(
         [(op, data["error_rate"]) for op, data in metrics.items() if data["error_rate"] > 0],
         key=lambda x: x[1],
-        reverse=True
+        reverse=True,
     )[:5]
 
     return {
@@ -344,13 +358,15 @@ def get_performance_report() -> Dict[str, Any]:
             "total_operations": total_operations,
             "total_errors": total_errors,
             "total_time": total_time,
-            "average_time_per_operation": total_time / total_operations if total_operations > 0 else 0,
-            "overall_error_rate": total_errors / total_operations if total_operations > 0 else 0
+            "average_time_per_operation": total_time / total_operations
+            if total_operations > 0
+            else 0,
+            "overall_error_rate": total_errors / total_operations if total_operations > 0 else 0,
         },
         "slowest_operations": slowest_ops,
         "error_prone_operations": error_prone_ops,
         "detailed_metrics": metrics,
-        "generated_at": datetime.now().isoformat()
+        "generated_at": datetime.now().isoformat(),
     }
 
 
@@ -363,16 +379,18 @@ def log_system_status(logger: logging.Logger) -> None:
         logger.info(f"Total Operations: {report['summary']['total_operations']}")
         logger.info(f"Total Errors: {report['summary']['total_errors']}")
         logger.info(f"Overall Error Rate: {report['summary']['overall_error_rate']:.2%}")
-        logger.info(f"Average Time per Operation: {report['summary']['average_time_per_operation']:.4f}s")
+        logger.info(
+            f"Average Time per Operation: {report['summary']['average_time_per_operation']:.4f}s"
+        )
 
-        if report['slowest_operations']:
+        if report["slowest_operations"]:
             logger.info("Slowest Operations:")
-            for op, avg_time in report['slowest_operations'][:3]:
+            for op, avg_time in report["slowest_operations"][:3]:
                 logger.info(f"  {op}: {avg_time:.4f}s")
 
-        if report['error_prone_operations']:
+        if report["error_prone_operations"]:
             logger.warning("Error-Prone Operations:")
-            for op, error_rate in report['error_prone_operations'][:3]:
+            for op, error_rate in report["error_prone_operations"][:3]:
                 if error_rate > 0:
                     logger.warning(f"  {op}: {error_rate:.2%} error rate")
 
@@ -384,7 +402,7 @@ def export_performance_report(path: Path) -> None:
     """Export detailed performance report to file."""
     try:
         report = get_performance_report()
-        with open(path, 'w') as f:
+        with open(path, "w") as f:
             json.dump(report, f, indent=2, default=str)
     except Exception as e:
         logger = get_logger(__name__)
@@ -393,4 +411,3 @@ def export_performance_report(path: Path) -> None:
 
 # Initialize default logging on import
 setup_default_logging()
-

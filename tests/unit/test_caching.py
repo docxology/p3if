@@ -1,7 +1,6 @@
 """
 Unit tests for P3IF caching functionality.
 """
-import pytest
 import time
 from collections import OrderedDict
 
@@ -12,17 +11,16 @@ class TestLRUCache:
     def test_basic_cache_operations(self):
         """Test basic get/set operations on cache."""
         cache = OrderedDict()
-        max_size = 3
 
         # Add items
-        cache['a'] = 1
-        cache['b'] = 2
-        cache['c'] = 3
+        cache["a"] = 1
+        cache["b"] = 2
+        cache["c"] = 3
 
         assert len(cache) == 3
-        assert cache['a'] == 1
-        assert cache['b'] == 2
-        assert cache['c'] == 3
+        assert cache["a"] == 1
+        assert cache["b"] == 2
+        assert cache["c"] == 3
 
     def test_cache_eviction(self):
         """Test that oldest items are evicted when cache is full."""
@@ -30,44 +28,44 @@ class TestLRUCache:
         max_size = 3
 
         # Add items up to max size
-        cache['a'] = 1
-        cache['b'] = 2
-        cache['c'] = 3
+        cache["a"] = 1
+        cache["b"] = 2
+        cache["c"] = 3
 
         # Add one more - should trigger eviction
         if len(cache) >= max_size:
             cache.popitem(last=False)
-        cache['d'] = 4
+        cache["d"] = 4
 
         assert len(cache) == 3
-        assert 'a' not in cache
-        assert 'd' in cache
+        assert "a" not in cache
+        assert "d" in cache
 
     def test_cache_access_updates_order(self):
         """Test that accessing an item moves it to end of cache."""
         cache = OrderedDict()
 
-        cache['a'] = 1
-        cache['b'] = 2
-        cache['c'] = 3
+        cache["a"] = 1
+        cache["b"] = 2
+        cache["c"] = 3
 
         # Access 'a' - should move to end
-        cache.move_to_end('a')
+        cache.move_to_end("a")
 
         # Verify order
         keys = list(cache.keys())
-        assert keys == ['b', 'c', 'a']
+        assert keys == ["b", "c", "a"]
 
     def test_cache_with_none_values(self):
         """Test cache handles None values correctly."""
         cache = OrderedDict()
 
-        cache['a'] = None
-        cache['b'] = 1
+        cache["a"] = None
+        cache["b"] = 1
 
-        assert 'a' in cache
-        assert cache['a'] is None
-        assert cache['b'] == 1
+        assert "a" in cache
+        assert cache["a"] is None
+        assert cache["b"] == 1
 
 
 class TestVisualizationCache:
@@ -83,9 +81,9 @@ class TestVisualizationCache:
             serialized = json.dumps(data, sort_keys=True)
             return hashlib.md5(serialized.encode()).hexdigest()
 
-        data1 = {'type': 'cube', 'domain': 'healthcare'}
-        data2 = {'domain': 'healthcare', 'type': 'cube'}
-        data3 = {'type': 'cube', 'domain': 'finance'}
+        data1 = {"type": "cube", "domain": "healthcare"}
+        data2 = {"domain": "healthcare", "type": "cube"}
+        data3 = {"type": "cube", "domain": "finance"}
 
         key1 = generate_cache_key(data1)
         key2 = generate_cache_key(data2)
@@ -101,16 +99,16 @@ class TestVisualizationCache:
         cache_expiry = {}
         ttl = 0.1  # 100ms TTL
 
-        cache_expiry['key1'] = time.time()
+        cache_expiry["key1"] = time.time()
         time.sleep(0.15)  # Wait for expiry
 
         # Check if expired
-        is_expired = time.time() - cache_expiry.get('key1', 0) > ttl
+        is_expired = time.time() - cache_expiry.get("key1", 0) > ttl
         assert is_expired is True
 
         # Fresh entry should not be expired
-        cache_expiry['key2'] = time.time()
-        is_expired = time.time() - cache_expiry.get('key2', 0) > ttl
+        cache_expiry["key2"] = time.time()
+        is_expired = time.time() - cache_expiry.get("key2", 0) > ttl
         assert is_expired is False
 
 
@@ -135,8 +133,8 @@ class TestFrameworkCaching:
         assert prop1.id in framework._patterns
         assert prop2.id in framework._patterns
         # Verify type index is populated
-        assert prop1.id in framework._pattern_index['type']['property']
-        assert prop2.id in framework._pattern_index['type']['property']
+        assert prop1.id in framework._pattern_index["type"]["property"]
+        assert prop2.id in framework._pattern_index["type"]["property"]
 
     def test_relationship_index_caching(self):
         """Test that relationship indexes are cached correctly."""
@@ -153,19 +151,14 @@ class TestFrameworkCaching:
         framework.add_pattern(proc)
 
         # Add relationship
-        rel = Relationship(
-            property_id=prop.id,
-            process_id=proc.id,
-            strength=0.8,
-            confidence=0.9
-        )
+        rel = Relationship(property_id=prop.id, process_id=proc.id, strength=0.8, confidence=0.9)
         framework.add_relationship(rel)
 
         # Verify relationship is in framework
         assert rel.id in framework._relationships
         # Verify index is populated by pattern
-        assert rel.id in framework._relationship_index['property'][prop.id]
-        assert rel.id in framework._relationship_index['process'][proc.id]
+        assert rel.id in framework._relationship_index["property"][prop.id]
+        assert rel.id in framework._relationship_index["process"][proc.id]
 
     def test_cache_clear_on_pattern_removal(self):
         """Test that caches are updated when patterns are removed."""
@@ -185,4 +178,4 @@ class TestFrameworkCaching:
         # Verify pattern is removed from framework
         assert prop.id not in framework._patterns
         # Verify index is updated
-        assert prop.id not in framework._pattern_index['type'].get('property', [])
+        assert prop.id not in framework._pattern_index["type"].get("property", [])

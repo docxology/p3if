@@ -5,16 +5,16 @@ This module provides methods for composing and multiplexing P3IF frameworks,
 enabling flexible combination of different framework elements and dimensions.
 """
 
-from typing import Dict, List, Any, Optional, Union, Set, Callable
-from dataclasses import dataclass, field
+from typing import Dict, List, Any, Callable
+from dataclasses import dataclass
 from enum import Enum
 from datetime import datetime
 import logging
-from abc import ABC, abstractmethod
 
 
 class CompositionType(str, Enum):
     """Types of composition operations."""
+
     OVERLAY = "overlay"
     MERGE = "merge"
     EXTEND = "extend"
@@ -25,6 +25,7 @@ class CompositionType(str, Enum):
 
 class MultiplexingStrategy(str, Enum):
     """Strategies for multiplexing framework elements."""
+
     UNION = "union"
     INTERSECTION = "intersection"
     COMPLEMENT = "complement"
@@ -34,6 +35,7 @@ class MultiplexingStrategy(str, Enum):
 @dataclass
 class FrameworkAdapter:
     """Adapter for integrating external frameworks with P3IF."""
+
     name: str
     version: str
     source_framework: str
@@ -44,8 +46,10 @@ class FrameworkAdapter:
         """Map an element from the source framework to P3IF format."""
         if element_type in self.mapping_rules:
             mapping = self.mapping_rules[element_type]
-            return {p3if_key: getattr(element, source_key, None)
-                   for p3if_key, source_key in mapping.items()}
+            return {
+                p3if_key: getattr(element, source_key, None)
+                for p3if_key, source_key in mapping.items()
+            }
         return {}
 
 
@@ -65,8 +69,12 @@ class CompositionEngine:
         self.adapters[adapter.name] = adapter
         self.logger.info(f"Registered adapter for {adapter.source_framework}")
 
-    def overlay_frameworks(self, base_framework: Any, overlay_framework: Any,
-                          strategy: MultiplexingStrategy = MultiplexingStrategy.UNION) -> Any:
+    def overlay_frameworks(
+        self,
+        base_framework: Any,
+        overlay_framework: Any,
+        strategy: MultiplexingStrategy = MultiplexingStrategy.UNION,
+    ) -> Any:
         """Overlay one framework on top of another."""
         try:
             result = base_framework.copy()
@@ -74,7 +82,7 @@ class CompositionEngine:
             self.logger.error(f"Failed to copy base framework: {e}")
             raise ValueError(f"Framework must implement a working copy() method: {e}") from e
 
-        for dimension in ['properties', 'processes', 'perspectives']:
+        for dimension in ["properties", "processes", "perspectives"]:
             base_elements = set(getattr(base_framework, dimension, []))
             overlay_elements = set(getattr(overlay_framework, dimension, []))
 
@@ -97,8 +105,7 @@ class CompositionEngine:
         self._record_composition("overlay", base_framework, overlay_framework, result)
         return result
 
-    def transform_dimension(self, framework: Any, dimension: str,
-                          transformation: Callable) -> Any:
+    def transform_dimension(self, framework: Any, dimension: str, transformation: Callable) -> Any:
         """Transform a specific dimension of a framework."""
         result = framework.copy()
         original_elements = getattr(framework, dimension, [])
@@ -113,12 +120,11 @@ class CompositionEngine:
         self._record_composition("transform", framework, None, result)
         return result
 
-    def filter_by_criteria(self, framework: Any,
-                          criteria: Dict[str, Any]) -> Any:
+    def filter_by_criteria(self, framework: Any, criteria: Dict[str, Any]) -> Any:
         """Filter framework elements by specified criteria."""
         result = framework.copy()
 
-        for dimension in ['properties', 'processes', 'perspectives']:
+        for dimension in ["properties", "processes", "perspectives"]:
             elements = getattr(framework, dimension, [])
             filtered_elements = []
 
@@ -131,12 +137,11 @@ class CompositionEngine:
         self._record_composition("filter", framework, None, result)
         return result
 
-    def project_dimensions(self, framework: Any,
-                          dimensions: List[str]) -> Any:
+    def project_dimensions(self, framework: Any, dimensions: List[str]) -> Any:
         """Project framework to specified dimensions only."""
         result = framework.copy()
 
-        for dimension in ['properties', 'processes', 'perspectives']:
+        for dimension in ["properties", "processes", "perspectives"]:
             if dimension not in dimensions:
                 setattr(result, dimension, [])
             else:
@@ -145,16 +150,18 @@ class CompositionEngine:
         self._record_composition("project", framework, None, result)
         return result
 
-    def create_composite_framework(self, frameworks: List[Any],
-                                 composition_rules: Dict[str, Any]) -> Any:
+    def create_composite_framework(
+        self, frameworks: List[Any], composition_rules: Dict[str, Any]
+    ) -> Any:
         """Create a composite framework from multiple frameworks."""
         if not frameworks:
             return None
 
         base = frameworks[0]
         for framework in frameworks[1:]:
-            base = self.overlay_frameworks(base, framework,
-                                         composition_rules.get('strategy', MultiplexingStrategy.UNION))
+            base = self.overlay_frameworks(
+                base, framework, composition_rules.get("strategy", MultiplexingStrategy.UNION)
+            )
 
         self._record_composition("composite", frameworks, None, base)
         return base
@@ -172,8 +179,9 @@ class CompositionEngine:
                         return False
         return True
 
-    def _record_composition(self, operation: str, input_data: Any,
-                          overlay_data: Any = None, result: Any = None):
+    def _record_composition(
+        self, operation: str, input_data: Any, overlay_data: Any = None, result: Any = None
+    ):
         """Record a composition operation for history tracking."""
         operation_record = {
             "operation": operation,
@@ -181,7 +189,7 @@ class CompositionEngine:
             "input_type": type(input_data).__name__,
             "input_count": len(input_data) if isinstance(input_data, (list, dict)) else 1,
             "overlay_type": type(overlay_data).__name__ if overlay_data else None,
-            "result_type": type(result).__name__ if result else None
+            "result_type": type(result).__name__ if result else None,
         }
 
         self.composition_history.append(operation_record)
@@ -199,8 +207,9 @@ class Multiplexer:
         """Add a multiplexing rule."""
         self.multiplexing_rules[rule_name] = rule_config
 
-    def multiplex_properties_to_processes(self, properties: List[Any],
-                                        mapping_rules: Dict[str, str]) -> Dict[str, List[Any]]:
+    def multiplex_properties_to_processes(
+        self, properties: List[Any], mapping_rules: Dict[str, str]
+    ) -> Dict[str, List[Any]]:
         """Multiplex properties into process representations."""
         process_map = {}
 
@@ -213,8 +222,9 @@ class Multiplexer:
 
         return process_map
 
-    def multiplex_processes_to_perspectives(self, processes: List[Any],
-                                         mapping_rules: Dict[str, str]) -> Dict[str, List[Any]]:
+    def multiplex_processes_to_perspectives(
+        self, processes: List[Any], mapping_rules: Dict[str, str]
+    ) -> Dict[str, List[Any]]:
         """Multiplex processes into perspective representations."""
         perspective_map = {}
 
@@ -232,37 +242,41 @@ class Multiplexer:
         links = []
 
         # Get all elements by dimension
-        properties = getattr(framework, 'properties', [])
-        processes = getattr(framework, 'processes', [])
-        perspectives = getattr(framework, 'perspectives', [])
+        properties = getattr(framework, "properties", [])
+        processes = getattr(framework, "processes", [])
+        perspectives = getattr(framework, "perspectives", [])
 
         # Find potential links based on naming patterns or attributes
         for prop in properties:
             for process in processes:
                 if self._potentially_related(prop, process):
-                    links.append({
-                        "source": {"type": "property", "element": prop},
-                        "target": {"type": "process", "element": process},
-                        "relationship_type": "potential",
-                        "confidence": 0.5
-                    })
+                    links.append(
+                        {
+                            "source": {"type": "property", "element": prop},
+                            "target": {"type": "process", "element": process},
+                            "relationship_type": "potential",
+                            "confidence": 0.5,
+                        }
+                    )
 
             for perspective in perspectives:
                 if self._potentially_related(prop, perspective):
-                    links.append({
-                        "source": {"type": "property", "element": prop},
-                        "target": {"type": "perspective", "element": perspective},
-                        "relationship_type": "potential",
-                        "confidence": 0.5
-                    })
+                    links.append(
+                        {
+                            "source": {"type": "property", "element": prop},
+                            "target": {"type": "perspective", "element": perspective},
+                            "relationship_type": "potential",
+                            "confidence": 0.5,
+                        }
+                    )
 
         return links
 
     def _potentially_related(self, elem1: Any, elem2: Any) -> bool:
         """Determine if two elements are potentially related."""
         # Simple heuristic: check for common words in names
-        name1 = getattr(elem1, 'name', '').lower()
-        name2 = getattr(elem2, 'name', '').lower()
+        name1 = getattr(elem1, "name", "").lower()
+        name2 = getattr(elem2, "name", "").lower()
 
         words1 = set(name1.split())
         words2 = set(name2.split())
@@ -288,12 +302,10 @@ class AdapterFactory:
                 "properties": {
                     "confidentiality": "confidentiality",
                     "integrity": "integrity",
-                    "availability": "availability"
+                    "availability": "availability",
                 }
             },
-            transformation_functions={
-                "property_to_process": lambda x: f"ensure_{x.name.lower()}"
-            }
+            transformation_functions={"property_to_process": lambda x: f"ensure_{x.name.lower()}"},
         )
 
     @staticmethod
@@ -309,10 +321,8 @@ class AdapterFactory:
                     "protect": "protect",
                     "detect": "detect",
                     "respond": "respond",
-                    "recover": "recover"
+                    "recover": "recover",
                 }
             },
-            transformation_functions={
-                "function_to_perspective": lambda x: f"{x.name}_perspective"
-            }
+            transformation_functions={"function_to_perspective": lambda x: f"{x.name}_perspective"},
         )

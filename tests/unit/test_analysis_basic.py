@@ -1,8 +1,6 @@
 """
 Unit tests for P3IF basic analysis functionality.
 """
-import pytest
-from typing import Dict, List, Any
 
 
 class TestBasicMetrics:
@@ -44,12 +42,7 @@ class TestBasicMetrics:
         framework.add_pattern(proc)
 
         # Add relationship
-        rel = Relationship(
-            property_id=prop.id,
-            process_id=proc.id,
-            strength=0.8,
-            confidence=0.9
-        )
+        rel = Relationship(property_id=prop.id, process_id=proc.id, strength=0.8, confidence=0.9)
         framework.add_relationship(rel)
 
         metrics = framework.get_metrics()
@@ -120,7 +113,7 @@ class TestDomainAnalysis:
         framework = P3IFFramework()
 
         # Add patterns in different domains
-        domains = ['healthcare', 'finance', 'technology', 'healthcare']
+        domains = ["healthcare", "finance", "technology", "healthcare"]
         for i, domain in enumerate(domains):
             prop = Property(name=f"Prop {i}", description="Test", domain=domain)
             framework.add_pattern(prop)
@@ -144,7 +137,9 @@ class TestPatternTypeAnalysis:
         framework.add_pattern(Property(name="P1", description="Test", domain="test"))
         framework.add_pattern(Property(name="P2", description="Test", domain="test"))
         framework.add_pattern(Process(name="Proc1", description="Test", domain="test"))
-        framework.add_pattern(Perspective(name="Persp1", description="Test", domain="test", viewpoint="v"))
+        framework.add_pattern(
+            Perspective(name="Persp1", description="Test", domain="test", viewpoint="v")
+        )
 
         # Get patterns by type
         properties = framework.get_patterns_by_type("property")
@@ -194,7 +189,9 @@ class TestRelationshipAnalysis:
         # Add relationships with different strengths
         strengths = [0.3, 0.6, 0.9]
         for prop, strength in zip(props, strengths):
-            rel = Relationship(property_id=prop.id, process_id=proc.id, strength=strength, confidence=0.9)
+            rel = Relationship(
+                property_id=prop.id, process_id=proc.id, strength=strength, confidence=0.9
+            )
             framework.add_relationship(rel)
 
         # Get all relationships and filter by strength
@@ -207,7 +204,7 @@ class TestRelationshipAnalysis:
     def test_relationship_by_pattern(self):
         """Test getting relationships for a specific pattern."""
         from p3if.core.framework import P3IFFramework
-        from p3if.core.models import Property, Process, Perspective, Relationship
+        from p3if.core.models import Property, Process, Relationship
 
         framework = P3IFFramework()
 
@@ -243,7 +240,7 @@ class TestFrameworkValidation:
         framework = P3IFFramework()
         result = framework.validate_framework()
 
-        assert 'valid' in result or 'is_valid' in result
+        assert "valid" in result or "is_valid" in result
 
     def test_validate_populated_framework(self):
         """Test validation of populated framework."""
@@ -266,5 +263,5 @@ class TestFrameworkValidation:
         result = framework.validate_framework()
 
         # Should be valid
-        is_valid = result.get('valid', result.get('is_valid', True))
+        is_valid = result.get("valid", result.get("is_valid", True))
         assert is_valid is True

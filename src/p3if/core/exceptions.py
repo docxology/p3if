@@ -25,6 +25,7 @@ class P3IFError(Exception):
 
 class PatternError(P3IFError):
     """Base class for pattern-related errors."""
+
     pass
 
 
@@ -46,10 +47,7 @@ class PatternValidationError(PatternError):
 
     def __init__(self, pattern_id: str, validation_errors: list[str]):
         message = f"Pattern validation failed: {', '.join(validation_errors)}"
-        details = {
-            "pattern_id": pattern_id,
-            "validation_errors": validation_errors
-        }
+        details = {"pattern_id": pattern_id, "validation_errors": validation_errors}
         super().__init__(message, details)
 
 
@@ -60,15 +58,13 @@ class PatternTypeError(PatternError):
         self.expected_type = expected_type
         self.actual_type = actual_type
         message = f"Expected pattern type '{expected_type}', got '{actual_type}'"
-        details = {
-            "expected_type": expected_type,
-            "actual_type": actual_type
-        }
+        details = {"expected_type": expected_type, "actual_type": actual_type}
         super().__init__(message, details)
 
 
 class RelationshipError(P3IFError):
     """Base class for relationship-related errors."""
+
     pass
 
 
@@ -94,6 +90,7 @@ class RelationshipNotFoundError(RelationshipError):
 
 class FrameworkError(P3IFError):
     """Base class for framework-related errors."""
+
     pass
 
 
@@ -118,7 +115,7 @@ class OperationError(P3IFError):
         details = {
             "operation_type": operation_type,
             "operation_id": operation_id,
-            "error_message": message
+            "error_message": message,
         }
         super().__init__(full_message, details)
 
@@ -128,4 +125,3 @@ class OperationFailedError(OperationError):
 
     def __init__(self, operation_type: str, operation_id: str, error_message: str):
         super().__init__(operation_type, operation_id, error_message)
-

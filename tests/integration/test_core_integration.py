@@ -4,10 +4,10 @@ Integration tests for P3IF core functionality.
 
 import pytest
 from p3if.core import P3IFCore
-from p3if.core.models import Property, Process, Perspective
 from p3if.core.exceptions import (
-    PatternNotFoundError, PatternValidationError,
-    RelationshipValidationError, PatternTypeError
+    PatternValidationError,
+    RelationshipValidationError,
+    PatternTypeError,
 )
 
 
@@ -63,8 +63,7 @@ class TestP3IFCoreIntegration:
 
         # Create relationship using IDs
         relationship = core.create_relationship(
-            prop.id, proc.id, persp.id,
-            strength=0.7, confidence=0.8
+            prop.id, proc.id, persp.id, strength=0.7, confidence=0.8
         )
 
         assert relationship.property_id == prop.id
@@ -132,7 +131,7 @@ class TestP3IFCoreIntegration:
 
         # Perform some operations
         pattern = core.create_pattern("property", "Test Property")
-        updated_pattern = core.update_pattern(pattern.id, {"description": "Updated"})
+        core.update_pattern(pattern.id, {"description": "Updated"})
         core.delete_pattern(pattern.id)
 
         # Check operation history

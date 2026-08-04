@@ -5,17 +5,16 @@ This module provides thin orchestrators for flexible composition of P3IF methods
 enabling lightweight, reusable workflow patterns.
 """
 
-from typing import Dict, List, Any, Optional, Union, Callable, Awaitable, Set
+from typing import Dict, List, Any, Callable, Set
 from dataclasses import dataclass, field
 from enum import Enum
 import asyncio
-import logging
-from abc import ABC, abstractmethod
 from ..utils.logging import get_logger, performance_monitor
 
 
 class OrchestratorType(str, Enum):
     """Types of thin orchestrators."""
+
     LINEAR = "linear"
     BRANCHING = "branching"
     PARALLEL = "parallel"
@@ -27,6 +26,7 @@ class OrchestratorType(str, Enum):
 @dataclass
 class OrchestrationStep:
     """A single step in an orchestration."""
+
     name: str
     method: Callable
     parameters: Dict[str, Any] = field(default_factory=dict)
@@ -95,7 +95,9 @@ class ThinOrchestrator:
             # Validate orchestrator before execution
             self._validate_orchestrator()
 
-            self.logger.info(f"Starting orchestrator execution: {self.name} ({self.orchestrator_type})")
+            self.logger.info(
+                f"Starting orchestrator execution: {self.name} ({self.orchestrator_type})"
+            )
 
             if self.orchestrator_type == OrchestratorType.LINEAR:
                 result = await self._execute_linear()
@@ -104,7 +106,9 @@ class ThinOrchestrator:
             elif self.orchestrator_type == OrchestratorType.CONDITIONAL:
                 result = await self._execute_conditional()
             else:
-                raise NotImplementedError(f"Orchestrator type {self.orchestrator_type} not implemented")
+                raise NotImplementedError(
+                    f"Orchestrator type {self.orchestrator_type} not implemented"
+                )
 
             self.logger.info(f"Orchestrator execution completed: {self.name}")
             return result
@@ -116,9 +120,10 @@ class ThinOrchestrator:
     def execute_sync(self) -> Dict[str, Any]:
         """Execute the orchestrator synchronously."""
         try:
-            loop = asyncio.get_running_loop()
             # If we're already in an async context, create a new loop in a thread
+            asyncio.get_running_loop()
             import concurrent.futures
+
             with concurrent.futures.ThreadPoolExecutor() as executor:
                 future = executor.submit(self._run_in_new_loop)
                 return future.result()
@@ -221,8 +226,8 @@ class ThinOrchestrator:
 
             # Inspect method signature once
             method_sig = ()
-            if hasattr(step.method, '__code__'):
-                method_sig = step.method.__code__.co_varnames[:step.method.__code__.co_argcount]
+            if hasattr(step.method, "__code__"):
+                method_sig = step.method.__code__.co_varnames[: step.method.__code__.co_argcount]
 
             # For steps with dependencies, pass the result from the last dependency
             if step.dependencies:
@@ -232,12 +237,13 @@ class ThinOrchestrator:
                         params[method_sig[1]] = self.context[last_dependency]
 
             # For methods that expect orchestrator_context, pass the entire context
-            if len(method_sig) > 1 and method_sig[1] == 'orchestrator_context':
-                params['orchestrator_context'] = self.context
+            if len(method_sig) > 1 and method_sig[1] == "orchestrator_context":
+                params["orchestrator_context"] = self.context
 
             if asyncio.iscoroutinefunction(step.method):
                 return await step.method(**params)
             else:
+
                 def execute_with_params():
                     return step.method(**params)
 
@@ -348,15 +354,17 @@ class WorkflowEngine:
         self.orchestrators: Dict[str, ThinOrchestrator] = {}
         self.global_context: Dict[str, Any] = {}
 
-    def create_orchestrator(self, name: str,
-                           orchestrator_type: OrchestratorType) -> ThinOrchestrator:
+    def create_orchestrator(
+        self, name: str, orchestrator_type: OrchestratorType
+    ) -> ThinOrchestrator:
         """Create a new orchestrator."""
         orchestrator = ThinOrchestrator(name, orchestrator_type)
         self.orchestrators[name] = orchestrator
         return orchestrator
 
-    def compose_orchestrators(self, orchestrators: List[str],
-                             composition_type: str = "sequence") -> ThinOrchestrator:
+    def compose_orchestrators(
+        self, orchestrators: List[str], composition_type: str = "sequence"
+    ) -> ThinOrchestrator:
         """Compose multiple orchestrators into a single workflow."""
         if composition_type == "sequence":
             # Chain orchestrators in sequence
@@ -373,7 +381,7 @@ class WorkflowEngine:
                         dependencies=list(step.dependencies),
                         outputs=list(step.outputs),
                         error_handling=step.error_handling,
-                        description=step.description
+                        description=step.description,
                     )
                     # Add dependency on previous orchestrator's last step
                     if composite.steps:
@@ -404,18 +412,22 @@ def create_cognitive_security_orchestrator() -> ThinOrchestrator:
 
     # This would be implemented with actual methods
     # For now, just showing the structure
-    orchestrator.add_step(OrchestrationStep(
-        name="analyze_information_pipeline",
-        method=lambda: None,  # Would be actual method
-        description="Analyze the information supply chain for vulnerabilities"
-    ))
+    orchestrator.add_step(
+        OrchestrationStep(
+            name="analyze_information_pipeline",
+            method=lambda: None,  # Would be actual method
+            description="Analyze the information supply chain for vulnerabilities",
+        )
+    )
 
-    orchestrator.add_step(OrchestrationStep(
-        name="identify_cognitive_biases",
-        method=lambda: None,  # Would be actual method
-        dependencies=["analyze_information_pipeline"],
-        description="Identify potential cognitive biases in decision processes"
-    ))
+    orchestrator.add_step(
+        OrchestrationStep(
+            name="identify_cognitive_biases",
+            method=lambda: None,  # Would be actual method
+            dependencies=["analyze_information_pipeline"],
+            description="Identify potential cognitive biases in decision processes",
+        )
+    )
 
     return orchestrator
 
@@ -424,24 +436,30 @@ def create_framework_integration_orchestrator() -> ThinOrchestrator:
     """Create an orchestrator for integrating multiple frameworks."""
     orchestrator = ThinOrchestrator("framework_integration", OrchestratorType.LINEAR)
 
-    orchestrator.add_step(OrchestrationStep(
-        name="map_framework_elements",
-        method=lambda: None,
-        description="Map elements from different frameworks to P3IF dimensions"
-    ))
+    orchestrator.add_step(
+        OrchestrationStep(
+            name="map_framework_elements",
+            method=lambda: None,
+            description="Map elements from different frameworks to P3IF dimensions",
+        )
+    )
 
-    orchestrator.add_step(OrchestrationStep(
-        name="identify_conflicts",
-        method=lambda: None,
-        dependencies=["map_framework_elements"],
-        description="Identify conflicts and overlaps between frameworks"
-    ))
+    orchestrator.add_step(
+        OrchestrationStep(
+            name="identify_conflicts",
+            method=lambda: None,
+            dependencies=["map_framework_elements"],
+            description="Identify conflicts and overlaps between frameworks",
+        )
+    )
 
-    orchestrator.add_step(OrchestrationStep(
-        name="create_unified_model",
-        method=lambda: None,
-        dependencies=["identify_conflicts"],
-        description="Create unified model with resolved conflicts"
-    ))
+    orchestrator.add_step(
+        OrchestrationStep(
+            name="create_unified_model",
+            method=lambda: None,
+            dependencies=["identify_conflicts"],
+            description="Create unified model with resolved conflicts",
+        )
+    )
 
     return orchestrator

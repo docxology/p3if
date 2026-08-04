@@ -10,18 +10,19 @@ This module's cached decorator requires a CacheManager argument. Both coexist
 for backward compatibility — new code should use utils/performance.py.
 """
 
-from typing import Dict, List, Any, Optional, Union, Callable, Hashable
-from dataclasses import dataclass, field
+from typing import Dict, List, Any, Optional, Callable
+from dataclasses import dataclass
 from enum import Enum
 import time
 import hashlib
-from collections import OrderedDict
+from collections import OrderedDict, defaultdict
 import logging
 import functools
 
 
 class CacheStrategy(str, Enum):
     """Caching strategies."""
+
     LRU = "lru"
     TTL = "ttl"
     SIZE_LIMITED = "size_limited"
@@ -31,6 +32,7 @@ class CacheStrategy(str, Enum):
 @dataclass
 class CacheEntry:
     """A single cache entry."""
+
     key: str
     value: Any
     timestamp: float
@@ -53,8 +55,12 @@ class CacheEntry:
 class CacheManager:
     """Manages caching for P3IF operations."""
 
-    def __init__(self, strategy: CacheStrategy = CacheStrategy.LRU,
-                 max_size: int = 1000, default_ttl: Optional[float] = None):
+    def __init__(
+        self,
+        strategy: CacheStrategy = CacheStrategy.LRU,
+        max_size: int = 1000,
+        default_ttl: Optional[float] = None,
+    ):
         self.strategy = strategy
         self.max_size = max_size
         self.default_ttl = default_ttl
@@ -69,11 +75,7 @@ class CacheManager:
     def _generate_key(self, func_name: str, args: tuple, kwargs: dict) -> str:
         """Generate a cache key from function call information."""
         # Create a hash of the function name and arguments
-        key_data = {
-            "function": func_name,
-            "args": str(args),
-            "kwargs": str(sorted(kwargs.items()))
-        }
+        key_data = {"function": func_name, "args": str(args), "kwargs": str(sorted(kwargs.items()))}
         key_string = str(key_data)
         return hashlib.md5(key_string.encode()).hexdigest()
 
@@ -122,7 +124,7 @@ class CacheManager:
             value=value,
             timestamp=time.time(),
             ttl=ttl or self.default_ttl,
-            size=len(str(value)) if value else 0
+            size=len(str(value)) if value else 0,
         )
 
         self.cache[key] = entry
@@ -145,13 +147,17 @@ class CacheManager:
             "hits": self.hits,
             "misses": self.misses,
             "hit_rate_percent": round(hit_rate, 2),
-            "total_requests": total_requests
+            "total_requests": total_requests,
         }
 
 
-def cached(cache_manager: Optional[CacheManager] = None,
-           ttl: Optional[float] = None, cache_key: Optional[str] = None) -> Any:
+def cached(
+    cache_manager: Optional[CacheManager] = None,
+    ttl: Optional[float] = None,
+    cache_key: Optional[str] = None,
+) -> Any:
     """Decorator for caching function results."""
+
     def decorator(func: Callable) -> Callable:
         @functools.wraps(func)
         def wrapper(*args: Any, **kwargs: Any) -> Any:
@@ -176,7 +182,9 @@ def cached(cache_manager: Optional[CacheManager] = None,
             cm.put(key, result, ttl)
 
             return result
+
         return wrapper
+
     return decorator
 
 
@@ -212,12 +220,16 @@ class PerformanceOptimizer:
                     "average": sum(values) / len(values),
                     "min": min(values),
                     "max": max(values),
-                    "total": sum(values)
+                    "total": sum(values),
                 }
         return summary
 
-    def optimize_query(self, query_func: Callable, data: List[Any],
-                      optimization_hints: Optional[Dict[str, Any]] = None) -> Any:
+    def optimize_query(
+        self,
+        query_func: Callable,
+        data: List[Any],
+        optimization_hints: Optional[Dict[str, Any]] = None,
+    ) -> Any:
         """Optimize a query operation based on data characteristics."""
         optimization_hints = optimization_hints or {}
 
@@ -244,8 +256,9 @@ class PerformanceOptimizer:
         self.record_metric("small_query_time", execution_time)
         return result
 
-    def _optimized_query_large(self, query_func: Callable, data: List[Any],
-                              hints: Dict[str, Any]) -> Any:
+    def _optimized_query_large(
+        self, query_func: Callable, data: List[Any], hints: Dict[str, Any]
+    ) -> Any:
         """Optimized query for large datasets."""
         start_time = time.time()
 
@@ -321,8 +334,9 @@ def get_cache_manager() -> CacheManager:
     return _global_cache_manager
 
 
-def configure_global_cache(strategy: CacheStrategy = CacheStrategy.LRU,
-                          max_size: int = 1000, ttl: Optional[float] = None) -> None:
+def configure_global_cache(
+    strategy: CacheStrategy = CacheStrategy.LRU, max_size: int = 1000, ttl: Optional[float] = None
+) -> None:
     """Configure the global cache manager."""
     global _global_cache_manager
     _global_cache_manager = CacheManager(strategy, max_size, ttl)

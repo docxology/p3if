@@ -5,16 +5,19 @@ Comprehensive tests for P3IF core functionality, ensuring modular methods work c
 """
 
 import unittest
-import pytest
 from datetime import datetime
-from typing import Dict, List, Any
 import tempfile
 import json
 import os
 
 from p3if.core.core import P3IFCore, P3IFOperation, OperationType
 from p3if.core.models import Property, Process, Perspective, Relationship
-from p3if.core.exceptions import PatternTypeError, PatternNotFoundError, RelationshipValidationError, PatternValidationError
+from p3if.core.exceptions import (
+    PatternTypeError,
+    PatternNotFoundError,
+    RelationshipValidationError,
+    PatternValidationError,
+)
 
 
 class TestP3IFCore(unittest.TestCase):
@@ -26,7 +29,9 @@ class TestP3IFCore(unittest.TestCase):
 
     def test_create_property(self):
         """Test creating a property."""
-        prop = self.core.create_pattern("property", "Test Property", "test_domain", "A test property")
+        prop = self.core.create_pattern(
+            "property", "Test Property", "test_domain", "A test property"
+        )
 
         self.assertIsNotNone(prop)
         self.assertEqual(prop.name, "Test Property")
@@ -46,8 +51,13 @@ class TestP3IFCore(unittest.TestCase):
 
     def test_create_perspective(self):
         """Test creating a perspective."""
-        pers = self.core.create_pattern("perspective", "Test Perspective", "test_domain",
-                                      "A test perspective", viewpoint="test_view")
+        pers = self.core.create_pattern(
+            "perspective",
+            "Test Perspective",
+            "test_domain",
+            "A test perspective",
+            viewpoint="test_view",
+        )
 
         self.assertIsNotNone(pers)
         self.assertEqual(pers.name, "Test Perspective")
@@ -119,17 +129,14 @@ class TestP3IFCore(unittest.TestCase):
         prop = self.core.create_pattern("property", "Test Property", "test_domain")
         proc = self.core.create_pattern("process", "Test Process", "test_domain")
 
-        rel = self.core.create_relationship(
-            prop.id, proc.id, None,
-            strength=0.8,
-            confidence=0.9
-        )
+        rel = self.core.create_relationship(prop.id, proc.id, None, strength=0.8, confidence=0.9)
         self.assertEqual(rel.strength, 0.8)
         self.assertEqual(rel.confidence, 0.9)
 
     def test_create_relationship_invalid_patterns(self):
         """Test creating a relationship with invalid pattern IDs."""
         from p3if.core.exceptions import RelationshipValidationError
+
         with self.assertRaises(RelationshipValidationError):
             self.core.create_relationship("invalid_prop", "invalid_proc", "invalid_pers")
 
@@ -138,7 +145,7 @@ class TestP3IFCore(unittest.TestCase):
         patterns_data = [
             {"pattern_type": "property", "name": "Prop1", "domain": "test"},
             {"pattern_type": "property", "name": "Prop2", "domain": "test"},
-            {"pattern_type": "process", "name": "Proc1", "domain": "test"}
+            {"pattern_type": "process", "name": "Proc1", "domain": "test"},
         ]
 
         patterns = self.core.create_pattern_bulk(patterns_data)
@@ -230,8 +237,8 @@ class TestP3IFCore(unittest.TestCase):
         prop2 = self.core.create_pattern("property", "Integrity", "security")
         proc = self.core.create_pattern("process", "Encryption", "security")
 
-        rel1 = self.core.create_relationship(prop1.id, proc.id, None, strength=0.9)
-        rel2 = self.core.create_relationship(prop2.id, proc.id, None, strength=0.8)
+        self.core.create_relationship(prop1.id, proc.id, None, strength=0.9)
+        self.core.create_relationship(prop2.id, proc.id, None, strength=0.8)
 
         analysis = self.core.analyze_patterns()
 
@@ -245,8 +252,8 @@ class TestP3IFCore(unittest.TestCase):
         """Test pattern search functionality."""
         # Create patterns with different attributes
         prop1 = self.core.create_pattern("property", "Data Security", "cybersecurity")
-        prop2 = self.core.create_pattern("property", "Access Control", "security")
-        proc = self.core.create_pattern("process", "Authentication", "security")
+        self.core.create_pattern("property", "Access Control", "security")
+        self.core.create_pattern("process", "Authentication", "security")
 
         # Test search by name
         security_patterns = self.core.find_patterns({"name": "Security"})
@@ -264,17 +271,17 @@ class TestP3IFCore(unittest.TestCase):
         self.core.create_pattern("process", "Test Process", "test")
 
         # Export to JSON
-        with tempfile.NamedTemporaryFile(mode='w', delete=False, suffix='.json') as f:
+        with tempfile.NamedTemporaryFile(mode="w", delete=False, suffix=".json") as f:
             temp_file = f.name
 
         try:
-            result = self.core.export_framework(format="json", path=temp_file)
+            self.core.export_framework(format="json", path=temp_file)
 
             # Check file was created
             self.assertTrue(os.path.exists(temp_file))
 
             # Check file contents
-            with open(temp_file, 'r') as f:
+            with open(temp_file, "r") as f:
                 data = json.load(f)
 
             self.assertIn("patterns", data)
@@ -297,6 +304,7 @@ class TestP3IFCore(unittest.TestCase):
     def test_relationship_with_invalid_patterns(self):
         """Test error handling for relationships with invalid patterns."""
         from p3if.core.exceptions import RelationshipValidationError
+
         with self.assertRaises(RelationshipValidationError):
             self.core.create_relationship("invalid_source", "invalid_target")
 
@@ -309,7 +317,7 @@ class TestP3IFOperation(unittest.TestCase):
         operation = P3IFOperation(
             operation_type=OperationType.CREATE,
             description="Test operation",
-            parameters={"test": "value"}
+            parameters={"test": "value"},
         )
 
         self.assertEqual(operation.operation_type, OperationType.CREATE)
@@ -328,5 +336,5 @@ class TestP3IFOperation(unittest.TestCase):
         self.assertLessEqual(operation.timestamp, after)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -6,9 +6,16 @@ Tests the custom exception hierarchy and error handling throughout the framework
 
 import unittest
 from p3if.core.exceptions import (
-    P3IFError, PatternError, PatternNotFoundError, PatternValidationError,
-    PatternTypeError, RelationshipError, RelationshipValidationError,
-    FrameworkError, FrameworkValidationError, OperationError
+    P3IFError,
+    PatternError,
+    PatternNotFoundError,
+    PatternValidationError,
+    PatternTypeError,
+    RelationshipError,
+    RelationshipValidationError,
+    FrameworkError,
+    FrameworkValidationError,
+    OperationError,
 )
 
 
@@ -116,7 +123,7 @@ class TestP3IFExceptions(unittest.TestCase):
             "user_id": "user_123",
             "operation": "create_pattern",
             "parameters": {"name": "test", "type": "property"},
-            "stack_trace": ["line1", "line2", "line3"]
+            "stack_trace": ["line1", "line2", "line3"],
         }
 
         error = P3IFError("Complex error occurred", complex_details)
@@ -142,5 +149,5 @@ class TestP3IFExceptions(unittest.TestCase):
         self.assertIn("key2=value2", error_str)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

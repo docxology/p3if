@@ -9,9 +9,4 @@ from .meta import MetaAnalyzer
 from .network import NetworkAnalyzer
 from .report import AnalysisReport
 
-__all__ = [
-    'BasicAnalyzer',
-    'MetaAnalyzer',
-    'NetworkAnalyzer',
-    'AnalysisReport'
-]
+__all__ = ["BasicAnalyzer", "MetaAnalyzer", "NetworkAnalyzer", "AnalysisReport"]

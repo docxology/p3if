@@ -22,7 +22,7 @@ if src_path_str in sys.path:
 sys.path.insert(0, src_path_str)
 
 # Also set PYTHONPATH environment variable
-os.environ['PYTHONPATH'] = src_path_str + os.pathsep + os.environ.get('PYTHONPATH', '')
+os.environ["PYTHONPATH"] = src_path_str + os.pathsep + os.environ.get("PYTHONPATH", "")
 
 # Debug: Verify path setup
 if not Path(src_path_str).exists():
@@ -36,14 +36,19 @@ if not p3if_path.exists():
     raise RuntimeError(f"p3if package not found at: {p3if_path}")
 
 # Try importing step by step
-import p3if
-from p3if.core import P3IFFramework
-from p3if.core.models import Property, Process, Perspective
+from p3if.core import P3IFFramework  # noqa: E402 - after sys.path verification
+from p3if.core.models import (  # noqa: E402 - after sys.path setup
+    Property,
+    Process,
+    Perspective,
+)  # noqa: E402 - after sys.path verification
+
 
 @pytest.fixture
 def empty_framework():
     """Create an empty P3IF framework for testing."""
     return P3IFFramework()
+
 
 @pytest.fixture
 def populated_framework():
@@ -52,10 +57,12 @@ def populated_framework():
     # Add test patterns
     prop = Property(name="Test Property", description="Test property", domain="test")
     proc = Process(name="Test Process", description="Test process", domain="test")
-    persp = Perspective(name="Test Perspective", description="Test perspective", domain="test", viewpoint="test")
-    
+    persp = Perspective(
+        name="Test Perspective", description="Test perspective", domain="test", viewpoint="test"
+    )
+
     framework.add_pattern(prop)
     framework.add_pattern(proc)
     framework.add_pattern(persp)
-    
+
     return framework

@@ -4,11 +4,10 @@ Tests for FrameworkBuilder fluent API, __eq__ on models, DomainData validation.
 
 import unittest
 import json
-import tempfile
 import os
 
 from p3if.core.framework import FrameworkBuilder, P3IFFramework
-from p3if.core.models import Property, Process, Perspective, Relationship, BasePattern, PatternType
+from p3if.core.models import Property, Process, Relationship
 from p3if.data.domain_model import DomainData
 
 
@@ -16,11 +15,15 @@ class TestFrameworkBuilder(unittest.TestCase):
     """Test the fluent builder API."""
 
     def test_basic_chaining(self):
-        fw = (FrameworkBuilder()
-              .add_property(name="Security", description="Sec prop", domain="cybersec")
-              .add_process(name="Auth", description="Auth proc", domain="cybersec")
-              .add_perspective(name="Technical", description="Tech persp", domain="cybersec", viewpoint="dev")
-              .build())
+        fw = (
+            FrameworkBuilder()
+            .add_property(name="Security", description="Sec prop", domain="cybersec")
+            .add_process(name="Auth", description="Auth proc", domain="cybersec")
+            .add_perspective(
+                name="Technical", description="Tech persp", domain="cybersec", viewpoint="dev"
+            )
+            .build()
+        )
 
         self.assertIsInstance(fw, P3IFFramework)
         self.assertEqual(len(fw), 3)
@@ -41,9 +44,11 @@ class TestFrameworkBuilder(unittest.TestCase):
         self.assertEqual(len(fw.get_all_relationships()), 1)
 
     def test_add_pattern_directly(self):
-        fw = (FrameworkBuilder()
-              .add_pattern(Property(name="Direct", description="d", domain="test"))
-              .build())
+        fw = (
+            FrameworkBuilder()
+            .add_pattern(Property(name="Direct", description="d", domain="test"))
+            .build()
+        )
         self.assertEqual(len(fw), 1)
 
     def test_builder_repr(self):
@@ -125,7 +130,7 @@ class TestDomainData(unittest.TestCase):
             "version": "1.0",
             "properties": ["Prop1", "Prop2"],
             "processes": ["Proc1"],
-            "perspectives": ["Persp1"]
+            "perspectives": ["Persp1"],
         }
         dd = DomainData(**data)
         self.assertEqual(dd.domain, "TestDomain")
@@ -137,7 +142,7 @@ class TestDomainData(unittest.TestCase):
             "domain": "  SpacedDomain  ",
             "properties": ["  Prop1  ", "Prop2"],
             "processes": [],
-            "perspectives": []
+            "perspectives": [],
         }
         dd = DomainData(**data)
         self.assertEqual(dd.domain, "SpacedDomain")
@@ -157,7 +162,7 @@ class TestDomainData(unittest.TestCase):
             "properties": [],
             "processes": [],
             "perspectives": [],
-            "extra_field": "ignored"
+            "extra_field": "ignored",
         }
         dd = DomainData(**data)
         self.assertEqual(dd.domain, "Test")
@@ -165,8 +170,7 @@ class TestDomainData(unittest.TestCase):
     def test_load_actual_domain_file(self):
         """Load an actual domain JSON from data/domains/."""
         domain_path = os.path.join(
-            os.path.dirname(__file__), "..", "..", "..",
-            "data", "domains", "healthcare.json"
+            os.path.dirname(__file__), "..", "..", "..", "data", "domains", "healthcare.json"
         )
         if not os.path.exists(domain_path):
             self.skipTest("healthcare.json not found")
@@ -184,5 +188,5 @@ class TestDomainData(unittest.TestCase):
         self.assertIn("DomainData", r)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

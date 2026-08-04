@@ -10,8 +10,8 @@ from .dashboard import DashboardGenerator
 from .orchestrator import P3IFVisualizationOrchestrator
 
 __all__ = [
-    'VisualizationPortal',
-    'MultiDomainPortal',
-    'DashboardGenerator',
-    'P3IFVisualizationOrchestrator'
+    "VisualizationPortal",
+    "MultiDomainPortal",
+    "DashboardGenerator",
+    "P3IFVisualizationOrchestrator",
 ]

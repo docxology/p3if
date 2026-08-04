@@ -1,7 +1,6 @@
 """
 Unit tests for P3IF data importers.
 """
-import pytest
 import json
 import csv
 import tempfile
@@ -24,12 +23,17 @@ class TestImportFromJSON:
                 {"name": "Test Process", "description": "Test description", "domain": "test"}
             ],
             "perspectives": [
-                {"name": "Test Perspective", "description": "Test description", "domain": "test", "viewpoint": "test_view"}
+                {
+                    "name": "Test Perspective",
+                    "description": "Test description",
+                    "domain": "test",
+                    "viewpoint": "test_view",
+                }
             ],
-            "relationships": []
+            "relationships": [],
         }
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as f:
             json.dump(test_data, f)
             temp_path = Path(f.name)
 
@@ -52,23 +56,28 @@ class TestImportFromJSON:
         # Create test JSON data with the actual IDs
         test_data = {
             "properties": [
-                {"id": prop.id, "name": prop.name, "description": prop.description, "domain": prop.domain}
+                {
+                    "id": prop.id,
+                    "name": prop.name,
+                    "description": prop.description,
+                    "domain": prop.domain,
+                }
             ],
             "processes": [
-                {"id": proc.id, "name": proc.name, "description": proc.description, "domain": proc.domain}
+                {
+                    "id": proc.id,
+                    "name": proc.name,
+                    "description": proc.description,
+                    "domain": proc.domain,
+                }
             ],
             "perspectives": [],
             "relationships": [
-                {
-                    "property_id": prop.id,
-                    "process_id": proc.id,
-                    "strength": 0.8,
-                    "confidence": 0.9
-                }
-            ]
+                {"property_id": prop.id, "process_id": proc.id, "strength": 0.8, "confidence": 0.9}
+            ],
         }
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as f:
             json.dump(test_data, f)
             temp_path = Path(f.name)
 
@@ -93,15 +102,13 @@ class TestImportFromJSON:
 
         # Create test JSON data
         test_data = {
-            "properties": [
-                {"name": "New Property", "description": "Test", "domain": "test"}
-            ],
+            "properties": [{"name": "New Property", "description": "Test", "domain": "test"}],
             "processes": [],
             "perspectives": [],
-            "relationships": []
+            "relationships": [],
         }
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as f:
             json.dump(test_data, f)
             temp_path = Path(f.name)
 
@@ -117,14 +124,9 @@ class TestImportFromJSON:
         """Test importing empty JSON file."""
         from p3if.data.importers import import_from_json
 
-        test_data = {
-            "properties": [],
-            "processes": [],
-            "perspectives": [],
-            "relationships": []
-        }
+        test_data = {"properties": [], "processes": [], "perspectives": [], "relationships": []}
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as f:
             json.dump(test_data, f)
             temp_path = Path(f.name)
 
@@ -146,22 +148,22 @@ class TestImportFromCSV:
 
         # Create patterns CSV
         patterns_data = [
-            ['id', 'type', 'name', 'description', 'domain', 'tags'],
-            ['p1', 'property', 'Test Property', 'Test description', 'test', 'tag1,tag2'],
-            ['p2', 'process', 'Test Process', 'Test description', 'test', 'tag1'],
+            ["id", "type", "name", "description", "domain", "tags"],
+            ["p1", "property", "Test Property", "Test description", "test", "tag1,tag2"],
+            ["p2", "process", "Test Process", "Test description", "test", "tag1"],
         ]
 
         # Create relationships CSV
         relationships_data = [
-            ['id', 'property_id', 'process_id', 'perspective_id', 'strength', 'confidence'],
+            ["id", "property_id", "process_id", "perspective_id", "strength", "confidence"],
         ]
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False, newline='') as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".csv", delete=False, newline="") as f:
             writer = csv.writer(f)
             writer.writerows(patterns_data)
             patterns_path = Path(f.name)
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False, newline='') as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".csv", delete=False, newline="") as f:
             writer = csv.writer(f)
             writer.writerows(relationships_data)
             relationships_path = Path(f.name)
@@ -185,23 +187,23 @@ class TestImportFromCSV:
 
         # Create patterns CSV
         patterns_data = [
-            ['id', 'type', 'name', 'description', 'domain', 'tags'],
-            [prop.id, 'property', prop.name, prop.description, prop.domain, ''],
-            [proc.id, 'process', proc.name, proc.description, proc.domain, ''],
+            ["id", "type", "name", "description", "domain", "tags"],
+            [prop.id, "property", prop.name, prop.description, prop.domain, ""],
+            [proc.id, "process", proc.name, proc.description, proc.domain, ""],
         ]
 
         # Create relationships CSV
         relationships_data = [
-            ['id', 'property_id', 'process_id', 'perspective_id', 'strength', 'confidence'],
-            ['r1', prop.id, proc.id, '', '0.8', '0.9'],
+            ["id", "property_id", "process_id", "perspective_id", "strength", "confidence"],
+            ["r1", prop.id, proc.id, "", "0.8", "0.9"],
         ]
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False, newline='') as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".csv", delete=False, newline="") as f:
             writer = csv.writer(f)
             writer.writerows(patterns_data)
             patterns_path = Path(f.name)
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False, newline='') as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".csv", delete=False, newline="") as f:
             writer = csv.writer(f)
             writer.writerows(relationships_data)
             relationships_path = Path(f.name)
@@ -221,20 +223,20 @@ class TestImportFromCSV:
 
         # Create empty patterns CSV (header only)
         patterns_data = [
-            ['id', 'type', 'name', 'description', 'domain', 'tags'],
+            ["id", "type", "name", "description", "domain", "tags"],
         ]
 
         # Create empty relationships CSV (header only)
         relationships_data = [
-            ['id', 'property_id', 'process_id', 'perspective_id', 'strength', 'confidence'],
+            ["id", "property_id", "process_id", "perspective_id", "strength", "confidence"],
         ]
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False, newline='') as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".csv", delete=False, newline="") as f:
             writer = csv.writer(f)
             writer.writerows(patterns_data)
             patterns_path = Path(f.name)
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False, newline='') as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".csv", delete=False, newline="") as f:
             writer = csv.writer(f)
             writer.writerows(relationships_data)
             relationships_path = Path(f.name)
@@ -271,7 +273,7 @@ class TestImportExportRoundTrip:
         original.add_relationship(rel)
 
         # Export
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as f:
             temp_path = Path(f.name)
 
         try:
@@ -305,9 +307,9 @@ class TestImportExportRoundTrip:
         original.add_relationship(rel)
 
         # Export
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".csv", delete=False) as f:
             patterns_path = Path(f.name)
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".csv", delete=False) as f:
             rels_path = Path(f.name)
 
         try:

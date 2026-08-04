@@ -6,18 +6,19 @@ and optimization utilities for the P3IF framework.
 """
 import time
 import functools
+from datetime import datetime
 
 # Optional imports
 try:
     import psutil
+
     PSUTIL_AVAILABLE = True
 except ImportError:
     psutil = None
     PSUTIL_AVAILABLE = False
 
 import threading
-import asyncio
-from typing import Dict, Any, List, Optional, Callable, Union
+from typing import Dict, Any, List, Optional, Callable
 from contextlib import contextmanager
 from dataclasses import dataclass, field
 from collections import defaultdict, OrderedDict
@@ -29,12 +30,11 @@ import pstats
 import io
 import tracemalloc
 
-from p3if.utils.config import Config
-
 
 @dataclass
 class PerformanceMetrics:
     """Data class for storing performance metrics."""
+
     execution_time: float = 0.0
     memory_usage: int = 0  # bytes
     cpu_usage: float = 0.0
@@ -48,21 +48,22 @@ class PerformanceMetrics:
     def to_dict(self) -> Dict[str, Any]:
         """Convert metrics to dictionary."""
         return {
-            'execution_time': self.execution_time,
-            'memory_usage': self.memory_usage,
-            'cpu_usage': self.cpu_usage,
-            'function_calls': self.function_calls,
-            'cache_hits': self.cache_hits,
-            'cache_misses': self.cache_misses,
-            'io_operations': self.io_operations,
-            'network_requests': self.network_requests,
-            'timestamp': self.timestamp
+            "execution_time": self.execution_time,
+            "memory_usage": self.memory_usage,
+            "cpu_usage": self.cpu_usage,
+            "function_calls": self.function_calls,
+            "cache_hits": self.cache_hits,
+            "cache_misses": self.cache_misses,
+            "io_operations": self.io_operations,
+            "network_requests": self.network_requests,
+            "timestamp": self.timestamp,
         }
 
 
 @dataclass
 class CacheEntry:
     """Cache entry with metadata."""
+
     value: Any
     created_at: float
     last_accessed: float
@@ -177,7 +178,7 @@ class LRUCache:
                 created_at=time.time(),
                 last_accessed=time.time(),
                 size_bytes=size_bytes,
-                ttl=ttl or self.default_ttl
+                ttl=ttl or self.default_ttl,
             )
 
             # Remove expired entries
@@ -206,12 +207,14 @@ class LRUCache:
         with self.lock:
             total_size = sum(entry.size_bytes for entry in self.cache.values())
             return {
-                'size': len(self.cache),
-                'max_size': self.max_size,
-                'hits': self.hits,
-                'misses': self.misses,
-                'hit_rate': self.hits / (self.hits + self.misses) if (self.hits + self.misses) > 0 else 0,
-                'total_size_bytes': total_size
+                "size": len(self.cache),
+                "max_size": self.max_size,
+                "hits": self.hits,
+                "misses": self.misses,
+                "hit_rate": self.hits / (self.hits + self.misses)
+                if (self.hits + self.misses) > 0
+                else 0,
+                "total_size_bytes": total_size,
             }
 
 
@@ -237,7 +240,9 @@ class PerformanceMonitor:
                 return
             self.active_timers[name] = time.time()
 
-    def end_timer(self, name: str, metadata: Optional[Dict[str, Any]] = None) -> Optional[PerformanceMetrics]:
+    def end_timer(
+        self, name: str, metadata: Optional[Dict[str, Any]] = None
+    ) -> Optional[PerformanceMetrics]:
         """End a performance timer and record metrics."""
         if not self.enabled:
             return None
@@ -262,9 +267,7 @@ class PerformanceMonitor:
                 cpu_usage = 0.0
 
             metrics = PerformanceMetrics(
-                execution_time=execution_time,
-                memory_usage=memory_usage,
-                cpu_usage=cpu_usage
+                execution_time=execution_time, memory_usage=memory_usage, cpu_usage=cpu_usage
             )
 
             # Add metadata if provided
@@ -291,14 +294,14 @@ class PerformanceMonitor:
         cpu_usage = [m.cpu_usage for m in metrics]
 
         return {
-            'count': len(metrics),
-            'avg_execution_time': sum(execution_times) / len(execution_times),
-            'min_execution_time': min(execution_times),
-            'max_execution_time': max(execution_times),
-            'avg_memory_usage': sum(memory_usage) / len(memory_usage),
-            'max_memory_usage': max(memory_usage),
-            'avg_cpu_usage': sum(cpu_usage) / len(cpu_usage),
-            'total_time': sum(execution_times)
+            "count": len(metrics),
+            "avg_execution_time": sum(execution_times) / len(execution_times),
+            "min_execution_time": min(execution_times),
+            "max_execution_time": max(execution_times),
+            "avg_memory_usage": sum(memory_usage) / len(memory_usage),
+            "max_memory_usage": max(memory_usage),
+            "avg_cpu_usage": sum(cpu_usage) / len(cpu_usage),
+            "total_time": sum(execution_times),
         }
 
     def profile_function(self, func: Callable, *args, **kwargs) -> Any:
@@ -312,7 +315,7 @@ class PerformanceMonitor:
         finally:
             profiler.disable()
             stats = pstats.Stats(profiler)
-            stats.sort_stats('cumulative')
+            stats.sort_stats("cumulative")
 
             # Save stats to string buffer
             buffer = io.StringIO()
@@ -339,7 +342,7 @@ class PerformanceMonitor:
             tracemalloc.stop()
 
             # Analyze memory differences
-            top_stats = snapshot2.compare_to(snapshot1, 'lineno')[:10]
+            top_stats = snapshot2.compare_to(snapshot1, "lineno")[:10]
 
             self.logger.info(f"Memory trace for {name}:")
             for stat in top_stats:
@@ -363,6 +366,7 @@ _visualization_cache = LRUCache(max_size=100, default_ttl=1800)  # 30 minutes de
 
 def performance_timer(name: str, metadata: Optional[Dict[str, Any]] = None):
     """Decorator for timing function execution."""
+
     def decorator(func: Callable):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
@@ -376,11 +380,13 @@ def performance_timer(name: str, metadata: Optional[Dict[str, Any]] = None):
                 monitor.end_timer(name, metadata)
 
         return wrapper
+
     return decorator
 
 
 def cached(cache_key: str = None, ttl: Optional[float] = None):
     """Decorator for caching function results."""
+
     # Handle both @cached and @cached() syntax
     def actual_decorator(func: Callable):
         @functools.wraps(func)
@@ -390,7 +396,7 @@ def cached(cache_key: str = None, ttl: Optional[float] = None):
                 key = cache_key
             else:
                 # For methods, include the class name to avoid collisions
-                if args and hasattr(args[0], '__class__'):
+                if args and hasattr(args[0], "__class__"):
                     class_name = args[0].__class__.__name__
                     key = f"{class_name}.{func.__name__}:{str(args[1:])}:{str(sorted(kwargs.items()))}"
                 else:
@@ -422,6 +428,7 @@ def cached(cache_key: str = None, ttl: Optional[float] = None):
 
 def memoize(func: Callable):
     """Memoization decorator using LRU cache."""
+
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
         # Create cache key from function name and arguments
@@ -449,17 +456,17 @@ def get_performance_monitor() -> PerformanceMonitor:
     return _performance_monitor
 
 
-def get_cache(cache_type: str = 'global') -> LRUCache:
+def get_cache(cache_type: str = "global") -> LRUCache:
     """Get cache instance by type."""
     caches = {
-        'global': _global_cache,
-        'framework': _framework_cache,
-        'visualization': _visualization_cache
+        "global": _global_cache,
+        "framework": _framework_cache,
+        "visualization": _visualization_cache,
     }
     return caches.get(cache_type, _global_cache)
 
 
-def clear_cache(cache_type: str = 'global'):
+def clear_cache(cache_type: str = "global"):
     """Clear cache by type."""
     cache = get_cache(cache_type)
     cache.clear()
@@ -496,6 +503,7 @@ async def async_performance_timer(name: str, metadata: Optional[Dict[str, Any]] 
 # Alias for backward compatibility
 timed = performance_timer
 
+
 def optimize_dataframe_operations():
     """Optimize pandas DataFrame operations for better performance."""
     try:
@@ -503,7 +511,7 @@ def optimize_dataframe_operations():
 
         # Set performance-oriented options with compatibility checks
         try:
-            pd.set_option('mode.chained_assignment', None)  # Disable chained assignment warnings
+            pd.set_option("mode.chained_assignment", None)  # Disable chained assignment warnings
         except Exception:
             pass  # Option may not exist in this pandas version
 
@@ -528,14 +536,14 @@ def optimize_memory_usage():
             memory_info = process.memory_info()
 
             return {
-                'rss': memory_info.rss,  # Resident Set Size
-                'vms': memory_info.vms,  # Virtual Memory Size
-                'percent': process.memory_percent()
+                "rss": memory_info.rss,  # Resident Set Size
+                "vms": memory_info.vms,  # Virtual Memory Size
+                "percent": process.memory_percent(),
             }
         except Exception as e:
-            return {'error': f'psutil error: {e}'}
+            return {"error": f"psutil error: {e}"}
     else:
-        return {'error': 'psutil not available'}
+        return {"error": "psutil not available"}
 
 
 def get_system_resources():
@@ -544,27 +552,27 @@ def get_system_resources():
         try:
             cpu_percent = psutil.cpu_percent(interval=1)
             memory = psutil.virtual_memory()
-            disk = psutil.disk_usage('/')
+            disk = psutil.disk_usage("/")
 
             return {
-                'cpu_percent': cpu_percent,
-                'memory': {
-                    'total': memory.total,
-                    'available': memory.available,
-                    'percent': memory.percent,
-                    'used': memory.used
+                "cpu_percent": cpu_percent,
+                "memory": {
+                    "total": memory.total,
+                    "available": memory.available,
+                    "percent": memory.percent,
+                    "used": memory.used,
                 },
-                'disk': {
-                    'total': disk.total,
-                    'free': disk.free,
-                    'percent': disk.percent,
-                    'used': disk.used
-                }
+                "disk": {
+                    "total": disk.total,
+                    "free": disk.free,
+                    "percent": disk.percent,
+                    "used": disk.used,
+                },
             }
         except Exception as e:
-            return {'error': f'psutil error: {e}'}
+            return {"error": f"psutil error: {e}"}
     else:
-        return {'error': 'psutil not available'}
+        return {"error": "psutil not available"}
 
 
 def create_performance_report(output_file: Optional[str] = None) -> Dict[str, Any]:
@@ -579,18 +587,18 @@ def create_performance_report(output_file: Optional[str] = None) -> Dict[str, An
     monitor = get_performance_monitor()
 
     report = {
-        'timestamp': datetime.now().isoformat(),
-        'system_resources': get_system_resources(),
-        'memory_usage': optimize_memory_usage(),
-        'cache_stats': {},
-        'performance_metrics': {},
-        'summary': {}
+        "timestamp": datetime.now().isoformat(),
+        "system_resources": get_system_resources(),
+        "memory_usage": optimize_memory_usage(),
+        "cache_stats": {},
+        "performance_metrics": {},
+        "summary": {},
     }
 
     # Cache statistics
-    for cache_type in ['global', 'framework', 'visualization']:
+    for cache_type in ["global", "framework", "visualization"]:
         cache = get_cache(cache_type)
-        report['cache_stats'][cache_type] = cache.stats()
+        report["cache_stats"][cache_type] = cache.stats()
 
     # Performance metrics summary
     total_timers = 0
@@ -603,19 +611,19 @@ def create_performance_report(output_file: Optional[str] = None) -> Dict[str, An
             total_measurements += len(metrics_list)
             total_time += sum(m.execution_time for m in metrics_list)
 
-            report['performance_metrics'][timer_name] = monitor.get_summary_stats(timer_name)
+            report["performance_metrics"][timer_name] = monitor.get_summary_stats(timer_name)
 
-    report['summary'] = {
-        'total_timers': total_timers,
-        'total_measurements': total_measurements,
-        'total_execution_time': total_time,
-        'average_execution_time': total_time / max(total_measurements, 1)
+    report["summary"] = {
+        "total_timers": total_timers,
+        "total_measurements": total_measurements,
+        "total_execution_time": total_time,
+        "average_execution_time": total_time / max(total_measurements, 1),
     }
 
     # Save to file if specified
     if output_file:
         output_path = Path(output_file)
-        with open(output_path, 'w') as f:
+        with open(output_path, "w") as f:
             json.dump(report, f, indent=2)
 
     return report

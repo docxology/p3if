@@ -5,13 +5,10 @@ This module provides modern, high-performance interactive visualization capabili
 for P3IF data, including 3D visualizations, network graphs, and web-based interactive elements
 with enhanced user experience and performance optimizations.
 """
-from typing import Dict, List, Any, Optional, Union, Tuple, Set
-import logging
+from typing import Dict, List, Any, Optional, Union
 import json
-import asyncio
 from pathlib import Path
 import os
-import numpy as np
 from dataclasses import dataclass
 from datetime import datetime
 from enum import Enum
@@ -23,18 +20,13 @@ from p3if.core.framework import P3IFFramework
 from p3if.core.models import BasePattern
 from ..base import Visualizer
 from p3if.utils.config import Config
-from p3if.utils.performance import (
-    get_performance_monitor, get_cache, performance_timer,
-    cached, memoize, performance_context
-)
-from p3if.utils.output_organizer import (
-    get_output_organizer, organize_visualization_output,
-    organize_animation_output, create_standard_output_structure
-)
+from p3if.utils.performance import get_performance_monitor, get_cache, performance_timer
+from p3if.utils.output_organizer import get_output_organizer
 
 
 class VisualizationType(str, Enum):
     """Types of visualizations available."""
+
     CUBE_3D = "cube_3d"
     NETWORK_GRAPH = "network_graph"
     MATRIX_VIEW = "matrix_view"
@@ -47,6 +39,7 @@ class VisualizationType(str, Enum):
 
 class InteractionMode(str, Enum):
     """Different interaction modes for visualizations."""
+
     VIEW_ONLY = "view_only"
     SELECT = "select"
     EDIT = "edit"
@@ -57,6 +50,7 @@ class InteractionMode(str, Enum):
 @dataclass
 class VisualizationConfig:
     """Configuration for visualization generation."""
+
     width: int = 1200
     height: int = 800
     theme: str = "default"  # default, dark, light, blue
@@ -72,19 +66,19 @@ class VisualizationConfig:
 
 class InteractiveVisualizer(Visualizer):
     """Enhanced interactive visualizer with modern capabilities."""
-    
+
     def __init__(self, framework: P3IFFramework, config: Optional[Config] = None):
         """
         Initialize enhanced interactive visualizer.
-        
+
         Args:
             framework: P3IF framework instance
             config: Optional configuration
         """
         super().__init__(framework, config)
-    
+
         # Enhanced caching with LRU and TTL support
-        self._cache = get_cache('visualization')  # Use global cache
+        self._cache = get_cache("visualization")  # Use global cache
         self._local_cache: Dict[str, Dict[str, Any]] = {}  # Local cache for session data
         self._cache_expiry: Dict[str, float] = {}
         self._max_cache_size = 100  # Maximum local cache entries
@@ -110,7 +104,7 @@ class InteractiveVisualizer(Visualizer):
                 "secondary": "#ff7f0e",
                 "tertiary": "#2ca02c",
                 "text": "#333333",
-                "grid": "#e0e0e0"
+                "grid": "#e0e0e0",
             },
             "dark": {
                 "background": "#1a1a1a",
@@ -118,7 +112,7 @@ class InteractiveVisualizer(Visualizer):
                 "secondary": "#ff9500",
                 "tertiary": "#34c759",
                 "text": "#ffffff",
-                "grid": "#333333"
+                "grid": "#333333",
             },
             "light": {
                 "background": "#f8f9fa",
@@ -126,7 +120,7 @@ class InteractiveVisualizer(Visualizer):
                 "secondary": "#fd7e14",
                 "tertiary": "#28a745",
                 "text": "#212529",
-                "grid": "#dee2e6"
+                "grid": "#dee2e6",
             },
             "blue": {
                 "background": "#e3f2fd",
@@ -134,10 +128,10 @@ class InteractiveVisualizer(Visualizer):
                 "secondary": "#ff8f00",
                 "tertiary": "#388e3c",
                 "text": "#1565c0",
-                "grid": "#bbdefb"
-            }
+                "grid": "#bbdefb",
+            },
         }
-    
+
     def _get_cache_key(self, method_name: str, **kwargs) -> str:
         """Generate a cache key for visualization data."""
         key_data = f"{method_name}:{json.dumps(kwargs, sort_keys=True)}"
@@ -184,7 +178,7 @@ class InteractiveVisualizer(Visualizer):
 
         # Sort by quality score and take top elements
         patterns_with_scores.sort(key=lambda x: x[1], reverse=True)
-        high_quality_patterns = [p for p, _ in patterns_with_scores[:max_elements // 2]]
+        high_quality_patterns = [p for p, _ in patterns_with_scores[: max_elements // 2]]
 
         # Fill remaining slots with random sampling
         remaining_slots = max_elements - len(high_quality_patterns)
@@ -192,9 +186,9 @@ class InteractiveVisualizer(Visualizer):
 
         if remaining_patterns:
             import random
+
             sampled_remaining = random.sample(
-                remaining_patterns,
-                min(remaining_slots, len(remaining_patterns))
+                remaining_patterns, min(remaining_slots, len(remaining_patterns))
             )
         else:
             sampled_remaining = []
@@ -206,8 +200,10 @@ class InteractiveVisualizer(Visualizer):
         now = time.time()
 
         # Check if preprocessing is still valid
-        if (self._preprocessed_data and
-            (now - self._last_preprocess_time) < self._preprocess_interval):
+        if (
+            self._preprocessed_data
+            and (now - self._last_preprocess_time) < self._preprocess_interval
+        ):
             return self._preprocessed_data
 
         # Preprocess pattern data
@@ -227,16 +223,20 @@ class InteractiveVisualizer(Visualizer):
         # Preprocess relationship data
         all_relationships = list(self.framework._relationships.values())
         relationship_stats = {
-            'total': len(all_relationships),
-            'avg_strength': sum(r.strength for r in all_relationships) / len(all_relationships) if all_relationships else 0,
-            'avg_confidence': sum(r.confidence for r in all_relationships) / len(all_relationships) if all_relationships else 0
+            "total": len(all_relationships),
+            "avg_strength": sum(r.strength for r in all_relationships) / len(all_relationships)
+            if all_relationships
+            else 0,
+            "avg_confidence": sum(r.confidence for r in all_relationships) / len(all_relationships)
+            if all_relationships
+            else 0,
         }
 
         self._preprocessed_data = {
-            'patterns': pattern_types,
-            'domains': list(domains),
-            'relationship_stats': relationship_stats,
-            'timestamp': now
+            "patterns": pattern_types,
+            "domains": list(domains),
+            "relationship_stats": relationship_stats,
+            "timestamp": now,
         }
 
         self._last_preprocess_time = now
@@ -244,31 +244,36 @@ class InteractiveVisualizer(Visualizer):
 
     def get_performance_stats(self) -> Dict[str, Any]:
         """Get visualization performance statistics."""
-        cache_stats = self._cache.stats() if hasattr(self._cache, 'stats') else {}
+        cache_stats = self._cache.stats() if hasattr(self._cache, "stats") else {}
 
         return {
-            'cache_stats': cache_stats,
-            'render_times': {
-                'count': len(self._render_times),
-                'average': sum(self._render_times) / len(self._render_times) if self._render_times else 0,
-                'min': min(self._render_times) if self._render_times else 0,
-                'max': max(self._render_times) if self._render_times else 0
+            "cache_stats": cache_stats,
+            "render_times": {
+                "count": len(self._render_times),
+                "average": sum(self._render_times) / len(self._render_times)
+                if self._render_times
+                else 0,
+                "min": min(self._render_times) if self._render_times else 0,
+                "max": max(self._render_times) if self._render_times else 0,
             },
-            'memory_usage': self._memory_usage[-10:] if self._memory_usage else [],
-            'preprocessed_data_age': time.time() - self._last_preprocess_time if self._preprocessed_data else None
+            "memory_usage": self._memory_usage[-10:] if self._memory_usage else [],
+            "preprocessed_data_age": time.time() - self._last_preprocess_time
+            if self._preprocessed_data
+            else None,
         }
 
     @performance_timer("generate_3d_cube_data")
-    def generate_3d_cube_data(self, domains: Optional[List[str]] = None,
-                            max_elements: int = 1000) -> Dict[str, Any]:
+    def generate_3d_cube_data(
+        self, domains: Optional[List[str]] = None, max_elements: int = 1000
+    ) -> Dict[str, Any]:
         """
         Generate enhanced data for a 3D interactive cube visualization with performance optimizations.
-        
+
         The cube represents the three dimensions of P3IF:
         - Properties (X-axis)
         - Processes (Y-axis)
         - Perspectives (Z-axis)
-        
+
         Args:
             domains: Optional list of domains to include
             max_elements: Maximum number of elements to include
@@ -301,7 +306,7 @@ class InteractiveVisualizer(Visualizer):
         property_map = {p.id: i for i, p in enumerate(properties)}
         process_map = {p.id: i for i, p in enumerate(processes)}
         perspective_map = {p.id: i for i, p in enumerate(perspectives)}
-        
+
         # Prepare enhanced data structure
         cube_data = {
             "metadata": {
@@ -310,7 +315,7 @@ class InteractiveVisualizer(Visualizer):
                 "total_processes": len(processes),
                 "total_perspectives": len(perspectives),
                 "domains": domains or "all",
-                "max_elements": max_elements
+                "max_elements": max_elements,
             },
             "dimensions": {
                 "property": [
@@ -321,8 +326,9 @@ class InteractiveVisualizer(Visualizer):
                         "domain": p.domain,
                         "tags": p.tags,
                         "quality_score": p.quality_score,
-                        "validation_status": p.validation_status
-                    } for p in properties
+                        "validation_status": p.validation_status,
+                    }
+                    for p in properties
                 ],
                 "process": [
                     {
@@ -332,8 +338,9 @@ class InteractiveVisualizer(Visualizer):
                         "domain": p.domain,
                         "complexity": getattr(p, "complexity", "medium"),
                         "automation_level": getattr(p, "automation_level", "manual"),
-                        "quality_score": p.quality_score
-                    } for p in processes
+                        "quality_score": p.quality_score,
+                    }
+                    for p in processes
                 ],
                 "perspective": [
                     {
@@ -343,22 +350,24 @@ class InteractiveVisualizer(Visualizer):
                         "domain": p.domain,
                         "viewpoint": getattr(p, "viewpoint", ""),
                         "stakeholder_type": getattr(p, "stakeholder_type", ""),
-                        "quality_score": p.quality_score
-                    } for p in perspectives
-                ]
+                        "quality_score": p.quality_score,
+                    }
+                    for p in perspectives
+                ],
             },
-            "connections": []
+            "connections": [],
         }
-        
+
         # Add enhanced relationship data
         for rel in self.framework._relationships.values():
             # Only include relationships that connect all three dimensions
             if rel.property_id and rel.process_id and rel.perspective_id:
                 # Check if they exist in our mappings
-                if (rel.property_id in property_map and 
-                    rel.process_id in process_map and 
-                    rel.perspective_id in perspective_map):
-                    
+                if (
+                    rel.property_id in property_map
+                    and rel.process_id in process_map
+                    and rel.perspective_id in perspective_map
+                ):
                     connection = {
                         "id": rel.id,
                         "property_id": rel.property_id,
@@ -370,32 +379,35 @@ class InteractiveVisualizer(Visualizer):
                         "bidirectional": rel.bidirectional,
                         "status": rel.status,
                         "position": {
-                        "x": property_map[rel.property_id],
-                        "y": process_map[rel.process_id],
-                        "z": perspective_map[rel.perspective_id]
-                        }
+                            "x": property_map[rel.property_id],
+                            "y": process_map[rel.process_id],
+                            "z": perspective_map[rel.perspective_id],
+                        },
                     }
                     cube_data["connections"].append(connection)
-        
+
         # Cache the result
         self._cache_data(cache_key, cube_data)
         return cube_data
-    
-    def generate_3d_cube_html(self, output_file: Union[str, Path], 
-                             cube_data: Optional[Dict[str, Any]] = None,
-                             title: str = "P3IF 3D Cube Visualization",
-                             include_dataset_selector: bool = False,
-                             datasets: Optional[List[Dict[str, str]]] = None) -> Path:
+
+    def generate_3d_cube_html(
+        self,
+        output_file: Union[str, Path],
+        cube_data: Optional[Dict[str, Any]] = None,
+        title: str = "P3IF 3D Cube Visualization",
+        include_dataset_selector: bool = False,
+        datasets: Optional[List[Dict[str, str]]] = None,
+    ) -> Path:
         """
         Generate an HTML file with an interactive 3D cube visualization.
-        
+
         Args:
             output_file: Path to save the HTML file
             cube_data: Optional pre-generated cube data (if None, will generate)
             title: Title for the visualization
             include_dataset_selector: Whether to include a dataset selector dropdown
             datasets: List of dataset information with 'id' and 'name' keys
-            
+
         Returns:
             Path to the generated HTML file
         """
@@ -405,20 +417,20 @@ class InteractiveVisualizer(Visualizer):
         # Use output organizer for consistent directory structure
         organizer = get_output_organizer()
         output_path = organizer.get_visualization_path("3d_cube", Path(output_file).name)
-        
+
         # Convert the data to JSON for embedding in JavaScript
         data_json = json.dumps(cube_data)
-        
+
         # Prepare dataset selector HTML if needed
         dataset_selector_html = ""
         dataset_selector_js = ""
-        
+
         if include_dataset_selector and datasets:
             # Create dataset dropdown HTML
             dataset_options = ""
             for dataset in datasets:
                 dataset_options += f'<option value="{dataset["id"]}">{dataset["name"]}</option>\n'
-            
+
             dataset_selector_html = f"""
             <div class="dataset-selector-container">
                 <label for="dataset-selector">Select Dataset:</label>
@@ -427,7 +439,7 @@ class InteractiveVisualizer(Visualizer):
                 </select>
             </div>
             """
-            
+
             # Create dataset loading JavaScript
             dataset_selector_js = """
             // Dataset selection handling
@@ -458,7 +470,7 @@ class InteractiveVisualizer(Visualizer):
                 }
             });
             """
-        
+
         # Generate the HTML with embedded Three.js visualization
         html_content = f"""
         <!DOCTYPE html>
@@ -722,16 +734,19 @@ class InteractiveVisualizer(Visualizer):
         </body>
         </html>
         """
-        
-        with open(output_path, 'w') as f:
+
+        with open(output_path, "w") as f:
             f.write(html_content)
-        
+
         self.logger.info(f"3D cube visualization generated at {output_path}")
         return output_path
 
-    def generate_modern_dashboard(self, output_file: Union[str, Path],
-                                 config: Optional[VisualizationConfig] = None,
-                                 title: str = "P3IF Modern Dashboard") -> Path:
+    def generate_modern_dashboard(
+        self,
+        output_file: Union[str, Path],
+        config: Optional[VisualizationConfig] = None,
+        title: str = "P3IF Modern Dashboard",
+    ) -> Path:
         """
         Generate a modern, responsive dashboard with multiple visualization types.
 
@@ -759,12 +774,13 @@ class InteractiveVisualizer(Visualizer):
         network_data = self.generate_force_directed_graph_data()
 
         # Calculate statistics
-        total_patterns = (len(cube_data.get("dimensions", {}).get("property", [])) +
-                         len(cube_data.get("dimensions", {}).get("process", [])) +
-                         len(cube_data.get("dimensions", {}).get("perspective", [])))
+        total_patterns = (
+            len(cube_data.get("dimensions", {}).get("property", []))
+            + len(cube_data.get("dimensions", {}).get("process", []))
+            + len(cube_data.get("dimensions", {}).get("perspective", []))
+        )
 
         total_relationships = len(cube_data.get("connections", []))
-        avg_strength = sum(c.get("strength", 0) for c in cube_data.get("connections", [])) / max(1, total_relationships)
 
         # Enhanced HTML dashboard
         html_content = f"""
@@ -1276,76 +1292,84 @@ class InteractiveVisualizer(Visualizer):
         </html>
         """
 
-        with open(output_path, 'w', encoding='utf-8') as f:
+        with open(output_path, "w", encoding="utf-8") as f:
             f.write(html_content)
 
         render_time = time.time() - start_time
         self.logger.info(f"Modern dashboard generated at {output_path} in {render_time:.2f}s")
         return output_path
-    
+
     def generate_force_directed_graph_data(self) -> Dict[str, Any]:
         """
         Generate data for a force-directed graph visualization.
-        
+
         Returns:
             Dictionary containing data for force-directed graph
         """
         # Get all patterns
         all_patterns = list(self.framework._patterns.values())
-        
+
         # Prepare nodes and links
         nodes = []
         for pattern in all_patterns:
-            nodes.append({
-                "id": pattern.id,
-                "name": pattern.name,
-                "type": pattern.type,
-                "domain": getattr(pattern, "domain", None),
-            })
-        
+            nodes.append(
+                {
+                    "id": pattern.id,
+                    "name": pattern.name,
+                    "type": pattern.type,
+                    "domain": getattr(pattern, "domain", None),
+                }
+            )
+
         links = []
         for rel in self.framework._relationships.values():
             # Create links for each valid pair in the relationship
             if rel.property_id and rel.process_id:
-                links.append({
-                    "source": rel.property_id,
-                    "target": rel.process_id,
-                    "strength": rel.strength,
-                    "type": "property-process"
-                })
-            
+                links.append(
+                    {
+                        "source": rel.property_id,
+                        "target": rel.process_id,
+                        "strength": rel.strength,
+                        "type": "property-process",
+                    }
+                )
+
             if rel.property_id and rel.perspective_id:
-                links.append({
-                    "source": rel.property_id,
-                    "target": rel.perspective_id,
-                    "strength": rel.strength,
-                    "type": "property-perspective"
-                })
-            
+                links.append(
+                    {
+                        "source": rel.property_id,
+                        "target": rel.perspective_id,
+                        "strength": rel.strength,
+                        "type": "property-perspective",
+                    }
+                )
+
             if rel.process_id and rel.perspective_id:
-                links.append({
-                    "source": rel.process_id,
-                    "target": rel.perspective_id,
-                    "strength": rel.strength,
-                    "type": "process-perspective"
-                })
-        
-        return {
-            "nodes": nodes,
-            "links": links
-        }
-    
-    def generate_force_directed_graph_html(self, output_file: Union[str, Path],
-                                         graph_data: Optional[Dict[str, Any]] = None,
-                                         title: str = "P3IF Force-Directed Graph") -> Path:
+                links.append(
+                    {
+                        "source": rel.process_id,
+                        "target": rel.perspective_id,
+                        "strength": rel.strength,
+                        "type": "process-perspective",
+                    }
+                )
+
+        return {"nodes": nodes, "links": links}
+
+    def generate_force_directed_graph_html(
+        self,
+        output_file: Union[str, Path],
+        graph_data: Optional[Dict[str, Any]] = None,
+        title: str = "P3IF Force-Directed Graph",
+    ) -> Path:
         """
         Generate an HTML file with an interactive force-directed graph.
-        
+
         Args:
             output_file: Path to save the HTML file
             graph_data: Optional pre-generated graph data (if None, will generate)
             title: Title for the visualization
-            
+
         Returns:
             Path to the generated HTML file
         """
@@ -1357,10 +1381,10 @@ class InteractiveVisualizer(Visualizer):
 
         # Ensure parent directory exists
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        
+
         # Convert the data to JSON for embedding in JavaScript
         data_json = json.dumps(graph_data)
-        
+
         # Generate the HTML with embedded D3.js visualization
         html_content = f"""
         <!DOCTYPE html>
@@ -1620,9 +1644,9 @@ class InteractiveVisualizer(Visualizer):
         </body>
         </html>
         """
-        
-        with open(output_path, 'w') as f:
+
+        with open(output_path, "w") as f:
             f.write(html_content)
-        
+
         self.logger.info(f"Force-directed graph visualization generated at {output_path}")
-        return output_path 
+        return output_path

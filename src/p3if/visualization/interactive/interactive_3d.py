@@ -5,18 +5,15 @@ This module provides advanced interactive 3D visualization capabilities for P3IF
 enabling users to explore Properties, Processes, and Perspectives in immersive 3D space.
 """
 
-import json
 import math
-from typing import Dict, List, Any, Optional, Union, Tuple
+from typing import Dict, List, Any, Tuple
 from dataclasses import dataclass, field
 import logging
-from datetime import datetime
 
 try:
     import plotly.graph_objects as go
-    import plotly.express as px
     from plotly.subplots import make_subplots
-    import numpy as np
+
     PLOTLY_AVAILABLE = True
 except ImportError:
     PLOTLY_AVAILABLE = False
@@ -41,18 +38,10 @@ class Interactive3DVisualizer:
             "dimensions": {
                 "properties": {"range": [-5, 5], "color": "#FF6B6B", "size": 1.0},
                 "processes": {"range": [-5, 5], "color": "#4ECDC4", "size": 1.0},
-                "perspectives": {"range": [-5, 5], "color": "#45B7D1", "size": 1.0}
+                "perspectives": {"range": [-5, 5], "color": "#45B7D1", "size": 1.0},
             },
-            "relationships": {
-                "line_color": "#666666",
-                "line_width": 1,
-                "opacity": 0.6
-            },
-            "animation": {
-                "enabled": True,
-                "duration": 1000,
-                "easing": "cubic-in-out"
-            }
+            "relationships": {"line_color": "#666666", "line_width": 1, "opacity": 0.6},
+            "animation": {"enabled": True, "duration": 1000, "easing": "cubic-in-out"},
         }
 
     def load_framework_data(self, data: Dict[str, Any]):
@@ -65,9 +54,11 @@ class Interactive3DVisualizer:
             if key not in data:
                 self.logger.warning(f"Missing key in framework data: {key}")
 
-        self.logger.info(f"Loaded framework data with {len(data.get('properties', []))} properties, "
-                        f"{len(data.get('processes', []))} processes, "
-                        f"{len(data.get('perspectives', []))} perspectives")
+        self.logger.info(
+            f"Loaded framework data with {len(data.get('properties', []))} properties, "
+            f"{len(data.get('processes', []))} processes, "
+            f"{len(data.get('perspectives', []))} perspectives"
+        )
 
     def create_3d_scatter_plot(self, dimension: str = "all") -> Any:
         """Create an interactive 3D scatter plot."""
@@ -91,15 +82,20 @@ class Interactive3DVisualizer:
         try:
             # Create figure with subplots
             fig = make_subplots(
-                rows=2, cols=2,
-                specs=[[{'type': 'scatter3d'}, {'type': 'scatter3d'}],
-                       [{'type': 'scatter3d'}, {'type': 'scatter'}]],
-                subplot_titles=('Properties × Processes × Perspectives',
-                              'Properties × Processes',
-                              'Processes × Perspectives',
-                              'Properties × Perspectives'),
+                rows=2,
+                cols=2,
+                specs=[
+                    [{"type": "scatter3d"}, {"type": "scatter3d"}],
+                    [{"type": "scatter3d"}, {"type": "scatter"}],
+                ],
+                subplot_titles=(
+                    "Properties × Processes × Perspectives",
+                    "Properties × Processes",
+                    "Processes × Perspectives",
+                    "Properties × Perspectives",
+                ),
                 column_widths=[0.5, 0.5],
-                row_heights=[0.5, 0.5]
+                row_heights=[0.5, 0.5],
             )
 
             # Add 3D scatter plots for each combination
@@ -117,10 +113,8 @@ class Interactive3DVisualizer:
                     xaxis_title="Properties",
                     yaxis_title="Processes",
                     zaxis_title="Perspectives",
-                    camera=dict(
-                        eye=dict(x=1.5, y=1.5, z=1.5)
-                    )
-                )
+                    camera=dict(eye=dict(x=1.5, y=1.5, z=1.5)),
+                ),
             )
 
             return fig
@@ -148,7 +142,7 @@ class Interactive3DVisualizer:
         for element_type, elements, color in [
             ("Properties", properties, "#FF6B6B"),
             ("Processes", processes, "#4ECDC4"),
-            ("Perspectives", perspectives, "#45B7D1")
+            ("Perspectives", perspectives, "#45B7D1"),
         ]:
             if elements:
                 x_coords = []
@@ -179,20 +173,18 @@ class Interactive3DVisualizer:
 
                 fig.add_trace(
                     go.Scatter3d(
-                        x=x_coords, y=y_coords, z=z_coords,
-                        mode='markers+text',
-                        marker=dict(
-                            size=sizes,
-                            color=color,
-                            opacity=0.8,
-                            symbol='circle'
-                        ),
+                        x=x_coords,
+                        y=y_coords,
+                        z=z_coords,
+                        mode="markers+text",
+                        marker=dict(size=sizes, color=color, opacity=0.8, symbol="circle"),
                         text=names,
                         textposition="top center",
                         name=element_type,
-                        hovertemplate='<b>%{text}</b><br>Type: %{name}<extra></extra>'
+                        hovertemplate="<b>%{text}</b><br>Type: %{name}<extra></extra>",
                     ),
-                    row=row, col=col
+                    row=row,
+                    col=col,
                 )
 
     def _add_properties_processes_2d(self, fig, row: int, col: int):
@@ -239,72 +231,85 @@ class Interactive3DVisualizer:
                 frame_data = []
 
                 # Add properties
-                frame_data.append(go.Scatter3d(
-                    x=[pos[0] for pos in properties_pos],
-                    y=[pos[1] for pos in properties_pos],
-                    z=[pos[2] for pos in properties_pos],
-                    mode='markers+text',
-                    marker=dict(size=8, color='#FF6B6B', opacity=0.8),
-                    text=[f"Prop {i}" for i in range(len(properties_pos))],
-                    name="Properties"
-                ))
+                frame_data.append(
+                    go.Scatter3d(
+                        x=[pos[0] for pos in properties_pos],
+                        y=[pos[1] for pos in properties_pos],
+                        z=[pos[2] for pos in properties_pos],
+                        mode="markers+text",
+                        marker=dict(size=8, color="#FF6B6B", opacity=0.8),
+                        text=[f"Prop {i}" for i in range(len(properties_pos))],
+                        name="Properties",
+                    )
+                )
 
                 # Add processes
-                frame_data.append(go.Scatter3d(
-                    x=[pos[0] for pos in processes_pos],
-                    y=[pos[1] for pos in processes_pos],
-                    z=[pos[2] for pos in processes_pos],
-                    mode='markers+text',
-                    marker=dict(size=8, color='#4ECDC4', opacity=0.8),
-                    text=[f"Proc {i}" for i in range(len(processes_pos))],
-                    name="Processes"
-                ))
+                frame_data.append(
+                    go.Scatter3d(
+                        x=[pos[0] for pos in processes_pos],
+                        y=[pos[1] for pos in processes_pos],
+                        z=[pos[2] for pos in processes_pos],
+                        mode="markers+text",
+                        marker=dict(size=8, color="#4ECDC4", opacity=0.8),
+                        text=[f"Proc {i}" for i in range(len(processes_pos))],
+                        name="Processes",
+                    )
+                )
 
                 # Add perspectives
-                frame_data.append(go.Scatter3d(
-                    x=[pos[0] for pos in perspectives_pos],
-                    y=[pos[1] for pos in perspectives_pos],
-                    z=[pos[2] for pos in perspectives_pos],
-                    mode='markers+text',
-                    marker=dict(size=8, color='#45B7D1', opacity=0.8),
-                    text=[f"Pers {i}" for i in range(len(perspectives_pos))],
-                    name="Perspectives"
-                ))
+                frame_data.append(
+                    go.Scatter3d(
+                        x=[pos[0] for pos in perspectives_pos],
+                        y=[pos[1] for pos in perspectives_pos],
+                        z=[pos[2] for pos in perspectives_pos],
+                        mode="markers+text",
+                        marker=dict(size=8, color="#45B7D1", opacity=0.8),
+                        text=[f"Pers {i}" for i in range(len(perspectives_pos))],
+                        name="Perspectives",
+                    )
+                )
 
                 frames.append(go.Frame(data=frame_data, name=str(angle)))
 
             # Create figure with first frame
-            fig = go.Figure(
-                data=frames[0].data,
-                frames=frames
-            )
+            fig = go.Figure(data=frames[0].data, frames=frames)
 
             # Add animation controls
             fig.update_layout(
                 title="P3IF Framework: Animated Component Rotation",
-                updatemenus=[{
-                    'type': 'buttons',
-                    'showactive': False,
-                    'buttons': [
-                        {
-                            'label': 'Play',
-                            'method': 'animate',
-                            'args': [None, {'frame': {'duration': 500, 'redraw': True},
-                                         'fromcurrent': True, 'mode': 'immediate'}]
-                        },
-                        {
-                            'label': 'Pause',
-                            'method': 'animate',
-                            'args': [[None], {'frame': {'duration': 0, 'redraw': False},
-                                           'mode': 'immediate', 'transition': {'duration': 0}}]
-                        }
-                    ]
-                }],
-                scene=dict(
-                    xaxis_title="X Axis",
-                    yaxis_title="Y Axis",
-                    zaxis_title="Z Axis"
-                )
+                updatemenus=[
+                    {
+                        "type": "buttons",
+                        "showactive": False,
+                        "buttons": [
+                            {
+                                "label": "Play",
+                                "method": "animate",
+                                "args": [
+                                    None,
+                                    {
+                                        "frame": {"duration": 500, "redraw": True},
+                                        "fromcurrent": True,
+                                        "mode": "immediate",
+                                    },
+                                ],
+                            },
+                            {
+                                "label": "Pause",
+                                "method": "animate",
+                                "args": [
+                                    [None],
+                                    {
+                                        "frame": {"duration": 0, "redraw": False},
+                                        "mode": "immediate",
+                                        "transition": {"duration": 0},
+                                    },
+                                ],
+                            },
+                        ],
+                    }
+                ],
+                scene=dict(xaxis_title="X Axis", yaxis_title="Y Axis", zaxis_title="Z Axis"),
             )
 
             return fig
@@ -313,8 +318,9 @@ class Interactive3DVisualizer:
             self.logger.error(f"Error creating rotation animation: {e}")
             return self._create_ascii_animation()
 
-    def _calculate_rotated_positions(self, dimension: str, angle_degrees: int,
-                                   radius: float = 3.0) -> List[Tuple[float, float, float]]:
+    def _calculate_rotated_positions(
+        self, dimension: str, angle_degrees: int, radius: float = 3.0
+    ) -> List[Tuple[float, float, float]]:
         """Calculate rotated positions for animation."""
         angle_radians = math.radians(angle_degrees)
         positions = []
@@ -393,7 +399,7 @@ class Interactive3DVisualizer:
             Properties: • • • •
             Processes:   • • • •
             Perspectives: • • • •
-            """
+            """,
         ]
 
         return "\n".join(frames)
@@ -414,50 +420,73 @@ class Interactive3DVisualizer:
 
             if phase == "properties":
                 # Show only properties
-                frame_data.append(go.Scatter3d(
-                    x=[1, 2, 3, 4],
-                    y=[0, 0, 0, 0],
-                    z=[0, 0, 0, 0],
-                    mode='markers+text',
-                    marker=dict(size=12, color='#FF6B6B', opacity=1.0),
-                    text=['Prop 1', 'Prop 2', 'Prop 3', 'Prop 4'],
-                    name="Properties"
-                ))
+                frame_data.append(
+                    go.Scatter3d(
+                        x=[1, 2, 3, 4],
+                        y=[0, 0, 0, 0],
+                        z=[0, 0, 0, 0],
+                        mode="markers+text",
+                        marker=dict(size=12, color="#FF6B6B", opacity=1.0),
+                        text=["Prop 1", "Prop 2", "Prop 3", "Prop 4"],
+                        name="Properties",
+                    )
+                )
             elif phase == "processes":
                 # Show only processes
-                frame_data.append(go.Scatter3d(
-                    x=[0, 0, 0, 0],
-                    y=[1, 2, 3, 4],
-                    z=[0, 0, 0, 0],
-                    mode='markers+text',
-                    marker=dict(size=12, color='#4ECDC4', opacity=1.0),
-                    text=['Proc 1', 'Proc 2', 'Proc 3', 'Proc 4'],
-                    name="Processes"
-                ))
+                frame_data.append(
+                    go.Scatter3d(
+                        x=[0, 0, 0, 0],
+                        y=[1, 2, 3, 4],
+                        z=[0, 0, 0, 0],
+                        mode="markers+text",
+                        marker=dict(size=12, color="#4ECDC4", opacity=1.0),
+                        text=["Proc 1", "Proc 2", "Proc 3", "Proc 4"],
+                        name="Processes",
+                    )
+                )
             elif phase == "perspectives":
                 # Show only perspectives
-                frame_data.append(go.Scatter3d(
-                    x=[0, 0, 0, 0],
-                    y=[0, 0, 0, 0],
-                    z=[1, 2, 3, 4],
-                    mode='markers+text',
-                    marker=dict(size=12, color='#45B7D1', opacity=1.0),
-                    text=['Pers 1', 'Pers 2', 'Pers 3', 'Pers 4'],
-                    name="Perspectives"
-                ))
+                frame_data.append(
+                    go.Scatter3d(
+                        x=[0, 0, 0, 0],
+                        y=[0, 0, 0, 0],
+                        z=[1, 2, 3, 4],
+                        mode="markers+text",
+                        marker=dict(size=12, color="#45B7D1", opacity=1.0),
+                        text=["Pers 1", "Pers 2", "Pers 3", "Pers 4"],
+                        name="Perspectives",
+                    )
+                )
             else:  # combined
                 # Show all dimensions
-                frame_data.extend([
-                    go.Scatter3d(x=[1, 2, 3, 4], y=[0, 0, 0, 0], z=[0, 0, 0, 0],
-                               mode='markers', marker=dict(size=8, color='#FF6B6B'),
-                               name="Properties"),
-                    go.Scatter3d(x=[0, 0, 0, 0], y=[1, 2, 3, 4], z=[0, 0, 0, 0],
-                               mode='markers', marker=dict(size=8, color='#4ECDC4'),
-                               name="Processes"),
-                    go.Scatter3d(x=[0, 0, 0, 0], y=[0, 0, 0, 0], z=[1, 2, 3, 4],
-                               mode='markers', marker=dict(size=8, color='#45B7D1'),
-                               name="Perspectives")
-                ])
+                frame_data.extend(
+                    [
+                        go.Scatter3d(
+                            x=[1, 2, 3, 4],
+                            y=[0, 0, 0, 0],
+                            z=[0, 0, 0, 0],
+                            mode="markers",
+                            marker=dict(size=8, color="#FF6B6B"),
+                            name="Properties",
+                        ),
+                        go.Scatter3d(
+                            x=[0, 0, 0, 0],
+                            y=[1, 2, 3, 4],
+                            z=[0, 0, 0, 0],
+                            mode="markers",
+                            marker=dict(size=8, color="#4ECDC4"),
+                            name="Processes",
+                        ),
+                        go.Scatter3d(
+                            x=[0, 0, 0, 0],
+                            y=[0, 0, 0, 0],
+                            z=[1, 2, 3, 4],
+                            mode="markers",
+                            marker=dict(size=8, color="#45B7D1"),
+                            name="Perspectives",
+                        ),
+                    ]
+                )
 
             frames.append(go.Frame(data=frame_data, name=phase))
 
@@ -466,16 +495,25 @@ class Interactive3DVisualizer:
 
         fig.update_layout(
             title="P3IF Dimension Transition Animation",
-            updatemenus=[{
-                'type': 'buttons',
-                'showactive': False,
-                'buttons': [{
-                    'label': 'Play Transition',
-                    'method': 'animate',
-                    'args': [None, {'frame': {'duration': 1500, 'redraw': True},
-                                 'transition': {'duration': 500}}]
-                }]
-            }]
+            updatemenus=[
+                {
+                    "type": "buttons",
+                    "showactive": False,
+                    "buttons": [
+                        {
+                            "label": "Play Transition",
+                            "method": "animate",
+                            "args": [
+                                None,
+                                {
+                                    "frame": {"duration": 1500, "redraw": True},
+                                    "transition": {"duration": 500},
+                                },
+                            ],
+                        }
+                    ],
+                }
+            ],
         )
 
         return fig
@@ -491,32 +529,38 @@ class Interactive3DVisualizer:
             [(0, 1), (1, 2)],  # Initial relationships
             [(0, 1), (1, 2), (2, 3)],  # Add more
             [(0, 1), (1, 2), (2, 3), (3, 0)],  # Close the loop
-            [(0, 1), (1, 2), (2, 3), (3, 0), (0, 2)]  # Add diagonal
+            [(0, 1), (1, 2), (2, 3), (3, 0), (0, 2)],  # Add diagonal
         ]
 
         for i, rels in enumerate(relationships):
             frame_data = []
 
             # Add nodes
-            frame_data.append(go.Scatter3d(
-                x=[0, 1, 2, 3], y=[0, 0, 0, 0], z=[0, 0, 0, 0],
-                mode='markers+text',
-                marker=dict(size=10, color='#FF6B6B'),
-                text=[f'Node {j}' for j in range(4)],
-                name="Framework Elements"
-            ))
+            frame_data.append(
+                go.Scatter3d(
+                    x=[0, 1, 2, 3],
+                    y=[0, 0, 0, 0],
+                    z=[0, 0, 0, 0],
+                    mode="markers+text",
+                    marker=dict(size=10, color="#FF6B6B"),
+                    text=[f"Node {j}" for j in range(4)],
+                    name="Framework Elements",
+                )
+            )
 
             # Add relationships as lines
             for start_idx, end_idx in rels:
-                frame_data.append(go.Scatter3d(
-                    x=[start_idx, end_idx],
-                    y=[0, 0],
-                    z=[0, 0],
-                    mode='lines',
-                    line=dict(color='#666666', width=2),
-                    showlegend=False,
-                    name=f"Relationship {start_idx}-{end_idx}"
-                ))
+                frame_data.append(
+                    go.Scatter3d(
+                        x=[start_idx, end_idx],
+                        y=[0, 0],
+                        z=[0, 0],
+                        mode="lines",
+                        line=dict(color="#666666", width=2),
+                        showlegend=False,
+                        name=f"Relationship {start_idx}-{end_idx}",
+                    )
+                )
 
             frames.append(go.Frame(data=frame_data, name=f"step_{i}"))
 
@@ -524,27 +568,33 @@ class Interactive3DVisualizer:
 
         fig.update_layout(
             title="P3IF Relationship Evolution Animation",
-            scene=dict(
-                xaxis_title="Framework Elements",
-                yaxis_title="",
-                zaxis_title=""
-            ),
-            updatemenus=[{
-                'type': 'buttons',
-                'showactive': False,
-                'buttons': [{
-                    'label': 'Evolve Relationships',
-                    'method': 'animate',
-                    'args': [None, {'frame': {'duration': 1000, 'redraw': True},
-                                 'transition': {'duration': 300}}]
-                }]
-            }]
+            scene=dict(xaxis_title="Framework Elements", yaxis_title="", zaxis_title=""),
+            updatemenus=[
+                {
+                    "type": "buttons",
+                    "showactive": False,
+                    "buttons": [
+                        {
+                            "label": "Evolve Relationships",
+                            "method": "animate",
+                            "args": [
+                                None,
+                                {
+                                    "frame": {"duration": 1000, "redraw": True},
+                                    "transition": {"duration": 300},
+                                },
+                            ],
+                        }
+                    ],
+                }
+            ],
         )
 
         return fig
 
-    def export_visualization(self, fig: Any, format: str = "html",
-                           filename: str = "p3if_cube") -> str:
+    def export_visualization(
+        self, fig: Any, format: str = "html", filename: str = "p3if_cube"
+    ) -> str:
         """Export visualization to various formats."""
         if not PLOTLY_AVAILABLE:
             return "Export not available without Plotly"

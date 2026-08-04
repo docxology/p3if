@@ -9,12 +9,7 @@ from .framework_integration import FrameworkIntegrationOrchestrator
 from .healthcare_domain import HealthcareDomainOrchestrator
 
 __all__ = [
-    'CognitiveSecurityOrchestrator',
-    'FrameworkIntegrationOrchestrator',
-    'HealthcareDomainOrchestrator'
+    "CognitiveSecurityOrchestrator",
+    "FrameworkIntegrationOrchestrator",
+    "HealthcareDomainOrchestrator",
 ]
-
-
-
-
-

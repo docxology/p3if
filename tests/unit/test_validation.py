@@ -3,7 +3,12 @@ Test cases for P3IF validation framework.
 """
 
 import unittest
-from p3if.core.validation import ValidationEngine, ValidationRule, ValidationSeverity, ConstraintManager
+from p3if.core.validation import (
+    ValidationEngine,
+    ValidationRule,
+    ValidationSeverity,
+    ConstraintManager,
+)
 from p3if.core.models import Property, Process, Perspective, Relationship
 from p3if.core.framework import P3IFFramework
 
@@ -16,6 +21,7 @@ class TestValidationEngine(unittest.TestCase):
         self.engine = ValidationEngine()
         # Add default validation rules
         from p3if.core.validation import create_default_validation_rules
+
         default_rules = create_default_validation_rules()
         for rule in default_rules.values():
             self.engine.add_rule(rule)
@@ -23,6 +29,7 @@ class TestValidationEngine(unittest.TestCase):
 
     def test_add_validation_rule(self):
         """Test adding validation rules."""
+
         def dummy_check(obj):
             return {"valid": True}
 
@@ -44,9 +51,18 @@ class TestValidationEngine(unittest.TestCase):
     def test_validate_framework_with_patterns(self):
         """Test validation of framework with patterns."""
         # Add some patterns with proper descriptions
-        prop = Property(name="Test Property", domain="test", description="A test property for validation")
-        proc = Process(name="Test Process", domain="test", description="A test process for validation")
-        pers = Perspective(name="Test Perspective", domain="test", viewpoint="test", description="A test perspective for validation")
+        prop = Property(
+            name="Test Property", domain="test", description="A test property for validation"
+        )
+        proc = Process(
+            name="Test Process", domain="test", description="A test process for validation"
+        )
+        pers = Perspective(
+            name="Test Perspective",
+            domain="test",
+            viewpoint="test",
+            description="A test perspective for validation",
+        )
 
         self.framework.add_pattern(prop)
         self.framework.add_pattern(proc)
@@ -62,7 +78,7 @@ class TestValidationEngine(unittest.TestCase):
         # Create some patterns
         properties = [
             Property(name="Prop1", domain="test", description="Test property 1"),
-            Property(name="Prop2", domain="test", description="Test property 2")
+            Property(name="Prop2", domain="test", description="Test property 2"),
         ]
 
         result = self.engine.validate_dimension("properties", properties)
@@ -85,7 +101,7 @@ class TestConstraintManager(unittest.TestCase):
             "name": "required_description",
             "type": "required_attribute",
             "attribute": "description",
-            "severity": "warning"
+            "severity": "warning",
         }
 
         self.manager.add_constraint("property", constraint)
@@ -99,7 +115,7 @@ class TestConstraintManager(unittest.TestCase):
             "name": "required_description",
             "type": "required_attribute",
             "attribute": "description",
-            "severity": "warning"
+            "severity": "warning",
         }
         self.manager.add_constraint("property", constraint)
 
@@ -115,10 +131,7 @@ class TestConstraintManager(unittest.TestCase):
 
     def test_check_single_constraint_required_attribute(self):
         """Test required attribute constraint checking."""
-        constraint = {
-            "type": "required_attribute",
-            "attribute": "description"
-        }
+        constraint = {"type": "required_attribute", "attribute": "description"}
 
         # Object with attribute
         class TestObj:
@@ -131,7 +144,7 @@ class TestConstraintManager(unittest.TestCase):
 
         # Object without attribute
         obj_without_attr = TestObj()
-        delattr(obj_without_attr, 'description')
+        delattr(obj_without_attr, "description")
         result = self.manager._check_single_constraint(obj_without_attr, constraint)
         self.assertFalse(result)
 
@@ -145,6 +158,7 @@ class TestValidationRules(unittest.TestCase):
         self.engine = ValidationEngine()
         # Add default validation rules
         from p3if.core.validation import create_default_validation_rules
+
         default_rules = create_default_validation_rules()
         for rule in default_rules.values():
             self.engine.add_rule(rule)
@@ -154,7 +168,9 @@ class TestValidationRules(unittest.TestCase):
         # Create patterns
         prop = Property(name="Test Property", domain="test", description="Test property")
         proc = Process(name="Test Process", domain="test", description="Test process")
-        pers = Perspective(name="Test Perspective", domain="test", viewpoint="test", description="Test perspective")
+        pers = Perspective(
+            name="Test Perspective", domain="test", viewpoint="test", description="Test perspective"
+        )
 
         self.framework.add_pattern(prop)
         self.framework.add_pattern(proc)
@@ -190,7 +206,7 @@ class TestValidationRules(unittest.TestCase):
 
         # Try to update to invalid strength (this should fail)
         try:
-            rel_invalid = Relationship(property_id=prop.id, process_id=proc.id, strength=1.5)
+            Relationship(property_id=prop.id, process_id=proc.id, strength=1.5)
             # If we get here, the validation should have prevented this
             self.fail("Should not be able to create relationship with invalid strength")
         except Exception:
@@ -205,7 +221,12 @@ class TestValidationRules(unittest.TestCase):
             self.framework.add_pattern(prop)
 
         proc = Process(name="Single Process", domain="test", description="Test process")
-        pers = Perspective(name="Single Perspective", domain="test", viewpoint="test", description="Test perspective")
+        pers = Perspective(
+            name="Single Perspective",
+            domain="test",
+            viewpoint="test",
+            description="Test perspective",
+        )
 
         self.framework.add_pattern(proc)
         self.framework.add_pattern(pers)
@@ -217,6 +238,5 @@ class TestValidationRules(unittest.TestCase):
         self.assertIn("dimension_balance", [issue.get("rule", "") for issue in result["issues"]])
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()
-

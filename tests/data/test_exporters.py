@@ -1,7 +1,6 @@
 """
 Unit tests for P3IF data exporters.
 """
-import pytest
 import json
 import tempfile
 from pathlib import Path
@@ -41,7 +40,7 @@ class TestDataExporter:
         # Export to JSON
         exporter = DataExporter(framework)
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as f:
             output_path = Path(f.name)
 
         try:
@@ -50,12 +49,12 @@ class TestDataExporter:
             assert result_path.exists()
 
             # Verify JSON content
-            with open(result_path, 'r') as f:
+            with open(result_path, "r") as f:
                 data = json.load(f)
 
-            assert 'properties' in data
-            assert 'processes' in data
-            assert 'relationships' in data
+            assert "properties" in data
+            assert "processes" in data
+            assert "relationships" in data
         finally:
             output_path.unlink(missing_ok=True)
 
@@ -80,24 +79,24 @@ class TestDataExporter:
         # Export to CSV
         exporter = DataExporter(framework)
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".csv", delete=False) as f:
             patterns_path = Path(f.name)
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".csv", delete=False) as f:
             rels_path = Path(f.name)
 
         try:
             result = exporter.export_to_csv(patterns_path, rels_path)
 
-            assert 'patterns' in result
-            assert 'relationships' in result
-            assert result['patterns'].exists()
-            assert result['relationships'].exists()
+            assert "patterns" in result
+            assert "relationships" in result
+            assert result["patterns"].exists()
+            assert result["relationships"].exists()
 
             # Verify patterns CSV has header
-            with open(result['patterns'], 'r') as f:
+            with open(result["patterns"], "r") as f:
                 header = f.readline()
-                assert 'id' in header
-                assert 'name' in header
+                assert "id" in header
+                assert "name" in header
         finally:
             patterns_path.unlink(missing_ok=True)
             rels_path.unlink(missing_ok=True)
@@ -123,7 +122,7 @@ class TestDataExporter:
         # Export to GraphML
         exporter = DataExporter(framework)
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.graphml', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".graphml", delete=False) as f:
             output_path = Path(f.name)
 
         try:
@@ -132,11 +131,11 @@ class TestDataExporter:
             assert result_path.exists()
 
             # Verify GraphML content
-            with open(result_path, 'r') as f:
+            with open(result_path, "r") as f:
                 content = f.read()
 
-            assert 'graphml' in content.lower()
-            assert 'node' in content.lower()
+            assert "graphml" in content.lower()
+            assert "node" in content.lower()
         finally:
             output_path.unlink(missing_ok=True)
 
@@ -154,7 +153,7 @@ class TestExportFunctions:
         prop = Property(name="Test", description="Test", domain="test")
         framework.add_pattern(prop)
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as f:
             output_path = Path(f.name)
 
         try:
@@ -173,15 +172,15 @@ class TestExportFunctions:
         prop = Property(name="Test", description="Test", domain="test")
         framework.add_pattern(prop)
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".csv", delete=False) as f:
             patterns_path = Path(f.name)
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".csv", delete=False) as f:
             rels_path = Path(f.name)
 
         try:
             result = export_to_csv(framework, patterns_path, rels_path)
-            assert result['patterns'].exists()
-            assert result['relationships'].exists()
+            assert result["patterns"].exists()
+            assert result["relationships"].exists()
         finally:
             patterns_path.unlink(missing_ok=True)
             rels_path.unlink(missing_ok=True)
@@ -196,7 +195,7 @@ class TestExportFunctions:
         prop = Property(name="Test", description="Test", domain="test")
         framework.add_pattern(prop)
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.graphml', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".graphml", delete=False) as f:
             output_path = Path(f.name)
 
         try:
@@ -216,19 +215,19 @@ class TestExportEmptyFramework:
 
         framework = P3IFFramework()
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as f:
             output_path = Path(f.name)
 
         try:
             result = export_to_json(framework, output_path)
 
-            with open(result, 'r') as f:
+            with open(result, "r") as f:
                 data = json.load(f)
 
-            assert data['properties'] == []
-            assert data['processes'] == []
-            assert data['perspectives'] == []
-            assert data['relationships'] == []
+            assert data["properties"] == []
+            assert data["processes"] == []
+            assert data["perspectives"] == []
+            assert data["relationships"] == []
         finally:
             output_path.unlink(missing_ok=True)
 
@@ -239,16 +238,16 @@ class TestExportEmptyFramework:
 
         framework = P3IFFramework()
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".csv", delete=False) as f:
             patterns_path = Path(f.name)
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.csv', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".csv", delete=False) as f:
             rels_path = Path(f.name)
 
         try:
             result = export_to_csv(framework, patterns_path, rels_path)
 
             # Should have header but no data rows
-            with open(result['patterns'], 'r') as f:
+            with open(result["patterns"], "r") as f:
                 lines = f.readlines()
                 assert len(lines) == 1  # Just header
         finally:

@@ -2,17 +2,12 @@
 Comprehensive tests for the P3IF API endpoints.
 """
 import pytest
-import json
-import tempfile
-from pathlib import Path
-from datetime import datetime, timezone
 
 from website.app import create_app
 from p3if.core.framework import P3IFFramework
 from tests.fixtures.helpers import (
     create_pattern_with_metadata,
     create_relationship_with_metadata,
-    generate_test_json_data
 )
 
 
@@ -20,7 +15,7 @@ from tests.fixtures.helpers import (
 def app():
     """Create and configure a test app instance."""
     app = create_app()
-    app.config['TESTING'] = True
+    app.config["TESTING"] = True
     return app
 
 
@@ -56,14 +51,14 @@ def framework_with_data():
         process_id=proc1.id,
         perspective_id=persp1.id,
         strength=0.8,
-        confidence=0.9
+        confidence=0.9,
     )
     rel2 = create_relationship_with_metadata(
         property_id=prop2.id,
         process_id=proc2.id,
         perspective_id=persp2.id,
         strength=0.7,
-        confidence=0.8
+        confidence=0.8,
     )
 
     framework.add_relationship(rel1)
@@ -77,22 +72,22 @@ class TestHealthEndpoint:
 
     def test_health_endpoint_success(self, client):
         """Test successful health check."""
-        response = client.get('/api/v2/health')
+        response = client.get("/api/v2/health")
 
         assert response.status_code == 200
         data = response.get_json()
-        assert data['status'] == 'healthy'
-        assert 'timestamp' in data
-        assert data['service'] == 'p3if-api'
+        assert data["status"] == "healthy"
+        assert "timestamp" in data
+        assert data["service"] == "p3if-api"
 
     def test_health_endpoint_with_database_check(self, client, framework_with_data):
         """Test health check with database connectivity."""
-        response = client.get('/api/v2/health?check_database=true')
+        response = client.get("/api/v2/health?check_database=true")
 
         assert response.status_code == 200
         data = response.get_json()
-        assert data['status'] == 'healthy'
-        assert data['service'] == 'p3if-api'
+        assert data["status"] == "healthy"
+        assert data["service"] == "p3if-api"
 
 
 class TestFrameworkEndpoints:
@@ -100,40 +95,40 @@ class TestFrameworkEndpoints:
 
     def test_get_metrics_empty_framework(self, client):
         """Test getting metrics for empty framework."""
-        response = client.get('/api/v2/framework/metrics')
+        response = client.get("/api/v2/framework/metrics")
 
         assert response.status_code == 200
         data = response.get_json()
-        assert data['status'] == 'success'
-        assert data['data']['total_patterns'] == 0
-        assert data['data']['total_relationships'] == 0
+        assert data["status"] == "success"
+        assert data["data"]["total_patterns"] == 0
+        assert data["data"]["total_relationships"] == 0
 
     def test_get_metrics_with_data(self, client, framework_with_data):
         """Test getting metrics for framework with data."""
         # Note: The API route creates its own framework instance,
         # so this test uses the real framework from the fixture
         # The metrics will reflect the actual populated framework state
-        response = client.get('/api/v2/framework/metrics')
+        response = client.get("/api/v2/framework/metrics")
 
         assert response.status_code == 200
         data = response.get_json()
-        assert data['status'] == 'success'
+        assert data["status"] == "success"
         # The real framework will have actual metrics based on populated data
-        assert 'total_patterns' in data['data']
-        assert 'total_relationships' in data['data']
-        assert 'average_relationship_strength' in data['data']
+        assert "total_patterns" in data["data"]
+        assert "total_relationships" in data["data"]
+        assert "average_relationship_strength" in data["data"]
 
     def test_validate_framework_valid(self, client):
         """Test framework validation with valid data."""
-        response = client.get('/api/v2/framework/validate')
+        response = client.get("/api/v2/framework/validate")
 
         assert response.status_code == 200
         data = response.get_json()
-        assert data['status'] == 'success'
-        assert 'is_valid' in data['data']
-        assert 'issues' in data['data']
-        assert 'warnings' in data['data']
-        assert 'recommendations' in data['data']
+        assert data["status"] == "success"
+        assert "is_valid" in data["data"]
+        assert "issues" in data["data"]
+        assert "warnings" in data["data"]
+        assert "recommendations" in data["data"]
 
     def test_validate_framework_invalid(self, client):
         """Test framework validation with invalid data."""
@@ -147,66 +142,66 @@ class TestPatternEndpoints:
 
     def test_get_patterns_empty(self, client):
         """Test getting patterns from empty framework."""
-        response = client.get('/api/v2/patterns')
+        response = client.get("/api/v2/patterns")
 
         assert response.status_code == 200
         data = response.get_json()
-        assert data['status'] == 'success'
-        assert data['data']['patterns'] == []
-        assert data['data']['total_count'] == 0
+        assert data["status"] == "success"
+        assert data["data"]["patterns"] == []
+        assert data["data"]["total_count"] == 0
 
     def test_get_patterns_with_data(self, client, populated_framework):
         """Test getting patterns with data."""
         # Note: The API route creates its own framework instance,
         # so this tests the real empty framework behavior
-        response = client.get('/api/v2/patterns')
+        response = client.get("/api/v2/patterns")
 
         assert response.status_code == 200
         data = response.get_json()
-        assert data['status'] == 'success'
-        assert 'patterns' in data['data']
-        assert 'total_count' in data['data']
-        assert 'returned_count' in data['data']
+        assert data["status"] == "success"
+        assert "patterns" in data["data"]
+        assert "total_count" in data["data"]
+        assert "returned_count" in data["data"]
         # Empty framework will have 0 patterns
-        assert data['data']['total_count'] == 0
-        assert len(data['data']['patterns']) == 0
+        assert data["data"]["total_count"] == 0
+        assert len(data["data"]["patterns"]) == 0
 
     def test_get_patterns_with_filters(self, client):
         """Test getting patterns with query filters."""
         # Test with type filter on empty framework
-        response = client.get('/api/v2/patterns?type=property')
+        response = client.get("/api/v2/patterns?type=property")
         assert response.status_code == 200
 
         # Test with domain filter
-        response = client.get('/api/v2/patterns?domain=test_domain')
+        response = client.get("/api/v2/patterns?domain=test_domain")
         assert response.status_code == 200
 
         # Test with search query
-        response = client.get('/api/v2/patterns?search=test')
+        response = client.get("/api/v2/patterns?search=test")
         assert response.status_code == 200
 
         # Test with pagination
-        response = client.get('/api/v2/patterns?page=2&limit=10')
+        response = client.get("/api/v2/patterns?page=2&limit=10")
         assert response.status_code == 200
 
     def test_get_pattern_by_id(self, client):
         """Test getting a specific pattern by ID."""
         # Test pattern not found case (empty framework)
-        response = client.get('/api/v2/patterns/test_pattern_id')
+        response = client.get("/api/v2/patterns/test_pattern_id")
 
         assert response.status_code == 404
         data = response.get_json()
-        assert data['status'] == 'error'
-        assert 'not found' in data['message'].lower()
+        assert data["status"] == "error"
+        assert "not found" in data["message"].lower()
 
     def test_get_pattern_by_invalid_id(self, client):
         """Test getting a pattern with invalid ID."""
-        response = client.get('/api/v2/patterns/invalid_id')
+        response = client.get("/api/v2/patterns/invalid_id")
 
         assert response.status_code == 404
         data = response.get_json()
-        assert data['status'] == 'error'
-        assert 'not found' in data['message'].lower()
+        assert data["status"] == "error"
+        assert "not found" in data["message"].lower()
 
 
 class TestRelationshipEndpoints:
@@ -214,41 +209,41 @@ class TestRelationshipEndpoints:
 
     def test_get_relationships_empty(self, client):
         """Test getting relationships from empty framework."""
-        response = client.get('/api/v2/relationships')
+        response = client.get("/api/v2/relationships")
 
         assert response.status_code == 200
         data = response.get_json()
-        assert data['status'] == 'success'
-        assert data['data']['relationships'] == []
-        assert data['data']['total_count'] == 0
+        assert data["status"] == "success"
+        assert data["data"]["relationships"] == []
+        assert data["data"]["total_count"] == 0
 
     def test_get_relationships_with_data(self, client, populated_framework):
         """Test getting relationships with data."""
         # Note: The API route creates its own framework instance,
         # so this tests the real empty framework behavior
-        response = client.get('/api/v2/relationships')
+        response = client.get("/api/v2/relationships")
 
         assert response.status_code == 200
         data = response.get_json()
-        assert data['status'] == 'success'
-        assert 'relationships' in data['data']
-        assert 'total_count' in data['data']
+        assert data["status"] == "success"
+        assert "relationships" in data["data"]
+        assert "total_count" in data["data"]
         # Empty framework will have 0 relationships
-        assert data['data']['total_count'] == 0
-        assert len(data['data']['relationships']) == 0
+        assert data["data"]["total_count"] == 0
+        assert len(data["data"]["relationships"]) == 0
 
     def test_get_relationships_with_filters(self, client):
         """Test getting relationships with filters."""
         # Test with pagination on empty framework
-        response = client.get('/api/v2/relationships?page=1&limit=20')
+        response = client.get("/api/v2/relationships?page=1&limit=20")
         assert response.status_code == 200
 
         # Test with strength filter
-        response = client.get('/api/v2/relationships?min_strength=0.5')
+        response = client.get("/api/v2/relationships?min_strength=0.5")
         assert response.status_code == 200
 
         # Test with confidence filter
-        response = client.get('/api/v2/relationships?min_confidence=0.7')
+        response = client.get("/api/v2/relationships?min_confidence=0.7")
         assert response.status_code == 200
 
 
@@ -257,52 +252,52 @@ class TestDomainEndpoints:
 
     def test_get_domains(self, client):
         """Test getting available domains."""
-        response = client.get('/api/v2/domains')
+        response = client.get("/api/v2/domains")
 
         assert response.status_code == 200
         data = response.get_json()
-        assert data['status'] == 'success'
-        assert 'domains' in data['data']
+        assert data["status"] == "success"
+        assert "domains" in data["data"]
 
     def test_get_domains_no_index_file(self, client):
         """Test getting domains when no index file exists."""
         # Test real behavior when domains file doesn't exist
-        response = client.get('/api/v2/domains')
+        response = client.get("/api/v2/domains")
 
         assert response.status_code == 200
         data = response.get_json()
-        assert data['status'] == 'success'
-        assert 'domains' in data['data']
+        assert data["status"] == "success"
+        assert "domains" in data["data"]
 
     def test_get_domain_details(self, client):
         """Test getting details for a specific domain."""
         # Test domain details using an actual domain file that exists
-        response = client.get('/api/v2/domains/healthcare')
+        response = client.get("/api/v2/domains/healthcare")
 
         assert response.status_code == 200
         data = response.get_json()
-        assert data['status'] == 'success'
+        assert data["status"] == "success"
         # The domain data should be in data, not necessarily with a 'domain' key at top level
-        assert 'data' in data
+        assert "data" in data
 
     def test_get_domain_details_not_found(self, client):
         """Test getting details for non-existent domain."""
-        response = client.get('/api/v2/domains/nonexistent_domain')
+        response = client.get("/api/v2/domains/nonexistent_domain")
 
         assert response.status_code == 404
         data = response.get_json()
-        assert data['status'] == 'error'
-        assert 'not found' in data['message'].lower()
+        assert data["status"] == "error"
+        assert "not found" in data["message"].lower()
 
     def test_get_domain_details_path_traversal_rejected(self, client):
         """A domain id containing path separators must not read files outside
         the domains directory (regression: the id was concatenated into a path
         unsanitized, enabling traversal)."""
         # Attempt to traverse out of data/domains via the route value.
-        response = client.get('/api/v2/domains/../../requirements.txt')
+        response = client.get("/api/v2/domains/../../requirements.txt")
         assert response.status_code == 404
         data = response.get_json()
-        assert data['status'] == 'error'
+        assert data["status"] == "error"
 
 
 class TestVisualizationEndpoints:
@@ -310,50 +305,50 @@ class TestVisualizationEndpoints:
 
     def test_get_visualizations(self, client):
         """Test getting available visualization types."""
-        response = client.get('/api/v2/visualizations')
+        response = client.get("/api/v2/visualizations")
 
         assert response.status_code == 200
         data = response.get_json()
-        assert data['status'] == 'success'
-        assert 'visualization_types' in data['data']
-        assert 'themes' in data['data']
-        assert 'interaction_modes' in data['data']
+        assert data["status"] == "success"
+        assert "visualization_types" in data["data"]
+        assert "themes" in data["data"]
+        assert "interaction_modes" in data["data"]
 
         # Check that we have expected visualization types
-        viz_types = data['data']['visualization_types']
+        viz_types = data["data"]["visualization_types"]
         assert len(viz_types) > 0
 
         # Check that each visualization type has required fields
         for viz_type in viz_types:
-            assert 'id' in viz_type
-            assert 'name' in viz_type
-            assert 'description' in viz_type
-            assert 'features' in viz_type
-            assert 'supported_formats' in viz_type
+            assert "id" in viz_type
+            assert "name" in viz_type
+            assert "description" in viz_type
+            assert "features" in viz_type
+            assert "supported_formats" in viz_type
 
     def test_generate_visualization_invalid_type(self, client):
         """Test generating visualization with invalid type."""
-        response = client.post('/api/v2/visualizations/generate', json={})
+        response = client.post("/api/v2/visualizations/generate", json={})
 
         assert response.status_code == 400
         data = response.get_json()
-        assert data['status'] == 'error'
-        assert 'type is required' in data['message']
+        assert data["status"] == "error"
+        assert "type is required" in data["message"]
 
     def test_generate_visualization_missing_params(self, client):
         """Test generating visualization with missing parameters."""
-        response = client.post('/api/v2/visualizations/generate', json={'type': 'cube_3d'})
+        response = client.post("/api/v2/visualizations/generate", json={"type": "cube_3d"})
 
         assert response.status_code == 200  # Should succeed with minimal params
         data = response.get_json()
-        assert data['status'] == 'success'
-        assert 'visualization_id' in data['data']
-        assert data['data']['type'] == 'cube_3d'
+        assert data["status"] == "success"
+        assert "visualization_id" in data["data"]
+        assert data["data"]["type"] == "cube_3d"
 
     def test_get_visualization_status(self, client):
         """Test getting visualization generation status."""
         viz_id = "test_viz_id"
-        response = client.get(f'/api/v2/visualizations/{viz_id}/status')
+        response = client.get(f"/api/v2/visualizations/{viz_id}/status")
 
         # Should return 200 (VisualizationStorage returns default completed status)
         # or 404 if storage doesn't have the viz_id
@@ -361,12 +356,12 @@ class TestVisualizationEndpoints:
         data = response.get_json()
 
         if response.status_code == 200:
-            assert data['status'] == 'success'
-            assert data['data']['visualization_id'] == viz_id
-            assert 'status' in data['data']
-            assert 'progress' in data['data']
+            assert data["status"] == "success"
+            assert data["data"]["visualization_id"] == viz_id
+            assert "status" in data["data"]
+            assert "progress" in data["data"]
         else:
-            assert data['status'] == 'error'
+            assert data["status"] == "error"
 
 
 class TestExportEndpoints:
@@ -374,43 +369,37 @@ class TestExportEndpoints:
 
     def test_export_json(self, client):
         """Test exporting data as JSON."""
-        response = client.post('/api/v2/export', json={
-            'format': 'json',
-            'domains': ['domain1', 'domain2']
-        })
+        response = client.post(
+            "/api/v2/export", json={"format": "json", "domains": ["domain1", "domain2"]}
+        )
 
         assert response.status_code == 200
         data = response.get_json()
-        assert 'patterns' in data
-        assert 'relationships' in data
-        assert 'metadata' in data
+        assert "patterns" in data
+        assert "relationships" in data
+        assert "metadata" in data
 
         # Check content disposition header for file download
-        assert 'Content-Disposition' in response.headers
-        assert 'attachment' in response.headers['Content-Disposition']
-        assert '.json' in response.headers['Content-Disposition']
+        assert "Content-Disposition" in response.headers
+        assert "attachment" in response.headers["Content-Disposition"]
+        assert ".json" in response.headers["Content-Disposition"]
 
     def test_export_unsupported_format(self, client):
         """Test exporting data in unsupported format."""
-        response = client.post('/api/v2/export', json={
-            'format': 'xml',
-            'domains': ['domain1']
-        })
+        response = client.post("/api/v2/export", json={"format": "xml", "domains": ["domain1"]})
 
         assert response.status_code == 400
         data = response.get_json()
-        assert data['status'] == 'error'
-        assert 'not supported' in data['message']
+        assert data["status"] == "error"
+        assert "not supported" in data["message"]
 
     def test_export_missing_format(self, client):
         """Test exporting data without specifying format."""
-        response = client.post('/api/v2/export', json={
-            'domains': ['domain1']
-        })
+        response = client.post("/api/v2/export", json={"domains": ["domain1"]})
 
         assert response.status_code == 200
         data = response.get_json()
-        assert 'patterns' in data  # Should default to JSON
+        assert "patterns" in data  # Should default to JSON
 
     def test_export_with_framework_error(self, client):
         """Test export with framework error."""
@@ -424,29 +413,29 @@ class TestAnalysisEndpoints:
 
     def test_analyze_patterns_basic(self, client):
         """Test basic pattern analysis."""
-        response = client.get('/api/v2/analysis/patterns')
+        response = client.get("/api/v2/analysis/patterns")
 
         assert response.status_code == 200
         data = response.get_json()
-        assert data['status'] == 'success'
-        assert 'analysis' in data['data']
-        assert 'timestamp' in data['data']
+        assert data["status"] == "success"
+        assert "analysis" in data["data"]
+        assert "timestamp" in data["data"]
 
     def test_analyze_patterns_with_filters(self, client):
         """Test pattern analysis with filters."""
-        response = client.get('/api/v2/analysis/patterns?domain=test_domain&type=property')
+        response = client.get("/api/v2/analysis/patterns?domain=test_domain&type=property")
 
         assert response.status_code == 200
         data = response.get_json()
-        assert data['status'] == 'success'
+        assert data["status"] == "success"
 
     def test_analyze_patterns_with_analysis_type(self, client):
         """Test pattern analysis with specific analysis type."""
-        response = client.get('/api/v2/analysis/patterns?analysis_type=similarity')
+        response = client.get("/api/v2/analysis/patterns?analysis_type=similarity")
 
         assert response.status_code == 200
         data = response.get_json()
-        assert data['status'] == 'success'
+        assert data["status"] == "success"
 
 
 class TestErrorHandling:
@@ -455,23 +444,23 @@ class TestErrorHandling:
     def test_invalid_json_request(self, client):
         """Test handling of invalid JSON requests."""
         # Send request without Content-Type header
-        response = client.post('/api/v2/export', data="invalid json")
+        response = client.post("/api/v2/export", data="invalid json")
 
         assert response.status_code == 400
         data = response.get_json()
-        assert data['status'] == 'error'
+        assert data["status"] == "error"
         # Could be "Invalid Content Type" or "Invalid JSON" depending on how request is parsed
-        assert 'Invalid' in data['error']
+        assert "Invalid" in data["error"]
 
     def test_method_not_allowed(self, client):
         """Test handling of unsupported HTTP methods."""
-        response = client.post('/api/v2/health')
+        response = client.post("/api/v2/health")
 
         assert response.status_code == 405
         data = response.get_json()
-        assert data['status'] == 'error'
+        assert data["status"] == "error"
         # Check for method not allowed message (case insensitive)
-        assert 'method' in data['message'].lower() or 'not allowed' in data['message'].lower()
+        assert "method" in data["message"].lower() or "not allowed" in data["message"].lower()
 
     def test_internal_server_error(self, client):
         """Test handling of internal server errors."""
@@ -481,9 +470,7 @@ class TestErrorHandling:
 
     def test_validation_error(self, client):
         """Test handling of validation errors."""
-        response = client.post('/api/v2/export', json={
-            'format': 'invalid_format'
-        })
+        response = client.post("/api/v2/export", json={"format": "invalid_format"})
 
         # This should be handled gracefully
         assert response.status_code in [200, 400, 500]
@@ -494,24 +481,24 @@ class TestOpenAPISpec:
 
     def test_get_openapi_spec(self, client):
         """Test getting OpenAPI specification."""
-        response = client.get('/api/v2/openapi.json')
+        response = client.get("/api/v2/openapi.json")
 
         assert response.status_code == 200
         data = response.get_json()
 
-        assert data['openapi'] == "3.0.3"
-        assert 'info' in data
-        assert 'servers' in data
-        assert 'paths' in data
-        assert 'components' in data
+        assert data["openapi"] == "3.0.3"
+        assert "info" in data
+        assert "servers" in data
+        assert "paths" in data
+        assert "components" in data
 
         # Check info section
-        assert 'title' in data['info']
-        assert 'version' in data['info']
-        assert 'description' in data['info']
+        assert "title" in data["info"]
+        assert "version" in data["info"]
+        assert "description" in data["info"]
 
         # Check that we have some basic paths
-        assert '/health' in data['paths']
+        assert "/health" in data["paths"]
 
 
 class TestIntegration:
@@ -520,27 +507,27 @@ class TestIntegration:
     def test_full_api_workflow(self, client):
         """Test a complete API workflow."""
         # 1. Check health
-        response = client.get('/api/v2/health')
+        response = client.get("/api/v2/health")
         assert response.status_code == 200
 
         # 2. Get available visualizations
-        response = client.get('/api/v2/visualizations')
+        response = client.get("/api/v2/visualizations")
         assert response.status_code == 200
 
         # 3. Get domains
-        response = client.get('/api/v2/domains')
+        response = client.get("/api/v2/domains")
         assert response.status_code == 200
 
         # 4. Get framework metrics
-        response = client.get('/api/v2/framework/metrics')
+        response = client.get("/api/v2/framework/metrics")
         assert response.status_code == 200
 
         # 5. Try to export data
-        response = client.post('/api/v2/export', json={'format': 'json'})
+        response = client.post("/api/v2/export", json={"format": "json"})
         assert response.status_code == 200
 
         # 6. Get OpenAPI spec
-        response = client.get('/api/v2/openapi.json')
+        response = client.get("/api/v2/openapi.json")
         assert response.status_code == 200
 
     def test_error_recovery(self, client):
@@ -549,15 +536,15 @@ class TestIntegration:
         error_responses = []
 
         # 1. Invalid pattern ID
-        response = client.get('/api/v2/patterns/invalid_id')
+        response = client.get("/api/v2/patterns/invalid_id")
         error_responses.append(response.status_code)
 
         # 2. Invalid domain
-        response = client.get('/api/v2/domains/invalid_domain')
+        response = client.get("/api/v2/domains/invalid_domain")
         error_responses.append(response.status_code)
 
         # 3. Invalid visualization generation
-        response = client.post('/api/v2/visualizations/generate', json={'type': 'invalid_type'})
+        response = client.post("/api/v2/visualizations/generate", json={"type": "invalid_type"})
         error_responses.append(response.status_code)
 
         # All should return proper HTTP status codes

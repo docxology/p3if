@@ -3,12 +3,9 @@ Tests for analysis modules: BasicAnalyzer, NetworkAnalyzer, AnalysisReport.
 """
 
 import unittest
-import json
-import os
-import tempfile
 
-from p3if.core.framework import P3IFFramework, FrameworkBuilder
-from p3if.core.models import Property, Process, Perspective, Relationship
+from p3if.core.framework import FrameworkBuilder
+from p3if.core.models import Relationship
 from p3if.core.analysis.basic import BasicAnalyzer
 from p3if.core.analysis.report import AnalysisReport
 
@@ -17,14 +14,26 @@ class TestBasicAnalyzer(unittest.TestCase):
     """Test BasicAnalyzer functionality."""
 
     def setUp(self):
-        self.framework = FrameworkBuilder() \
-            .add_property(name="Security", description="Security property", domain="cybersec") \
-            .add_property(name="Privacy", description="Privacy property", domain="cybersec") \
-            .add_process(name="Auth", description="Authentication process", domain="cybersec") \
-            .add_process(name="Encrypt", description="Encryption process", domain="cybersec") \
-            .add_perspective(name="Technical", description="Technical perspective", domain="cybersec", viewpoint="dev") \
-            .add_perspective(name="Business", description="Business perspective", domain="cybersec", viewpoint="biz") \
+        self.framework = (
+            FrameworkBuilder()
+            .add_property(name="Security", description="Security property", domain="cybersec")
+            .add_property(name="Privacy", description="Privacy property", domain="cybersec")
+            .add_process(name="Auth", description="Authentication process", domain="cybersec")
+            .add_process(name="Encrypt", description="Encryption process", domain="cybersec")
+            .add_perspective(
+                name="Technical",
+                description="Technical perspective",
+                domain="cybersec",
+                viewpoint="dev",
+            )
+            .add_perspective(
+                name="Business",
+                description="Business perspective",
+                domain="cybersec",
+                viewpoint="biz",
+            )
             .build()
+        )
 
         # Add relationships
         patterns = {
@@ -32,17 +41,23 @@ class TestBasicAnalyzer(unittest.TestCase):
             "process": self.framework.get_patterns_by_type("process"),
             "perspective": self.framework.get_patterns_by_type("perspective"),
         }
-        self.framework.add_relationship(Relationship(
-            property_id=patterns["property"][0].id,
-            process_id=patterns["process"][0].id,
-            strength=0.9, confidence=0.95
-        ))
-        self.framework.add_relationship(Relationship(
-            property_id=patterns["property"][1].id,
-            process_id=patterns["process"][1].id,
-            perspective_id=patterns["perspective"][0].id,
-            strength=0.7, confidence=0.8
-        ))
+        self.framework.add_relationship(
+            Relationship(
+                property_id=patterns["property"][0].id,
+                process_id=patterns["process"][0].id,
+                strength=0.9,
+                confidence=0.95,
+            )
+        )
+        self.framework.add_relationship(
+            Relationship(
+                property_id=patterns["property"][1].id,
+                process_id=patterns["process"][1].id,
+                perspective_id=patterns["perspective"][0].id,
+                strength=0.7,
+                confidence=0.8,
+            )
+        )
 
         self.analyzer = BasicAnalyzer(self.framework)
 
@@ -98,38 +113,49 @@ class TestAnalysisReport(unittest.TestCase):
     """Test AnalysisReport functionality."""
 
     def setUp(self):
-        self.framework = FrameworkBuilder() \
-            .add_property(name="P1", description="Property 1", domain="test") \
-            .add_process(name="Pr1", description="Process 1", domain="test") \
-            .add_perspective(name="Pe1", description="Perspective 1", domain="test", viewpoint="analyst") \
+        self.framework = (
+            FrameworkBuilder()
+            .add_property(name="P1", description="Property 1", domain="test")
+            .add_process(name="Pr1", description="Process 1", domain="test")
+            .add_perspective(
+                name="Pe1", description="Perspective 1", domain="test", viewpoint="analyst"
+            )
             .build()
+        )
 
         patterns = {
             "property": self.framework.get_patterns_by_type("property"),
             "process": self.framework.get_patterns_by_type("process"),
             "perspective": self.framework.get_patterns_by_type("perspective"),
         }
-        self.framework.add_relationship(Relationship(
-            property_id=patterns["property"][0].id,
-            process_id=patterns["process"][0].id,
-            strength=0.8, confidence=0.9
-        ))
+        self.framework.add_relationship(
+            Relationship(
+                property_id=patterns["property"][0].id,
+                process_id=patterns["process"][0].id,
+                strength=0.8,
+                confidence=0.9,
+            )
+        )
 
         self.report = AnalysisReport(self.framework)
 
     def test_run_basic_analysis(self):
-        result = self.report.run_analysis(include_basic=True, include_network=False, include_meta=False)
+        result = self.report.run_analysis(
+            include_basic=True, include_network=False, include_meta=False
+        )
         self.assertIn("timestamp", result)
         self.assertIn("summary", result)
         self.assertIn("basic", result)
 
     def test_full_report(self):
-        result = self.report.run_analysis(include_basic=True, include_network=True, include_meta=True)
+        result = self.report.run_analysis(
+            include_basic=True, include_network=True, include_meta=True
+        )
         self.assertIn("timestamp", result)
         self.assertIn("basic", result)
 
     def test_network_summary_with_params(self):
-        result = self.report.run_analysis(include_basic=False, include_network=True, include_meta=False)
+        self.report.run_analysis(include_basic=False, include_network=True, include_meta=False)
         summary = self.report.get_network_summary(top_n_nodes=3, top_n_communities=2)
         self.assertIn("top_central_nodes", summary)
 
@@ -143,5 +169,5 @@ class TestAnalysisReport(unittest.TestCase):
         self.assertIn("AnalysisReport", r)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

@@ -10,17 +10,16 @@ simple in-memory tracking without model validation overhead. Use the core.models
 classes (Property, Process, Perspective) when validation and serialization are needed.
 """
 
-from typing import Dict, List, Any, Optional, Union, Set, Callable
+from typing import Dict, List, Any
 from dataclasses import dataclass, field
 from enum import Enum
-import re
 from collections import defaultdict
-import logging
 from datetime import datetime
 
 
 class PropertyType(str, Enum):
     """Types of properties."""
+
     SECURITY = "security"
     QUALITY = "quality"
     BUSINESS = "business"
@@ -30,6 +29,7 @@ class PropertyType(str, Enum):
 
 class ProcessType(str, Enum):
     """Types of processes."""
+
     OPERATIONAL = "operational"
     ANALYTICAL = "analytical"
     GOVERNANCE = "governance"
@@ -39,6 +39,7 @@ class ProcessType(str, Enum):
 
 class PerspectiveType(str, Enum):
     """Types of perspectives."""
+
     STAKEHOLDER = "stakeholder"
     DOMAIN = "domain"
     TEMPORAL = "temporal"
@@ -53,15 +54,20 @@ class PropertyManager:
     properties: Dict[str, Any] = field(default_factory=dict)
     property_types: Dict[str, PropertyType] = field(default_factory=dict)
 
-    def add_property(self, name: str, prop_type: PropertyType = PropertyType.TECHNICAL,
-                    description: str = "", attributes: Dict[str, Any] = None) -> Any:
+    def add_property(
+        self,
+        name: str,
+        prop_type: PropertyType = PropertyType.TECHNICAL,
+        description: str = "",
+        attributes: Dict[str, Any] = None,
+    ) -> Any:
         """Add a new property."""
         property_obj = {
             "name": name,
             "type": prop_type,
             "description": description,
             "attributes": attributes or {},
-            "created_at": datetime.now().isoformat()
+            "created_at": datetime.now().isoformat(),
         }
         self.properties[name] = property_obj
         self.property_types[name] = prop_type
@@ -91,8 +97,9 @@ class PropertyManager:
 
         return similar
 
-    def validate_property_dependencies(self, property_name: str,
-                                     required_props: List[str]) -> Dict[str, bool]:
+    def validate_property_dependencies(
+        self, property_name: str, required_props: List[str]
+    ) -> Dict[str, bool]:
         """Validate that required properties exist."""
         validation = {}
         for req_prop in required_props:
@@ -108,9 +115,14 @@ class ProcessManager:
     process_types: Dict[str, ProcessType] = field(default_factory=dict)
     process_sequences: Dict[str, List[str]] = field(default_factory=dict)
 
-    def add_process(self, name: str, proc_type: ProcessType = ProcessType.OPERATIONAL,
-                   description: str = "", inputs: List[str] = None,
-                   outputs: List[str] = None) -> Any:
+    def add_process(
+        self,
+        name: str,
+        proc_type: ProcessType = ProcessType.OPERATIONAL,
+        description: str = "",
+        inputs: List[str] = None,
+        outputs: List[str] = None,
+    ) -> Any:
         """Add a new process."""
         process_obj = {
             "name": name,
@@ -118,7 +130,7 @@ class ProcessManager:
             "description": description,
             "inputs": inputs or [],
             "outputs": outputs or [],
-            "created_at": datetime.now().isoformat()
+            "created_at": datetime.now().isoformat(),
         }
         self.processes[name] = process_obj
         self.process_types[name] = proc_type
@@ -134,19 +146,11 @@ class ProcessManager:
             return {}
 
         process = self.processes[process_name]
-        return {
-            "inputs": process["inputs"],
-            "outputs": process["outputs"]
-        }
+        return {"inputs": process["inputs"], "outputs": process["outputs"]}
 
     def validate_process_chain(self, process_list: List[str]) -> Dict[str, Any]:
         """Validate that a process chain is complete and consistent."""
-        validation = {
-            "valid": True,
-            "missing_processes": [],
-            "broken_links": [],
-            "warnings": []
-        }
+        validation = {"valid": True, "missing_processes": [], "broken_links": [], "warnings": []}
 
         # Check that all processes exist
         for process_name in process_list:
@@ -164,11 +168,15 @@ class ProcessManager:
 
             # Check if any output from current matches input to next
             if not any(output in next_inputs for output in current_outputs):
-                validation["broken_links"].append({
-                    "from": process_name,
-                    "to": next_process,
-                    "missing_links": [output for output in current_outputs if output not in next_inputs]
-                })
+                validation["broken_links"].append(
+                    {
+                        "from": process_name,
+                        "to": next_process,
+                        "missing_links": [
+                            output for output in current_outputs if output not in next_inputs
+                        ],
+                    }
+                )
 
         return validation
 
@@ -181,15 +189,20 @@ class PerspectiveManager:
     perspective_types: Dict[str, PerspectiveType] = field(default_factory=dict)
     viewpoint_hierarchies: Dict[str, List[str]] = field(default_factory=dict)
 
-    def add_perspective(self, name: str, pers_type: PerspectiveType = PerspectiveType.STAKEHOLDER,
-                       description: str = "", viewpoint: str = "default") -> Any:
+    def add_perspective(
+        self,
+        name: str,
+        pers_type: PerspectiveType = PerspectiveType.STAKEHOLDER,
+        description: str = "",
+        viewpoint: str = "default",
+    ) -> Any:
         """Add a new perspective."""
         perspective_obj = {
             "name": name,
             "type": pers_type,
             "description": description,
             "viewpoint": viewpoint,
-            "created_at": datetime.now().isoformat()
+            "created_at": datetime.now().isoformat(),
         }
         self.perspectives[name] = perspective_obj
         self.perspective_types[name] = pers_type
@@ -209,7 +222,7 @@ class PerspectiveManager:
             "total_elements": len(elements),
             "covered_elements": 0,
             "perspective_effectiveness": {},
-            "coverage_gaps": []
+            "coverage_gaps": [],
         }
 
         for perspective_name, perspective in self.perspectives.items():
@@ -221,7 +234,7 @@ class PerspectiveManager:
 
             coverage["perspective_effectiveness"][perspective_name] = {
                 "coverage": covered,
-                "coverage_ratio": covered / len(elements) if elements else 0
+                "coverage_ratio": covered / len(elements) if elements else 0,
             }
 
             if covered > 0:
@@ -230,14 +243,17 @@ class PerspectiveManager:
         # Find gaps
         for element in elements:
             covering_perspectives = [
-                name for name, perspective in self.perspectives.items()
+                name
+                for name, perspective in self.perspectives.items()
                 if self._perspective_covers_element(perspective, element)
             ]
             if not covering_perspectives:
-                coverage["coverage_gaps"].append({
-                    "element": getattr(element, 'name', str(element)),
-                    "suggested_perspective": self._suggest_perspective_for_element(element)
-                })
+                coverage["coverage_gaps"].append(
+                    {
+                        "element": getattr(element, "name", str(element)),
+                        "suggested_perspective": self._suggest_perspective_for_element(element),
+                    }
+                )
 
         return coverage
 

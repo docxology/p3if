@@ -15,19 +15,20 @@ These tests verify the specific bugs fixed in the second-pass improvement:
 - composition overlay with set operations
 """
 
-import json
 import os
 import tempfile
 import unittest
 
-from p3if.core.framework import P3IFFramework, FrameworkMetrics
+from p3if.core.framework import P3IFFramework
 from p3if.core.models import (
-    Property, Process, Perspective, Relationship,
-    PatternType, PatternCollection
+    Property,
+    Process,
+    Perspective,
+    Relationship,
+    PatternType,
 )
 from p3if.core.core import P3IFCore
 from p3if.core.composition import CompositionEngine, MultiplexingStrategy
-from p3if.core.exceptions import PatternTypeError
 
 
 class TestBatchOperations(unittest.TestCase):
@@ -40,25 +41,24 @@ class TestBatchOperations(unittest.TestCase):
             for i in range(10)
         ]
         self.processes = [
-            Process(name=f"Proc {i}", description=f"Process {i}", domain="test")
-            for i in range(10)
+            Process(name=f"Proc {i}", description=f"Process {i}", domain="test") for i in range(10)
         ]
 
     def test_add_patterns_batch_all_successful(self):
         """All valid patterns should be added successfully."""
         result = self.framework.add_patterns_batch(self.patterns)
-        self.assertEqual(result['successful'], 10)
-        self.assertEqual(result['failed'], 0)
-        self.assertEqual(result['total'], 10)
+        self.assertEqual(result["successful"], 10)
+        self.assertEqual(result["failed"], 0)
+        self.assertEqual(result["total"], 10)
         self.assertEqual(len(self.framework), 10)
 
     def test_add_patterns_batch_with_duplicates(self):
         """Duplicate patterns should fail but not block others."""
         self.framework.add_pattern(self.patterns[0])
         result = self.framework.add_patterns_batch(self.patterns)
-        self.assertEqual(result['successful'], 9)
-        self.assertEqual(result['failed'], 1)
-        self.assertEqual(result['total'], 10)
+        self.assertEqual(result["successful"], 9)
+        self.assertEqual(result["failed"], 1)
+        self.assertEqual(result["total"], 10)
 
     def test_add_relationships_batch(self):
         """Batch add relationships should work correctly."""
@@ -73,13 +73,13 @@ class TestBatchOperations(unittest.TestCase):
                 property_id=self.patterns[i].id,
                 process_id=self.processes[i].id,
                 strength=0.8,
-                confidence=0.9
+                confidence=0.9,
             )
             rels.append(rel)
 
         result = self.framework.add_relationships_batch(rels)
-        self.assertEqual(result['successful'], 5)
-        self.assertEqual(result['failed'], 0)
+        self.assertEqual(result["successful"], 5)
+        self.assertEqual(result["failed"], 0)
         self.assertEqual(len(self.framework.get_all_relationships()), 5)
 
     def test_batch_operations_isolate_failures(self):
@@ -89,9 +89,9 @@ class TestBatchOperations(unittest.TestCase):
         self.framework.add_pattern(patterns[0])
 
         result = self.framework.add_patterns_batch(patterns)
-        self.assertEqual(result['successful'], 9)
-        self.assertEqual(result['failed'], 1)
-        self.assertEqual(len(result['errors']), 1)
+        self.assertEqual(result["successful"], 9)
+        self.assertEqual(result["failed"], 1)
+        self.assertEqual(len(result["errors"]), 1)
 
 
 class TestRelationshipDeduplication(unittest.TestCase):
@@ -101,7 +101,9 @@ class TestRelationshipDeduplication(unittest.TestCase):
         self.framework = P3IFFramework()
         self.prop = Property(name="Prop", description="Test", domain="test")
         self.proc = Process(name="Proc", description="Test", domain="test")
-        self.persp = Perspective(name="Persp", description="Test", domain="test", viewpoint="analyst")
+        self.persp = Perspective(
+            name="Persp", description="Test", domain="test", viewpoint="analyst"
+        )
         self.framework.add_pattern(self.prop)
         self.framework.add_pattern(self.proc)
         self.framework.add_pattern(self.persp)
@@ -112,7 +114,7 @@ class TestRelationshipDeduplication(unittest.TestCase):
             property_id=self.prop.id,
             process_id=self.proc.id,
             perspective_id=self.persp.id,
-            strength=0.8
+            strength=0.8,
         )
         self.framework.add_relationship(rel)
 
@@ -145,13 +147,15 @@ class TestMetricsCalculation(unittest.TestCase):
         for i in range(3):
             fw.add_pattern(Process(name=f"Pr{i}", description=f"Proc {i}", domain="test"))
         for i in range(2):
-            fw.add_pattern(Perspective(name=f"Pe{i}", description=f"Persp {i}", domain="test", viewpoint="v"))
+            fw.add_pattern(
+                Perspective(name=f"Pe{i}", description=f"Persp {i}", domain="test", viewpoint="v")
+            )
 
         metrics = fw.get_metrics()
         self.assertEqual(metrics.total_patterns, 10)
-        self.assertEqual(metrics.pattern_types_count.get('property', 0), 5)
-        self.assertEqual(metrics.pattern_types_count.get('process', 0), 3)
-        self.assertEqual(metrics.pattern_types_count.get('perspective', 0), 2)
+        self.assertEqual(metrics.pattern_types_count.get("property", 0), 5)
+        self.assertEqual(metrics.pattern_types_count.get("process", 0), 3)
+        self.assertEqual(metrics.pattern_types_count.get("perspective", 0), 2)
 
 
 class TestHotSwapDimension(unittest.TestCase):
@@ -161,16 +165,14 @@ class TestHotSwapDimension(unittest.TestCase):
         self.framework = P3IFFramework()
         self.prop = Property(name="Prop", description="Test", domain="test")
         self.proc = Process(name="Proc", description="Test", domain="test")
-        self.persp = Perspective(name="Persp", description="Test", domain="test", viewpoint="analyst")
+        self.persp = Perspective(
+            name="Persp", description="Test", domain="test", viewpoint="analyst"
+        )
         self.framework.add_pattern(self.prop)
         self.framework.add_pattern(self.proc)
         self.framework.add_pattern(self.persp)
 
-        self.rel = Relationship(
-            property_id=self.prop.id,
-            process_id=self.proc.id,
-            strength=0.8
-        )
+        self.rel = Relationship(property_id=self.prop.id, process_id=self.proc.id, strength=0.8)
         self.framework.add_relationship(self.rel)
 
     def test_hot_swap_with_string(self):
@@ -185,11 +187,7 @@ class TestHotSwapDimension(unittest.TestCase):
         self.framework.add_pattern(persp2)
 
         # Create a relationship connecting property and process
-        rel2 = Relationship(
-            property_id=self.prop.id,
-            process_id=self.proc.id,
-            strength=0.7
-        )
+        rel2 = Relationship(property_id=self.prop.id, process_id=self.proc.id, strength=0.7)
         self.framework.add_relationship(rel2)
 
         count = self.framework.hot_swap_dimension(PatternType.PROPERTY, PatternType.PERSPECTIVE)
@@ -222,9 +220,13 @@ class TestMultiplexFrameworks(unittest.TestCase):
                 {"name": "New Proc", "description": "External process", "domain": "external"}
             ],
             "perspective": [
-                {"name": "New Persp", "description": "External perspective", "domain": "external",
-                 "viewpoint": "external_view"}
-            ]
+                {
+                    "name": "New Persp",
+                    "description": "External perspective",
+                    "domain": "external",
+                    "viewpoint": "external_view",
+                }
+            ],
         }
         result = self.framework.multiplex_frameworks(external)
         self.assertEqual(result["integrated"]["property"], 1)
@@ -259,9 +261,13 @@ class TestImportExportRoundTrip(unittest.TestCase):
 
     def setUp(self):
         self.framework = P3IFFramework()
-        self.prop = Property(name="Prop", description="Test property", domain="test", tags=["a", "b"])
+        self.prop = Property(
+            name="Prop", description="Test property", domain="test", tags=["a", "b"]
+        )
         self.proc = Process(name="Proc", description="Test process", domain="test")
-        self.persp = Perspective(name="Persp", description="Test perspective", domain="test", viewpoint="analyst")
+        self.persp = Perspective(
+            name="Persp", description="Test perspective", domain="test", viewpoint="analyst"
+        )
         self.framework.add_pattern(self.prop)
         self.framework.add_pattern(self.proc)
         self.framework.add_pattern(self.persp)
@@ -270,7 +276,7 @@ class TestImportExportRoundTrip(unittest.TestCase):
             process_id=self.proc.id,
             perspective_id=self.persp.id,
             strength=0.85,
-            confidence=0.95
+            confidence=0.95,
         )
         self.framework.add_relationship(self.rel)
 
@@ -293,7 +299,7 @@ class TestImportExportRoundTrip(unittest.TestCase):
 
     def test_json_file_round_trip(self):
         """Export to file and re-import should work."""
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as f:
             path = f.name
 
         try:
@@ -351,9 +357,7 @@ class TestCreateRelationshipType(unittest.TestCase):
         proc = core.create_pattern("process", "Proc", domain="test", description="d")
 
         rel = core.create_relationship(
-            property_id=prop.id,
-            process_id=proc.id,
-            relationship_type="causal"
+            property_id=prop.id, process_id=proc.id, relationship_type="causal"
         )
 
         self.assertEqual(rel.relationship_type, "causal")
@@ -375,13 +379,16 @@ class TestCompositionSetOperations(unittest.TestCase):
 
     def test_overlay_with_lists(self):
         """Overlay should work when framework dimensions are lists."""
+
         class ListFramework:
             def __init__(self, properties, processes, perspectives):
                 self.properties = properties
                 self.processes = processes
                 self.perspectives = perspectives
+
             def copy(self):
                 import copy
+
                 return copy.deepcopy(self)
 
         base = ListFramework(["a", "b"], ["x"], ["p"])
@@ -397,13 +404,16 @@ class TestCompositionSetOperations(unittest.TestCase):
 
     def test_overlay_with_sets(self):
         """Overlay should work when framework dimensions are sets."""
+
         class SetFramework:
             def __init__(self, properties, processes, perspectives):
                 self.properties = properties
                 self.processes = processes
                 self.perspectives = perspectives
+
             def copy(self):
                 import copy
+
                 return copy.deepcopy(self)
 
         base = SetFramework({"a", "b"}, {"x"}, {"p"})
@@ -417,13 +427,16 @@ class TestCompositionSetOperations(unittest.TestCase):
 
     def test_intersection_strategy(self):
         """Intersection should return only common elements."""
+
         class SetFramework:
             def __init__(self, properties, processes, perspectives):
                 self.properties = properties
                 self.processes = processes
                 self.perspectives = perspectives
+
             def copy(self):
                 import copy
+
                 return copy.deepcopy(self)
 
         base = SetFramework({"a", "b", "c"}, {"x"}, {"p"})
@@ -442,16 +455,17 @@ class TestValidationRuleAppliesTo(unittest.TestCase):
     def test_rules_have_applies_to(self):
         """Default rules should have applies_to set."""
         from p3if.core.validation import create_default_validation_rules
+
         rules = create_default_validation_rules()
 
-        self.assertEqual(rules["has_name"].applies_to, 'pattern')
-        self.assertEqual(rules["meaningful_description"].applies_to, 'pattern')
-        self.assertEqual(rules["minimum_elements"].applies_to, 'framework')
-        self.assertEqual(rules["dimension_balance"].applies_to, 'framework')
-        self.assertEqual(rules["relationship_validity"].applies_to, 'relationship')
-        self.assertEqual(rules["strength_range"].applies_to, 'relationship')
-        self.assertEqual(rules["confidence_range"].applies_to, 'relationship')
+        self.assertEqual(rules["has_name"].applies_to, "pattern")
+        self.assertEqual(rules["meaningful_description"].applies_to, "pattern")
+        self.assertEqual(rules["minimum_elements"].applies_to, "framework")
+        self.assertEqual(rules["dimension_balance"].applies_to, "framework")
+        self.assertEqual(rules["relationship_validity"].applies_to, "relationship")
+        self.assertEqual(rules["strength_range"].applies_to, "relationship")
+        self.assertEqual(rules["confidence_range"].applies_to, "relationship")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

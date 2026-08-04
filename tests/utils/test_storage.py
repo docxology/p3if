@@ -1,7 +1,6 @@
 """
 Unit tests for P3IF storage utilities.
 """
-import pytest
 import json
 import tempfile
 from pathlib import Path
@@ -14,7 +13,7 @@ class TestJSONStorage:
         """Test JSONStorage initialization."""
         from p3if.utils.storage import JSONStorage
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as f:
             temp_path = Path(f.name)
 
         try:
@@ -30,7 +29,7 @@ class TestJSONStorage:
         from p3if.utils.storage import JSONStorage
         from p3if.core.models import Property
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as f:
             temp_path = Path(f.name)
 
         try:
@@ -42,7 +41,7 @@ class TestJSONStorage:
             assert pattern.id in storage._data["patterns"]
 
             # Verify persistence
-            with open(temp_path, 'r') as f:
+            with open(temp_path, "r") as f:
                 saved_data = json.load(f)
 
             assert pattern.id in saved_data["patterns"]
@@ -54,7 +53,7 @@ class TestJSONStorage:
         from p3if.utils.storage import JSONStorage
         from p3if.core.models import Property
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as f:
             temp_path = Path(f.name)
 
         try:
@@ -74,7 +73,7 @@ class TestJSONStorage:
         """Test retrieving non-existent pattern returns None."""
         from p3if.utils.storage import JSONStorage
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as f:
             temp_path = Path(f.name)
 
         try:
@@ -90,7 +89,7 @@ class TestJSONStorage:
         from p3if.utils.storage import JSONStorage
         from p3if.core.models import Property
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as f:
             temp_path = Path(f.name)
 
         try:
@@ -112,7 +111,7 @@ class TestJSONStorage:
         from p3if.utils.storage import JSONStorage
         from p3if.core.models import Property, Process
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as f:
             temp_path = Path(f.name)
 
         try:
@@ -139,7 +138,7 @@ class TestJSONStorage:
         from p3if.utils.storage import JSONStorage
         from p3if.core.models import Property, Process, Relationship
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as f:
             temp_path = Path(f.name)
 
         try:
@@ -151,7 +150,9 @@ class TestJSONStorage:
             storage.save_pattern(prop)
             storage.save_pattern(proc)
 
-            rel = Relationship(property_id=prop.id, process_id=proc.id, strength=0.8, confidence=0.9)
+            rel = Relationship(
+                property_id=prop.id, process_id=proc.id, strength=0.8, confidence=0.9
+            )
             storage.save_relationship(rel)
 
             assert rel.id in storage._data["relationships"]
@@ -163,7 +164,7 @@ class TestJSONStorage:
         from p3if.utils.storage import JSONStorage
         from p3if.core.models import Property
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as f:
             temp_path = Path(f.name)
 
         try:
@@ -193,13 +194,13 @@ class TestJSONStorage:
                     "name": "Existing Pattern",
                     "description": "Test",
                     "type": "property",
-                    "domain": "test"
+                    "domain": "test",
                 }
             },
-            "relationships": {}
+            "relationships": {},
         }
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".json", delete=False) as f:
             json.dump(existing_data, f)
             temp_path = Path(f.name)
 
@@ -218,7 +219,7 @@ class TestSQLiteStorage:
         """Test SQLiteStorage initialization."""
         from p3if.utils.storage import SQLiteStorage
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.db', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".db", delete=False) as f:
             temp_path = Path(f.name)
 
         try:
@@ -235,7 +236,7 @@ class TestSQLiteStorage:
         from p3if.utils.storage import SQLiteStorage
         from p3if.core.models import Property
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.db', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".db", delete=False) as f:
             temp_path = Path(f.name)
 
         try:
@@ -257,7 +258,7 @@ class TestSQLiteStorage:
         from p3if.utils.storage import SQLiteStorage
         from p3if.core.models import Property
 
-        with tempfile.NamedTemporaryFile(mode='w', suffix='.db', delete=False) as f:
+        with tempfile.NamedTemporaryFile(mode="w", suffix=".db", delete=False) as f:
             temp_path = Path(f.name)
 
         try:
@@ -290,11 +291,7 @@ class TestVisualizationStorage:
 
         storage = VisualizationStorage()
 
-        viz_data = {
-            "status": "completed",
-            "type": "cube_3d",
-            "progress": 100
-        }
+        viz_data = {"status": "completed", "type": "cube_3d", "progress": 100}
 
         storage.save_visualization("test_viz_id", viz_data)
 
@@ -363,12 +360,10 @@ class TestVisualizationStorage:
         assert any("json" in f["type"] for f in files)
 
         # With stored files
-        storage.save_visualization("test_id", {
-            "status": "completed",
-            "files": [
-                {"url": "/output/custom.html", "type": "html"}
-            ]
-        })
+        storage.save_visualization(
+            "test_id",
+            {"status": "completed", "files": [{"url": "/output/custom.html", "type": "html"}]},
+        )
 
         files = storage.get_visualization_files("test_id")
         assert len(files) == 1

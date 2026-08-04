@@ -70,7 +70,7 @@ class TestFrameworkIntegrationOrchestrator(unittest.TestCase):
             version="1.0",
             source_framework="Test Framework",
             mapping_rules={},
-            transformation_functions={}
+            transformation_functions={},
         )
         self.orchestrator.add_framework_adapter(adapter)
         self.assertIn("Test Framework", self.orchestrator.integrated_frameworks)
@@ -88,7 +88,7 @@ class TestFrameworkIntegrationOrchestrator(unittest.TestCase):
             version="1.0",
             source_framework="CIA Triad",
             mapping_rules={},
-            transformation_functions={}
+            transformation_functions={},
         )
         self.orchestrator.add_framework_adapter(adapter)
         result = self.orchestrator.execute_integration(framework_names=["CIA Triad"])
@@ -140,5 +140,5 @@ class TestHealthcareDomainOrchestrator(unittest.TestCase):
         self.assertGreater(len(result["recommendations"]), 0)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

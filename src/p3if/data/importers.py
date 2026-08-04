@@ -7,7 +7,7 @@ import csv
 import json
 import logging
 from pathlib import Path
-from typing import Dict, List, Any, Union, Optional
+from typing import Union, Optional
 
 from p3if.core.framework import P3IFFramework
 from p3if.core.models import Property, Process, Perspective, Relationship
@@ -15,32 +15,34 @@ from p3if.core.models import Property, Process, Perspective, Relationship
 logger = logging.getLogger(__name__)
 
 
-def import_from_json(file_path: Union[str, Path], framework: Optional[P3IFFramework] = None) -> P3IFFramework:
+def import_from_json(
+    file_path: Union[str, Path], framework: Optional[P3IFFramework] = None
+) -> P3IFFramework:
     """
     Import P3IF data from a JSON file.
-    
+
     Args:
         file_path: Path to the JSON file
         framework: Existing framework to import into (creates new one if None)
-        
+
     Returns:
         P3IFFramework with imported data
     """
     if framework is None:
         framework = P3IFFramework()
-    
+
     file_path = Path(file_path)
     logger.info(f"Importing P3IF data from JSON: {file_path}")
-    
+
     try:
-        with open(file_path, 'r') as f:
+        with open(file_path, "r") as f:
             data = json.load(f)
-        
+
         # Import patterns with correct type mapping
         type_mapping = {
-            'properties': ('property', Property),
-            'processes': ('process', Process),
-            'perspectives': ('perspective', Perspective)
+            "properties": ("property", Property),
+            "processes": ("process", Process),
+            "perspectives": ("perspective", Perspective),
         }
 
         for pattern_type, (singular_type, PatternClass) in type_mapping.items():
@@ -51,16 +53,16 @@ def import_from_json(file_path: Union[str, Path], framework: Optional[P3IFFramew
 
                     # Add to framework
                     framework.add_pattern(pattern)
-        
+
         # Import relationships
-        if 'relationships' in data:
-            for rel_data in data['relationships']:
+        if "relationships" in data:
+            for rel_data in data["relationships"]:
                 relationship = Relationship(**rel_data)
                 framework.add_relationship(relationship)
-        
+
         logger.info(f"Successfully imported data from {file_path}")
         return framework
-    
+
     except Exception as e:
         logger.error(f"Error importing from JSON: {e}")
         raise
@@ -69,76 +71,76 @@ def import_from_json(file_path: Union[str, Path], framework: Optional[P3IFFramew
 def import_from_csv(
     patterns_file: Union[str, Path],
     relationships_file: Union[str, Path],
-    framework: Optional[P3IFFramework] = None
+    framework: Optional[P3IFFramework] = None,
 ) -> P3IFFramework:
     """
     Import P3IF data from CSV files.
-    
+
     Args:
         patterns_file: Path to CSV file containing patterns
         relationships_file: Path to CSV file containing relationships
         framework: Existing framework to import into (creates new one if None)
-        
+
     Returns:
         P3IFFramework with imported data
     """
     if framework is None:
         framework = P3IFFramework()
-    
+
     patterns_file = Path(patterns_file)
     relationships_file = Path(relationships_file)
-    
+
     logger.info(f"Importing P3IF patterns from CSV: {patterns_file}")
     logger.info(f"Importing P3IF relationships from CSV: {relationships_file}")
-    
+
     try:
         # Import patterns
-        with open(patterns_file, 'r', newline='') as csvfile:
+        with open(patterns_file, "r", newline="") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
-                pattern_type = row.get('type')
-                
+                pattern_type = row.get("type")
+
                 # Common pattern fields
                 pattern_kwargs = {
-                    'name': row.get('name'),
-                    'description': row.get('description', ''),
-                    'domain': row.get('domain', None) or None,
-                    'tags': row.get('tags', '').split(',') if row.get('tags') else []
+                    "name": row.get("name"),
+                    "description": row.get("description", ""),
+                    "domain": row.get("domain", None) or None,
+                    "tags": row.get("tags", "").split(",") if row.get("tags") else [],
                 }
 
                 # Preserve ID if provided in CSV
-                if row.get('id'):
-                    pattern_kwargs['id'] = row.get('id')
+                if row.get("id"):
+                    pattern_kwargs["id"] = row.get("id")
 
-                if pattern_type == 'property':
+                if pattern_type == "property":
                     pattern = Property(**pattern_kwargs)
-                elif pattern_type == 'process':
+                elif pattern_type == "process":
                     pattern = Process(**pattern_kwargs)
-                elif pattern_type == 'perspective':
-                    pattern_kwargs['viewpoint'] = row.get('viewpoint', 'default')
+                elif pattern_type == "perspective":
+                    pattern_kwargs["viewpoint"] = row.get("viewpoint", "default")
                     pattern = Perspective(**pattern_kwargs)
                 else:
                     logger.warning(f"Unknown pattern type: {pattern_type}")
                     continue
-                
+
                 framework.add_pattern(pattern)
-        
+
         # Import relationships
-        with open(relationships_file, 'r', newline='') as csvfile:
+        with open(relationships_file, "r", newline="") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 relationship = Relationship(
-                    property_id=row.get('property_id', None),
-                    process_id=row.get('process_id', None),
-                    perspective_id=row.get('perspective_id', None),
-                    strength=float(row.get('strength', 0.0)),
-                    confidence=float(row.get('confidence', 0.0))
+                    property_id=row.get("property_id", None),
+                    process_id=row.get("process_id", None),
+                    perspective_id=row.get("perspective_id", None),
+                    strength=float(row.get("strength", 0.0)),
+                    confidence=float(row.get("confidence", 0.0)),
                 )
                 framework.add_relationship(relationship)
-        
-        logger.info(f"Successfully imported data from CSV files")
+
+        logger.info("Successfully imported data from CSV files")
         return framework
-    
+
     except Exception as e:
         logger.error(f"Error importing from CSV: {e}")
-        raise 
+        raise

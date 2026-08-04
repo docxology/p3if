@@ -5,7 +5,7 @@ Pydantic models for validating domain JSON files loaded from data/domains/.
 """
 
 from pydantic import BaseModel, Field, field_validator
-from typing import List, Optional
+from typing import List
 
 
 class DomainData(BaseModel):
@@ -31,14 +31,14 @@ class DomainData(BaseModel):
         "extra": "ignore",
     }
 
-    @field_validator('domain')
+    @field_validator("domain")
     @classmethod
     def validate_domain(cls, v: str) -> str:
         if not v.strip():
             raise ValueError("Domain name cannot be empty")
         return v.strip()
 
-    @field_validator('properties', 'processes', 'perspectives')
+    @field_validator("properties", "processes", "perspectives")
     @classmethod
     def validate_lists(cls, v: List[str]) -> List[str]:
         """Ensure all entries are non-empty strings."""

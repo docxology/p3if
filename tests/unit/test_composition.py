@@ -5,16 +5,15 @@ Comprehensive tests for P3IF composition and multiplexing functionality.
 """
 
 import unittest
-import pytest
-from typing import Dict, List, Any
 
 from p3if.core.composition import (
-    CompositionEngine, FrameworkAdapter,
-    MultiplexingStrategy, Multiplexer
+    CompositionEngine,
+    FrameworkAdapter,
+    MultiplexingStrategy,
+    Multiplexer,
 )
 from p3if.core.framework import P3IFFramework
 from p3if.core.models import Property, Process, Perspective
-from tests.fixtures.helpers import create_test_framework
 
 
 class TestFrameworkAdapter(unittest.TestCase):
@@ -28,11 +27,9 @@ class TestFrameworkAdapter(unittest.TestCase):
             source_framework="Test Framework",
             mapping_rules={
                 "properties": {"name": "name", "type": "type"},
-                "processes": {"name": "process_name", "type": "process_type"}
+                "processes": {"name": "process_name", "type": "process_type"},
             },
-            transformation_functions={
-                "test_transform": lambda x: x.name.upper()
-            }
+            transformation_functions={"test_transform": lambda x: x.name.upper()},
         )
 
         self.assertEqual(adapter.name, "test_adapter")
@@ -47,10 +44,8 @@ class TestFrameworkAdapter(unittest.TestCase):
             name="test_adapter",
             version="1.0",
             source_framework="Test Framework",
-            mapping_rules={
-                "properties": {"p3if_name": "source_name", "p3if_type": "source_type"}
-            },
-            transformation_functions={}
+            mapping_rules={"properties": {"p3if_name": "source_name", "p3if_type": "source_type"}},
+            transformation_functions={},
         )
 
         # Create a simple object that mimics external source structure
@@ -80,7 +75,7 @@ class TestCompositionEngine(unittest.TestCase):
             version="1.0",
             source_framework="Test Framework",
             mapping_rules={},
-            transformation_functions={}
+            transformation_functions={},
         )
 
         self.engine.register_adapter(adapter)
@@ -93,7 +88,9 @@ class TestCompositionEngine(unittest.TestCase):
         prop1 = Property(name="prop1", description="Property 1", domain="test")
         prop2 = Property(name="prop2", description="Property 2", domain="test")
         proc1 = Process(name="proc1", description="Process 1", domain="test")
-        persp1 = Perspective(name="persp1", description="Perspective 1", domain="test", viewpoint="test_view")
+        persp1 = Perspective(
+            name="persp1", description="Perspective 1", domain="test", viewpoint="test_view"
+        )
 
         framework1.add_pattern(prop1)
         framework1.add_pattern(prop2)
@@ -103,7 +100,9 @@ class TestCompositionEngine(unittest.TestCase):
         framework2 = P3IFFramework()
         prop3 = Property(name="prop3", description="Property 3", domain="test")
         proc2 = Process(name="proc2", description="Process 2", domain="test")
-        persp2 = Perspective(name="persp2", description="Perspective 2", domain="test", viewpoint="test_view")
+        persp2 = Perspective(
+            name="persp2", description="Perspective 2", domain="test", viewpoint="test_view"
+        )
 
         framework2.add_pattern(prop2)  # prop2 is common
         framework2.add_pattern(prop3)
@@ -120,17 +119,13 @@ class TestCompositionEngine(unittest.TestCase):
 
             def copy(self):
                 return SimpleFramework(
-                    set(self.properties),
-                    set(self.processes),
-                    set(self.perspectives)
+                    set(self.properties), set(self.processes), set(self.perspectives)
                 )
 
         simple1 = SimpleFramework({prop1.name, prop2.name}, {proc1.name}, {persp1.name})
         simple2 = SimpleFramework({prop2.name, prop3.name}, {proc1.name, proc2.name}, {persp2.name})
 
-        result = self.engine.overlay_frameworks(
-            simple1, simple2, MultiplexingStrategy.UNION
-        )
+        result = self.engine.overlay_frameworks(simple1, simple2, MultiplexingStrategy.UNION)
 
         # Check that union was applied correctly
         self.assertEqual(result.properties, {prop1.name, prop2.name, prop3.name})
@@ -144,7 +139,9 @@ class TestCompositionEngine(unittest.TestCase):
         prop1 = Property(name="prop1", description="Property 1", domain="test")
         prop2 = Property(name="prop2", description="Property 2", domain="test")
         proc1 = Process(name="proc1", description="Process 1", domain="test")
-        persp1 = Perspective(name="persp1", description="Perspective 1", domain="test", viewpoint="test_view")
+        persp1 = Perspective(
+            name="persp1", description="Perspective 1", domain="test", viewpoint="test_view"
+        )
 
         framework1.add_pattern(prop1)
         framework1.add_pattern(prop2)
@@ -154,7 +151,9 @@ class TestCompositionEngine(unittest.TestCase):
         framework2 = P3IFFramework()
         prop3 = Property(name="prop3", description="Property 3", domain="test")
         proc2 = Process(name="proc2", description="Process 2", domain="test")
-        persp2 = Perspective(name="persp2", description="Perspective 2", domain="test", viewpoint="test_view")
+        persp2 = Perspective(
+            name="persp2", description="Perspective 2", domain="test", viewpoint="test_view"
+        )
 
         framework2.add_pattern(prop2)  # prop2 is common
         framework2.add_pattern(prop3)
@@ -171,22 +170,18 @@ class TestCompositionEngine(unittest.TestCase):
 
             def copy(self):
                 return SimpleFramework(
-                    set(self.properties),
-                    set(self.processes),
-                    set(self.perspectives)
+                    set(self.properties), set(self.processes), set(self.perspectives)
                 )
 
         simple1 = SimpleFramework({prop1.name, prop2.name}, {proc1.name}, {persp1.name})
         simple2 = SimpleFramework({prop2.name, prop3.name}, {proc1.name, proc2.name}, {persp2.name})
 
-        result = self.engine.overlay_frameworks(
-            simple1, simple2, MultiplexingStrategy.INTERSECTION
-        )
+        result = self.engine.overlay_frameworks(simple1, simple2, MultiplexingStrategy.INTERSECTION)
 
         # Check that intersection was applied correctly
         self.assertEqual(result.properties, {"prop2"})  # Only common element
         self.assertEqual(result.processes, {"proc1"})  # Only common element
-        self.assertEqual(result.perspectives, set())   # No common elements
+        self.assertEqual(result.perspectives, set())  # No common elements
 
     def test_transform_dimension(self):
         """Test dimension transformation."""
@@ -195,7 +190,9 @@ class TestCompositionEngine(unittest.TestCase):
         prop1 = Property(name="property1", description="Property 1", domain="test")
         prop2 = Property(name="property2", description="Property 2", domain="test")
         proc1 = Process(name="process1", description="Process 1", domain="test")
-        persp1 = Perspective(name="perspective1", description="Perspective 1", domain="test", viewpoint="test_view")
+        persp1 = Perspective(
+            name="perspective1", description="Perspective 1", domain="test", viewpoint="test_view"
+        )
 
         framework.add_pattern(prop1)
         framework.add_pattern(prop2)
@@ -211,9 +208,7 @@ class TestCompositionEngine(unittest.TestCase):
 
             def copy(self):
                 return SimpleFramework(
-                    list(self.properties),
-                    list(self.processes),
-                    list(self.perspectives)
+                    list(self.properties), list(self.processes), list(self.perspectives)
                 )
 
         simple = SimpleFramework(["property1", "property2"], ["process1"], ["perspective1"])
@@ -231,10 +226,16 @@ class TestCompositionEngine(unittest.TestCase):
         """Test filtering by criteria."""
         # Create real framework with actual patterns
         framework = P3IFFramework()
-        prop1 = Property(name="Security", description="Security property", domain="security", tags=["security"])
-        prop2 = Property(name="Business", description="Business property", domain="business", tags=["business"])
+        prop1 = Property(
+            name="Security", description="Security property", domain="security", tags=["security"]
+        )
+        prop2 = Property(
+            name="Business", description="Business property", domain="business", tags=["business"]
+        )
         proc1 = Process(name="process1", description="Process 1", domain="test")
-        persp1 = Perspective(name="perspective1", description="Perspective 1", domain="test", viewpoint="test_view")
+        persp1 = Perspective(
+            name="perspective1", description="Perspective 1", domain="test", viewpoint="test_view"
+        )
 
         framework.add_pattern(prop1)
         framework.add_pattern(prop2)
@@ -250,9 +251,7 @@ class TestCompositionEngine(unittest.TestCase):
 
             def copy(self):
                 return SimpleFramework(
-                    list(self.properties),
-                    list(self.processes),
-                    list(self.perspectives)
+                    list(self.properties), list(self.processes), list(self.perspectives)
                 )
 
         # Create mock-like objects with domain attributes
@@ -264,7 +263,7 @@ class TestCompositionEngine(unittest.TestCase):
         simple = SimpleFramework(
             [MockElement("Security", "security"), MockElement("Business", "business")],
             [MockElement("process1", "other")],  # Process in different domain
-            [MockElement("perspective1", "other")]  # Perspective in different domain
+            [MockElement("perspective1", "other")],  # Perspective in different domain
         )
 
         # Filter by domain
@@ -285,8 +284,12 @@ class TestCompositionEngine(unittest.TestCase):
         prop2 = Property(name="prop2", description="Property 2", domain="test")
         proc1 = Process(name="proc1", description="Process 1", domain="test")
         proc2 = Process(name="proc2", description="Process 2", domain="test")
-        persp1 = Perspective(name="persp1", description="Perspective 1", domain="test", viewpoint="test_view")
-        persp2 = Perspective(name="persp2", description="Perspective 2", domain="test", viewpoint="test_view")
+        persp1 = Perspective(
+            name="persp1", description="Perspective 1", domain="test", viewpoint="test_view"
+        )
+        persp2 = Perspective(
+            name="persp2", description="Perspective 2", domain="test", viewpoint="test_view"
+        )
 
         framework.add_pattern(prop1)
         framework.add_pattern(prop2)
@@ -304,9 +307,7 @@ class TestCompositionEngine(unittest.TestCase):
 
             def copy(self):
                 return SimpleFramework(
-                    list(self.properties),
-                    list(self.processes),
-                    list(self.perspectives)
+                    list(self.properties), list(self.processes), list(self.perspectives)
                 )
 
         simple = SimpleFramework(["prop1", "prop2"], ["proc1", "proc2"], ["persp1", "persp2"])
@@ -325,7 +326,9 @@ class TestCompositionEngine(unittest.TestCase):
         framework1 = P3IFFramework()
         prop1 = Property(name="prop1", description="Property 1", domain="test")
         proc1 = Process(name="proc1", description="Process 1", domain="test")
-        persp1 = Perspective(name="persp1", description="Perspective 1", domain="test", viewpoint="test_view")
+        persp1 = Perspective(
+            name="persp1", description="Perspective 1", domain="test", viewpoint="test_view"
+        )
 
         framework1.add_pattern(prop1)
         framework1.add_pattern(proc1)
@@ -334,7 +337,9 @@ class TestCompositionEngine(unittest.TestCase):
         framework2 = P3IFFramework()
         prop2 = Property(name="prop2", description="Property 2", domain="test")
         proc2 = Process(name="proc2", description="Process 2", domain="test")
-        persp2 = Perspective(name="persp2", description="Perspective 2", domain="test", viewpoint="test_view")
+        persp2 = Perspective(
+            name="persp2", description="Perspective 2", domain="test", viewpoint="test_view"
+        )
 
         framework2.add_pattern(prop2)
         framework2.add_pattern(proc2)
@@ -349,9 +354,7 @@ class TestCompositionEngine(unittest.TestCase):
 
             def copy(self):
                 return SimpleFramework(
-                    set(self.properties),
-                    set(self.processes),
-                    set(self.perspectives)
+                    set(self.properties), set(self.processes), set(self.perspectives)
                 )
 
         simple1 = SimpleFramework({"prop1"}, {"proc1"}, {"persp1"})
@@ -377,7 +380,7 @@ class TestMultiplexer(unittest.TestCase):
         rule_config = {
             "source_dimension": "properties",
             "target_dimension": "processes",
-            "mapping": {"name": "process_name", "type": "process_type"}
+            "mapping": {"name": "process_name", "type": "process_type"},
         }
 
         self.multiplexer.add_multiplexing_rule("prop_to_proc", rule_config)
@@ -385,6 +388,7 @@ class TestMultiplexer(unittest.TestCase):
 
     def test_multiplex_properties_to_processes(self):
         """Test multiplexing properties to processes."""
+
         # Create objects with custom attributes for multiplexing test
         class CustomProperty:
             def __init__(self, name, security_level):
@@ -396,9 +400,7 @@ class TestMultiplexer(unittest.TestCase):
 
         properties = [prop1, prop2]
 
-        mapping_rules = {
-            "security_processes": "security_level"
-        }
+        mapping_rules = {"security_processes": "security_level"}
 
         result = self.multiplexer.multiplex_properties_to_processes(properties, mapping_rules)
 
@@ -407,6 +409,7 @@ class TestMultiplexer(unittest.TestCase):
 
     def test_multiplex_processes_to_perspectives(self):
         """Test multiplexing processes to perspectives."""
+
         # Create objects with custom attributes for multiplexing test
         class CustomProcess:
             def __init__(self, name, complexity):
@@ -418,9 +421,7 @@ class TestMultiplexer(unittest.TestCase):
 
         processes = [proc1, proc2]
 
-        mapping_rules = {
-            "technical_perspective": "complexity"
-        }
+        mapping_rules = {"technical_perspective": "complexity"}
 
         result = self.multiplexer.multiplex_processes_to_perspectives(processes, mapping_rules)
 
@@ -429,6 +430,7 @@ class TestMultiplexer(unittest.TestCase):
 
     def test_create_cross_dimensional_links(self):
         """Test creating cross-dimensional links."""
+
         # Create a simple framework-like object
         class SimpleFramework:
             def __init__(self):
@@ -448,6 +450,7 @@ class TestMultiplexer(unittest.TestCase):
 
     def test_potentially_related_heuristic(self):
         """Test the potentially related heuristic."""
+
         # Create objects with name attributes for testing
         class NamedElement:
             def __init__(self, name):
@@ -464,5 +467,5 @@ class TestMultiplexer(unittest.TestCase):
         self.assertFalse(self.multiplexer._potentially_related(elem1, elem3))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

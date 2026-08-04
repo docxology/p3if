@@ -4,18 +4,16 @@ P3IF Validation Methods
 This module provides validation and constraint checking methods for P3IF frameworks.
 """
 
-from typing import Dict, List, Any, Optional, Union, Callable
+from typing import Dict, List, Any, Optional, Callable
 from dataclasses import dataclass, field
 from enum import Enum
 from datetime import datetime
 import re
-import time
-from collections import defaultdict
-import logging
 
 
 class ValidationSeverity(str, Enum):
     """Severity levels for validation issues."""
+
     ERROR = "error"
     WARNING = "warning"
     INFO = "info"
@@ -24,10 +22,14 @@ class ValidationSeverity(str, Enum):
 class ValidationRule:
     """A validation rule with associated checks."""
 
-    def __init__(self, name: str, check_function: Callable,
-                 severity: ValidationSeverity = ValidationSeverity.ERROR,
-                 description: str = "",
-                 applies_to: Optional[str] = None):
+    def __init__(
+        self,
+        name: str,
+        check_function: Callable,
+        severity: ValidationSeverity = ValidationSeverity.ERROR,
+        description: str = "",
+        applies_to: Optional[str] = None,
+    ):
         self.name = name
         self.check_function = check_function
         self.severity = severity
@@ -41,21 +43,25 @@ class ValidationRule:
         try:
             result = self.check_function(target)
             if not result["valid"]:
-                issues.append({
-                    "rule": self.name,
-                    "severity": self.severity.value,
-                    "description": self.description,
-                    "details": result.get("details", {}),
-                    "suggestions": result.get("suggestions", [])
-                })
+                issues.append(
+                    {
+                        "rule": self.name,
+                        "severity": self.severity.value,
+                        "description": self.description,
+                        "details": result.get("details", {}),
+                        "suggestions": result.get("suggestions", []),
+                    }
+                )
         except Exception as e:
-            issues.append({
-                "rule": self.name,
-                "severity": "error",
-                "description": f"Validation check failed: {str(e)}",
-                "details": {},
-                "suggestions": []
-            })
+            issues.append(
+                {
+                    "rule": self.name,
+                    "severity": "error",
+                    "description": f"Validation check failed: {str(e)}",
+                    "details": {},
+                    "suggestions": [],
+                }
+            )
         return issues
 
 
@@ -76,51 +82,51 @@ class ValidationEngine:
     def validate_framework(self, framework: Any) -> Dict[str, Any]:
         """Validate an entire P3IF framework."""
         validation_result: Dict[str, Any] = {
-            "framework": getattr(framework, 'name', 'unknown'),
+            "framework": getattr(framework, "name", "unknown"),
             "timestamp": datetime.now().isoformat(),
             "overall_valid": True,
             "issues": [],
-            "summary": {
-                "error_count": 0,
-                "warning_count": 0,
-                "info_count": 0
-            }
+            "summary": {"error_count": 0, "warning_count": 0, "info_count": 0},
         }
 
         # Validate all patterns in the framework
         try:
-            collection = getattr(framework, 'get_pattern_collection', lambda: None)()
+            collection = getattr(framework, "get_pattern_collection", lambda: None)()
             if collection:
                 # Validate all properties, processes, perspectives with pattern rules
-                all_patterns = collection.properties + collection.processes + collection.perspectives
+                all_patterns = (
+                    collection.properties + collection.processes + collection.perspectives
+                )
                 for pattern in all_patterns:
                     for rule_name, rule in self.rules.items():
-                        if rule.applies_to in (None, 'pattern'):
+                        if rule.applies_to in (None, "pattern"):
                             issues = rule.validate(pattern)
                             validation_result["issues"].extend(issues)
 
                 # Validate all relationships with relationship rules
-                relationships: List[Any] = getattr(framework, 'get_all_relationships', lambda: [])()
+                relationships: List[Any] = getattr(framework, "get_all_relationships", lambda: [])()
                 for rel in relationships:
                     for rule_name, rule in self.rules.items():
-                        if rule.applies_to in (None, 'relationship'):
+                        if rule.applies_to in (None, "relationship"):
                             issues = rule.validate(rel)
                             validation_result["issues"].extend(issues)
 
             # Run framework-level rules
             for rule_name, rule in self.rules.items():
-                if rule.applies_to in (None, 'framework'):
+                if rule.applies_to in (None, "framework"):
                     issues = rule.validate(framework)
                     validation_result["issues"].extend(issues)
 
         except Exception as e:
-            validation_result["issues"].append({
-                "rule": "framework_validation",
-                "severity": "error",
-                "description": f"Framework validation failed: {str(e)}",
-                "details": {},
-                "suggestions": []
-            })
+            validation_result["issues"].append(
+                {
+                    "rule": "framework_validation",
+                    "severity": "error",
+                    "description": f"Framework validation failed: {str(e)}",
+                    "details": {},
+                    "suggestions": [],
+                }
+            )
             validation_result["overall_valid"] = False
             validation_result["summary"]["error_count"] += 1
 
@@ -145,7 +151,7 @@ class ValidationEngine:
             "element_count": len(elements),
             "timestamp": datetime.now().isoformat(),
             "issues": [],
-            "summary": {"error_count": 0, "warning_count": 0, "info_count": 0}
+            "summary": {"error_count": 0, "warning_count": 0, "info_count": 0},
         }
 
         for element in elements:
@@ -169,26 +175,32 @@ class ValidationEngine:
         issues = []
 
         for rule_name, rule in self.rules.items():
-            if rule.applies_to in (None, 'pattern'):
+            if rule.applies_to in (None, "pattern"):
                 issues.extend(rule.validate(element))
 
         # If no rules are registered, fall back to basic checks
         if not self.rules:
-            if not hasattr(element, 'name') or not element.name:
-                issues.append({
-                    "element": getattr(element, 'name', 'unknown'),
-                    "severity": "error",
-                    "description": "Element missing name attribute",
-                    "suggestions": ["Add a descriptive name to the element"]
-                })
+            if not hasattr(element, "name") or not element.name:
+                issues.append(
+                    {
+                        "element": getattr(element, "name", "unknown"),
+                        "severity": "error",
+                        "description": "Element missing name attribute",
+                        "suggestions": ["Add a descriptive name to the element"],
+                    }
+                )
 
-            if hasattr(element, 'description') and (not element.description or len(element.description) < 10):
-                issues.append({
-                    "element": getattr(element, 'name', 'unknown'),
-                    "severity": "warning",
-                    "description": "Element has very short or empty description",
-                    "suggestions": ["Add a more detailed description (at least 10 characters)"]
-                })
+            if hasattr(element, "description") and (
+                not element.description or len(element.description) < 10
+            ):
+                issues.append(
+                    {
+                        "element": getattr(element, "name", "unknown"),
+                        "severity": "warning",
+                        "description": "Element has very short or empty description",
+                        "suggestions": ["Add a more detailed description (at least 10 characters)"],
+                    }
+                )
 
         return issues
 
@@ -211,7 +223,7 @@ Summary:
 Issues Found:
 """
 
-        for issue in result['issues']:
+        for issue in result["issues"]:
             report += f"""
 {issue['severity'].upper()}: {issue['description']}
   Element: {issue.get('element', 'N/A')}
@@ -241,12 +253,14 @@ class ConstraintManager:
         if element_type in self.constraints:
             for constraint in self.constraints[element_type]:
                 if not self._check_single_constraint(element, constraint):
-                    violations.append({
-                        "constraint": constraint.get("name", "unnamed"),
-                        "description": constraint.get("description", ""),
-                        "element": getattr(element, 'name', str(element)),
-                        "severity": constraint.get("severity", "error")
-                    })
+                    violations.append(
+                        {
+                            "constraint": constraint.get("name", "unnamed"),
+                            "description": constraint.get("description", ""),
+                            "element": getattr(element, "name", str(element)),
+                            "severity": constraint.get("severity", "error"),
+                        }
+                    )
 
         return violations
 
@@ -270,7 +284,7 @@ class ConstraintManager:
         elif constraint_type == "attribute_length":
             attr_name = constraint.get("attribute")
             min_len = constraint.get("min_length", 0)
-            max_len = constraint.get("max_length", float('inf'))
+            max_len = constraint.get("max_length", float("inf"))
             if hasattr(element, attr_name):
                 value = getattr(element, attr_name)
                 if value and isinstance(value, str):
@@ -298,10 +312,10 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
     def check_name(element):
         try:
             # Try to access the name field from Pydantic model
-            if hasattr(element, 'name') and element.name:
+            if hasattr(element, "name") and element.name:
                 return {"valid": True}
             # Try to access as a dictionary (for JSON data)
-            elif isinstance(element, dict) and 'name' in element and element['name']:
+            elif isinstance(element, dict) and "name" in element and element["name"]:
                 return {"valid": True}
             else:
                 return {"valid": False, "details": {"missing": "name"}}
@@ -313,12 +327,12 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
         check_name,
         ValidationSeverity.ERROR,
         "Element must have a non-empty name",
-        applies_to='pattern'
+        applies_to="pattern",
     )
 
     # Rule: Description should be meaningful
     def check_description(element):
-        if hasattr(element, 'description'):
+        if hasattr(element, "description"):
             desc = element.description or ""
             if len(desc) < 10:
                 return {"valid": False, "details": {"length": len(desc)}}
@@ -329,45 +343,52 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
         check_description,
         ValidationSeverity.WARNING,
         "Element should have a meaningful description (at least 10 characters)",
-        applies_to='pattern'
+        applies_to="pattern",
     )
 
     # Rule: Framework should have minimum elements
     def check_minimum_elements(framework):
         try:
-            collection = getattr(framework, 'get_pattern_collection', lambda: None)()
+            collection = getattr(framework, "get_pattern_collection", lambda: None)()
             if collection is None:
                 return {"valid": False, "details": {"error": "cannot_access_pattern_collection"}}
 
-            total_elements = len(collection.properties) + len(collection.processes) + len(collection.perspectives)
+            total_elements = (
+                len(collection.properties)
+                + len(collection.processes)
+                + len(collection.perspectives)
+            )
 
             if total_elements < 3:
                 return {"valid": False, "details": {"total": total_elements}}
             return {"valid": True}
         except (AttributeError, TypeError) as e:
-            return {"valid": False, "details": {"error": "cannot_access_dimensions", "exception": str(e)}}
+            return {
+                "valid": False,
+                "details": {"error": "cannot_access_dimensions", "exception": str(e)},
+            }
 
     rules["minimum_elements"] = ValidationRule(
         "minimum_elements",
         check_minimum_elements,
         ValidationSeverity.WARNING,
         "Framework should have at least 3 elements total",
-        applies_to='framework'
+        applies_to="framework",
     )
 
     # Rule: Relationship must connect at least two dimensions
     def check_relationship_validity(relationship):
         try:
             # Try to access as Pydantic model
-            if hasattr(relationship, 'property_id'):
+            if hasattr(relationship, "property_id"):
                 property_id = relationship.property_id
                 process_id = relationship.process_id
                 perspective_id = relationship.perspective_id
             # Try to access as dictionary (for JSON data)
             elif isinstance(relationship, dict):
-                property_id = relationship.get('property_id')
-                process_id = relationship.get('process_id')
-                perspective_id = relationship.get('perspective_id')
+                property_id = relationship.get("property_id")
+                process_id = relationship.get("process_id")
+                perspective_id = relationship.get("perspective_id")
             else:
                 return {"valid": False, "details": {"missing_attributes": True}}
 
@@ -375,26 +396,31 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
                 return {"valid": False, "details": {"missing_attributes": True}}
 
             # Count connected dimensions
-            connected_dims = sum(1 for dim_id in [property_id, process_id, perspective_id] if dim_id)
+            connected_dims = sum(
+                1 for dim_id in [property_id, process_id, perspective_id] if dim_id
+            )
             if connected_dims < 2:
                 return {"valid": False, "details": {"connected_dimensions": connected_dims}}
 
             return {"valid": True}
         except (AttributeError, TypeError) as e:
-            return {"valid": False, "details": {"error": "cannot_access_relationship_data", "exception": str(e)}}
+            return {
+                "valid": False,
+                "details": {"error": "cannot_access_relationship_data", "exception": str(e)},
+            }
 
     rules["relationship_validity"] = ValidationRule(
         "relationship_validity",
         check_relationship_validity,
         ValidationSeverity.ERROR,
         "Relationship must connect at least two dimensions",
-        applies_to='relationship'
+        applies_to="relationship",
     )
 
     # Rule: Relationship strength should be in valid range
     def check_strength_range(relationship):
-        if hasattr(relationship, 'strength'):
-            strength = getattr(relationship, 'strength', 0.5)
+        if hasattr(relationship, "strength"):
+            strength = getattr(relationship, "strength", 0.5)
             if not (0.0 <= strength <= 1.0):
                 return {"valid": False, "details": {"strength": strength}}
         return {"valid": True}
@@ -404,13 +430,13 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
         check_strength_range,
         ValidationSeverity.ERROR,
         "Relationship strength must be between 0.0 and 1.0",
-        applies_to='relationship'
+        applies_to="relationship",
     )
 
     # Rule: Relationship confidence should be in valid range
     def check_confidence_range(relationship):
-        if hasattr(relationship, 'confidence'):
-            confidence = getattr(relationship, 'confidence', 1.0)
+        if hasattr(relationship, "confidence"):
+            confidence = getattr(relationship, "confidence", 1.0)
             if not (0.0 <= confidence <= 1.0):
                 return {"valid": False, "details": {"confidence": confidence}}
         return {"valid": True}
@@ -420,14 +446,14 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
         check_confidence_range,
         ValidationSeverity.WARNING,
         "Relationship confidence should be between 0.0 and 1.0",
-        applies_to='relationship'
+        applies_to="relationship",
     )
 
     # Rule: Framework should have balanced dimensions
     def check_dimension_balance(framework):
-        prop_count = len(getattr(framework, 'properties', []))
-        proc_count = len(getattr(framework, 'processes', []))
-        pers_count = len(getattr(framework, 'perspectives', []))
+        prop_count = len(getattr(framework, "properties", []))
+        proc_count = len(getattr(framework, "processes", []))
+        pers_count = len(getattr(framework, "perspectives", []))
 
         # Check for severely unbalanced dimensions
         total = prop_count + proc_count + pers_count
@@ -457,7 +483,7 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
         check_dimension_balance,
         ValidationSeverity.INFO,
         "Framework dimensions should be reasonably balanced",
-        applies_to='framework'
+        applies_to="framework",
     )
 
     return rules
@@ -475,15 +501,15 @@ def create_default_constraints() -> Dict[str, List[Dict[str, Any]]]:
             "name": "has_description",
             "type": "required_attribute",
             "attribute": "description",
-            "severity": "warning"
+            "severity": "warning",
         },
         {
             "name": "name_format",
             "type": "attribute_format",
             "attribute": "name",
             "pattern": r"^[A-Za-z][A-Za-z0-9_\s]*$",
-            "severity": "error"
-        }
+            "severity": "error",
+        },
     ]
 
     # Process constraints
@@ -493,7 +519,7 @@ def create_default_constraints() -> Dict[str, List[Dict[str, Any]]]:
             "type": "dependency",
             "depends_on": "inputs",
             "value": [],  # Should not be empty list
-            "severity": "info"
+            "severity": "info",
         }
     ]
 
@@ -503,7 +529,7 @@ def create_default_constraints() -> Dict[str, List[Dict[str, Any]]]:
             "name": "has_viewpoint",
             "type": "required_attribute",
             "attribute": "viewpoint",
-            "severity": "warning"
+            "severity": "warning",
         }
     ]
 

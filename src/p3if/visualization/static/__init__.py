@@ -14,7 +14,12 @@ from .hierarchy_visualizations import generate_hierarchical_visualizations as Hi
 from .statistical_visualizations import generate_statistical_visualizations as StatisticalVisualizer
 
 __all__ = [
-    'NetworkVisualizer', 'MatrixVisualizer', 'generate_3d_cube_visualizations',
-    'ListVisualizer', 'GridVisualizer', 'HeatmapVisualizer',
-    'HierarchyVisualizer', 'StatisticalVisualizer'
+    "NetworkVisualizer",
+    "MatrixVisualizer",
+    "generate_3d_cube_visualizations",
+    "ListVisualizer",
+    "GridVisualizer",
+    "HeatmapVisualizer",
+    "HierarchyVisualizer",
+    "StatisticalVisualizer",
 ]

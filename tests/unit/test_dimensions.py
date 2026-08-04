@@ -5,7 +5,6 @@ This module tests the PropertyManager, ProcessManager, and PerspectiveManager cl
 that provide specialized functionality for working with P3IF dimensions.
 """
 
-import pytest
 
 from p3if.core.dimensions import (
     PropertyManager,
@@ -13,7 +12,7 @@ from p3if.core.dimensions import (
     PerspectiveManager,
     PropertyType,
     ProcessType,
-    PerspectiveType
+    PerspectiveType,
 )
 
 
@@ -46,7 +45,7 @@ class TestPropertyManager:
             "Security",
             PropertyType.SECURITY,
             description="Security property",
-            attributes={"priority": "high"}
+            attributes={"priority": "high"},
         )
 
         assert isinstance(result, dict)
@@ -125,8 +124,12 @@ class TestProcessManager:
         """Test getting process inputs/outputs."""
         manager = ProcessManager()
 
-        manager.add_process("Process A", ProcessType.OPERATIONAL, inputs=["input1"], outputs=["output1"])
-        manager.add_process("Process B", ProcessType.OPERATIONAL, inputs=["output1"], outputs=["output2"])
+        manager.add_process(
+            "Process A", ProcessType.OPERATIONAL, inputs=["input1"], outputs=["output1"]
+        )
+        manager.add_process(
+            "Process B", ProcessType.OPERATIONAL, inputs=["output1"], outputs=["output2"]
+        )
 
         deps = manager.get_process_dependencies("Process B")
 
@@ -216,7 +219,7 @@ class TestPerspectiveManager:
         # Mock elements
         elements = [
             {"name": "Security", "type": "property"},
-            {"name": "Authentication", "type": "process"}
+            {"name": "Authentication", "type": "process"},
         ]
 
         result = manager.analyze_perspective_coverage(elements)
@@ -228,26 +231,11 @@ class TestPerspectiveManager:
 
     def test_perspective_covers_element(self):
         """Test perspective element coverage checking."""
-        manager = PerspectiveManager()
-
-        perspective = {
-            "name": "Technical",
-            "type": PerspectiveType.STAKEHOLDER,
-            "coverage_rules": ["security", "technical"]
-        }
-
-        element = {"name": "Security", "type": "property", "tags": ["security"]}
-
-        # This would normally check if the perspective covers the element
-        # Since it's a private method, we test indirectly through public methods
+        # Placeholder - actual test would depend on implementation
         assert True  # Placeholder - actual test would depend on implementation
 
     def test_suggest_perspective_for_element(self):
         """Test perspective suggestion for elements."""
-        manager = PerspectiveManager()
-
-        element = {"name": "Security Audit", "type": "process", "tags": ["security", "compliance"]}
-
         # This tests the private method indirectly
         # Actual implementation would suggest appropriate perspectives
         assert True  # Placeholder - actual test would depend on implementation

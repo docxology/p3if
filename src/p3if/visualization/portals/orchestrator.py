@@ -7,14 +7,12 @@ visual representations of Properties, Processes, and Perspectives.
 """
 import logging
 from pathlib import Path
-from typing import Optional
 import importlib.util
 import sys
 
 from p3if.core.framework import P3IFFramework
 from p3if.core.models import Property, Process, Perspective, Relationship
-from p3if.data.synthetic import SyntheticDataGenerator
-from p3if.utils.output_organizer import create_standard_output_structure, get_output_organizer
+from p3if.utils.output_organizer import get_output_organizer
 
 logger = logging.getLogger(__name__)
 
@@ -49,8 +47,18 @@ class P3IFVisualizationOrchestrator:
             Property(name="Data Privacy", domain="healthcare", description="Privacy protection"),
             Process(name="Diagnosis", domain="healthcare", description="Diagnosis process"),
             Process(name="Treatment", domain="healthcare", description="Treatment process"),
-            Perspective(name="Patient View", domain="healthcare", description="Patient perspective", viewpoint="patient_centered"),
-            Perspective(name="Provider View", domain="healthcare", description="Provider perspective", viewpoint="clinical_expertise")
+            Perspective(
+                name="Patient View",
+                domain="healthcare",
+                description="Patient perspective",
+                viewpoint="patient_centered",
+            ),
+            Perspective(
+                name="Provider View",
+                domain="healthcare",
+                description="Provider perspective",
+                viewpoint="clinical_expertise",
+            ),
         ]
 
         for pattern in patterns:
@@ -59,7 +67,9 @@ class P3IFVisualizationOrchestrator:
         # Generate relationships for small dataset
         self._generate_relationships(framework, num_relationships=20)
 
-        logger.info(f"Created small dataset: {len(framework._patterns)} patterns, {len(framework._relationships)} relationships")
+        logger.info(
+            f"Created small dataset: {len(framework._patterns)} patterns, {len(framework._relationships)} relationships"
+        )
         return framework
 
     def _create_large_dataset(self) -> P3IFFramework:
@@ -67,21 +77,21 @@ class P3IFVisualizationOrchestrator:
         logger.info("Creating large P3IF dataset...")
         framework = P3IFFramework()
 
-        domains = ['healthcare', 'finance', 'education', 'technology']
+        domains = ["healthcare", "finance", "education", "technology"]
 
         for domain in domains:
             for i in range(8):  # 8 of each type per domain
                 prop = Property(
                     name=f"{domain.title()} Property {i+1}",
                     domain=domain,
-                    description=f"Property {i+1} in {domain}"
+                    description=f"Property {i+1} in {domain}",
                 )
                 framework.add_pattern(prop)
 
                 proc = Process(
                     name=f"{domain.title()} Process {i+1}",
                     domain=domain,
-                    description=f"Process {i+1} in {domain}"
+                    description=f"Process {i+1} in {domain}",
                 )
                 framework.add_pattern(proc)
 
@@ -89,14 +99,16 @@ class P3IFVisualizationOrchestrator:
                     name=f"{domain.title()} Perspective {i+1}",
                     domain=domain,
                     description=f"Perspective {i+1} in {domain}",
-                    viewpoint=f"view_{domain}_{i+1}"
+                    viewpoint=f"view_{domain}_{i+1}",
                 )
                 framework.add_pattern(persp)
 
         # Generate relationships for large dataset
         self._generate_relationships(framework, num_relationships=150)
 
-        logger.info(f"Created large dataset: {len(framework._patterns)} patterns, {len(framework._relationships)} relationships")
+        logger.info(
+            f"Created large dataset: {len(framework._patterns)} patterns, {len(framework._relationships)} relationships"
+        )
         return framework
 
     def _generate_relationships(self, framework: P3IFFramework, num_relationships: int = 50):
@@ -137,37 +149,45 @@ class P3IFVisualizationOrchestrator:
             # Ensure at least 2 connections are present
             connections = []
             if prop and random.random() > 0.2:
-                connections.append(('property', prop.id))
+                connections.append(("property", prop.id))
             if proc and random.random() > 0.2:
-                connections.append(('process', proc.id))
+                connections.append(("process", proc.id))
             if persp and random.random() > 0.2:
-                connections.append(('perspective', persp.id))
+                connections.append(("perspective", persp.id))
 
             # If we don't have enough connections, force some
             if len(connections) < 2:
-                if not any(c[0] == 'property' for c in connections) and prop:
-                    connections.append(('property', prop.id))
-                elif not any(c[0] == 'process' for c in connections) and proc:
-                    connections.append(('process', proc.id))
-                elif not any(c[0] == 'perspective' for c in connections) and persp:
-                    connections.append(('perspective', persp.id))
+                if not any(c[0] == "property" for c in connections) and prop:
+                    connections.append(("property", prop.id))
+                elif not any(c[0] == "process" for c in connections) and proc:
+                    connections.append(("process", proc.id))
+                elif not any(c[0] == "perspective" for c in connections) and persp:
+                    connections.append(("perspective", persp.id))
 
             # Ensure we have at least 2 connections
             if len(connections) >= 2:
                 relationship = Relationship(
-                    property_id=next((cid for ctype, cid in connections if ctype == 'property'), None),
-                    process_id=next((cid for ctype, cid in connections if ctype == 'process'), None),
-                    perspective_id=next((cid for ctype, cid in connections if ctype == 'perspective'), None),
+                    property_id=next(
+                        (cid for ctype, cid in connections if ctype == "property"), None
+                    ),
+                    process_id=next(
+                        (cid for ctype, cid in connections if ctype == "process"), None
+                    ),
+                    perspective_id=next(
+                        (cid for ctype, cid in connections if ctype == "perspective"), None
+                    ),
                     strength=strength,
                     confidence=confidence,
-                    relationship_type=random.choice(['general', 'causal', 'dependency', 'composition']),
-                    bidirectional=random.random() > 0.5
+                    relationship_type=random.choice(
+                        ["general", "causal", "dependency", "composition"]
+                    ),
+                    bidirectional=random.random() > 0.5,
                 )
 
             try:
                 framework.add_relationship(relationship)
                 relationships_created += 1
-            except Exception as e:
+            except Exception:
                 # Skip duplicate relationships
                 continue
 
@@ -178,7 +198,9 @@ class P3IFVisualizationOrchestrator:
         try:
             # Try to import from static subpackage first
             try:
-                module = __import__(f"p3if.visualization.static.{module_name}", fromlist=[module_name])
+                module = __import__(
+                    f"p3if.visualization.static.{module_name}", fromlist=[module_name]
+                )
                 return module
             except ImportError:
                 pass
@@ -234,7 +256,10 @@ class P3IFVisualizationOrchestrator:
         logger.info("🎲 Generating 3D cube visualizations...")
 
         try:
-            from p3if.visualization.static.cube_visualizations import generate_3d_cube_visualizations
+            from p3if.visualization.static.cube_visualizations import (
+                generate_3d_cube_visualizations,
+            )
+
             generate_3d_cube_visualizations(
                 self.small_framework, self.large_framework, self.session_path
             )
@@ -246,24 +271,15 @@ class P3IFVisualizationOrchestrator:
         logger.info("🌳 Generating hierarchical visualizations...")
 
         try:
-            from p3if.visualization.static.hierarchy_visualizations import generate_hierarchical_visualizations
+            from p3if.visualization.static.hierarchy_visualizations import (
+                generate_hierarchical_visualizations,
+            )
+
             generate_hierarchical_visualizations(
                 self.small_framework, self.large_framework, self.session_path
             )
         except Exception as e:
             logger.error(f"Failed to generate hierarchical visualizations: {e}")
-
-    def generate_grid_visualizations(self):
-        """Generate grid visualizations."""
-        logger.info("🔲 Generating grid visualizations...")
-
-        try:
-            from p3if.visualization.static.grid_visualizations import generate_grid_visualizations
-            generate_grid_visualizations(
-                self.small_framework, self.large_framework, self.session_path
-            )
-        except Exception as e:
-            logger.error(f"Failed to generate grid visualizations: {e}")
 
     def generate_matrix_visualizations(self):
         """Generate matrix visualizations."""
@@ -280,7 +296,10 @@ class P3IFVisualizationOrchestrator:
         logger.info("📈 Generating statistical visualizations...")
 
         try:
-            from p3if.visualization.static.statistical_visualizations import generate_statistical_visualizations
+            from p3if.visualization.static.statistical_visualizations import (
+                generate_statistical_visualizations,
+            )
+
             generate_statistical_visualizations(
                 self.small_framework, self.large_framework, self.session_path
             )
@@ -292,7 +311,10 @@ class P3IFVisualizationOrchestrator:
         logger.info("🎬 Generating animation visualizations...")
 
         try:
-            from p3if.visualization.animated.animation_visualizations import generate_animation_visualizations
+            from p3if.visualization.animated.animation_visualizations import (
+                generate_animation_visualizations,
+            )
+
             generate_animation_visualizations(
                 self.small_framework, self.large_framework, self.session_path
             )
@@ -305,6 +327,7 @@ class P3IFVisualizationOrchestrator:
 
         try:
             from p3if.visualization.static.grid_visualizations import generate_grid_visualizations
+
             generate_grid_visualizations(
                 self.small_framework, self.large_framework, self.session_path
             )
@@ -398,7 +421,7 @@ All files saved to organized output directories.
         report_path = self.session_path / "reports" / "comprehensive_visualization_report.md"
         report_path.parent.mkdir(parents=True, exist_ok=True)
 
-        with open(report_path, 'w', encoding='utf-8') as f:
+        with open(report_path, "w", encoding="utf-8") as f:
             f.write(report_content)
 
         logger.info(f"Generated comprehensive report: {report_path}")
@@ -416,13 +439,13 @@ All files saved to organized output directories.
             "visualizations/hierarchies",
             "visualizations/matrices",
             "visualizations/statistics",
-            "animations"
+            "animations",
         ]
 
         for dir_name in directories_to_check:
             dir_path = self.session_path / dir_name
             if dir_path.exists():
-                for ext in ['*.png', '*.gif', '*.svg', '*.jpg']:
+                for ext in ["*.png", "*.gif", "*.svg", "*.jpg"]:
                     count += len(list(dir_path.glob(ext)))
 
         # Count report files
@@ -435,23 +458,36 @@ All files saved to organized output directories.
     def _get_timestamp(self) -> str:
         """Get current timestamp."""
         from datetime import datetime
-        return datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+
+        return datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
     def _get_component_counts(self) -> dict:
         """Get counts of P3IF components."""
-        small_props = len([p for p in self.small_framework._patterns.values() if isinstance(p, Property)])
-        small_procs = len([p for p in self.small_framework._patterns.values() if isinstance(p, Process)])
-        small_persps = len([p for p in self.small_framework._patterns.values() if isinstance(p, Perspective)])
+        small_props = len(
+            [p for p in self.small_framework._patterns.values() if isinstance(p, Property)]
+        )
+        small_procs = len(
+            [p for p in self.small_framework._patterns.values() if isinstance(p, Process)]
+        )
+        small_persps = len(
+            [p for p in self.small_framework._patterns.values() if isinstance(p, Perspective)]
+        )
 
-        large_props = len([p for p in self.large_framework._patterns.values() if isinstance(p, Property)])
-        large_procs = len([p for p in self.large_framework._patterns.values() if isinstance(p, Process)])
-        large_persps = len([p for p in self.large_framework._patterns.values() if isinstance(p, Perspective)])
+        large_props = len(
+            [p for p in self.large_framework._patterns.values() if isinstance(p, Property)]
+        )
+        large_procs = len(
+            [p for p in self.large_framework._patterns.values() if isinstance(p, Process)]
+        )
+        large_persps = len(
+            [p for p in self.large_framework._patterns.values() if isinstance(p, Perspective)]
+        )
 
         return {
-            'small_properties': small_props,
-            'small_processes': small_procs,
-            'small_perspectives': small_persps,
-            'large_properties': large_props,
-            'large_processes': large_procs,
-            'large_perspectives': large_persps
+            "small_properties": small_props,
+            "small_processes": small_procs,
+            "small_perspectives": small_persps,
+            "large_properties": large_props,
+            "large_processes": large_procs,
+            "large_perspectives": large_persps,
         }

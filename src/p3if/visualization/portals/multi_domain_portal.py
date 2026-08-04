@@ -6,17 +6,16 @@ within the P3IF framework, enabling cross-domain analysis and comparison.
 """
 
 import json
-from typing import Dict, List, Any, Optional, Union, Tuple
+from typing import Dict, Any
 from dataclasses import dataclass, field
 import logging
-from datetime import datetime
 from collections import defaultdict
 
 try:
     import plotly.graph_objects as go
-    import plotly.express as px
     from plotly.subplots import make_subplots
     import plotly.offline as py
+
     PLOTLY_AVAILABLE = True
 except ImportError:
     PLOTLY_AVAILABLE = False
@@ -38,23 +37,18 @@ class MultiDomainPortal:
 
         # Default portal configuration
         self.portal_config = {
-            "layout": {
-                "type": "dashboard",
-                "columns": 3,
-                "rows": 2,
-                "responsive": True
-            },
+            "layout": {"type": "dashboard", "columns": 3, "rows": 2, "responsive": True},
             "visualizations": {
                 "domain_comparison": True,
                 "cross_domain_relationships": True,
                 "pattern_analysis": True,
-                "metric_summary": True
+                "metric_summary": True,
             },
             "interaction": {
                 "enable_filtering": True,
                 "enable_drilling": True,
-                "enable_export": True
-            }
+                "enable_export": True,
+            },
         }
 
     def add_domain(self, domain_name: str, domain_data: Dict[str, Any]):
@@ -65,7 +59,7 @@ class MultiDomainPortal:
     def load_domains_from_file(self, filepath: str):
         """Load domains from a JSON file."""
         try:
-            with open(filepath, 'r') as f:
+            with open(filepath, "r") as f:
                 data = json.load(f)
                 self.domains.update(data)
                 self.logger.info(f"Loaded domains from {filepath}")
@@ -80,23 +74,24 @@ class MultiDomainPortal:
         try:
             # Create subplot layout
             fig = make_subplots(
-                rows=3, cols=3,
+                rows=3,
+                cols=3,
                 subplot_titles=(
-                    'Domain Overview',
-                    'Property Distribution',
-                    'Cross-Domain Relationships',
-                    'Process Analysis',
-                    'Perspective Coverage',
-                    'Pattern Metrics',
-                    'Domain Comparison',
-                    'Relationship Matrix',
-                    'Summary Dashboard'
+                    "Domain Overview",
+                    "Property Distribution",
+                    "Cross-Domain Relationships",
+                    "Process Analysis",
+                    "Perspective Coverage",
+                    "Pattern Metrics",
+                    "Domain Comparison",
+                    "Relationship Matrix",
+                    "Summary Dashboard",
                 ),
                 specs=[
-                    [{'type': 'domain'}, {'type': 'bar'}, {'type': 'scatter'}],
-                    [{'type': 'bar'}, {'type': 'pie'}, {'type': 'heatmap'}],
-                    [{'type': 'scatter3d'}, {'type': 'scatter'}, {'type': 'domain'}]
-                ]
+                    [{"type": "domain"}, {"type": "bar"}, {"type": "scatter"}],
+                    [{"type": "bar"}, {"type": "pie"}, {"type": "heatmap"}],
+                    [{"type": "scatter3d"}, {"type": "scatter"}, {"type": "domain"}],
+                ],
             )
 
             # Add visualizations for each domain
@@ -110,11 +105,7 @@ class MultiDomainPortal:
                 self._add_domain_visualization(fig, domain_name, domain_data, row, col)
 
             # Update layout
-            fig.update_layout(
-                title="P3IF Multi-Domain Portal",
-                height=1200,
-                showlegend=True
-            )
+            fig.update_layout(title="P3IF Multi-Domain Portal", height=1200, showlegend=True)
 
             return fig
 
@@ -122,24 +113,24 @@ class MultiDomainPortal:
             self.logger.error(f"Error creating portal dashboard: {e}")
             return self._create_ascii_portal()
 
-    def _add_domain_visualization(self, fig, domain_name: str, domain_data: Dict[str, Any],
-                                 row: int, col: int):
+    def _add_domain_visualization(
+        self, fig, domain_name: str, domain_data: Dict[str, Any], row: int, col: int
+    ):
         """Add visualization for a specific domain."""
         if not PLOTLY_AVAILABLE:
             return
 
         try:
             # Extract domain metrics
-            properties = domain_data.get('properties', [])
-            processes = domain_data.get('processes', [])
-            perspectives = domain_data.get('perspectives', [])
-            relationships = domain_data.get('relationships', [])
+            properties = domain_data.get("properties", [])
+            processes = domain_data.get("processes", [])
+            perspectives = domain_data.get("perspectives", [])
 
             # Create domain overview pie chart
             if row == 1 and col == 1:
-                labels = ['Properties', 'Processes', 'Perspectives']
+                labels = ["Properties", "Processes", "Perspectives"]
                 values = [len(properties), len(processes), len(perspectives)]
-                colors = ['#FF6B6B', '#4ECDC4', '#45B7D1']
+                colors = ["#FF6B6B", "#4ECDC4", "#45B7D1"]
 
                 fig.add_trace(
                     go.Pie(
@@ -147,62 +138,68 @@ class MultiDomainPortal:
                         values=values,
                         name=domain_name,
                         marker_colors=colors,
-                        textinfo='label+percent',
-                        hovertemplate='<b>%{label}</b><br>Count: %{value}<br>Domain: ' + domain_name + '<extra></extra>'
+                        textinfo="label+percent",
+                        hovertemplate="<b>%{label}</b><br>Count: %{value}<br>Domain: "
+                        + domain_name
+                        + "<extra></extra>",
                     ),
-                    row=row, col=col
+                    row=row,
+                    col=col,
                 )
 
             # Add property distribution
             elif row == 1 and col == 2:
                 prop_types = defaultdict(int)
                 for prop in properties:
-                    prop_type = prop.get('type', 'unknown')
+                    prop_type = prop.get("type", "unknown")
                     prop_types[prop_type] += 1
 
                 fig.add_trace(
                     go.Bar(
                         x=list(prop_types.keys()),
                         y=list(prop_types.values()),
-                        name=f'{domain_name} Properties',
-                        marker_color='#FF6B6B'
+                        name=f"{domain_name} Properties",
+                        marker_color="#FF6B6B",
                     ),
-                    row=row, col=col
+                    row=row,
+                    col=col,
                 )
 
             # Add process analysis
             elif row == 2 and col == 1:
                 proc_types = defaultdict(int)
                 for proc in processes:
-                    proc_type = proc.get('type', 'unknown')
+                    proc_type = proc.get("type", "unknown")
                     proc_types[proc_type] += 1
 
                 fig.add_trace(
                     go.Bar(
                         x=list(proc_types.keys()),
                         y=list(proc_types.values()),
-                        name=f'{domain_name} Processes',
-                        marker_color='#4ECDC4',
-                        orientation='h'
+                        name=f"{domain_name} Processes",
+                        marker_color="#4ECDC4",
+                        orientation="h",
                     ),
-                    row=row, col=col
+                    row=row,
+                    col=col,
                 )
 
             # Add perspective coverage
             elif row == 2 and col == 2:
                 pers_types = defaultdict(int)
                 for pers in perspectives:
-                    pers_type = pers.get('type', 'unknown')
+                    pers_type = pers.get("type", "unknown")
                     pers_types[pers_type] += 1
 
                 fig.add_trace(
                     go.Pie(
                         labels=list(pers_types.keys()),
                         values=list(pers_types.values()),
-                        name=f'{domain_name} Perspectives',
-                        marker_colors=['#45B7D1', '#96CEB4', '#FFEAA7', '#DDA0DD']
+                        name=f"{domain_name} Perspectives",
+                        marker_colors=["#45B7D1", "#96CEB4", "#FFEAA7", "#DDA0DD"],
                     ),
-                    row=row, col=col
+                    row=row,
+                    col=col,
                 )
 
         except Exception as e:
@@ -218,22 +215,24 @@ class MultiDomainPortal:
             comparison_data = self._prepare_comparison_data()
 
             # Create heatmap
-            fig = go.Figure(data=go.Heatmap(
-                z=comparison_data['similarity_matrix'],
-                x=comparison_data['domain_names'],
-                y=comparison_data['domain_names'],
-                colorscale='Viridis',
-                text=comparison_data['similarity_labels'],
-                texttemplate="%{text}",
-                textfont={"size": 12},
-                hoverongaps=False
-            ))
+            fig = go.Figure(
+                data=go.Heatmap(
+                    z=comparison_data["similarity_matrix"],
+                    x=comparison_data["domain_names"],
+                    y=comparison_data["domain_names"],
+                    colorscale="Viridis",
+                    text=comparison_data["similarity_labels"],
+                    texttemplate="%{text}",
+                    textfont={"size": 12},
+                    hoverongaps=False,
+                )
+            )
 
             fig.update_layout(
                 title="Cross-Domain Similarity Matrix",
                 xaxis_title="Domain",
                 yaxis_title="Domain",
-                height=600
+                height=600,
             )
 
             return fig
@@ -263,9 +262,9 @@ class MultiDomainPortal:
                     similarity_labels[i][j] = f"{similarity:.2f}"
 
         return {
-            'domain_names': domain_names,
-            'similarity_matrix': similarity_matrix,
-            'similarity_labels': similarity_labels
+            "domain_names": domain_names,
+            "similarity_matrix": similarity_matrix,
+            "similarity_labels": similarity_labels,
         }
 
     def _calculate_domain_similarity(self, domain1: str, domain2: str) -> float:
@@ -274,12 +273,12 @@ class MultiDomainPortal:
         data2 = self.domains[domain2]
 
         # Simple similarity based on element counts
-        props1 = len(data1.get('properties', []))
-        props2 = len(data2.get('properties', []))
-        procs1 = len(data1.get('processes', []))
-        procs2 = len(data2.get('processes', []))
-        pers1 = len(data1.get('perspectives', []))
-        pers2 = len(data2.get('perspectives', []))
+        props1 = len(data1.get("properties", []))
+        props2 = len(data2.get("properties", []))
+        procs1 = len(data1.get("processes", []))
+        procs2 = len(data2.get("processes", []))
+        pers1 = len(data1.get("perspectives", []))
+        pers2 = len(data2.get("perspectives", []))
 
         # Calculate similarity score
         total1 = props1 + procs1 + pers1
@@ -306,11 +305,7 @@ class MultiDomainPortal:
 
             # Generate HTML
             html_content = py.plot(
-                dashboard,
-                output_type='div',
-                include_plotlyjs='cdn',
-                show_link=False,
-                link_text=""
+                dashboard, output_type="div", include_plotlyjs="cdn", show_link=False, link_text=""
             )
 
             # Add custom CSS and JavaScript
@@ -407,7 +402,7 @@ class MultiDomainPortal:
             </html>
             """
 
-            with open(output_file, 'w') as f:
+            with open(output_file, "w") as f:
                 f.write(full_html)
 
             self.logger.info(f"Portal HTML generated: {output_file}")
@@ -486,7 +481,7 @@ class MultiDomainPortal:
         </html>
         """
 
-        with open(output_file, 'w') as f:
+        with open(output_file, "w") as f:
             f.write(html_content)
 
         return output_file
@@ -494,7 +489,6 @@ class MultiDomainPortal:
     def _create_ascii_comparison(self) -> str:
         """Create ASCII representation of cross-domain comparison."""
         domain_names = list(self.domains.keys())
-        n = len(domain_names)
 
         ascii_comp = """
         Cross-Domain Similarity Matrix (ASCII)

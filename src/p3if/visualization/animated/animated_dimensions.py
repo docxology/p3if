@@ -6,17 +6,15 @@ enabling dynamic visualization of Properties, Processes, and Perspectives.
 """
 
 import math
-import json
-from typing import Dict, List, Any, Optional, Union, Tuple, Callable
+from typing import Dict, List, Any, Tuple
 from dataclasses import dataclass, field
 import logging
-from datetime import datetime
 
 try:
     import matplotlib.pyplot as plt
     import matplotlib.animation as animation
     from matplotlib.patches import Circle, Rectangle
-    import numpy as np
+
     MATPLOTLIB_AVAILABLE = True
 except ImportError:
     MATPLOTLIB_AVAILABLE = False
@@ -43,32 +41,23 @@ class DimensionAnimator:
                     "color": "#FF6B6B",
                     "shape": "circle",
                     "size_range": [50, 200],
-                    "animation": "pulse"
+                    "animation": "pulse",
                 },
                 "processes": {
                     "color": "#4ECDC4",
                     "shape": "square",
                     "size_range": [40, 180],
-                    "animation": "rotate"
+                    "animation": "rotate",
                 },
                 "perspectives": {
                     "color": "#45B7D1",
                     "shape": "triangle",
                     "size_range": [60, 220],
-                    "animation": "bounce"
-                }
+                    "animation": "bounce",
+                },
             },
-            "relationships": {
-                "line_color": "#666666",
-                "line_width": 2,
-                "animation": "flow"
-            },
-            "layout": {
-                "type": "orbital",
-                "radius": 3.0,
-                "center_x": 0,
-                "center_y": 0
-            }
+            "relationships": {"line_color": "#666666", "line_width": 2, "animation": "flow"},
+            "layout": {"type": "orbital", "radius": 3.0, "center_x": 0, "center_y": 0},
         }
 
         self.logger = logging.getLogger(__name__)
@@ -76,9 +65,11 @@ class DimensionAnimator:
     def load_framework_data(self, data: Dict[str, Any]):
         """Load P3IF framework data for animation."""
         self.framework_data = data
-        self.logger.info(f"Loaded animation data with {len(data.get('properties', []))} properties, "
-                        f"{len(data.get('processes', []))} processes, "
-                        f"{len(data.get('perspectives', []))} perspectives")
+        self.logger.info(
+            f"Loaded animation data with {len(data.get('properties', []))} properties, "
+            f"{len(data.get('processes', []))} processes, "
+            f"{len(data.get('perspectives', []))} perspectives"
+        )
 
     def create_orbit_animation(self, animation_type: str = "dimension_orbit") -> Any:
         """Create orbital animation of P3IF dimensions."""
@@ -90,11 +81,11 @@ class DimensionAnimator:
             fig, ax = plt.subplots(figsize=(10, 10))
             ax.set_xlim(-5, 5)
             ax.set_ylim(-5, 5)
-            ax.set_aspect('equal')
-            ax.axis('off')
+            ax.set_aspect("equal")
+            ax.axis("off")
 
             # Set title
-            ax.set_title('P3IF Framework: Animated Dimension Orbit', fontsize=16, fontweight='bold')
+            ax.set_title("P3IF Framework: Animated Dimension Orbit", fontsize=16, fontweight="bold")
 
             # Create animation elements
             elements = self._create_animation_elements()
@@ -104,9 +95,11 @@ class DimensionAnimator:
                 ax.clear()
                 ax.set_xlim(-5, 5)
                 ax.set_ylim(-5, 5)
-                ax.set_aspect('equal')
-                ax.axis('off')
-                ax.set_title('P3IF Framework: Animated Dimension Orbit', fontsize=16, fontweight='bold')
+                ax.set_aspect("equal")
+                ax.axis("off")
+                ax.set_title(
+                    "P3IF Framework: Animated Dimension Orbit", fontsize=16, fontweight="bold"
+                )
 
                 # Update element positions
                 angle = frame * 2 * math.pi / 60  # 60 frames for full rotation
@@ -137,43 +130,49 @@ class DimensionAnimator:
         properties = self.framework_data.get("properties", [])
         for i, prop in enumerate(properties):
             angle = (2 * math.pi * i) / len(properties) if properties else 0
-            elements.append(AnimationElement(
-                name=prop.get("name", f"Property {i}"),
-                element_type="property",
-                base_angle=angle,
-                radius=2.0,
-                color=self.animation_config["dimensions"]["properties"]["color"],
-                size=100,
-                animation_type="pulse"
-            ))
+            elements.append(
+                AnimationElement(
+                    name=prop.get("name", f"Property {i}"),
+                    element_type="property",
+                    base_angle=angle,
+                    radius=2.0,
+                    color=self.animation_config["dimensions"]["properties"]["color"],
+                    size=100,
+                    animation_type="pulse",
+                )
+            )
 
         # Processes (teal squares)
         processes = self.framework_data.get("processes", [])
         for i, proc in enumerate(processes):
             angle = (2 * math.pi * i) / len(processes) if processes else math.pi
-            elements.append(AnimationElement(
-                name=proc.get("name", f"Process {i}"),
-                element_type="process",
-                base_angle=angle,
-                radius=2.5,
-                color=self.animation_config["dimensions"]["processes"]["color"],
-                size=80,
-                animation_type="rotate"
-            ))
+            elements.append(
+                AnimationElement(
+                    name=proc.get("name", f"Process {i}"),
+                    element_type="process",
+                    base_angle=angle,
+                    radius=2.5,
+                    color=self.animation_config["dimensions"]["processes"]["color"],
+                    size=80,
+                    animation_type="rotate",
+                )
+            )
 
         # Perspectives (blue triangles)
         perspectives = self.framework_data.get("perspectives", [])
         for i, pers in enumerate(perspectives):
             angle = (2 * math.pi * i) / len(perspectives) if perspectives else 2 * math.pi / 3
-            elements.append(AnimationElement(
-                name=pers.get("name", f"Perspective {i}"),
-                element_type="perspective",
-                base_angle=angle,
-                radius=3.0,
-                color=self.animation_config["dimensions"]["perspectives"]["color"],
-                size=120,
-                animation_type="bounce"
-            ))
+            elements.append(
+                AnimationElement(
+                    name=pers.get("name", f"Perspective {i}"),
+                    element_type="perspective",
+                    base_angle=angle,
+                    radius=3.0,
+                    color=self.animation_config["dimensions"]["perspectives"]["color"],
+                    size=120,
+                    animation_type="bounce",
+                )
+            )
 
         return elements
 
@@ -189,22 +188,40 @@ class DimensionAnimator:
             # Connect first property to first process
             prop_pos = properties[0].get_current_position()
             proc_pos = processes[0].get_current_position()
-            ax.plot([prop_pos[0], proc_pos[0]], [prop_pos[1], proc_pos[1]],
-                   color='#666666', linewidth=2, alpha=0.6, linestyle='--')
+            ax.plot(
+                [prop_pos[0], proc_pos[0]],
+                [prop_pos[1], proc_pos[1]],
+                color="#666666",
+                linewidth=2,
+                alpha=0.6,
+                linestyle="--",
+            )
 
         if processes and perspectives:
             # Connect first process to first perspective
             proc_pos = processes[0].get_current_position()
             pers_pos = perspectives[0].get_current_position()
-            ax.plot([proc_pos[0], pers_pos[0]], [proc_pos[1], pers_pos[1]],
-                   color='#666666', linewidth=2, alpha=0.6, linestyle='--')
+            ax.plot(
+                [proc_pos[0], pers_pos[0]],
+                [proc_pos[1], pers_pos[1]],
+                color="#666666",
+                linewidth=2,
+                alpha=0.6,
+                linestyle="--",
+            )
 
         if properties and perspectives:
             # Connect first property to first perspective
             prop_pos = properties[0].get_current_position()
             pers_pos = perspectives[0].get_current_position()
-            ax.plot([prop_pos[0], pers_pos[0]], [prop_pos[1], pers_pos[1]],
-                   color='#666666', linewidth=2, alpha=0.4, linestyle=':')
+            ax.plot(
+                [prop_pos[0], pers_pos[0]],
+                [prop_pos[1], pers_pos[1]],
+                color="#666666",
+                linewidth=2,
+                alpha=0.4,
+                linestyle=":",
+            )
 
     def create_pulse_animation(self) -> Any:
         """Create a pulsing animation showing element importance."""
@@ -215,10 +232,12 @@ class DimensionAnimator:
             fig, ax = plt.subplots(figsize=(12, 8))
             ax.set_xlim(-6, 6)
             ax.set_ylim(-4, 4)
-            ax.set_aspect('equal')
-            ax.axis('off')
+            ax.set_aspect("equal")
+            ax.axis("off")
 
-            ax.set_title('P3IF Framework: Pulsing Element Animation', fontsize=16, fontweight='bold')
+            ax.set_title(
+                "P3IF Framework: Pulsing Element Animation", fontsize=16, fontweight="bold"
+            )
 
             # Create elements
             elements = self._create_animation_elements()
@@ -227,9 +246,11 @@ class DimensionAnimator:
                 ax.clear()
                 ax.set_xlim(-6, 6)
                 ax.set_ylim(-4, 4)
-                ax.set_aspect('equal')
-                ax.axis('off')
-                ax.set_title('P3IF Framework: Pulsing Element Animation', fontsize=16, fontweight='bold')
+                ax.set_aspect("equal")
+                ax.axis("off")
+                ax.set_title(
+                    "P3IF Framework: Pulsing Element Animation", fontsize=16, fontweight="bold"
+                )
 
                 # Update and draw elements
                 for element in elements:
@@ -238,16 +259,18 @@ class DimensionAnimator:
 
                 # Draw legend
                 legend_elements = [
-                    plt.Circle((0, 0), 1, color='#FF6B6B', alpha=0.7, label='Properties'),
-                    plt.Rectangle((0, 0), 1, 1, color='#4ECDC4', alpha=0.7, label='Processes'),
-                    plt.Polygon([[0, 0], [0.5, 1], [1, 0]], color='#45B7D1', alpha=0.7, label='Perspectives')
+                    plt.Circle((0, 0), 1, color="#FF6B6B", alpha=0.7, label="Properties"),
+                    plt.Rectangle((0, 0), 1, 1, color="#4ECDC4", alpha=0.7, label="Processes"),
+                    plt.Polygon(
+                        [[0, 0], [0.5, 1], [1, 0]], color="#45B7D1", alpha=0.7, label="Perspectives"
+                    ),
                 ]
 
                 for elem in legend_elements:
                     ax.add_patch(elem)
 
-                ax.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
-                ax.text(-5.5, -3.5, f'Frame: {frame}', fontsize=10)
+                ax.legend(bbox_to_anchor=(1.05, 1), loc="upper left")
+                ax.text(-5.5, -3.5, f"Frame: {frame}", fontsize=10)
 
             anim = animation.FuncAnimation(fig, animate, frames=100, interval=50, blit=False)
             return anim
@@ -368,28 +391,38 @@ class AnimationElement:
 
         if self.element_type == "property":
             # Draw as circle
-            circle = Circle((x, y), current_size/100, color=self.color, alpha=0.7)
+            circle = Circle((x, y), current_size / 100, color=self.color, alpha=0.7)
             ax.add_patch(circle)
-            ax.text(x, y, self.name[:8], ha='center', va='center', fontsize=8, fontweight='bold')
+            ax.text(x, y, self.name[:8], ha="center", va="center", fontsize=8, fontweight="bold")
 
         elif self.element_type == "process":
             # Draw as square with rotation
-            half_size = current_size/100
-            rect = Rectangle((x - half_size, y - half_size), half_size*2, half_size*2,
-                           color=self.color, alpha=0.7, angle=math.degrees(self.rotation_angle))
+            half_size = current_size / 100
+            rect = Rectangle(
+                (x - half_size, y - half_size),
+                half_size * 2,
+                half_size * 2,
+                color=self.color,
+                alpha=0.7,
+                angle=math.degrees(self.rotation_angle),
+            )
             ax.add_patch(rect)
-            ax.text(x, y, self.name[:6], ha='center', va='center', fontsize=7, fontweight='bold')
+            ax.text(x, y, self.name[:6], ha="center", va="center", fontsize=7, fontweight="bold")
 
         elif self.element_type == "perspective":
             # Draw as triangle
-            triangle_size = current_size/100
-            triangle = plt.Polygon([
-                [x, y + triangle_size],
-                [x - triangle_size*0.8, y - triangle_size*0.8],
-                [x + triangle_size*0.8, y - triangle_size*0.8]
-            ], color=self.color, alpha=0.7)
+            triangle_size = current_size / 100
+            triangle = plt.Polygon(
+                [
+                    [x, y + triangle_size],
+                    [x - triangle_size * 0.8, y - triangle_size * 0.8],
+                    [x + triangle_size * 0.8, y - triangle_size * 0.8],
+                ],
+                color=self.color,
+                alpha=0.7,
+            )
             ax.add_patch(triangle)
-            ax.text(x, y, self.name[:6], ha='center', va='center', fontsize=7, fontweight='bold')
+            ax.text(x, y, self.name[:6], ha="center", va="center", fontsize=7, fontweight="bold")
 
 
 def create_dimension_animator(framework_data: Dict[str, Any]) -> DimensionAnimator:
@@ -409,8 +442,8 @@ def save_animation(animator, filename: str = "p3if_animation.gif", fps: int = 10
         # Create animation
         anim = animator.create_orbit_animation()
 
-        if hasattr(anim, 'save'):
-            anim.save(filename, writer='pillow', fps=fps)
+        if hasattr(anim, "save"):
+            anim.save(filename, writer="pillow", fps=fps)
             return filename
         else:
             print("Animation object does not support saving")

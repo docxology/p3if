@@ -5,7 +5,7 @@ This thin orchestrator demonstrates P3IF application in the healthcare domain,
 focusing on patient privacy, clinical workflows, and regulatory compliance.
 """
 
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any
 from dataclasses import dataclass, field
 import logging
 from datetime import datetime
@@ -34,39 +34,47 @@ class HealthcareDomainOrchestrator:
     def _setup_orchestrator(self):
         """Set up the orchestration steps."""
         # Step 1: Analyze healthcare data requirements
-        self.orchestrator.add_step(OrchestrationStep(
-            name="analyze_data_requirements",
-            method=self._analyze_healthcare_data_requirements,
-            outputs=["requirements_analysis"],
-            description="Analyze data requirements specific to healthcare"
-        ))
+        self.orchestrator.add_step(
+            OrchestrationStep(
+                name="analyze_data_requirements",
+                method=self._analyze_healthcare_data_requirements,
+                outputs=["requirements_analysis"],
+                description="Analyze data requirements specific to healthcare",
+            )
+        )
 
         # Step 2: Map regulatory compliance
-        self.orchestrator.add_step(OrchestrationStep(
-            name="map_regulatory_compliance",
-            method=self._map_regulatory_compliance,
-            dependencies=["analyze_data_requirements"],
-            outputs=["compliance_mapping"],
-            description="Map healthcare regulatory compliance requirements"
-        ))
+        self.orchestrator.add_step(
+            OrchestrationStep(
+                name="map_regulatory_compliance",
+                method=self._map_regulatory_compliance,
+                dependencies=["analyze_data_requirements"],
+                outputs=["compliance_mapping"],
+                description="Map healthcare regulatory compliance requirements",
+            )
+        )
 
         # Step 3: Design privacy protection
-        self.orchestrator.add_step(OrchestrationStep(
-            name="design_privacy_protection",
-            method=self._design_privacy_protection,
-            dependencies=["map_regulatory_compliance"],
-            outputs=["privacy_design"],
-            description="Design privacy protection mechanisms"
-        ))
+        self.orchestrator.add_step(
+            OrchestrationStep(
+                name="design_privacy_protection",
+                method=self._design_privacy_protection,
+                dependencies=["map_regulatory_compliance"],
+                outputs=["privacy_design"],
+                description="Design privacy protection mechanisms",
+            )
+        )
 
         # Step 4: Optimize clinical workflows
-        self.orchestrator.add_step(OrchestrationStep(
-            name="optimize_clinical_workflows",
-            method=self._optimize_clinical_workflows,
-            dependencies=["design_privacy_protection"],
-            outputs=["workflow_optimizations"],
-            description="Optimize clinical workflows with privacy constraints"
-        ))
+        self.orchestrator.add_step(
+            OrchestrationStep(
+                name="optimize_clinical_workflows",
+                method=self._optimize_clinical_workflows,
+                dependencies=["design_privacy_protection"],
+                outputs=["workflow_optimizations"],
+                description="Optimize clinical workflows with privacy constraints",
+            )
+        )
 
     def _analyze_healthcare_data_requirements(self) -> Dict[str, Any]:
         """Analyze data requirements specific to healthcare."""
@@ -79,7 +87,7 @@ class HealthcareDomainOrchestrator:
                     "access_level": "restricted",
                     "encryption_required": True,
                     "audit_required": True,
-                    "consent_required": True
+                    "consent_required": True,
                 },
                 "clinical_data": {
                     "sensitivity": "high",
@@ -88,7 +96,7 @@ class HealthcareDomainOrchestrator:
                     "access_level": "clinical_staff",
                     "encryption_required": True,
                     "audit_required": True,
-                    "consent_required": True
+                    "consent_required": True,
                 },
                 "research_data": {
                     "sensitivity": "medium",
@@ -97,7 +105,7 @@ class HealthcareDomainOrchestrator:
                     "access_level": "research_staff",
                     "encryption_required": True,
                     "audit_required": True,
-                    "consent_required": True
+                    "consent_required": True,
                 },
                 "administrative_data": {
                     "sensitivity": "medium",
@@ -106,41 +114,41 @@ class HealthcareDomainOrchestrator:
                     "access_level": "administrative_staff",
                     "encryption_required": False,
                     "audit_required": True,
-                    "consent_required": False
-                }
+                    "consent_required": False,
+                },
             },
             "access_patterns": {
                 "emergency_access": {
                     "availability": "24/7 availability",
                     "authorization": "emergency_credentials",
                     "audit_level": "comprehensive",
-                    "response_time": "< 30 seconds"
+                    "response_time": "< 30 seconds",
                 },
                 "routine_care": {
                     "availability": "business hours",
                     "authorization": "clinical_credentials",
                     "audit_level": "standard",
-                    "response_time": "< 2 minutes"
+                    "response_time": "< 2 minutes",
                 },
                 "research_access": {
                     "availability": "controlled access",
                     "authorization": "research_approval",
                     "audit_level": "comprehensive",
-                    "response_time": "< 24 hours"
+                    "response_time": "< 24 hours",
                 },
                 "administrative_access": {
                     "availability": "audit logged",
                     "authorization": "administrative_credentials",
                     "audit_level": "comprehensive",
-                    "response_time": "< 5 minutes"
-                }
+                    "response_time": "< 5 minutes",
+                },
             },
             "data_flows": {
                 "patient_intake": ["demographics", "clinical"],
                 "clinical_care": ["clinical", "research"],
                 "research_studies": ["clinical", "research"],
-                "administrative_tasks": ["administrative", "clinical"]
-            }
+                "administrative_tasks": ["administrative", "clinical"],
+            },
         }
 
         return {
@@ -148,7 +156,7 @@ class HealthcareDomainOrchestrator:
             "total_data_types": len(requirements["data_types"]),
             "total_access_patterns": len(requirements["access_patterns"]),
             "compliance_requirements": self._analyze_compliance_requirements(requirements),
-            "risk_assessment": self._assess_data_risks(requirements)
+            "risk_assessment": self._assess_data_risks(requirements),
         }
 
     def _analyze_compliance_requirements(self, requirements: Dict[str, Any]) -> Dict[str, Any]:
@@ -158,19 +166,19 @@ class HealthcareDomainOrchestrator:
                 "Privacy Rule compliance",
                 "Security Rule implementation",
                 "Breach notification procedures",
-                "Business associate agreements"
+                "Business associate agreements",
             ],
             "gdpr_requirements": [
                 "Data protection by design",
                 "Consent management",
                 "Data subject rights",
-                "Data portability"
+                "Data portability",
             ],
             "state_regulations": [
                 "California Consumer Privacy Act",
                 "State-specific patient privacy laws",
-                "Medical record retention requirements"
-            ]
+                "Medical record retention requirements",
+            ],
         }
 
     def _assess_data_risks(self, requirements: Dict[str, Any]) -> Dict[str, Any]:
@@ -180,26 +188,27 @@ class HealthcareDomainOrchestrator:
                 "Patient demographic data exposure",
                 "Clinical data breaches",
                 "Emergency access failures",
-                "Research data misuse"
+                "Research data misuse",
             ],
             "mitigation_strategies": {
                 "encryption": "Implement end-to-end encryption",
                 "access_control": "Deploy role-based access control",
                 "audit_logging": "Comprehensive audit trail maintenance",
-                "consent_management": "Automated consent tracking"
+                "consent_management": "Automated consent tracking",
             },
             "risk_scores": {
                 "data_breach": 0.8,
                 "unauthorized_access": 0.7,
                 "consent_violation": 0.6,
-                "data_loss": 0.5
-            }
+                "data_loss": 0.5,
+            },
         }
 
-    def _map_regulatory_compliance(self, orchestrator_context: Dict[str, Any] = None) -> Dict[str, Any]:
+    def _map_regulatory_compliance(
+        self, orchestrator_context: Dict[str, Any] = None
+    ) -> Dict[str, Any]:
         """Map healthcare regulatory compliance requirements."""
         # Get the requirements analysis from the orchestrator context
-        requirements_analysis = orchestrator_context.get("requirements_analysis", {}) if orchestrator_context else {}
 
         compliance_mapping = {
             "HIPAA": {
@@ -208,9 +217,9 @@ class HealthcareDomainOrchestrator:
                 "requirements": [
                     "Privacy Rule: Patient consent for data use",
                     "Security Rule: Administrative, physical, technical safeguards",
-                    "Breach Notification Rule: 60-day notification requirement"
+                    "Breach Notification Rule: 60-day notification requirement",
                 ],
-                "penalties": "Up to $50,000 per violation"
+                "penalties": "Up to $50,000 per violation",
             },
             "HITECH": {
                 "title": "Health Information Technology for Economic and Clinical Health Act",
@@ -218,9 +227,9 @@ class HealthcareDomainOrchestrator:
                 "requirements": [
                     "Meaningful Use criteria",
                     "Enhanced breach notification",
-                    "Business associate agreements"
+                    "Business associate agreements",
                 ],
-                "penalties": "Up to $1.5 million per year for violations"
+                "penalties": "Up to $1.5 million per year for violations",
             },
             "GDPR": {
                 "title": "General Data Protection Regulation",
@@ -228,16 +237,16 @@ class HealthcareDomainOrchestrator:
                 "requirements": [
                     "Consent management",
                     "Data subject rights (access, portability, erasure)",
-                    "Data protection by design"
+                    "Data protection by design",
                 ],
-                "penalties": "Up to 4% of global annual turnover"
-            }
+                "penalties": "Up to 4% of global annual turnover",
+            },
         }
 
         return {
             "compliance_frameworks": compliance_mapping,
             "total_frameworks": len(compliance_mapping),
-            "overlapping_requirements": self._identify_overlapping_requirements(compliance_mapping)
+            "overlapping_requirements": self._identify_overlapping_requirements(compliance_mapping),
         }
 
     def _identify_overlapping_requirements(self, frameworks: Dict[str, Any]) -> List[str]:
@@ -251,9 +260,7 @@ class HealthcareDomainOrchestrator:
                 all_requirements.append(req.lower())
 
         # Find common themes
-        common_themes = [
-            "privacy", "security", "consent", "notification", "breach"
-        ]
+        common_themes = ["privacy", "security", "consent", "notification", "breach"]
 
         for theme in common_themes:
             if any(theme in req for req in all_requirements):
@@ -261,10 +268,11 @@ class HealthcareDomainOrchestrator:
 
         return overlaps
 
-    def _design_privacy_protection(self, orchestrator_context: Dict[str, Any] = None) -> Dict[str, Any]:
+    def _design_privacy_protection(
+        self, orchestrator_context: Dict[str, Any] = None
+    ) -> Dict[str, Any]:
         """Design privacy protection mechanisms."""
         # Get the compliance mapping from the orchestrator context
-        compliance_mapping = orchestrator_context.get("compliance_mapping", {}) if orchestrator_context else {}
 
         protection_mechanisms = {
             "data_minimization": {
@@ -272,47 +280,49 @@ class HealthcareDomainOrchestrator:
                 "implementation": [
                     "Purpose limitation enforcement",
                     "Data retention schedules",
-                    "Regular data audits"
-                ]
+                    "Regular data audits",
+                ],
             },
             "access_controls": {
                 "description": "Control access to sensitive data",
                 "implementation": [
                     "Role-based access control (RBAC)",
                     "Multi-factor authentication",
-                    "Audit logging and monitoring"
-                ]
+                    "Audit logging and monitoring",
+                ],
             },
             "encryption": {
                 "description": "Protect data in transit and at rest",
                 "implementation": [
                     "End-to-end encryption",
                     "Data masking for test environments",
-                    "Key management systems"
-                ]
+                    "Key management systems",
+                ],
             },
             "consent_management": {
                 "description": "Manage patient consent for data use",
                 "implementation": [
                     "Granular consent tracking",
                     "Consent revocation mechanisms",
-                    "Consent audit trails"
-                ]
+                    "Consent audit trails",
+                ],
             },
             "breach_response": {
                 "description": "Respond to privacy breaches",
                 "implementation": [
                     "Incident response plans",
                     "Breach notification procedures",
-                    "Regulatory reporting automation"
-                ]
-            }
+                    "Regulatory reporting automation",
+                ],
+            },
         }
 
         return {
             "protection_mechanisms": protection_mechanisms,
             "total_mechanisms": len(protection_mechanisms),
-            "implementation_priority": self._prioritize_protection_mechanisms(protection_mechanisms)
+            "implementation_priority": self._prioritize_protection_mechanisms(
+                protection_mechanisms
+            ),
         }
 
     def _prioritize_protection_mechanisms(self, mechanisms: Dict[str, Any]) -> Dict[str, str]:
@@ -327,10 +337,11 @@ class HealthcareDomainOrchestrator:
                 priorities[mechanism_name] = "low"
         return priorities
 
-    def _optimize_clinical_workflows(self, orchestrator_context: Dict[str, Any] = None) -> Dict[str, Any]:
+    def _optimize_clinical_workflows(
+        self, orchestrator_context: Dict[str, Any] = None
+    ) -> Dict[str, Any]:
         """Optimize clinical workflows with privacy constraints."""
         # Get the privacy design from the orchestrator context
-        privacy_design = orchestrator_context.get("privacy_design", {}) if orchestrator_context else {}
 
         workflow_optimizations = {
             "patient_intake": {
@@ -339,8 +350,8 @@ class HealthcareDomainOrchestrator:
                 "privacy_benefits": [
                     "Reduced data exposure",
                     "Contextual consent management",
-                    "Improved patient trust"
-                ]
+                    "Improved patient trust",
+                ],
             },
             "data_sharing": {
                 "original_process": "Manual consent for each data request",
@@ -348,8 +359,8 @@ class HealthcareDomainOrchestrator:
                 "privacy_benefits": [
                     "Streamlined consent process",
                     "Reduced administrative burden",
-                    "Enhanced compliance tracking"
-                ]
+                    "Enhanced compliance tracking",
+                ],
             },
             "research_access": {
                 "original_process": "Researcher requests individual approvals",
@@ -357,15 +368,15 @@ class HealthcareDomainOrchestrator:
                 "privacy_benefits": [
                     "Faster research access",
                     "Maintained privacy protection",
-                    "Automated compliance"
-                ]
-            }
+                    "Automated compliance",
+                ],
+            },
         }
 
         return {
             "workflow_optimizations": workflow_optimizations,
             "optimization_categories": list(workflow_optimizations.keys()),
-            "expected_improvements": self._calculate_expected_improvements(workflow_optimizations)
+            "expected_improvements": self._calculate_expected_improvements(workflow_optimizations),
         }
 
     def _calculate_expected_improvements(self, optimizations: Dict[str, Any]) -> Dict[str, Any]:
@@ -374,7 +385,7 @@ class HealthcareDomainOrchestrator:
             "efficiency_gains": "20-30% reduction in administrative time",
             "privacy_enhancements": "90% reduction in consent-related incidents",
             "compliance_improvements": "Automated compliance tracking",
-            "patient_satisfaction": "Improved trust through transparent processes"
+            "patient_satisfaction": "Improved trust through transparent processes",
         }
 
         return improvements
@@ -397,7 +408,7 @@ class HealthcareDomainOrchestrator:
             "domain": "healthcare",
             "step_results": results,
             "summary": self._generate_healthcare_summary(results),
-            "recommendations": self._generate_healthcare_recommendations(results)
+            "recommendations": self._generate_healthcare_recommendations(results),
         }
 
         self.logger.info("Healthcare domain analysis completed")
@@ -407,10 +418,20 @@ class HealthcareDomainOrchestrator:
         """Generate summary of healthcare analysis results."""
         summary = {
             "total_steps_completed": len(results),
-            "data_types_analyzed": len(results.get("analyze_data_requirements", {}).get("requirements_analysis", {}).get("data_types", {})),
-            "compliance_frameworks_mapped": len(results.get("map_regulatory_compliance", {}).get("compliance_frameworks", {})),
-            "protection_mechanisms_designed": len(results.get("design_privacy_protection", {}).get("protection_mechanisms", {})),
-            "workflow_optimizations": len(results.get("optimize_clinical_workflows", {}).get("workflow_optimizations", {}))
+            "data_types_analyzed": len(
+                results.get("analyze_data_requirements", {})
+                .get("requirements_analysis", {})
+                .get("data_types", {})
+            ),
+            "compliance_frameworks_mapped": len(
+                results.get("map_regulatory_compliance", {}).get("compliance_frameworks", {})
+            ),
+            "protection_mechanisms_designed": len(
+                results.get("design_privacy_protection", {}).get("protection_mechanisms", {})
+            ),
+            "workflow_optimizations": len(
+                results.get("optimize_clinical_workflows", {}).get("workflow_optimizations", {})
+            ),
         }
 
         return summary
@@ -428,32 +449,40 @@ class HealthcareDomainOrchestrator:
                 # Generate implementation recommendations
                 for mechanism_name, mechanism in mechanisms.items():
                     if mechanism_name == "access_controls":
-                        recommendations.extend([
-                            "Implement role-based access control (RBAC) for all healthcare systems",
-                            "Deploy multi-factor authentication for all clinical staff",
-                            "Establish comprehensive audit logging for data access"
-                        ])
+                        recommendations.extend(
+                            [
+                                "Implement role-based access control (RBAC) for all healthcare systems",
+                                "Deploy multi-factor authentication for all clinical staff",
+                                "Establish comprehensive audit logging for data access",
+                            ]
+                        )
                     elif mechanism_name == "encryption":
-                        recommendations.extend([
-                            "Implement end-to-end encryption for all patient data",
-                            "Deploy data masking for non-production environments",
-                            "Establish encryption key management protocols"
-                        ])
+                        recommendations.extend(
+                            [
+                                "Implement end-to-end encryption for all patient data",
+                                "Deploy data masking for non-production environments",
+                                "Establish encryption key management protocols",
+                            ]
+                        )
                     elif mechanism_name == "data_minimization":
-                        recommendations.extend([
-                            "Implement data retention schedules based on data sensitivity",
-                            "Establish regular data audit and cleanup procedures",
-                            "Enforce purpose limitation for all data collection"
-                        ])
+                        recommendations.extend(
+                            [
+                                "Implement data retention schedules based on data sensitivity",
+                                "Establish regular data audit and cleanup procedures",
+                                "Enforce purpose limitation for all data collection",
+                            ]
+                        )
 
         # Add workflow recommendations
         if "optimize_clinical_workflows" in results:
             workflow_results = results["optimize_clinical_workflows"]
             if "workflow_optimizations" in workflow_results:
-                recommendations.extend([
-                    "Implement progressive patient data disclosure based on care phase",
-                    "Deploy granular consent management system",
-                    "Establish automated compliance tracking for research data access"
-                ])
+                recommendations.extend(
+                    [
+                        "Implement progressive patient data disclosure based on care phase",
+                        "Deploy granular consent management system",
+                        "Establish automated compliance tracking for research data access",
+                    ]
+                )
 
         return recommendations

@@ -6,25 +6,34 @@ including pattern management, relationship analysis, and basic framework operati
 """
 
 import uuid
-from typing import Dict, List, Any, Optional, Union, Set, Callable
+from typing import Dict, List, Any, Optional, Union
 from dataclasses import dataclass, field
 from enum import Enum
 from datetime import datetime
-from pathlib import Path
-import logging
 
-from .models import BasePattern, Property, Process, Perspective, Relationship, PatternType, RelationshipStrength, ConfidenceScore
+from .models import (
+    BasePattern,
+    Property,
+    Process,
+    Perspective,
+    Relationship,
+    PatternType,
+    RelationshipStrength,
+    ConfidenceScore,
+)
 from .framework import P3IFFramework
 from .exceptions import (
-    P3IFError, PatternError, PatternNotFoundError, PatternValidationError,
-    PatternTypeError, RelationshipError, RelationshipValidationError,
-    FrameworkError, OperationError
+    PatternNotFoundError,
+    PatternValidationError,
+    PatternTypeError,
+    RelationshipValidationError,
 )
-from ..utils.logging import get_logger, logged_method, performance_monitor
+from ..utils.logging import get_logger, performance_monitor
 
 
 class OperationType(str, Enum):
     """Types of P3IF operations."""
+
     CREATE = "create"
     READ = "read"
     UPDATE = "update"
@@ -37,6 +46,7 @@ class OperationType(str, Enum):
 @dataclass
 class P3IFOperation:
     """Represents a P3IF operation with metadata."""
+
     id: str = field(default_factory=lambda: str(uuid.uuid4()))
     operation_type: OperationType = OperationType.CREATE
     description: str = ""
@@ -58,8 +68,14 @@ class P3IFCore:
         return f"P3IFCore(patterns={len(self.framework)}, operations={len(self.operations)})"
 
     @performance_monitor(threshold_ms=500)
-    def create_pattern(self, pattern_type: str, name: str, domain: Optional[str] = None,
-                      description: Optional[str] = None, **attributes: Any) -> BasePattern:
+    def create_pattern(
+        self,
+        pattern_type: str,
+        name: str,
+        domain: Optional[str] = None,
+        description: Optional[str] = None,
+        **attributes: Any,
+    ) -> BasePattern:
         """Create a new pattern with specified attributes and validation."""
         # Input validation
         if not name or not name.strip():
@@ -75,18 +91,27 @@ class P3IFCore:
         operation = P3IFOperation(
             operation_type=OperationType.CREATE,
             description=f"Create {pattern_type}: {name}",
-            parameters={"type": pattern_type, "name": name, "domain": domain,
-                       "description": description, "attributes": attributes}
+            parameters={
+                "type": pattern_type,
+                "name": name,
+                "domain": domain,
+                "description": description,
+                "attributes": attributes,
+            },
         )
 
         try:
             # Validate domain if provided
             if domain and len(domain) > 100:
-                raise PatternValidationError("domain", ["Domain name too long (max 100 characters)"])
+                raise PatternValidationError(
+                    "domain", ["Domain name too long (max 100 characters)"]
+                )
 
             # Validate description if provided
             if description and len(description) > 2000:
-                raise PatternValidationError("description", ["Description too long (max 2000 characters)"])
+                raise PatternValidationError(
+                    "description", ["Description too long (max 2000 characters)"]
+                )
 
             # Ensure description is not empty (use name as fallback)
             if not description or not description.strip():
@@ -99,17 +124,11 @@ class P3IFCore:
             # Create pattern based on type with proper validation
             if pattern_type.lower() == "property":
                 pattern: BasePattern = Property(
-                    name=name.strip(),
-                    domain=domain,
-                    description=description,
-                    **attributes
+                    name=name.strip(), domain=domain, description=description, **attributes
                 )
             elif pattern_type.lower() == "process":
                 pattern = Process(
-                    name=name.strip(),
-                    domain=domain,
-                    description=description,
-                    **attributes
+                    name=name.strip(), domain=domain, description=description, **attributes
                 )
             elif pattern_type.lower() == "perspective":
                 # Handle viewpoint parameter specially for perspectives
@@ -120,7 +139,7 @@ class P3IFCore:
                     domain=domain,
                     description=description,
                     viewpoint=viewpoint,
-                    **perspective_attributes
+                    **perspective_attributes,
                 )
 
             # Validate the created pattern
@@ -156,23 +175,25 @@ class P3IFCore:
 
         # Type-specific validation
         if pattern.type == PatternType.PROPERTY:
-            if hasattr(pattern, 'category') and pattern.category:
-                valid_categories = ['security', 'quality', 'business', 'technical', 'compliance']
+            if hasattr(pattern, "category") and pattern.category:
+                valid_categories = ["security", "quality", "business", "technical", "compliance"]
                 if pattern.category not in valid_categories:
                     errors.append(f"Invalid property category: {pattern.category}")
 
         elif pattern.type == PatternType.PROCESS:
-            if hasattr(pattern, 'complexity') and pattern.complexity:
-                valid_complexities = ['low', 'medium', 'high']
+            if hasattr(pattern, "complexity") and pattern.complexity:
+                valid_complexities = ["low", "medium", "high"]
                 if pattern.complexity not in valid_complexities:
                     errors.append(f"Invalid process complexity: {pattern.complexity}")
 
         elif pattern.type == PatternType.PERSPECTIVE:
-            if hasattr(pattern, 'viewpoint') and not pattern.viewpoint:
+            if hasattr(pattern, "viewpoint") and not pattern.viewpoint:
                 errors.append("Perspective viewpoint is required")
 
         if errors:
-            raise PatternValidationError(pattern.id if hasattr(pattern, 'id') else "unknown", errors)
+            raise PatternValidationError(
+                pattern.id if hasattr(pattern, "id") else "unknown", errors
+            )
 
     def create_pattern_bulk(self, patterns_data: List[Dict[str, Any]]) -> List[BasePattern]:
         """Create multiple patterns in bulk with validation."""
@@ -193,7 +214,7 @@ class P3IFCore:
                     name=name,
                     domain=domain,
                     description=description,
-                    **data
+                    **data,
                 )
                 created_patterns.append(pattern)
             except Exception as e:
@@ -208,7 +229,7 @@ class P3IFCore:
         operation = P3IFOperation(
             operation_type=OperationType.UPDATE,
             description=f"Update pattern: {pattern_id}",
-            parameters={"pattern_id": pattern_id, "updates": updates}
+            parameters={"pattern_id": pattern_id, "updates": updates},
         )
 
         try:
@@ -262,7 +283,7 @@ class P3IFCore:
 
         # Type-specific validation
         if "category" in updates and pattern.type == "property":
-            valid_categories = ['security', 'quality', 'business', 'technical', 'compliance']
+            valid_categories = ["security", "quality", "business", "technical", "compliance"]
             if updates["category"] not in valid_categories:
                 errors.append(f"Invalid property category: {updates['category']}")
 
@@ -274,7 +295,7 @@ class P3IFCore:
         operation = P3IFOperation(
             operation_type=OperationType.DELETE,
             description=f"Delete pattern: {pattern_id}",
-            parameters={"pattern_id": pattern_id}
+            parameters={"pattern_id": pattern_id},
         )
 
         try:
@@ -315,9 +336,9 @@ class P3IFCore:
                 if not hasattr(pattern, key):
                     match = False
                     break
-                
+
                 pattern_value = getattr(pattern, key)
-                
+
                 # Special handling for name field - substring matching
                 if key == "name" and isinstance(value, str) and isinstance(pattern_value, str):
                     if value.lower() not in pattern_value.lower():
@@ -341,7 +362,7 @@ class P3IFCore:
         perspective_id: Union[str, BasePattern, None] = None,
         strength: float = 1.0,
         confidence: float = 1.0,
-        relationship_type: str = "general"
+        relationship_type: str = "general",
     ) -> Relationship:
         """
         Create relationship between patterns.
@@ -369,8 +390,8 @@ class P3IFCore:
                 "perspective_id": str(perspective_id) if perspective_id else None,
                 "strength": strength,
                 "confidence": confidence,
-                "relationship_type": relationship_type
-            }
+                "relationship_type": relationship_type,
+            },
         )
 
         try:
@@ -381,8 +402,7 @@ class P3IFCore:
 
             # Validate relationship constraints
             self._validate_relationship_constraints(
-                actual_property_id, actual_process_id, actual_perspective_id,
-                strength, confidence
+                actual_property_id, actual_process_id, actual_perspective_id, strength, confidence
             )
 
             # Create relationship
@@ -392,7 +412,7 @@ class P3IFCore:
                 property_id=actual_property_id,
                 process_id=actual_process_id,
                 perspective_id=actual_perspective_id,
-                relationship_type=relationship_type
+                relationship_type=relationship_type,
             )
 
             # Add to framework
@@ -412,18 +432,22 @@ class P3IFCore:
             self.logger.error(f"Failed to create relationship: {e}")
             raise
 
-    def _extract_pattern_id(self, pattern_arg: Union[str, BasePattern, None], expected_type: str) -> Optional[str]:
+    def _extract_pattern_id(
+        self, pattern_arg: Union[str, BasePattern, None], expected_type: str
+    ) -> Optional[str]:
         """Extract pattern ID from argument (supports both ID strings and pattern objects)."""
         if pattern_arg is None:
             return None
         elif isinstance(pattern_arg, str):
             return pattern_arg
-        elif hasattr(pattern_arg, 'id') and hasattr(pattern_arg, 'type'):
+        elif hasattr(pattern_arg, "id") and hasattr(pattern_arg, "type"):
             if pattern_arg.type != expected_type:
                 raise PatternTypeError(expected_type, pattern_arg.type)
             return pattern_arg.id
         else:
-            raise PatternValidationError("pattern_argument", [f"Invalid pattern argument: {type(pattern_arg)}"])
+            raise PatternValidationError(
+                "pattern_argument", [f"Invalid pattern argument: {type(pattern_arg)}"]
+            )
 
     def _validate_relationship_constraints(
         self,
@@ -431,11 +455,13 @@ class P3IFCore:
         process_id: Optional[str],
         perspective_id: Optional[str],
         strength: float,
-        confidence: float
+        confidence: float,
     ) -> None:
         """Validate relationship creation constraints."""
         # Check at least two dimensions provided
-        provided_dims = sum(1 for dim_id in [property_id, process_id, perspective_id] if dim_id is not None)
+        provided_dims = sum(
+            1 for dim_id in [property_id, process_id, perspective_id] if dim_id is not None
+        )
         if provided_dims < 2:
             raise RelationshipValidationError(["At least two pattern IDs must be provided"])
 
@@ -471,7 +497,7 @@ class P3IFCore:
             "total_relationships": len(self.framework._relationships),
             "domains": {},
             "pattern_types": {},
-            "relationships_by_type": {}
+            "relationships_by_type": {},
         }
 
         # Analyze by domain
@@ -489,7 +515,9 @@ class P3IFCore:
         # Analyze pattern types
         for pattern in self.framework._patterns.values():
             pattern_type = pattern.type.value
-            analysis["pattern_types"][pattern_type] = analysis["pattern_types"].get(pattern_type, 0) + 1
+            analysis["pattern_types"][pattern_type] = (
+                analysis["pattern_types"].get(pattern_type, 0) + 1
+            )
 
         return analysis
 
@@ -501,21 +529,24 @@ class P3IFCore:
         """Export framework in specified format."""
         if format.lower() == "json":
             export_data = {
-                "patterns": {pid: pattern.model_dump() for pid, pattern in self.framework._patterns.items()},
-                "relationships": {rid: rel.model_dump() for rid, rel in self.framework._relationships.items()},
-                "metadata": {
-                    "export_time": datetime.now().isoformat(),
-                    "version": "1.0"
-                }
+                "patterns": {
+                    pid: pattern.model_dump() for pid, pattern in self.framework._patterns.items()
+                },
+                "relationships": {
+                    rid: rel.model_dump() for rid, rel in self.framework._relationships.items()
+                },
+                "metadata": {"export_time": datetime.now().isoformat(), "version": "1.0"},
             }
 
             if path:
                 from p3if.utils.json import dump
-                with open(path, 'w') as f:
+
+                with open(path, "w") as f:
                     dump(export_data, f, indent=2)
                 return str(path)
             else:
                 from p3if.utils.json import dumps
+
                 result: str = dumps(export_data, indent=2)
                 return result
         else:

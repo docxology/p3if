@@ -10,8 +10,7 @@ import unittest
 from p3if.orchestrators.cognitive_security import CognitiveSecurityOrchestrator
 from p3if.orchestrators.framework_integration import FrameworkIntegrationOrchestrator
 from p3if.orchestrators.healthcare_domain import HealthcareDomainOrchestrator
-from p3if.orchestrators.integration_examples import IntegrationExample, NISTIntegrationExample
-from p3if.core.orchestration import OrchestratorType
+from p3if.orchestrators.integration_examples import NISTIntegrationExample
 
 
 class TestCognitiveSecurityOrchestrator(unittest.TestCase):
@@ -73,16 +72,16 @@ class TestIntegrationExamples(unittest.TestCase):
         example = NISTIntegrationExample()
         self.assertIsNotNone(example)
         # Test that it has a name
-        self.assertTrue(hasattr(example, 'name'))
+        self.assertTrue(hasattr(example, "name"))
 
     def test_integration_example_execution(self):
         """Test that integration examples can execute."""
         example = NISTIntegrationExample()
         # Test that execute method exists and returns something
-        self.assertTrue(hasattr(example, 'execute'))
+        self.assertTrue(hasattr(example, "execute"))
         result = example.execute()
         self.assertIsInstance(result, dict)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     unittest.main()

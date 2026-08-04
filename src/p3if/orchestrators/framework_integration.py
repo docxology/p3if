@@ -5,14 +5,14 @@ This thin orchestrator demonstrates how to integrate multiple existing framework
 into a unified P3IF model with conflict resolution and harmonization.
 """
 
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any
 from dataclasses import dataclass, field
 import logging
 from datetime import datetime
 
 from p3if.core.orchestration import ThinOrchestrator, OrchestrationStep, OrchestratorType
 from p3if.core.core import P3IFCore
-from p3if.core.composition import CompositionEngine, FrameworkAdapter, MultiplexingStrategy
+from p3if.core.composition import CompositionEngine, FrameworkAdapter
 
 
 @dataclass
@@ -33,48 +33,58 @@ class FrameworkIntegrationOrchestrator:
     def _setup_orchestrator(self):
         """Set up the orchestration steps."""
         # Step 1: Map framework elements
-        self.orchestrator.add_step(OrchestrationStep(
-            name="map_framework_elements",
-            method=self._map_framework_elements,
-            outputs=["mapping_results"],
-            description="Map elements from different frameworks to P3IF dimensions"
-        ))
+        self.orchestrator.add_step(
+            OrchestrationStep(
+                name="map_framework_elements",
+                method=self._map_framework_elements,
+                outputs=["mapping_results"],
+                description="Map elements from different frameworks to P3IF dimensions",
+            )
+        )
 
         # Step 2: Identify conflicts and overlaps
-        self.orchestrator.add_step(OrchestrationStep(
-            name="identify_conflicts",
-            method=self._identify_conflicts,
-            dependencies=["map_framework_elements"],
-            outputs=["conflict_identification"],
-            description="Identify conflicts and overlaps between frameworks"
-        ))
+        self.orchestrator.add_step(
+            OrchestrationStep(
+                name="identify_conflicts",
+                method=self._identify_conflicts,
+                dependencies=["map_framework_elements"],
+                outputs=["conflict_identification"],
+                description="Identify conflicts and overlaps between frameworks",
+            )
+        )
 
         # Step 3: Resolve conflicts
-        self.orchestrator.add_step(OrchestrationStep(
-            name="resolve_conflicts",
-            method=self._resolve_conflicts,
-            dependencies=["identify_conflicts"],
-            outputs=["conflict_resolution"],
-            description="Resolve identified conflicts between frameworks"
-        ))
+        self.orchestrator.add_step(
+            OrchestrationStep(
+                name="resolve_conflicts",
+                method=self._resolve_conflicts,
+                dependencies=["identify_conflicts"],
+                outputs=["conflict_resolution"],
+                description="Resolve identified conflicts between frameworks",
+            )
+        )
 
         # Step 4: Create unified model
-        self.orchestrator.add_step(OrchestrationStep(
-            name="create_unified_model",
-            method=self._create_unified_model,
-            dependencies=["resolve_conflicts"],
-            outputs=["unified_model"],
-            description="Create unified P3IF model with resolved conflicts"
-        ))
+        self.orchestrator.add_step(
+            OrchestrationStep(
+                name="create_unified_model",
+                method=self._create_unified_model,
+                dependencies=["resolve_conflicts"],
+                outputs=["unified_model"],
+                description="Create unified P3IF model with resolved conflicts",
+            )
+        )
 
         # Step 5: Validate integration
-        self.orchestrator.add_step(OrchestrationStep(
-            name="validate_integration",
-            method=self._validate_integration,
-            dependencies=["create_unified_model"],
-            outputs=["validation_results"],
-            description="Validate the integrated framework"
-        ))
+        self.orchestrator.add_step(
+            OrchestrationStep(
+                name="validate_integration",
+                method=self._validate_integration,
+                dependencies=["create_unified_model"],
+                outputs=["validation_results"],
+                description="Validate the integrated framework",
+            )
+        )
 
     def add_framework_adapter(self, adapter: FrameworkAdapter):
         """Add a framework adapter for integration."""
@@ -93,12 +103,12 @@ class FrameworkIntegrationOrchestrator:
                 mapping_results[framework_name] = {
                     "properties_mapped": self._simulate_property_mapping(adapter),
                     "processes_mapped": self._simulate_process_mapping(adapter),
-                    "perspectives_mapped": self._simulate_perspective_mapping(adapter)
+                    "perspectives_mapped": self._simulate_perspective_mapping(adapter),
                 }
 
         return {
             "mapping_results": mapping_results,
-            "total_frameworks": len(self.integrated_frameworks)
+            "total_frameworks": len(self.integrated_frameworks),
         }
 
     def _simulate_property_mapping(self, adapter: FrameworkAdapter) -> List[Dict[str, Any]]:
@@ -108,7 +118,7 @@ class FrameworkIntegrationOrchestrator:
             return [
                 {"name": "Confidentiality", "type": "security", "mapped": True},
                 {"name": "Integrity", "type": "security", "mapped": True},
-                {"name": "Availability", "type": "security", "mapped": True}
+                {"name": "Availability", "type": "security", "mapped": True},
             ]
         elif "NIST" in adapter.source_framework:
             return [
@@ -116,7 +126,7 @@ class FrameworkIntegrationOrchestrator:
                 {"name": "Protect", "type": "security", "mapped": True},
                 {"name": "Detect", "type": "monitoring", "mapped": True},
                 {"name": "Respond", "type": "response", "mapped": True},
-                {"name": "Recover", "type": "recovery", "mapped": True}
+                {"name": "Recover", "type": "recovery", "mapped": True},
             ]
         else:
             return [{"name": "Generic Property", "type": "general", "mapped": True}]
@@ -127,13 +137,13 @@ class FrameworkIntegrationOrchestrator:
             return [
                 {"name": "Access Control", "type": "security", "mapped": True},
                 {"name": "Encryption", "type": "protection", "mapped": True},
-                {"name": "Monitoring", "type": "detection", "mapped": True}
+                {"name": "Monitoring", "type": "detection", "mapped": True},
             ]
         elif "NIST" in adapter.source_framework:
             return [
                 {"name": "Risk Assessment", "type": "analysis", "mapped": True},
                 {"name": "Threat Modeling", "type": "planning", "mapped": True},
-                {"name": "Incident Response", "type": "response", "mapped": True}
+                {"name": "Incident Response", "type": "response", "mapped": True},
             ]
         else:
             return [{"name": "Generic Process", "type": "general", "mapped": True}]
@@ -144,13 +154,13 @@ class FrameworkIntegrationOrchestrator:
             return [
                 {"name": "Security", "type": "domain", "mapped": True},
                 {"name": "Business", "type": "stakeholder", "mapped": True},
-                {"name": "Technical", "type": "implementation", "mapped": True}
+                {"name": "Technical", "type": "implementation", "mapped": True},
             ]
         elif "NIST" in adapter.source_framework:
             return [
                 {"name": "Governance", "type": "management", "mapped": True},
                 {"name": "Risk Management", "type": "analysis", "mapped": True},
-                {"name": "Operations", "type": "execution", "mapped": True}
+                {"name": "Operations", "type": "execution", "mapped": True},
             ]
         else:
             return [{"name": "Generic Perspective", "type": "general", "mapped": True}]
@@ -158,13 +168,15 @@ class FrameworkIntegrationOrchestrator:
     def _identify_conflicts(self, orchestrator_context: Dict[str, Any] = None) -> Dict[str, Any]:
         """Identify conflicts and overlaps between frameworks."""
         # Get the mapping results from the orchestrator context
-        mapping_results = orchestrator_context.get("mapping_results", {}) if orchestrator_context else {}
+        mapping_results = (
+            orchestrator_context.get("mapping_results", {}) if orchestrator_context else {}
+        )
 
         conflicts = {
             "element_conflicts": [],
             "semantic_conflicts": [],
             "structural_conflicts": [],
-            "resolution_strategies": {}
+            "resolution_strategies": {},
         }
 
         # Simulate conflict identification
@@ -185,19 +197,21 @@ class FrameworkIntegrationOrchestrator:
         # Find duplicates
         property_duplicates = set([x for x in property_names if property_names.count(x) > 1])
         process_duplicates = set([x for x in process_names if process_names.count(x) > 1])
-        perspective_duplicates = set([x for x in perspective_names if perspective_names.count(x) > 1])
+        perspective_duplicates = set(
+            [x for x in perspective_names if perspective_names.count(x) > 1]
+        )
 
         conflicts["element_conflicts"] = {
             "properties": list(property_duplicates),
             "processes": list(process_duplicates),
-            "perspectives": list(perspective_duplicates)
+            "perspectives": list(perspective_duplicates),
         }
 
         # Generate resolution strategies
         conflicts["resolution_strategies"] = {
             "rename_duplicates": "Add framework prefix to duplicate names",
             "merge_similar": "Merge elements with similar semantics",
-            "create_hierarchy": "Create hierarchical relationships for similar concepts"
+            "create_hierarchy": "Create hierarchical relationships for similar concepts",
         }
 
         return conflicts
@@ -205,12 +219,14 @@ class FrameworkIntegrationOrchestrator:
     def _resolve_conflicts(self, orchestrator_context: Dict[str, Any] = None) -> Dict[str, Any]:
         """Resolve identified conflicts between frameworks."""
         # Get the conflicts from the orchestrator context
-        conflicts = orchestrator_context.get("conflict_identification", {}) if orchestrator_context else {}
+        conflicts = (
+            orchestrator_context.get("conflict_identification", {}) if orchestrator_context else {}
+        )
 
         resolution_results = {
             "resolved_conflicts": [],
             "applied_strategies": [],
-            "remaining_issues": []
+            "remaining_issues": [],
         }
 
         # Simulate conflict resolution
@@ -220,8 +236,8 @@ class FrameworkIntegrationOrchestrator:
                     resolution = {
                         "conflict": f"{conflict_type}: {duplicate}",
                         "strategy": "rename_duplicates",
-                        "resolution": f"Resolve by adding framework-specific prefixes",
-                        "status": "resolved"
+                        "resolution": "Resolve by adding framework-specific prefixes",
+                        "status": "resolved",
                     }
                     resolution_results["resolved_conflicts"].append(resolution)
                     resolution_results["applied_strategies"].append("rename_duplicates")
@@ -235,18 +251,19 @@ class FrameworkIntegrationOrchestrator:
                 if duplicates:
                     for duplicate in duplicates:
                         prefixed_name = f"{framework_prefix}{duplicate.lower().replace(' ', '_')}"
-                        resolution_results["resolved_conflicts"].append({
-                            "original": duplicate,
-                            "resolved": prefixed_name,
-                            "framework": framework_name
-                        })
+                        resolution_results["resolved_conflicts"].append(
+                            {
+                                "original": duplicate,
+                                "resolved": prefixed_name,
+                                "framework": framework_name,
+                            }
+                        )
 
         return resolution_results
 
     def _create_unified_model(self, orchestrator_context: Dict[str, Any] = None) -> Dict[str, Any]:
         """Create a unified P3IF model from resolved frameworks."""
         # Get the conflict resolution from the orchestrator context
-        conflict_resolution = orchestrator_context.get("conflict_resolution", {}) if orchestrator_context else {}
 
         unified_model = {
             "properties": [],
@@ -256,8 +273,8 @@ class FrameworkIntegrationOrchestrator:
             "metadata": {
                 "integration_timestamp": datetime.now().isoformat(),
                 "source_frameworks": self.integrated_frameworks,
-                "conflict_resolution_applied": True
-            }
+                "conflict_resolution_applied": True,
+            },
         }
 
         # Simulate unified model creation
@@ -267,21 +284,21 @@ class FrameworkIntegrationOrchestrator:
             {"name": "cia_integrity", "type": "security", "source": "CIA Triad"},
             {"name": "cia_availability", "type": "security", "source": "CIA Triad"},
             {"name": "nist_identify", "type": "governance", "source": "NIST CSF"},
-            {"name": "nist_protect", "type": "security", "source": "NIST CSF"}
+            {"name": "nist_protect", "type": "security", "source": "NIST CSF"},
         ]
 
         unified_model["processes"] = [
             {"name": "cia_access_control", "type": "security", "source": "CIA Triad"},
             {"name": "cia_encryption", "type": "protection", "source": "CIA Triad"},
             {"name": "nist_risk_assessment", "type": "analysis", "source": "NIST CSF"},
-            {"name": "nist_incident_response", "type": "response", "source": "NIST CSF"}
+            {"name": "nist_incident_response", "type": "response", "source": "NIST CSF"},
         ]
 
         unified_model["perspectives"] = [
             {"name": "cia_security", "type": "domain", "source": "CIA Triad"},
             {"name": "cia_business", "type": "stakeholder", "source": "CIA Triad"},
             {"name": "nist_governance", "type": "management", "source": "NIST CSF"},
-            {"name": "nist_operations", "type": "execution", "source": "NIST CSF"}
+            {"name": "nist_operations", "type": "execution", "source": "NIST CSF"},
         ]
 
         return unified_model
@@ -289,13 +306,15 @@ class FrameworkIntegrationOrchestrator:
     def _validate_integration(self, orchestrator_context: Dict[str, Any] = None) -> Dict[str, Any]:
         """Validate the integrated framework."""
         # Get the unified model from the orchestrator context
-        unified_model = orchestrator_context.get("unified_model", {}) if orchestrator_context else {}
+        unified_model = (
+            orchestrator_context.get("unified_model", {}) if orchestrator_context else {}
+        )
 
         validation_results = {
             "validation_passed": True,
             "checks_performed": [],
             "issues_found": [],
-            "recommendations": []
+            "recommendations": [],
         }
 
         # Perform validation checks
@@ -303,7 +322,7 @@ class FrameworkIntegrationOrchestrator:
             self._check_completeness,
             self._check_consistency,
             self._check_no_conflicts,
-            self._check_semantic_validity
+            self._check_semantic_validity,
         ]
 
         for check in checks:
@@ -314,11 +333,9 @@ class FrameworkIntegrationOrchestrator:
                     validation_results["validation_passed"] = False
                     validation_results["issues_found"].extend(check_result["issues"])
             except Exception as e:
-                validation_results["issues_found"].append({
-                    "check": check.__name__,
-                    "error": str(e),
-                    "severity": "error"
-                })
+                validation_results["issues_found"].append(
+                    {"check": check.__name__, "error": str(e), "severity": "error"}
+                )
 
         return validation_results
 
@@ -335,8 +352,12 @@ class FrameworkIntegrationOrchestrator:
         return {
             "check": "completeness",
             "passed": len(missing_dimensions) == 0,
-            "issues": [f"Missing dimension: {dim}" for dim in missing_dimensions] if missing_dimensions else [],
-            "details": {"total_elements": sum(len(model.get(dim, [])) for dim in required_dimensions)}
+            "issues": [f"Missing dimension: {dim}" for dim in missing_dimensions]
+            if missing_dimensions
+            else [],
+            "details": {
+                "total_elements": sum(len(model.get(dim, [])) for dim in required_dimensions)
+            },
         }
 
     def _check_consistency(self, model: Dict[str, Any]) -> Dict[str, Any]:
@@ -360,7 +381,7 @@ class FrameworkIntegrationOrchestrator:
             "check": "consistency",
             "passed": len(consistency_issues) == 0,
             "issues": consistency_issues,
-            "details": {"total_issues": len(consistency_issues)}
+            "details": {"total_issues": len(consistency_issues)},
         }
 
     def _check_no_conflicts(self, model: Dict[str, Any]) -> Dict[str, Any]:
@@ -370,7 +391,7 @@ class FrameworkIntegrationOrchestrator:
             "check": "no_conflicts",
             "passed": True,
             "issues": [],
-            "details": {"conflicts_found": 0}
+            "details": {"conflicts_found": 0},
         }
 
     def _check_semantic_validity(self, model: Dict[str, Any]) -> Dict[str, Any]:
@@ -383,13 +404,15 @@ class FrameworkIntegrationOrchestrator:
             for element in elements:
                 if "security" in element.get("name", "").lower():
                     if element.get("type") not in ["security", "protection", "governance"]:
-                        semantic_issues.append(f"Security element {element['name']} not properly typed")
+                        semantic_issues.append(
+                            f"Security element {element['name']} not properly typed"
+                        )
 
         return {
             "check": "semantic_validity",
             "passed": len(semantic_issues) == 0,
             "issues": semantic_issues,
-            "details": {"semantic_issues": len(semantic_issues)}
+            "details": {"semantic_issues": len(semantic_issues)},
         }
 
     def execute_integration(self, framework_names: List[str]) -> Dict[str, Any]:
@@ -409,7 +432,7 @@ class FrameworkIntegrationOrchestrator:
             "step_results": results,
             "summary": self._generate_integration_summary(results),
             "unified_model": results.get("create_unified_model", {}),
-            "validation_results": results.get("validate_integration", {})
+            "validation_results": results.get("validate_integration", {}),
         }
 
         self.logger.info("Framework integration completed")
@@ -420,8 +443,12 @@ class FrameworkIntegrationOrchestrator:
         summary = {
             "total_steps_completed": len(results),
             "frameworks_integrated": len(self.integrated_frameworks),
-            "conflicts_resolved": len(results.get("resolve_conflicts", {}).get("resolved_conflicts", [])),
-            "validation_passed": results.get("validate_integration", {}).get("validation_passed", False)
+            "conflicts_resolved": len(
+                results.get("resolve_conflicts", {}).get("resolved_conflicts", [])
+            ),
+            "validation_passed": results.get("validate_integration", {}).get(
+                "validation_passed", False
+            ),
         }
 
         return summary

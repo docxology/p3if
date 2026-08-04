@@ -5,7 +5,6 @@ Output Organization Utility for P3IF Visualizations and Animations
 This module provides a comprehensive system for organizing all visualization outputs
 into a consistent directory structure under the main output folder.
 """
-import os
 import json
 import shutil
 from pathlib import Path
@@ -18,8 +17,11 @@ from dataclasses import dataclass, field
 @dataclass
 class OutputDirectoryStructure:
     """Defines the standard output directory structure for P3IF."""
+
     base_name: str
-    timestamp: str = field(default_factory=lambda: datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S"))
+    timestamp: str = field(
+        default_factory=lambda: datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+    )
 
     def get_base_path(self, root_output_dir: Union[str, Path]) -> Path:
         """Get the base output path for this structure."""
@@ -37,7 +39,7 @@ class OutputDirectoryStructure:
             "logs": "Log files and debugging information",
             "assets": "Static assets (CSS, JS, fonts)",
             "config": "Configuration files and settings",
-            "metadata": "Metadata and version information"
+            "metadata": "Metadata and version information",
         }
 
 
@@ -114,11 +116,11 @@ class OutputOrganizer:
             "timestamp": self.current_session.timestamp,
             "created_at": datetime.now(timezone.utc).isoformat(),
             "structure_version": "2.0",
-            "subdirectories": self.current_session.get_subdirs()
+            "subdirectories": self.current_session.get_subdirs(),
         }
 
         metadata_path = self.current_base_path / "session_metadata.json"
-        with open(metadata_path, 'w') as f:
+        with open(metadata_path, "w") as f:
             json.dump(metadata, f, indent=2)
 
     def get_visualization_path(self, visualization_type: str, filename: str) -> Path:
@@ -229,7 +231,7 @@ class OutputOrganizer:
             ".css": ("assets", "css"),
             ".js": ("assets", "js"),
             ".log": ("logs", "logs"),
-            ".md": ("reports", "documentation")
+            ".md": ("reports", "documentation"),
         }
 
         # Process files
@@ -252,7 +254,9 @@ class OutputOrganizer:
                     else:
                         shutil.move(str(file_path), str(target_path))
 
-                    self.logger.info(f"{'Copied' if copy_files else 'Moved'} {file_path} -> {target_path}")
+                    self.logger.info(
+                        f"{'Copied' if copy_files else 'Moved'} {file_path} -> {target_path}"
+                    )
 
     def _get_organized_path(self, category: str, subcategory: str, filename: str) -> Path:
         """Get the organized path for a file."""
@@ -279,14 +283,14 @@ class OutputOrganizer:
                 "name": self.current_session.base_name,
                 "timestamp": self.current_session.timestamp,
                 "base_path": str(self.current_base_path),
-                "created_at": datetime.now(timezone.utc).isoformat()
+                "created_at": datetime.now(timezone.utc).isoformat(),
             },
             "directory_structure": self.current_session.get_subdirs(),
-            "files_by_category": self._catalog_files()
+            "files_by_category": self._catalog_files(),
         }
 
         index_path = self.current_base_path / "output_index.json"
-        with open(index_path, 'w') as f:
+        with open(index_path, "w") as f:
             json.dump(index_data, f, indent=2)
 
         self.logger.info(f"Created output index at: {index_path}")
@@ -315,7 +319,7 @@ class OutputOrganizer:
             "timestamp": self.current_session.timestamp,
             "subdirectories": list(self.current_session.get_subdirs().keys()),
             "total_size": self._calculate_directory_size(self.current_base_path),
-            "file_counts": self._count_files_by_type()
+            "file_counts": self._count_files_by_type(),
         }
 
     def _calculate_directory_size(self, directory: Path) -> int:
@@ -376,20 +380,23 @@ class OutputOrganizer:
                     timestamp_str = item.name.split("_")[-1]
                     timestamp = datetime.strptime(timestamp_str, "%Y%m%d_%H%M%S")
 
-                    sessions.append({
-                        "name": item.name,
-                        "path": str(item),
-                        "timestamp": timestamp.isoformat(),
-                        "size": self._calculate_directory_size(item)
-                    })
+                    sessions.append(
+                        {
+                            "name": item.name,
+                            "path": str(item),
+                            "timestamp": timestamp.isoformat(),
+                            "size": self._calculate_directory_size(item),
+                        }
+                    )
                 except (ValueError, IndexError):
                     continue
 
-        return sorted(sessions, key=lambda x: x['timestamp'], reverse=True)
+        return sorted(sessions, key=lambda x: x["timestamp"], reverse=True)
 
 
 # Global output organizer instance
 _default_organizer = None
+
 
 def get_output_organizer(root_output_dir: Union[str, Path] = None) -> OutputOrganizer:
     """Get the global output organizer instance."""
@@ -398,10 +405,10 @@ def get_output_organizer(root_output_dir: Union[str, Path] = None) -> OutputOrga
         _default_organizer = OutputOrganizer(root_output_dir)
     return _default_organizer
 
-def organize_visualization_output(visualization_type: str,
-                                filename: str,
-                                content: Any,
-                                root_output_dir: Union[str, Path] = None) -> Path:
+
+def organize_visualization_output(
+    visualization_type: str, filename: str, content: Any, root_output_dir: Union[str, Path] = None
+) -> Path:
     """
     Convenience function to organize a visualization output.
 
@@ -428,10 +435,10 @@ def organize_visualization_output(visualization_type: str,
 
     return output_path
 
-def organize_animation_output(animation_type: str,
-                            filename: str,
-                            content: Any,
-                            root_output_dir: Union[str, Path] = None) -> Path:
+
+def organize_animation_output(
+    animation_type: str, filename: str, content: Any, root_output_dir: Union[str, Path] = None
+) -> Path:
     """
     Convenience function to organize an animation output.
 
@@ -457,6 +464,7 @@ def organize_animation_output(animation_type: str,
         output_path.write_bytes(content)
 
     return output_path
+
 
 def create_standard_output_structure(root_output_dir: Union[str, Path] = None) -> Path:
     """

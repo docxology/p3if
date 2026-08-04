@@ -3,31 +3,26 @@ P3IF Visualization Portal
 
 This module provides functionality to generate an integrated web portal with all P3IF visualizations.
 """
-from typing import Dict, List, Any, Optional, Union, Tuple
+from typing import Dict, List, Optional, Union
 import logging
 import json
 from pathlib import Path
 import os
-import shutil
 import datetime
 
 from p3if.core.framework import P3IFFramework
-from ..base import Visualizer
 from .dashboard import DashboardGenerator
 from ..interactive import InteractiveVisualizer
 from p3if.utils.config import Config
-from p3if.utils.output_organizer import (
-    get_output_organizer, create_standard_output_structure
-)
 
 
 class VisualizationPortal:
     """Portal generator for P3IF visualizations."""
-    
+
     def __init__(self, framework: P3IFFramework, config: Optional[Config] = None):
         """
         Initialize visualization portal generator.
-        
+
         Args:
             framework: P3IF framework instance
             config: Optional configuration
@@ -35,27 +30,29 @@ class VisualizationPortal:
         self.framework = framework
         self.config = config or Config()
         self.logger = logging.getLogger(__name__)
-        
+
         # Initialize visualization components
         self.dashboard_generator = DashboardGenerator(framework, config)
         self.interactive_visualizer = InteractiveVisualizer(framework, config)
-    
-    def generate_portal(self, 
-                      output_file: Union[str, Path],
-                      title: str = "P3IF Visualization Portal",
-                      include_dataset_dropdown: bool = False,
-                      datasets: List[Dict[str, str]] = None,
-                      include_component_selector: bool = False,
-                      components: List[Dict[str, str]] = None,
-                      include_3d_cube: bool = True,
-                      include_network: bool = True,
-                      include_matrix: bool = True,
-                      include_dashboard: bool = True,
-                      include_data_loading_script: bool = False,
-                      include_export_buttons: bool = False) -> Path:
+
+    def generate_portal(
+        self,
+        output_file: Union[str, Path],
+        title: str = "P3IF Visualization Portal",
+        include_dataset_dropdown: bool = False,
+        datasets: List[Dict[str, str]] = None,
+        include_component_selector: bool = False,
+        components: List[Dict[str, str]] = None,
+        include_3d_cube: bool = True,
+        include_network: bool = True,
+        include_matrix: bool = True,
+        include_dashboard: bool = True,
+        include_data_loading_script: bool = False,
+        include_export_buttons: bool = False,
+    ) -> Path:
         """
         Generate a complete visualization portal with tabbed interface.
-        
+
         Args:
             output_file: Path where the HTML file will be saved
             title: Title for the visualization portal
@@ -69,7 +66,7 @@ class VisualizationPortal:
             include_dashboard: Whether to include the dashboard visualizations
             include_data_loading_script: Whether to include script for dynamic data loading
             include_export_buttons: Whether to include export functionality
-            
+
         Returns:
             Path to the generated HTML file
         """
@@ -92,84 +89,88 @@ class VisualizationPortal:
         if log_dir.exists():
             file_handler = logging.FileHandler(log_dir / "visualization_portal.log")
             file_handler.setLevel(logging.INFO)
-            file_handler.setFormatter(logging.Formatter('%(asctime)s - %(levelname)s - %(message)s'))
+            file_handler.setFormatter(
+                logging.Formatter("%(asctime)s - %(levelname)s - %(message)s")
+            )
             self.logger.addHandler(file_handler)
 
         # Generate individual visualizations
-        visualizations = self._generate_visualizations(visualizations_dir)
+        self._generate_visualizations(visualizations_dir)
 
         # Create data files
-        data_files = self._generate_data_files(data_dir)
-        
-        # Create main portal HTML file 
-        self._create_portal_html(output_path, 
-                               title=title,
-                               include_dataset_dropdown=include_dataset_dropdown,
-                               datasets=datasets,
-                               include_component_selector=include_component_selector,
-                               components=components,
-                               include_3d_cube=include_3d_cube,
-                               include_network=include_network,
-                               include_matrix=include_matrix,
-                               include_dashboard=include_dashboard,
-                               include_data_loading_script=include_data_loading_script,
-                               include_export_buttons=include_export_buttons)
-        
+        self._generate_data_files(data_dir)
+
+        # Create main portal HTML file
+        self._create_portal_html(
+            output_path,
+            title=title,
+            include_dataset_dropdown=include_dataset_dropdown,
+            datasets=datasets,
+            include_component_selector=include_component_selector,
+            components=components,
+            include_3d_cube=include_3d_cube,
+            include_network=include_network,
+            include_matrix=include_matrix,
+            include_dashboard=include_dashboard,
+            include_data_loading_script=include_data_loading_script,
+            include_export_buttons=include_export_buttons,
+        )
+
         # Copy assets (CSS, JS)
         self._create_css_file(session_path)
         self._create_js_file(session_path)
-        
+
         self.logger.info(f"Portal generation complete. Access via {output_path}")
         return output_path
-    
+
     def generate_dataset_dropdown(self, datasets: List[Dict[str, str]]) -> str:
         """
         Generate HTML for a dataset dropdown selector.
-        
+
         Args:
             datasets: List of datasets (each with id and name)
-            
+
         Returns:
             HTML string for the dataset dropdown
         """
         if not datasets:
             return ""
-        
+
         html = """
         <div class="dropdown-section">
             <label for="dataset-select">Select Dataset:</label>
             <select id="dataset-selector" onchange="loadDataset(this.value)">
         """
-        
+
         for dataset in datasets:
             html += f'<option value="{dataset["id"]}">{dataset["name"]}</option>\n'
-        
+
         html += """
             </select>
         </div>
         """
-        
+
         return html
-    
+
     def generate_component_selector(self, components: List[Dict[str, str]]) -> str:
         """
         Generate HTML for a component selector.
-        
+
         Args:
             components: List of component dicts with 'id', 'name', and 'description' keys
-            
+
         Returns:
             HTML string for the component selector
         """
         if not components:
             return ""
-        
+
         html = """
         <div class="component-selector">
             <h4>Visualization Components</h4>
             <div class="row">
         """
-        
+
         for component in components:
             html += f"""
             <div class="col-md-3 mb-3">
@@ -184,137 +185,137 @@ class VisualizationPortal:
                 </div>
             </div>
             """
-        
+
         html += """
             </div>
         </div>
         """
-        
+
         return html
-    
+
     def _generate_visualizations(self, output_dir: Path) -> Dict[str, Path]:
         """Generate visualizations for the portal."""
         visualizations = {}
-        
+
         # Create 3D Cube Visualization
         cube_path = output_dir / "3d-cube.html"
         visualizations["3d_cube"] = self.interactive_visualizer.generate_3d_cube_html(
-            output_file=cube_path,
-            title="P3IF 3D Cube"
+            output_file=cube_path, title="P3IF 3D Cube"
         )
-        
+
         # Create Force Directed Graph
         graph_path = output_dir / "force-graph.html"
-        visualizations["force_graph"] = self.interactive_visualizer.generate_force_directed_graph_html(
-            output_file=graph_path,
-            title="P3IF Network Graph"
+        visualizations[
+            "force_graph"
+        ] = self.interactive_visualizer.generate_force_directed_graph_html(
+            output_file=graph_path, title="P3IF Network Graph"
         )
-        
+
         # Create Overview Dashboard Visualizations
         overview_dir = output_dir / "overview"
         os.makedirs(overview_dir, exist_ok=True)
         overview_viz = self.dashboard_generator.generate_overview_dashboard(overview_dir)
         visualizations.update({f"overview_{k}": v for k, v in overview_viz.items()})
-        
+
         # Check if we have domains and generate domain-specific visualizations
         domains = set()
         for pattern in self.framework._patterns.values():
             domain = getattr(pattern, "domain", None)
             if domain:
                 domains.add(domain)
-        
+
         # If we have domains, generate domain dashboard for the first domain
         if domains:
             example_domain = next(iter(domains))
             domain_dir = output_dir / "domain"
             os.makedirs(domain_dir, exist_ok=True)
-            domain_viz = self.dashboard_generator.generate_domain_dashboard(example_domain, domain_dir)
+            domain_viz = self.dashboard_generator.generate_domain_dashboard(
+                example_domain, domain_dir
+            )
             visualizations.update({f"domain_{k}": v for k, v in domain_viz.items()})
-            
+
             # If we have multiple domains, generate comparative dashboard
             if len(domains) > 1:
                 domains_list = list(domains)[:3]  # Limit to 3 domains for demonstration
                 compare_dir = output_dir / "compare"
                 os.makedirs(compare_dir, exist_ok=True)
-                compare_viz = self.dashboard_generator.generate_comparative_dashboard(domains_list, compare_dir)
+                compare_viz = self.dashboard_generator.generate_comparative_dashboard(
+                    domains_list, compare_dir
+                )
                 visualizations.update({f"compare_{k}": v for k, v in compare_viz.items()})
-        
+
         return visualizations
-    
+
     def _generate_data_files(self, data_dir: Path) -> Dict[str, Path]:
         """Generate data files for the portal."""
         data_files = {}
-        
+
         # Generate 3D Cube Data
         cube_data = self.interactive_visualizer.generate_3d_cube_data()
         cube_data_path = data_dir / "cube_data.json"
-        with open(cube_data_path, 'w') as f:
+        with open(cube_data_path, "w") as f:
             json.dump(cube_data, f, indent=2)
         data_files["cube_data"] = cube_data_path
-        
+
         # Generate Force Graph Data
         graph_data = self.interactive_visualizer.generate_force_directed_graph_data()
         graph_data_path = data_dir / "graph_data.json"
-        with open(graph_data_path, 'w') as f:
+        with open(graph_data_path, "w") as f:
             json.dump(graph_data, f, indent=2)
         data_files["graph_data"] = graph_data_path
-        
+
         # Generate framework summary data
         summary_data = {
             "pattern_counts": {
                 "property": len(self.framework.get_patterns_by_type("property")),
                 "process": len(self.framework.get_patterns_by_type("process")),
-                "perspective": len(self.framework.get_patterns_by_type("perspective"))
+                "perspective": len(self.framework.get_patterns_by_type("perspective")),
             },
             "relationship_count": len(self.framework._relationships),
-            "domains": []
+            "domains": [],
         }
-        
+
         # Add domain information if available
         domains = set()
         for pattern in self.framework._patterns.values():
             domain = getattr(pattern, "domain", None)
             if domain:
                 domains.add(domain)
-        
+
         for domain in domains:
-            domain_patterns = {
-                "property": 0,
-                "process": 0,
-                "perspective": 0
-            }
-            
+            domain_patterns = {"property": 0, "process": 0, "perspective": 0}
+
             for pattern in self.framework._patterns.values():
                 if getattr(pattern, "domain", None) == domain and pattern.type in domain_patterns:
                     domain_patterns[pattern.type] += 1
-            
-            summary_data["domains"].append({
-                "name": domain,
-                "patterns": domain_patterns
-            })
-        
+
+            summary_data["domains"].append({"name": domain, "patterns": domain_patterns})
+
         summary_path = data_dir / "summary.json"
-        with open(summary_path, 'w') as f:
+        with open(summary_path, "w") as f:
             json.dump(summary_data, f, indent=2)
         data_files["summary"] = summary_path
-        
+
         return data_files
-    
-    def _create_portal_html(self, output_path: Path, 
-                       title: str = "P3IF Visualization Portal",
-                       include_dataset_dropdown: bool = False,
-                       datasets: List[Dict[str, str]] = None,
-                       include_component_selector: bool = False,
-                       components: List[Dict[str, str]] = None,
-                       include_3d_cube: bool = True,
-                       include_network: bool = True,
-                       include_matrix: bool = True,
-                       include_dashboard: bool = True,
-                       include_data_loading_script: bool = False,
-                       include_export_buttons: bool = False) -> Path:
+
+    def _create_portal_html(
+        self,
+        output_path: Path,
+        title: str = "P3IF Visualization Portal",
+        include_dataset_dropdown: bool = False,
+        datasets: List[Dict[str, str]] = None,
+        include_component_selector: bool = False,
+        components: List[Dict[str, str]] = None,
+        include_3d_cube: bool = True,
+        include_network: bool = True,
+        include_matrix: bool = True,
+        include_dashboard: bool = True,
+        include_data_loading_script: bool = False,
+        include_export_buttons: bool = False,
+    ) -> Path:
         """
         Create the HTML file for the visualization portal.
-        
+
         Args:
             output_path: Path to save the HTML file
             title: Portal title
@@ -328,7 +329,7 @@ class VisualizationPortal:
             include_dashboard: Whether to include dashboard
             include_data_loading_script: Whether to include data loading script
             include_export_buttons: Whether to include export buttons
-            
+
         Returns:
             Path to the created HTML file
         """
@@ -338,21 +339,21 @@ class VisualizationPortal:
             domain = getattr(pattern, "domain", None)
             if domain and domain not in domains:
                 domains.append(domain)
-        
+
         # If there are no domains, add some test domains for testing
         if not domains and (include_dataset_dropdown or include_component_selector):
             domains = ["Domain A", "Domain B", "Domain C"]
-        
+
         # Generate dataset dropdown HTML if requested
         dataset_dropdown_html = ""
         if include_dataset_dropdown and datasets:
             dataset_dropdown_html = self.generate_dataset_dropdown(datasets)
-        
+
         # Generate component selector HTML if requested
         component_selector_html = ""
         if include_component_selector and components:
             component_selector_html = self.generate_component_selector(components)
-        
+
         # Create HTML content with CSS in style tag
         html_content = f"""
         <!DOCTYPE html>
@@ -532,7 +533,7 @@ class VisualizationPortal:
                                     <a class="nav-link" data-bs-toggle="tab" href="#matrix">Matrices</a>
                                 </li>
         """
-        
+
         # Add domain dropdown if we have domains
         if domains:
             html_content += """
@@ -544,16 +545,16 @@ class VisualizationPortal:
                                         <li><a class="dropdown-item" data-bs-toggle="tab" href="#domains-all">All Domains</a></li>
                                         <li><hr class="dropdown-divider"></li>
             """
-            
+
             for domain in domains:
-                domain_slug = domain.lower().replace(' ', '-')
+                domain_slug = domain.lower().replace(" ", "-")
                 html_content += f'<li><a class="dropdown-item domain-tab" data-bs-toggle="tab" href="#domain-{domain_slug}">{domain}</a></li>'
-                
+
             html_content += """
                                     </ul>
                                 </li>
             """
-        
+
         html_content += """
                             </ul>
                         </div>
@@ -561,7 +562,7 @@ class VisualizationPortal:
                 </nav>
             
         """
-        
+
         # Add dataset dropdown if requested
         if include_dataset_dropdown and datasets:
             html_content += f"""
@@ -569,7 +570,7 @@ class VisualizationPortal:
                     {dataset_dropdown_html}
                 </div>
             """
-        
+
         # Add component selector if requested
         if include_component_selector and components:
             html_content += f"""
@@ -577,7 +578,7 @@ class VisualizationPortal:
                     {component_selector_html}
                 </div>
             """
-        
+
         # Start tab content
         html_content += """
                 <div class="tab-content p-3">
@@ -650,7 +651,7 @@ class VisualizationPortal:
                         </div>
                     </div>
         """
-        
+
         # Add 3D Cube Tab if requested
         if include_3d_cube:
             html_content += """
@@ -669,7 +670,7 @@ class VisualizationPortal:
                         </div>
                     </div>
             """
-        
+
         # Add Network Tab if requested
         if include_network:
             html_content += """
@@ -688,7 +689,7 @@ class VisualizationPortal:
                         </div>
                     </div>
             """
-        
+
         # Add Matrix Tab if requested
         if include_matrix:
             html_content += """
@@ -756,7 +757,7 @@ class VisualizationPortal:
                         </div>
                     </div>
             """
-        
+
         # Add Dashboard Tab if requested
         if include_dashboard:
             html_content += """
@@ -786,11 +787,11 @@ class VisualizationPortal:
                         </div>
                     </div>
             """
-        
+
         # Add Domains Tab
         if domains:
             # Start with the main domains tab HTML
-            html_content += f"""
+            html_content += """
                     <!-- Domains Tab -->
                     <div class="tab-pane fade" id="domains-all">
                         <div class="card mb-4">
@@ -818,7 +819,7 @@ class VisualizationPortal:
                                     </div>
                                 </div>
             """
-            
+
             # Add comparative pattern distribution card if we have more than one domain
             if len(domains) > 1:
                 html_content += """
@@ -829,17 +830,17 @@ class VisualizationPortal:
                                     </div>
                                 </div>
                 """
-            
+
             # Close the domains-all tab
             html_content += """
                             </div>
                         </div>
                     </div>
             """
-            
+
             # Add individual domain tabs
             for domain in domains:
-                domain_slug = domain.lower().replace(' ', '-')
+                domain_slug = domain.lower().replace(" ", "-")
                 html_content += f"""
                     <!-- Domain: {domain} -->
                     <div class="tab-pane fade" id="domain-{domain_slug}">
@@ -871,7 +872,7 @@ class VisualizationPortal:
                         </div>
                     </div>
                 """
-        
+
         # Close the main divs
         current_datetime = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         html_content += f"""
@@ -889,7 +890,7 @@ class VisualizationPortal:
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             <script src="assets/js/portal.js"></script>
         """
-        
+
         # Add JavaScript separately to avoid f-string issues
         js_code = """
             <script>
@@ -950,15 +951,15 @@ class VisualizationPortal:
         </body>
         </html>
         """
-        
+
         html_content += js_code
-        
+
         # Write HTML to file
-        with open(output_path, 'w') as f:
+        with open(output_path, "w") as f:
             f.write(html_content)
-        
+
         return output_path
-    
+
     def _create_css_file(self, base_dir: Path) -> Path:
         """Create CSS file for the portal."""
         css_dir = base_dir / "assets" / "css"
@@ -1121,11 +1122,11 @@ footer {
     }
 }
 """
-        with open(css_path, 'w') as f:
+        with open(css_path, "w") as f:
             f.write(css_content)
-        
+
         return css_path
-    
+
     def _create_js_file(self, base_dir, js_filename="portal.js"):
         """Create the JavaScript file for the portal."""
         js_dir = os.path.join(base_dir, "assets", "js")
@@ -1133,7 +1134,7 @@ footer {
 
         # Create the directory if it doesn't exist
         os.makedirs(js_dir, exist_ok=True)
-        
+
         js_content = """
             // P3IF Visualization Portal JavaScript
             
@@ -1283,8 +1284,8 @@ footer {
                 }
             }
         """
-        
-        with open(js_path, 'w') as f:
+
+        with open(js_path, "w") as f:
             f.write(js_content)
-            
-        return os.path.join("assets", "js", js_filename) 
+
+        return os.path.join("assets", "js", js_filename)

@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 from pathlib import Path
-from typing import Dict, Any
+from typing import Dict
 import pandas as pd
 
 from p3if.core.framework import P3IFFramework
@@ -19,43 +19,71 @@ from p3if.core.models import Property, Process, Perspective
 logger = logging.getLogger(__name__)
 
 
-def generate_heatmap_visualizations(small_framework: P3IFFramework,
-                                  large_framework: P3IFFramework,
-                                  session_path: Path):
+def generate_heatmap_visualizations(
+    small_framework: P3IFFramework, large_framework: P3IFFramework, session_path: Path
+):
     """Generate all heatmap visualizations."""
     logger.info("🔥 Generating heatmap visualizations...")
 
     # Color scheme for P3IF components
     colors = {
-        'property': '#FF6B6B',      # Red
-        'process': '#4ECDC4',       # Cyan
-        'perspective': '#45B7D1'    # Blue
+        "property": "#FF6B6B",  # Red
+        "process": "#4ECDC4",  # Cyan
+        "perspective": "#45B7D1",  # Blue
     }
 
     # Generate P3IF relationship heatmaps
-    _create_p3if_relationship_heatmap(small_framework, session_path, "small_relationship_heatmap",
-                                    "Small Dataset - P3IF Relationship Heatmap", colors)
-    _create_p3if_relationship_heatmap(large_framework, session_path, "large_relationship_heatmap",
-                                    "Large Dataset - P3IF Relationship Heatmap", colors)
+    _create_p3if_relationship_heatmap(
+        small_framework,
+        session_path,
+        "small_relationship_heatmap",
+        "Small Dataset - P3IF Relationship Heatmap",
+        colors,
+    )
+    _create_p3if_relationship_heatmap(
+        large_framework,
+        session_path,
+        "large_relationship_heatmap",
+        "Large Dataset - P3IF Relationship Heatmap",
+        colors,
+    )
 
     # Generate domain heatmaps
-    _create_domain_heatmap(small_framework, session_path, "small_domain_heatmap",
-                          "Small Dataset - Domain Heatmap", colors)
-    _create_domain_heatmap(large_framework, session_path, "large_domain_heatmap",
-                          "Large Dataset - Domain Heatmap", colors)
+    _create_domain_heatmap(
+        small_framework,
+        session_path,
+        "small_domain_heatmap",
+        "Small Dataset - Domain Heatmap",
+        colors,
+    )
+    _create_domain_heatmap(
+        large_framework,
+        session_path,
+        "large_domain_heatmap",
+        "Large Dataset - Domain Heatmap",
+        colors,
+    )
 
     # Generate component strength heatmaps
-    _create_component_strength_heatmap(small_framework, session_path, "small_strength_heatmap",
-                                     "Small Dataset - Component Strength Heatmap", colors)
-    _create_component_strength_heatmap(large_framework, session_path, "large_strength_heatmap",
-                                     "Large Dataset - Component Strength Heatmap", colors)
+    _create_component_strength_heatmap(
+        small_framework,
+        session_path,
+        "small_strength_heatmap",
+        "Small Dataset - Component Strength Heatmap",
+        colors,
+    )
+    _create_component_strength_heatmap(
+        large_framework,
+        session_path,
+        "large_strength_heatmap",
+        "Large Dataset - Component Strength Heatmap",
+        colors,
+    )
 
 
-def _create_p3if_relationship_heatmap(framework: P3IFFramework,
-                                    session_path: Path,
-                                    filename: str,
-                                    title: str,
-                                    colors: Dict[str, str]):
+def _create_p3if_relationship_heatmap(
+    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: Dict[str, str]
+):
     """Create a heatmap showing relationships between P3IF components."""
     # Get all patterns organized by type
     properties = [p for p in framework._patterns.values() if isinstance(p, Property)]
@@ -100,7 +128,7 @@ def _create_p3if_relationship_heatmap(framework: P3IFFramework,
                     break
 
         # Update matrices
-        strength = float(rel.strength) if hasattr(rel.strength, '__float__') else 0.5
+        strength = float(rel.strength) if hasattr(rel.strength, "__float__") else 0.5
 
         if prop_idx is not None and proc_idx is not None:
             prop_proc_matrix[prop_idx, proc_idx] = strength
@@ -116,42 +144,71 @@ def _create_p3if_relationship_heatmap(framework: P3IFFramework,
 
     # Property-Process heatmap
     if np.any(prop_proc_matrix > 0):
-        sns.heatmap(prop_proc_matrix, ax=ax1, cmap='Reds', annot=True, fmt='.2f',
-                   xticklabels=[p.name[:12] for p in processes],
-                   yticklabels=[p.name[:12] for p in properties])
-        ax1.set_title('Properties ↔ Processes', fontsize=12, fontweight='bold')
-        ax1.set_xlabel('Processes')
-        ax1.set_ylabel('Properties')
+        sns.heatmap(
+            prop_proc_matrix,
+            ax=ax1,
+            cmap="Reds",
+            annot=True,
+            fmt=".2f",
+            xticklabels=[p.name[:12] for p in processes],
+            yticklabels=[p.name[:12] for p in properties],
+        )
+        ax1.set_title("Properties ↔ Processes", fontsize=12, fontweight="bold")
+        ax1.set_xlabel("Processes")
+        ax1.set_ylabel("Properties")
     else:
-        ax1.text(0.5, 0.5, 'No P-P relationships', ha='center', va='center', transform=ax1.transAxes)
-        ax1.set_title('Properties ↔ Processes', fontsize=12, fontweight='bold')
+        ax1.text(
+            0.5, 0.5, "No P-P relationships", ha="center", va="center", transform=ax1.transAxes
+        )
+        ax1.set_title("Properties ↔ Processes", fontsize=12, fontweight="bold")
 
     # Property-Perspective heatmap
     if np.any(prop_persp_matrix > 0):
-        sns.heatmap(prop_persp_matrix, ax=ax2, cmap='Blues', annot=True, fmt='.2f',
-                   xticklabels=[p.name[:12] for p in perspectives],
-                   yticklabels=[p.name[:12] for p in properties])
-        ax2.set_title('Properties ↔ Perspectives', fontsize=12, fontweight='bold')
-        ax2.set_xlabel('Perspectives')
-        ax2.set_ylabel('Properties')
+        sns.heatmap(
+            prop_persp_matrix,
+            ax=ax2,
+            cmap="Blues",
+            annot=True,
+            fmt=".2f",
+            xticklabels=[p.name[:12] for p in perspectives],
+            yticklabels=[p.name[:12] for p in properties],
+        )
+        ax2.set_title("Properties ↔ Perspectives", fontsize=12, fontweight="bold")
+        ax2.set_xlabel("Perspectives")
+        ax2.set_ylabel("Properties")
     else:
-        ax2.text(0.5, 0.5, 'No P-Persp relationships', ha='center', va='center', transform=ax2.transAxes)
-        ax2.set_title('Properties ↔ Perspectives', fontsize=12, fontweight='bold')
+        ax2.text(
+            0.5, 0.5, "No P-Persp relationships", ha="center", va="center", transform=ax2.transAxes
+        )
+        ax2.set_title("Properties ↔ Perspectives", fontsize=12, fontweight="bold")
 
     # Process-Perspective heatmap
     if np.any(proc_persp_matrix > 0):
-        sns.heatmap(proc_persp_matrix, ax=ax3, cmap='Greens', annot=True, fmt='.2f',
-                   xticklabels=[p.name[:12] for p in perspectives],
-                   yticklabels=[p.name[:12] for p in processes])
-        ax3.set_title('Processes ↔ Perspectives', fontsize=12, fontweight='bold')
-        ax3.set_xlabel('Perspectives')
-        ax3.set_ylabel('Processes')
+        sns.heatmap(
+            proc_persp_matrix,
+            ax=ax3,
+            cmap="Greens",
+            annot=True,
+            fmt=".2f",
+            xticklabels=[p.name[:12] for p in perspectives],
+            yticklabels=[p.name[:12] for p in processes],
+        )
+        ax3.set_title("Processes ↔ Perspectives", fontsize=12, fontweight="bold")
+        ax3.set_xlabel("Perspectives")
+        ax3.set_ylabel("Processes")
     else:
-        ax3.text(0.5, 0.5, 'No Proc-Persp relationships', ha='center', va='center', transform=ax3.transAxes)
-        ax3.set_title('Processes ↔ Perspectives', fontsize=12, fontweight='bold')
+        ax3.text(
+            0.5,
+            0.5,
+            "No Proc-Persp relationships",
+            ha="center",
+            va="center",
+            transform=ax3.transAxes,
+        )
+        ax3.set_title("Processes ↔ Perspectives", fontsize=12, fontweight="bold")
 
     # Combined relationship summary
-    ax4.axis('off')
+    ax4.axis("off")
     summary_text = f"""
     P3IF Relationship Summary:
 
@@ -171,28 +228,32 @@ def _create_p3if_relationship_heatmap(framework: P3IFFramework,
     • P-Persp: {np.mean(prop_persp_matrix[prop_persp_matrix > 0]):.2f}
     • Proc-Persp: {np.mean(proc_persp_matrix[proc_persp_matrix > 0]):.2f}
     """
-    ax4.text(0.1, 0.9, summary_text, fontsize=10, verticalalignment='top',
-            bbox=dict(boxstyle='round', facecolor='lightgray', alpha=0.8))
-    ax4.set_title('Relationship Summary', fontsize=12, fontweight='bold')
+    ax4.text(
+        0.1,
+        0.9,
+        summary_text,
+        fontsize=10,
+        verticalalignment="top",
+        bbox=dict(boxstyle="round", facecolor="lightgray", alpha=0.8),
+    )
+    ax4.set_title("Relationship Summary", fontsize=12, fontweight="bold")
 
-    fig.suptitle(title, fontsize=16, fontweight='bold')
+    fig.suptitle(title, fontsize=16, fontweight="bold")
     plt.tight_layout()
 
     # Save
     heatmaps_dir = session_path / "visualizations" / "heatmaps"
     heatmaps_dir.mkdir(parents=True, exist_ok=True)
     output_path = heatmaps_dir / f"{filename}.png"
-    plt.savefig(output_path, dpi=300, bbox_inches='tight', facecolor='white')
+    plt.savefig(output_path, dpi=300, bbox_inches="tight", facecolor="white")
     plt.close()
 
     logger.info(f"Generated: {output_path}")
 
 
-def _create_domain_heatmap(framework: P3IFFramework,
-                         session_path: Path,
-                         filename: str,
-                         title: str,
-                         colors: Dict[str, str]):
+def _create_domain_heatmap(
+    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: Dict[str, str]
+):
     """Create a heatmap showing domain relationships."""
     # Get unique domains
     domains = list(set(p.domain for p in framework._patterns.values()))
@@ -242,52 +303,80 @@ def _create_domain_heatmap(framework: P3IFFramework,
 
     # Domain relationship heatmap
     if np.any(domain_matrix > 0):
-        sns.heatmap(domain_matrix, ax=ax1, cmap='YlOrRd', annot=True, fmt='g',
-                   xticklabels=domains, yticklabels=domains, square=True)
-        ax1.set_title('Domain Relationships', fontsize=12, fontweight='bold')
-        ax1.set_xlabel('Domains')
-        ax1.set_ylabel('Domains')
+        sns.heatmap(
+            domain_matrix,
+            ax=ax1,
+            cmap="YlOrRd",
+            annot=True,
+            fmt="g",
+            xticklabels=domains,
+            yticklabels=domains,
+            square=True,
+        )
+        ax1.set_title("Domain Relationships", fontsize=12, fontweight="bold")
+        ax1.set_xlabel("Domains")
+        ax1.set_ylabel("Domains")
     else:
-        ax1.text(0.5, 0.5, 'No domain relationships', ha='center', va='center', transform=ax1.transAxes)
-        ax1.set_title('Domain Relationships', fontsize=12, fontweight='bold')
+        ax1.text(
+            0.5, 0.5, "No domain relationships", ha="center", va="center", transform=ax1.transAxes
+        )
+        ax1.set_title("Domain Relationships", fontsize=12, fontweight="bold")
 
     # Domain pattern counts
     domain_counts = {}
     for domain in domains:
-        props = len([p for p in framework._patterns.values()
-                   if p.domain == domain and isinstance(p, Property)])
-        procs = len([p for p in framework._patterns.values()
-                    if p.domain == domain and isinstance(p, Process)])
-        persps = len([p for p in framework._patterns.values()
-                     if p.domain == domain and isinstance(p, Perspective)])
+        props = len(
+            [
+                p
+                for p in framework._patterns.values()
+                if p.domain == domain and isinstance(p, Property)
+            ]
+        )
+        procs = len(
+            [
+                p
+                for p in framework._patterns.values()
+                if p.domain == domain and isinstance(p, Process)
+            ]
+        )
+        persps = len(
+            [
+                p
+                for p in framework._patterns.values()
+                if p.domain == domain and isinstance(p, Perspective)
+            ]
+        )
 
-        domain_counts[domain] = {'Properties': props, 'Processes': procs, 'Perspectives': persps}
+        domain_counts[domain] = {"Properties": props, "Processes": procs, "Perspectives": persps}
 
     df = pd.DataFrame(domain_counts).T
-    df.plot(kind='bar', stacked=True, ax=ax2, color=[colors['property'], colors['process'], colors['perspective']])
-    ax2.set_title('Pattern Distribution by Domain', fontsize=12, fontweight='bold')
-    ax2.set_xlabel('Domains')
-    ax2.set_ylabel('Count')
-    ax2.legend(title='Component Type')
+    df.plot(
+        kind="bar",
+        stacked=True,
+        ax=ax2,
+        color=[colors["property"], colors["process"], colors["perspective"]],
+    )
+    ax2.set_title("Pattern Distribution by Domain", fontsize=12, fontweight="bold")
+    ax2.set_xlabel("Domains")
+    ax2.set_ylabel("Count")
+    ax2.legend(title="Component Type")
 
-    fig.suptitle(title, fontsize=16, fontweight='bold')
+    fig.suptitle(title, fontsize=16, fontweight="bold")
     plt.tight_layout()
 
     # Save
     heatmaps_dir = session_path / "visualizations" / "heatmaps"
     heatmaps_dir.mkdir(parents=True, exist_ok=True)
     output_path = heatmaps_dir / f"{filename}.png"
-    plt.savefig(output_path, dpi=300, bbox_inches='tight', facecolor='white')
+    plt.savefig(output_path, dpi=300, bbox_inches="tight", facecolor="white")
     plt.close()
 
     logger.info(f"Generated: {output_path}")
 
 
-def _create_component_strength_heatmap(framework: P3IFFramework,
-                                     session_path: Path,
-                                     filename: str,
-                                     title: str,
-                                     colors: Dict[str, str]):
+def _create_component_strength_heatmap(
+    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: Dict[str, str]
+):
     """Create a heatmap showing component strength relationships."""
     # Get all patterns organized by type
     properties = [p for p in framework._patterns.values() if isinstance(p, Property)]
@@ -326,7 +415,7 @@ def _create_component_strength_heatmap(framework: P3IFFramework,
                     break
 
         # Update strength matrix
-        strength = float(rel.strength) if hasattr(rel.strength, '__float__') else 0.5
+        strength = float(rel.strength) if hasattr(rel.strength, "__float__") else 0.5
         for i in range(len(indices)):
             for j in range(i + 1, len(indices)):
                 strength_matrix[indices[i], indices[j]] = strength
@@ -341,47 +430,62 @@ def _create_component_strength_heatmap(framework: P3IFFramework,
     # Create color mapping for types
     color_map = []
     for p_type in pattern_types:
-        if p_type == 'Property':
-            color_map.append(colors['property'])
-        elif p_type == 'Process':
-            color_map.append(colors['process'])
+        if p_type == "Property":
+            color_map.append(colors["property"])
+        elif p_type == "Process":
+            color_map.append(colors["process"])
         else:  # Perspective
-            color_map.append(colors['perspective'])
+            color_map.append(colors["perspective"])
 
     if np.any(strength_matrix > 0):
         # Create heatmap
-        sns.heatmap(strength_matrix, ax=ax, cmap='RdYlBu_r', annot=True, fmt='.2f',
-                   xticklabels=labels, yticklabels=labels, square=True)
+        sns.heatmap(
+            strength_matrix,
+            ax=ax,
+            cmap="RdYlBu_r",
+            annot=True,
+            fmt=".2f",
+            xticklabels=labels,
+            yticklabels=labels,
+            square=True,
+        )
 
         # Add colored borders to show component types
         for i in range(n_patterns):
-            ax.add_patch(plt.Rectangle((i, i), 1, 1, fill=False,
-                                     edgecolor=color_map[i], linewidth=3))
+            ax.add_patch(
+                plt.Rectangle((i, i), 1, 1, fill=False, edgecolor=color_map[i], linewidth=3)
+            )
 
-        ax.set_title('Component Relationship Strengths', fontsize=14, fontweight='bold')
-        ax.set_xlabel('Patterns')
-        ax.set_ylabel('Patterns')
+        ax.set_title("Component Relationship Strengths", fontsize=14, fontweight="bold")
+        ax.set_xlabel("Patterns")
+        ax.set_ylabel("Patterns")
     else:
-        ax.text(0.5, 0.5, 'No relationship strengths found',
-               ha='center', va='center', transform=ax.transAxes)
-        ax.set_title('Component Relationship Strengths', fontsize=14, fontweight='bold')
+        ax.text(
+            0.5,
+            0.5,
+            "No relationship strengths found",
+            ha="center",
+            va="center",
+            transform=ax.transAxes,
+        )
+        ax.set_title("Component Relationship Strengths", fontsize=14, fontweight="bold")
 
     # Add legend for colors
     legend_elements = [
-        plt.Line2D([0], [0], color=colors['property'], linewidth=3, label='Properties'),
-        plt.Line2D([0], [0], color=colors['process'], linewidth=3, label='Processes'),
-        plt.Line2D([0], [0], color=colors['perspective'], linewidth=3, label='Perspectives')
+        plt.Line2D([0], [0], color=colors["property"], linewidth=3, label="Properties"),
+        plt.Line2D([0], [0], color=colors["process"], linewidth=3, label="Processes"),
+        plt.Line2D([0], [0], color=colors["perspective"], linewidth=3, label="Perspectives"),
     ]
-    ax.legend(handles=legend_elements, loc='upper right')
+    ax.legend(handles=legend_elements, loc="upper right")
 
-    fig.suptitle(title, fontsize=16, fontweight='bold')
+    fig.suptitle(title, fontsize=16, fontweight="bold")
     plt.tight_layout()
 
     # Save
     heatmaps_dir = session_path / "visualizations" / "heatmaps"
     heatmaps_dir.mkdir(parents=True, exist_ok=True)
     output_path = heatmaps_dir / f"{filename}.png"
-    plt.savefig(output_path, dpi=300, bbox_inches='tight', facecolor='white')
+    plt.savefig(output_path, dpi=300, bbox_inches="tight", facecolor="white")
     plt.close()
 
     logger.info(f"Generated: {output_path}")

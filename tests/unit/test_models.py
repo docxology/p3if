@@ -7,8 +7,11 @@ from datetime import datetime, timezone
 from pydantic import ValidationError
 
 from p3if.core.models import (
-    Property, Process, Perspective, Relationship,
-    PatternType, RelationshipStrength, ConfidenceScore, MetadataMixin
+    Property,
+    Process,
+    Perspective,
+    Relationship,
+    PatternType,
 )
 
 
@@ -46,7 +49,7 @@ class TestMetadataMixin(unittest.TestCase):
             quality_score=0.8,
             references=["ref1", "ref2"],
             related_patterns=["pattern1", "pattern2"],
-            tags=["tag1", "tag2"]
+            tags=["tag1", "tag2"],
         )
 
         assert prop.id == "custom_id"
@@ -67,9 +70,7 @@ class TestBasePattern(unittest.TestCase):
     def test_base_pattern_initialization(self):
         """Test BasePattern initialization with default values."""
         pattern = Property(
-            name="Test Pattern",
-            description="Test description",
-            domain="test_domain"
+            name="Test Pattern", description="Test description", domain="test_domain"
         )
 
         assert pattern.name == "Test Pattern"
@@ -99,7 +100,7 @@ class TestBasePattern(unittest.TestCase):
             quality_score=0.8,
             references=["ref1"],
             related_patterns=["pattern1"],
-            tags=["tag1", "tag2"]
+            tags=["tag1", "tag2"],
         )
 
         assert pattern.name == "Custom Pattern"
@@ -139,7 +140,7 @@ class TestBasePattern(unittest.TestCase):
                 name="Test Pattern",
                 description="Test description",
                 domain="test_domain",
-                quality_score=1.5
+                quality_score=1.5,
             )
 
         with pytest.raises(ValidationError):
@@ -147,33 +148,25 @@ class TestBasePattern(unittest.TestCase):
                 name="Test Pattern",
                 description="Test description",
                 domain="test_domain",
-                quality_score=-0.1
+                quality_score=-0.1,
             )
 
     def test_base_pattern_validation_confidence_range(self):
         """Test that confidence must be between 0 and 1 on Relationship."""
         with pytest.raises(ValidationError):
             Relationship(
-                property_id="prop1",
-                process_id="proc1",
-                perspective_id="persp1",
-                confidence=1.5
+                property_id="prop1", process_id="proc1", perspective_id="persp1", confidence=1.5
             )
 
         with pytest.raises(ValidationError):
             Relationship(
-                property_id="prop1",
-                process_id="proc1",
-                perspective_id="persp1",
-                confidence=-0.1
+                property_id="prop1", process_id="proc1", perspective_id="persp1", confidence=-0.1
             )
 
     def test_base_pattern_str_method(self):
         """Test the string representation of BasePattern."""
         pattern = Property(
-            name="Test Pattern",
-            description="Test description",
-            domain="test_domain"
+            name="Test Pattern", description="Test description", domain="test_domain"
         )
 
         str_repr = str(pattern)
@@ -184,9 +177,7 @@ class TestBasePattern(unittest.TestCase):
     def test_base_pattern_repr_method(self):
         """Test the repr representation of BasePattern."""
         pattern = Property(
-            name="Test Pattern",
-            description="Test description",
-            domain="test_domain"
+            name="Test Pattern", description="Test description", domain="test_domain"
         )
 
         repr_str = repr(pattern)
@@ -197,24 +188,18 @@ class TestBasePattern(unittest.TestCase):
     def test_base_pattern_equality(self):
         """Test BasePattern equality comparison."""
         pattern1 = Property(
-            name="Test Pattern",
-            description="Test description",
-            domain="test_domain",
-            id="test_id"
+            name="Test Pattern", description="Test description", domain="test_domain", id="test_id"
         )
 
         pattern2 = Property(
-            name="Test Pattern",
-            description="Test description",
-            domain="test_domain",
-            id="test_id"
+            name="Test Pattern", description="Test description", domain="test_domain", id="test_id"
         )
 
         pattern3 = Property(
             name="Different Pattern",
             description="Different description",
             domain="different_domain",
-            id="different_id"
+            id="different_id",
         )
 
         # Patterns with same ID should be considered equal
@@ -226,10 +211,7 @@ class TestBasePattern(unittest.TestCase):
     def test_base_pattern_hash(self):
         """Test BasePattern hashing behavior."""
         pattern = Property(
-            name="Test Pattern",
-            description="Test description",
-            domain="test_domain",
-            id="test_id"
+            name="Test Pattern", description="Test description", domain="test_domain", id="test_id"
         )
 
         # Patterns are hashable by name+domain+type
@@ -241,7 +223,7 @@ class TestBasePattern(unittest.TestCase):
             name="Test Pattern",
             description="Different description",
             domain="test_domain",
-            id="different_id"
+            id="different_id",
         )
         self.assertEqual(hash(pattern), hash(pattern2))
 
@@ -255,7 +237,7 @@ class TestProperty(unittest.TestCase):
             name="Test Property",
             description="Test description",
             domain="test_domain",
-            property_type="qualitative"
+            property_type="qualitative",
         )
 
         self.assertEqual(prop.name, "Test Property")
@@ -277,7 +259,7 @@ class TestProperty(unittest.TestCase):
             unit="kg",
             allowed_values=["value1", "value2"],
             tags=["tag1", "tag2"],
-            quality_score=0.8
+            quality_score=0.8,
         )
 
         self.assertEqual(prop.data_type, "float")
@@ -293,7 +275,7 @@ class TestProperty(unittest.TestCase):
                 name="Test Property",
                 description="Test description",
                 domain="test_domain",
-                priority="invalid_priority"
+                priority="invalid_priority",
             )
 
 
@@ -302,11 +284,7 @@ class TestProcess(unittest.TestCase):
 
     def test_process_initialization(self):
         """Test Process initialization."""
-        proc = Process(
-            name="Test Process",
-            description="Test description",
-            domain="test_domain"
-        )
+        proc = Process(name="Test Process", description="Test description", domain="test_domain")
 
         self.assertEqual(proc.name, "Test Process")
         self.assertEqual(proc.description, "Test description")
@@ -334,7 +312,7 @@ class TestProcess(unittest.TestCase):
             prerequisites=["prereq1", "prereq2"],
             dependencies=["dep1", "dep2"],
             tags=["tag1", "tag2"],
-            quality_score=0.8
+            quality_score=0.8,
         )
 
         self.assertEqual(proc.complexity, "high")
@@ -354,7 +332,7 @@ class TestProcess(unittest.TestCase):
                 name="Test Process",
                 description="Test description",
                 domain="test_domain",
-                complexity="invalid_complexity"
+                complexity="invalid_complexity",
             )
 
 
@@ -367,7 +345,7 @@ class TestPerspective(unittest.TestCase):
             name="Test Perspective",
             description="Test description",
             domain="test_domain",
-            viewpoint="test_viewpoint"
+            viewpoint="test_viewpoint",
         )
 
         self.assertEqual(persp.name, "Test Perspective")
@@ -396,7 +374,7 @@ class TestPerspective(unittest.TestCase):
             stakeholder_type="external",
             expertise_level="expert",
             tags=["tag1", "tag2"],
-            quality_score=0.8
+            quality_score=0.8,
         )
 
         self.assertEqual(persp.viewpoint, "strategic_viewpoint")
@@ -417,7 +395,7 @@ class TestPerspective(unittest.TestCase):
                 description="Test description",
                 domain="test_domain",
                 viewpoint="test_viewpoint",
-                scope="invalid_scope"
+                scope="invalid_scope",
             )
 
     def test_perspective_validation_expertise_level(self):
@@ -428,9 +406,8 @@ class TestPerspective(unittest.TestCase):
                 description="Test description",
                 domain="test_domain",
                 viewpoint="test_viewpoint",
-                expertise_level="invalid_level"
+                expertise_level="invalid_level",
             )
-
 
 
 class TestRelationship(unittest.TestCase):
@@ -443,7 +420,7 @@ class TestRelationship(unittest.TestCase):
             process_id="proc_id",
             perspective_id="persp_id",
             strength=0.8,
-            confidence=0.9
+            confidence=0.9,
         )
 
         self.assertEqual(rel.property_id, "prop_id")
@@ -477,7 +454,7 @@ class TestRelationship(unittest.TestCase):
             validation_method="automated",
             assumptions=["assumption1", "assumption2"],
             status="deprecated",
-            quality_score=0.8
+            quality_score=0.8,
         )
 
         self.assertEqual(rel.relationship_type, "causal")
@@ -505,7 +482,7 @@ class TestRelationship(unittest.TestCase):
                 property_id="prop_id",
                 process_id="proc_id",
                 perspective_id="persp_id",
-                relationship_type="invalid_type"
+                relationship_type="invalid_type",
             )
 
     def test_relationship_validation_complete(self):
@@ -523,7 +500,7 @@ class TestRelationship(unittest.TestCase):
             validation_method="expert_review",
             assumptions=["assumption1"],
             status="experimental",
-            quality_score=0.9
+            quality_score=0.9,
         )
 
         self.assertEqual(rel.status, "experimental")
@@ -533,22 +510,14 @@ class TestRelationship(unittest.TestCase):
 
     def test_relationship_get_connected_patterns(self):
         """Test getting connected patterns from relationship."""
-        rel = Relationship(
-            property_id="prop_id",
-            process_id="proc_id",
-            perspective_id="persp_id"
-        )
+        rel = Relationship(property_id="prop_id", process_id="proc_id", perspective_id="persp_id")
 
         connected = rel.get_connected_patterns()
         self.assertEqual(connected, ["prop_id", "proc_id", "persp_id"])
 
     def test_relationship_get_connected_patterns_partial(self):
         """Test getting connected patterns with partial connections."""
-        rel = Relationship(
-            property_id="prop_id",
-            process_id=None,
-            perspective_id="persp_id"
-        )
+        rel = Relationship(property_id="prop_id", process_id=None, perspective_id="persp_id")
 
         connected = rel.get_connected_patterns()
         self.assertEqual(connected, ["prop_id", "persp_id"])  # None values are filtered out
@@ -560,7 +529,7 @@ class TestRelationship(unittest.TestCase):
             process_id="proc_id",
             perspective_id="persp_id",
             strength=0.8,
-            confidence=0.9
+            confidence=0.9,
         )
 
         str_repr = str(rel)
@@ -572,11 +541,7 @@ class TestRelationship(unittest.TestCase):
 
     def test_relationship_repr_method(self):
         """Test the repr representation of Relationship."""
-        rel = Relationship(
-            property_id="prop_id",
-            process_id="proc_id",
-            perspective_id="persp_id"
-        )
+        rel = Relationship(property_id="prop_id", process_id="proc_id", perspective_id="persp_id")
 
         repr_str = repr(rel)
         self.assertIn("Relationship", repr_str)
@@ -606,18 +571,9 @@ class TestRelationshipStrength(unittest.TestCase):
     def test_relationship_strength_valid_values(self):
         """Test valid RelationshipStrength values via Relationship."""
         # Valid float values should work
-        rel1 = Relationship(
-            property_id="p1", process_id="p2", perspective_id="p3",
-            strength=0.0
-        )
-        rel2 = Relationship(
-            property_id="p1", process_id="p2", perspective_id="p3",
-            strength=0.5
-        )
-        rel3 = Relationship(
-            property_id="p1", process_id="p2", perspective_id="p3",
-            strength=1.0
-        )
+        rel1 = Relationship(property_id="p1", process_id="p2", perspective_id="p3", strength=0.0)
+        rel2 = Relationship(property_id="p1", process_id="p2", perspective_id="p3", strength=0.5)
+        rel3 = Relationship(property_id="p1", process_id="p2", perspective_id="p3", strength=1.0)
 
         assert rel1.strength == 0.0
         assert rel2.strength == 0.5
@@ -626,23 +582,14 @@ class TestRelationshipStrength(unittest.TestCase):
     def test_relationship_strength_invalid_values(self):
         """Test invalid RelationshipStrength values via Relationship."""
         with pytest.raises(ValidationError, match="strength must be between 0.0 and 1.0"):
-            Relationship(
-                property_id="p1", process_id="p2", perspective_id="p3",
-                strength=-0.1
-            )
+            Relationship(property_id="p1", process_id="p2", perspective_id="p3", strength=-0.1)
 
         with pytest.raises(ValidationError, match="strength must be between 0.0 and 1.0"):
-            Relationship(
-                property_id="p1", process_id="p2", perspective_id="p3",
-                strength=1.1
-            )
+            Relationship(property_id="p1", process_id="p2", perspective_id="p3", strength=1.1)
 
     def test_relationship_strength_string_conversion(self):
         """Test string conversion of RelationshipStrength via Relationship."""
-        rel = Relationship(
-            property_id="p1", process_id="p2", perspective_id="p3",
-            strength=0.75
-        )
+        rel = Relationship(property_id="p1", process_id="p2", perspective_id="p3", strength=0.75)
         assert rel.strength == 0.75
 
 
@@ -652,18 +599,9 @@ class TestConfidenceScore(unittest.TestCase):
     def test_confidence_score_valid_values(self):
         """Test valid ConfidenceScore values via Relationship."""
         # Valid float values should work
-        rel1 = Relationship(
-            property_id="p1", process_id="p2", perspective_id="p3",
-            confidence=0.0
-        )
-        rel2 = Relationship(
-            property_id="p1", process_id="p2", perspective_id="p3",
-            confidence=0.5
-        )
-        rel3 = Relationship(
-            property_id="p1", process_id="p2", perspective_id="p3",
-            confidence=1.0
-        )
+        rel1 = Relationship(property_id="p1", process_id="p2", perspective_id="p3", confidence=0.0)
+        rel2 = Relationship(property_id="p1", process_id="p2", perspective_id="p3", confidence=0.5)
+        rel3 = Relationship(property_id="p1", process_id="p2", perspective_id="p3", confidence=1.0)
 
         assert rel1.confidence == 0.0
         assert rel2.confidence == 0.5
@@ -672,23 +610,14 @@ class TestConfidenceScore(unittest.TestCase):
     def test_confidence_score_invalid_values(self):
         """Test invalid ConfidenceScore values via Relationship."""
         with pytest.raises(ValidationError, match="confidence must be between 0.0 and 1.0"):
-            Relationship(
-                property_id="p1", process_id="p2", perspective_id="p3",
-                confidence=-0.1
-            )
+            Relationship(property_id="p1", process_id="p2", perspective_id="p3", confidence=-0.1)
 
         with pytest.raises(ValidationError, match="confidence must be between 0.0 and 1.0"):
-            Relationship(
-                property_id="p1", process_id="p2", perspective_id="p3",
-                confidence=1.1
-            )
+            Relationship(property_id="p1", process_id="p2", perspective_id="p3", confidence=1.1)
 
     def test_confidence_score_string_conversion(self):
         """Test string conversion of ConfidenceScore via Relationship."""
-        rel = Relationship(
-            property_id="p1", process_id="p2", perspective_id="p3",
-            confidence=0.85
-        )
+        rel = Relationship(property_id="p1", process_id="p2", perspective_id="p3", confidence=0.85)
         assert rel.confidence == 0.85
 
 
@@ -702,14 +631,14 @@ class TestModelIntegration(unittest.TestCase):
             name="Test Property",
             description="Test property",
             domain="test_domain",
-            property_type="qualitative"
+            property_type="qualitative",
         )
 
         proc = Process(
             name="Test Process",
             description="Test process",
             domain="test_domain",
-            process_type="generic"
+            process_type="generic",
         )
 
         persp = Perspective(
@@ -717,7 +646,7 @@ class TestModelIntegration(unittest.TestCase):
             description="Test perspective",
             domain="test_domain",
             perspective_type="analytical",
-            viewpoint="test_viewpoint"
+            viewpoint="test_viewpoint",
         )
 
         # Create relationship
@@ -727,7 +656,7 @@ class TestModelIntegration(unittest.TestCase):
             perspective_id=persp.id,
             strength=0.8,
             confidence=0.9,
-            relationship_type="general"
+            relationship_type="general",
         )
 
         # Test that relationship correctly references patterns
@@ -755,7 +684,7 @@ class TestModelIntegration(unittest.TestCase):
                 name=f"Property {i}",
                 description=f"Test property {i}",
                 domain=f"domain_{i}",
-                quality_score=0.7 + (i * 0.1)
+                quality_score=0.7 + (i * 0.1),
             )
             properties.append(prop)
 
@@ -763,7 +692,7 @@ class TestModelIntegration(unittest.TestCase):
                 name=f"Process {i}",
                 description=f"Test process {i}",
                 domain=f"domain_{i}",
-                quality_score=0.7 + (i * 0.1)
+                quality_score=0.7 + (i * 0.1),
             )
             processes.append(proc)
 
@@ -772,7 +701,7 @@ class TestModelIntegration(unittest.TestCase):
                 description=f"Test perspective {i}",
                 domain=f"domain_{i}",
                 viewpoint=f"viewpoint_{i}",
-                quality_score=0.7 + (i * 0.1)
+                quality_score=0.7 + (i * 0.1),
             )
             perspectives.append(persp)
 
@@ -783,7 +712,7 @@ class TestModelIntegration(unittest.TestCase):
                 process_id=processes[i].id,
                 perspective_id=perspectives[i].id,
                 strength=0.6 + (i * 0.1),
-                confidence=0.8 + (i * 0.05)
+                confidence=0.8 + (i * 0.05),
             )
             relationships.append(rel)
 
@@ -824,7 +753,7 @@ class TestModelIntegration(unittest.TestCase):
             quality_score=0.85,
             version="1.2.3",
             references=["ref1", "ref2"],
-            related_patterns=["pattern1", "pattern2"]
+            related_patterns=["pattern1", "pattern2"],
         )
 
         # Test serialization
@@ -852,33 +781,21 @@ class TestModelIntegration(unittest.TestCase):
         """Test error handling in models."""
         # Test validation errors with invalid data
         with pytest.raises(ValidationError):
-            Property(
-                name="",
-                description="Test property",
-                domain="test_domain"
-            )
+            Property(name="", description="Test property", domain="test_domain")
 
         # Test that empty description/domain raises error
         with pytest.raises(ValidationError):
-            Property(
-                name="Test Property",
-                description="",
-                domain="test_domain"
-            )
+            Property(name="Test Property", description="", domain="test_domain")
 
         with pytest.raises(ValidationError):
-            Property(
-                name="Test Property",
-                description="Test description",
-                domain=""
-            )
+            Property(name="Test Property", description="Test description", domain="")
 
         with pytest.raises(ValidationError):
             Process(
                 name="Test Process",
                 description="Test description",
                 domain="test_domain",
-                complexity="invalid_complexity"
+                complexity="invalid_complexity",
             )
 
         with pytest.raises(ValidationError):
@@ -895,7 +812,7 @@ class TestModelIntegration(unittest.TestCase):
                 process_id="proc_id",
                 perspective_id="persp_id",
                 strength=1.5,
-                confidence=0.9
+                confidence=0.9,
             )
 
         with pytest.raises(ValidationError):
@@ -904,5 +821,5 @@ class TestModelIntegration(unittest.TestCase):
                 process_id="proc_id",
                 perspective_id="persp_id",
                 strength=0.8,
-                confidence=1.5
+                confidence=1.5,
             )

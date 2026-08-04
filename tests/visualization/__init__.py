@@ -15,7 +15,8 @@ or via a standard test runner like pytest.
 
 # Configure matplotlib to use the non-interactive Agg backend to prevent popups during tests
 import matplotlib
-matplotlib.use('Agg')
+
+matplotlib.use("Agg")
 
 from .test_interactive import TestInteractiveVisualizer
 from .test_portal import TestVisualizationPortal
@@ -23,8 +24,8 @@ from .test_dashboard import TestDashboardGenerator
 from .test_integrated_website import TestIntegratedWebsite
 
 __all__ = [
-    'TestInteractiveVisualizer',
-    'TestVisualizationPortal',
-    'TestDashboardGenerator',
-    'TestIntegratedWebsite'
-] 
+    "TestInteractiveVisualizer",
+    "TestVisualizationPortal",
+    "TestDashboardGenerator",
+    "TestIntegratedWebsite",
+]
