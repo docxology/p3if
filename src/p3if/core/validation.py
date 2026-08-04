@@ -270,33 +270,41 @@ class ConstraintManager:
 
         if constraint_type == "required_attribute":
             attr_name = constraint.get("attribute")
+            if not isinstance(attr_name, str):
+                return False
             return hasattr(element, attr_name) and getattr(element, attr_name) is not None
 
         elif constraint_type == "attribute_format":
             attr_name = constraint.get("attribute")
             pattern = constraint.get("pattern")
+            if not isinstance(attr_name, str):
+                return False
             if hasattr(element, attr_name):
                 value = getattr(element, attr_name)
                 if value and isinstance(value, str):
-                    return bool(re.match(pattern, value))
+                    return bool(re.match(pattern, value) if isinstance(pattern, str) else False)
             return False
 
         elif constraint_type == "attribute_length":
             attr_name = constraint.get("attribute")
             min_len = constraint.get("min_length", 0)
             max_len = constraint.get("max_length", float("inf"))
+            if not isinstance(attr_name, str):
+                return False
             if hasattr(element, attr_name):
                 value = getattr(element, attr_name)
                 if value and isinstance(value, str):
-                    return min_len <= len(value) <= max_len
+                    return bool(min_len <= len(value) <= max_len)
             return False
 
         elif constraint_type == "dependency":
             dep_attr = constraint.get("depends_on")
+            if not isinstance(dep_attr, str):
+                return False
             if hasattr(element, dep_attr):
                 dep_value = getattr(element, dep_attr)
                 expected_value = constraint.get("value")
-                return dep_value == expected_value
+                return bool(dep_value == expected_value)
             return False
 
         return True  # Default to valid if constraint type unknown
@@ -309,7 +317,7 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
     rules = {}
 
     # Rule: Element must have a name
-    def check_name(element):
+    def check_name(element: Any) -> Dict[str, Any]:
         try:
             # Try to access the name field from Pydantic model
             if hasattr(element, "name") and element.name:
@@ -331,7 +339,7 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
     )
 
     # Rule: Description should be meaningful
-    def check_description(element):
+    def check_description(element: Any) -> Dict[str, Any]:
         if hasattr(element, "description"):
             desc = element.description or ""
             if len(desc) < 10:
@@ -347,7 +355,7 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
     )
 
     # Rule: Framework should have minimum elements
-    def check_minimum_elements(framework):
+    def check_minimum_elements(framework: Any) -> Dict[str, Any]:
         try:
             collection = getattr(framework, "get_pattern_collection", lambda: None)()
             if collection is None:
@@ -377,7 +385,7 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
     )
 
     # Rule: Relationship must connect at least two dimensions
-    def check_relationship_validity(relationship):
+    def check_relationship_validity(relationship: Any) -> Dict[str, Any]:
         try:
             # Try to access as Pydantic model
             if hasattr(relationship, "property_id"):
@@ -418,7 +426,7 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
     )
 
     # Rule: Relationship strength should be in valid range
-    def check_strength_range(relationship):
+    def check_strength_range(relationship: Any) -> Dict[str, Any]:
         if hasattr(relationship, "strength"):
             strength = getattr(relationship, "strength", 0.5)
             if not (0.0 <= strength <= 1.0):
@@ -434,7 +442,7 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
     )
 
     # Rule: Relationship confidence should be in valid range
-    def check_confidence_range(relationship):
+    def check_confidence_range(relationship: Any) -> Dict[str, Any]:
         if hasattr(relationship, "confidence"):
             confidence = getattr(relationship, "confidence", 1.0)
             if not (0.0 <= confidence <= 1.0):
@@ -450,7 +458,7 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
     )
 
     # Rule: Framework should have balanced dimensions
-    def check_dimension_balance(framework):
+    def check_dimension_balance(framework: Any) -> Dict[str, Any]:
         prop_count = len(getattr(framework, "properties", []))
         proc_count = len(getattr(framework, "processes", []))
         pers_count = len(getattr(framework, "perspectives", []))
@@ -493,7 +501,7 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
 def create_default_constraints() -> Dict[str, List[Dict[str, Any]]]:
     """Create default constraints for P3IF elements."""
 
-    constraints = {}
+    constraints: Dict[str, List[Dict[str, Any]]] = {}
 
     # Property constraints
     constraints["property"] = [
