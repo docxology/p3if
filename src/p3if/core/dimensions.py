@@ -10,7 +10,7 @@ simple in-memory tracking without model validation overhead. Use the core.models
 classes (Property, Process, Perspective) when validation and serialization are needed.
 """
 
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Optional
 from dataclasses import dataclass, field
 from enum import Enum
 from collections import defaultdict
@@ -59,7 +59,7 @@ class PropertyManager:
         name: str,
         prop_type: PropertyType = PropertyType.TECHNICAL,
         description: str = "",
-        attributes: Dict[str, Any] = None,
+        attributes: Optional[Dict[str, Any]] = None,
     ) -> Any:
         """Add a new property."""
         property_obj = {
@@ -120,8 +120,8 @@ class ProcessManager:
         name: str,
         proc_type: ProcessType = ProcessType.OPERATIONAL,
         description: str = "",
-        inputs: List[str] = None,
-        outputs: List[str] = None,
+        inputs: Optional[List[str]] = None,
+        outputs: Optional[List[str]] = None,
     ) -> Any:
         """Add a new process."""
         process_obj = {
@@ -136,7 +136,7 @@ class ProcessManager:
         self.process_types[name] = proc_type
         return process_obj
 
-    def define_process_sequence(self, sequence_name: str, process_list: List[str]):
+    def define_process_sequence(self, sequence_name: str, process_list: List[str]) -> None:
         """Define a sequence of processes."""
         self.process_sequences[sequence_name] = process_list
 
@@ -150,7 +150,12 @@ class ProcessManager:
 
     def validate_process_chain(self, process_list: List[str]) -> Dict[str, Any]:
         """Validate that a process chain is complete and consistent."""
-        validation = {"valid": True, "missing_processes": [], "broken_links": [], "warnings": []}
+        validation: Dict[str, Any] = {
+            "valid": True,
+            "missing_processes": [],
+            "broken_links": [],
+            "warnings": [],
+        }
 
         # Check that all processes exist
         for process_name in process_list:
@@ -208,7 +213,7 @@ class PerspectiveManager:
         self.perspective_types[name] = pers_type
         return perspective_obj
 
-    def define_viewpoint_hierarchy(self, hierarchy_name: str, viewpoints: List[str]):
+    def define_viewpoint_hierarchy(self, hierarchy_name: str, viewpoints: List[str]) -> None:
         """Define a hierarchy of viewpoints."""
         self.viewpoint_hierarchies[hierarchy_name] = viewpoints
 
@@ -218,7 +223,7 @@ class PerspectiveManager:
 
     def analyze_perspective_coverage(self, elements: List[Any]) -> Dict[str, Any]:
         """Analyze how well perspectives cover different elements."""
-        coverage = {
+        coverage: Dict[str, Any] = {
             "total_elements": len(elements),
             "covered_elements": 0,
             "perspective_effectiveness": {},

@@ -13,6 +13,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `core/framework/` package — `core.py` (P3IFFramework), `metrics.py`
   (FrameworkMetrics), `builder.py` (FrameworkBuilder) — with `__init__.py`
   re-exporting the public API so all existing imports keep working.
+- **Type safety (Q13)**: all `p3if.core.*` modules now pass mypy under the
+  strict-typing contract (`disallow_untyped_defs`). Complete type annotations
+  across validation, caching, and the analysis / composition / dimensions /
+  orchestration / performance-monitoring modules (89 errors resolved).
 
 ### Fixed
 

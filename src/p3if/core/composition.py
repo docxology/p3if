@@ -181,7 +181,7 @@ class CompositionEngine:
 
     def _record_composition(
         self, operation: str, input_data: Any, overlay_data: Any = None, result: Any = None
-    ):
+    ) -> None:
         """Record a composition operation for history tracking."""
         operation_record = {
             "operation": operation,
@@ -211,7 +211,7 @@ class Multiplexer:
         self, properties: List[Any], mapping_rules: Dict[str, str]
     ) -> Dict[str, List[Any]]:
         """Multiplex properties into process representations."""
-        process_map = {}
+        process_map: Dict[str, List[Any]] = {}
 
         for prop in properties:
             for process_type, prop_attribute in mapping_rules.items():
@@ -226,7 +226,7 @@ class Multiplexer:
         self, processes: List[Any], mapping_rules: Dict[str, str]
     ) -> Dict[str, List[Any]]:
         """Multiplex processes into perspective representations."""
-        perspective_map = {}
+        perspective_map: Dict[str, List[Any]] = {}
 
         for process in processes:
             for perspective_type, process_attribute in mapping_rules.items():

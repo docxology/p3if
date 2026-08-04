@@ -3,7 +3,7 @@ P3IF Analysis Report
 
 This module provides report generation functionality for P3IF analysis results.
 """
-from typing import Dict, List, Any, Union
+from typing import Dict, List, Any, Union, Optional
 import logging
 import json
 import os
@@ -35,7 +35,7 @@ class AnalysisReport:
         self.meta_analyzer = MetaAnalyzer(framework)
 
         # Analysis results cache
-        self._results = None
+        self._results: Optional[Dict[str, Any]] = None
 
     def __repr__(self) -> str:
         return f"AnalysisReport(patterns={len(self.framework)}, results={'available' if self._results else 'none'})"
@@ -107,6 +107,7 @@ class AnalysisReport:
             self.logger.warning("Meta-analysis results not available. Running analysis...")
             self.run_analysis(include_basic=False, include_network=False, include_meta=True)
 
+        assert self._results is not None
         # Extract domain information from meta-analysis
         domain_comparison = self._results.get("meta", {}).get("domain_comparison", {})
         cross_domain = self._results.get("meta", {}).get("cross_domain_relationships", {})
@@ -146,6 +147,7 @@ class AnalysisReport:
             self.logger.warning("Basic analysis results not available. Running analysis...")
             self.run_analysis(include_basic=True, include_network=False, include_meta=False)
 
+        assert self._results is not None
         # Get most connected patterns
         connected_patterns = self._results.get("basic", {}).get("most_connected_patterns", {})
         strongest_relationships = self._results.get("basic", {}).get("strongest_relationships", [])
@@ -177,6 +179,7 @@ class AnalysisReport:
             self.logger.warning("Network analysis results not available. Running analysis...")
             self.run_analysis(include_basic=False, include_network=True, include_meta=False)
 
+        assert self._results is not None
         # Extract relevant network metrics
         statistics = self._results.get("network", {}).get("statistics", {})
         centrality = self._results.get("network", {}).get("centrality", {})
@@ -217,7 +220,7 @@ class AnalysisReport:
 
     def _count_node_types(self, nodes: List[Dict[str, Any]]) -> Dict[str, int]:
         """Count the number of nodes by type."""
-        type_counts = {}
+        type_counts: Dict[str, int] = {}
         for node in nodes:
             node_type = node.get("type", "unknown")
             type_counts[node_type] = type_counts.get(node_type, 0) + 1
@@ -234,6 +237,7 @@ class AnalysisReport:
             self.logger.warning("Meta-analysis results not available. Running analysis...")
             self.run_analysis(include_basic=False, include_network=False, include_meta=True)
 
+        assert self._results is not None
         # Extract common patterns from meta-analysis
         common_patterns = (
             self._results.get("meta", {}).get("common_patterns", {}).get("common_patterns", {})

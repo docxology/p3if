@@ -22,9 +22,11 @@ The framework is fully synchronous. For I/O-bound storage backends, async method
 ### Q10. Split `website/routes/api.py` (928 lines) into separate modules
 
 ### Q13. Remaining mypy errors in validation.py and caching.py
-validation.py and caching.py are now mypy-clean (verified with mypy 1.8).
-The broader codebase still has mypy debt in visualization/data/orchestrator
-modules, including numpy-`_Array` stub noise.
+DONE: all `p3if.core.*` modules are now mypy-clean (validation, caching, and the
+analysis/composition/dimensions/orchestration/performance_monitoring modules).
+Remaining repo-wide mypy debt (239 errors) is in visualization/data/orchestrator
+modules, mostly untyped defs plus numpy-`_Array` stub noise outside the core
+strict-typing contract.
 
 ---
 

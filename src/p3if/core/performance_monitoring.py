@@ -5,7 +5,7 @@ This module provides comprehensive performance monitoring, profiling, and optimi
 capabilities for P3IF operations and frameworks.
 """
 
-from typing import Dict, List, Any, Optional
+from typing import Dict, List, Any, Optional, Iterator, cast
 from dataclasses import dataclass, field
 from datetime import datetime
 import time
@@ -39,7 +39,7 @@ class PerformanceMetrics:
     error_count: int = 0
     metadata: Dict[str, Any] = field(default_factory=dict)
 
-    def finish(self):
+    def finish(self) -> None:
         """Mark the operation as finished and calculate duration."""
         self.end_time = time.time()
         self.duration = self.end_time - self.start_time
@@ -187,7 +187,7 @@ class PerformanceMonitor:
             "system_metrics": self.get_system_metrics(),
         }
 
-    def _update_aggregates(self, metrics: PerformanceMetrics):
+    def _update_aggregates(self, metrics: PerformanceMetrics) -> None:
         """Update aggregate statistics for an operation."""
         op_name = metrics.operation_name
         current_agg = self.aggregates[op_name]
@@ -207,12 +207,13 @@ class PerformanceMonitor:
         current_agg["error_rate"] = current_agg["total_errors"] / count
 
         # Update min/max
-        if "min_duration" not in current_agg or metrics.duration < current_agg["min_duration"]:
-            current_agg["min_duration"] = metrics.duration
-        if "max_duration" not in current_agg or metrics.duration > current_agg["max_duration"]:
-            current_agg["max_duration"] = metrics.duration
+        duration = metrics.duration or 0.0
+        if "min_duration" not in current_agg or duration < current_agg["min_duration"]:
+            current_agg["min_duration"] = duration
+        if "max_duration" not in current_agg or duration > current_agg["max_duration"]:
+            current_agg["max_duration"] = duration
 
-    def clear_history(self):
+    def clear_history(self) -> None:
         """Clear performance history."""
         self.metrics_history.clear()
         self.aggregates.clear()
@@ -223,7 +224,7 @@ def monitor_operation(
     operation_name: str,
     monitor: Optional[PerformanceMonitor] = None,
     metadata: Optional[Dict[str, Any]] = None,
-):
+) -> Iterator[str]:
     """Context manager for monitoring operations."""
     if monitor is None:
         monitor = get_global_performance_monitor()
@@ -252,10 +253,10 @@ class P3IFPerformanceOptimizer:
         cache_key = f"pattern_query_{hash(tuple(query_patterns))}"
 
         if cache_key in self.optimization_cache:
-            return self.optimization_cache[cache_key]
+            return cast(Dict[str, Any], self.optimization_cache[cache_key])
 
         with monitor_operation("pattern_query_optimization", self.monitor):
-            optimization = {
+            optimization: Dict[str, Any] = {
                 "query_patterns": query_patterns,
                 "estimated_cost": len(query_patterns) * 10,  # Simple cost model
                 "suggested_indexing": [],
@@ -277,10 +278,10 @@ class P3IFPerformanceOptimizer:
         cache_key = f"relationship_query_{hash(str(relationship_criteria))}"
 
         if cache_key in self.optimization_cache:
-            return self.optimization_cache[cache_key]
+            return cast(Dict[str, Any], self.optimization_cache[cache_key])
 
         with monitor_operation("relationship_query_optimization", self.monitor):
-            optimization = {
+            optimization: Dict[str, Any] = {
                 "criteria": relationship_criteria,
                 "estimated_cost": sum(
                     len(str(v)) if hasattr(v, "__len__") else 1
@@ -306,7 +307,7 @@ class P3IFPerformanceOptimizer:
         recommendations = []
 
         # Analyze operation patterns
-        operation_counts = defaultdict(int)
+        operation_counts: defaultdict = defaultdict(int)
         for metrics in self.monitor.metrics_history:
             operation_counts[metrics.operation_name] += 1
 
@@ -362,13 +363,15 @@ def get_global_performance_monitor() -> PerformanceMonitor:
     return _global_monitor
 
 
-def configure_global_monitoring(max_history: int = 1000, enable_system_metrics: bool = True):
+def configure_global_monitoring(
+    max_history: int = 1000, enable_system_metrics: bool = True
+) -> None:
     """Configure the global performance monitor."""
     global _global_monitor
     _global_monitor = PerformanceMonitor(max_history, enable_system_metrics)
 
 
-def reset_global_monitoring():
+def reset_global_monitoring() -> None:
     """Reset the global performance monitor."""
     global _global_monitor
     if _global_monitor:
@@ -377,7 +380,9 @@ def reset_global_monitoring():
 
 
 @contextmanager
-def performance_monitored(operation_name: str, metadata: Optional[Dict[str, Any]] = None):
+def performance_monitored(
+    operation_name: str, metadata: Optional[Dict[str, Any]] = None
+) -> Iterator[None]:
     """Context manager for automatic performance monitoring."""
     monitor = get_global_performance_monitor()
 

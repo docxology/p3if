@@ -3,7 +3,7 @@ P3IF Network Analyzer
 
 This module provides network analysis capabilities for P3IF data.
 """
-from typing import Dict, List, Any, Set
+from typing import Dict, List, Any, Optional, cast
 import logging
 import networkx as nx
 from collections import defaultdict
@@ -23,8 +23,8 @@ class NetworkAnalyzer:
         """
         self.framework = framework
         self.logger = logging.getLogger(__name__)
-        self._graph = None
-        self._graph_type = None
+        self._graph: Optional[nx.Graph] = None
+        self._graph_type: Optional[str] = None
 
     def _build_graph(self, graph_type: str = "full") -> nx.Graph:
         """
@@ -115,15 +115,15 @@ class NetworkAnalyzer:
                 G.add_node(domain, type="domain")
 
             # Add edges between domains that share relationships
-            domain_connections = defaultdict(float)
+            domain_connections: defaultdict = defaultdict(float)
             for rel in self.framework._relationships.values():
                 rel_domains = set()
 
-                for pattern_id in [rel.property_id, rel.process_id, rel.perspective_id]:
-                    if pattern_id:
-                        pattern = self.framework.get_pattern(pattern_id)
-                        if pattern and hasattr(pattern, "domain") and pattern.domain:
-                            rel_domains.add(pattern.domain)
+                for pid in [rel.property_id, rel.process_id, rel.perspective_id]:
+                    if pid:
+                        pat = self.framework.get_pattern(pid)
+                        if pat and hasattr(pat, "domain") and pat.domain:
+                            rel_domains.add(pat.domain)
 
                 # Add connections between all domain pairs
                 domains_list = list(rel_domains)
@@ -284,7 +284,7 @@ class NetworkAnalyzer:
         G = self.get_graph(graph_type)
 
         communities = []
-        algorithm_info = {"name": algorithm}
+        algorithm_info: Dict[str, Any] = {"name": algorithm}
 
         try:
             if algorithm == "louvain":
@@ -313,7 +313,7 @@ class NetworkAnalyzer:
 
                 # Get communities with the highest modularity
                 best_communities = None
-                best_modularity = -1
+                best_modularity: float = -1
 
                 # Check the first few iterations for best modularity
                 for i, iteration in enumerate(comp):
@@ -342,7 +342,7 @@ class NetworkAnalyzer:
             communities = []
 
         # Convert communities to a suitable format
-        formatted_communities = []
+        formatted_communities: List[Dict[str, Any]] = []
         for i, community in enumerate(communities):
             community_nodes = []
             for node_id in community:
@@ -380,7 +380,7 @@ class NetworkAnalyzer:
             "communities": formatted_communities,
         }
 
-    def _calculate_modularity(self, G: nx.Graph, communities: List[Set]) -> float:
+    def _calculate_modularity(self, G: nx.Graph, communities: List[Any]) -> float:
         """
         Calculate modularity of a network partition.
 
@@ -392,7 +392,7 @@ class NetworkAnalyzer:
             Modularity value
         """
         try:
-            return nx.community.modularity(G, communities)
+            return cast(float, nx.community.modularity(G, communities))
         except Exception:
             # Fall back to manual calculation if NetworkX function fails
             m = G.number_of_edges()
@@ -411,7 +411,7 @@ class NetworkAnalyzer:
                             kj = G.degree(j)
                             modularity -= ki * kj / (2 * m)
 
-            return modularity / (2 * m)
+            return cast(float, modularity / (2 * m))
 
     def run_full_analysis(self) -> Dict[str, Any]:
         """

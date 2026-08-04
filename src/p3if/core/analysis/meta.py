@@ -3,7 +3,7 @@ P3IF Meta-Analyzer
 
 This module provides meta-analysis capabilities for P3IF data across domains.
 """
-from typing import Dict, List, Any, Set
+from typing import Dict, List, Any, Set, cast
 import logging
 import numpy as np
 import pandas as pd
@@ -86,12 +86,12 @@ class MetaAnalyzer:
 
                 # Skip self-comparison
                 if i == j:
-                    similarity_matrix[i, j] = 1.0
+                    similarity_matrix[i, j] = 1.0  # type: ignore[index]
                     continue
 
                 # Get all pattern names for each domain
-                names_i = set()
-                names_j = set()
+                names_i: Set[str] = set()
+                names_j: Set[str] = set()
 
                 for pattern_type in ["property", "process", "perspective"]:
                     names_i.update(
@@ -106,9 +106,9 @@ class MetaAnalyzer:
                 union = len(names_i.union(names_j))
 
                 if union > 0:
-                    similarity_matrix[i, j] = intersection / union
+                    similarity_matrix[i, j] = intersection / union  # type: ignore[index]
 
-        return similarity_matrix.tolist()
+        return cast(List[List[float]], similarity_matrix.tolist())  # type: ignore[attr-defined]
 
     def get_cross_domain_relationships(self) -> Dict[str, Any]:
         """
@@ -180,7 +180,7 @@ class MetaAnalyzer:
         domain_stats = self.domain_manager.get_domain_statistics()
 
         # Create dataframe for correlation calculation
-        data = {
+        data: Dict[str, List[Any]] = {
             "domain": [],
             "num_properties": [],
             "num_processes": [],
@@ -215,7 +215,7 @@ class MetaAnalyzer:
             return {"common_patterns": []}
 
         # Get all pattern names by type and domain
-        all_pattern_names = {
+        all_pattern_names: Dict[str, Dict[str, List[str]]] = {
             "property": defaultdict(list),
             "process": defaultdict(list),
             "perspective": defaultdict(list),
@@ -231,7 +231,7 @@ class MetaAnalyzer:
 
         for pattern_type, domain_patterns in all_pattern_names.items():
             # Count occurrences of each pattern name
-            name_counts = Counter()
+            name_counts: Counter = Counter()
             for domain, names in domain_patterns.items():
                 name_counts.update(names)
 
@@ -284,12 +284,12 @@ class MetaAnalyzer:
                     similarity = intersection / union if union > 0 else 0
 
                     # Fill both upper and lower triangle
-                    similarity_matrix[i, j] = similarity
-                    similarity_matrix[j, i] = similarity
+                    similarity_matrix[i, j] = similarity  # type: ignore[index]
+                    similarity_matrix[j, i] = similarity  # type: ignore[index]
 
             similarities[pattern_type] = {
                 "domains": domains,
-                "similarity_matrix": similarity_matrix.tolist(),
+                "similarity_matrix": similarity_matrix.tolist(),  # type: ignore[attr-defined]
             }
 
         return {"similarities": similarities}

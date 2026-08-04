@@ -74,9 +74,9 @@ class BasicAnalyzer:
             self.framework._relationships.values(), key=lambda r: r.strength, reverse=True
         )
 
-        result = []
+        result: List[Dict[str, Any]] = []
         for r in sorted_relationships[:top_n]:
-            relationship_info = {
+            relationship_info: Dict[str, Any] = {
                 "id": r.id,
                 "strength": r.strength,
                 "confidence": r.confidence,
@@ -122,7 +122,7 @@ class BasicAnalyzer:
         Returns:
             Dictionary of tag counts
         """
-        tag_counter = Counter()
+        tag_counter: Counter = Counter()
 
         for pattern in self.framework._patterns.values():
             tag_counter.update(pattern.tags)
@@ -136,7 +136,7 @@ class BasicAnalyzer:
         Returns:
             Dictionary mapping pattern types to dictionaries of pattern IDs and relationship counts
         """
-        result = {"property": {}, "process": {}, "perspective": {}}
+        result: Dict[str, Dict[str, int]] = {"property": {}, "process": {}, "perspective": {}}
 
         # Count relationships for each pattern
         for rel in self.framework._relationships.values():
@@ -226,24 +226,24 @@ class BasicAnalyzer:
                 for pattern_id in rel_patterns:
                     idx = pattern_map[pattern_id]
                     # A pattern is similar to itself
-                    similarity_matrix[idx, idx] += 1
+                    similarity_matrix[idx, idx] += 1  # type: ignore[index]
 
                     # Calculate similarity with other patterns based on sharing the same relationship
                     for other_id_attr in ["property_id", "process_id", "perspective_id"]:
                         other_id = getattr(rel, other_id_attr)
                         if other_id and other_id in pattern_map and other_id != pattern_id:
                             other_idx = pattern_map[other_id]
-                            similarity_matrix[idx, other_idx] += 1
-                            similarity_matrix[other_idx, idx] += 1
+                            similarity_matrix[idx, other_idx] += 1  # type: ignore[index]
+                            similarity_matrix[other_idx, idx] += 1  # type: ignore[index]
 
         # Normalize similarity matrix
-        row_sums = similarity_matrix.sum(axis=1)
+        row_sums = similarity_matrix.sum(axis=1)  # type: ignore[attr-defined]
         # Only divide by row_sums where it's not zero to avoid warnings
         mask = row_sums != 0
         similarity_matrix_normalized = np.zeros_like(similarity_matrix, dtype=float)
         if mask.any():  # Only perform division if there are non-zero elements
-            similarity_matrix_normalized[mask] = (
-                similarity_matrix[mask] / row_sums[mask, np.newaxis]
+            similarity_matrix_normalized[mask] = (  # type: ignore[index]
+                similarity_matrix[mask] / row_sums[mask, np.newaxis]  # type: ignore[index]
             )
         similarity_matrix = np.nan_to_num(similarity_matrix_normalized)
 
@@ -251,7 +251,10 @@ class BasicAnalyzer:
             {"id": p.id, "name": p.name, "domain": getattr(p, "domain", None)} for p in patterns
         ]
 
-        return {"matrix": similarity_matrix.tolist(), "patterns": pattern_info}
+        return {
+            "matrix": similarity_matrix.tolist(),  # type: ignore[attr-defined]
+            "patterns": pattern_info,
+        }
 
     def run_full_analysis(self) -> Dict[str, Any]:
         """

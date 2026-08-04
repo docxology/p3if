@@ -5,7 +5,7 @@ This module provides thin orchestrators for flexible composition of P3IF methods
 enabling lightweight, reusable workflow patterns.
 """
 
-from typing import Dict, List, Any, Callable, Set
+from typing import Dict, List, Any, Callable, Set, cast
 from dataclasses import dataclass, field
 from enum import Enum
 import asyncio
@@ -55,7 +55,7 @@ class ThinOrchestrator:
         if not step.name or not step.name.strip():
             raise ValueError("Step name cannot be empty")
 
-        if not step.method or not callable(step.method):
+        if not callable(step.method):
             raise ValueError("Step method must be callable")
 
         # Check for duplicate step names
@@ -126,12 +126,12 @@ class ThinOrchestrator:
 
             with concurrent.futures.ThreadPoolExecutor() as executor:
                 future = executor.submit(self._run_in_new_loop)
-                return future.result()
+                return cast(Dict[str, Any], future.result())
         except RuntimeError:
             # No running event loop — safe to create one
             return asyncio.run(self.execute_async())
 
-    def _run_in_new_loop(self):
+    def _run_in_new_loop(self) -> Dict[str, Any]:
         """Run the orchestrator in a new event loop."""
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
@@ -142,8 +142,8 @@ class ThinOrchestrator:
 
     async def _execute_linear(self) -> Dict[str, Any]:
         """Execute steps in linear sequence."""
-        results = {}
-        completed_steps = set()
+        results: Dict[str, Any] = {}
+        completed_steps: Set[str] = set()
 
         for step in self.steps:
             # Check dependencies
@@ -225,7 +225,7 @@ class ThinOrchestrator:
             params = step.parameters.copy()
 
             # Inspect method signature once
-            method_sig = ()
+            method_sig: tuple = ()
             if hasattr(step.method, "__code__"):
                 method_sig = step.method.__code__.co_varnames[: step.method.__code__.co_argcount]
 
@@ -244,7 +244,7 @@ class ThinOrchestrator:
                 return await step.method(**params)
             else:
 
-                def execute_with_params():
+                def execute_with_params() -> Any:
                     return step.method(**params)
 
                 loop = asyncio.get_running_loop()
@@ -304,8 +304,8 @@ class ThinOrchestrator:
 
     def _build_dependency_levels(self) -> List[List[str]]:
         """Build dependency levels for parallel execution."""
-        levels = []
-        processed = set()
+        levels: List[List[str]] = []
+        processed: Set[str] = set()
 
         while len(processed) < len(self.steps):
             current_level = []
@@ -338,7 +338,7 @@ class ThinOrchestrator:
                 # Simple string-based conditions
                 if condition.startswith("context."):
                     key = condition[8:]  # Remove "context." prefix
-                    return self.context.get(key, False)
+                    return bool(self.context.get(key, False))
                 elif condition == "always":
                     return True
                 elif condition == "never":
