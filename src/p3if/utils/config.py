@@ -40,7 +40,7 @@ class Config:
         Args:
             config_file: Optional path to configuration file
         """
-        self._config = copy.deepcopy(self.DEFAULT_CONFIG)
+        self._config: Dict[str, Any] = copy.deepcopy(self.DEFAULT_CONFIG)
 
         # Load from file if provided
         if config_file:
@@ -86,12 +86,9 @@ class Config:
             new_config: New configuration to merge
         """
         for key, value in new_config.items():
-            if (
-                key in self._config
-                and isinstance(self._config[key], dict)
-                and isinstance(value, dict)
-            ):
-                self._merge_dict(self._config[key], value)
+            existing = self._config.get(key)
+            if isinstance(existing, dict) and isinstance(value, dict):
+                self._merge_dict(existing, value)
             else:
                 self._config[key] = value
 

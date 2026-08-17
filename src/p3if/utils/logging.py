@@ -39,8 +39,10 @@ class P3IFLogger:
     )
 
     _configured = False
-    _loggers = {}
-    _metrics = defaultdict(lambda: {"count": 0, "total_time": 0.0, "errors": 0})
+    _loggers: Dict[str, logging.Logger] = {}
+    _metrics: Dict[str, Dict[str, Any]] = defaultdict(
+        lambda: {"count": 0, "total_time": 0.0, "errors": 0}
+    )
 
     @classmethod
     def configure(
@@ -147,7 +149,10 @@ def get_logger(name: str) -> logging.Logger:
 
 
 def log_method_call(
-    logger: logging.Logger, method_name: str, args: tuple = (), kwargs: dict = None
+    logger: logging.Logger,
+    method_name: str,
+    args: tuple = (),
+    kwargs: Optional[Dict[str, Any]] = None,
 ) -> None:
     """Log method entry with parameters."""
     if kwargs is None:
@@ -175,7 +180,10 @@ def log_method_call(
 
 
 def log_method_result(
-    logger: logging.Logger, method_name: str, result, duration: float = None
+    logger: logging.Logger,
+    method_name: str,
+    result,
+    duration: Optional[float] = None,
 ) -> None:
     """Log method completion with result."""
     result_str = str(result)[:200] if result is not None else "None"
@@ -192,7 +200,10 @@ def log_method_result(
 
 
 def log_error(
-    logger: logging.Logger, method_name: str, error: Exception, context: dict = None
+    logger: logging.Logger,
+    method_name: str,
+    error: Exception,
+    context: Optional[Dict[str, Any]] = None,
 ) -> None:
     """Log method errors with context."""
     context_str = f" | Context: {context}" if context else ""
@@ -203,8 +214,8 @@ def log_operation(
     logger: logging.Logger,
     operation: str,
     status: str,
-    details: dict = None,
-    duration: float = None,
+    details: Optional[Dict[str, Any]] = None,
+    duration: Optional[float] = None,
 ) -> None:
     """Log operations with structured data for better observability."""
     details = details or {}

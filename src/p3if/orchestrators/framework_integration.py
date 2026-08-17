@@ -5,7 +5,7 @@ This thin orchestrator demonstrates how to integrate multiple existing framework
 into a unified P3IF model with conflict resolution and harmonization.
 """
 
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Optional
 from dataclasses import dataclass, field
 import logging
 from datetime import datetime
@@ -165,14 +165,16 @@ class FrameworkIntegrationOrchestrator:
         else:
             return [{"name": "Generic Perspective", "type": "general", "mapped": True}]
 
-    def _identify_conflicts(self, orchestrator_context: Dict[str, Any] = None) -> Dict[str, Any]:
+    def _identify_conflicts(
+        self, orchestrator_context: Optional[Dict[str, Any]] = None
+    ) -> Dict[str, Any]:
         """Identify conflicts and overlaps between frameworks."""
         # Get the mapping results from the orchestrator context
         mapping_results = (
             orchestrator_context.get("mapping_results", {}) if orchestrator_context else {}
         )
 
-        conflicts = {
+        conflicts: Dict[str, Any] = {
             "element_conflicts": [],
             "semantic_conflicts": [],
             "structural_conflicts": [],
@@ -216,14 +218,16 @@ class FrameworkIntegrationOrchestrator:
 
         return conflicts
 
-    def _resolve_conflicts(self, orchestrator_context: Dict[str, Any] = None) -> Dict[str, Any]:
+    def _resolve_conflicts(
+        self, orchestrator_context: Optional[Dict[str, Any]] = None
+    ) -> Dict[str, Any]:
         """Resolve identified conflicts between frameworks."""
         # Get the conflicts from the orchestrator context
         conflicts = (
             orchestrator_context.get("conflict_identification", {}) if orchestrator_context else {}
         )
 
-        resolution_results = {
+        resolution_results: Dict[str, Any] = {
             "resolved_conflicts": [],
             "applied_strategies": [],
             "remaining_issues": [],
@@ -261,11 +265,13 @@ class FrameworkIntegrationOrchestrator:
 
         return resolution_results
 
-    def _create_unified_model(self, orchestrator_context: Dict[str, Any] = None) -> Dict[str, Any]:
+    def _create_unified_model(
+        self, orchestrator_context: Optional[Dict[str, Any]] = None
+    ) -> Dict[str, Any]:
         """Create a unified P3IF model from resolved frameworks."""
         # Get the conflict resolution from the orchestrator context
 
-        unified_model = {
+        unified_model: Dict[str, Any] = {
             "properties": [],
             "processes": [],
             "perspectives": [],
@@ -303,14 +309,16 @@ class FrameworkIntegrationOrchestrator:
 
         return unified_model
 
-    def _validate_integration(self, orchestrator_context: Dict[str, Any] = None) -> Dict[str, Any]:
+    def _validate_integration(
+        self, orchestrator_context: Optional[Dict[str, Any]] = None
+    ) -> Dict[str, Any]:
         """Validate the integrated framework."""
         # Get the unified model from the orchestrator context
         unified_model = (
             orchestrator_context.get("unified_model", {}) if orchestrator_context else {}
         )
 
-        validation_results = {
+        validation_results: Dict[str, Any] = {
             "validation_passed": True,
             "checks_performed": [],
             "issues_found": [],
