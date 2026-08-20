@@ -3,7 +3,7 @@ P3IF Visualization Portal
 
 This module provides functionality to generate an integrated web portal with all P3IF visualizations.
 """
-from typing import Dict, List, Optional, Union
+from typing import Dict, List, Optional, Union, Any
 import logging
 import json
 from pathlib import Path
@@ -40,9 +40,9 @@ class VisualizationPortal:
         output_file: Union[str, Path],
         title: str = "P3IF Visualization Portal",
         include_dataset_dropdown: bool = False,
-        datasets: List[Dict[str, str]] = None,
+        datasets: Optional[List[Dict[str, str]]] = None,
         include_component_selector: bool = False,
-        components: List[Dict[str, str]] = None,
+        components: Optional[List[Dict[str, str]]] = None,
         include_3d_cube: bool = True,
         include_network: bool = True,
         include_matrix: bool = True,
@@ -265,14 +265,15 @@ class VisualizationPortal:
         data_files["graph_data"] = graph_data_path
 
         # Generate framework summary data
-        summary_data = {
+        domains_summary_list: List[Dict[str, Any]] = []
+        summary_data: Dict[str, Any] = {
             "pattern_counts": {
                 "property": len(self.framework.get_patterns_by_type("property")),
                 "process": len(self.framework.get_patterns_by_type("process")),
                 "perspective": len(self.framework.get_patterns_by_type("perspective")),
             },
             "relationship_count": len(self.framework._relationships),
-            "domains": [],
+            "domains": domains_summary_list,
         }
 
         # Add domain information if available
@@ -289,7 +290,7 @@ class VisualizationPortal:
                 if getattr(pattern, "domain", None) == domain and pattern.type in domain_patterns:
                     domain_patterns[pattern.type] += 1
 
-            summary_data["domains"].append({"name": domain, "patterns": domain_patterns})
+            domains_summary_list.append({"name": domain, "patterns": domain_patterns})
 
         summary_path = data_dir / "summary.json"
         with open(summary_path, "w") as f:
@@ -303,9 +304,9 @@ class VisualizationPortal:
         output_path: Path,
         title: str = "P3IF Visualization Portal",
         include_dataset_dropdown: bool = False,
-        datasets: List[Dict[str, str]] = None,
+        datasets: Optional[List[Dict[str, str]]] = None,
         include_component_selector: bool = False,
-        components: List[Dict[str, str]] = None,
+        components: Optional[List[Dict[str, str]]] = None,
         include_3d_cube: bool = True,
         include_network: bool = True,
         include_matrix: bool = True,

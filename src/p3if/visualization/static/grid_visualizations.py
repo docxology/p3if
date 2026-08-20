@@ -10,10 +10,10 @@ import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import numpy as np
 from pathlib import Path
-from typing import Dict, Any
+from typing import Dict, List, Any
 
 from p3if.core.framework import P3IFFramework
-from p3if.core.models import Property, Process, Perspective
+from p3if.core.models import Property, Process, Perspective, Relationship
 
 logger = logging.getLogger(__name__)
 
@@ -340,7 +340,7 @@ def _create_relationship_grid(
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(16, 14))
 
     # Get relationships by type
-    rel_types = {}
+    rel_types: Dict[str, List[Relationship]] = {}
     for rel in framework._relationships.values():
         rel_type = getattr(rel, "relationship_type", "general")
         if rel_type not in rel_types:

@@ -51,7 +51,7 @@
                 <p class="mb-2"><small class="text-muted">Generated: {{ viz.date }}</small></p>
             </div>
             <div class="card-footer">
-                <a href="{{ url_for('viz_bp.show_visualization', output_dir=viz.id) }}" class="btn btn-primary">View</a>
+                <a href="{{ url_for('visualizations.show_visualization', output_dir=viz.id) }}" class="btn btn-primary">View</a>
                 {% if viz.is_interactive %}
                 <span class="badge bg-info ms-2">Interactive</span>
                 {% endif %}
@@ -145,7 +145,7 @@
                 </ul>
                 
                 <div class="mt-4">
-                    <a href="{{ url_for('viz_bp.show_visualization', output_dir=featured_visualization.id) }}" class="btn btn-primary">View Full Visualization</a>
+                    <a href="{{ url_for('visualizations.show_visualization', output_dir=featured_visualization.id) }}" class="btn btn-primary">View Full Visualization</a>
                 </div>
             </div>
         </div>

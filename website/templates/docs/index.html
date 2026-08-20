@@ -27,7 +27,7 @@
 {% block content %}
 <div class="container section-sm">
     <div class="breadcrumb">
-        <div class="breadcrumb-item"><a href="{{ url_for('home') }}">Home</a></div>
+        <div class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></div>
         <div class="breadcrumb-item active">Documentation</div>
         {% for crumb in breadcrumbs %}
         <div class="breadcrumb-item {% if loop.last %}active{% endif %}">
@@ -44,62 +44,62 @@
         <div class="docs-sidebar col-12 col-md-3">
             <div class="docs-nav">
                 <div class="docs-nav-item">
-                    <a href="{{ url_for('docs_bp.index') }}" class="docs-nav-link {% if current_path == '' %}active{% endif %}">Documentation Home</a>
+                    <a href="{{ url_for('docs.index') }}" class="docs-nav-link {% if current_path == '' %}active{% endif %}">Documentation Home</a>
                 </div>
                 
                 <h5 class="mt-4 mb-2">Getting Started</h5>
                 <div class="docs-nav-item">
-                    <a href="{{ url_for('docs_bp.index') }}?doc=installation" class="docs-nav-link {% if current_path == 'installation.md' %}active{% endif %}">Installation</a>
+                    <a href="{{ url_for('docs.index') }}?doc=installation" class="docs-nav-link {% if current_path == 'installation.md' %}active{% endif %}">Installation</a>
                 </div>
                 <div class="docs-nav-item">
-                    <a href="{{ url_for('docs_bp.index') }}?doc=quick-start" class="docs-nav-link {% if current_path == 'quick-start.md' %}active{% endif %}">Quick Start</a>
+                    <a href="{{ url_for('docs.index') }}?doc=quick-start" class="docs-nav-link {% if current_path == 'quick-start.md' %}active{% endif %}">Quick Start</a>
                 </div>
                 <div class="docs-nav-item">
-                    <a href="{{ url_for('docs_bp.index') }}?doc=concepts" class="docs-nav-link {% if current_path == 'concepts.md' %}active{% endif %}">Core Concepts</a>
+                    <a href="{{ url_for('docs.index') }}?doc=concepts" class="docs-nav-link {% if current_path == 'concepts.md' %}active{% endif %}">Core Concepts</a>
                 </div>
                 
                 <h5 class="mt-4 mb-2">User Guide</h5>
                 <div class="docs-nav-item">
-                    <a href="{{ url_for('docs_bp.index') }}?doc=domains" class="docs-nav-link {% if current_path == 'domains.md' %}active{% endif %}">Working with Domains</a>
+                    <a href="{{ url_for('docs.index') }}?doc=domains" class="docs-nav-link {% if current_path == 'domains.md' %}active{% endif %}">Working with Domains</a>
                 </div>
                 <div class="docs-nav-item">
-                    <a href="{{ url_for('docs_bp.index') }}?doc=patterns" class="docs-nav-link {% if current_path == 'patterns.md' %}active{% endif %}">Understanding Patterns</a>
+                    <a href="{{ url_for('docs.index') }}?doc=patterns" class="docs-nav-link {% if current_path == 'patterns.md' %}active{% endif %}">Understanding Patterns</a>
                 </div>
                 <div class="docs-nav-item">
-                    <a href="{{ url_for('docs_bp.index') }}?doc=visualizations" class="docs-nav-link {% if current_path == 'visualizations.md' %}active{% endif %}">Creating Visualizations</a>
+                    <a href="{{ url_for('docs.index') }}?doc=visualizations" class="docs-nav-link {% if current_path == 'visualizations.md' %}active{% endif %}">Creating Visualizations</a>
                 </div>
                 <div class="docs-nav-item">
-                    <a href="{{ url_for('docs_bp.index') }}?doc=analysis" class="docs-nav-link {% if current_path == 'analysis.md' %}active{% endif %}">Analysis Tools</a>
+                    <a href="{{ url_for('docs.index') }}?doc=analysis" class="docs-nav-link {% if current_path == 'analysis.md' %}active{% endif %}">Analysis Tools</a>
                 </div>
                 
                 <h5 class="mt-4 mb-2">API Reference</h5>
                 <div class="docs-nav-item">
-                    <a href="{{ url_for('docs_bp.index') }}?doc=api/core" class="docs-nav-link {% if current_path.startswith('api/core') %}active{% endif %}">Core API</a>
+                    <a href="{{ url_for('docs.index') }}?doc=api/core" class="docs-nav-link {% if current_path.startswith('api/core') %}active{% endif %}">Core API</a>
                 </div>
                 <div class="docs-nav-item">
-                    <a href="{{ url_for('docs_bp.index') }}?doc=api/visualization" class="docs-nav-link {% if current_path.startswith('api/visualization') %}active{% endif %}">Visualization API</a>
+                    <a href="{{ url_for('docs.index') }}?doc=api/visualization" class="docs-nav-link {% if current_path.startswith('api/visualization') %}active{% endif %}">Visualization API</a>
                 </div>
                 <div class="docs-nav-item">
-                    <a href="{{ url_for('docs_bp.index') }}?doc=api/analysis" class="docs-nav-link {% if current_path.startswith('api/analysis') %}active{% endif %}">Analysis API</a>
+                    <a href="{{ url_for('docs.index') }}?doc=api/analysis" class="docs-nav-link {% if current_path.startswith('api/analysis') %}active{% endif %}">Analysis API</a>
                 </div>
                 <div class="docs-nav-item">
-                    <a href="{{ url_for('docs_bp.index') }}?doc=api/utils" class="docs-nav-link {% if current_path.startswith('api/utils') %}active{% endif %}">Utilities API</a>
+                    <a href="{{ url_for('docs.index') }}?doc=api/utils" class="docs-nav-link {% if current_path.startswith('api/utils') %}active{% endif %}">Utilities API</a>
                 </div>
                 
                 <h5 class="mt-4 mb-2">Examples & Tutorials</h5>
                 <div class="docs-nav-item">
-                    <a href="{{ url_for('docs_bp.index') }}?doc=examples" class="docs-nav-link {% if current_path.startswith('examples') %}active{% endif %}">Example Gallery</a>
+                    <a href="{{ url_for('docs.index') }}?doc=examples" class="docs-nav-link {% if current_path.startswith('examples') %}active{% endif %}">Example Gallery</a>
                 </div>
                 <div class="docs-nav-item">
-                    <a href="{{ url_for('docs_bp.index') }}?doc=tutorials" class="docs-nav-link {% if current_path.startswith('tutorials') %}active{% endif %}">Tutorials</a>
+                    <a href="{{ url_for('docs.index') }}?doc=tutorials" class="docs-nav-link {% if current_path.startswith('tutorials') %}active{% endif %}">Tutorials</a>
                 </div>
                 
                 <h5 class="mt-4 mb-2">Development</h5>
                 <div class="docs-nav-item">
-                    <a href="{{ url_for('docs_bp.index') }}?doc=contributing" class="docs-nav-link {% if current_path == 'contributing.md' %}active{% endif %}">Contributing Guide</a>
+                    <a href="{{ url_for('docs.index') }}?doc=contributing" class="docs-nav-link {% if current_path == 'contributing.md' %}active{% endif %}">Contributing Guide</a>
                 </div>
                 <div class="docs-nav-item">
-                    <a href="{{ url_for('docs_bp.index') }}?doc=changelog" class="docs-nav-link {% if current_path == 'changelog.md' %}active{% endif %}">Changelog</a>
+                    <a href="{{ url_for('docs.index') }}?doc=changelog" class="docs-nav-link {% if current_path == 'changelog.md' %}active{% endif %}">Changelog</a>
                 </div>
             </div>
         </div>
@@ -123,7 +123,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h3 class="card-title">
-                                        <a href="{{ url_for('docs_bp.show_doc', doc_path=dir.path) }}">{{ dir.name }}</a>
+                                        <a href="{{ url_for('docs.show_doc', doc_path=dir.path) }}">{{ dir.name }}</a>
                                     </h3>
                                     {% if dir.description %}
                                     <p class="card-text">{{ dir.description }}</p>
@@ -143,7 +143,7 @@
                             <div class="card">
                                 <div class="card-body">
                                     <h3 class="card-title">
-                                        <a href="{{ url_for('docs_bp.show_doc', doc_path=file.path) }}">{{ file.name }}</a>
+                                        <a href="{{ url_for('docs.show_doc', doc_path=file.path) }}">{{ file.name }}</a>
                                     </h3>
                                     {% if file.description %}
                                     <p class="card-text">{{ file.description }}</p>

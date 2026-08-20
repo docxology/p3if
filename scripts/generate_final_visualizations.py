@@ -11,7 +11,6 @@ from pathlib import Path
 from datetime import datetime
 
 import sys
-from pathlib import Path
 
 # Add the project root to the path for imports
 project_root = Path(__file__).parent.parent
@@ -72,7 +71,7 @@ class P3IFVisualizationCoordinator:
             
             # Summary
             total_files = orchestrator.count_generated_files()
-            logger.info(f"\n🎉 COMPREHENSIVE VISUALIZATION GENERATION COMPLETE")
+            logger.info("\n🎉 COMPREHENSIVE VISUALIZATION GENERATION COMPLETE")
             logger.info(f"📊 Generated {total_files} visualization files")
             logger.info(f"📋 Report saved to: {report_path}")
             logger.info(f"📁 All files saved to: {self.session_path}")
@@ -95,7 +94,7 @@ def main():
     
     coordinator = P3IFVisualizationCoordinator(output_dir=output_dir)
     session_path = coordinator.generate_comprehensive_visualizations()
-    logger.info(f"\n✅ P3IF visualization generation completed successfully!")
+    logger.info("\n✅ P3IF visualization generation completed successfully!")
     logger.info(f"📁 Session directory: {session_path}")
 
 

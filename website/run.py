@@ -9,7 +9,6 @@ and handles shutdown more gracefully.
 import os
 import sys
 import logging
-from pathlib import Path
 
 # Ensure we're in the correct directory
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
@@ -53,10 +52,10 @@ def print_route_info():
     
     print("\n" + "=" * 80)
     print(" Server Information ".center(80, "="))
-    print(f"  * Running on http://localhost:5000")
-    print(f"  * Documentation available at http://localhost:5000/docs/")
-    print(f"  * Visualizations available at http://localhost:5000/visualizations/")
-    print(f"  * Domains explorer available at http://localhost:5000/domains/")
+    print("  * Running on http://localhost:5000")
+    print("  * Documentation available at http://localhost:5000/docs/")
+    print("  * Visualizations available at http://localhost:5000/visualizations/")
+    print("  * Domains explorer available at http://localhost:5000/domains/")
     print("=" * 80 + "\n")
 
 if __name__ == '__main__':

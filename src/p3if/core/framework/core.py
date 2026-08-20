@@ -5,6 +5,7 @@ This module contains the main P3IF framework class with performance,
 validation, and analysis capabilities.
 """
 from typing import Dict, List, Optional, Union, Any, Set, Iterator, Callable
+import asyncio
 import json
 import os
 from pathlib import Path
@@ -183,6 +184,10 @@ class P3IFFramework(MetadataMixin):
             self.logger.info(f"Added pattern: {pattern.name} ({pattern.id})")
             return pattern.id
 
+    async def add_pattern_async(self, pattern: BasePattern) -> str:
+        """Asynchronously add a pattern to the framework."""
+        return await asyncio.to_thread(self.add_pattern, pattern)
+
     def get_pattern(self, pattern_id: str) -> Optional[BasePattern]:
         """
         Retrieve a pattern by ID with fast lookup.
@@ -307,6 +312,10 @@ class P3IFFramework(MetadataMixin):
 
             self.logger.info(f"Added relationship: {relationship.id}")
             return relationship.id
+
+    async def add_relationship_async(self, relationship: Relationship) -> str:
+        """Asynchronously add a relationship to the framework."""
+        return await asyncio.to_thread(self.add_relationship, relationship)
 
     def get_relationship(self, relationship_id: str) -> Optional[Relationship]:
         """

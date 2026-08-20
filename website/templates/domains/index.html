@@ -57,9 +57,9 @@
                     </div>
                 </div>
                 <div class="card-footer">
-                    <a href="{{ url_for('domains_bp.show_domain', domain_id=domain.id) }}" class="btn btn-primary">Explore</a>
+                    <a href="{{ url_for('domains.show_domain', domain_id=domain.id) }}" class="btn btn-primary">Explore</a>
                     {% if domain.has_visualizations %}
-                    <a href="{{ url_for('viz_bp.index') }}?domain={{ domain.id }}" class="btn btn-outline" style="margin-left: 0.5rem;">View Visualizations</a>
+                    <a href="{{ url_for('visualizations.index') }}?domain={{ domain.id }}" class="btn btn-outline" style="margin-left: 0.5rem;">View Visualizations</a>
                     {% endif %}
                 </div>
             </div>
@@ -89,7 +89,7 @@
                     and source references. This standardized approach allows for consistent analysis and visualization
                     across different fields.
                 </p>
-                <a href="{{ url_for('docs_bp.index') }}?doc=domains" class="btn btn-primary mt-2">Learn More About Domains</a>
+                <a href="{{ url_for('docs.index') }}?doc=domains" class="btn btn-primary mt-2">Learn More About Domains</a>
             </div>
             <div class="col-12 col-lg-6">
                 <div class="card">

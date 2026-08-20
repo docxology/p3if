@@ -11,7 +11,7 @@ The orchestrator follows thin orchestration principles:
 - Comprehensive logging and error handling
 """
 
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Optional
 from dataclasses import dataclass, field
 from datetime import datetime
 
@@ -132,7 +132,7 @@ class CognitiveSecurityOrchestrator:
         }
 
     def _identify_cognitive_biases(
-        self, orchestrator_context: Dict[str, Any] = None
+        self, orchestrator_context: Optional[Dict[str, Any]] = None
     ) -> Dict[str, Any]:
         """Identify cognitive biases in the supply chain."""
         # Get the supply chain analysis from the orchestrator context
@@ -173,7 +173,7 @@ class CognitiveSecurityOrchestrator:
         return risk_levels
 
     def _assess_manipulation_risks(
-        self, orchestrator_context: Dict[str, Any] = None
+        self, orchestrator_context: Optional[Dict[str, Any]] = None
     ) -> Dict[str, Any]:
         """Assess risks of information manipulation."""
         # Get the bias analysis from the orchestrator context
@@ -223,7 +223,7 @@ class CognitiveSecurityOrchestrator:
             return "low"
 
     def _design_cognitive_protection(
-        self, orchestrator_context: Dict[str, Any] = None
+        self, orchestrator_context: Optional[Dict[str, Any]] = None
     ) -> Dict[str, Any]:
         """Design protective measures for cognitive security."""
         # Get the manipulation assessment from the orchestrator context

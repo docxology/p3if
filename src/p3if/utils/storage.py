@@ -5,6 +5,7 @@ This module provides storage interfaces and implementations for P3IF data.
 """
 from __future__ import annotations
 
+import asyncio
 import json
 import os
 import sqlite3
@@ -25,40 +26,72 @@ class StorageInterface(ABC):
         """Save a pattern to storage."""
         pass
 
+    async def save_pattern_async(self, pattern: BasePattern) -> None:
+        """Asynchronously save a pattern to storage."""
+        await asyncio.to_thread(self.save_pattern, pattern)
+
     @abstractmethod
     def get_pattern(self, pattern_id: str) -> Optional[BasePattern]:
         """Retrieve a pattern by ID."""
         pass
+
+    async def get_pattern_async(self, pattern_id: str) -> Optional[BasePattern]:
+        """Asynchronously retrieve a pattern by ID."""
+        return await asyncio.to_thread(self.get_pattern, pattern_id)
 
     @abstractmethod
     def get_patterns_by_type(self, pattern_type: str) -> List[BasePattern]:
         """Retrieve all patterns of a specific type."""
         pass
 
+    async def get_patterns_by_type_async(self, pattern_type: str) -> List[BasePattern]:
+        """Asynchronously retrieve all patterns of a specific type."""
+        return await asyncio.to_thread(self.get_patterns_by_type, pattern_type)
+
     @abstractmethod
     def delete_pattern(self, pattern_id: str) -> bool:
         """Delete a pattern by ID."""
         pass
+
+    async def delete_pattern_async(self, pattern_id: str) -> bool:
+        """Asynchronously delete a pattern by ID."""
+        return await asyncio.to_thread(self.delete_pattern, pattern_id)
 
     @abstractmethod
     def save_relationship(self, relationship: Relationship) -> None:
         """Save a relationship to storage."""
         pass
 
+    async def save_relationship_async(self, relationship: Relationship) -> None:
+        """Asynchronously save a relationship to storage."""
+        await asyncio.to_thread(self.save_relationship, relationship)
+
     @abstractmethod
     def get_relationship(self, relationship_id: str) -> Optional[Relationship]:
         """Retrieve a relationship by ID."""
         pass
+
+    async def get_relationship_async(self, relationship_id: str) -> Optional[Relationship]:
+        """Asynchronously retrieve a relationship by ID."""
+        return await asyncio.to_thread(self.get_relationship, relationship_id)
 
     @abstractmethod
     def delete_relationship(self, relationship_id: str) -> bool:
         """Delete a relationship by ID."""
         pass
 
+    async def delete_relationship_async(self, relationship_id: str) -> bool:
+        """Asynchronously delete a relationship by ID."""
+        return await asyncio.to_thread(self.delete_relationship, relationship_id)
+
     @abstractmethod
     def clear(self) -> None:
         """Clear all data from storage."""
         pass
+
+    async def clear_async(self) -> None:
+        """Asynchronously clear all data from storage."""
+        await asyncio.to_thread(self.clear)
 
 
 class JSONStorage(StorageInterface):
@@ -72,7 +105,7 @@ class JSONStorage(StorageInterface):
             file_path: Path to the JSON file
         """
         self.file_path = Path(file_path)
-        self._data = {"patterns": {}, "relationships": {}}
+        self._data: Dict[str, Dict[str, Any]] = {"patterns": {}, "relationships": {}}
 
         # Load existing data if file exists
         if self.file_path.exists():
@@ -176,7 +209,7 @@ class SQLiteStorage(StorageInterface):
         self.db_path = Path(db_path)
         os.makedirs(self.db_path.parent, exist_ok=True)
 
-        self.conn = sqlite3.connect(str(self.db_path))
+        self.conn = sqlite3.connect(str(self.db_path), check_same_thread=False)
         self.conn.row_factory = sqlite3.Row
 
         try:
@@ -201,7 +234,8 @@ class SQLiteStorage(StorageInterface):
             metadata TEXT,
             domain TEXT,
             created_at TEXT,
-            updated_at TEXT
+            updated_at TEXT,
+            data TEXT
         )
         """
         )
@@ -237,11 +271,14 @@ class SQLiteStorage(StorageInterface):
         # Handle domain field which might not exist in base Pattern
         domain = getattr(pattern, "domain", None)
 
+        # Dump full pattern data as JSON to preserve model-specific attributes
+        full_data_json = json.dumps(pattern.model_dump(), default=str)
+
         cursor.execute(
             """
         INSERT OR REPLACE INTO patterns 
-        (id, name, description, type, tags, metadata, domain, created_at, updated_at)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+        (id, name, description, type, tags, metadata, domain, created_at, updated_at, data)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
         """,
             (
                 pattern.id,
@@ -253,6 +290,7 @@ class SQLiteStorage(StorageInterface):
                 domain,
                 pattern.created_at.isoformat(),
                 pattern.updated_at.isoformat(),
+                full_data_json,
             ),
         )
 
@@ -266,11 +304,18 @@ class SQLiteStorage(StorageInterface):
 
         if row:
             # Convert row to dict
-            pattern_data = dict(row)
-
-            # Parse JSON fields
-            pattern_data["tags"] = json.loads(pattern_data["tags"])
-            pattern_data["metadata"] = json.loads(pattern_data["metadata"])
+            row_dict = dict(row)
+            if row_dict.get("data"):
+                try:
+                    pattern_data = json.loads(row_dict["data"])
+                except Exception:
+                    pattern_data = row_dict
+                    pattern_data["tags"] = json.loads(pattern_data["tags"])
+                    pattern_data["metadata"] = json.loads(pattern_data["metadata"])
+            else:
+                pattern_data = row_dict
+                pattern_data["tags"] = json.loads(pattern_data["tags"])
+                pattern_data["metadata"] = json.loads(pattern_data["metadata"])
 
             # Create appropriate pattern type
             pattern_type = pattern_data.get("type", "")
@@ -468,13 +513,13 @@ class VisualizationStorage:
         files = viz_data.get("files", [])
 
         # Return default files if none stored
-        if not files:
+        if not files or not isinstance(files, list):
             return [
                 {"url": f"/output/visualizations/{viz_id}/index.html", "type": "html"},
                 {"url": f"/output/visualizations/{viz_id}/data.json", "type": "json"},
             ]
 
-        return files
+        return [dict(f) if isinstance(f, dict) else {"url": str(f)} for f in files]
 
     def delete_visualization(self, viz_id: str) -> bool:
         """

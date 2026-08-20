@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 from pathlib import Path
 from typing import Dict
 from matplotlib.table import Table
+from matplotlib.transforms import Bbox
 
 from p3if.core.framework import P3IFFramework
 from p3if.core.models import Property, Process, Perspective
@@ -94,7 +95,7 @@ def _create_properties_list(
         )
 
     # Create table
-    table = Table(ax, bbox=[0, 0, 1, 1])
+    table = Table(ax, bbox=Bbox.from_bounds(0, 0, 1, 1))
 
     # Style the table
     table.auto_set_font_size(False)
@@ -183,7 +184,7 @@ def _create_processes_list(
         table_data.append([proc.name, proc.domain, description, complexity, automation])
 
     # Create table
-    table = Table(ax, bbox=[0, 0, 1, 1])
+    table = Table(ax, bbox=Bbox.from_bounds(0, 0, 1, 1))
 
     # Style the table
     table.auto_set_font_size(False)
@@ -272,7 +273,7 @@ def _create_perspectives_list(
         table_data.append([persp.name, persp.domain, viewpoint, stakeholder_type, expertise_level])
 
     # Create table
-    table = Table(ax, bbox=[0, 0, 1, 1])
+    table = Table(ax, bbox=Bbox.from_bounds(0, 0, 1, 1))
 
     # Style the table
     table.auto_set_font_size(False)

@@ -6,13 +6,12 @@ A comprehensive script to run all P3IF examples with validation and output confi
 """
 
 import sys
-import os
 import json
 import time
 import argparse
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, Any, List, Optional
+from typing import Dict, Any, Optional
 
 # Add project root to path for imports
 project_root = Path(__file__).parent.parent

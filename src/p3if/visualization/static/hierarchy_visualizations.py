@@ -10,11 +10,11 @@ import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle, Circle, FancyBboxPatch
 import networkx as nx
 from pathlib import Path
-from typing import Dict
+from typing import Dict, List, Tuple
 import numpy as np
 
 from p3if.core.framework import P3IFFramework
-from p3if.core.models import Property, Process, Perspective
+from p3if.core.models import BasePattern, Property, Process, Perspective
 
 logger = logging.getLogger(__name__)
 
@@ -662,11 +662,12 @@ def _create_component_type_hierarchy(
 
     # Add component type details
     y_pos = 0.3
-    for comp_type, comp_list, color in [
-        ("Properties", properties, colors["property"]),
-        ("Processes", processes, colors["process"]),
-        ("Perspectives", perspectives, colors["perspective"]),
-    ]:
+    comp_types_data: List[Tuple[str, List[BasePattern], str]] = [
+        ("Properties", list(properties), colors["property"]),
+        ("Processes", list(processes), colors["process"]),
+        ("Perspectives", list(perspectives), colors["perspective"]),
+    ]
+    for comp_type, comp_list, color in comp_types_data:
         ax.add_patch(Rectangle((0.1, y_pos), 0.8, 0.08, color=color, alpha=0.8))
         ax.text(
             0.5,
@@ -727,9 +728,9 @@ def _create_relationship_hierarchy(
     ax1.set_ylabel("Count")
 
     # Relationship types
-    rel_types = {}
+    rel_types: Dict[str, int] = {}
     for rel in framework._relationships.values():
-        rel_type = getattr(rel, "relationship_type", "general")
+        rel_type = rel.relationship_type
         rel_types[rel_type] = rel_types.get(rel_type, 0) + 1
 
     if rel_types:

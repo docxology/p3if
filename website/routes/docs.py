@@ -8,7 +8,7 @@ from the /docs directory.
 import os
 import markdown
 from pathlib import Path
-from flask import Blueprint, render_template, abort, current_app
+from flask import Blueprint, render_template, abort, current_app, request
 
 docs_bp = Blueprint('docs', __name__, template_folder='../templates')
 
@@ -18,15 +18,21 @@ def index():
     docs_root = Path(current_app.root_path).parent / 'docs'
     readme_path = docs_root / 'README.md'
     
+    doc_query = request.args.get('doc')
+    if doc_query:
+        return show_doc(doc_query)
+
     if not readme_path.exists():
         return render_template('docs/index.html')
     
-    with open(readme_path, 'r') as f:
+    with open(readme_path, 'r', encoding='utf-8') as f:
         content = f.read()
     
-    return render_template('docs/markdown.html', 
+    html_content = markdown.markdown(content, extensions=['fenced_code', 'tables'])
+    return render_template('docs/index.html', 
                           title='Documentation',
-                          content=content,
+                          content=html_content,
+                          current_path='',
                           breadcrumbs=[{'name': 'Docs', 'url': '/docs/'}])
 
 @docs_bp.route('/<path:doc_path>')
@@ -43,14 +49,18 @@ def show_doc(doc_path):
     file_path = docs_root / doc_path
     
     if file_path.is_dir():
-        file_path = file_path / 'README.md'
-        if not file_path.exists():
+        readme_candidate = file_path / 'README.md'
+        if not readme_candidate.exists():
             # List directory contents
-            return render_template('docs/directory.html',
+            return render_template('docs/index.html',
                                  title=f"Directory: {doc_path}",
                                  path=doc_path,
-                                 items=get_directory_contents(docs_root / doc_path),
+                                 current_path=doc_path,
+                                 directory_title=f"Directory: {doc_path}",
+                                 directory_contents=get_directory_contents(docs_root / doc_path),
                                  breadcrumbs=build_breadcrumbs(doc_path))
+        else:
+            file_path = readme_candidate
     
     # If path doesn't have .md extension, try adding it
     if not str(file_path).endswith('.md'):
@@ -63,15 +73,17 @@ def show_doc(doc_path):
         abort(404)
     
     # Read and render the Markdown content
-    with open(file_path, 'r') as f:
+    with open(file_path, 'r', encoding='utf-8') as f:
         content = f.read()
     
     # Create the title from the filename
     title = file_path.stem.replace('_', ' ').title()
+    html_content = markdown.markdown(content, extensions=['fenced_code', 'tables'])
     
-    return render_template('docs/markdown.html',
+    return render_template('docs/index.html',
                           title=title,
-                          content=content,
+                          content=html_content,
+                          current_path=file_path.name,
                           breadcrumbs=build_breadcrumbs(doc_path))
 
 def get_directory_contents(dir_path):

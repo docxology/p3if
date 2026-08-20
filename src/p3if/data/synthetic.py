@@ -16,7 +16,15 @@ if __name__ == "__main__":
     sys.path.insert(0, str(project_root))
 
 from p3if.core.framework import P3IFFramework
-from p3if.core.models import Property, Process, Perspective, Relationship
+from p3if.core.models import (
+    BasePattern,
+    Property,
+    Process,
+    Perspective,
+    Relationship,
+    RelationshipStrength,
+    ConfidenceScore,
+)
 
 
 class SyntheticDataGenerator:
@@ -30,8 +38,8 @@ class SyntheticDataGenerator:
             domain_data_path: Optional path to domain data file or directory
         """
         self.logger = get_logger(__name__)
-        self.domains = {}
-        self.domain_index = None
+        self.domains: Dict[str, Any] = {}
+        self.domain_index: Optional[Dict[str, Any]] = None
 
         if domain_data_path:
             self.load_domain_data(domain_data_path)
@@ -82,18 +90,20 @@ class SyntheticDataGenerator:
         """
         try:
             with open(index_path, "r") as f:
-                self.domain_index = json.load(f)
+                loaded_index = json.load(f)
+            self.domain_index = loaded_index if isinstance(loaded_index, dict) else {}
 
             # Get the directory containing the index file
             index_dir = Path(index_path).parent
 
+            domains_list = self.domain_index.get("domains", [])
             self.logger.info(
-                f"Loaded domain index with {len(self.domain_index.get('domains', []))} domains"
+                f"Loaded domain index with {len(domains_list)} domains"
             )
 
             # Load each domain referenced in the index
-            for domain_info in self.domain_index.get("domains", []):
-                domain_file = domain_info.get("file")
+            for domain_info in domains_list:
+                domain_file = domain_info.get("file") if isinstance(domain_info, dict) else None
                 if domain_file:
                     domain_path = index_dir / domain_file
                     self.load_domain_file(domain_path)
@@ -266,29 +276,29 @@ class SyntheticDataGenerator:
 
         # Generate relationships
         for _ in range(num_relationships):
-            prop = random.choice(properties) if properties else None
-            proc = random.choice(processes) if processes else None
-            persp = random.choice(perspectives) if perspectives else None
+            prop_choice: Optional[Property] = random.choice(properties) if properties else None
+            proc_choice: Optional[Process] = random.choice(processes) if processes else None
+            persp_choice: Optional[Perspective] = random.choice(perspectives) if perspectives else None
 
             # Ensure at least two dimensions are connected
             while (
-                (prop is None and proc is None)
-                or (prop is None and persp is None)
-                or (proc is None and persp is None)
+                (prop_choice is None and proc_choice is None)
+                or (prop_choice is None and persp_choice is None)
+                or (proc_choice is None and persp_choice is None)
             ):
-                prop = random.choice(properties) if properties else None
-                proc = random.choice(processes) if processes else None
-                persp = random.choice(perspectives) if perspectives else None
+                prop_choice = random.choice(properties) if properties else None
+                proc_choice = random.choice(processes) if processes else None
+                persp_choice = random.choice(perspectives) if perspectives else None
 
             strength = random.uniform(strength_range[0], strength_range[1])
             confidence = random.uniform(0.5, 1.0)
 
             relationship = Relationship(
-                property_id=prop.id if prop else None,
-                process_id=proc.id if proc else None,
-                perspective_id=persp.id if persp else None,
-                strength=strength,
-                confidence=confidence,
+                property_id=prop_choice.id if prop_choice else None,
+                process_id=proc_choice.id if proc_choice else None,
+                perspective_id=persp_choice.id if persp_choice else None,
+                strength=RelationshipStrength(strength),
+                confidence=ConfidenceScore(confidence),
             )
 
             try:
@@ -344,9 +354,9 @@ class SyntheticDataGenerator:
         all_perspectives = framework.get_patterns_by_type("perspective")
 
         # Group by domain
-        properties_by_domain = {}
-        processes_by_domain = {}
-        perspectives_by_domain = {}
+        properties_by_domain: Dict[str, List[BasePattern]] = {}
+        processes_by_domain: Dict[str, List[BasePattern]] = {}
+        perspectives_by_domain: Dict[str, List[BasePattern]] = {}
 
         for prop in all_properties:
             domain = getattr(prop, "domain", None)
@@ -437,12 +447,13 @@ class SyntheticDataGenerator:
                 continue
 
             strength = random.uniform(min_strength, 1.0)
+            confidence = random.uniform(0.7, 1.0)
             relationship = Relationship(
                 property_id=property_id,
                 process_id=process_id,
                 perspective_id=perspective_id,
-                strength=strength,
-                confidence=random.uniform(0.7, 1.0),
+                strength=RelationshipStrength(strength),
+                confidence=ConfidenceScore(confidence),
                 metadata={"cross_domain": True, "domains": [domain1, domain2]},
             )
 

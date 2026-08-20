@@ -10,7 +10,15 @@ from pathlib import Path
 from typing import Union, Optional
 
 from p3if.core.framework import P3IFFramework
-from p3if.core.models import Property, Process, Perspective, Relationship
+from p3if.core.models import (
+    BasePattern,
+    Property,
+    Process,
+    Perspective,
+    Relationship,
+    RelationshipStrength,
+    ConfidenceScore,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -101,7 +109,7 @@ def import_from_csv(
                 pattern_type = row.get("type")
 
                 # Common pattern fields
-                pattern_kwargs = {
+                pattern_kwargs: dict = {
                     "name": row.get("name"),
                     "description": row.get("description", ""),
                     "domain": row.get("domain", None) or None,
@@ -112,6 +120,7 @@ def import_from_csv(
                 if row.get("id"):
                     pattern_kwargs["id"] = row.get("id")
 
+                pattern: BasePattern
                 if pattern_type == "property":
                     pattern = Property(**pattern_kwargs)
                 elif pattern_type == "process":
@@ -133,8 +142,8 @@ def import_from_csv(
                     property_id=row.get("property_id", None),
                     process_id=row.get("process_id", None),
                     perspective_id=row.get("perspective_id", None),
-                    strength=float(row.get("strength", 0.0)),
-                    confidence=float(row.get("confidence", 0.0)),
+                    strength=RelationshipStrength(float(row.get("strength", 0.0))),
+                    confidence=ConfidenceScore(float(row.get("confidence", 0.0))),
                 )
                 framework.add_relationship(relationship)
 

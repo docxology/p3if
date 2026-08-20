@@ -74,7 +74,7 @@ class Visualizer:
             fig.suptitle(title, fontsize=16, y=0.98)
 
         if tight_layout:
-            fig.tight_layout(rect=[0, 0, 1, 0.95] if title else [0, 0, 1, 1])
+            fig.tight_layout(rect=(0.0, 0.0, 1.0, 0.95) if title else (0.0, 0.0, 1.0, 1.0))
 
         path = Path(file_path)
         os.makedirs(path.parent, exist_ok=True)
@@ -155,7 +155,7 @@ class Visualizer:
         Returns:
             List of color strings
         """
-        return sns.color_palette(self.colormap, n_colors=n_colors).as_hex()
+        return list(sns.color_palette(self.colormap, n_colors=n_colors).as_hex())
 
     def get_domain_colors(self) -> Dict[str, str]:
         """

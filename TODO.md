@@ -1,43 +1,28 @@
 # P3IF TODO — Upcoming Improvements
 
 Items completed in v2.1.0–v2.5.0 are listed in CHANGELOG.md.
-Remaining items scoped for future releases:
-
----
-
-## Architecture & Design (Future)
-
-### A1. Split `framework.py` (~1170 lines) into smaller modules
-DONE in this release: `core/framework.py` is now a `core/framework/` package
-(`core.py`, `metrics.py`, `builder.py`, `__init__.py` re-exporting the public
-API). All `from p3if.core.framework import ...` imports remain source-compatible.
-
-### A2. Add async versions of add_pattern/add_relationship
-The framework is fully synchronous. For I/O-bound storage backends, async methods would help.
-
----
-
-## Medium — Quality & Maintainability
-
-### Q10. Split `website/routes/api.py` (928 lines) into separate modules
-
-### Q13. Remaining mypy errors in validation.py and caching.py
-DONE: all `p3if.core.*` modules are now mypy-clean (validation, caching, and the
-analysis/composition/dimensions/orchestration/performance_monitoring modules).
-Remaining repo-wide mypy debt (239 errors) is in visualization/data/orchestrator
-modules, mostly untyped defs plus numpy-`_Array` stub noise outside the core
-strict-typing contract.
-
----
-
-## Minor — Polish
-
-### P11. Verify all website template routes return 200
 
 ---
 
 ## Completed in v2.5.0
+- **A1**: Split `core/framework.py` into modular package `core/framework/` (`core.py`, `metrics.py`, `builder.py`, `__init__.py`) — DONE
+- **Q13 (Core)**: Type annotations across all `p3if.core.*` modules verified and mypy-clean — DONE
+- **Q11**: Comprehensive tests for analysis modules — DONE
+- **Q12**: Tests for thin orchestrators — DONE
 
-- Q11: Tests for analysis modules (12 tests) — DONE
-- Q12: Tests for orchestrators (20 tests) — DONE
-- Q13 (partial): mypy extended to 5 more modules, 73 fewer errors — DONE
+---
+
+## Active & Upcoming Roadmap
+
+### Minor — Polish & Typing
+- [x] **P11**: Verify all website template routes return 200 (fix broken `url_for` blueprint endpoint names, e.g. `docs_bp`, `domains_bp`, `viz_bp`, `home` -> `index`).
+- [x] **Q14**: Clean up type annotations across visualization, data, utils, and orchestrator modules to pass repo-wide `mypy src`.
+
+### Medium — Quality & Modularity
+- [x] **Q10**: Split `website/routes/api.py` into modular submodules under `website/routes/api/` (`health.py`, `domains.py`, `framework.py`, `patterns.py`, `relationships.py`, `analysis.py`, `visualizations.py`, `export.py`, `spec.py`) while retaining re-export compatibility.
+- [x] **A2**: Add async storage and framework methods (`save_pattern_async`, `get_pattern_async`, `save_relationship_async`, `add_pattern_async`, `add_relationship_async`) for non-blocking I/O backends.
+
+### Major — Advanced Capabilities & High Performance
+- [x] **M1**: Advanced 3D pattern visualization engine (`p3if.visualization.interactive.interactive_3d`) with full dimension projection, cluster visualization, cross-domain relationship overlays, and WebGL/Plotly export.
+- [x] **M2**: High-performance Compositional Indexing Engine (`p3if.core.indexing`) supporting multi-attribute inverted indices, fast subset queries, intersection/union operations, and benchmarked sub-millisecond retrieval.
+- [x] **M3**: Comprehensive end-to-end framework test suite covering async storage, compositional indexing, 3D visualization, and full website template route coverage without mocks.

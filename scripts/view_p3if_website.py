@@ -9,15 +9,27 @@ from pathlib import Path
 
 
 def open_website():
-    """Open the P3IF website in the default web browser."""
-    # Define the path to the website
-    website_path = Path("outputs/p3if_full_website.html")
+    """Open the P3IF unified interactive dashboard in a web browser."""
+    # Define the path to the website / dashboard
+    website_path = Path("outputs/p3if_unified_dashboard.html")
+    if not website_path.exists():
+        website_path = Path("outputs/unified_interactive_dashboard.html")
     
     if not website_path.exists():
-        print(f"Error: Website file not found at {website_path}")
-        print("Please run 'python3 scripts/test_3d_cube_with_domains.py' first to generate the website.")
-        print("Then move the generated files to the output directory.")
-        return False
+        print(f"Generating unified interactive dashboard at {website_path}...")
+        from p3if.core.framework import P3IFFramework
+        from p3if.data.synthetic import SyntheticDataGenerator
+        from p3if.visualization.interactive.interactive import InteractiveVisualizer
+
+        gen = SyntheticDataGenerator()
+        fw = P3IFFramework()
+        domains = ["Healthcare", "ArtificialIntelligence", "Blockchain", "QuantumComputing"]
+        gen.generate_multi_domain(fw, domain_names=domains, relationships_per_domain=20)
+        gen.generate_cross_domain_connections(fw, num_connections=15)
+
+        viz = InteractiveVisualizer(fw)
+        website_path.parent.mkdir(parents=True, exist_ok=True)
+        viz.generate_modern_dashboard(website_path, title="P3IF Unified Interactive Dashboard")
     
     # Convert to absolute path with file:// protocol
     file_url = f"file://{os.path.abspath(website_path)}"

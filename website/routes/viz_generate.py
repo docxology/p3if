@@ -14,7 +14,7 @@ from datetime import datetime
 from pathlib import Path
 from flask import (
     Blueprint, render_template, request, redirect, url_for,
-    current_app, flash, jsonify, session
+    flash, jsonify, session
 )
 
 # Make sure the core module is available
@@ -32,9 +32,9 @@ except ImportError as e:
     VISUALIZATION_AVAILABLE = False
 
 try:
-    from p3if.core.framework import P3IFFramework
-    FRAMEWORK_AVAILABLE = True
-except ImportError as e:
+    import importlib.util
+    FRAMEWORK_AVAILABLE = bool(importlib.util.find_spec("p3if.core.framework"))
+except Exception as e:
     logging.error(f"Failed to import P3IFFramework: {str(e)}")
     FRAMEWORK_AVAILABLE = False
 
@@ -298,7 +298,7 @@ def generate_visualization():
             'end_time': time.time()
         }
         
-        flash(f"Visualization successfully generated", "success")
+        flash("Visualization successfully generated", "success")
         return redirect(url_for('visualizations.show_visualization', output_dir=output_name))
         
     except Exception as e:

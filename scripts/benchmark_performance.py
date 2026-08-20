@@ -11,7 +11,6 @@ try:
 except ImportError:
     psutil = None
 import tracemalloc
-import asyncio
 import argparse
 from pathlib import Path
 from typing import Dict, List, Any, Optional
@@ -26,13 +25,10 @@ sys.path.insert(0, str(project_root))
 from p3if.core.framework import P3IFFramework
 from p3if.visualization.interactive import InteractiveVisualizer
 from p3if.utils.performance import (
-    get_performance_monitor, clear_all_caches,
-    create_performance_report, optimize_memory_usage
+    clear_all_caches
 )
 from tests.fixtures.helpers import (
-    create_test_patterns_with_relationships,
-    create_multi_domain_test_framework,
-    create_large_test_framework
+    create_test_patterns_with_relationships
 )
 
 
@@ -88,7 +84,7 @@ class PerformanceBenchmark:
         try:
             result = func(*args, **kwargs)
             success = True
-        except Exception as e:
+        except Exception:
             result = None
             success = False
 

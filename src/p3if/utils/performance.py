@@ -18,7 +18,7 @@ except ImportError:
     PSUTIL_AVAILABLE = False
 
 import threading
-from typing import Dict, Any, List, Optional, Callable
+from typing import Dict, Any, List, Optional, Callable, Union
 from contextlib import contextmanager
 from dataclasses import dataclass, field
 from collections import defaultdict, OrderedDict
@@ -384,7 +384,7 @@ def performance_timer(name: str, metadata: Optional[Dict[str, Any]] = None):
     return decorator
 
 
-def cached(cache_key: str = None, ttl: Optional[float] = None):
+def cached(cache_key: Optional[Union[str, Callable]] = None, ttl: Optional[float] = None):
     """Decorator for caching function results."""
 
     # Handle both @cached and @cached() syntax
@@ -392,7 +392,7 @@ def cached(cache_key: str = None, ttl: Optional[float] = None):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
             # Generate cache key
-            if cache_key:
+            if isinstance(cache_key, str):
                 key = cache_key
             else:
                 # For methods, include the class name to avoid collisions

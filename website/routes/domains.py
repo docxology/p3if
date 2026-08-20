@@ -4,7 +4,6 @@ Domain Routes
 This module provides routes for exploring P3IF domains from the data/domains directory.
 """
 
-import os
 import json
 from pathlib import Path
 from flask import Blueprint, render_template, abort, current_app, jsonify
@@ -48,15 +47,19 @@ def index():
         domain_info = next((d for d in domain_index.get('domains', []) 
                          if d.get('id', '').lower() == domain_name.lower()), None)
         
-        if not domain_info:
-            # If not in index, create basic info
-            domain_info = {
+        domain_entry = None
+        if domain_info:
+            domain_entry = dict(domain_info)
+            if 'description' not in domain_entry:
+                domain_entry['description'] = f"Domain data for {domain_entry.get('name', domain_name)}"
+        else:
+            domain_entry = {
                 'id': domain_name,
                 'name': domain_name.replace('_', ' ').title(),
                 'description': f"Domain data for {domain_name}"
             }
         
-        domains.append(domain_info)
+        domains.append(domain_entry)
     
     # Sort domains alphabetically by name
     domains.sort(key=lambda x: x.get('name', ''))
@@ -81,10 +84,18 @@ def show_domain(domain_id):
     except json.JSONDecodeError:
         abort(500)
     
+    # Extract name and id
+    domain_name = domain_data.get('name') or domain_data.get('domain') or domain_id.replace('_', ' ').title()
+    domain_dict = dict(domain_data)
+    domain_dict['name'] = domain_name
+    domain_dict['id'] = domain_id
+    if 'description' not in domain_dict:
+        domain_dict['description'] = f"Domain data and pattern relationships for {domain_name}"
+    
     # Get basic stats
-    pattern_count = len(domain_data.get('patterns', []))
-    process_count = len(domain_data.get('processes', []))
-    perspective_count = len(domain_data.get('perspectives', []))
+    pattern_count = len(domain_dict.get('patterns', []))
+    process_count = len(domain_dict.get('processes', []))
+    perspective_count = len(domain_dict.get('perspectives', []))
     
     # Get domain visualizations if they exist
     viz_path = Path(current_app.root_path).parent / 'output' / 'final' / 'visualizations'
@@ -103,9 +114,9 @@ def show_domain(domain_id):
             for img in compare_dir.glob('*.png'):
                 domain_viz[f'compare_{img.stem}'] = f'/output/final/visualizations/compare/{img.name}'
     
-    return render_template('domains/detail.html',
-                          title=domain_data.get('name', domain_id.title()),
-                          domain=domain_data,
+    return render_template('domains/show.html',
+                          title=domain_name,
+                          domain=domain_dict,
                           pattern_count=pattern_count,
                           process_count=process_count,
                           perspective_count=perspective_count,
@@ -127,7 +138,33 @@ def domain_patterns(domain_id):
     except json.JSONDecodeError:
         abort(500)
     
-    patterns = domain_data.get('patterns', [])
+    raw_patterns = domain_data.get('patterns', [])
+    patterns_list = []
+    if isinstance(raw_patterns, dict):
+        for p_type, p_items in raw_patterns.items():
+            if isinstance(p_items, list):
+                for item in p_items:
+                    if isinstance(item, dict):
+                        item_copy = dict(item)
+                        item_copy.setdefault('type', p_type.rstrip('s'))
+                        patterns_list.append(item_copy)
+                    elif isinstance(item, str):
+                        patterns_list.append({'name': item, 'type': p_type.rstrip('s'), 'description': ''})
+    elif isinstance(raw_patterns, list):
+        for item in raw_patterns:
+            if isinstance(item, dict):
+                patterns_list.append(item)
+            elif isinstance(item, str):
+                patterns_list.append({'name': item, 'type': 'property', 'description': ''})
+    else:
+        for p_type in ['properties', 'processes', 'perspectives']:
+            for item in domain_data.get(p_type, []):
+                if isinstance(item, dict):
+                    item_copy = dict(item)
+                    item_copy.setdefault('type', p_type.rstrip('s'))
+                    patterns_list.append(item_copy)
+                elif isinstance(item, str):
+                    patterns_list.append({'name': item, 'type': p_type.rstrip('s'), 'description': ''})
     
     # Group patterns by type
     pattern_groups = {
@@ -136,15 +173,22 @@ def domain_patterns(domain_id):
         'perspective': []
     }
     
-    for pattern in patterns:
-        pattern_type = pattern.get('type', '').lower()
-        if pattern_type in pattern_groups:
-            pattern_groups[pattern_type].append(pattern)
+    for pattern in patterns_list:
+        p_type = pattern.get('type', 'property').lower()
+        if p_type in pattern_groups:
+            pattern_groups[p_type].append(pattern)
+        else:
+            pattern_groups['property'].append(pattern)
+    
+    pattern_types = [k.capitalize() for k, v in pattern_groups.items() if len(v) > 0]
     
     return render_template('domains/patterns.html',
                           title=f"Patterns: {domain_data.get('name', domain_id.title())}",
                           domain=domain_data,
-                          pattern_groups=pattern_groups)
+                          patterns=patterns_list,
+                          grouped_patterns=pattern_groups,
+                          pattern_groups=pattern_groups,
+                          pattern_types=pattern_types)
 
 @domains_bp.route('/<domain_id>/api/data')
 def domain_api_data(domain_id):

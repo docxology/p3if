@@ -149,7 +149,7 @@ class MultiDomainPortal:
 
             # Add property distribution
             elif row == 1 and col == 2:
-                prop_types = defaultdict(int)
+                prop_types: Dict[str, int] = defaultdict(int)
                 for prop in properties:
                     prop_type = prop.get("type", "unknown")
                     prop_types[prop_type] += 1
@@ -167,7 +167,7 @@ class MultiDomainPortal:
 
             # Add process analysis
             elif row == 2 and col == 1:
-                proc_types = defaultdict(int)
+                proc_types: Dict[str, int] = defaultdict(int)
                 for proc in processes:
                     proc_type = proc.get("type", "unknown")
                     proc_types[proc_type] += 1
@@ -186,7 +186,7 @@ class MultiDomainPortal:
 
             # Add perspective coverage
             elif row == 2 and col == 2:
-                pers_types = defaultdict(int)
+                pers_types: Dict[str, int] = defaultdict(int)
                 for pers in perspectives:
                     pers_type = pers.get("type", "unknown")
                     pers_types[pers_type] += 1

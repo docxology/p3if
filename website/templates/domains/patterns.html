@@ -6,9 +6,9 @@
 {% block content %}
 <div class="container section-sm">
     <nav class="breadcrumb">
-        <div class="breadcrumb-item"><a href="{{ url_for('home') }}">Home</a></div>
-        <div class="breadcrumb-item"><a href="{{ url_for('domains_bp.index') }}">Domains</a></div>
-        <div class="breadcrumb-item"><a href="{{ url_for('domains_bp.show_domain', domain_id=domain.id) }}">{{ domain.name }}</a></div>
+        <div class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></div>
+        <div class="breadcrumb-item"><a href="{{ url_for('domains.index') }}">Domains</a></div>
+        <div class="breadcrumb-item"><a href="{{ url_for('domains.show_domain', domain_id=domain.id) }}">{{ domain.name }}</a></div>
         <div class="breadcrumb-item active">Patterns</div>
     </nav>
 
@@ -113,7 +113,9 @@
                 {% for group_name, group_patterns in grouped_patterns.items() %}
                 <div class="pattern-panel" id="patterns-{{ group_name|lower }}">
                     <h2>{{ group_name }} Patterns</h2>
+                    {% if group_descriptions is defined and group_descriptions.get(group_name) %}
                     <p>{{ group_descriptions.get(group_name, '') }}</p>
+                    {% endif %}
                     
                     <div class="row pattern-grid">
                         {% for pattern in group_patterns %}
@@ -216,9 +218,9 @@
     {% endif %}
     
     <div class="text-center mt-5">
-        <a href="{{ url_for('domains_bp.show_domain', domain_id=domain.id) }}" class="btn btn-outline-secondary">Back to Domain</a>
+        <a href="{{ url_for('domains.show_domain', domain_id=domain.id) }}" class="btn btn-outline-secondary">Back to Domain</a>
         {% if visualizations %}
-        <a href="{{ url_for('viz_bp.index') }}?domain={{ domain.id }}" class="btn btn-primary">View Domain Visualizations</a>
+        <a href="{{ url_for('visualizations.index') }}?domain={{ domain.id }}" class="btn btn-primary">View Domain Visualizations</a>
         {% endif %}
     </div>
 </div>

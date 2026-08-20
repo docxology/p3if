@@ -183,6 +183,9 @@ results = orchestrator.execute_analysis()
 # Create visualizations
 viz = InteractiveVisualizer(framework)
 viz.generate_3d_cube_html("output/cube.html")
+
+# Generate the unified interactive dashboard (Overview / 3D Cube / Network / Analytics)
+viz.generate_modern_dashboard("output/unified_dashboard.html", title="P3IF Unified Dashboard")
 ```
 
 ### Website

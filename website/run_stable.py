@@ -9,7 +9,6 @@ most project files to prevent constant restarting.
 import os
 import sys
 import logging
-from pathlib import Path
 
 # Ensure we're in the correct directory
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
@@ -34,10 +33,10 @@ from app import app
 print("\n" + "=" * 80)
 print(" P3IF Web Interface ".center(80, "="))
 print("=" * 80)
-print(f"  * Running on http://localhost:5000")
-print(f"  * Documentation at http://localhost:5000/docs/")
-print(f"  * Visualizations at http://localhost:5000/visualizations/")
-print(f"  * Domains explorer at http://localhost:5000/domains/")
+print("  * Running on http://localhost:5000")
+print("  * Documentation at http://localhost:5000/docs/")
+print("  * Visualizations at http://localhost:5000/visualizations/")
+print("  * Domains explorer at http://localhost:5000/domains/")
 print("=" * 80 + "\n")
 
 if __name__ == '__main__':

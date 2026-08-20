@@ -20,7 +20,7 @@ import subprocess
 import json
 from pathlib import Path
 from datetime import datetime
-from typing import Dict, Any, List, Tuple
+from typing import Dict, Any, Tuple
 
 # Add project root to path
 project_root = Path(__file__).parent.parent
@@ -332,7 +332,7 @@ class P3IFMasterOrchestrator:
         }
 
         # Run validate_system.py
-        cmd = f"python scripts/validate_system.py 2>&1"
+        cmd = "python scripts/validate_system.py 2>&1"
         code, stdout, stderr = self._run_command(cmd)
 
         # Save output

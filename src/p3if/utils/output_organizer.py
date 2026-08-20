@@ -46,7 +46,7 @@ class OutputDirectoryStructure:
 class OutputOrganizer:
     """Manages the organization of P3IF visualization outputs."""
 
-    def __init__(self, root_output_dir: Union[str, Path] = None):
+    def __init__(self, root_output_dir: Optional[Union[str, Path]] = None):
         """
         Initialize the output organizer.
 
@@ -332,7 +332,7 @@ class OutputOrganizer:
 
     def _count_files_by_type(self) -> Dict[str, int]:
         """Count files by type/extension."""
-        counts = {}
+        counts: Dict[str, int] = {}
 
         for file_path in self.current_base_path.rglob("*"):
             if file_path.is_file():
@@ -398,7 +398,9 @@ class OutputOrganizer:
 _default_organizer = None
 
 
-def get_output_organizer(root_output_dir: Union[str, Path] = None) -> OutputOrganizer:
+def get_output_organizer(
+    root_output_dir: Optional[Union[str, Path]] = None,
+) -> OutputOrganizer:
     """Get the global output organizer instance."""
     global _default_organizer
     if _default_organizer is None:
@@ -407,7 +409,10 @@ def get_output_organizer(root_output_dir: Union[str, Path] = None) -> OutputOrga
 
 
 def organize_visualization_output(
-    visualization_type: str, filename: str, content: Any, root_output_dir: Union[str, Path] = None
+    visualization_type: str,
+    filename: str,
+    content: Any,
+    root_output_dir: Optional[Union[str, Path]] = None,
 ) -> Path:
     """
     Convenience function to organize a visualization output.
@@ -437,7 +442,10 @@ def organize_visualization_output(
 
 
 def organize_animation_output(
-    animation_type: str, filename: str, content: Any, root_output_dir: Union[str, Path] = None
+    animation_type: str,
+    filename: str,
+    content: Any,
+    root_output_dir: Optional[Union[str, Path]] = None,
 ) -> Path:
     """
     Convenience function to organize an animation output.
@@ -466,7 +474,9 @@ def organize_animation_output(
     return output_path
 
 
-def create_standard_output_structure(root_output_dir: Union[str, Path] = None) -> Path:
+def create_standard_output_structure(
+    root_output_dir: Optional[Union[str, Path]] = None,
+) -> Path:
     """
     Create a standard output structure for P3IF visualizations.
 

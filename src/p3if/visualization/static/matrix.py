@@ -3,7 +3,7 @@ P3IF Matrix Visualizer
 
 This module provides matrix visualization capabilities for P3IF data.
 """
-from typing import List, Optional, Union
+from typing import Dict, List, Optional, Union, Any, Set
 import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 import seaborn as sns
@@ -35,7 +35,7 @@ class MatrixVisualizer(Visualizer):
 
     def visualize_relationship_matrix(
         self,
-        file_path: Union[str, Path],
+        file_path: Optional[Union[str, Path]],
         pattern_type_x: str,
         pattern_type_y: str,
         relationship_type: Optional[str] = None,
@@ -47,7 +47,7 @@ class MatrixVisualizer(Visualizer):
         font_size: int = 8,
         max_patterns: int = 25,
         use_progressive_rendering: bool = True,
-    ) -> None:
+    ) -> Optional[Figure]:
         """
         Visualize a matrix of relationships between two pattern types.
 
@@ -71,7 +71,7 @@ class MatrixVisualizer(Visualizer):
             "perspective",
         ]:
             self.logger.warning("Invalid pattern types")
-            return
+            return None
 
         # Get patterns for each pattern type
         patterns_x = self.framework.get_patterns_by_type(pattern_type_x)
@@ -114,7 +114,7 @@ class MatrixVisualizer(Visualizer):
         # Check if we have patterns of both types
         if not patterns_x or not patterns_y:
             self.logger.warning(f"No patterns found for {pattern_type_x} or {pattern_type_y}")
-            return
+            return None
 
         # Calculate matrix dimensions
         matrix_size = len(patterns_x) * len(patterns_y)
@@ -143,7 +143,7 @@ class MatrixVisualizer(Visualizer):
         y_map = {p.id: i for i, p in enumerate(patterns_y)}
 
         # Create a matrix
-        matrix = np.zeros((len(patterns_y), len(patterns_x)))
+        matrix: Any = np.zeros((len(patterns_y), len(patterns_x)))
 
         # Fill the matrix with relationship strengths
         for rel in self.framework._relationships.values():
@@ -274,7 +274,7 @@ class MatrixVisualizer(Visualizer):
 
     def visualize_domain_similarity(
         self,
-        file_path: Union[str, Path] = None,
+        file_path: Optional[Union[str, Path]] = None,
         min_similarity: float = 0.0,
         normalize: bool = True,
         max_domains: int = 30,
@@ -292,13 +292,13 @@ class MatrixVisualizer(Visualizer):
             Matplotlib figure if file_path is None
         """
         # Get all domains
-        domains = set()
+        domain_set: Set[str] = set()
         for pattern in self.framework._patterns.values():
             domain = getattr(pattern, "domain", None)
             if domain:
-                domains.add(domain)
+                domain_set.add(domain)
 
-        domains = list(domains)
+        domains: List[str] = list(domain_set)
 
         if not domains:
             self.logger.warning("No domains found")
@@ -309,7 +309,7 @@ class MatrixVisualizer(Visualizer):
             self.logger.warning(f"Too many domains ({len(domains)}), limiting to {max_domains}")
 
             # Find domains with most patterns
-            domain_pattern_counts = {}
+            domain_pattern_counts: Dict[str, int] = {}
             for pattern in self.framework._patterns.values():
                 domain = getattr(pattern, "domain", None)
                 if domain:
@@ -322,7 +322,7 @@ class MatrixVisualizer(Visualizer):
 
         # Create similarity matrix
         n = len(domains)
-        similarity = np.zeros((n, n))
+        similarity: Any = np.zeros((n, n))
         domain_to_idx = {domain: i for i, domain in enumerate(domains)}
 
         # Calculate similarity
@@ -395,14 +395,14 @@ class MatrixVisualizer(Visualizer):
 
     def visualize_domain_metrics(
         self,
-        file_path: str,
+        file_path: Union[str, Path],
         domains: List[str],
         metrics: Optional[List[str]] = None,
         cmap: str = "viridis",
         title: Optional[str] = None,
         font_size: int = 10,
         normalize: bool = False,
-    ) -> Figure:
+    ) -> Optional[Figure]:
         """
         Create a domain metrics matrix visualization.
 
@@ -449,19 +449,19 @@ class MatrixVisualizer(Visualizer):
                 # Check if this relationship involves a pattern from this domain
                 # Look at property_id, process_id, and perspective_id instead of pattern_a_id and pattern_b_id
                 if rel.property_id:
-                    pattern = self.framework.get_pattern(rel.property_id)
-                    if pattern and getattr(pattern, "domain", None) == domain:
-                        rel_patterns.append(pattern)
+                    prop_p = self.framework.get_pattern(rel.property_id)
+                    if prop_p and getattr(prop_p, "domain", None) == domain:
+                        rel_patterns.append(prop_p)
 
                 if rel.process_id:
-                    pattern = self.framework.get_pattern(rel.process_id)
-                    if pattern and getattr(pattern, "domain", None) == domain:
-                        rel_patterns.append(pattern)
+                    proc_p = self.framework.get_pattern(rel.process_id)
+                    if proc_p and getattr(proc_p, "domain", None) == domain:
+                        rel_patterns.append(proc_p)
 
                 if rel.perspective_id:
-                    pattern = self.framework.get_pattern(rel.perspective_id)
-                    if pattern and getattr(pattern, "domain", None) == domain:
-                        rel_patterns.append(pattern)
+                    persp_p = self.framework.get_pattern(rel.perspective_id)
+                    if persp_p and getattr(persp_p, "domain", None) == domain:
+                        rel_patterns.append(persp_p)
 
                 # If this relationship connects at least two patterns in this domain
                 if len(rel_patterns) >= 2:
@@ -482,7 +482,7 @@ class MatrixVisualizer(Visualizer):
             }
 
         # Create metrics matrix
-        metrics_matrix = np.zeros((len(domains), len(metrics)))
+        metrics_matrix: Any = np.zeros((len(domains), len(metrics)))
         for i, domain in enumerate(domains):
             for j, metric in enumerate(metrics):
                 metrics_matrix[i, j] = domain_metrics[domain].get(metric, 0)
@@ -526,7 +526,7 @@ class MatrixVisualizer(Visualizer):
 
     def visualize_pattern_correlation(
         self,
-        file_path: Union[str, Path] = None,
+        file_path: Optional[Union[str, Path]] = None,
         min_correlation: float = 0.0,
         max_patterns: int = 100,
     ) -> Optional[Figure]:
@@ -561,7 +561,7 @@ class MatrixVisualizer(Visualizer):
             )[:max_patterns]
 
         n = len(patterns)
-        correlation = np.zeros((n, n))
+        correlation: Any = np.zeros((n, n))
         pattern_labels = [f"{p.type[0].upper()}: {p.name}" for p in patterns]
 
         # Calculate correlation between patterns
@@ -624,7 +624,7 @@ class MatrixVisualizer(Visualizer):
 
     def visualize_relationship_matrix_progressive(
         self,
-        file_path: Union[str, Path],
+        file_path: Optional[Union[str, Path]],
         pattern_type_x: str,
         pattern_type_y: str,
         patterns_x: List[BasePattern],
@@ -634,7 +634,7 @@ class MatrixVisualizer(Visualizer):
         min_relationship_strength: float = 0.0,
         title: Optional[str] = None,
         font_size: int = 8,
-    ) -> None:
+    ) -> Optional[Figure]:
         """
         Visualize a large matrix using progressive rendering to avoid timeouts.
         This breaks down large matrices into smaller chunks.
@@ -663,7 +663,7 @@ class MatrixVisualizer(Visualizer):
         fig, ax = plt.subplots(figsize=(width, height))
 
         # Create the matrix with zeros
-        matrix = np.zeros((len(patterns_y), len(patterns_x)))
+        matrix: Any = np.zeros((len(patterns_y), len(patterns_x)))
 
         # Create heatmap with empty data
         im = ax.imshow(matrix, cmap=plt.get_cmap(cmap), vmin=0, vmax=1)
@@ -741,4 +741,7 @@ class MatrixVisualizer(Visualizer):
         plt.tight_layout()
 
         # Save the figure
-        self.save_figure(fig, file_path)
+        if file_path:
+            self.save_figure(fig, file_path)
+            return None
+        return fig

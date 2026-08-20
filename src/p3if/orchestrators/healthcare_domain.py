@@ -5,7 +5,7 @@ This thin orchestrator demonstrates P3IF application in the healthcare domain,
 focusing on patient privacy, clinical workflows, and regulatory compliance.
 """
 
-from typing import Dict, List, Any
+from typing import Dict, List, Any, Optional
 from dataclasses import dataclass, field
 import logging
 from datetime import datetime
@@ -151,10 +151,13 @@ class HealthcareDomainOrchestrator:
             },
         }
 
+        data_types_map = requirements.get("data_types", {})
+        access_patterns_map = requirements.get("access_patterns", {})
+
         return {
             "requirements_analysis": requirements,
-            "total_data_types": len(requirements["data_types"]),
-            "total_access_patterns": len(requirements["access_patterns"]),
+            "total_data_types": len(data_types_map) if isinstance(data_types_map, dict) else 0,
+            "total_access_patterns": len(access_patterns_map) if isinstance(access_patterns_map, dict) else 0,
             "compliance_requirements": self._analyze_compliance_requirements(requirements),
             "risk_assessment": self._assess_data_risks(requirements),
         }
@@ -205,7 +208,7 @@ class HealthcareDomainOrchestrator:
         }
 
     def _map_regulatory_compliance(
-        self, orchestrator_context: Dict[str, Any] = None
+        self, orchestrator_context: Optional[Dict[str, Any]] = None
     ) -> Dict[str, Any]:
         """Map healthcare regulatory compliance requirements."""
         # Get the requirements analysis from the orchestrator context
@@ -269,7 +272,7 @@ class HealthcareDomainOrchestrator:
         return overlaps
 
     def _design_privacy_protection(
-        self, orchestrator_context: Dict[str, Any] = None
+        self, orchestrator_context: Optional[Dict[str, Any]] = None
     ) -> Dict[str, Any]:
         """Design privacy protection mechanisms."""
         # Get the compliance mapping from the orchestrator context
@@ -338,7 +341,7 @@ class HealthcareDomainOrchestrator:
         return priorities
 
     def _optimize_clinical_workflows(
-        self, orchestrator_context: Dict[str, Any] = None
+        self, orchestrator_context: Optional[Dict[str, Any]] = None
     ) -> Dict[str, Any]:
         """Optimize clinical workflows with privacy constraints."""
         # Get the privacy design from the orchestrator context

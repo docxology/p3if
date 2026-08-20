@@ -15,8 +15,8 @@
 
 <div class="container section-sm">
     <nav class="breadcrumb">
-        <div class="breadcrumb-item"><a href="{{ url_for('home') }}">Home</a></div>
-        <div class="breadcrumb-item"><a href="{{ url_for('domains_bp.index') }}">Domains</a></div>
+        <div class="breadcrumb-item"><a href="{{ url_for('index') }}">Home</a></div>
+        <div class="breadcrumb-item"><a href="{{ url_for('domains.index') }}">Domains</a></div>
         <div class="breadcrumb-item active">{{ domain.name }}</div>
     </nav>
 
@@ -91,7 +91,7 @@
                     {% endif %}
                     
                     <div class="text-center mt-4">
-                        <a href="{{ url_for('domains.show_patterns', domain_id=domain.id) }}" class="btn btn-primary">View All Patterns</a>
+                        <a href="{{ url_for('domains.domain_patterns', domain_id=domain.id) }}" class="btn btn-primary">View All Patterns</a>
                     </div>
                 </div>
             </div>
@@ -118,7 +118,7 @@
                     <ul class="list-group">
                         {% for rel_domain in related_domains %}
                         <li class="list-group-item">
-                            <a href="{{ url_for('domains_bp.show_domain', domain_id=rel_domain.id) }}">
+                            <a href="{{ url_for('domains.show_domain', domain_id=rel_domain.id) }}">
                                 {{ rel_domain.name }}
                             </a>
                             <span class="badge bg-primary float-end">{{ rel_domain.similarity }}%</span>
@@ -137,7 +137,7 @@
                 <div class="card-body">
                     <div class="list-group">
                         {% for viz in visualizations %}
-                        <a href="{{ url_for('viz_bp.show_visualization', output_dir=viz.id) }}" class="list-group-item list-group-item-action">
+                        <a href="{{ url_for('visualizations.show_visualization', output_dir=viz.id) }}" class="list-group-item list-group-item-action">
                             <div class="d-flex w-100 justify-content-between">
                                 <h5 class="mb-1">{{ viz.title }}</h5>
                                 <small>{{ viz.date }}</small>
@@ -149,7 +149,7 @@
                     </div>
                     
                     <div class="text-center mt-3">
-                        <a href="{{ url_for('viz_bp.index') }}?domain={{ domain.id }}" class="btn btn-secondary">View All Visualizations</a>
+                        <a href="{{ url_for('visualizations.index') }}?domain={{ domain.id }}" class="btn btn-secondary">View All Visualizations</a>
                     </div>
                 </div>
             </div>
@@ -163,7 +163,7 @@
                     <div class="d-grid gap-2">
                         <a href="{{ url_for('viz_generate_bp.show_generate_form') }}?domains={{ domain.id }}" class="btn btn-primary">Generate Visualization</a>
                         <a href="#" class="btn btn-outline-secondary">Export Domain Data</a>
-                        <a href="{{ url_for('domains.show_patterns', domain_id=domain.id) }}" class="btn btn-outline-secondary">Browse Patterns</a>
+                        <a href="{{ url_for('domains.domain_patterns', domain_id=domain.id) }}" class="btn btn-outline-secondary">Browse Patterns</a>
                     </div>
                 </div>
             </div>
@@ -188,8 +188,8 @@
         </div>
         
         <div class="text-center">
-            <a href="{{ url_for('viz_bp.show_visualization', output_dir=preview_visualization.id) }}" class="btn btn-primary">View Full Visualization</a>
-            <a href="{{ url_for('viz_bp.index') }}?domain={{ domain.id }}" class="btn btn-outline-secondary ms-2">Explore More Visualizations</a>
+            <a href="{{ url_for('visualizations.show_visualization', output_dir=preview_visualization.id) }}" class="btn btn-primary">View Full Visualization</a>
+            <a href="{{ url_for('visualizations.index') }}?domain={{ domain.id }}" class="btn btn-outline-secondary ms-2">Explore More Visualizations</a>
         </div>
     </div>
 </section>
@@ -230,7 +230,7 @@
         
         {% if top_patterns %}
         <div class="text-center mt-3">
-            <a href="{{ url_for('domains.show_patterns', domain_id=domain.id) }}" class="btn btn-primary">View All Patterns</a>
+            <a href="{{ url_for('domains.domain_patterns', domain_id=domain.id) }}" class="btn btn-primary">View All Patterns</a>
         </div>
         {% endif %}
     </div>

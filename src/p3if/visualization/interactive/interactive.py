@@ -141,7 +141,8 @@ class InteractiveVisualizer(Visualizer):
         """Get cached visualization data if available and not expired."""
         if cache_key in self._cache:
             if time.time() - self._cache_expiry.get(cache_key, 0) < 3600:  # 1 hour expiry
-                return self._cache[cache_key]
+                cached_val = self._cache[cache_key]
+                return dict(cached_val) if isinstance(cached_val, dict) else None
             else:
                 # Remove expired cache entry
                 try:
@@ -156,7 +157,10 @@ class InteractiveVisualizer(Visualizer):
         if len(self._cache) >= self._max_cache_size:
             # Remove oldest entries
             if self._cache_expiry:
-                oldest_key = min(self._cache_expiry.keys(), key=self._cache_expiry.get)
+                oldest_key = min(
+                    self._cache_expiry.keys(),
+                    key=lambda k: self._cache_expiry.get(k, float("inf")),
+                )
                 try:
                     del self._cache[oldest_key]
                 except (KeyError, TypeError):
@@ -208,11 +212,13 @@ class InteractiveVisualizer(Visualizer):
 
         # Preprocess pattern data
         all_patterns = list(self.framework._patterns.values())
-        pattern_types = {}
+        pattern_types: Dict[str, List[BasePattern]] = {}
         domains = set()
 
         for pattern in all_patterns:
-            pattern_type = pattern.pattern_type.value
+            pattern_type = (
+                pattern.type.value if hasattr(pattern.type, "value") else str(pattern.type)
+            )
             if pattern_type not in pattern_types:
                 pattern_types[pattern_type] = []
             pattern_types[pattern_type].append(pattern)
@@ -289,9 +295,11 @@ class InteractiveVisualizer(Visualizer):
 
         # Use optimized framework methods for better performance
         if domains:
-            properties = self.framework.get_patterns_by_domain_optimized(domains)
-            processes = self.framework.get_patterns_by_domain_optimized(domains)
-            perspectives = self.framework.get_patterns_by_domain_optimized(domains)
+            domain_name = domains[0] if isinstance(domains, (list, tuple, set)) else str(domains)
+            domain_patterns = self.framework.get_patterns_by_domain(domain_name)
+            properties = [p for p in domain_patterns if getattr(p, "type", None) == "property"]
+            processes = [p for p in domain_patterns if getattr(p, "type", None) == "process"]
+            perspectives = [p for p in domain_patterns if getattr(p, "type", None) == "perspective"]
         else:
             properties = self.framework.get_patterns_by_type_optimized("property")
             processes = self.framework.get_patterns_by_type_optimized("process")
@@ -308,7 +316,8 @@ class InteractiveVisualizer(Visualizer):
         perspective_map = {p.id: i for i, p in enumerate(perspectives)}
 
         # Prepare enhanced data structure
-        cube_data = {
+        connections_list: List[Dict[str, Any]] = []
+        cube_data: Dict[str, Any] = {
             "metadata": {
                 "generated_at": datetime.now().isoformat(),
                 "total_properties": len(properties),
@@ -355,7 +364,7 @@ class InteractiveVisualizer(Visualizer):
                     for p in perspectives
                 ],
             },
-            "connections": [],
+            "connections": connections_list,
         }
 
         # Add enhanced relationship data
@@ -382,7 +391,7 @@ class InteractiveVisualizer(Visualizer):
                         "y": process_map[rel.process_id],
                         "z": perspective_map[rel.perspective_id],
                     }
-                    cube_data["connections"].append(connection)
+                    connections_list.append(connection)
 
         # Cache the result
         self._cache_data(cache_key, cube_data)
@@ -1056,6 +1065,9 @@ class InteractiveVisualizer(Visualizer):
             <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
             <!-- D3.js for network visualization -->
             <script src="https://d3js.org/d3.v7.min.js"></script>
+            <!-- Three.js and OrbitControls for 3D Cube -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
         </head>
         <body>
             <div class="dashboard-container">
@@ -1224,14 +1236,174 @@ class InteractiveVisualizer(Visualizer):
                     console.log('Applying slider filters:', minStrength, minConfidence);
                 }}
 
+                let cubeInitialized = false;
                 function initCubeVisualization() {{
-                    // Initialize 3D cube visualization
-                    console.log('Initializing 3D cube visualization');
+                    if (cubeInitialized) return;
+                    const cubeContainer = document.getElementById('cube-tab');
+                    cubeContainer.innerHTML = '';
+
+                    const w = cubeContainer.clientWidth || 800;
+                    const h = cubeContainer.clientHeight || 600;
+
+                    const scene = new THREE.Scene();
+                    scene.background = new THREE.Color(0x1a1a2e);
+
+                    const camera = new THREE.PerspectiveCamera(70, w / h, 0.1, 1000);
+                    camera.position.set(2.5, 2.5, 2.5);
+
+                    const renderer = new THREE.WebGLRenderer({{ antialias: true }});
+                    renderer.setSize(w, h);
+                    cubeContainer.appendChild(renderer.domElement);
+
+                    const controls = new THREE.OrbitControls(camera, renderer.domElement);
+                    controls.enableDamping = true;
+
+                    const ambient = new THREE.AmbientLight(0xffffff, 0.8);
+                    scene.add(ambient);
+
+                    const dirLight = new THREE.DirectionalLight(0xffffff, 0.8);
+                    dirLight.position.set(5, 10, 7);
+                    scene.add(dirLight);
+
+                    const boxGeom = new THREE.BoxGeometry(2, 2, 2);
+                    const edges = new THREE.LineSegments(
+                        new THREE.EdgesGeometry(boxGeom),
+                        new THREE.LineBasicMaterial({{ color: 0x4e54c8, opacity: 0.6, transparent: true }})
+                    );
+                    scene.add(edges);
+
+                    // Add nodes from p3ifData
+                    const props = p3ifData.dimensions.property || [];
+                    const procs = p3ifData.dimensions.process || [];
+                    const persps = p3ifData.dimensions.perspective || [];
+
+                    props.forEach((p, idx) => {{
+                        const sphere = new THREE.Mesh(
+                            new THREE.SphereGeometry(0.06, 16, 16),
+                            new THREE.MeshStandardMaterial({{ color: 0xff416c, roughness: 0.3 }})
+                        );
+                        sphere.position.set(-1 + (2 * (idx + 1)) / (props.length + 1), -1, -1);
+                        scene.add(sphere);
+                    }});
+
+                    procs.forEach((p, idx) => {{
+                        const sphere = new THREE.Mesh(
+                            new THREE.SphereGeometry(0.06, 16, 16),
+                            new THREE.MeshStandardMaterial({{ color: 0x00b4d8, roughness: 0.3 }})
+                        );
+                        sphere.position.set(-1, -1 + (2 * (idx + 1)) / (procs.length + 1), -1);
+                        scene.add(sphere);
+                    }});
+
+                    persps.forEach((p, idx) => {{
+                        const sphere = new THREE.Mesh(
+                            new THREE.SphereGeometry(0.06, 16, 16),
+                            new THREE.MeshStandardMaterial({{ color: 0x2ec4b6, roughness: 0.3 }})
+                        );
+                        sphere.position.set(-1, -1, -1 + (2 * (idx + 1)) / (persps.length + 1));
+                        scene.add(sphere);
+                    }});
+
+                    // Connections
+                    (p3ifData.connections || []).forEach(conn => {{
+                        const pIdx = conn.x !== undefined ? conn.x : 0;
+                        const prIdx = conn.y !== undefined ? conn.y : 0;
+                        const peIdx = conn.z !== undefined ? conn.z : 0;
+
+                        const pPos = new THREE.Vector3(-1 + (2 * (pIdx + 1)) / (props.length + 1 || 2), -1, -1);
+                        const prPos = new THREE.Vector3(-1, -1 + (2 * (prIdx + 1)) / (procs.length + 1 || 2), -1);
+                        const pePos = new THREE.Vector3(-1, -1, -1 + (2 * (peIdx + 1)) / (persps.length + 1 || 2));
+
+                        const geom = new THREE.BufferGeometry().setFromPoints([pPos, prPos, pePos, pPos]);
+                        const mat = new THREE.LineBasicMaterial({{
+                            color: 0xffffff,
+                            transparent: true,
+                            opacity: Math.max(0.2, (conn.strength || 0.5) * 0.7)
+                        }});
+                        scene.add(new THREE.Line(geom, mat));
+                    }});
+
+                    function animate() {{
+                        requestAnimationFrame(animate);
+                        controls.update();
+                        renderer.render(scene, camera);
+                    }}
+                    animate();
+
+                    cubeInitialized = true;
                 }}
 
+                let networkInitialized = false;
                 function initNetworkVisualization() {{
-                    // Initialize network graph
-                    console.log('Initializing network visualization');
+                    if (networkInitialized) return;
+                    const netContainer = document.getElementById('network-tab');
+                    netContainer.innerHTML = '';
+
+                    const width = netContainer.clientWidth || 800;
+                    const height = netContainer.clientHeight || 600;
+
+                    const svg = d3.select(netContainer)
+                        .append('svg')
+                        .attr('width', '100%')
+                        .attr('height', '100%')
+                        .attr('viewBox', [0, 0, width, height]);
+
+                    const simulation = d3.forceSimulation(networkData.nodes || [])
+                        .force('link', d3.forceLink(networkData.links || []).id(d => d.id).distance(60))
+                        .force('charge', d3.forceManyBody().strength(-150))
+                        .force('center', d3.forceCenter(width / 2, height / 2));
+
+                    const colorMap = {{
+                        property: '#ff416c',
+                        process: '#00b4d8',
+                        perspective: '#2ec4b6'
+                    }};
+
+                    const link = svg.append('g')
+                        .selectAll('line')
+                        .data(networkData.links || [])
+                        .enter().append('line')
+                        .attr('stroke', '#999')
+                        .attr('stroke-opacity', 0.6)
+                        .attr('stroke-width', d => Math.max(1, (d.strength || 0.5) * 4));
+
+                    const node = svg.append('g')
+                        .selectAll('circle')
+                        .data(networkData.nodes || [])
+                        .enter().append('circle')
+                        .attr('r', 8)
+                        .attr('fill', d => colorMap[d.type] || '#ffb703')
+                        .call(d3.drag()
+                            .on('start', (event, d) => {{
+                                if (!event.active) simulation.alphaTarget(0.3).restart();
+                                d.fx = d.x;
+                                d.fy = d.y;
+                            }})
+                            .on('drag', (event, d) => {{
+                                d.fx = event.x;
+                                d.fy = event.y;
+                            }})
+                            .on('end', (event, d) => {{
+                                if (!event.active) simulation.alphaTarget(0);
+                                d.fx = null;
+                                d.fy = null;
+                            }}));
+
+                    node.append('title').text(d => `${{d.name}} (${{d.type}})`);
+
+                    simulation.on('tick', () => {{
+                        link
+                            .attr('x1', d => d.source.x)
+                            .attr('y1', d => d.source.y)
+                            .attr('x2', d => d.target.x)
+                            .attr('y2', d => d.target.y);
+
+                        node
+                            .attr('cx', d => d.x)
+                            .attr('cy', d => d.y);
+                    }});
+
+                    networkInitialized = true;
                 }}
 
                 function initAnalyticsDashboard() {{
@@ -1281,9 +1453,82 @@ class InteractiveVisualizer(Visualizer):
                     }});
                 }}
 
+                function initOverviewDashboard() {{
+                    const overviewContainer = document.getElementById('overview-tab');
+                    overviewContainer.innerHTML = `
+                        <div style="padding: 2rem; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; height: 100%; overflow-y: auto;">
+                            <div style="background: #252846; border-radius: 12px; padding: 1.5rem; color: #fff;">
+                                <h3 style="margin-bottom: 1rem; color: #4ECDC4;"><i class="fas fa-layer-group"></i> Dimensional Composition</h3>
+                                <canvas id="overview-pie-chart" style="max-height: 250px;"></canvas>
+                            </div>
+                            <div style="background: #252846; border-radius: 12px; padding: 1.5rem; color: #fff;">
+                                <h3 style="margin-bottom: 1rem; color: #FF6B6B;"><i class="fas fa-chart-bar"></i> Pattern Activity Overview</h3>
+                                <canvas id="overview-bar-chart" style="max-height: 250px;"></canvas>
+                            </div>
+                            <div style="grid-column: 1 / -1; background: #252846; border-radius: 12px; padding: 1.5rem; color: #fff;">
+                                <h3 style="margin-bottom: 1rem; color: #FFEAA7;"><i class="fas fa-info-circle"></i> Framework Summary & Cross-Domain Links</h3>
+                                <p>Properties: <strong>${{p3ifData.dimensions.property.length}}</strong> | Processes: <strong>${{p3ifData.dimensions.process.length}}</strong> | Perspectives: <strong>${{p3ifData.dimensions.perspective.length}}</strong> | Total Cross-Dimensional Relations: <strong>${{p3ifData.connections.length}}</strong></p>
+                                <div style="display: flex; gap: 10px; margin-top: 1rem;">
+                                    <button class="filter-chip active" onclick="document.querySelector('[data-tab=\\'cube\\']').click()">Launch 3D Explorer</button>
+                                    <button class="filter-chip active" onclick="document.querySelector('[data-tab=\\'network\\']').click()">Launch Graph Network</button>
+                                    <button class="filter-chip active" onclick="document.querySelector('[data-tab=\\'analytics\\']').click()">View Detailed Analytics</button>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+
+                    const ctxPie = document.getElementById('overview-pie-chart');
+                    new Chart(ctxPie, {{
+                        type: 'doughnut',
+                        data: {{
+                            labels: ['Properties', 'Processes', 'Perspectives'],
+                            datasets: [{{
+                                data: [
+                                    p3ifData.dimensions.property.length,
+                                    p3ifData.dimensions.process.length,
+                                    p3ifData.dimensions.perspective.length
+                                ],
+                                backgroundColor: ['#FF6B6B', '#4ECDC4', '#45B7D1']
+                            }}]
+                        }},
+                        options: {{
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {{ legend: {{ labels: {{ color: '#fff' }} }} }}
+                        }}
+                    }});
+
+                    const ctxBar = document.getElementById('overview-bar-chart');
+                    new Chart(ctxBar, {{
+                        type: 'bar',
+                        data: {{
+                            labels: ['Properties', 'Processes', 'Perspectives', 'Relations'],
+                            datasets: [{{
+                                label: 'Count',
+                                data: [
+                                    p3ifData.dimensions.property.length,
+                                    p3ifData.dimensions.process.length,
+                                    p3ifData.dimensions.perspective.length,
+                                    p3ifData.connections.length
+                                ],
+                                backgroundColor: ['#FF6B6B', '#4ECDC4', '#45B7D1', '#FFEAA7']
+                            }}]
+                        }},
+                        options: {{
+                            responsive: true,
+                            maintainAspectRatio: false,
+                            plugins: {{ legend: {{ display: false }} }},
+                            scales: {{
+                                x: {{ ticks: {{ color: '#fff' }} }},
+                                y: {{ ticks: {{ color: '#fff' }}, beginAtZero: true }}
+                            }}
+                        }}
+                    }});
+                }}
+
                 // Initialize overview tab on load
                 document.addEventListener('DOMContentLoaded', function() {{
-                    initAnalyticsDashboard();
+                    initOverviewDashboard();
                 }});
             </script>
         </body>

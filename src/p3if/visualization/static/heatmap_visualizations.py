@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 from pathlib import Path
-from typing import Dict
+from typing import Dict, Any
 import pandas as pd
 
 from p3if.core.framework import P3IFFramework
@@ -100,9 +100,9 @@ def _create_p3if_relationship_heatmap(
     n_persps = len(perspectives)
 
     # Initialize relationship matrices
-    prop_proc_matrix = np.zeros((n_props, n_procs))
-    prop_persp_matrix = np.zeros((n_props, n_persps))
-    proc_persp_matrix = np.zeros((n_procs, n_persps))
+    prop_proc_matrix: Any = np.zeros((n_props, n_procs))
+    prop_persp_matrix: Any = np.zeros((n_props, n_persps))
+    proc_persp_matrix: Any = np.zeros((n_procs, n_persps))
 
     # Fill matrices based on relationships
     for rel in framework._relationships.values():
@@ -110,20 +110,20 @@ def _create_p3if_relationship_heatmap(
 
         # Find indices
         if rel.property_id:
-            for i, p in enumerate(properties):
-                if p.id == rel.property_id:
+            for i, prop in enumerate(properties):
+                if prop.id == rel.property_id:
                     prop_idx = i
                     break
 
         if rel.process_id:
-            for i, p in enumerate(processes):
-                if p.id == rel.process_id:
+            for i, proc in enumerate(processes):
+                if proc.id == rel.process_id:
                     proc_idx = i
                     break
 
         if rel.perspective_id:
-            for i, p in enumerate(perspectives):
-                if p.id == rel.perspective_id:
+            for i, persp in enumerate(perspectives):
+                if persp.id == rel.perspective_id:
                     persp_idx = i
                     break
 
@@ -264,7 +264,7 @@ def _create_domain_heatmap(
 
     # Create domain relationship matrix
     n_domains = len(domains)
-    domain_matrix = np.zeros((n_domains, n_domains))
+    domain_matrix: Any = np.zeros((n_domains, n_domains))
 
     # Count relationships between domains
     for rel in framework._relationships.values():
@@ -390,7 +390,7 @@ def _create_component_strength_heatmap(
     # Create strength matrix between all components
     all_patterns = properties + processes + perspectives
     n_patterns = len(all_patterns)
-    strength_matrix = np.zeros((n_patterns, n_patterns))
+    strength_matrix: Any = np.zeros((n_patterns, n_patterns))
 
     # Fill matrix with relationship strengths
     for rel in framework._relationships.values():

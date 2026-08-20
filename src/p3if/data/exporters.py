@@ -7,7 +7,7 @@ import json
 import csv
 import logging
 from pathlib import Path
-from typing import Dict, Union
+from typing import Dict, List, Any, Union
 
 import networkx as nx
 
@@ -84,7 +84,12 @@ def export_to_json(framework: P3IFFramework, file_path: Union[str, Path]) -> Pat
 
     try:
         # Build the data structure
-        data = {"properties": [], "processes": [], "perspectives": [], "relationships": []}
+        data: Dict[str, List[Dict[str, Any]]] = {
+            "properties": [],
+            "processes": [],
+            "perspectives": [],
+            "relationships": [],
+        }
 
         # Export properties
         for prop in framework.get_patterns_by_type("property"):

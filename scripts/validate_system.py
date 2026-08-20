@@ -6,7 +6,6 @@ Validates all components by running actual tests and checking system state.
 """
 import subprocess
 import json
-import os
 import sys
 import re
 from pathlib import Path

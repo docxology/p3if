@@ -3,7 +3,7 @@ P3IF Domain Manager
 
 This module provides domain management functionality for P3IF.
 """
-from typing import Set, Dict, List, Any, Optional, Union
+from typing import Set, Dict, List, Any, Optional, Union, Iterable
 import json
 from pathlib import Path
 import logging
@@ -57,7 +57,11 @@ class DomainManager:
         Returns:
             Dictionary of pattern lists by type
         """
-        result = {"property": [], "process": [], "perspective": []}
+        result: Dict[str, List[BasePattern]] = {
+            "property": [],
+            "process": [],
+            "perspective": [],
+        }
 
         # Get patterns for each type
         for pattern_type in result.keys():
@@ -79,7 +83,7 @@ class DomainManager:
             Dictionary of domain statistics
         """
         if domain:
-            domains = [domain]
+            domains: Iterable[str] = [domain]
         else:
             domains = self.get_domains()
 
@@ -224,7 +228,8 @@ class DomainManager:
         pattern_map = {}  # Map old IDs to new IDs
 
         for pattern_data in data.get("patterns", []):
-            pattern_type = pattern_data.get("type")
+            pattern_type = pattern_data.get("type", "property")
+            pattern: BasePattern
 
             if pattern_type == "property":
                 pattern = Property(**pattern_data)
@@ -233,16 +238,7 @@ class DomainManager:
             elif pattern_type == "perspective":
                 pattern = Perspective(**pattern_data)
             else:
-                # Create appropriate pattern type based on data
-                pattern_type = pattern_data.get("type", "property")
-                if pattern_type == "property":
-                    pattern = Property(**pattern_data)
-                elif pattern_type == "process":
-                    pattern = Process(**pattern_data)
-                elif pattern_type == "perspective":
-                    pattern = Perspective(**pattern_data)
-                else:
-                    pattern = Property(**pattern_data)  # Default to Property
+                pattern = Property(**pattern_data)  # Default to Property
 
             old_id = pattern.id
             new_id = self.framework.add_pattern(pattern)
@@ -296,6 +292,7 @@ class DomainManager:
         # Create new patterns in target domain
         for pattern in all_source_patterns:
             # Create a copy with new ID and target domain
+            new_pattern: BasePattern
             if pattern.type == "property":
                 new_pattern = Property(
                     name=pattern.name,

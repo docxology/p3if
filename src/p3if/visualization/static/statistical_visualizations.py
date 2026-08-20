@@ -9,7 +9,7 @@ import logging
 import matplotlib.pyplot as plt
 import numpy as np
 from pathlib import Path
-from typing import Dict, Any
+from typing import Dict, List, Any
 
 from p3if.core.framework import P3IFFramework
 from p3if.core.models import Property, Process, Perspective
@@ -191,8 +191,8 @@ def _create_quality_metrics_analysis(
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(16, 14))
 
     # Get quality scores for all components
-    small_quality_scores = []
-    large_quality_scores = []
+    small_quality_scores: List[float] = []
+    large_quality_scores: List[float] = []
 
     for framework, scores_list in [
         (small_framework, small_quality_scores),
@@ -273,13 +273,13 @@ def _create_quality_metrics_analysis(
     ax4.axis("off")
 
     # Calculate quality by type
-    small_prop_quality = []
-    small_proc_quality = []
-    small_persp_quality = []
+    small_prop_quality: List[float] = []
+    small_proc_quality: List[float] = []
+    small_persp_quality: List[float] = []
 
-    large_prop_quality = []
-    large_proc_quality = []
-    large_persp_quality = []
+    large_prop_quality: List[float] = []
+    large_proc_quality: List[float] = []
+    large_persp_quality: List[float] = []
 
     for framework, prop_list, proc_list, persp_list in [
         (small_framework, small_prop_quality, small_proc_quality, small_persp_quality),
@@ -349,10 +349,10 @@ def _create_relationship_statistics(
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(16, 14))
 
     # Get relationship strengths and confidences
-    small_strengths = []
-    small_confidences = []
-    large_strengths = []
-    large_confidences = []
+    small_strengths: List[float] = []
+    small_confidences: List[float] = []
+    large_strengths: List[float] = []
+    large_confidences: List[float] = []
 
     for framework, str_list, conf_list in [
         (small_framework, small_strengths, small_confidences),
@@ -435,8 +435,8 @@ def _create_domain_analysis(
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(16, 14))
 
     # Get domain data
-    small_domains = {}
-    large_domains = {}
+    small_domains: Dict[str, Dict[str, int]] = {}
+    large_domains: Dict[str, Dict[str, int]] = {}
 
     for framework, domain_dict in [
         (small_framework, small_domains),

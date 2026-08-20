@@ -13,7 +13,15 @@ from datetime import datetime
 from p3if.core.core import P3IFCore
 from p3if.core.composition import CompositionEngine, FrameworkAdapter, MultiplexingStrategy
 from p3if.core.framework import P3IFFramework
-from p3if.core.models import Property, Process, Perspective, Relationship
+from p3if.core.models import (
+    BasePattern,
+    Property,
+    Process,
+    Perspective,
+    Relationship,
+    RelationshipStrength,
+    ConfidenceScore,
+)
 
 
 @dataclass
@@ -82,9 +90,9 @@ class NISTIntegrationExample(IntegrationExample):
             "source_framework": "NIST_CSF",
         }
 
-    def _create_nist_patterns(self) -> List[Any]:
+    def _create_nist_patterns(self) -> List[BasePattern]:
         """Create NIST CSF patterns in P3IF format."""
-        patterns = []
+        patterns: List[BasePattern] = []
 
         # Properties (NIST Functions)
         nist_functions = [
@@ -182,8 +190,8 @@ class NISTIntegrationExample(IntegrationExample):
             property_id=identify_prop.id,
             process_id=asset_proc.id,
             perspective_id=partial_pers.id,
-            strength=0.9,
-            confidence=0.95,
+            strength=RelationshipStrength(0.9),
+            confidence=ConfidenceScore(0.95),
         )
         relationships.append(rel1)
 
@@ -191,8 +199,8 @@ class NISTIntegrationExample(IntegrationExample):
             property_id=protect_prop.id,
             process_id=access_proc.id,
             perspective_id=adaptive_pers.id,
-            strength=0.8,
-            confidence=0.9,
+            strength=RelationshipStrength(0.8),
+            confidence=ConfidenceScore(0.9),
         )
         relationships.append(rel2)
 
@@ -253,9 +261,9 @@ class HealthcareIntegrationExample(IntegrationExample):
             "domain": "healthcare",
         }
 
-    def _create_healthcare_patterns(self) -> List[Any]:
+    def _create_healthcare_patterns(self) -> List[BasePattern]:
         """Create healthcare-specific patterns."""
-        patterns = []
+        patterns: List[BasePattern] = []
 
         # Properties
         privacy_prop = Property(
@@ -333,8 +341,8 @@ class HealthcareIntegrationExample(IntegrationExample):
             property_id=privacy_prop.id,
             process_id=consent_proc.id,
             perspective_id=patient_pers.id,
-            strength=0.95,
-            confidence=0.98,
+            strength=RelationshipStrength(0.95),
+            confidence=ConfidenceScore(0.98),
         )
         relationships.append(rel1)
 
@@ -342,8 +350,8 @@ class HealthcareIntegrationExample(IntegrationExample):
             property_id=security_prop.id,
             process_id=audit_proc.id,
             perspective_id=provider_pers.id,
-            strength=0.85,
-            confidence=0.92,
+            strength=RelationshipStrength(0.85),
+            confidence=ConfidenceScore(0.92),
         )
         relationships.append(rel2)
 

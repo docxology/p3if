@@ -3,7 +3,7 @@ P3IF Network Visualizer
 
 This module provides network visualization capabilities for P3IF data.
 """
-from typing import Optional, Union
+from typing import Dict, List, Optional, Union
 import networkx as nx
 import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
@@ -203,7 +203,7 @@ class NetworkVisualizer(Visualizer):
             pos = nx.spring_layout(G, seed=42)
 
         # Get node sizes based on the number of patterns in each domain
-        domain_sizes = {}
+        domain_sizes: Dict[str, int] = {}
         for pattern in self.framework._patterns.values():
             domain = getattr(pattern, "domain", None)
             if domain:
@@ -384,6 +384,7 @@ class NetworkVisualizer(Visualizer):
             node_sizes.append(10 + value * 3000)
 
         # Get node colors based on domain or type
+        node_colors: Union[List[int], List[str]]
         if graph_type == "domain":
             node_colors = list(range(len(G.nodes)))  # Just use a gradient for domains
         else:

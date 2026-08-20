@@ -10,7 +10,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 from pathlib import Path
-from typing import Dict
+from typing import Dict, List, Any
 
 from p3if.core.framework import P3IFFramework
 from p3if.core.models import Property, Process, Perspective
@@ -107,7 +107,7 @@ def _create_adjacency_matrix(
 
     # Create adjacency matrix
     n = len(all_patterns)
-    adj_matrix = np.zeros((n, n))
+    adj_matrix: Any = np.zeros((n, n))
 
     # Fill adjacency matrix based on relationships
     for rel in framework._relationships.values():
@@ -158,7 +158,7 @@ def _create_adjacency_matrix(
             pattern_types.append("Persp")
 
     # Type-based visualization
-    type_matrix = np.zeros((3, 3))  # P, Proc, Persp counts
+    type_matrix: Any = np.zeros((3, 3))  # P, Proc, Persp counts
     for i, p1 in enumerate(all_patterns):
         for j, p2 in enumerate(all_patterns):
             if adj_matrix[i, j] > 0:
@@ -252,7 +252,7 @@ def _create_correlation_matrix(
 
     # Create correlation matrix based on relationship strengths
     n = len(all_patterns)
-    corr_matrix = np.zeros((n, n))
+    corr_matrix: Any = np.zeros((n, n))
 
     # Fill correlation matrix with relationship strengths
     for rel in framework._relationships.values():
@@ -316,7 +316,7 @@ def _create_correlation_matrix(
         ax2.set_title("Correlation Value Distribution")
 
     # Component type correlations
-    type_correlations = {
+    type_correlations: Dict[str, List[float]] = {
         "P-P": [],
         "P-Proc": [],
         "P-Persp": [],
@@ -418,7 +418,7 @@ def _create_strength_matrix(
 
     # Create strength matrix
     n = len(all_patterns)
-    strength_matrix = np.zeros((n, n))
+    strength_matrix: Any = np.zeros((n, n))
 
     # Fill strength matrix
     for rel in framework._relationships.values():

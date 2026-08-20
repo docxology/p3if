@@ -11,7 +11,14 @@ import importlib.util
 import sys
 
 from p3if.core.framework import P3IFFramework
-from p3if.core.models import Property, Process, Perspective, Relationship
+from p3if.core.models import (
+    Property,
+    Process,
+    Perspective,
+    Relationship,
+    RelationshipStrength,
+    ConfidenceScore,
+)
 from p3if.utils.output_organizer import get_output_organizer
 
 logger = logging.getLogger(__name__)
@@ -176,8 +183,8 @@ class P3IFVisualizationOrchestrator:
                     perspective_id=next(
                         (cid for ctype, cid in connections if ctype == "perspective"), None
                     ),
-                    strength=strength,
-                    confidence=confidence,
+                    strength=RelationshipStrength(strength),
+                    confidence=ConfidenceScore(confidence),
                     relationship_type=random.choice(
                         ["general", "causal", "dependency", "composition"]
                     ),
@@ -209,10 +216,11 @@ class P3IFVisualizationOrchestrator:
             module_path = Path(__file__).parent.parent / "static" / f"{module_name}.py"
             if module_path.exists():
                 spec = importlib.util.spec_from_file_location(module_name, module_path)
-                module = importlib.util.module_from_spec(spec)
-                sys.modules[module_name] = module
-                spec.loader.exec_module(module)
-                return module
+                if spec and spec.loader:
+                    module = importlib.util.module_from_spec(spec)
+                    sys.modules[module_name] = module
+                    spec.loader.exec_module(module)
+                    return module
 
             logger.error(f"Module {module_name} not found")
             return None

@@ -6,7 +6,8 @@ enabling users to explore Properties, Processes, and Perspectives in immersive 3
 """
 
 import math
-from typing import Dict, List, Any, Tuple
+from typing import Dict, List, Any, Tuple, Union
+from pathlib import Path
 from dataclasses import dataclass, field
 import logging
 
@@ -76,6 +77,56 @@ class Interactive3DVisualizer:
             return self._create_dimension_3d_visualization("perspectives")
         else:
             raise ValueError(f"Unknown dimension: {dimension}")
+
+    def _create_dimension_3d_visualization(self, dimension: str) -> Any:
+        """Create a 3D visualization focused on a specific dimension."""
+        if not PLOTLY_AVAILABLE:
+            return self._create_ascii_3d_representation()
+
+        try:
+            elements = self.framework_data.get(dimension, [])
+            if not elements:
+                return self._create_ascii_3d_representation()
+
+            color_map = {
+                "properties": "#FF6B6B",
+                "processes": "#4ECDC4",
+                "perspectives": "#45B7D1",
+            }
+            color = color_map.get(dimension, "#9B59B6")
+
+            x_coords = [i % 5 for i in range(len(elements))]
+            y_coords = [(i // 5) % 5 for i in range(len(elements))]
+            z_coords = [i // 25 for i in range(len(elements))]
+            names = [e.get("name", f"Item {i}") for i, e in enumerate(elements)]
+
+            fig = go.Figure(
+                data=[
+                    go.Scatter3d(
+                        x=x_coords,
+                        y=y_coords,
+                        z=z_coords,
+                        mode="markers+text",
+                        marker=dict(size=8, color=color, opacity=0.8),
+                        text=names,
+                        hoverinfo="text",
+                        name=dimension.capitalize(),
+                    )
+                ]
+            )
+
+            fig.update_layout(
+                title=f"P3IF {dimension.capitalize()} 3D Space",
+                scene=dict(
+                    xaxis_title=f"{dimension.capitalize()} X",
+                    yaxis_title=f"{dimension.capitalize()} Y",
+                    zaxis_title=f"{dimension.capitalize()} Z",
+                ),
+            )
+            return fig
+        except Exception as e:
+            self.logger.error(f"Error creating dimension 3D visualization: {e}")
+            return self._create_ascii_3d_representation()
 
     def _create_full_3d_visualization(self) -> Any:
         """Create a full 3D visualization with all dimensions."""
@@ -337,9 +388,9 @@ class Interactive3DVisualizer:
 
         for i in range(element_count):
             element_angle = (2 * math.pi * i) / element_count
-            x = radius * math.cos(element_angle + angle_radians)
-            y = radius * math.sin(element_angle + angle_radians)
-            z = 0  # Keep in plane for now
+            x = float(radius * math.cos(element_angle + angle_radians))
+            y = float(radius * math.sin(element_angle + angle_radians))
+            z = 0.0  # Keep in plane for now
             positions.append((x, y, z))
 
         return positions
@@ -593,22 +644,29 @@ class Interactive3DVisualizer:
         return fig
 
     def export_visualization(
-        self, fig: Any, format: str = "html", filename: str = "p3if_cube"
+        self, fig: Any, format: str = "html", filename: Union[str, Path] = "p3if_cube"
     ) -> str:
         """Export visualization to various formats."""
         if not PLOTLY_AVAILABLE:
             return "Export not available without Plotly"
 
+        filename_str = str(filename)
         if format.lower() == "html":
-            output_file = f"{filename}.html"
+            output_file = (
+                filename_str if filename_str.endswith(".html") else f"{filename_str}.html"
+            )
             fig.write_html(output_file)
             return output_file
         elif format.lower() == "json":
-            output_file = f"{filename}.json"
+            output_file = (
+                filename_str if filename_str.endswith(".json") else f"{filename_str}.json"
+            )
             fig.write_json(output_file)
             return output_file
         elif format.lower() == "png":
-            output_file = f"{filename}.png"
+            output_file = (
+                filename_str if filename_str.endswith(".png") else f"{filename_str}.png"
+            )
             fig.write_image(output_file)
             return output_file
         else:

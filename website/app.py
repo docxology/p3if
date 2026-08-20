@@ -12,11 +12,10 @@ to explore and interact with the P3IF framework, including:
 """
 
 import os
-import json
 import markdown
 import logging
 from pathlib import Path
-from flask import Flask, render_template, request, redirect, url_for, send_from_directory, abort
+from flask import Flask, render_template, request, send_from_directory, abort
 
 # Import route modules
 from website.routes.docs import docs_bp
@@ -27,6 +26,12 @@ from website.routes.viz_generate import viz_generate_bp
 
 # Ensure directories exist
 os.makedirs(os.path.join(os.path.dirname(__file__), 'logs'), exist_ok=True)
+
+# Set the project root
+PROJECT_ROOT = Path(__file__).parent.parent
+DOCS_ROOT = PROJECT_ROOT / 'docs'
+OUTPUT_ROOT = PROJECT_ROOT / 'outputs'
+DOMAINS_ROOT = PROJECT_ROOT / 'data' / 'domains'
 
 def create_app(testing=False):
     """Create and configure the Flask application."""
@@ -62,7 +67,40 @@ def create_app(testing=False):
     if testing:
         app.config['TESTING'] = True
 
-    # Register error handlers inside create_app so they work with test clients
+    @app.route('/')
+    def index():
+        """Home page route."""
+        return render_template('index.html')
+
+    @app.route('/about')
+    def about():
+        """About page route."""
+        return render_template('about.html')
+
+    app.add_url_rule('/', 'home', index)
+
+    @app.context_processor
+    def utility_processor():
+        """Make utility functions available to templates."""
+        def markdown_to_html(md_content):
+            return markdown.markdown(md_content, extensions=['fenced_code', 'tables'])
+        return dict(markdown_to_html=markdown_to_html)
+
+    # Direct static file serving for specific directories
+    @app.route('/output/<path:path>')
+    def serve_output(path):
+        """Serve files from the output directory."""
+        if '..' in path or path.startswith('/'):
+            abort(404)  # Security check
+        full_path = OUTPUT_ROOT / path
+        if not full_path.exists():
+            abort(404)
+        directory = str(full_path.parent)
+        filename = full_path.name
+        return send_from_directory(directory, filename)
+
+    app.add_url_rule('/static-output/<path:filename>', 'static_output', serve_output)
+
     @app.errorhandler(404)
     def page_not_found(e):
         """Handle 404 errors."""
@@ -123,47 +161,6 @@ logging.basicConfig(
     ]
 )
 logger = logging.getLogger(__name__)
-
-# Set the project root
-PROJECT_ROOT = Path(__file__).parent.parent
-DOCS_ROOT = PROJECT_ROOT / 'docs'
-OUTPUT_ROOT = PROJECT_ROOT / 'outputs'
-DOMAINS_ROOT = PROJECT_ROOT / 'data' / 'domains'
-
-# Main routes
-@app.route('/')
-def index():
-    """Home page route."""
-    return render_template('index.html')
-
-@app.route('/about')
-def about():
-    """About page route."""
-    return render_template('about.html')
-
-@app.context_processor
-def utility_processor():
-    """Make utility functions available to templates."""
-    def markdown_to_html(md_content):
-        return markdown.markdown(md_content, extensions=['fenced_code', 'tables'])
-    
-    return dict(markdown_to_html=markdown_to_html)
-
-# Direct static file serving for specific directories
-@app.route('/output/<path:path>')
-def serve_output(path):
-    """Serve files from the output directory."""
-    if '..' in path or path.startswith('/'):
-        abort(404)  # Security check
-    full_path = OUTPUT_ROOT / path
-    if not full_path.exists():
-        abort(404)
-    directory = str(full_path.parent)
-    filename = full_path.name
-    return send_from_directory(directory, filename)
-
-# Alias for backward compatibility
-app.add_url_rule('/static-output/<path:filename>', 'static_output', serve_output)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000, 

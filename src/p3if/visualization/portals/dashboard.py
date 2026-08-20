@@ -163,7 +163,7 @@ class DashboardGenerator(Visualizer):
             if domain_patterns:
                 # Create a custom similarity matrix for these patterns
                 n = len(domain_patterns)
-                similarity_matrix = np.zeros((n, n))
+                similarity_matrix: Any = np.zeros((n, n))
 
                 # Create a mapping from pattern ID to index
                 pattern_map = {p.id: i for i, p in enumerate(domain_patterns)}
@@ -196,7 +196,7 @@ class DashboardGenerator(Visualizer):
                 row_sums = similarity_matrix.sum(axis=1)
                 # Only divide by row_sums where it's not zero to avoid warnings
                 mask = row_sums != 0
-                similarity_matrix_normalized = np.zeros_like(similarity_matrix, dtype=float)
+                similarity_matrix_normalized: Any = np.zeros_like(similarity_matrix, dtype=float)
                 if mask.any():  # Only perform division if there are non-zero elements
                     similarity_matrix_normalized[mask] = (
                         similarity_matrix[mask] / row_sums[mask, np.newaxis]
@@ -320,7 +320,7 @@ class DashboardGenerator(Visualizer):
 
         # Generate domain metrics visualization
         domain_metrics_path = output_path / "domain_metrics.png"
-        fig = self.matrix_visualizer.visualize_domain_metrics(
+        self.matrix_visualizer.visualize_domain_metrics(
             file_path=domain_metrics_path,
             domains=domains,
             cmap="viridis",
@@ -330,7 +330,7 @@ class DashboardGenerator(Visualizer):
 
         # Generate domain similarity matrix
         domain_similarity_path = output_path / "domain_similarity.png"
-        fig = self.matrix_visualizer.visualize_domain_similarity(file_path=domain_similarity_path)
+        self.matrix_visualizer.visualize_domain_similarity(file_path=domain_similarity_path)
         visualizations["domain_similarity"] = domain_similarity_path
 
         # Generate domain network
@@ -340,7 +340,7 @@ class DashboardGenerator(Visualizer):
 
         # Generate pattern correlation matrix
         correlation_path = output_path / "pattern_correlation.png"
-        fig = self.matrix_visualizer.visualize_pattern_correlation(file_path=correlation_path)
+        self.matrix_visualizer.visualize_pattern_correlation(file_path=correlation_path)
         visualizations["pattern_correlation"] = correlation_path
 
         # Generate comparison of pattern distributions across domains
@@ -528,7 +528,7 @@ class DashboardGenerator(Visualizer):
         self,
         output_file: str,
         title: str = "Full Dashboard with Dataset Selector",
-        datasets: List[Dict[str, str]] = None,
+        datasets: Optional[List[Dict[str, str]]] = None,
     ) -> Path:
         """
         Generate a complete dashboard with multiple components and an optional dataset selector.

@@ -100,5 +100,12 @@ dmypy.json
 # P3IF specific
 output/
 outputs/
+visualizations/
+assets/
+data/summary.json
+data/graph_data.json
+data/cube_data.json
+tests/visualization/test_output/
+uv.lock
 *.log
 .DS_Store

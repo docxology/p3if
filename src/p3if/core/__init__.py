@@ -17,6 +17,7 @@ from .models import (
 )
 from .orchestration import ThinOrchestrator, OrchestrationStep, OrchestratorType
 from .composition import CompositionEngine, FrameworkAdapter
+from .indexing import CompositionalIndex, QueryPredicate
 from .validation import ValidationEngine, ValidationRule
 from .caching import CacheManager, CacheStrategy
 
@@ -36,6 +37,8 @@ __all__ = [
     "OrchestratorType",
     "CompositionEngine",
     "FrameworkAdapter",
+    "CompositionalIndex",
+    "QueryPredicate",
     "ValidationEngine",
     "ValidationRule",
     "CacheManager",

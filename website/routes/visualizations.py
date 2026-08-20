@@ -4,10 +4,9 @@ Visualization Routes
 This module provides routes for displaying P3IF visualizations from the output directory.
 """
 
-import os
 import json
 from pathlib import Path
-from flask import Blueprint, render_template, abort, current_app, redirect, url_for
+from flask import Blueprint, render_template, abort, current_app, redirect
 
 viz_bp = Blueprint('visualizations', __name__, template_folder='../templates')
 
@@ -18,36 +17,68 @@ def index():
     
     # Get all visualization output directories
     viz_dirs = []
-    for item in output_root.iterdir():
-        if not item.is_dir():
-            continue
+    if output_root.exists() and output_root.is_dir():
+        for item in output_root.iterdir():
+            if not item.is_dir():
+                continue
+                
+            # Check if this directory has visualizations
+            viz_path = item / 'visualizations'
+            if not viz_path.exists():
+                continue
+                
+            # Get visualization info
+            viz_info = {
+                'id': item.name,
+                'name': item.name.replace('_', ' ').title(),
+                'title': item.name.replace('_', ' ').title(),
+                'description': f'Visualizations for {item.name}',
+                'type': 'dashboard',
+                'domains': [],
+                'thumbnail': f'{item.name}/visualizations/overview/network_overview.png',
+                'is_interactive': (viz_path / '3d-cube.html').exists() or (viz_path / 'force-graph.html').exists(),
+                'path': str(item.relative_to(output_root)),
+                'has_3d_cube': (viz_path / '3d-cube.html').exists(),
+                'has_force_graph': (viz_path / 'force-graph.html').exists(),
+                'has_overview': (viz_path / 'overview').exists(),
+                'has_domain': (viz_path / 'domain').exists(),
+                'has_compare': (viz_path / 'compare').exists(),
+                'date': get_directory_date(item)
+            }
             
-        # Check if this directory has visualizations
-        viz_path = item / 'visualizations'
-        if not viz_path.exists():
-            continue
-            
-        # Get visualization info
-        viz_info = {
-            'id': item.name,
-            'name': item.name.replace('_', ' ').title(),
-            'path': str(item.relative_to(output_root)),
-            'has_3d_cube': (viz_path / '3d-cube.html').exists(),
-            'has_force_graph': (viz_path / 'force-graph.html').exists(),
-            'has_overview': (viz_path / 'overview').exists(),
-            'has_domain': (viz_path / 'domain').exists(),
-            'has_compare': (viz_path / 'compare').exists(),
-            'date': get_directory_date(item)
-        }
+            viz_dirs.append(viz_info)
         
-        viz_dirs.append(viz_info)
-    
-    # Sort by date (newest first)
-    viz_dirs.sort(key=lambda x: x['date'], reverse=True)
+        # Sort by date (newest first)
+        viz_dirs.sort(key=lambda x: x['date'], reverse=True)
     
     return render_template('visualizations/index.html',
                           title='Visualizations',
+                          visualizations=viz_dirs,
                           visualization_dirs=viz_dirs)
+
+@viz_bp.route('/dashboard')
+def dashboard_view():
+    """Unified interactive dashboard page combining 3D Cube, Network Graph, and Analytics."""
+    from p3if.visualization.interactive.interactive import InteractiveVisualizer
+    from p3if.core.framework import P3IFFramework
+    from p3if.data.synthetic import SyntheticDataGenerator
+
+    generator = SyntheticDataGenerator()
+    framework = P3IFFramework()
+    # Populate with multiple representative domains
+    domains = generator.get_available_domains()[:3] if generator.get_available_domains() else ["Healthcare", "ArtificialIntelligence"]
+    generator.generate_multi_domain(framework, domain_names=domains, relationships_per_domain=15)
+    generator.generate_cross_domain_connections(framework, num_connections=8)
+
+    visualizer = InteractiveVisualizer(framework)
+    output_root = Path(current_app.root_path).parent / 'outputs'
+    dash_path = output_root / 'unified_interactive_dashboard.html'
+    visualizer.generate_modern_dashboard(dash_path, title="P3IF Unified Interactive Multi-Domain Dashboard")
+
+    with open(dash_path, 'r', encoding='utf-8') as f:
+        html_content = f.read()
+
+    return html_content
 
 @viz_bp.route('/<output_dir>')
 def show_visualization(output_dir):
@@ -102,11 +133,12 @@ def show_visualization(output_dir):
         except json.JSONDecodeError:
             pass
     
-    return render_template('visualizations/detail.html',
+    return render_template('visualizations/show.html',
                           title=f'Visualization: {output_dir}',
                           output_dir=output_dir,
                           viz_types=viz_types,
-                          summary=summary_data)
+                          summary=summary_data,
+                          visualization={'title': output_dir.replace('_', ' ').title(), 'description': f'Visualizations for {output_dir}', 'id': output_dir, 'type': 'dashboard', 'domains': [], 'date': ''})
 
 @viz_bp.route('/<output_dir>/type/<viz_type>')
 def show_visualization_type(output_dir, viz_type):
