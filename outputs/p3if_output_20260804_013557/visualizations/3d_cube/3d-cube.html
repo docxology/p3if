@@ -1,0 +1,262 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>P3IF 3D Cube</title>
+            <style>
+                body { 
+                    margin: 0;
+                    overflow: hidden;
+                    font-family: Arial, sans-serif;
+                }
+                #info {
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 10px;
+                    border-radius: 5px;
+                    max-width: 300px;
+                    z-index: 100;
+                }
+                #canvas-container {
+                    width: 100%;
+                    height: 100vh;
+                }
+                #legend {
+                    position: absolute;
+                    bottom: 20px;
+                    right: 20px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 10px;
+                    border-radius: 5px;
+                    z-index: 100;
+                }
+                .axis-label {
+                    font-weight: bold;
+                    margin-bottom: 5px;
+                }
+                .property-color { color: #1f77b4; }
+                .process-color { color: #ff7f0e; }
+                .perspective-color { color: #2ca02c; }
+            </style>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+        </head>
+        <body>
+            <div id="info">
+                <h2>P3IF 3D Cube</h2>
+                <p>This visualization represents the P3IF framework as a 3D cube with three dimensions:</p>
+                <p><span class="property-color">X-axis: Properties</span></p>
+                <p><span class="process-color">Y-axis: Processes</span></p>
+                <p><span class="perspective-color">Z-axis: Perspectives</span></p>
+                <p>Each point in the cube represents a relationship between specific property, process, and perspective.</p>
+                <p>Click and drag to rotate. Scroll to zoom. Right-click and drag to pan.</p>
+                <div id="selection-info"></div>
+            </div>
+            
+            <div id="canvas-container"></div>
+            
+            <div id="legend">
+                <div class="axis-label property-color">X-axis: Properties</div>
+                <div class="axis-label process-color">Y-axis: Processes</div>
+                <div class="axis-label perspective-color">Z-axis: Perspectives</div>
+                <div>Point size indicates relationship strength</div>
+            </div>
+            
+            
+            
+            <script>
+                // P3IF data
+                const p3ifData = {"metadata": {"generated_at": "2026-08-03T18:42:13.121710", "total_properties": 50, "total_processes": 50, "total_perspectives": 50, "domains": "all", "max_elements": 1000}, "dimensions": {"property": [{"id": "fa102d1f-1aa8-48f4-9df2-54b0e2e47eae", "name": "Video Quality", "description": "Property: Video Quality", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "66d5e8a1-2a21-42a0-a3cd-56bdc583905e", "name": "Audio Quality", "description": "Property: Audio Quality", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "4ad4f441-2389-4113-8ada-30308d589fa8", "name": "Latency", "description": "Property: Latency", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "4254970f-b6a3-4054-aa71-1ddc9e011f97", "name": "Bandwidth Efficiency", "description": "Property: Bandwidth Efficiency", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "2479a476-a166-4613-9373-71cb6f45afa4", "name": "Scalability", "description": "Property: Scalability", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "24406ffa-bfcb-4721-a70d-7ca33fee643e", "name": "Security", "description": "Property: Security", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "f41731c8-548c-45f0-a50e-0b753d6e7d32", "name": "Privacy", "description": "Property: Privacy", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "c0a44804-3839-4209-9aac-a30266fb3689", "name": "Cross-Platform Compatibility", "description": "Property: Cross-Platform Compatibility", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "b7a8bd83-dec9-4c36-9b83-747f457a861d", "name": "User Interface", "description": "Property: User Interface", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "9eff4fd9-e915-4ca7-97a1-2053b671d41d", "name": "Screen Sharing", "description": "Property: Screen Sharing", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "53868e67-e007-4fec-ab50-5e0cd667119c", "name": "Recording Capability", "description": "Property: Recording Capability", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "fed194a8-d9de-43e5-8dc0-b07e634716df", "name": "Encryption", "description": "Property: Encryption", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "3c27e441-2547-40fd-8851-e795127f8f19", "name": "Noise Cancellation", "description": "Property: Noise Cancellation", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "4c4d8391-4f71-4109-baa1-85e87f7c58fe", "name": "Virtual Background", "description": "Property: Virtual Background", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "6bb5071d-cdcf-4939-ae53-ce249ad18618", "name": "Accessibility", "description": "Property: Accessibility", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "eb9bc402-dcc4-4199-9eaa-c29e81554439", "name": "Multi-Party Support", "description": "Property: Multi-Party Support", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "78786a2c-2bd2-4736-8360-b91db5dfcc94", "name": "Mobile Optimization", "description": "Property: Mobile Optimization", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "87fabd83-51df-44dd-9581-635a45b184bc", "name": "Network Adaptability", "description": "Property: Network Adaptability", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "159319a7-13b4-46f1-80b0-9303c276c100", "name": "Integration Capabilities", "description": "Property: Integration Capabilities", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "3f89b9c8-c758-4549-93f2-eb47bd320b16", "name": "Customization Options", "description": "Property: Customization Options", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "2e283487-eaae-456c-b4ba-70906bcd779b", "name": "Breakout Rooms", "description": "Property: Breakout Rooms", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "1f1e62da-20b7-4120-abb2-76330d972a91", "name": "Live Streaming", "description": "Property: Live Streaming", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "68ea2450-cc43-409a-83cd-cfe6a2616b41", "name": "Chat Functionality", "description": "Property: Chat Functionality", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "d8c28859-2d78-480d-84a7-45122d3bbd83", "name": "File Sharing", "description": "Property: File Sharing", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "f4cd3380-f839-4f06-827b-be0cf24945b0", "name": "Whiteboard Feature", "description": "Property: Whiteboard Feature", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "4bd72a8a-738a-485d-a0e0-eb563610eade", "name": "Gesture Recognition", "description": "Property: Gesture Recognition", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "40d828e1-9682-4560-a7e4-177c7203e097", "name": "Facial Recognition", "description": "Property: Facial Recognition", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "32e242e8-8da7-4293-adfc-ad519c61b74b", "name": "Language Translation", "description": "Property: Language Translation", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "28541027-e13b-41ea-91b9-aaad40a72d81", "name": "Closed Captioning", "description": "Property: Closed Captioning", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "04c4c4cf-f718-4907-8f0d-0d00bd9e6c4c", "name": "Emoji Reactions", "description": "Property: Emoji Reactions", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "81de38f4-cceb-42bb-a902-cd80efa009c9", "name": "Attendance Tracking", "description": "Property: Attendance Tracking", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "dddede8b-0389-41d3-a940-07585e921df3", "name": "Polling/Voting", "description": "Property: Polling/Voting", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "d25f23cb-2d33-4d0c-896c-915083422957", "name": "Waiting Room", "description": "Property: Waiting Room", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "78a84eaf-746a-4425-bc11-c5be54a9f160", "name": "Host Controls", "description": "Property: Host Controls", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "5592a202-c487-49ce-838a-ab0c0fcf3869", "name": "Background Blur", "description": "Property: Background Blur", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "f1bb4c45-bfb6-4801-b8a4-34f684a3b5dd", "name": "Echo Cancellation", "description": "Property: Echo Cancellation", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "c15bf918-eb9b-45d7-a3f7-5e23ec2d1077", "name": "Lip Synchronization", "description": "Property: Lip Synchronization", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "f38f1c53-70a4-4cb5-81af-87dd4477664c", "name": "Bandwidth Management", "description": "Property: Bandwidth Management", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "38581c1f-ca16-4836-a28b-02b848f2c2c0", "name": "Device Compatibility", "description": "Property: Device Compatibility", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "e2114633-197c-4c03-bf3b-08d0843c9262", "name": "Cloud Storage", "description": "Property: Cloud Storage", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "7dcb2ae3-befd-4325-81be-ef98c1b83eae", "name": "API Availability", "description": "Property: API Availability", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "5908e216-e016-4aff-a724-ad7cb7a1b4f2", "name": "Analytics Dashboard", "description": "Property: Analytics Dashboard", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "5830fe50-dd81-4cd6-bfaf-814d249b49fb", "name": "Compliance (GDPR, HIPAA)", "description": "Property: Compliance (GDPR, HIPAA)", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "cccb31e5-02c7-4ab4-b3d4-aa9fbd3e5cb1", "name": "Single Sign-On", "description": "Property: Single Sign-On", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "17673391-809d-4449-8842-fcb805a84d2f", "name": "End-to-End Encryption", "description": "Property: End-to-End Encryption", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "6e69117a-f643-4da4-967a-994986da528f", "name": "Firewall Traversal", "description": "Property: Firewall Traversal", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "24aa93aa-3f06-447a-bfd1-b3a84de41798", "name": "Quality of Service (QoS)", "description": "Property: Quality of Service (QoS)", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "7b90e94f-86aa-4759-90ac-54c61c43e793", "name": "Adaptive Bitrate Streaming", "description": "Property: Adaptive Bitrate Streaming", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "224c3ae7-30cc-4b24-900f-e421a577eb02", "name": "Low-Light Enhancement", "description": "Property: Low-Light Enhancement", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "48b02c50-c267-4928-af3d-7fe3df8b63ae", "name": "360-Degree Video Support", "description": "Property: 360-Degree Video Support", "domain": "VideoChat", "tags": [], "quality_score": 1.0, "validation_status": "draft"}], "process": [{"id": "9955774b-1dd8-44c2-bc3f-49c2a79f3e88", "name": "Video Encoding", "description": "Process: Video Encoding", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "6ad512e9-19c8-4ddf-a1f2-3051d8afb92f", "name": "Audio Encoding", "description": "Process: Audio Encoding", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "41e26717-8a60-4b7c-905f-56b43a036f32", "name": "Data Compression", "description": "Process: Data Compression", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "a3b2cd65-9776-4deb-bb4e-a3521a750364", "name": "Packet Transmission", "description": "Process: Packet Transmission", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "b60eedb3-6fbe-443e-ba3f-0317026425ac", "name": "Jitter Buffer Management", "description": "Process: Jitter Buffer Management", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "c012760e-dc9e-436e-886e-c1bd548703c0", "name": "Echo Cancellation", "description": "Process: Echo Cancellation", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "3b1ab078-a02c-4afe-9419-4330e699b514", "name": "Noise Suppression", "description": "Process: Noise Suppression", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "1324a991-1ad1-46b7-997b-e4cf9e78474a", "name": "Video Rendering", "description": "Process: Video Rendering", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "ce363ab8-7ccf-4727-8256-45b13de4d23c", "name": "Audio Rendering", "description": "Process: Audio Rendering", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "efad6539-a2f1-4bd5-8e74-7066fa3e5697", "name": "Synchronization", "description": "Process: Synchronization", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "fe4a3c3d-0477-4586-a8ed-f983125c87f4", "name": "Bandwidth Allocation", "description": "Process: Bandwidth Allocation", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "f5eeffd0-22da-4659-baf0-17e14cd49cee", "name": "Error Concealment", "description": "Process: Error Concealment", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "40eaa2b0-265a-4a0b-9f07-f1564f1c4e65", "name": "Packet Loss Recovery", "description": "Process: Packet Loss Recovery", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "a3755d3f-7974-4a03-b4ca-5208fc0d090f", "name": "Frame Rate Adaptation", "description": "Process: Frame Rate Adaptation", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "64acf682-54fd-4706-87fe-e35c79e3f50b", "name": "Resolution Scaling", "description": "Process: Resolution Scaling", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "aff11c95-2b4b-4bde-90e8-54d967457252", "name": "User Authentication", "description": "Process: User Authentication", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "a21599cc-3cec-4ce9-8420-2a232c6d5cd2", "name": "Session Initiation", "description": "Process: Session Initiation", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "a21caa02-a94f-4d8e-b0d0-3449ee08ce26", "name": "Media Negotiation", "description": "Process: Media Negotiation", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "fd9f2822-7329-41c0-b009-a3e21e9cab86", "name": "NAT Traversal", "description": "Process: NAT Traversal", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "78a36b68-9823-44dd-8d1b-48ed33449a86", "name": "Encryption/Decryption", "description": "Process: Encryption/Decryption", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "41f8364f-b706-4e3d-b8f0-13a78904225a", "name": "Screen Capture", "description": "Process: Screen Capture", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "7d63fe2a-1ea9-4f8e-a2c9-89f8fcde9f52", "name": "Audio Mixing", "description": "Process: Audio Mixing", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "8f838340-86dd-4c57-a822-a731868e5fe0", "name": "Video Mixing", "description": "Process: Video Mixing", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "14302120-e6ff-4183-b58b-1b84ba2c45fb", "name": "Recording", "description": "Process: Recording", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "b54917ef-37c2-4ed9-8c3e-27961de73a69", "name": "Transcoding", "description": "Process: Transcoding", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "ebd0d62d-be8b-4c63-bbe2-97412d5dfd19", "name": "Background Subtraction", "description": "Process: Background Subtraction", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "9646786a-d9eb-4f5d-815a-fff24a992b5c", "name": "Facial Detection", "description": "Process: Facial Detection", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "fd008eb6-afdd-4d8a-8000-d7792b92c0c4", "name": "Audio Level Detection", "description": "Process: Audio Level Detection", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "42fe1da8-51b6-4a2e-9fee-c0f0b84e1290", "name": "Gesture Recognition", "description": "Process: Gesture Recognition", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "3bd4c6de-37a1-4828-947f-4346c4d8a6f1", "name": "Lip Movement Analysis", "description": "Process: Lip Movement Analysis", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "35ec931e-0ebf-409f-9c4c-6923cd47aa6d", "name": "Network Quality Monitoring", "description": "Process: Network Quality Monitoring", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "1093d995-a023-4d4d-9340-5d71efd7a54c", "name": "Adaptive Streaming", "description": "Process: Adaptive Streaming", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "f170af9f-2270-4ab8-ab99-20283d94fbb3", "name": "Device Enumeration", "description": "Process: Device Enumeration", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "252d41ff-a0c3-4ade-92ae-7d2db839559e", "name": "Audio Routing", "description": "Process: Audio Routing", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "8050ce6e-06a9-4331-a8d9-c613770194e6", "name": "Video Filtering", "description": "Process: Video Filtering", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "b09d5bab-0451-414e-bde8-2f04f08f6a03", "name": "Chat Message Processing", "description": "Process: Chat Message Processing", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "16494671-18ac-4d54-9fad-67be3c60321d", "name": "File Transfer", "description": "Process: File Transfer", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "8b52ee1e-b4a4-446e-ae54-8644af3ed672", "name": "Whiteboard Rendering", "description": "Process: Whiteboard Rendering", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "94cb5032-d31b-4be7-9160-461075034747", "name": "Breakout Room Management", "description": "Process: Breakout Room Management", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "4f4268bc-2087-4055-8d43-02a933b4a05b", "name": "Poll Creation and Analysis", "description": "Process: Poll Creation and Analysis", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "e7cb53ed-faff-47f9-9852-096eae25b813", "name": "Attendance Logging", "description": "Process: Attendance Logging", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "70ff5e4e-6d16-4fb4-81b4-5f1d3a2b7bd2", "name": "Language Detection", "description": "Process: Language Detection", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "f473434d-b6cc-4361-9a07-517d3746ef86", "name": "Speech-to-Text Conversion", "description": "Process: Speech-to-Text Conversion", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "01ebfeb9-4aa8-492b-aa7e-7302de19a817", "name": "Text-to-Speech Conversion", "description": "Process: Text-to-Speech Conversion", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "fe7f4d99-0169-4bcf-a49c-47966f2dc71c", "name": "Emoji Rendering", "description": "Process: Emoji Rendering", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "44365ec6-00d5-4464-8fc0-b8fd748dc1ca", "name": "Analytics Data Collection", "description": "Process: Analytics Data Collection", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "b811173c-9319-414d-a4cb-a6cf1b1b1022", "name": "API Request Handling", "description": "Process: API Request Handling", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "f8c94d77-49dd-42d1-85f6-785aee5dc79b", "name": "Cloud Synchronization", "description": "Process: Cloud Synchronization", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "62fa5b4b-5e1b-49fe-847e-fbabf6b5dee0", "name": "Low-Light Image Enhancement", "description": "Process: Low-Light Image Enhancement", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "536de638-92f4-4c4c-b295-38c34e09b9f0", "name": "360-Degree Video Processing", "description": "Process: 360-Degree Video Processing", "domain": "VideoChat", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}], "perspective": [{"id": "6f1685de-de4e-47f5-a7ea-2a9fd413f3b6", "name": "End User", "description": "Perspective: End User", "domain": "VideoChat", "viewpoint": "view_end_user", "stakeholder_type": null, "quality_score": 1.0}, {"id": "03aedea0-aab1-4b07-ac7e-85ff36a14728", "name": "IT Administrator", "description": "Perspective: IT Administrator", "domain": "VideoChat", "viewpoint": "view_it_administrator", "stakeholder_type": null, "quality_score": 1.0}, {"id": "d1739122-de62-4f8e-9838-58dce4e9dcbb", "name": "Software Developer", "description": "Perspective: Software Developer", "domain": "VideoChat", "viewpoint": "view_software_developer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "71a991dd-891e-450d-94e5-119766a2b491", "name": "Network Engineer", "description": "Perspective: Network Engineer", "domain": "VideoChat", "viewpoint": "view_network_engineer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "d7594115-6e1f-4be4-9f14-9d6bd40ad0eb", "name": "Security Specialist", "description": "Perspective: Security Specialist", "domain": "VideoChat", "viewpoint": "view_security_specialist", "stakeholder_type": null, "quality_score": 1.0}, {"id": "03593291-6e19-40ee-a190-8088ce2f0fe4", "name": "User Experience Designer", "description": "Perspective: User Experience Designer", "domain": "VideoChat", "viewpoint": "view_user_experience_designer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "6bd8df75-94d4-4d7d-a1c0-9998749682cc", "name": "Product Manager", "description": "Perspective: Product Manager", "domain": "VideoChat", "viewpoint": "view_product_manager", "stakeholder_type": null, "quality_score": 1.0}, {"id": "89ff30b3-2503-4960-aa37-2cdf9cf7e713", "name": "Quality Assurance Tester", "description": "Perspective: Quality Assurance Tester", "domain": "VideoChat", "viewpoint": "view_quality_assurance_tester", "stakeholder_type": null, "quality_score": 1.0}, {"id": "6c5ad13b-6497-45af-a4ae-f84243587f8e", "name": "Customer Support Representative", "description": "Perspective: Customer Support Representative", "domain": "VideoChat", "viewpoint": "view_customer_support_representative", "stakeholder_type": null, "quality_score": 1.0}, {"id": "c480c885-9539-4e88-aa2b-5fd4e5720110", "name": "Sales Representative", "description": "Perspective: Sales Representative", "domain": "VideoChat", "viewpoint": "view_sales_representative", "stakeholder_type": null, "quality_score": 1.0}, {"id": "a59328bf-45ad-48cd-96e3-0354e1ae2723", "name": "Marketing Specialist", "description": "Perspective: Marketing Specialist", "domain": "VideoChat", "viewpoint": "view_marketing_specialist", "stakeholder_type": null, "quality_score": 1.0}, {"id": "40c62dcc-ebb9-4cfa-a3d2-440ed761100e", "name": "Business Analyst", "description": "Perspective: Business Analyst", "domain": "VideoChat", "viewpoint": "view_business_analyst", "stakeholder_type": null, "quality_score": 1.0}, {"id": "46b22561-75e7-4c4a-b892-a59a3cb8ce6d", "name": "Data Scientist", "description": "Perspective: Data Scientist", "domain": "VideoChat", "viewpoint": "view_data_scientist", "stakeholder_type": null, "quality_score": 1.0}, {"id": "4e367c02-ffbb-434c-a8d6-235a3587f812", "name": "Legal Counsel", "description": "Perspective: Legal Counsel", "domain": "VideoChat", "viewpoint": "view_legal_counsel", "stakeholder_type": null, "quality_score": 1.0}, {"id": "364fe456-4520-4c5f-be17-e479a4dd1820", "name": "Compliance Officer", "description": "Perspective: Compliance Officer", "domain": "VideoChat", "viewpoint": "view_compliance_officer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "38bd6ab0-a9de-4455-9c6d-ff24c68aa193", "name": "Accessibility Expert", "description": "Perspective: Accessibility Expert", "domain": "VideoChat", "viewpoint": "view_accessibility_expert", "stakeholder_type": null, "quality_score": 1.0}, {"id": "c2aa491e-c1d0-4ce5-b1f0-86167387ed86", "name": "Localization Specialist", "description": "Perspective: Localization Specialist", "domain": "VideoChat", "viewpoint": "view_localization_specialist", "stakeholder_type": null, "quality_score": 1.0}, {"id": "94d7fcac-f713-486b-b7f2-878c7e8c0d07", "name": "Training Coordinator", "description": "Perspective: Training Coordinator", "domain": "VideoChat", "viewpoint": "view_training_coordinator", "stakeholder_type": null, "quality_score": 1.0}, {"id": "98537340-b036-41a2-8005-a915612a8ce4", "name": "System Integrator", "description": "Perspective: System Integrator", "domain": "VideoChat", "viewpoint": "view_system_integrator", "stakeholder_type": null, "quality_score": 1.0}, {"id": "b9257887-0ece-48f0-b356-2551968560f8", "name": "Cloud Architect", "description": "Perspective: Cloud Architect", "domain": "VideoChat", "viewpoint": "view_cloud_architect", "stakeholder_type": null, "quality_score": 1.0}, {"id": "b9081284-32ba-4acf-ae6e-c07d8b0c4f74", "name": "Mobile Developer", "description": "Perspective: Mobile Developer", "domain": "VideoChat", "viewpoint": "view_mobile_developer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "36cd29d7-240d-4b5f-b102-06f831e18d53", "name": "Web Developer", "description": "Perspective: Web Developer", "domain": "VideoChat", "viewpoint": "view_web_developer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "18f95762-d8c6-49f2-b72c-679eade93265", "name": "DevOps Engineer", "description": "Perspective: DevOps Engineer", "domain": "VideoChat", "viewpoint": "view_devops_engineer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "b5fd3a4b-3a38-4447-9eb7-d14a93b5d904", "name": "Database Administrator", "description": "Perspective: Database Administrator", "domain": "VideoChat", "viewpoint": "view_database_administrator", "stakeholder_type": null, "quality_score": 1.0}, {"id": "1af29bc8-5530-4137-b14f-d12ccd2a23d9", "name": "UI Designer", "description": "Perspective: UI Designer", "domain": "VideoChat", "viewpoint": "view_ui_designer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "83be0484-9df5-4e75-a434-8a2dd144b3ec", "name": "UX Researcher", "description": "Perspective: UX Researcher", "domain": "VideoChat", "viewpoint": "view_ux_researcher", "stakeholder_type": null, "quality_score": 1.0}, {"id": "9ed86c2e-5335-4f13-b1ed-9542625ae002", "name": "Content Creator", "description": "Perspective: Content Creator", "domain": "VideoChat", "viewpoint": "view_content_creator", "stakeholder_type": null, "quality_score": 1.0}, {"id": "cead1738-bd79-4e3c-a09f-4c11f80b38a1", "name": "Educator", "description": "Perspective: Educator", "domain": "VideoChat", "viewpoint": "view_educator", "stakeholder_type": null, "quality_score": 1.0}, {"id": "c7b8cfb7-02eb-494b-8e43-00474e57b5ca", "name": "Healthcare Professional", "description": "Perspective: Healthcare Professional", "domain": "VideoChat", "viewpoint": "view_healthcare_professional", "stakeholder_type": null, "quality_score": 1.0}, {"id": "73efeb0b-c995-46ed-af55-faaed948527a", "name": "Financial Advisor", "description": "Perspective: Financial Advisor", "domain": "VideoChat", "viewpoint": "view_financial_advisor", "stakeholder_type": null, "quality_score": 1.0}, {"id": "baf66ab4-0cb2-43cb-b579-437ef32a75c2", "name": "Human Resources Manager", "description": "Perspective: Human Resources Manager", "domain": "VideoChat", "viewpoint": "view_human_resources_manager", "stakeholder_type": null, "quality_score": 1.0}, {"id": "59f02428-f0b2-4b5e-b10b-ad2772c0e6d6", "name": "Event Organizer", "description": "Perspective: Event Organizer", "domain": "VideoChat", "viewpoint": "view_event_organizer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "08717bc0-91a1-47df-b116-2516b5186af4", "name": "Project Manager", "description": "Perspective: Project Manager", "domain": "VideoChat", "viewpoint": "view_project_manager", "stakeholder_type": null, "quality_score": 1.0}, {"id": "9fe5d2a7-83d7-4cba-953d-44a4b618456b", "name": "Executive", "description": "Perspective: Executive", "domain": "VideoChat", "viewpoint": "view_executive", "stakeholder_type": null, "quality_score": 1.0}, {"id": "33c58624-5d29-4267-abd5-252962c51af7", "name": "Entrepreneur", "description": "Perspective: Entrepreneur", "domain": "VideoChat", "viewpoint": "view_entrepreneur", "stakeholder_type": null, "quality_score": 1.0}, {"id": "4d7c58be-9525-41f0-8938-19a037e44266", "name": "Journalist", "description": "Perspective: Journalist", "domain": "VideoChat", "viewpoint": "view_journalist", "stakeholder_type": null, "quality_score": 1.0}, {"id": "2e32aa78-4237-4233-b8ca-028bcea16194", "name": "Politician", "description": "Perspective: Politician", "domain": "VideoChat", "viewpoint": "view_politician", "stakeholder_type": null, "quality_score": 1.0}, {"id": "6c7a024f-d379-4002-af45-b608f7690cec", "name": "Entertainer", "description": "Perspective: Entertainer", "domain": "VideoChat", "viewpoint": "view_entertainer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "e226eb69-c52e-424c-9a90-b2f9726fed4b", "name": "Social Media Influencer", "description": "Perspective: Social Media Influencer", "domain": "VideoChat", "viewpoint": "view_social_media_influencer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "af444a8f-a671-4e9c-b2bb-94562737cb0c", "name": "Customer", "description": "Perspective: Customer", "domain": "VideoChat", "viewpoint": "view_customer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "dc0f5d72-b7c4-4a11-b841-02477efa481d", "name": "Investor", "description": "Perspective: Investor", "domain": "VideoChat", "viewpoint": "view_investor", "stakeholder_type": null, "quality_score": 1.0}, {"id": "c127745b-1301-4b6d-8616-dab83bcfe964", "name": "Regulator", "description": "Perspective: Regulator", "domain": "VideoChat", "viewpoint": "view_regulator", "stakeholder_type": null, "quality_score": 1.0}, {"id": "f9002e4c-948a-45bd-90a1-f690e45125b4", "name": "Privacy Advocate", "description": "Perspective: Privacy Advocate", "domain": "VideoChat", "viewpoint": "view_privacy_advocate", "stakeholder_type": null, "quality_score": 1.0}, {"id": "32375f93-8899-4ec3-ad1f-b6dd7dbc2b8c", "name": "Ethical AI Specialist", "description": "Perspective: Ethical AI Specialist", "domain": "VideoChat", "viewpoint": "view_ethical_ai_specialist", "stakeholder_type": null, "quality_score": 1.0}, {"id": "2baad754-0fb2-47c7-a967-cbd5207c76d1", "name": "Telecommunications Expert", "description": "Perspective: Telecommunications Expert", "domain": "VideoChat", "viewpoint": "view_telecommunications_expert", "stakeholder_type": null, "quality_score": 1.0}, {"id": "6ea9cd42-2e91-479b-a28a-bfececabbde6", "name": "Usability Tester", "description": "Perspective: Usability Tester", "domain": "VideoChat", "viewpoint": "view_usability_tester", "stakeholder_type": null, "quality_score": 1.0}, {"id": "4d4b6a53-1cc0-47b9-bbba-f991aad19b27", "name": "Ergonomics Specialist", "description": "Perspective: Ergonomics Specialist", "domain": "VideoChat", "viewpoint": "view_ergonomics_specialist", "stakeholder_type": null, "quality_score": 1.0}, {"id": "0cb210c6-c8a2-4358-99ca-196fe46ce84d", "name": "Cognitive Psychologist", "description": "Perspective: Cognitive Psychologist", "domain": "VideoChat", "viewpoint": "view_cognitive_psychologist", "stakeholder_type": null, "quality_score": 1.0}, {"id": "72de9e0f-12bc-4838-9ea2-accad4dcccd2", "name": "Audiologist", "description": "Perspective: Audiologist", "domain": "VideoChat", "viewpoint": "view_audiologist", "stakeholder_type": null, "quality_score": 1.0}, {"id": "401100bc-ef5a-4d3f-af97-3a18fcc5a096", "name": "Ophthalmologist", "description": "Perspective: Ophthalmologist", "domain": "VideoChat", "viewpoint": "view_ophthalmologist", "stakeholder_type": null, "quality_score": 1.0}]}, "connections": [{"id": "70230709-c85b-40b6-8697-536357511b6b", "property_id": "53868e67-e007-4fec-ab50-5e0cd667119c", "process_id": "fd9f2822-7329-41c0-b009-a3e21e9cab86", "perspective_id": "94d7fcac-f713-486b-b7f2-878c7e8c0d07", "strength": 0.15673931585438683, "confidence": 0.8391008410405865, "relationship_type": "general", "bidirectional": true, "status": "active", "position": {"x": 10, "y": 18, "z": 17}}, {"id": "6a9253f5-086c-4ca6-be89-9a7a80ec6e97", "property_id": "78a84eaf-746a-4425-bc11-c5be54a9f160", "process_id": "01ebfeb9-4aa8-492b-aa7e-7302de19a817", "perspective_id": "6c7a024f-d379-4002-af45-b608f7690cec", "strength": 0.675681863160089, "confidence": 0.6436996447804534, "relationship_type": "general", "bidirectional": true, "status": "active", "position": {"x": 33, "y": 43, "z": 37}}, {"id": "590c96c6-c1a1-4a17-8794-8e1955a14d3d", "property_id": "5830fe50-dd81-4cd6-bfaf-814d249b49fb", "process_id": "fd008eb6-afdd-4d8a-8000-d7792b92c0c4", "perspective_id": "f9002e4c-948a-45bd-90a1-f690e45125b4", "strength": 0.07978523446899632, "confidence": 0.9675247656638771, "relationship_type": "general", "bidirectional": true, "status": "active", "position": {"x": 42, "y": 27, "z": 42}}, {"id": "afa58d0e-259e-4832-8a68-1d6c3963a446", "property_id": "4bd72a8a-738a-485d-a0e0-eb563610eade", "process_id": "252d41ff-a0c3-4ade-92ae-7d2db839559e", "perspective_id": "d1739122-de62-4f8e-9838-58dce4e9dcbb", "strength": 0.9716350731977929, "confidence": 0.7876678192484041, "relationship_type": "general", "bidirectional": true, "status": "active", "position": {"x": 25, "y": 33, "z": 2}}, {"id": "c5609736-1290-4229-b525-8a6d0f213bf0", "property_id": "5908e216-e016-4aff-a724-ad7cb7a1b4f2", "process_id": "41e26717-8a60-4b7c-905f-56b43a036f32", "perspective_id": "6c5ad13b-6497-45af-a4ae-f84243587f8e", "strength": 0.14776953098210843, "confidence": 0.6499726809923062, "relationship_type": "general", "bidirectional": true, "status": "active", "position": {"x": 41, "y": 2, "z": 8}}, {"id": "4aa1a880-e7b0-4d10-bb3c-7da075a92403", "property_id": "5830fe50-dd81-4cd6-bfaf-814d249b49fb", "process_id": "01ebfeb9-4aa8-492b-aa7e-7302de19a817", "perspective_id": "89ff30b3-2503-4960-aa37-2cdf9cf7e713", "strength": 0.5070592531191939, "confidence": 0.8604270808474459, "relationship_type": "general", "bidirectional": true, "status": "active", "position": {"x": 42, "y": 43, "z": 7}}, {"id": "07eb2085-582d-4481-a92e-17a6d3ed422f", "property_id": "dddede8b-0389-41d3-a940-07585e921df3", "process_id": "6ad512e9-19c8-4ddf-a1f2-3051d8afb92f", "perspective_id": "c7b8cfb7-02eb-494b-8e43-00474e57b5ca", "strength": 0.9396359643975193, "confidence": 0.9352904660668728, "relationship_type": "general", "bidirectional": true, "status": "active", "position": {"x": 31, "y": 1, "z": 28}}, {"id": "3d75ae82-2aec-40f3-9c48-eecaea94ee30", "property_id": "4ad4f441-2389-4113-8ada-30308d589fa8", "process_id": "aff11c95-2b4b-4bde-90e8-54d967457252", "perspective_id": "2e32aa78-4237-4233-b8ca-028bcea16194", "strength": 0.7912253918170655, "confidence": 0.6278184981447887, "relationship_type": "general", "bidirectional": true, "status": "active", "position": {"x": 2, "y": 15, "z": 36}}, {"id": "7bd6e834-856b-41ac-b248-309481d13ded", "property_id": "28541027-e13b-41ea-91b9-aaad40a72d81", "process_id": "fd008eb6-afdd-4d8a-8000-d7792b92c0c4", "perspective_id": "b5fd3a4b-3a38-4447-9eb7-d14a93b5d904", "strength": 0.5887496788252344, "confidence": 0.7522492453246388, "relationship_type": "general", "bidirectional": true, "status": "active", "position": {"x": 28, "y": 27, "z": 23}}, {"id": "361a8bef-08bd-4150-90d6-f283029cf038", "property_id": "87fabd83-51df-44dd-9581-635a45b184bc", "process_id": "aff11c95-2b4b-4bde-90e8-54d967457252", "perspective_id": "c127745b-1301-4b6d-8616-dab83bcfe964", "strength": 0.2087759819963083, "confidence": 0.7271452225364542, "relationship_type": "general", "bidirectional": true, "status": "active", "position": {"x": 17, "y": 15, "z": 41}}]};
+                
+                // Setup
+                const container = document.getElementById('canvas-container');
+                const width = container.clientWidth;
+                const height = container.clientHeight;
+                
+                // Scene
+                const scene = new THREE.Scene();
+                scene.background = new THREE.Color(0xf0f0f0);
+                
+                // Camera
+                const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+                camera.position.set(2, 2, 2);
+                
+                // Renderer
+                const renderer = new THREE.WebGLRenderer({ antialias: true });
+                renderer.setSize(width, height);
+                container.appendChild(renderer.domElement);
+                
+                // Controls
+                const controls = new THREE.OrbitControls(camera, renderer.domElement);
+                controls.enableDamping = true;
+                controls.dampingFactor = 0.25;
+                
+                // Lighting
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+                scene.add(ambientLight);
+                
+                const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+                directionalLight.position.set(1, 1, 1);
+                scene.add(directionalLight);
+                
+                // Axes helper
+                const axesHelper = new THREE.AxesHelper(1);
+                scene.add(axesHelper);
+                
+                // Create cube frame
+                const cubeSize = 1;
+                const cubeGeometry = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize);
+                const edgesMaterial = new THREE.LineBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.2 });
+                const cubeEdges = new THREE.LineSegments(
+                    new THREE.EdgesGeometry(cubeGeometry),
+                    edgesMaterial
+                );
+                scene.add(cubeEdges);
+                
+                // Axis labels
+                const createTextSprite = (text, color, position) => {
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.width = 256;
+                    canvas.height = 128;
+                    
+                    context.font = "Bold 36px Arial";
+                    context.fillStyle = "rgba(255, 255, 255, 0.95)";
+                    context.fillRect(0, 0, canvas.width, canvas.height);
+                    
+                    context.fillStyle = color;
+                    context.fillText(text, 10, 64);
+                    
+                    const texture = new THREE.Texture(canvas);
+                    texture.needsUpdate = true;
+                    
+                    const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
+                    const sprite = new THREE.Sprite(spriteMaterial);
+                    sprite.position.copy(position);
+                    sprite.scale.set(0.2, 0.1, 1);
+                    
+                    return sprite;
+                };
+                
+                // Add axis labels
+                scene.add(createTextSprite("Properties (X)", "#1f77b4", new THREE.Vector3(1.2, 0, 0)));
+                scene.add(createTextSprite("Processes (Y)", "#ff7f0e", new THREE.Vector3(0, 1.2, 0)));
+                scene.add(createTextSprite("Perspectives (Z)", "#2ca02c", new THREE.Vector3(0, 0, 1.2)));
+                
+                // Add points for relationships
+                const pointsMaterial = new THREE.PointsMaterial({
+                    size: 0.05,
+                    vertexColors: true,
+                    sizeAttenuation: true
+                });
+                
+                const pointsGeometry = new THREE.BufferGeometry();
+                const positions = [];
+                const colors = [];
+                const pointData = [];
+                
+                // Normalize positions
+                const numProperties = p3ifData.dimensions.property.length;
+                const numProcesses = p3ifData.dimensions.process.length;
+                const numPerspectives = p3ifData.dimensions.perspective.length;
+                
+                p3ifData.connections.forEach(conn => {
+                    // Normalize to 0-1 range and then scale to cube size
+                    const x = (conn.x / Math.max(1, numProperties - 1)) * cubeSize;
+                    const y = (conn.y / Math.max(1, numProcesses - 1)) * cubeSize;
+                    const z = (conn.z / Math.max(1, numPerspectives - 1)) * cubeSize;
+                    
+                    // Center the cube by subtracting half the size
+                    positions.push(x - cubeSize/2, y - cubeSize/2, z - cubeSize/2);
+                    
+                    // Use strength to determine color intensity
+                    const r = 0.5 + conn.strength * 0.5;
+                    const g = 0.5 * (1 - conn.strength);
+                    const b = 0.5 + conn.confidence * 0.5;
+                    
+                    colors.push(r, g, b);
+                    
+                    // Store the original data for interaction
+                    pointData.push({
+                        id: conn.id,
+                        property: p3ifData.dimensions.property[conn.x],
+                        process: p3ifData.dimensions.process[conn.y],
+                        perspective: p3ifData.dimensions.perspective[conn.z],
+                        strength: conn.strength,
+                        confidence: conn.confidence
+                    });
+                });
+                
+                pointsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+                pointsGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+                
+                const points = new THREE.Points(pointsGeometry, pointsMaterial);
+                scene.add(points);
+                
+                // Handle resizing
+                window.addEventListener('resize', () => {
+                    const newWidth = container.clientWidth;
+                    const newHeight = container.clientHeight;
+                    
+                    camera.aspect = newWidth / newHeight;
+                    camera.updateProjectionMatrix();
+                    
+                    renderer.setSize(newWidth, newHeight);
+                });
+                
+                // Handle point selection
+                const raycaster = new THREE.Raycaster();
+                raycaster.params.Points.threshold = 0.05;
+                
+                const mouse = new THREE.Vector2();
+                
+                container.addEventListener('mousemove', (event) => {
+                    // Calculate mouse position in normalized device coordinates
+                    mouse.x = (event.clientX / width) * 2 - 1;
+                    mouse.y = -(event.clientY / height) * 2 + 1;
+                });
+                
+                container.addEventListener('click', () => {
+                    // Cast a ray from the camera
+                    raycaster.setFromCamera(mouse, camera);
+                    
+                    // Check for intersections with points
+                    const intersects = raycaster.intersectObject(points);
+                    
+                    if (intersects.length > 0) {
+                        const index = intersects[0].index;
+                        const selectedPoint = pointData[index];
+                        
+                        // Display information about the selected point
+                        const infoDiv = document.getElementById('selection-info');
+                        infoDiv.innerHTML = `
+                            <h3>Selected Relationship</h3>
+                            <p><strong>Property:</strong> ${selectedPoint.property.name}</p>
+                            <p><strong>Process:</strong> ${selectedPoint.process.name}</p>
+                            <p><strong>Perspective:</strong> ${selectedPoint.perspective.name}</p>
+                            <p><strong>Strength:</strong> ${selectedPoint.strength.toFixed(2)}</p>
+                            <p><strong>Confidence:</strong> ${selectedPoint.confidence.toFixed(2)}</p>
+                        `;
+                    }
+                });
+                
+                // Animation loop
+                function animate() {
+                    requestAnimationFrame(animate);
+                    controls.update();
+                    renderer.render(scene, camera);
+                }
+                
+                animate();
+            </script>
+            
+            <script>
+                
+            </script>
+        </body>
+        </html>
+        

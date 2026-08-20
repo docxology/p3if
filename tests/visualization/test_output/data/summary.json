@@ -7,9 +7,9 @@
   "relationship_count": 50,
   "domains": [
     {
-      "name": "Domain B",
+      "name": "Domain A",
       "patterns": {
-        "property": 5,
+        "property": 1,
         "process": 4,
         "perspective": 1
       }
@@ -17,17 +17,17 @@
     {
       "name": "Domain C",
       "patterns": {
-        "property": 2,
-        "process": 1,
-        "perspective": 6
+        "property": 4,
+        "process": 2,
+        "perspective": 3
       }
     },
     {
-      "name": "Domain A",
+      "name": "Domain B",
       "patterns": {
-        "property": 3,
-        "process": 5,
-        "perspective": 3
+        "property": 5,
+        "process": 4,
+        "perspective": 6
       }
     }
   ]

@@ -1,0 +1,1564 @@
+{
+  "metadata": {
+    "generated_at": "2026-08-19T18:26:05.056143",
+    "total_properties": 50,
+    "total_processes": 55,
+    "total_perspectives": 51,
+    "domains": "all",
+    "max_elements": 1000
+  },
+  "dimensions": {
+    "property": [
+      {
+        "id": "c2a34b16-d33c-45cd-bdc1-2dc162f49eba",
+        "name": "Transaction Security",
+        "description": "Property: Transaction Security",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "244376ff-ec5e-4c8c-9589-d6a627657d4c",
+        "name": "User Authentication",
+        "description": "Property: User Authentication",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "5847c60b-f3a8-4c3b-ae86-39e985c8697e",
+        "name": "Cash Availability",
+        "description": "Property: Cash Availability",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "24d0fe20-aeb0-426c-9572-ddf354c62fb4",
+        "name": "Machine Reliability",
+        "description": "Property: Machine Reliability",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "c9ce4172-fc56-4829-853b-f02f5e72271e",
+        "name": "Network Connectivity",
+        "description": "Property: Network Connectivity",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "f898ec67-4e67-4d29-9359-1d9121f5469e",
+        "name": "Transaction Speed",
+        "description": "Property: Transaction Speed",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "613464ea-d9c8-4d27-a3ee-90f843081c75",
+        "name": "User Interface",
+        "description": "Property: User Interface",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "9776ebc0-038a-4f10-91f6-0d597b4888b7",
+        "name": "Error Handling",
+        "description": "Property: Error Handling",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "f5b9a48c-399d-4a8b-a567-9387f9b5bad3",
+        "name": "Maintenance Scheduling",
+        "description": "Property: Maintenance Scheduling",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "599e1bd2-3183-4e32-94cc-ba43f834a789",
+        "name": "Fraud Detection",
+        "description": "Property: Fraud Detection",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "3755fb03-93c4-4f1e-b7a7-a0c1846cc68a",
+        "name": "Compliance",
+        "description": "Property: Compliance",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "4ac7e439-30f8-4516-b6a1-59f478668c08",
+        "name": "Accessibility",
+        "description": "Property: Accessibility",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "6f2569ce-4784-4df2-941d-da156ab6abc8",
+        "name": "Energy Efficiency",
+        "description": "Property: Energy Efficiency",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "0427ee90-a334-48b4-892c-b9f2e18afc72",
+        "name": "Data Privacy",
+        "description": "Property: Data Privacy",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "fed72bc9-55cf-48ae-9371-688f76da9888",
+        "name": "Service Availability",
+        "description": "Property: Service Availability",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "380261d0-a3c5-4590-a540-05e011a642aa",
+        "name": "Card Reader Functionality",
+        "description": "Property: Card Reader Functionality",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "1c67788a-2414-4493-ace7-6ade3c662570",
+        "name": "PIN Encryption",
+        "description": "Property: PIN Encryption",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "d4349832-f56e-440b-8ae6-361d130fd225",
+        "name": "Cash Dispensing Accuracy",
+        "description": "Property: Cash Dispensing Accuracy",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "78bff5a1-a993-4924-8879-b30263e0cc79",
+        "name": "Receipt Printing Quality",
+        "description": "Property: Receipt Printing Quality",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "46218e21-95de-4b1c-ade9-884f40f2f021",
+        "name": "Screen Visibility",
+        "description": "Property: Screen Visibility",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "3c1e72b8-069b-4d20-a9ea-c2b559c9b421",
+        "name": "Keypad Responsiveness",
+        "description": "Property: Keypad Responsiveness",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "61a479db-882f-4fa3-a022-7ce68943d870",
+        "name": "Software Stability",
+        "description": "Property: Software Stability",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "82af1b12-76fe-4dae-8dae-53331f126cd3",
+        "name": "Hardware Durability",
+        "description": "Property: Hardware Durability",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "58a7b9f6-2a8e-4ba9-8998-f4e2e86b3091",
+        "name": "Network Latency",
+        "description": "Property: Network Latency",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "d144e7eb-f837-4f7c-8583-1bd403cb19e7",
+        "name": "Transaction Logging",
+        "description": "Property: Transaction Logging",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "dedb068a-7680-48af-8455-24c2dab78925",
+        "name": "Audit Trail",
+        "description": "Property: Audit Trail",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "db87ba7b-147a-4500-8e99-948419413dd0",
+        "name": "Biometric Authentication",
+        "description": "Property: Biometric Authentication",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "9bf477bf-c7ab-4275-8150-02ba658678a4",
+        "name": "Multi-Factor Authentication",
+        "description": "Property: Multi-Factor Authentication",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "143c0e72-b5bc-479c-b26f-90c43bdb6ea9",
+        "name": "Cash Recycling",
+        "description": "Property: Cash Recycling",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "1715e84f-c04c-4577-8e5a-86bac401b428",
+        "name": "Foreign Currency Support",
+        "description": "Property: Foreign Currency Support",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "540d6ad1-9c4d-4652-9903-66337d5d306a",
+        "name": "Contactless Technology",
+        "description": "Property: Contactless Technology",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "e41026cc-3d83-4502-9e14-60b247a99a95",
+        "name": "Mobile Integration",
+        "description": "Property: Mobile Integration",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "32d084db-23b1-49e5-abeb-b6fd50906043",
+        "name": "Remote Monitoring",
+        "description": "Property: Remote Monitoring",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "3a231596-866e-453e-b938-086af9511686",
+        "name": "Thermal Management",
+        "description": "Property: Thermal Management",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "12ef4b02-2f73-4ce5-8dd5-b7bdf78dced4",
+        "name": "Power Backup",
+        "description": "Property: Power Backup",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "08731f18-4d43-43d7-adba-2027f17edf61",
+        "name": "Vandalism Resistance",
+        "description": "Property: Vandalism Resistance",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "77af6784-aabc-4aa6-808d-92d6b6d52028",
+        "name": "Environmental Adaptability",
+        "description": "Property: Environmental Adaptability",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "f698e30a-345c-477e-92db-39488b91ece5",
+        "name": "Noise Level",
+        "description": "Property: Noise Level",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "b1a38247-4626-4a4a-9699-df33bc987402",
+        "name": "Queue Management",
+        "description": "Property: Queue Management",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "2d856d5f-58a8-4f36-871e-fb13b02a9160",
+        "name": "Customer Support Integration",
+        "description": "Property: Customer Support Integration",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "cfe1be6e-f44d-4e18-b97e-149965c172e5",
+        "name": "Language Support",
+        "description": "Property: Language Support",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "ac083e2d-6248-4072-a8ea-57dc46033d68",
+        "name": "Braille Support",
+        "description": "Property: Braille Support",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "7f6d0e3b-86d2-4bca-893b-39c553e12cfa",
+        "name": "Audio Guidance",
+        "description": "Property: Audio Guidance",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "b784b3e0-16f8-4f29-b918-f373745f198b",
+        "name": "Camera Surveillance",
+        "description": "Property: Camera Surveillance",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "16d9ad53-c502-45a9-9942-7ae7f7411e25",
+        "name": "Anti-Skimming Measures",
+        "description": "Property: Anti-Skimming Measures",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "31a5f881-bf0c-42d0-823b-d5d70c2c69b3",
+        "name": "EMV Chip Technology",
+        "description": "Property: EMV Chip Technology",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "5d071046-d447-468b-b9fb-0b7baf1391f7",
+        "name": "NFC Capability",
+        "description": "Property: NFC Capability",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "63308e7f-74c6-41a0-93d9-f59750745e03",
+        "name": "Software Update Mechanism",
+        "description": "Property: Software Update Mechanism",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "9a57b9da-6ab9-4675-a815-a2b46bd61333",
+        "name": "Diagnostic Capabilities",
+        "description": "Property: Diagnostic Capabilities",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      },
+      {
+        "id": "5a086eaf-1a0f-445d-8457-a0f8187f7e28",
+        "name": "Cash Forecasting",
+        "description": "Property: Cash Forecasting",
+        "domain": "ATM_withdrawal",
+        "tags": [],
+        "quality_score": 1.0,
+        "validation_status": "draft"
+      }
+    ],
+    "process": [
+      {
+        "id": "a87fe0b4-71ce-4b5c-a626-0676e089ebab",
+        "name": "Card Insertion",
+        "description": "Process: Card Insertion",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "ad2167dc-659a-48c0-a0ff-4efd1f0fd1cf",
+        "name": "PIN Entry",
+        "description": "Process: PIN Entry",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "0e1a9c6a-5e9a-4555-9291-3c773278bfa4",
+        "name": "Account Verification",
+        "description": "Process: Account Verification",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "21b4c26d-e0ff-4d5c-83d7-706cd866bdb3",
+        "name": "Transaction Processing",
+        "description": "Process: Transaction Processing",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "4b6b0efa-751b-42ec-ac38-9c2652408236",
+        "name": "Cash Dispensing",
+        "description": "Process: Cash Dispensing",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "e9103c29-5b97-42bc-b63f-a5860f885564",
+        "name": "Receipt Printing",
+        "description": "Process: Receipt Printing",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "8204d54b-0991-4fc9-90e2-056be23dc4ea",
+        "name": "Balance Inquiry",
+        "description": "Process: Balance Inquiry",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "c053b19e-ff74-4f6e-aa09-fd9c0ba9540e",
+        "name": "Mini Statement Printing",
+        "description": "Process: Mini Statement Printing",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "330e14a7-9a3a-41a8-b5ad-c46e70fbc88e",
+        "name": "Fund Transfer",
+        "description": "Process: Fund Transfer",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "26bea83c-f9a0-49cb-acf4-254ab4ed9498",
+        "name": "Transaction Cancellation",
+        "description": "Process: Transaction Cancellation",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "ebe1bca9-58b1-4046-88a2-ba3f3735a7f1",
+        "name": "Error Reporting",
+        "description": "Process: Error Reporting",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "ae03d8f3-22b2-409d-8c51-e802d9e84fb5",
+        "name": "Maintenance Check",
+        "description": "Process: Maintenance Check",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "9fa13b6c-6f2f-44dc-9555-88501ce6e196",
+        "name": "Software Update",
+        "description": "Process: Software Update",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "b226b156-0154-4c5c-b843-6146cfd7df60",
+        "name": "Network Monitoring",
+        "description": "Process: Network Monitoring",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "97bf58ca-ebc3-4d0b-989a-d2eb23e0bbd1",
+        "name": "Fraud Monitoring",
+        "description": "Process: Fraud Monitoring",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "3a874135-c0c1-4206-899d-594044780e13",
+        "name": "Cash Replenishment",
+        "description": "Process: Cash Replenishment",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "7748029d-7ad3-48a8-814a-c51e74aa59db",
+        "name": "Journal Printing",
+        "description": "Process: Journal Printing",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "81973134-965b-46c8-a3ed-267c660b6db9",
+        "name": "User Authentication",
+        "description": "Process: User Authentication",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "866adf02-8ac1-46e4-a861-b9a22e199e83",
+        "name": "Transaction Authorization",
+        "description": "Process: Transaction Authorization",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "2c9c510f-d5ff-409c-aa1b-0a38c5321efd",
+        "name": "Cash Counting",
+        "description": "Process: Cash Counting",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "08786470-64a8-45b5-a9e0-56102eb9e005",
+        "name": "Receipt Paper Replacement",
+        "description": "Process: Receipt Paper Replacement",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "de84f5bc-0c86-4556-a637-0e8bbb123e22",
+        "name": "Screen Calibration",
+        "description": "Process: Screen Calibration",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "bbd8097b-a27c-4e24-ab62-4594eac146d3",
+        "name": "Keypad Testing",
+        "description": "Process: Keypad Testing",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "6e922e08-106b-4d5c-aa1f-feff16a220c2",
+        "name": "Camera Adjustment",
+        "description": "Process: Camera Adjustment",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "3276e9ea-b43f-4dd6-ad44-e9437263b32e",
+        "name": "Network Troubleshooting",
+        "description": "Process: Network Troubleshooting",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "d76f9763-f9b8-45d4-a354-dafee5f21543",
+        "name": "Software Diagnostics",
+        "description": "Process: Software Diagnostics",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "f3f2f1a4-f2b3-48fb-9105-21aa48430fb3",
+        "name": "Hardware Inspection",
+        "description": "Process: Hardware Inspection",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "785669c3-0c34-4a96-a135-da038b644164",
+        "name": "Security Seal Verification",
+        "description": "Process: Security Seal Verification",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "662a1916-a91a-4efc-836d-ad68d2923fb4",
+        "name": "Cash Cassette Balancing",
+        "description": "Process: Cash Cassette Balancing",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "5e73c09c-2de7-40db-9a2d-951c4edc0445",
+        "name": "Transaction Reconciliation",
+        "description": "Process: Transaction Reconciliation",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "aaf1f932-e0e9-4575-bef8-170db2466afc",
+        "name": "Audit Log Generation",
+        "description": "Process: Audit Log Generation",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "983de84c-f372-431e-9f15-d01cc6980a4c",
+        "name": "Biometric Data Capture",
+        "description": "Process: Biometric Data Capture",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "44f3451f-b238-4e00-85aa-e1d2fa31fcf3",
+        "name": "Encryption Key Management",
+        "description": "Process: Encryption Key Management",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "f813d158-638a-4e6d-80d1-367fe94f18db",
+        "name": "Cash Recycling Process",
+        "description": "Process: Cash Recycling Process",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "771c48db-60cd-45d5-b35e-80a33636cdd4",
+        "name": "Currency Verification",
+        "description": "Process: Currency Verification",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "bf7f4176-b674-4ccb-bf1c-81256e9c44d2",
+        "name": "Contactless Transaction Processing",
+        "description": "Process: Contactless Transaction Processing",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "0573ed3e-3d9f-415e-b5d3-afd3bb6cdac3",
+        "name": "Mobile App Integration",
+        "description": "Process: Mobile App Integration",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "ad5f0b0a-d68e-4bd0-9db0-c5bf9da50b57",
+        "name": "Remote Diagnostics",
+        "description": "Process: Remote Diagnostics",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "c06897f8-a1ab-4318-89f3-bda7ea22834c",
+        "name": "Temperature Monitoring",
+        "description": "Process: Temperature Monitoring",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "3cc962e8-1d95-4752-b2c1-230cbf6d717f",
+        "name": "Power System Check",
+        "description": "Process: Power System Check",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "af193dc2-ae73-46e2-96a2-1661c40f053f",
+        "name": "Physical Security Check",
+        "description": "Process: Physical Security Check",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "9fd0943e-e107-42c1-a9be-ff33de113587",
+        "name": "Environmental Adaptation",
+        "description": "Process: Environmental Adaptation",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "cfcc996d-622d-4c12-aea9-331c6ce13c56",
+        "name": "Noise Level Testing",
+        "description": "Process: Noise Level Testing",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "caa2636e-5c41-457e-b970-8e28479f95b1",
+        "name": "Queue Time Monitoring",
+        "description": "Process: Queue Time Monitoring",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "4505487a-18fc-4054-825a-65dd15cce472",
+        "name": "Customer Support Routing",
+        "description": "Process: Customer Support Routing",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "b2d0e394-10a6-40f4-be4e-2aa26da2fa9e",
+        "name": "Language Selection",
+        "description": "Process: Language Selection",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "4365c4f0-8a2a-4ac0-a82d-4ab38d85b786",
+        "name": "Braille Interface Activation",
+        "description": "Process: Braille Interface Activation",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "ce739977-8a30-45df-a055-db4fcd28e24f",
+        "name": "Audio Guidance Triggering",
+        "description": "Process: Audio Guidance Triggering",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "e7296d9f-7714-4440-9444-aca71dda3981",
+        "name": "Video Feed Recording",
+        "description": "Process: Video Feed Recording",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "7380bfb5-8826-460e-b626-454bc7ecccaa",
+        "name": "Anti-Skimming Detection",
+        "description": "Process: Anti-Skimming Detection",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "c6b1d192-6938-458f-810b-0267f46cef9c",
+        "name": "EMV Chip Reading",
+        "description": "Process: EMV Chip Reading",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "74ab9cb3-a63c-4cfe-be9e-17784d58703c",
+        "name": "NFC Data Exchange",
+        "description": "Process: NFC Data Exchange",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "c771d58d-24ee-460b-9ef2-9ee1dbff92ed",
+        "name": "Software Patch Installation",
+        "description": "Process: Software Patch Installation",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "061dc709-c2e8-4f63-93d8-ee19a7d02819",
+        "name": "Self-Diagnostic Routine",
+        "description": "Process: Self-Diagnostic Routine",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      },
+      {
+        "id": "35a318d6-91ed-4a58-a57d-8ce5945c16cc",
+        "name": "Cash Demand Forecasting",
+        "description": "Process: Cash Demand Forecasting",
+        "domain": "ATM_withdrawal",
+        "complexity": "medium",
+        "automation_level": "manual",
+        "quality_score": 1.0
+      }
+    ],
+    "perspective": [
+      {
+        "id": "53d7c190-46b5-40e0-a658-370e61a1c401",
+        "name": "User",
+        "description": "Perspective: User",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_user",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "687da3ca-d937-4744-ab84-7212a10ef116",
+        "name": "Bank Official",
+        "description": "Perspective: Bank Official",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_bank_official",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "8c76284e-318a-4815-8708-cb7ece219f4d",
+        "name": "ATM Technician",
+        "description": "Perspective: ATM Technician",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_atm_technician",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "6a018a4f-f493-4867-8909-1cf959d0e1d2",
+        "name": "Security Analyst",
+        "description": "Perspective: Security Analyst",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_security_analyst",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "080f82a3-f996-449e-932a-c5a2edeb5a07",
+        "name": "Network Administrator",
+        "description": "Perspective: Network Administrator",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_network_administrator",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "e358f0b0-e4de-4304-b669-f1a4b9831286",
+        "name": "Compliance Officer",
+        "description": "Perspective: Compliance Officer",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_compliance_officer",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "74c75737-6761-4afd-8cbb-3335397f157f",
+        "name": "Maintenance Staff",
+        "description": "Perspective: Maintenance Staff",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_maintenance_staff",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "9dc036b1-ef32-4826-9f64-aadaafaabf41",
+        "name": "Customer Service Representative",
+        "description": "Perspective: Customer Service Representative",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_customer_service_representative",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "d8fa349b-2240-4180-a32e-a77ee707103a",
+        "name": "Fraud Investigator",
+        "description": "Perspective: Fraud Investigator",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_fraud_investigator",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "60915893-fc68-44c0-bc9a-4a8b3a33446c",
+        "name": "Software Developer",
+        "description": "Perspective: Software Developer",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_software_developer",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "8edbe298-b22c-4439-90a2-e9d15e8702c8",
+        "name": "Hardware Engineer",
+        "description": "Perspective: Hardware Engineer",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_hardware_engineer",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "b770e876-dffc-443a-a0aa-2f30eff47224",
+        "name": "Cash Management Specialist",
+        "description": "Perspective: Cash Management Specialist",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_cash_management_specialist",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "44e1e0c6-b379-42f8-9c99-43b68451f4ad",
+        "name": "User Experience Designer",
+        "description": "Perspective: User Experience Designer",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_user_experience_designer",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "cad164a8-8604-4cd5-9370-bc11eb948ab6",
+        "name": "Accessibility Consultant",
+        "description": "Perspective: Accessibility Consultant",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_accessibility_consultant",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "52fdf383-8085-489a-9d2c-f2c8265ff045",
+        "name": "Energy Efficiency Expert",
+        "description": "Perspective: Energy Efficiency Expert",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_energy_efficiency_expert",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "ef65f868-ebe2-4754-a5e2-bcc3b68018d6",
+        "name": "Data Privacy Officer",
+        "description": "Perspective: Data Privacy Officer",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_data_privacy_officer",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "1cf6168d-d6d8-4316-9881-254a076d1d57",
+        "name": "Service Level Manager",
+        "description": "Perspective: Service Level Manager",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_service_level_manager",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "f23a1a0d-cb91-45bb-b176-b77c6da7a6fd",
+        "name": "Card Technology Specialist",
+        "description": "Perspective: Card Technology Specialist",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_card_technology_specialist",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "74fa4e83-daa8-4660-be3a-c39df6cb1df9",
+        "name": "Encryption Expert",
+        "description": "Perspective: Encryption Expert",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_encryption_expert",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "4e4049d1-2ccd-4415-8458-7aa38a07734c",
+        "name": "Cash Handling Specialist",
+        "description": "Perspective: Cash Handling Specialist",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_cash_handling_specialist",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "c70b0be2-b23b-4561-9441-25e3b51e893d",
+        "name": "Printer Technician",
+        "description": "Perspective: Printer Technician",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_printer_technician",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "fde7f22a-4493-4aa7-9855-de2220bcc870",
+        "name": "Display Technology Expert",
+        "description": "Perspective: Display Technology Expert",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_display_technology_expert",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "5d71d36d-164b-4137-b8ed-abb9ce1e837c",
+        "name": "Input Device Specialist",
+        "description": "Perspective: Input Device Specialist",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_input_device_specialist",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "4b33263c-28a4-4bd0-960c-06b47b3dc60d",
+        "name": "Software Quality Assurance",
+        "description": "Perspective: Software Quality Assurance",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_software_quality_assurance",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "abb278d9-40d3-46d2-b3e3-bffa04cddd80",
+        "name": "Durability Tester",
+        "description": "Perspective: Durability Tester",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_durability_tester",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "07090e59-d3f0-4cc7-865b-818b2ae9be51",
+        "name": "Network Performance Analyst",
+        "description": "Perspective: Network Performance Analyst",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_network_performance_analyst",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "6beee88d-b786-4921-843a-3183d11dc426",
+        "name": "Transaction Auditor",
+        "description": "Perspective: Transaction Auditor",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_transaction_auditor",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "36aba8bc-9658-49e5-bbbc-d9c86742fc22",
+        "name": "Biometrics Specialist",
+        "description": "Perspective: Biometrics Specialist",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_biometrics_specialist",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "743d82b4-5681-47be-bf34-897bce50f2e2",
+        "name": "Authentication Expert",
+        "description": "Perspective: Authentication Expert",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_authentication_expert",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "a74759f9-6d33-4763-a7d9-fd3d288b38ab",
+        "name": "Cash Recycling Technician",
+        "description": "Perspective: Cash Recycling Technician",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_cash_recycling_technician",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "586c7d09-db48-41dc-865e-1dc1a3918f11",
+        "name": "Foreign Exchange Specialist",
+        "description": "Perspective: Foreign Exchange Specialist",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_foreign_exchange_specialist",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "640d288b-5df7-4362-bcf2-4bbe817a52ce",
+        "name": "Contactless Payment Expert",
+        "description": "Perspective: Contactless Payment Expert",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_contactless_payment_expert",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "5038aab5-59da-440f-a100-9d37c7e15807",
+        "name": "Mobile Integration Specialist",
+        "description": "Perspective: Mobile Integration Specialist",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_mobile_integration_specialist",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "2d504b27-6476-40fc-96f8-0f0b338f0f98",
+        "name": "Remote Monitoring Technician",
+        "description": "Perspective: Remote Monitoring Technician",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_remote_monitoring_technician",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "73228bef-b57e-499a-9391-5db84196ac8a",
+        "name": "Thermal Engineer",
+        "description": "Perspective: Thermal Engineer",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_thermal_engineer",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "7087a6f7-6ca3-4ec1-a8b4-303974665c7a",
+        "name": "Power Systems Engineer",
+        "description": "Perspective: Power Systems Engineer",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_power_systems_engineer",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "7bb29feb-85d6-44ee-b71e-96013fb24eb5",
+        "name": "Physical Security Specialist",
+        "description": "Perspective: Physical Security Specialist",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_physical_security_specialist",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "1ddb42d8-ac13-4587-84bd-18db121e93a8",
+        "name": "Environmental Adaptation Expert",
+        "description": "Perspective: Environmental Adaptation Expert",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_environmental_adaptation_expert",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "e0397c9c-4b3b-4aea-9432-b5cb046bf104",
+        "name": "Acoustics Engineer",
+        "description": "Perspective: Acoustics Engineer",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_acoustics_engineer",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "2b1077f7-8248-4a05-94e0-76c857e23a10",
+        "name": "Queue Management Specialist",
+        "description": "Perspective: Queue Management Specialist",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_queue_management_specialist",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "a7e40510-accc-4a5b-8224-73f708673571",
+        "name": "Customer Support Integration Expert",
+        "description": "Perspective: Customer Support Integration Expert",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_customer_support_integration_expert",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "6cc1703b-9332-423b-a3b4-11daed78520b",
+        "name": "Localization Specialist",
+        "description": "Perspective: Localization Specialist",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_localization_specialist",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "931f5314-3236-4f82-97ba-70edd53df15a",
+        "name": "Braille Technology Expert",
+        "description": "Perspective: Braille Technology Expert",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_braille_technology_expert",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "b64d64b2-c83e-4819-b2ce-66914b28ceac",
+        "name": "Audio Systems Engineer",
+        "description": "Perspective: Audio Systems Engineer",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_audio_systems_engineer",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "9a386c30-36e8-427b-9963-4a646482fe06",
+        "name": "Surveillance Specialist",
+        "description": "Perspective: Surveillance Specialist",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_surveillance_specialist",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "49651efe-57d2-4b32-a2d7-5782ae23ea3f",
+        "name": "Anti-Fraud Technology Expert",
+        "description": "Perspective: Anti-Fraud Technology Expert",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_anti-fraud_technology_expert",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "20b753ba-b544-4dc9-99d6-d32d7ddb3930",
+        "name": "EMV Technology Specialist",
+        "description": "Perspective: EMV Technology Specialist",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_emv_technology_specialist",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "c9f11e6e-3478-4050-ba9f-89c28ddaa77d",
+        "name": "NFC Technology Expert",
+        "description": "Perspective: NFC Technology Expert",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_nfc_technology_expert",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "44ffe8c8-11e1-4bec-a1c2-02f56134590d",
+        "name": "Software Update Manager",
+        "description": "Perspective: Software Update Manager",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_software_update_manager",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "368f0345-fb88-4a1c-ba2e-c9f0398699cd",
+        "name": "Diagnostic Systems Developer",
+        "description": "Perspective: Diagnostic Systems Developer",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_diagnostic_systems_developer",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      },
+      {
+        "id": "94a22b20-1f22-4864-8060-e687e3da5a05",
+        "name": "Cash Forecasting Analyst",
+        "description": "Perspective: Cash Forecasting Analyst",
+        "domain": "ATM_withdrawal",
+        "viewpoint": "view_cash_forecasting_analyst",
+        "stakeholder_type": null,
+        "quality_score": 1.0
+      }
+    ]
+  },
+  "connections": [
+    {
+      "id": "cb29fce0-85ab-42ed-b65c-f3720257255b",
+      "property_id": "58a7b9f6-2a8e-4ba9-8998-f4e2e86b3091",
+      "process_id": "3cc962e8-1d95-4752-b2c1-230cbf6d717f",
+      "perspective_id": "c9f11e6e-3478-4050-ba9f-89c28ddaa77d",
+      "strength": 0.5910041023647382,
+      "confidence": 0.8561041773760052,
+      "relationship_type": "general",
+      "bidirectional": true,
+      "status": "active",
+      "x": 23,
+      "y": 39,
+      "z": 47
+    },
+    {
+      "id": "22c89c00-d160-4f72-9276-97d15967ad46",
+      "property_id": "0427ee90-a334-48b4-892c-b9f2e18afc72",
+      "process_id": "785669c3-0c34-4a96-a135-da038b644164",
+      "perspective_id": "368f0345-fb88-4a1c-ba2e-c9f0398699cd",
+      "strength": 0.11963102229489131,
+      "confidence": 0.5773034566892647,
+      "relationship_type": "general",
+      "bidirectional": true,
+      "status": "active",
+      "x": 13,
+      "y": 27,
+      "z": 49
+    },
+    {
+      "id": "f3f6148a-50aa-4813-8fd4-586c3d8f8d0e",
+      "property_id": "9bf477bf-c7ab-4275-8150-02ba658678a4",
+      "process_id": "d76f9763-f9b8-45d4-a354-dafee5f21543",
+      "perspective_id": "687da3ca-d937-4744-ab84-7212a10ef116",
+      "strength": 0.289437594258087,
+      "confidence": 0.9487108765661652,
+      "relationship_type": "general",
+      "bidirectional": true,
+      "status": "active",
+      "x": 27,
+      "y": 25,
+      "z": 1
+    },
+    {
+      "id": "fc2adf29-76c5-4ff4-9e2b-030b9d8572da",
+      "property_id": "3755fb03-93c4-4f1e-b7a7-a0c1846cc68a",
+      "process_id": "8204d54b-0991-4fc9-90e2-056be23dc4ea",
+      "perspective_id": "36aba8bc-9658-49e5-bbbc-d9c86742fc22",
+      "strength": 0.4606153553215263,
+      "confidence": 0.872537252174395,
+      "relationship_type": "general",
+      "bidirectional": true,
+      "status": "active",
+      "x": 10,
+      "y": 6,
+      "z": 27
+    },
+    {
+      "id": "aff6c35b-89fe-4754-8b88-ef65e1d49b12",
+      "property_id": "12ef4b02-2f73-4ce5-8dd5-b7bdf78dced4",
+      "process_id": "7748029d-7ad3-48a8-814a-c51e74aa59db",
+      "perspective_id": "1ddb42d8-ac13-4587-84bd-18db121e93a8",
+      "strength": 0.6970747366460202,
+      "confidence": 0.5584630234857136,
+      "relationship_type": "general",
+      "bidirectional": true,
+      "status": "active",
+      "x": 34,
+      "y": 16,
+      "z": 37
+    },
+    {
+      "id": "60bb578f-367a-4c5b-bc07-2e847b3f6819",
+      "property_id": "fed72bc9-55cf-48ae-9371-688f76da9888",
+      "process_id": "74ab9cb3-a63c-4cfe-be9e-17784d58703c",
+      "perspective_id": "94a22b20-1f22-4864-8060-e687e3da5a05",
+      "strength": 0.16936409880143044,
+      "confidence": 0.5600995067432881,
+      "relationship_type": "general",
+      "bidirectional": true,
+      "status": "active",
+      "x": 14,
+      "y": 51,
+      "z": 50
+    },
+    {
+      "id": "54831de3-a52e-4e63-b28e-e613e4583929",
+      "property_id": "f698e30a-345c-477e-92db-39488b91ece5",
+      "process_id": "af193dc2-ae73-46e2-96a2-1661c40f053f",
+      "perspective_id": "4e4049d1-2ccd-4415-8458-7aa38a07734c",
+      "strength": 0.3535701355875527,
+      "confidence": 0.7543843346793566,
+      "relationship_type": "general",
+      "bidirectional": true,
+      "status": "active",
+      "x": 37,
+      "y": 40,
+      "z": 19
+    },
+    {
+      "id": "eea75e56-a856-4d77-8434-c44e553456b0",
+      "property_id": "3a231596-866e-453e-b938-086af9511686",
+      "process_id": "9fd0943e-e107-42c1-a9be-ff33de113587",
+      "perspective_id": "d8fa349b-2240-4180-a32e-a77ee707103a",
+      "strength": 0.7821998444360613,
+      "confidence": 0.9445032570117968,
+      "relationship_type": "general",
+      "bidirectional": true,
+      "status": "active",
+      "x": 33,
+      "y": 41,
+      "z": 8
+    },
+    {
+      "id": "09187bb2-1a8c-42b3-b63d-1b87ccca2db7",
+      "property_id": "61a479db-882f-4fa3-a022-7ce68943d870",
+      "process_id": "7380bfb5-8826-460e-b626-454bc7ecccaa",
+      "perspective_id": "74c75737-6761-4afd-8cbb-3335397f157f",
+      "strength": 0.21011833627082754,
+      "confidence": 0.5180821736106377,
+      "relationship_type": "general",
+      "bidirectional": true,
+      "status": "active",
+      "x": 21,
+      "y": 49,
+      "z": 6
+    },
+    {
+      "id": "ac348317-7de1-404c-90a9-4449f0d0e7e9",
+      "property_id": "58a7b9f6-2a8e-4ba9-8998-f4e2e86b3091",
+      "process_id": "ebe1bca9-58b1-4046-88a2-ba3f3735a7f1",
+      "perspective_id": "60915893-fc68-44c0-bc9a-4a8b3a33446c",
+      "strength": 0.37811722550641624,
+      "confidence": 0.6656167466013585,
+      "relationship_type": "general",
+      "bidirectional": true,
+      "status": "active",
+      "x": 23,
+      "y": 10,
+      "z": 9
+    }
+  ]
+}

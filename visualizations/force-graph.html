@@ -1,0 +1,258 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>P3IF Network Graph</title>
+            <style>
+                body { 
+                    margin: 0;
+                    font-family: Arial, sans-serif;
+                    overflow: hidden;
+                }
+                #info {
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 10px;
+                    border-radius: 5px;
+                    max-width: 300px;
+                    z-index: 100;
+                }
+                #canvas-container {
+                    width: 100%;
+                    height: 100vh;
+                }
+                .node {
+                    stroke: #fff;
+                    stroke-width: 1.5px;
+                }
+                .link {
+                    stroke: #999;
+                    stroke-opacity: 0.6;
+                }
+                .property { fill: #1f77b4; }
+                .process { fill: #ff7f0e; }
+                .perspective { fill: #2ca02c; }
+                #legend {
+                    position: absolute;
+                    bottom: 20px;
+                    right: 20px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 10px;
+                    border-radius: 5px;
+                    z-index: 100;
+                }
+                .legend-item {
+                    display: flex;
+                    align-items: center;
+                    margin-bottom: 5px;
+                }
+                .legend-color {
+                    width: 15px;
+                    height: 15px;
+                    margin-right: 5px;
+                    border-radius: 50%;
+                }
+                .search-container {
+                    position: absolute;
+                    top: 10px;
+                    right: 10px;
+                    z-index: 100;
+                }
+                #search {
+                    padding: 5px;
+                    width: 200px;
+                    border-radius: 3px;
+                    border: 1px solid #ccc;
+                }
+            </style>
+            <script src="https://d3js.org/d3.v7.min.js"></script>
+        </head>
+        <body>
+            <div id="info">
+                <h2>P3IF Network Graph</h2>
+                <p>This visualization represents the relationships between P3IF patterns as a force-directed graph.</p>
+                <p>Nodes are color-coded by pattern type, and link thickness represents relationship strength.</p>
+                <p>Drag nodes to reposition them. Click on a node to see its details.</p>
+                <div id="selection-info"></div>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" id="search" placeholder="Search nodes...">
+            </div>
+            
+            <div id="canvas-container"></div>
+            
+            <div id="legend">
+                <h3>Legend</h3>
+                <div class="legend-item">
+                    <div class="legend-color property"></div>
+                    <div>Property</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color process"></div>
+                    <div>Process</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color perspective"></div>
+                    <div>Perspective</div>
+                </div>
+            </div>
+            
+            <script>
+                // P3IF data
+                const graphData = {"nodes": [{"id": "fdcb63e2-fcf3-4298-86b2-d62f8a19a2a6", "name": "Theoretical Soundness", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "f651983b-1acd-46b6-8d4b-8336f82d8180", "name": "Empirical Evidence", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "1500e4a4-1e7d-438f-af0d-5e613efa3622", "name": "Interdisciplinary Approach", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "09d1fa0c-0b17-4697-a806-54279ecaf678", "name": "Novelty", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "404e0492-7e6a-472f-ada3-92067bf3012b", "name": "Practical Applicability", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "35b517e7-e067-4781-9c45-a54663d94778", "name": "Scalability", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "480e1326-aa57-4c59-bcbf-81a18c5ed84c", "name": "Computational Efficiency", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "10c05b7b-7a1c-429a-a3fe-2a83f58e4000", "name": "Biological Plausibility", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "43e3f10c-63fa-443c-b2bb-1a85afc9cca0", "name": "Predictive Power", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "9d41dfba-dc40-4cc9-bb94-ca440c44a6e4", "name": "Explanatory Power", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "55793aa6-0e73-4907-aa90-9b87f1a2bf82", "name": "Model Complexity", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "30524fc0-3f44-465f-9774-aa01a9e3de98", "name": "Data Requirements", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "70997909-e67b-47d1-985e-3f9ddead37b0", "name": "Interpretability", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "54765122-351c-4441-a09b-439066165862", "name": "Generalizability", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "c48472bc-9b2d-4992-8bd0-84dbc0526960", "name": "Robustness", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "03695c2a-5d01-42c8-85d0-782d775ce5be", "name": "Ethical Considerations", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "9bff7d2c-dc0f-471f-861a-9d644f231431", "name": "Societal Impact", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "1be0dcd3-d8e4-4225-8d90-6c3f3ad02695", "name": "Alignment with Funding Priorities", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "c8fa4be1-ecd9-430d-a13f-140d0cd2c568", "name": "Cost-Effectiveness", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "1802e769-403f-4df9-8640-d16e85823168", "name": "Timeline Feasibility", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "4108180d-1fb3-47f7-b2a9-d006ee6956c3", "name": "Risk Assessment", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "312aede9-38ee-4e27-b3b5-7efc0d62a84e", "name": "Potential for Collaboration", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "e363e59d-ce07-4d6d-9288-88e94edaa557", "name": "Publication Potential", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "60744674-f4f3-4ac5-9195-4a5eab8044f4", "name": "Intellectual Property", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "c5082c2e-6c09-40f0-ae92-f1bf8525cffa", "name": "Educational Value", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "45be9164-9f8c-41ca-9da6-6822257a81e9", "name": "Clinical Relevance", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "da7b210f-e542-4af2-b289-033768c38a97", "name": "Technological Innovation", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "771adaf6-09e7-4764-a0c0-01ef949e9e8c", "name": "Methodological Rigor", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "7497e39a-27c5-4b6f-97ef-170bf44b2a80", "name": "Reproducibility", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "37ce264f-2d00-4338-863b-26662f74c66d", "name": "Sustainability", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "1af6dc65-86d5-42c0-8a50-c8dfb03786c1", "name": "Adaptability to New Domains", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "ed6644be-158f-4901-b83e-8f6b778da5b1", "name": "Integration with Existing Theories", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "5fa77670-c19d-4b15-9ae1-3f7e3cfeba73", "name": "Potential for Paradigm Shift", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "855e453f-ced1-487d-91b7-1a5fa1a2973e", "name": "Quantitative Metrics", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "6f9bb35c-4ddf-4e3e-9d60-571f0fcc8ddd", "name": "Qualitative Insights", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "54b3bdb7-0dd3-4d66-ad8d-cb40feb6336f", "name": "Cross-Cultural Applicability", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "402027b6-3394-42e0-b8a0-233f06327b5f", "name": "Long-term Research Potential", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "0fad38f9-7c40-43de-978c-64a5cd1f85c7", "name": "Short-term Deliverables", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "180635cb-2ed0-41c0-94f4-d446a16795e3", "name": "Alignment with Institutional Goals", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "0205849a-6e9e-4f9f-9acd-d6be07cac00d", "name": "Public Engagement", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "978cc459-43a0-45e2-9177-02559ebb6550", "name": "Policy Implications", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "cb4120e5-b255-433e-9b8d-b561ca4c3ef7", "name": "Economic Viability", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "254ed565-1a96-431a-b1d4-68bf07ba54a8", "name": "Environmental Considerations", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "e216e9f5-3867-48d9-8b66-7eb26d8efd7d", "name": "Ethical AI Alignment", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "db3bba63-ed91-43cd-81c5-410163428bdf", "name": "Potential for Spin-off Research", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "d22aeee5-4fdd-4f5d-b945-cc85f17f685d", "name": "Interdepartmental Synergies", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "81eed706-1251-4ad7-9928-1f554521eb1e", "name": "International Collaboration Potential", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "0229d63f-8bb5-4974-aa4b-1f74cc00ce3d", "name": "Industry Partnership Opportunities", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "5e290398-bda9-41e8-8972-04d9c37420c5", "name": "Funding Diversification", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "2820d2f0-a42c-43dc-8918-4d6904c3dae2", "name": "Career Development Aspects", "type": "property", "domain": "ActiveInferenceGrantProposal"}, {"id": "c2754b2d-f4a1-4903-a96e-9bde468e2232", "name": "Literature Review", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "22e5588c-4cb7-4d0d-b51a-fa27cf41404a", "name": "Hypothesis Formulation", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "ee8bc43b-0695-4f71-bc38-81a32f2bb517", "name": "Experimental Design", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "ccfd8f61-5c53-498a-b56a-c379c42d7ee8", "name": "Data Collection", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "b1b98fde-c2db-4918-b97d-5fc6fb44d589", "name": "Statistical Analysis", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "0235889d-ca80-493d-a9e1-f3c9b5130155", "name": "Model Development", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "957c0778-5592-4edc-bfc6-f8e9f284514c", "name": "Simulation", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "16e6a096-c981-4686-8f59-26cd64848ea9", "name": "Empirical Testing", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "cec8745b-3bd3-44f9-af7b-d1af2ca17c35", "name": "Peer Review", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "d89dc2dc-8d67-4abb-80fe-7a4ffad187b4", "name": "Grant Writing", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "5fef77c8-6e33-44b6-8b18-5eaae19d6e3a", "name": "Ethics Approval", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "176293bc-9dcd-4648-bb84-718f3a614f11", "name": "Participant Recruitment", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "acf00378-c9e8-4d4b-a311-b3d66f5b6c83", "name": "Data Preprocessing", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "59ad76f3-7769-49f1-a6fe-e31576126d48", "name": "Feature Engineering", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "87f7b042-30c9-42b4-9643-22b8beeef699", "name": "Model Training", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "e4b9b3b8-fe23-45b9-8b8c-6addd4f44685", "name": "Hyperparameter Optimization", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "3ede16fe-9ffa-4355-9324-8e7da4f3d19a", "name": "Cross-Validation", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "47d71e0b-8899-4172-b45f-238d24b57009", "name": "Error Analysis", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "7d713ae6-60f1-4e92-b2f2-7b11aae43b4d", "name": "Results Interpretation", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "01fc5180-9941-4335-9d74-653e16446260", "name": "Manuscript Preparation", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "23af6191-a648-47bd-808f-045a2c72a903", "name": "Conference Presentation", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "420920a4-45fe-4189-bec5-295a45528f48", "name": "Code Documentation", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "d31a85da-6266-4c38-9b11-d512448d27ce", "name": "Data Management", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "cdc24047-de34-4184-bef3-9faae080c99c", "name": "Team Coordination", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "671bb18c-a2f1-4dd1-9d28-badb9f9a4b2f", "name": "Budget Planning", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "2434dae4-6115-4ee2-b2c5-2361cffd531d", "name": "Progress Reporting", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "6d9f9482-21d5-42b0-8114-be350fcf2134", "name": "Stakeholder Engagement", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "90128455-0b04-40fd-9ca3-7c318ebc344b", "name": "Risk Mitigation", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "68446ed8-7d0f-410f-b5c1-4d718a81b7b2", "name": "Quality Assurance", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "69d1203e-8310-46f3-a905-21daf8ffe064", "name": "Knowledge Dissemination", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "954e95c5-0dbd-4377-8c8c-e18f55759d17", "name": "Intellectual Property Protection", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "4d7662b0-21cc-44cc-84d8-9587a18b3e87", "name": "Collaboration Management", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "9051bc1f-397a-4fb1-9300-81754b20ce05", "name": "Resource Allocation", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "61a8e3b7-e412-4396-a803-44ba7b9925c6", "name": "Timeline Management", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "268ecb9a-310f-4611-93d3-1e221cc95f1d", "name": "Performance Evaluation", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "4b9b65b4-5dab-4190-a92a-6014a5db3292", "name": "Feedback Incorporation", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "ba38016d-c941-440f-a998-2c7e006e4e03", "name": "Iterative Refinement", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "ff289cfe-b749-41d8-a0ac-724854b0a1f9", "name": "Scalability Testing", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "df6ab5ff-0755-42c7-9127-bf893bf9e3ce", "name": "Interdisciplinary Integration", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "dee0856d-6bba-417d-b544-1696a77a2fab", "name": "Theoretical Framework Development", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "f8d2a7c7-6a51-44dc-86b4-66964a70129e", "name": "Computational Implementation", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "d3ed1005-96d3-4143-bceb-e43085eb1d40", "name": "Biological Validation", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "13e34ac7-599a-4ade-8cbf-7ecc369e1ea6", "name": "Clinical Translation", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "125c2f8d-d316-46fa-bca3-3b76062fbd5a", "name": "Policy Brief Preparation", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "9ff00ee1-799b-4c36-9f77-902c23550905", "name": "Public Communication", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "74a23b1e-3dab-43e0-844c-7f819ad88648", "name": "Funding Acquisition", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "2fbdfa66-6192-4918-8ca0-458a65af4066", "name": "Team Recruitment", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "c7c7feeb-1862-4ad2-b971-5cfce39c1e71", "name": "Equipment Procurement", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "96149c30-d11d-4741-b67e-7f2194388733", "name": "Software Development", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "deea74a0-0965-4cb5-bab0-a8f41288ada0", "name": "Data Visualization", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "10e277ec-a492-447f-ae5d-bfbbdee3ae2b", "name": "Ethical Compliance Monitoring", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "46a942d1-79a3-4eba-803b-c49dd1979c6e", "name": "Impact Assessment", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "0942f289-4747-41c5-b2a4-d52dba9c91f3", "name": "Long-term Planning", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "d895512a-543d-42b0-ba6d-282d198c2e5a", "name": "Knowledge Transfer", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "3ff05f4f-fa2d-4c2e-b258-01a6b4504db0", "name": "Community Outreach", "type": "process", "domain": "ActiveInferenceGrantProposal"}, {"id": "84ed396a-bd0e-437c-b622-6fac04020c90", "name": "Principal Investigator", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "eea1ff0e-035e-4425-bbc1-e564a8907708", "name": "Co-Investigator", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "1d238b17-b1b0-418b-a8d6-f12ac25f4161", "name": "Research Assistant", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "755f7c39-4eb3-433e-9e1b-532d076ac724", "name": "Statistician", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "f727e4eb-d022-4cc8-84aa-36d1b6a46669", "name": "Data Scientist", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "0b829a9a-7224-46c0-aca0-193976c88fa5", "name": "Neuroscientist", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "2c202297-6146-4623-9608-90d9fa714381", "name": "Cognitive Psychologist", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "4b8eb82d-c44d-4170-a306-feef0e13d362", "name": "Computer Scientist", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "1fc5eda5-f7c5-47e7-bf09-67ae35930204", "name": "Mathematician", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "b345a3b2-6bf3-4fe9-a652-f9d8e619196d", "name": "Philosopher", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "e6d8dece-171b-43a6-b69b-56a0cab5bce3", "name": "Ethicist", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "054c8575-6c3e-4bf7-9dea-f31e1081b199", "name": "Funding Agency Representative", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "af7e4cc0-64b6-40e4-93d5-649c2ce808e2", "name": "Institutional Review Board Member", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "178a8527-5ea2-42d1-aac4-efa619579d4d", "name": "Graduate Student", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "32d2b0fb-aea1-4847-9c29-a73d99297f03", "name": "Postdoctoral Researcher", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "cd6b5054-b5df-4a55-8dc9-478d49b8f9e8", "name": "Lab Manager", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "17893bd8-bfcf-45a1-8cf7-f23683af6962", "name": "Collaborator", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "a77fe9ca-b493-40b2-9248-6528df0e51ca", "name": "Industry Partner", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "ce405ab6-d852-42cd-b0f2-931246659db4", "name": "Policy Maker", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "85fc5042-7814-452f-a672-e4ac860730d6", "name": "Journal Editor", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "9441413e-f771-4a71-9db9-000f56af7fd1", "name": "Peer Reviewer", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "6d8c3d56-c930-4a6f-aa9d-7aef16c1b187", "name": "Research Participant", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "9767fa71-bae1-4b0e-b93e-aadee00e1870", "name": "Clinical Practitioner", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "5b9a7113-d90b-49d2-a481-6c7d7e013c83", "name": "AI Ethics Specialist", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "f758d04f-76e5-435e-b704-529868aa55f0", "name": "Science Communicator", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "8af6da8d-5891-483c-994f-cffe3698dd6c", "name": "Grant Administrator", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "8607f116-9aa3-4e0e-942b-5045b1d49e50", "name": "Department Head", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "2a4cfbd7-1e4c-4b43-9bb7-f9cdbfe3dbe1", "name": "University Dean", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "74c531d3-7a41-4e36-a201-1710426e9350", "name": "Intellectual Property Lawyer", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "fb17e022-3320-4622-9778-b9184c5da417", "name": "Bioethicist", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "55e8641c-359e-4d7a-b904-50822e3d67db", "name": "Computational Neuroscientist", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "d3bd0c1b-bd2c-4fb3-a044-22b6bc291806", "name": "Roboticist", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "baf2b673-8772-4c00-9890-9275d1cec870", "name": "Cognitive Scientist", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "98650765-00fa-4ef5-abf8-05ce61c269aa", "name": "Systems Biologist", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "345be611-28fd-412a-ae4a-c8676a7f4e8b", "name": "Theoretical Physicist", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "346864cf-e288-480d-967c-4bfb6d9ed53f", "name": "Machine Learning Engineer", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "81a13228-0bff-4a90-aaec-7b7ef410b357", "name": "Neuroengineer", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "0e0d3ce4-235e-4319-a319-ea37389b6311", "name": "Behavioral Economist", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "bf5a7a39-e19f-4494-a45e-3ed46e6be146", "name": "Developmental Psychologist", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "e83a342d-0b6a-4efb-8232-fe126f9ef952", "name": "Evolutionary Biologist", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "ef26e80e-593b-4279-ac17-f38b9b95664b", "name": "Computational Psychiatrist", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "5dfae2ca-1fb5-4efe-9aa3-20e4757a3961", "name": "Neuroprosthetics Specialist", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "b1d68feb-293c-4ab3-995f-b83ce5a3d755", "name": "Brain-Computer Interface Expert", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "11b714f3-fb35-416a-a9f3-03120cb50d14", "name": "Neuroethicist", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "4a9ba2a3-9e23-401d-8030-bb8b80ce243e", "name": "Science Policy Advisor", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "ebbc3fac-8ca6-4b13-b1b2-eff87024a0e1", "name": "Public Health Researcher", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "ef610ee2-fd3c-47be-a5d1-69f1f5454bca", "name": "Environmental Scientist", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "9803626b-4839-4b0e-ae12-6bcb75e842f7", "name": "Social Psychologist", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "03285ec3-1332-4a72-b995-adabbb371a62", "name": "Anthropologist", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}, {"id": "5d9be4c7-d001-40ba-92ad-6ddbf17dad82", "name": "Education Researcher", "type": "perspective", "domain": "ActiveInferenceGrantProposal"}], "links": [{"source": "771adaf6-09e7-4764-a0c0-01ef949e9e8c", "target": "7d713ae6-60f1-4e92-b2f2-7b11aae43b4d", "strength": 0.9100376329814525, "type": "property-process"}, {"source": "771adaf6-09e7-4764-a0c0-01ef949e9e8c", "target": "1d238b17-b1b0-418b-a8d6-f12ac25f4161", "strength": 0.9100376329814525, "type": "property-perspective"}, {"source": "7d713ae6-60f1-4e92-b2f2-7b11aae43b4d", "target": "1d238b17-b1b0-418b-a8d6-f12ac25f4161", "strength": 0.9100376329814525, "type": "process-perspective"}, {"source": "180635cb-2ed0-41c0-94f4-d446a16795e3", "target": "47d71e0b-8899-4172-b45f-238d24b57009", "strength": 0.7964733584372594, "type": "property-process"}, {"source": "180635cb-2ed0-41c0-94f4-d446a16795e3", "target": "eea1ff0e-035e-4425-bbc1-e564a8907708", "strength": 0.7964733584372594, "type": "property-perspective"}, {"source": "47d71e0b-8899-4172-b45f-238d24b57009", "target": "eea1ff0e-035e-4425-bbc1-e564a8907708", "strength": 0.7964733584372594, "type": "process-perspective"}, {"source": "10c05b7b-7a1c-429a-a3fe-2a83f58e4000", "target": "01fc5180-9941-4335-9d74-653e16446260", "strength": 0.49223390728222816, "type": "property-process"}, {"source": "10c05b7b-7a1c-429a-a3fe-2a83f58e4000", "target": "55e8641c-359e-4d7a-b904-50822e3d67db", "strength": 0.49223390728222816, "type": "property-perspective"}, {"source": "01fc5180-9941-4335-9d74-653e16446260", "target": "55e8641c-359e-4d7a-b904-50822e3d67db", "strength": 0.49223390728222816, "type": "process-perspective"}, {"source": "54765122-351c-4441-a09b-439066165862", "target": "d31a85da-6266-4c38-9b11-d512448d27ce", "strength": 0.6553527621100054, "type": "property-process"}, {"source": "54765122-351c-4441-a09b-439066165862", "target": "9803626b-4839-4b0e-ae12-6bcb75e842f7", "strength": 0.6553527621100054, "type": "property-perspective"}, {"source": "d31a85da-6266-4c38-9b11-d512448d27ce", "target": "9803626b-4839-4b0e-ae12-6bcb75e842f7", "strength": 0.6553527621100054, "type": "process-perspective"}, {"source": "60744674-f4f3-4ac5-9195-4a5eab8044f4", "target": "125c2f8d-d316-46fa-bca3-3b76062fbd5a", "strength": 0.6524383931879688, "type": "property-process"}, {"source": "60744674-f4f3-4ac5-9195-4a5eab8044f4", "target": "af7e4cc0-64b6-40e4-93d5-649c2ce808e2", "strength": 0.6524383931879688, "type": "property-perspective"}, {"source": "125c2f8d-d316-46fa-bca3-3b76062fbd5a", "target": "af7e4cc0-64b6-40e4-93d5-649c2ce808e2", "strength": 0.6524383931879688, "type": "process-perspective"}, {"source": "54765122-351c-4441-a09b-439066165862", "target": "9ff00ee1-799b-4c36-9f77-902c23550905", "strength": 0.3087114017259778, "type": "property-process"}, {"source": "54765122-351c-4441-a09b-439066165862", "target": "4b8eb82d-c44d-4170-a306-feef0e13d362", "strength": 0.3087114017259778, "type": "property-perspective"}, {"source": "9ff00ee1-799b-4c36-9f77-902c23550905", "target": "4b8eb82d-c44d-4170-a306-feef0e13d362", "strength": 0.3087114017259778, "type": "process-perspective"}, {"source": "c5082c2e-6c09-40f0-ae92-f1bf8525cffa", "target": "9051bc1f-397a-4fb1-9300-81754b20ce05", "strength": 0.05145023711628238, "type": "property-process"}, {"source": "c5082c2e-6c09-40f0-ae92-f1bf8525cffa", "target": "a77fe9ca-b493-40b2-9248-6528df0e51ca", "strength": 0.05145023711628238, "type": "property-perspective"}, {"source": "9051bc1f-397a-4fb1-9300-81754b20ce05", "target": "a77fe9ca-b493-40b2-9248-6528df0e51ca", "strength": 0.05145023711628238, "type": "process-perspective"}, {"source": "30524fc0-3f44-465f-9774-aa01a9e3de98", "target": "268ecb9a-310f-4611-93d3-1e221cc95f1d", "strength": 0.07412981790293582, "type": "property-process"}, {"source": "30524fc0-3f44-465f-9774-aa01a9e3de98", "target": "1d238b17-b1b0-418b-a8d6-f12ac25f4161", "strength": 0.07412981790293582, "type": "property-perspective"}, {"source": "268ecb9a-310f-4611-93d3-1e221cc95f1d", "target": "1d238b17-b1b0-418b-a8d6-f12ac25f4161", "strength": 0.07412981790293582, "type": "process-perspective"}, {"source": "ed6644be-158f-4901-b83e-8f6b778da5b1", "target": "22e5588c-4cb7-4d0d-b51a-fa27cf41404a", "strength": 0.431383926461712, "type": "property-process"}, {"source": "ed6644be-158f-4901-b83e-8f6b778da5b1", "target": "5dfae2ca-1fb5-4efe-9aa3-20e4757a3961", "strength": 0.431383926461712, "type": "property-perspective"}, {"source": "22e5588c-4cb7-4d0d-b51a-fa27cf41404a", "target": "5dfae2ca-1fb5-4efe-9aa3-20e4757a3961", "strength": 0.431383926461712, "type": "process-perspective"}, {"source": "1af6dc65-86d5-42c0-8a50-c8dfb03786c1", "target": "0942f289-4747-41c5-b2a4-d52dba9c91f3", "strength": 0.19517634673075868, "type": "property-process"}, {"source": "1af6dc65-86d5-42c0-8a50-c8dfb03786c1", "target": "81a13228-0bff-4a90-aaec-7b7ef410b357", "strength": 0.19517634673075868, "type": "property-perspective"}, {"source": "0942f289-4747-41c5-b2a4-d52dba9c91f3", "target": "81a13228-0bff-4a90-aaec-7b7ef410b357", "strength": 0.19517634673075868, "type": "process-perspective"}]};
+                
+                // Setup
+                const container = document.getElementById('canvas-container');
+                const width = container.clientWidth;
+                const height = container.clientHeight;
+                
+                // Create SVG
+                const svg = d3.select("#canvas-container")
+                    .append("svg")
+                    .attr("width", width)
+                    .attr("height", height);
+                
+                // Define arrow marker for directed links
+                svg.append("defs").append("marker")
+                    .attr("id", "arrowhead")
+                    .attr("viewBox", "0 -5 10 10")
+                    .attr("refX", 20)
+                    .attr("refY", 0)
+                    .attr("markerWidth", 6)
+                    .attr("markerHeight", 6)
+                    .attr("orient", "auto")
+                    .append("path")
+                    .attr("d", "M0,-5L10,0L0,5")
+                    .attr("fill", "#999");
+                
+                // Create the force simulation
+                const simulation = d3.forceSimulation(graphData.nodes)
+                    .force("link", d3.forceLink(graphData.links).id(d => d.id).distance(100))
+                    .force("charge", d3.forceManyBody().strength(-200))
+                    .force("center", d3.forceCenter(width / 2, height / 2))
+                    .force("collide", d3.forceCollide().radius(30));
+                
+                // Draw the links
+                const link = svg.append("g")
+                    .attr("class", "links")
+                    .selectAll("line")
+                    .data(graphData.links)
+                    .enter().append("line")
+                    .attr("class", "link")
+                    .attr("stroke-width", d => Math.max(1, d.strength * 5));
+                
+                // Draw the nodes
+                const node = svg.append("g")
+                    .attr("class", "nodes")
+                    .selectAll("circle")
+                    .data(graphData.nodes)
+                    .enter().append("circle")
+                    .attr("class", d => `node ${d.type}`)
+                    .attr("r", 7)
+                    .attr("title", d => d.name)
+                    .call(d3.drag()
+                        .on("start", dragstarted)
+                        .on("drag", dragged)
+                        .on("end", dragended));
+                
+                // Add node labels
+                const label = svg.append("g")
+                    .attr("class", "labels")
+                    .selectAll("text")
+                    .data(graphData.nodes)
+                    .enter().append("text")
+                    .attr("dx", 12)
+                    .attr("dy", ".35em")
+                    .text(d => d.name)
+                    .style("font-size", "10px")
+                    .style("pointer-events", "none");
+                
+                // Add tooltips and interaction
+                node.on("click", function(event, d) {
+                    const infoDiv = document.getElementById('selection-info');
+                    infoDiv.innerHTML = `
+                        <h3>Selected Pattern</h3>
+                        <p><strong>Name:</strong> ${d.name}</p>
+                        <p><strong>Type:</strong> ${d.type.charAt(0).toUpperCase() + d.type.slice(1)}</p>
+                        <p><strong>Domain:</strong> ${d.domain || "None"}</p>
+                    `;
+                    
+                    // Highlight connected links and nodes
+                    link.style("stroke", l => 
+                        (l.source.id === d.id || l.target.id === d.id) ? "#000" : "#999");
+                    link.style("stroke-width", l => 
+                        (l.source.id === d.id || l.target.id === d.id) ? 
+                        Math.max(2, l.strength * 6) : Math.max(1, l.strength * 5));
+                    
+                    node.style("stroke-width", n => 
+                        (n.id === d.id) ? 3 : 1.5);
+                });
+                
+                // Search functionality
+                const searchBox = document.getElementById('search');
+                searchBox.addEventListener('input', function() {
+                    const searchTerm = this.value.toLowerCase();
+                    
+                    if (searchTerm === '') {
+                        // Reset visualization
+                        node.style("opacity", 1);
+                        link.style("opacity", 0.6);
+                        label.style("opacity", 1);
+                        return;
+                    }
+                    
+                    // Find matching nodes
+                    const matchingNodes = graphData.nodes.filter(n => 
+                        n.name.toLowerCase().includes(searchTerm));
+                    const matchingIds = new Set(matchingNodes.map(n => n.id));
+                    
+                    // Highlight matching nodes and their connections
+                    node.style("opacity", n => matchingIds.has(n.id) ? 1 : 0.2);
+                    link.style("opacity", l => 
+                        (matchingIds.has(l.source.id) || matchingIds.has(l.target.id)) ? 0.8 : 0.1);
+                    label.style("opacity", l => matchingIds.has(l.id) ? 1 : 0.2);
+                });
+                
+                // Update positions on each simulation tick
+                simulation.on("tick", () => {
+                    link
+                        .attr("x1", d => d.source.x)
+                        .attr("y1", d => d.source.y)
+                        .attr("x2", d => d.target.x)
+                        .attr("y2", d => d.target.y);
+                
+                    node
+                        .attr("cx", d => d.x)
+                        .attr("cy", d => d.y);
+                
+                    label
+                        .attr("x", d => d.x)
+                        .attr("y", d => d.y);
+                });
+                
+                // Drag functions
+                function dragstarted(event, d) {
+                    if (!event.active) simulation.alphaTarget(0.3).restart();
+                    d.fx = d.x;
+                    d.fy = d.y;
+                }
+                
+                function dragged(event, d) {
+                    d.fx = event.x;
+                    d.fy = event.y;
+                }
+                
+                function dragended(event, d) {
+                    if (!event.active) simulation.alphaTarget(0);
+                    d.fx = null;
+                    d.fy = null;
+                }
+            </script>
+        </body>
+        </html>
+        

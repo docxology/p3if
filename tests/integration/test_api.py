@@ -130,11 +130,27 @@ class TestFrameworkEndpoints:
         assert "warnings" in data["data"]
         assert "recommendations" in data["data"]
 
-    def test_validate_framework_invalid(self, client):
-        """Test framework validation with invalid data."""
-        # This test is removed as real P3IF methods will always return valid results
-        # Invalid data scenarios are tested at the model/framework level, not API level
-        pytest.skip("Real P3IF methods always return valid validation results")
+    def test_validate_framework_invalid(self, client, monkeypatch):
+        """Test framework validation when issues/warnings are present."""
+        from p3if.core.framework import P3IFFramework
+
+        def mock_validate(self):
+            return {
+                "valid": False,
+                "issues": ["Found 2 orphaned patterns"],
+                "warnings": ["Found 1 deprecated pattern"],
+                "recommendations": ["Connect orphaned patterns"],
+            }
+
+        monkeypatch.setattr(P3IFFramework, "validate_framework", mock_validate)
+        response = client.get("/api/v2/framework/validate")
+
+        assert response.status_code == 200
+        data = response.get_json()
+        assert data["status"] == "success"
+        assert data["data"]["is_valid"] is False
+        assert len(data["data"]["issues"]) > 0
+        assert len(data["data"]["warnings"]) > 0
 
 
 class TestPatternEndpoints:
@@ -401,11 +417,20 @@ class TestExportEndpoints:
         data = response.get_json()
         assert "patterns" in data  # Should default to JSON
 
-    def test_export_with_framework_error(self, client):
-        """Test export with framework error."""
-        # This test is removed as real P3IF methods don't throw mocked errors
-        # Framework errors are tested at the framework level, not API level
-        pytest.skip("Real P3IF methods don't have mocked framework errors")
+    def test_export_with_framework_error(self, client, monkeypatch):
+        """Test export error response when framework raises an exception."""
+        from p3if.core.framework import P3IFFramework
+
+        def mock_get_patterns(self, *args, **kwargs):
+            raise RuntimeError("Database connection failure")
+
+        monkeypatch.setattr(P3IFFramework, "get_patterns_by_type", mock_get_patterns)
+        response = client.post("/api/v2/export", json={"format": "json"})
+
+        assert response.status_code == 500
+        data = response.get_json()
+        assert data["status"] == "error"
+        assert "export error" in data["error"].lower() or "internal" in data["error"].lower()
 
 
 class TestAnalysisEndpoints:
@@ -462,11 +487,20 @@ class TestErrorHandling:
         # Check for method not allowed message (case insensitive)
         assert "method" in data["message"].lower() or "not allowed" in data["message"].lower()
 
-    def test_internal_server_error(self, client):
+    def test_internal_server_error(self, client, monkeypatch):
         """Test handling of internal server errors."""
-        # This test is removed as real P3IF methods don't throw mocked exceptions
-        # Internal server errors are tested at the framework level, not API level
-        pytest.skip("Real P3IF methods don't have mocked internal server errors")
+        from p3if.core.framework import P3IFFramework
+
+        def mock_get_metrics(self):
+            raise RuntimeError("Internal crash in metrics")
+
+        monkeypatch.setattr(P3IFFramework, "get_metrics", mock_get_metrics)
+        response = client.get("/api/v2/framework/metrics")
+
+        assert response.status_code == 500
+        data = response.get_json()
+        assert data["status"] == "error"
+        assert "internal" in data["error"].lower() or "framework" in data["error"].lower()
 
     def test_validation_error(self, client):
         """Test handling of validation errors."""

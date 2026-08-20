@@ -170,7 +170,7 @@ class TestDomainData(unittest.TestCase):
     def test_load_actual_domain_file(self):
         """Load an actual domain JSON from data/domains/."""
         domain_path = os.path.join(
-            os.path.dirname(__file__), "..", "..", "..", "data", "domains", "healthcare.json"
+            os.path.dirname(__file__), "..", "..", "data", "domains", "healthcare.json"
         )
         if not os.path.exists(domain_path):
             self.skipTest("healthcare.json not found")

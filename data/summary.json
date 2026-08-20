@@ -1,0 +1,18 @@
+{
+  "pattern_counts": {
+    "property": 50,
+    "process": 55,
+    "perspective": 51
+  },
+  "relationship_count": 10,
+  "domains": [
+    {
+      "name": "ATM_withdrawal",
+      "patterns": {
+        "property": 50,
+        "process": 55,
+        "perspective": 51
+      }
+    }
+  ]
+}

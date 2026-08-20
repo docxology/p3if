@@ -1,0 +1,262 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>P3IF 3D Cube</title>
+            <style>
+                body { 
+                    margin: 0;
+                    overflow: hidden;
+                    font-family: Arial, sans-serif;
+                }
+                #info {
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 10px;
+                    border-radius: 5px;
+                    max-width: 300px;
+                    z-index: 100;
+                }
+                #canvas-container {
+                    width: 100%;
+                    height: 100vh;
+                }
+                #legend {
+                    position: absolute;
+                    bottom: 20px;
+                    right: 20px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 10px;
+                    border-radius: 5px;
+                    z-index: 100;
+                }
+                .axis-label {
+                    font-weight: bold;
+                    margin-bottom: 5px;
+                }
+                .property-color { color: #1f77b4; }
+                .process-color { color: #ff7f0e; }
+                .perspective-color { color: #2ca02c; }
+            </style>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+        </head>
+        <body>
+            <div id="info">
+                <h2>P3IF 3D Cube</h2>
+                <p>This visualization represents the P3IF framework as a 3D cube with three dimensions:</p>
+                <p><span class="property-color">X-axis: Properties</span></p>
+                <p><span class="process-color">Y-axis: Processes</span></p>
+                <p><span class="perspective-color">Z-axis: Perspectives</span></p>
+                <p>Each point in the cube represents a relationship between specific property, process, and perspective.</p>
+                <p>Click and drag to rotate. Scroll to zoom. Right-click and drag to pan.</p>
+                <div id="selection-info"></div>
+            </div>
+            
+            <div id="canvas-container"></div>
+            
+            <div id="legend">
+                <div class="axis-label property-color">X-axis: Properties</div>
+                <div class="axis-label process-color">Y-axis: Processes</div>
+                <div class="axis-label perspective-color">Z-axis: Perspectives</div>
+                <div>Point size indicates relationship strength</div>
+            </div>
+            
+            
+            
+            <script>
+                // P3IF data
+                const p3ifData = {"metadata": {"generated_at": "2026-08-19T18:20:36.064618", "total_properties": 50, "total_processes": 50, "total_perspectives": 45, "domains": "all", "max_elements": 1000}, "dimensions": {"property": [{"id": "4f72058d-0588-4be8-a612-a9f8a874b0b8", "name": "Hypothesis Formulation", "description": "Property: Hypothesis Formulation", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "de43a15f-864c-47fa-907c-447718bb22c3", "name": "Experimental Design", "description": "Property: Experimental Design", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "e4430f0c-6914-4243-9f4b-28bc0337cc1c", "name": "Data Collection", "description": "Property: Data Collection", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "962cbe2c-a503-4528-ab80-528134439c6f", "name": "Statistical Analysis", "description": "Property: Statistical Analysis", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "be343cc0-abef-4e99-a478-7cdc40d07bd9", "name": "Peer Review", "description": "Property: Peer Review", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "14f38745-4ba3-4c83-b22b-bee9488f8e89", "name": "Reproducibility", "description": "Property: Reproducibility", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "21b70506-9a1b-4c27-bc24-9bf064b39c88", "name": "Ethical Considerations", "description": "Property: Ethical Considerations", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "afc7e462-2e3d-4ba7-bdad-f954491e4a40", "name": "Funding Allocation", "description": "Property: Funding Allocation", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "dc9d3601-6f71-4f64-888c-b15e12d4c74e", "name": "Interdisciplinary Collaboration", "description": "Property: Interdisciplinary Collaboration", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "7b4ef6ab-6490-4d25-8de6-aebf2d6b43cc", "name": "Technology Integration", "description": "Property: Technology Integration", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "c4e8d66a-6750-42d8-97c3-c2775db224de", "name": "Publication Impact", "description": "Property: Publication Impact", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "4be7ecf8-20a2-4fca-82cb-728622431906", "name": "Innovation Potential", "description": "Property: Innovation Potential", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "ee59d641-f3bc-4c7e-b250-af36d91c4767", "name": "Societal Relevance", "description": "Property: Societal Relevance", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "f1022679-ccfb-496d-a798-9207206f5e78", "name": "Environmental Sustainability", "description": "Property: Environmental Sustainability", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "41b0779d-3ead-42cf-8d27-31c55f86014c", "name": "Long-term Viability", "description": "Property: Long-term Viability", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "4b8d42be-6bf0-4845-b2c2-d54451d42b9c", "name": "Research Integrity", "description": "Property: Research Integrity", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "6eaae48f-0317-4088-832f-383a8158abf7", "name": "Knowledge Dissemination", "description": "Property: Knowledge Dissemination", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "3bf64003-2ef9-4640-aaaa-77c111744efc", "name": "Talent Development", "description": "Property: Talent Development", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "a82e683f-afa4-491c-be2c-f82c0d73cd0f", "name": "International Cooperation", "description": "Property: International Cooperation", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "f1d63633-12c3-458f-b679-93575b69ae90", "name": "Industry Partnership", "description": "Property: Industry Partnership", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "399b742a-8026-41b3-9d3e-3586fc2b2d81", "name": "Open Access", "description": "Property: Open Access", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "10fe982e-859a-4250-8f95-154c4b9eca4c", "name": "Big Data Management", "description": "Property: Big Data Management", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "aad31197-a5f9-44ea-bba2-c6f0c6037725", "name": "Research Infrastructure", "description": "Property: Research Infrastructure", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "751e089e-4fda-4c66-b023-7babeef9e44a", "name": "Scientific Method Application", "description": "Property: Scientific Method Application", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "5690ef0c-0e5c-4952-8298-5a22e20fd301", "name": "Research Ethics", "description": "Property: Research Ethics", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "9c442809-7430-4cf7-b0aa-07fb48fd4052", "name": "Grant Writing", "description": "Property: Grant Writing", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "f8923411-d92c-4123-a2f1-b33c96fff1ff", "name": "Laboratory Safety", "description": "Property: Laboratory Safety", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "7bd17e47-d84d-4110-98bd-f832a0ee2759", "name": "Intellectual Property", "description": "Property: Intellectual Property", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "fd0ccf6e-6423-4d49-aa23-648876d595a7", "name": "Science Communication", "description": "Property: Science Communication", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "08ec06c6-791d-45b6-a86a-75e8d21faf3b", "name": "Research Policy", "description": "Property: Research Policy", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "dabbc788-6d33-45c6-a0af-fdf69118dab4", "name": "Scientific Literacy", "description": "Property: Scientific Literacy", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "b945b8b3-942a-4ead-a748-6834e4ca58a7", "name": "Research Commercialization", "description": "Property: Research Commercialization", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "717c17ce-4abc-498d-b41e-d302bd38868f", "name": "Citizen Science", "description": "Property: Citizen Science", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "4edb4535-6c3c-4c66-92fe-629f37e6b500", "name": "Research Networking", "description": "Property: Research Networking", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "a9a46ce3-6c74-41a1-82c2-682a68f99475", "name": "Scientific Conferences", "description": "Property: Scientific Conferences", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "b811f82c-7335-4c3b-878c-00e8a49076fe", "name": "Research Quality Assurance", "description": "Property: Research Quality Assurance", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "8ac94044-9bc5-4991-93e5-0506eb036e9f", "name": "Scientific Instrumentation", "description": "Property: Scientific Instrumentation", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "bf41d045-f22b-493b-b815-034ad9e4b5db", "name": "Research Methodology", "description": "Property: Research Methodology", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "36ab9463-47c7-46bc-8f8c-5bdc3876003c", "name": "Scientific Publishing", "description": "Property: Scientific Publishing", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "b3f64c67-20c1-481c-842d-fb54394285a9", "name": "Research Impact Assessment", "description": "Property: Research Impact Assessment", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "9a193709-3e21-4347-9f3b-51a7080f69f4", "name": "Science Education", "description": "Property: Science Education", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "c9237eb4-9a80-45cc-b880-4e530064e084", "name": "Research Data Sharing", "description": "Property: Research Data Sharing", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "4d4653d6-05df-4833-8a18-430f60ebb15d", "name": "Scientific Collaboration Tools", "description": "Property: Scientific Collaboration Tools", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "25513e6d-7560-4ec9-835f-38a215ceb3be", "name": "Research Funding Diversity", "description": "Property: Research Funding Diversity", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "fb10ca6e-e424-4c0c-a62e-75804a6b753a", "name": "Scientific Advisory Boards", "description": "Property: Scientific Advisory Boards", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "326757bb-4924-47aa-92de-945b28ac8613", "name": "Research Career Development", "description": "Property: Research Career Development", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "e9ff6ab2-ca62-40ab-96d7-8fe138d75d4e", "name": "Scientific Peer Networks", "description": "Property: Scientific Peer Networks", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "0253ac32-a838-47b3-b4f9-46d075078857", "name": "Research Project Management", "description": "Property: Research Project Management", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "6ded03f1-6eb0-417c-8b25-0784f37a792c", "name": "Scientific Outreach", "description": "Property: Scientific Outreach", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "dcf84519-ac1c-415a-b116-9455b5c16be1", "name": "Research Evaluation Metrics", "description": "Property: Research Evaluation Metrics", "domain": "ScienceResearch", "tags": [], "quality_score": 1.0, "validation_status": "draft"}], "process": [{"id": "d4ef13fd-06d3-4d8b-a687-9414ee5bf82d", "name": "Literature Review", "description": "Process: Literature Review", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "f2d580d3-6822-4422-a0df-2664e9063386", "name": "Hypothesis Testing", "description": "Process: Hypothesis Testing", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "6b4799d6-92d1-46cf-974b-f1810f89f7a2", "name": "Data Collection", "description": "Process: Data Collection", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "703bb08c-d184-4692-a810-e9cf4fc055fd", "name": "Statistical Analysis", "description": "Process: Statistical Analysis", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "62e8e310-c2b8-4699-bc57-4f8f6ad639ff", "name": "Manuscript Preparation", "description": "Process: Manuscript Preparation", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "3ab21112-0246-4838-b603-7519683d801b", "name": "Peer Review Process", "description": "Process: Peer Review Process", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "c3d7d4a7-5852-4be1-b15c-3f0a18f4ba62", "name": "Replication Studies", "description": "Process: Replication Studies", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "bce0a4c1-8e28-418f-9edb-3e6df82dfa35", "name": "Ethics Committee Review", "description": "Process: Ethics Committee Review", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "f39fc649-768b-4206-b94e-ec25d128d20d", "name": "Grant Writing", "description": "Process: Grant Writing", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "395a92b2-93e5-451b-89f7-f25c23b860f9", "name": "Collaborative Project Management", "description": "Process: Collaborative Project Management", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "d8bf13dc-6812-4ff1-8791-85825be7cb31", "name": "Technology Implementation", "description": "Process: Technology Implementation", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "fde90682-d758-4715-a668-d88b45f0a042", "name": "Impact Factor Calculation", "description": "Process: Impact Factor Calculation", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "5e1ccc02-025d-4052-8c20-4b39fbdfae92", "name": "Innovation Assessment", "description": "Process: Innovation Assessment", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "b0351533-1f1c-405a-9ffa-56e7a23090bd", "name": "Societal Impact Evaluation", "description": "Process: Societal Impact Evaluation", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "c7b22bc6-5440-4110-acb7-9f30f32bd158", "name": "Sustainability Analysis", "description": "Process: Sustainability Analysis", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "3b52bd18-8e81-4122-8c94-90952133e44b", "name": "Research Integrity Training", "description": "Process: Research Integrity Training", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "b95667ce-bf4b-4dda-892a-41a45c863f2d", "name": "Conference Presentations", "description": "Process: Conference Presentations", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "872bc4e2-7973-497b-a5c9-2d0d700a0e1e", "name": "Mentorship Programs", "description": "Process: Mentorship Programs", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "b2676b57-64bb-4939-819e-ea093b35aaa0", "name": "International Collaboration Coordination", "description": "Process: International Collaboration Coordination", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "e589e874-a195-405c-8a8a-00374fab5014", "name": "Industry-Academia Partnerships", "description": "Process: Industry-Academia Partnerships", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "7e51244b-441f-49b5-9864-023d691361b0", "name": "Open Access Publishing", "description": "Process: Open Access Publishing", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "c5138c2c-0374-49c1-ae86-3a9aa3f91f90", "name": "Big Data Analysis", "description": "Process: Big Data Analysis", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "b2be1daa-6b1a-44b2-961b-cf64720f9bd4", "name": "Research Facility Management", "description": "Process: Research Facility Management", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "5df1d83e-1817-40fa-ac5a-2bb82424bdbf", "name": "Experimental Protocol Development", "description": "Process: Experimental Protocol Development", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "c5471f54-5ac1-4453-adce-cbf213f2aaed", "name": "Ethics Approval Process", "description": "Process: Ethics Approval Process", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "6ba57c9d-9c82-4b1c-90cd-84b46faa8613", "name": "Funding Proposal Submission", "description": "Process: Funding Proposal Submission", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "9f2d107c-5514-4c0b-9260-ec8e45eaf1c1", "name": "Laboratory Safety Training", "description": "Process: Laboratory Safety Training", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "0d5b3080-4dac-4b51-b91f-50039c82d24f", "name": "Patent Application", "description": "Process: Patent Application", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "c7260aec-dfbc-4606-97ec-e8df69eb0887", "name": "Public Science Communication", "description": "Process: Public Science Communication", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "b74881c3-2444-4a5e-a1f7-597a7a2c991d", "name": "Research Policy Development", "description": "Process: Research Policy Development", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "70a79d0f-68bc-44e4-a3f1-ad994e38b3f4", "name": "Scientific Literacy Programs", "description": "Process: Scientific Literacy Programs", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "33b1b850-7e3a-476d-8642-3503a58f1201", "name": "Technology Transfer", "description": "Process: Technology Transfer", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "86c8d410-47b4-483f-b074-a61d69e12838", "name": "Citizen Science Project Coordination", "description": "Process: Citizen Science Project Coordination", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "e713034d-f0a8-4e27-8de0-da64f96c1f37", "name": "Research Network Building", "description": "Process: Research Network Building", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "8c76b4f0-6cf5-4a7b-8f1c-6ded8297a6f6", "name": "Conference Organization", "description": "Process: Conference Organization", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "c39354d7-1d91-465c-8a62-278db7da4680", "name": "Quality Control Procedures", "description": "Process: Quality Control Procedures", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "6056e817-747e-4cf4-bd51-965b1b209ec4", "name": "Equipment Calibration", "description": "Process: Equipment Calibration", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "eb8288ba-310d-48e2-9221-b5729a38b77b", "name": "Research Design", "description": "Process: Research Design", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "77eb98d0-11b7-423a-b4cf-b0b16c7e01cc", "name": "Journal Submission", "description": "Process: Journal Submission", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "b5476006-f158-4df2-b84a-e8647c49ac3f", "name": "Impact Measurement", "description": "Process: Impact Measurement", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "593499f5-52d8-4a35-ade7-88d2bef76059", "name": "Curriculum Development", "description": "Process: Curriculum Development", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "2e3621a6-303f-4dbf-a4b9-69d15acba883", "name": "Data Repository Management", "description": "Process: Data Repository Management", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "2f35fbb5-8822-4581-ba19-31744ed8a10f", "name": "Collaboration Platform Implementation", "description": "Process: Collaboration Platform Implementation", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "64c91812-7405-409d-b1aa-0232b27df332", "name": "Diverse Funding Source Identification", "description": "Process: Diverse Funding Source Identification", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "83654da5-5168-4d0b-a33a-2a92f6eb7357", "name": "Advisory Board Meetings", "description": "Process: Advisory Board Meetings", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "33f12cee-828f-4d36-b469-38e8b7be8e40", "name": "Career Counseling", "description": "Process: Career Counseling", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "a64dab3f-ca1d-4d8f-8fc8-c4aeea3c4305", "name": "Peer Network Facilitation", "description": "Process: Peer Network Facilitation", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "a568aed9-8976-4c5d-9f1f-f9a772582383", "name": "Project Timeline Management", "description": "Process: Project Timeline Management", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "7beb0963-34de-4900-83ff-f56c902bd0cd", "name": "Public Engagement Events", "description": "Process: Public Engagement Events", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "90b668af-f50a-4f4d-a333-3a9a0737516b", "name": "Bibliometric Analysis", "description": "Process: Bibliometric Analysis", "domain": "ScienceResearch", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}], "perspective": [{"id": "7e600b0c-54e5-4db8-83a9-2831d3c8a519", "name": "Principal Investigator", "description": "Perspective: Principal Investigator", "domain": "ScienceResearch", "viewpoint": "view_principal_investigator", "stakeholder_type": null, "quality_score": 1.0}, {"id": "58a6cc8e-62ff-4e78-89a5-c6b87a615855", "name": "Research Assistant", "description": "Perspective: Research Assistant", "domain": "ScienceResearch", "viewpoint": "view_research_assistant", "stakeholder_type": null, "quality_score": 1.0}, {"id": "42c4d00a-0e4b-4ed9-a0db-da322bbcb195", "name": "Statistician", "description": "Perspective: Statistician", "domain": "ScienceResearch", "viewpoint": "view_statistician", "stakeholder_type": null, "quality_score": 1.0}, {"id": "f7c53f5a-8f27-485e-8f4b-1a20ec80f027", "name": "Peer Reviewer", "description": "Perspective: Peer Reviewer", "domain": "ScienceResearch", "viewpoint": "view_peer_reviewer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "ab704a6f-c3e5-4612-977c-9237f31877c9", "name": "Ethics Committee Member", "description": "Perspective: Ethics Committee Member", "domain": "ScienceResearch", "viewpoint": "view_ethics_committee_member", "stakeholder_type": null, "quality_score": 1.0}, {"id": "86fca137-be12-4a11-90ea-183bddabe433", "name": "Funding Agency Representative", "description": "Perspective: Funding Agency Representative", "domain": "ScienceResearch", "viewpoint": "view_funding_agency_representative", "stakeholder_type": null, "quality_score": 1.0}, {"id": "330ece73-bf28-4708-8dc3-a4784b7c43f3", "name": "Interdisciplinary Collaborator", "description": "Perspective: Interdisciplinary Collaborator", "domain": "ScienceResearch", "viewpoint": "view_interdisciplinary_collaborator", "stakeholder_type": null, "quality_score": 1.0}, {"id": "d43c62aa-588e-442b-ba2e-9ef070804932", "name": "Technology Specialist", "description": "Perspective: Technology Specialist", "domain": "ScienceResearch", "viewpoint": "view_technology_specialist", "stakeholder_type": null, "quality_score": 1.0}, {"id": "d32f8cc5-eca8-4786-b505-8f803e0999c8", "name": "Journal Editor", "description": "Perspective: Journal Editor", "domain": "ScienceResearch", "viewpoint": "view_journal_editor", "stakeholder_type": null, "quality_score": 1.0}, {"id": "0f2631f9-3178-4522-84ad-7346807947d4", "name": "Innovation Officer", "description": "Perspective: Innovation Officer", "domain": "ScienceResearch", "viewpoint": "view_innovation_officer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "65930edf-4509-48f5-852a-23e1ed27bc42", "name": "Science Policy Advisor", "description": "Perspective: Science Policy Advisor", "domain": "ScienceResearch", "viewpoint": "view_science_policy_advisor", "stakeholder_type": null, "quality_score": 1.0}, {"id": "0fa33e0d-966a-4073-90c1-a96d48122ef8", "name": "Sustainability Researcher", "description": "Perspective: Sustainability Researcher", "domain": "ScienceResearch", "viewpoint": "view_sustainability_researcher", "stakeholder_type": null, "quality_score": 1.0}, {"id": "d86ddf03-58d7-4031-a998-954c7f94a663", "name": "Research Integrity Officer", "description": "Perspective: Research Integrity Officer", "domain": "ScienceResearch", "viewpoint": "view_research_integrity_officer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "d086e685-4ade-4f53-aa80-15d8cce437fe", "name": "Science Communicator", "description": "Perspective: Science Communicator", "domain": "ScienceResearch", "viewpoint": "view_science_communicator", "stakeholder_type": null, "quality_score": 1.0}, {"id": "c4e657e1-8fae-4420-a843-83e632872540", "name": "Graduate Student Mentor", "description": "Perspective: Graduate Student Mentor", "domain": "ScienceResearch", "viewpoint": "view_graduate_student_mentor", "stakeholder_type": null, "quality_score": 1.0}, {"id": "07c68473-c165-4617-a9c3-056fb4e97a5e", "name": "Open Access Advocate", "description": "Perspective: Open Access Advocate", "domain": "ScienceResearch", "viewpoint": "view_open_access_advocate", "stakeholder_type": null, "quality_score": 1.0}, {"id": "9a98722f-95f5-4dc2-94b1-7d6bf133352e", "name": "Data Scientist", "description": "Perspective: Data Scientist", "domain": "ScienceResearch", "viewpoint": "view_data_scientist", "stakeholder_type": null, "quality_score": 1.0}, {"id": "cbf78618-2134-4853-9504-4fa8662a473a", "name": "Research Facility Manager", "description": "Perspective: Research Facility Manager", "domain": "ScienceResearch", "viewpoint": "view_research_facility_manager", "stakeholder_type": null, "quality_score": 1.0}, {"id": "5c99bfa8-591b-49f6-8840-abd2d451990e", "name": "Methodologist", "description": "Perspective: Methodologist", "domain": "ScienceResearch", "viewpoint": "view_methodologist", "stakeholder_type": null, "quality_score": 1.0}, {"id": "d9888e5c-2f85-4f24-85be-d0fff1d9dd3c", "name": "Research Ethicist", "description": "Perspective: Research Ethicist", "domain": "ScienceResearch", "viewpoint": "view_research_ethicist", "stakeholder_type": null, "quality_score": 1.0}, {"id": "8d9918fb-ce57-4a4a-9ee2-f5599a36c8cc", "name": "Grant Writer", "description": "Perspective: Grant Writer", "domain": "ScienceResearch", "viewpoint": "view_grant_writer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "3ba62561-357d-4046-b5c3-acda006ad9a3", "name": "Laboratory Safety Officer", "description": "Perspective: Laboratory Safety Officer", "domain": "ScienceResearch", "viewpoint": "view_laboratory_safety_officer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "0fa38001-7e8e-48cf-bc07-f2defabb0b22", "name": "Intellectual Property Lawyer", "description": "Perspective: Intellectual Property Lawyer", "domain": "ScienceResearch", "viewpoint": "view_intellectual_property_lawyer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "a689d911-521f-4ff1-ac77-d2a29414170f", "name": "Science Journalist", "description": "Perspective: Science Journalist", "domain": "ScienceResearch", "viewpoint": "view_science_journalist", "stakeholder_type": null, "quality_score": 1.0}, {"id": "49fe8cfc-5550-4f74-ba9d-59630beb28b1", "name": "Research Policy Maker", "description": "Perspective: Research Policy Maker", "domain": "ScienceResearch", "viewpoint": "view_research_policy_maker", "stakeholder_type": null, "quality_score": 1.0}, {"id": "b6aed470-c341-4ca7-83d2-4b81c04978b1", "name": "Science Educator", "description": "Perspective: Science Educator", "domain": "ScienceResearch", "viewpoint": "view_science_educator", "stakeholder_type": null, "quality_score": 1.0}, {"id": "6f5d1e6f-727d-496a-959b-b7ec0e4bd716", "name": "Technology Transfer Officer", "description": "Perspective: Technology Transfer Officer", "domain": "ScienceResearch", "viewpoint": "view_technology_transfer_officer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "c78abf25-594b-47de-b79c-c608123ddb7b", "name": "Citizen Science Coordinator", "description": "Perspective: Citizen Science Coordinator", "domain": "ScienceResearch", "viewpoint": "view_citizen_science_coordinator", "stakeholder_type": null, "quality_score": 1.0}, {"id": "95b4b941-06d5-497e-bb23-79074d68d388", "name": "Research Network Administrator", "description": "Perspective: Research Network Administrator", "domain": "ScienceResearch", "viewpoint": "view_research_network_administrator", "stakeholder_type": null, "quality_score": 1.0}, {"id": "bc1a8f06-67e1-4352-b7ac-bd62e84beb96", "name": "Conference Organizer", "description": "Perspective: Conference Organizer", "domain": "ScienceResearch", "viewpoint": "view_conference_organizer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "705e2a11-c28b-4c34-b3cb-1f217cb6d3a7", "name": "Quality Assurance Specialist", "description": "Perspective: Quality Assurance Specialist", "domain": "ScienceResearch", "viewpoint": "view_quality_assurance_specialist", "stakeholder_type": null, "quality_score": 1.0}, {"id": "04f5423b-19fd-494d-8e34-8f7ececd1b8f", "name": "Scientific Instrument Technician", "description": "Perspective: Scientific Instrument Technician", "domain": "ScienceResearch", "viewpoint": "view_scientific_instrument_technician", "stakeholder_type": null, "quality_score": 1.0}, {"id": "ff0f60b4-728e-4845-a0c5-45bfb8d85beb", "name": "Research Design Consultant", "description": "Perspective: Research Design Consultant", "domain": "ScienceResearch", "viewpoint": "view_research_design_consultant", "stakeholder_type": null, "quality_score": 1.0}, {"id": "52e5ab6d-eb7b-46b8-bbc6-3f689c47cbfa", "name": "Scientific Publisher", "description": "Perspective: Scientific Publisher", "domain": "ScienceResearch", "viewpoint": "view_scientific_publisher", "stakeholder_type": null, "quality_score": 1.0}, {"id": "f56e6759-bd27-4ce0-a62e-4be138575dfc", "name": "Impact Assessment Specialist", "description": "Perspective: Impact Assessment Specialist", "domain": "ScienceResearch", "viewpoint": "view_impact_assessment_specialist", "stakeholder_type": null, "quality_score": 1.0}, {"id": "e5e1ed52-e73c-42fc-904d-6b6888ac1662", "name": "Curriculum Developer", "description": "Perspective: Curriculum Developer", "domain": "ScienceResearch", "viewpoint": "view_curriculum_developer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "ae938d56-df0b-4681-b9c9-f60ffd38e0ab", "name": "Data Repository Manager", "description": "Perspective: Data Repository Manager", "domain": "ScienceResearch", "viewpoint": "view_data_repository_manager", "stakeholder_type": null, "quality_score": 1.0}, {"id": "f8cdb6de-840a-4d33-b972-af59cbccff03", "name": "Collaboration Tool Developer", "description": "Perspective: Collaboration Tool Developer", "domain": "ScienceResearch", "viewpoint": "view_collaboration_tool_developer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "b0380c69-29b0-4f6c-9a00-7fca1f181273", "name": "Funding Diversity Specialist", "description": "Perspective: Funding Diversity Specialist", "domain": "ScienceResearch", "viewpoint": "view_funding_diversity_specialist", "stakeholder_type": null, "quality_score": 1.0}, {"id": "92a0ec50-28b2-4850-a4ad-b878681a0e05", "name": "Scientific Advisory Board Member", "description": "Perspective: Scientific Advisory Board Member", "domain": "ScienceResearch", "viewpoint": "view_scientific_advisory_board_member", "stakeholder_type": null, "quality_score": 1.0}, {"id": "1eb2031c-f4ab-4b5a-bcbe-5e4b48b86f29", "name": "Career Development Officer", "description": "Perspective: Career Development Officer", "domain": "ScienceResearch", "viewpoint": "view_career_development_officer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "92b33e18-4889-45ed-ab7d-634b3fd3702f", "name": "Peer Network Facilitator", "description": "Perspective: Peer Network Facilitator", "domain": "ScienceResearch", "viewpoint": "view_peer_network_facilitator", "stakeholder_type": null, "quality_score": 1.0}, {"id": "c7de60dd-47e2-4c29-98ee-1ec993007a53", "name": "Project Manager", "description": "Perspective: Project Manager", "domain": "ScienceResearch", "viewpoint": "view_project_manager", "stakeholder_type": null, "quality_score": 1.0}, {"id": "1485ce2a-42de-4298-8c72-da9f8a4c60fd", "name": "Outreach Coordinator", "description": "Perspective: Outreach Coordinator", "domain": "ScienceResearch", "viewpoint": "view_outreach_coordinator", "stakeholder_type": null, "quality_score": 1.0}, {"id": "add33bbe-e5ed-4b18-aed8-dc83dd53bb97", "name": "Bibliometrician", "description": "Perspective: Bibliometrician", "domain": "ScienceResearch", "viewpoint": "view_bibliometrician", "stakeholder_type": null, "quality_score": 1.0}]}, "connections": [{"id": "aa00e398-1f6f-4a34-a003-917e67558eb6", "property_id": "dabbc788-6d33-45c6-a0af-fdf69118dab4", "process_id": "703bb08c-d184-4692-a810-e9cf4fc055fd", "perspective_id": "d86ddf03-58d7-4031-a998-954c7f94a663", "strength": 0.26566127779313764, "confidence": 0.8029503295806875, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 30, "y": 3, "z": 12}, {"id": "e8e27e78-cfd6-4ccf-92f6-3ce40c7893a6", "property_id": "962cbe2c-a503-4528-ab80-528134439c6f", "process_id": "8c76b4f0-6cf5-4a7b-8f1c-6ded8297a6f6", "perspective_id": "bc1a8f06-67e1-4352-b7ac-bd62e84beb96", "strength": 0.24663384624405094, "confidence": 0.6687759578356818, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 3, "y": 34, "z": 29}, {"id": "6ac07d54-07e8-4c58-82a3-0c3400013275", "property_id": "f1d63633-12c3-458f-b679-93575b69ae90", "process_id": "3ab21112-0246-4838-b603-7519683d801b", "perspective_id": "bc1a8f06-67e1-4352-b7ac-bd62e84beb96", "strength": 0.780591903134223, "confidence": 0.5228642481324598, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 19, "y": 5, "z": 29}, {"id": "292b22f4-78ae-4ebd-8d6e-70ac1baaa064", "property_id": "4be7ecf8-20a2-4fca-82cb-728622431906", "process_id": "b0351533-1f1c-405a-9ffa-56e7a23090bd", "perspective_id": "ab704a6f-c3e5-4612-977c-9237f31877c9", "strength": 0.9041652813585481, "confidence": 0.6768506368769797, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 11, "y": 13, "z": 4}, {"id": "d0c19af2-006c-4d4e-8b45-7fe6d0e0e63d", "property_id": "dc9d3601-6f71-4f64-888c-b15e12d4c74e", "process_id": "5e1ccc02-025d-4052-8c20-4b39fbdfae92", "perspective_id": "92a0ec50-28b2-4850-a4ad-b878681a0e05", "strength": 0.6568257891488454, "confidence": 0.848460969868444, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 8, "y": 12, "z": 39}, {"id": "be1e535d-cb07-4aaa-ba02-6d3eadd10c5d", "property_id": "f1022679-ccfb-496d-a798-9207206f5e78", "process_id": "64c91812-7405-409d-b1aa-0232b27df332", "perspective_id": "a689d911-521f-4ff1-ac77-d2a29414170f", "strength": 0.20298238803184365, "confidence": 0.9485108553684287, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 13, "y": 43, "z": 23}, {"id": "d5ab9b05-ea8a-4aa5-b7bc-d30fe9e9bb8f", "property_id": "4b8d42be-6bf0-4845-b2c2-d54451d42b9c", "process_id": "d4ef13fd-06d3-4d8b-a687-9414ee5bf82d", "perspective_id": "5c99bfa8-591b-49f6-8840-abd2d451990e", "strength": 0.997197910376074, "confidence": 0.7973874632366824, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 15, "y": 0, "z": 18}, {"id": "fcf8b3b1-e596-4dde-b055-89ad40cd2bce", "property_id": "0253ac32-a838-47b3-b4f9-46d075078857", "process_id": "7e51244b-441f-49b5-9864-023d691361b0", "perspective_id": "65930edf-4509-48f5-852a-23e1ed27bc42", "strength": 0.5612863009305437, "confidence": 0.526574469873269, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 47, "y": 20, "z": 10}, {"id": "a3529946-a275-4a81-8642-d0d0b70a3b28", "property_id": "6ded03f1-6eb0-417c-8b25-0784f37a792c", "process_id": "33f12cee-828f-4d36-b469-38e8b7be8e40", "perspective_id": "b6aed470-c341-4ca7-83d2-4b81c04978b1", "strength": 0.3745360868490403, "confidence": 0.9202827023251116, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 48, "y": 45, "z": 25}, {"id": "d9898a91-a1ee-41bf-a06c-da291218ddc1", "property_id": "de43a15f-864c-47fa-907c-447718bb22c3", "process_id": "0d5b3080-4dac-4b51-b91f-50039c82d24f", "perspective_id": "1eb2031c-f4ab-4b5a-bcbe-5e4b48b86f29", "strength": 0.3553407544538051, "confidence": 0.7791031846273893, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 1, "y": 27, "z": 40}]};
+                
+                // Setup
+                const container = document.getElementById('canvas-container');
+                const width = container.clientWidth;
+                const height = container.clientHeight;
+                
+                // Scene
+                const scene = new THREE.Scene();
+                scene.background = new THREE.Color(0xf0f0f0);
+                
+                // Camera
+                const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+                camera.position.set(2, 2, 2);
+                
+                // Renderer
+                const renderer = new THREE.WebGLRenderer({ antialias: true });
+                renderer.setSize(width, height);
+                container.appendChild(renderer.domElement);
+                
+                // Controls
+                const controls = new THREE.OrbitControls(camera, renderer.domElement);
+                controls.enableDamping = true;
+                controls.dampingFactor = 0.25;
+                
+                // Lighting
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+                scene.add(ambientLight);
+                
+                const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+                directionalLight.position.set(1, 1, 1);
+                scene.add(directionalLight);
+                
+                // Axes helper
+                const axesHelper = new THREE.AxesHelper(1);
+                scene.add(axesHelper);
+                
+                // Create cube frame
+                const cubeSize = 1;
+                const cubeGeometry = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize);
+                const edgesMaterial = new THREE.LineBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.2 });
+                const cubeEdges = new THREE.LineSegments(
+                    new THREE.EdgesGeometry(cubeGeometry),
+                    edgesMaterial
+                );
+                scene.add(cubeEdges);
+                
+                // Axis labels
+                const createTextSprite = (text, color, position) => {
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.width = 256;
+                    canvas.height = 128;
+                    
+                    context.font = "Bold 36px Arial";
+                    context.fillStyle = "rgba(255, 255, 255, 0.95)";
+                    context.fillRect(0, 0, canvas.width, canvas.height);
+                    
+                    context.fillStyle = color;
+                    context.fillText(text, 10, 64);
+                    
+                    const texture = new THREE.Texture(canvas);
+                    texture.needsUpdate = true;
+                    
+                    const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
+                    const sprite = new THREE.Sprite(spriteMaterial);
+                    sprite.position.copy(position);
+                    sprite.scale.set(0.2, 0.1, 1);
+                    
+                    return sprite;
+                };
+                
+                // Add axis labels
+                scene.add(createTextSprite("Properties (X)", "#1f77b4", new THREE.Vector3(1.2, 0, 0)));
+                scene.add(createTextSprite("Processes (Y)", "#ff7f0e", new THREE.Vector3(0, 1.2, 0)));
+                scene.add(createTextSprite("Perspectives (Z)", "#2ca02c", new THREE.Vector3(0, 0, 1.2)));
+                
+                // Add points for relationships
+                const pointsMaterial = new THREE.PointsMaterial({
+                    size: 0.05,
+                    vertexColors: true,
+                    sizeAttenuation: true
+                });
+                
+                const pointsGeometry = new THREE.BufferGeometry();
+                const positions = [];
+                const colors = [];
+                const pointData = [];
+                
+                // Normalize positions
+                const numProperties = p3ifData.dimensions.property.length;
+                const numProcesses = p3ifData.dimensions.process.length;
+                const numPerspectives = p3ifData.dimensions.perspective.length;
+                
+                p3ifData.connections.forEach(conn => {
+                    // Normalize to 0-1 range and then scale to cube size
+                    const x = (conn.x / Math.max(1, numProperties - 1)) * cubeSize;
+                    const y = (conn.y / Math.max(1, numProcesses - 1)) * cubeSize;
+                    const z = (conn.z / Math.max(1, numPerspectives - 1)) * cubeSize;
+                    
+                    // Center the cube by subtracting half the size
+                    positions.push(x - cubeSize/2, y - cubeSize/2, z - cubeSize/2);
+                    
+                    // Use strength to determine color intensity
+                    const r = 0.5 + conn.strength * 0.5;
+                    const g = 0.5 * (1 - conn.strength);
+                    const b = 0.5 + conn.confidence * 0.5;
+                    
+                    colors.push(r, g, b);
+                    
+                    // Store the original data for interaction
+                    pointData.push({
+                        id: conn.id,
+                        property: p3ifData.dimensions.property[conn.x],
+                        process: p3ifData.dimensions.process[conn.y],
+                        perspective: p3ifData.dimensions.perspective[conn.z],
+                        strength: conn.strength,
+                        confidence: conn.confidence
+                    });
+                });
+                
+                pointsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+                pointsGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+                
+                const points = new THREE.Points(pointsGeometry, pointsMaterial);
+                scene.add(points);
+                
+                // Handle resizing
+                window.addEventListener('resize', () => {
+                    const newWidth = container.clientWidth;
+                    const newHeight = container.clientHeight;
+                    
+                    camera.aspect = newWidth / newHeight;
+                    camera.updateProjectionMatrix();
+                    
+                    renderer.setSize(newWidth, newHeight);
+                });
+                
+                // Handle point selection
+                const raycaster = new THREE.Raycaster();
+                raycaster.params.Points.threshold = 0.05;
+                
+                const mouse = new THREE.Vector2();
+                
+                container.addEventListener('mousemove', (event) => {
+                    // Calculate mouse position in normalized device coordinates
+                    mouse.x = (event.clientX / width) * 2 - 1;
+                    mouse.y = -(event.clientY / height) * 2 + 1;
+                });
+                
+                container.addEventListener('click', () => {
+                    // Cast a ray from the camera
+                    raycaster.setFromCamera(mouse, camera);
+                    
+                    // Check for intersections with points
+                    const intersects = raycaster.intersectObject(points);
+                    
+                    if (intersects.length > 0) {
+                        const index = intersects[0].index;
+                        const selectedPoint = pointData[index];
+                        
+                        // Display information about the selected point
+                        const infoDiv = document.getElementById('selection-info');
+                        infoDiv.innerHTML = `
+                            <h3>Selected Relationship</h3>
+                            <p><strong>Property:</strong> ${selectedPoint.property.name}</p>
+                            <p><strong>Process:</strong> ${selectedPoint.process.name}</p>
+                            <p><strong>Perspective:</strong> ${selectedPoint.perspective.name}</p>
+                            <p><strong>Strength:</strong> ${selectedPoint.strength.toFixed(2)}</p>
+                            <p><strong>Confidence:</strong> ${selectedPoint.confidence.toFixed(2)}</p>
+                        `;
+                    }
+                });
+                
+                // Animation loop
+                function animate() {
+                    requestAnimationFrame(animate);
+                    controls.update();
+                    renderer.render(scene, camera);
+                }
+                
+                animate();
+            </script>
+            
+            <script>
+                
+            </script>
+        </body>
+        </html>
+        

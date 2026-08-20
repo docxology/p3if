@@ -1,0 +1,262 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>P3IF 3D Cube</title>
+            <style>
+                body { 
+                    margin: 0;
+                    overflow: hidden;
+                    font-family: Arial, sans-serif;
+                }
+                #info {
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 10px;
+                    border-radius: 5px;
+                    max-width: 300px;
+                    z-index: 100;
+                }
+                #canvas-container {
+                    width: 100%;
+                    height: 100vh;
+                }
+                #legend {
+                    position: absolute;
+                    bottom: 20px;
+                    right: 20px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 10px;
+                    border-radius: 5px;
+                    z-index: 100;
+                }
+                .axis-label {
+                    font-weight: bold;
+                    margin-bottom: 5px;
+                }
+                .property-color { color: #1f77b4; }
+                .process-color { color: #ff7f0e; }
+                .perspective-color { color: #2ca02c; }
+            </style>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+        </head>
+        <body>
+            <div id="info">
+                <h2>P3IF 3D Cube</h2>
+                <p>This visualization represents the P3IF framework as a 3D cube with three dimensions:</p>
+                <p><span class="property-color">X-axis: Properties</span></p>
+                <p><span class="process-color">Y-axis: Processes</span></p>
+                <p><span class="perspective-color">Z-axis: Perspectives</span></p>
+                <p>Each point in the cube represents a relationship between specific property, process, and perspective.</p>
+                <p>Click and drag to rotate. Scroll to zoom. Right-click and drag to pan.</p>
+                <div id="selection-info"></div>
+            </div>
+            
+            <div id="canvas-container"></div>
+            
+            <div id="legend">
+                <div class="axis-label property-color">X-axis: Properties</div>
+                <div class="axis-label process-color">Y-axis: Processes</div>
+                <div class="axis-label perspective-color">Z-axis: Perspectives</div>
+                <div>Point size indicates relationship strength</div>
+            </div>
+            
+            
+            
+            <script>
+                // P3IF data
+                const p3ifData = {"metadata": {"generated_at": "2026-08-19T18:10:14.687376", "total_properties": 50, "total_processes": 50, "total_perspectives": 50, "domains": "all", "max_elements": 1000}, "dimensions": {"property": [{"id": "f35699b4-ec6f-4218-ba08-3e769946c9c5", "name": "Border Control", "description": "Property: Border Control", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "d25858fa-37f2-4d16-b291-f60d132457fe", "name": "Visa Processing", "description": "Property: Visa Processing", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "b5be4ec5-4e6d-4af9-ba70-cadecbcc7b7d", "name": "Asylum Management", "description": "Property: Asylum Management", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "eab13eae-9e77-4d3b-96f0-092717875596", "name": "Integration Programs", "description": "Property: Integration Programs", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "ccfaeaf1-6b58-4bdf-8952-226386eb5f7c", "name": "Labor Market Impact", "description": "Property: Labor Market Impact", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "9163428a-671d-4b4d-8848-68ae8c4f2dd0", "name": "Cultural Diversity", "description": "Property: Cultural Diversity", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "d241ad9c-cb64-413a-a4e1-8df87c653063", "name": "National Security", "description": "Property: National Security", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "65902d0f-5369-4ccd-b041-4e100c7bd2a5", "name": "Human Rights", "description": "Property: Human Rights", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "65bcc200-503e-498b-9975-cf134e2ad5e4", "name": "Demographic Change", "description": "Property: Demographic Change", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "a00c1e42-b73b-481d-ba6b-f1204b12dbbd", "name": "Economic Contribution", "description": "Property: Economic Contribution", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "1e053e74-af94-4234-85d5-77a42a94c300", "name": "Social Cohesion", "description": "Property: Social Cohesion", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "4a9466b2-d9ca-4b7f-9231-9b746546d54c", "name": "Language Acquisition", "description": "Property: Language Acquisition", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "85ce73ac-66c6-4b4e-a1b7-a1805a47b0bf", "name": "Health Screening", "description": "Property: Health Screening", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "468e459f-84ee-4bf2-8d76-75d963747756", "name": "Education Access", "description": "Property: Education Access", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "8122f63e-a165-454b-9f03-de63b43cf36f", "name": "Family Reunification", "description": "Property: Family Reunification", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "0811ccf3-6751-42e7-8755-77c29e3748cc", "name": "Citizenship Pathways", "description": "Property: Citizenship Pathways", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "2f0804c1-c97b-465a-b42f-5abe7801e318", "name": "Illegal Immigration Prevention", "description": "Property: Illegal Immigration Prevention", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "0c0d8ae7-b909-4c41-8baf-d5409fa4e449", "name": "Refugee Resettlement", "description": "Property: Refugee Resettlement", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "517da66b-8fd8-496c-97a9-2370bd97bfb8", "name": "Skilled Migration", "description": "Property: Skilled Migration", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "48178d2a-f773-4a7e-85c2-45d43be32696", "name": "Temporary Worker Programs", "description": "Property: Temporary Worker Programs", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "35377673-5db1-41d1-9c76-65a34aede44b", "name": "Immigration Policy", "description": "Property: Immigration Policy", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "4ef6d032-0a4c-4912-a74e-1cbb24fec6b7", "name": "Deportation Procedures", "description": "Property: Deportation Procedures", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "b6bcece3-6622-4f7f-a53b-d970008c071f", "name": "Detention Facilities", "description": "Property: Detention Facilities", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "f7761993-cbd7-44ae-92e0-da269d22d61b", "name": "Legal Aid Services", "description": "Property: Legal Aid Services", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "4e221597-8fd8-4179-a0cb-4ca9935d1f42", "name": "Immigrant Entrepreneurship", "description": "Property: Immigrant Entrepreneurship", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "db6c220b-ad82-4834-a6e7-6b7f0ce4ff4c", "name": "Remittance Flows", "description": "Property: Remittance Flows", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "22d5f265-94c2-4b7f-af30-33357a0d4909", "name": "Brain Drain/Gain", "description": "Property: Brain Drain/Gain", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "612885fd-d2b0-4a75-9b00-edb8a39d4c71", "name": "Dual Citizenship", "description": "Property: Dual Citizenship", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "a62227c5-323c-46f5-8af5-88b4189e9ff5", "name": "Naturalization Process", "description": "Property: Naturalization Process", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "2c99b7b3-89c3-44d7-96b1-23ee08968409", "name": "Immigration Quotas", "description": "Property: Immigration Quotas", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "5312ac08-5165-4da7-97f4-4db86c27a17a", "name": "Border Technology", "description": "Property: Border Technology", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "8e89f317-12e5-40f1-a021-5ad6dead6536", "name": "Immigrant Rights", "description": "Property: Immigrant Rights", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "dfe1ecdb-da38-47eb-a809-a8b1611d644b", "name": "Cultural Assimilation", "description": "Property: Cultural Assimilation", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "ff01531a-8c32-42c6-9395-a11fd4db61fd", "name": "Diaspora Communities", "description": "Property: Diaspora Communities", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "50e02101-a533-43fc-a571-5ac66fcd467f", "name": "Human Trafficking Prevention", "description": "Property: Human Trafficking Prevention", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "57e6ea2c-cbcf-4c75-94e1-8623d85570f9", "name": "Seasonal Worker Programs", "description": "Property: Seasonal Worker Programs", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "384f3c6b-3b9f-4936-9111-ee143f74e3e4", "name": "Immigration Fraud Detection", "description": "Property: Immigration Fraud Detection", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "ea3f4a7a-65ce-4477-a6d9-dd5ec672532f", "name": "Sanctuary Cities", "description": "Property: Sanctuary Cities", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "5f6b9d0c-154d-4b5a-b883-81928d49257e", "name": "Immigration Court System", "description": "Property: Immigration Court System", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "5a08832f-c902-439e-91ca-ecfcb2c7f367", "name": "Immigrant Health Care", "description": "Property: Immigrant Health Care", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "261110f4-f9f6-4ccb-8231-82e0c268c7aa", "name": "Language Interpretation Services", "description": "Property: Language Interpretation Services", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "e07932fa-768a-4291-b8b9-3294ac3a1b4c", "name": "Cross-Border Cooperation", "description": "Property: Cross-Border Cooperation", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "1ae08986-d2db-4ff5-8b8f-f9e2b7677e82", "name": "Immigration Data Management", "description": "Property: Immigration Data Management", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "d62bc0e1-dc34-4d97-a997-688ff0449175", "name": "Immigrant Voting Rights", "description": "Property: Immigrant Voting Rights", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "241c6ae1-c23b-49f0-aaeb-0f2d4896f787", "name": "Second Generation Integration", "description": "Property: Second Generation Integration", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "b234fb69-dcff-4b0b-b97b-14b7d21536bd", "name": "Immigration Research", "description": "Property: Immigration Research", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "cf1e3f03-f556-412a-892c-bf7a293cdfee", "name": "Immigrant Mental Health", "description": "Property: Immigrant Mental Health", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "4ad74225-a5af-43d3-b19a-cbe169be0413", "name": "Unaccompanied Minor Management", "description": "Property: Unaccompanied Minor Management", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "514dc41e-76e5-40b7-b03f-ffd029632575", "name": "Immigration Advocacy", "description": "Property: Immigration Advocacy", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}, {"id": "d6c28983-0b2b-41da-be87-f417c5ce6393", "name": "Immigrant Education Programs", "description": "Property: Immigrant Education Programs", "domain": "Immigration", "tags": [], "quality_score": 1.0, "validation_status": "draft"}], "process": [{"id": "10407e9a-ff00-4a21-b2db-f47c1d022a0e", "name": "Border Patrol", "description": "Process: Border Patrol", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "bc330d26-8cf6-41fa-bc45-faa59a271a51", "name": "Visa Application Processing", "description": "Process: Visa Application Processing", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "d4bcd732-3f83-4d95-bf58-cf641d68c236", "name": "Asylum Claim Evaluation", "description": "Process: Asylum Claim Evaluation", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "45e0445d-9c04-400f-a8e1-6bc83b4b8b1e", "name": "Integration Program Implementation", "description": "Process: Integration Program Implementation", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "7b9d396a-a76e-4196-ae26-a6306f2dbe4f", "name": "Labor Market Analysis", "description": "Process: Labor Market Analysis", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "22919c57-b60d-441c-8ee0-6407596c8d81", "name": "Cultural Orientation", "description": "Process: Cultural Orientation", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "c7db49ce-6bf9-4534-8e19-59c481bb6f55", "name": "Security Screening", "description": "Process: Security Screening", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "70a92fa5-9c43-463d-8d4d-53aa15d3b234", "name": "Human Rights Monitoring", "description": "Process: Human Rights Monitoring", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "ad2289f2-2d1f-4423-b88f-b7c69ccfaafd", "name": "Demographic Data Collection", "description": "Process: Demographic Data Collection", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "e73e0713-4d02-4667-831c-480a5aefaafd", "name": "Economic Impact Assessment", "description": "Process: Economic Impact Assessment", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "43e94ecb-0b04-4c9d-9d8d-6928896e9b2c", "name": "Community Engagement", "description": "Process: Community Engagement", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "0bc57233-5673-4043-8ecc-860d57f7aa80", "name": "Language Training", "description": "Process: Language Training", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "48b2ae7e-0292-4e57-adc6-b332c0dbc40f", "name": "Health Screening Procedures", "description": "Process: Health Screening Procedures", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "6afca5c9-47e7-42ed-bb55-3351f39cc3ac", "name": "Education Placement", "description": "Process: Education Placement", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "a2aed46b-73b6-468d-8c46-9dbb0e12c82b", "name": "Family Reunification Processing", "description": "Process: Family Reunification Processing", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "5ec45d2f-7160-4832-8336-4224e243dc4b", "name": "Citizenship Application Processing", "description": "Process: Citizenship Application Processing", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "46fb8598-f8d6-4dcc-9333-3af083ad46f4", "name": "Illegal Immigration Enforcement", "description": "Process: Illegal Immigration Enforcement", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "7118a76a-89d6-4cff-afb2-1f099c8d611d", "name": "Refugee Placement", "description": "Process: Refugee Placement", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "f9802719-aa53-465f-9173-b5c0a1f369e6", "name": "Skilled Migrant Selection", "description": "Process: Skilled Migrant Selection", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "7e2d6280-9044-4515-87fd-5c5d87a5bdaf", "name": "Temporary Work Visa Issuance", "description": "Process: Temporary Work Visa Issuance", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "b7f36532-88a5-4d91-ace6-0b753477708b", "name": "Policy Development", "description": "Process: Policy Development", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "c08b44fa-325f-409f-b539-1421cd059f6e", "name": "Deportation Proceedings", "description": "Process: Deportation Proceedings", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "47df2974-dae1-44f2-8f0e-9bd6b6e8bf1d", "name": "Detention Center Management", "description": "Process: Detention Center Management", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "7e1f9e8a-d696-45ac-b569-4fa7c73505fe", "name": "Legal Aid Provision", "description": "Process: Legal Aid Provision", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "ff4e99e7-44cb-404e-995e-c21ccaa9009c", "name": "Entrepreneurship Support", "description": "Process: Entrepreneurship Support", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "2bb96cb3-821d-43f4-91c6-1028bf85fc58", "name": "Remittance Tracking", "description": "Process: Remittance Tracking", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "373b67af-287b-4831-889b-309b795330c8", "name": "Brain Drain/Gain Analysis", "description": "Process: Brain Drain/Gain Analysis", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "b982f374-09f7-4b01-ae0f-b4621c8b3e92", "name": "Dual Citizenship Processing", "description": "Process: Dual Citizenship Processing", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "3e07ced2-a882-442b-89ef-171c3721b742", "name": "Naturalization Ceremony", "description": "Process: Naturalization Ceremony", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "41959a38-ddfb-400d-9f43-60a0d83eae2f", "name": "Quota System Management", "description": "Process: Quota System Management", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "20550335-8018-4f9a-bd24-601d7f4035f6", "name": "Border Technology Implementation", "description": "Process: Border Technology Implementation", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "1bbb4794-3c48-4d51-98ec-5abf5c104a98", "name": "Rights Education", "description": "Process: Rights Education", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "85fbe22a-b72d-49a4-b54d-30a8c1132830", "name": "Cultural Assimilation Programs", "description": "Process: Cultural Assimilation Programs", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "cd5c6662-ff53-477d-8569-31b4f02058a4", "name": "Diaspora Engagement", "description": "Process: Diaspora Engagement", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "3d82a993-e729-4d5e-8867-0b368b74d7ca", "name": "Anti-Trafficking Operations", "description": "Process: Anti-Trafficking Operations", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "5332e33c-d29e-4dea-90c7-f93c143e2fd2", "name": "Seasonal Worker Coordination", "description": "Process: Seasonal Worker Coordination", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "f566ae63-1ed1-40a2-ad08-672d32b6f661", "name": "Fraud Investigation", "description": "Process: Fraud Investigation", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "9c12da83-818a-472a-bd41-b768f7e68a08", "name": "Sanctuary City Policy Enforcement", "description": "Process: Sanctuary City Policy Enforcement", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "6af0f5cd-b269-4569-bc77-d8b9cbfff66a", "name": "Immigration Court Proceedings", "description": "Process: Immigration Court Proceedings", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "5abe0158-300d-4411-8be1-6298d6cf006f", "name": "Immigrant Healthcare Provision", "description": "Process: Immigrant Healthcare Provision", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "e7423367-17d4-4c4a-b897-096da62e0037", "name": "Interpretation Service Coordination", "description": "Process: Interpretation Service Coordination", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "fbffb90a-fc3c-4650-ad8e-dcc29af43416", "name": "International Border Cooperation", "description": "Process: International Border Cooperation", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "8fd580a7-547c-4514-bb95-cd9783caa877", "name": "Immigration Database Management", "description": "Process: Immigration Database Management", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "524d6d08-36ae-4aea-a287-e8653d3bac09", "name": "Voter Registration for Immigrants", "description": "Process: Voter Registration for Immigrants", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "aae30b30-eb5f-4b1a-bacd-091db1b8f07c", "name": "Second Generation Support Programs", "description": "Process: Second Generation Support Programs", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "77a4dd17-2678-4491-8063-3ed03065f2c6", "name": "Immigration Research Studies", "description": "Process: Immigration Research Studies", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "f88e3bd0-4037-412e-b04f-209d6d55c7b4", "name": "Mental Health Service Provision", "description": "Process: Mental Health Service Provision", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "d67ee3ee-9a44-4a58-91c4-09b4271d6e61", "name": "Unaccompanied Minor Care", "description": "Process: Unaccompanied Minor Care", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "2e9f7819-e076-4383-9553-42cce5c112d4", "name": "Advocacy Campaign Management", "description": "Process: Advocacy Campaign Management", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "678ab4cf-e308-456b-8865-2981e95521c7", "name": "Immigrant Education Curriculum Development", "description": "Process: Immigrant Education Curriculum Development", "domain": "Immigration", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}], "perspective": [{"id": "2ec98de1-d2a7-4f2b-9c79-3246fc11fde5", "name": "Immigration Officer", "description": "Perspective: Immigration Officer", "domain": "Immigration", "viewpoint": "view_immigration_officer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "e0dc8838-3cd5-435f-8e7a-c6a105551842", "name": "Visa Processor", "description": "Perspective: Visa Processor", "domain": "Immigration", "viewpoint": "view_visa_processor", "stakeholder_type": null, "quality_score": 1.0}, {"id": "02d90d67-60da-48a5-ba73-79e93e2ad7c3", "name": "Asylum Case Worker", "description": "Perspective: Asylum Case Worker", "domain": "Immigration", "viewpoint": "view_asylum_case_worker", "stakeholder_type": null, "quality_score": 1.0}, {"id": "3c0cf968-0fa0-449d-9103-1c548fb9d98a", "name": "Integration Program Coordinator", "description": "Perspective: Integration Program Coordinator", "domain": "Immigration", "viewpoint": "view_integration_program_coordinator", "stakeholder_type": null, "quality_score": 1.0}, {"id": "e174a552-bd33-4ec2-b584-4cde3b0a1d14", "name": "Labor Market Analyst", "description": "Perspective: Labor Market Analyst", "domain": "Immigration", "viewpoint": "view_labor_market_analyst", "stakeholder_type": null, "quality_score": 1.0}, {"id": "944d7972-39e5-4dd2-94d6-64d8fe7889f9", "name": "Cultural Liaison", "description": "Perspective: Cultural Liaison", "domain": "Immigration", "viewpoint": "view_cultural_liaison", "stakeholder_type": null, "quality_score": 1.0}, {"id": "00e33493-b051-4540-803b-2376696aa302", "name": "Security Screener", "description": "Perspective: Security Screener", "domain": "Immigration", "viewpoint": "view_security_screener", "stakeholder_type": null, "quality_score": 1.0}, {"id": "9b9430bd-a255-41a5-9745-ded47b8bb882", "name": "Human Rights Advocate", "description": "Perspective: Human Rights Advocate", "domain": "Immigration", "viewpoint": "view_human_rights_advocate", "stakeholder_type": null, "quality_score": 1.0}, {"id": "d24760b2-460c-4b24-984e-f9e8f43901b7", "name": "Demographer", "description": "Perspective: Demographer", "domain": "Immigration", "viewpoint": "view_demographer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "f899c00b-ae91-4830-a9e5-ce177fb0737f", "name": "Economic Analyst", "description": "Perspective: Economic Analyst", "domain": "Immigration", "viewpoint": "view_economic_analyst", "stakeholder_type": null, "quality_score": 1.0}, {"id": "11b82a23-8518-4883-8086-863fb35103f1", "name": "Community Outreach Specialist", "description": "Perspective: Community Outreach Specialist", "domain": "Immigration", "viewpoint": "view_community_outreach_specialist", "stakeholder_type": null, "quality_score": 1.0}, {"id": "487b43a3-d4ad-4d6e-aa6c-e8546fcbbd5b", "name": "Language Instructor", "description": "Perspective: Language Instructor", "domain": "Immigration", "viewpoint": "view_language_instructor", "stakeholder_type": null, "quality_score": 1.0}, {"id": "a3f5fff5-ea1a-401f-9941-74265870e5a0", "name": "Health Screening Technician", "description": "Perspective: Health Screening Technician", "domain": "Immigration", "viewpoint": "view_health_screening_technician", "stakeholder_type": null, "quality_score": 1.0}, {"id": "8a84de70-d769-4068-a1c4-6cc247060750", "name": "Education Placement Officer", "description": "Perspective: Education Placement Officer", "domain": "Immigration", "viewpoint": "view_education_placement_officer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "8e6d3068-e186-4a30-893d-f86e40629baf", "name": "Family Reunification Caseworker", "description": "Perspective: Family Reunification Caseworker", "domain": "Immigration", "viewpoint": "view_family_reunification_caseworker", "stakeholder_type": null, "quality_score": 1.0}, {"id": "51024d85-2b95-4246-aca0-851de077295e", "name": "Citizenship Test Administrator", "description": "Perspective: Citizenship Test Administrator", "domain": "Immigration", "viewpoint": "view_citizenship_test_administrator", "stakeholder_type": null, "quality_score": 1.0}, {"id": "428922dc-5fdb-4906-bb2a-c882ccf76243", "name": "Border Patrol Agent", "description": "Perspective: Border Patrol Agent", "domain": "Immigration", "viewpoint": "view_border_patrol_agent", "stakeholder_type": null, "quality_score": 1.0}, {"id": "de2f469e-5cf4-4c9f-8019-20c20504b9fe", "name": "Refugee Resettlement Coordinator", "description": "Perspective: Refugee Resettlement Coordinator", "domain": "Immigration", "viewpoint": "view_refugee_resettlement_coordinator", "stakeholder_type": null, "quality_score": 1.0}, {"id": "383072e6-c9ef-4bd7-8c9d-ffe6df49b56d", "name": "Skilled Migration Recruiter", "description": "Perspective: Skilled Migration Recruiter", "domain": "Immigration", "viewpoint": "view_skilled_migration_recruiter", "stakeholder_type": null, "quality_score": 1.0}, {"id": "8f7817a6-02a9-4a4e-ba54-b7167bb6cc66", "name": "Temporary Visa Officer", "description": "Perspective: Temporary Visa Officer", "domain": "Immigration", "viewpoint": "view_temporary_visa_officer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "c8807e62-9a13-40c5-9a93-b6044308bcdd", "name": "Immigration Policy Advisor", "description": "Perspective: Immigration Policy Advisor", "domain": "Immigration", "viewpoint": "view_immigration_policy_advisor", "stakeholder_type": null, "quality_score": 1.0}, {"id": "71dbf0d1-06f3-4886-856d-e8cd697f31dc", "name": "Deportation Officer", "description": "Perspective: Deportation Officer", "domain": "Immigration", "viewpoint": "view_deportation_officer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "fe2ce3d5-078c-429f-8f4b-cd4fba27a2d1", "name": "Detention Facility Manager", "description": "Perspective: Detention Facility Manager", "domain": "Immigration", "viewpoint": "view_detention_facility_manager", "stakeholder_type": null, "quality_score": 1.0}, {"id": "05b8d8c1-1ca4-4e95-b261-5a7ddc1d226d", "name": "Immigration Lawyer", "description": "Perspective: Immigration Lawyer", "domain": "Immigration", "viewpoint": "view_immigration_lawyer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "582a1d0d-fe4a-45cb-a550-9cf9790dd100", "name": "Immigrant Entrepreneur Mentor", "description": "Perspective: Immigrant Entrepreneur Mentor", "domain": "Immigration", "viewpoint": "view_immigrant_entrepreneur_mentor", "stakeholder_type": null, "quality_score": 1.0}, {"id": "eb0993c0-fc67-4c8b-9d74-945856b84b72", "name": "Remittance Analyst", "description": "Perspective: Remittance Analyst", "domain": "Immigration", "viewpoint": "view_remittance_analyst", "stakeholder_type": null, "quality_score": 1.0}, {"id": "9dc9c532-3afe-4c1e-b538-233b28991ed4", "name": "Brain Drain/Gain Researcher", "description": "Perspective: Brain Drain/Gain Researcher", "domain": "Immigration", "viewpoint": "view_brain_drain/gain_researcher", "stakeholder_type": null, "quality_score": 1.0}, {"id": "d5f6755b-519c-4c95-8311-8a5aeaf56f60", "name": "Dual Citizenship Processor", "description": "Perspective: Dual Citizenship Processor", "domain": "Immigration", "viewpoint": "view_dual_citizenship_processor", "stakeholder_type": null, "quality_score": 1.0}, {"id": "ec2f2ff1-a12d-4126-a35f-8f76ced318b6", "name": "Naturalization Ceremony Official", "description": "Perspective: Naturalization Ceremony Official", "domain": "Immigration", "viewpoint": "view_naturalization_ceremony_official", "stakeholder_type": null, "quality_score": 1.0}, {"id": "ee7df65f-7fe2-4dba-8bf0-3c9fea2fb793", "name": "Immigration Quota Analyst", "description": "Perspective: Immigration Quota Analyst", "domain": "Immigration", "viewpoint": "view_immigration_quota_analyst", "stakeholder_type": null, "quality_score": 1.0}, {"id": "24792dd6-8974-47b3-b026-a160e8731d80", "name": "Border Technology Specialist", "description": "Perspective: Border Technology Specialist", "domain": "Immigration", "viewpoint": "view_border_technology_specialist", "stakeholder_type": null, "quality_score": 1.0}, {"id": "af5218d3-d555-4ab6-9cf4-ee965978543f", "name": "Immigrant Rights Educator", "description": "Perspective: Immigrant Rights Educator", "domain": "Immigration", "viewpoint": "view_immigrant_rights_educator", "stakeholder_type": null, "quality_score": 1.0}, {"id": "7a5b2d83-d0be-4826-9920-97cd632fa812", "name": "Cultural Assimilation Coach", "description": "Perspective: Cultural Assimilation Coach", "domain": "Immigration", "viewpoint": "view_cultural_assimilation_coach", "stakeholder_type": null, "quality_score": 1.0}, {"id": "22ad7824-4078-4f6d-bcd4-7f4a0203892a", "name": "Diaspora Community Leader", "description": "Perspective: Diaspora Community Leader", "domain": "Immigration", "viewpoint": "view_diaspora_community_leader", "stakeholder_type": null, "quality_score": 1.0}, {"id": "a9e4e84b-709e-4ac8-8970-8ecedf7ee852", "name": "Anti-Trafficking Investigator", "description": "Perspective: Anti-Trafficking Investigator", "domain": "Immigration", "viewpoint": "view_anti-trafficking_investigator", "stakeholder_type": null, "quality_score": 1.0}, {"id": "94438e7b-6911-469a-879a-5bb41d916517", "name": "Seasonal Worker Program Manager", "description": "Perspective: Seasonal Worker Program Manager", "domain": "Immigration", "viewpoint": "view_seasonal_worker_program_manager", "stakeholder_type": null, "quality_score": 1.0}, {"id": "2bfeb883-cf5a-4c0c-9f9d-08d3d6533154", "name": "Immigration Fraud Investigator", "description": "Perspective: Immigration Fraud Investigator", "domain": "Immigration", "viewpoint": "view_immigration_fraud_investigator", "stakeholder_type": null, "quality_score": 1.0}, {"id": "f55d064c-5ada-4180-b4ad-235476245746", "name": "Sanctuary City Policy Maker", "description": "Perspective: Sanctuary City Policy Maker", "domain": "Immigration", "viewpoint": "view_sanctuary_city_policy_maker", "stakeholder_type": null, "quality_score": 1.0}, {"id": "7600d951-b0ef-487e-a289-5803ffe0e697", "name": "Immigration Judge", "description": "Perspective: Immigration Judge", "domain": "Immigration", "viewpoint": "view_immigration_judge", "stakeholder_type": null, "quality_score": 1.0}, {"id": "d6413f60-b163-482c-abd0-bc12c46b48cc", "name": "Immigrant Healthcare Provider", "description": "Perspective: Immigrant Healthcare Provider", "domain": "Immigration", "viewpoint": "view_immigrant_healthcare_provider", "stakeholder_type": null, "quality_score": 1.0}, {"id": "f49c8bd6-2dd2-4a27-a1c8-4f580865c5c0", "name": "Language Interpreter", "description": "Perspective: Language Interpreter", "domain": "Immigration", "viewpoint": "view_language_interpreter", "stakeholder_type": null, "quality_score": 1.0}, {"id": "11ce72e1-0588-4311-9e0c-b0a30df2b64f", "name": "Cross-Border Cooperation Officer", "description": "Perspective: Cross-Border Cooperation Officer", "domain": "Immigration", "viewpoint": "view_cross-border_cooperation_officer", "stakeholder_type": null, "quality_score": 1.0}, {"id": "741e00b1-b820-4540-ba6c-985ee111de09", "name": "Immigration Data Analyst", "description": "Perspective: Immigration Data Analyst", "domain": "Immigration", "viewpoint": "view_immigration_data_analyst", "stakeholder_type": null, "quality_score": 1.0}, {"id": "acb6a8b7-037b-4eac-a1ed-7163b2926573", "name": "Immigrant Voting Rights Advocate", "description": "Perspective: Immigrant Voting Rights Advocate", "domain": "Immigration", "viewpoint": "view_immigrant_voting_rights_advocate", "stakeholder_type": null, "quality_score": 1.0}, {"id": "6ed36569-3620-4098-a3b0-8fbedb33fb65", "name": "Second Generation Integration Specialist", "description": "Perspective: Second Generation Integration Specialist", "domain": "Immigration", "viewpoint": "view_second_generation_integration_specialist", "stakeholder_type": null, "quality_score": 1.0}, {"id": "0a195496-33cd-4493-a7ee-043a3364bcbd", "name": "Immigration Researcher", "description": "Perspective: Immigration Researcher", "domain": "Immigration", "viewpoint": "view_immigration_researcher", "stakeholder_type": null, "quality_score": 1.0}, {"id": "f1c387b6-7879-4f51-887c-5051e6d09de9", "name": "Immigrant Mental Health Counselor", "description": "Perspective: Immigrant Mental Health Counselor", "domain": "Immigration", "viewpoint": "view_immigrant_mental_health_counselor", "stakeholder_type": null, "quality_score": 1.0}, {"id": "cc591dd6-9984-4044-ac38-ea7e87ff1380", "name": "Unaccompanied Minor Case Manager", "description": "Perspective: Unaccompanied Minor Case Manager", "domain": "Immigration", "viewpoint": "view_unaccompanied_minor_case_manager", "stakeholder_type": null, "quality_score": 1.0}, {"id": "2e9d28d9-fa3c-4dd5-8e3f-78bd5bb7bcc0", "name": "Immigration Advocate", "description": "Perspective: Immigration Advocate", "domain": "Immigration", "viewpoint": "view_immigration_advocate", "stakeholder_type": null, "quality_score": 1.0}, {"id": "5237ea8a-2be8-4c88-a907-b7d13d28a77d", "name": "Immigrant Education Specialist", "description": "Perspective: Immigrant Education Specialist", "domain": "Immigration", "viewpoint": "view_immigrant_education_specialist", "stakeholder_type": null, "quality_score": 1.0}]}, "connections": [{"id": "94ce7cb2-0c60-4b2b-a978-7573d3433f29", "property_id": "2c99b7b3-89c3-44d7-96b1-23ee08968409", "process_id": "b7f36532-88a5-4d91-ace6-0b753477708b", "perspective_id": "e174a552-bd33-4ec2-b584-4cde3b0a1d14", "strength": 0.4506193303796676, "confidence": 0.7348211257009933, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 29, "y": 20, "z": 4}, {"id": "d26d09fa-0473-48a5-8090-730d5b7b9e2c", "property_id": "ff01531a-8c32-42c6-9395-a11fd4db61fd", "process_id": "3e07ced2-a882-442b-89ef-171c3721b742", "perspective_id": "7600d951-b0ef-487e-a289-5803ffe0e697", "strength": 0.6764442177895211, "confidence": 0.6057809919937247, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 33, "y": 28, "z": 38}, {"id": "13657238-3f87-490a-8bff-81e22ede7ddf", "property_id": "a62227c5-323c-46f5-8af5-88b4189e9ff5", "process_id": "0bc57233-5673-4043-8ecc-860d57f7aa80", "perspective_id": "8a84de70-d769-4068-a1c4-6cc247060750", "strength": 0.7516922057486642, "confidence": 0.7003070463518646, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 28, "y": 11, "z": 13}, {"id": "4a77f794-7d11-4302-9d75-68f33b92c3f8", "property_id": "2f0804c1-c97b-465a-b42f-5abe7801e318", "process_id": "524d6d08-36ae-4aea-a287-e8653d3bac09", "perspective_id": "fe2ce3d5-078c-429f-8f4b-cd4fba27a2d1", "strength": 0.7525180714034568, "confidence": 0.6085256411471396, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 16, "y": 43, "z": 22}, {"id": "6d1f2a16-57a8-4c6d-870a-31922d6a65c7", "property_id": "d241ad9c-cb64-413a-a4e1-8df87c653063", "process_id": "2e9f7819-e076-4383-9553-42cce5c112d4", "perspective_id": "24792dd6-8974-47b3-b026-a160e8731d80", "strength": 0.31313928033549054, "confidence": 0.6153446486856828, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 6, "y": 48, "z": 30}, {"id": "35a065d7-f0a3-4a73-b1d8-9360c5a72ae9", "property_id": "9163428a-671d-4b4d-8848-68ae8c4f2dd0", "process_id": "7b9d396a-a76e-4196-ae26-a6306f2dbe4f", "perspective_id": "7a5b2d83-d0be-4826-9920-97cd632fa812", "strength": 0.553550818695615, "confidence": 0.6099478741842599, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 5, "y": 4, "z": 32}, {"id": "b795be55-6572-4ce1-bd97-48f6489fb7d4", "property_id": "612885fd-d2b0-4a75-9b00-edb8a39d4c71", "process_id": "70a92fa5-9c43-463d-8d4d-53aa15d3b234", "perspective_id": "22ad7824-4078-4f6d-bcd4-7f4a0203892a", "strength": 0.7317691096877141, "confidence": 0.5115388425263396, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 27, "y": 7, "z": 33}, {"id": "45ba5c7d-37f7-457d-a013-3d6a1743d13c", "property_id": "d6c28983-0b2b-41da-be87-f417c5ce6393", "process_id": "9c12da83-818a-472a-bd41-b768f7e68a08", "perspective_id": "5237ea8a-2be8-4c88-a907-b7d13d28a77d", "strength": 0.5620548796162665, "confidence": 0.7327048232461602, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 49, "y": 37, "z": 49}, {"id": "2e3fd802-0bbc-45b4-98c5-374b6f33faa9", "property_id": "4ef6d032-0a4c-4912-a74e-1cbb24fec6b7", "process_id": "6af0f5cd-b269-4569-bc77-d8b9cbfff66a", "perspective_id": "c8807e62-9a13-40c5-9a93-b6044308bcdd", "strength": 0.5165057289390275, "confidence": 0.8565241917722897, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 21, "y": 38, "z": 20}, {"id": "21a3a937-dd0d-448b-bf2b-3cfc97f9ca25", "property_id": "a00c1e42-b73b-481d-ba6b-f1204b12dbbd", "process_id": "85fbe22a-b72d-49a4-b54d-30a8c1132830", "perspective_id": "51024d85-2b95-4246-aca0-851de077295e", "strength": 0.8394996798959053, "confidence": 0.9835032769835201, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 9, "y": 32, "z": 15}]};
+                
+                // Setup
+                const container = document.getElementById('canvas-container');
+                const width = container.clientWidth;
+                const height = container.clientHeight;
+                
+                // Scene
+                const scene = new THREE.Scene();
+                scene.background = new THREE.Color(0xf0f0f0);
+                
+                // Camera
+                const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+                camera.position.set(2, 2, 2);
+                
+                // Renderer
+                const renderer = new THREE.WebGLRenderer({ antialias: true });
+                renderer.setSize(width, height);
+                container.appendChild(renderer.domElement);
+                
+                // Controls
+                const controls = new THREE.OrbitControls(camera, renderer.domElement);
+                controls.enableDamping = true;
+                controls.dampingFactor = 0.25;
+                
+                // Lighting
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+                scene.add(ambientLight);
+                
+                const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+                directionalLight.position.set(1, 1, 1);
+                scene.add(directionalLight);
+                
+                // Axes helper
+                const axesHelper = new THREE.AxesHelper(1);
+                scene.add(axesHelper);
+                
+                // Create cube frame
+                const cubeSize = 1;
+                const cubeGeometry = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize);
+                const edgesMaterial = new THREE.LineBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.2 });
+                const cubeEdges = new THREE.LineSegments(
+                    new THREE.EdgesGeometry(cubeGeometry),
+                    edgesMaterial
+                );
+                scene.add(cubeEdges);
+                
+                // Axis labels
+                const createTextSprite = (text, color, position) => {
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.width = 256;
+                    canvas.height = 128;
+                    
+                    context.font = "Bold 36px Arial";
+                    context.fillStyle = "rgba(255, 255, 255, 0.95)";
+                    context.fillRect(0, 0, canvas.width, canvas.height);
+                    
+                    context.fillStyle = color;
+                    context.fillText(text, 10, 64);
+                    
+                    const texture = new THREE.Texture(canvas);
+                    texture.needsUpdate = true;
+                    
+                    const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
+                    const sprite = new THREE.Sprite(spriteMaterial);
+                    sprite.position.copy(position);
+                    sprite.scale.set(0.2, 0.1, 1);
+                    
+                    return sprite;
+                };
+                
+                // Add axis labels
+                scene.add(createTextSprite("Properties (X)", "#1f77b4", new THREE.Vector3(1.2, 0, 0)));
+                scene.add(createTextSprite("Processes (Y)", "#ff7f0e", new THREE.Vector3(0, 1.2, 0)));
+                scene.add(createTextSprite("Perspectives (Z)", "#2ca02c", new THREE.Vector3(0, 0, 1.2)));
+                
+                // Add points for relationships
+                const pointsMaterial = new THREE.PointsMaterial({
+                    size: 0.05,
+                    vertexColors: true,
+                    sizeAttenuation: true
+                });
+                
+                const pointsGeometry = new THREE.BufferGeometry();
+                const positions = [];
+                const colors = [];
+                const pointData = [];
+                
+                // Normalize positions
+                const numProperties = p3ifData.dimensions.property.length;
+                const numProcesses = p3ifData.dimensions.process.length;
+                const numPerspectives = p3ifData.dimensions.perspective.length;
+                
+                p3ifData.connections.forEach(conn => {
+                    // Normalize to 0-1 range and then scale to cube size
+                    const x = (conn.x / Math.max(1, numProperties - 1)) * cubeSize;
+                    const y = (conn.y / Math.max(1, numProcesses - 1)) * cubeSize;
+                    const z = (conn.z / Math.max(1, numPerspectives - 1)) * cubeSize;
+                    
+                    // Center the cube by subtracting half the size
+                    positions.push(x - cubeSize/2, y - cubeSize/2, z - cubeSize/2);
+                    
+                    // Use strength to determine color intensity
+                    const r = 0.5 + conn.strength * 0.5;
+                    const g = 0.5 * (1 - conn.strength);
+                    const b = 0.5 + conn.confidence * 0.5;
+                    
+                    colors.push(r, g, b);
+                    
+                    // Store the original data for interaction
+                    pointData.push({
+                        id: conn.id,
+                        property: p3ifData.dimensions.property[conn.x],
+                        process: p3ifData.dimensions.process[conn.y],
+                        perspective: p3ifData.dimensions.perspective[conn.z],
+                        strength: conn.strength,
+                        confidence: conn.confidence
+                    });
+                });
+                
+                pointsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+                pointsGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+                
+                const points = new THREE.Points(pointsGeometry, pointsMaterial);
+                scene.add(points);
+                
+                // Handle resizing
+                window.addEventListener('resize', () => {
+                    const newWidth = container.clientWidth;
+                    const newHeight = container.clientHeight;
+                    
+                    camera.aspect = newWidth / newHeight;
+                    camera.updateProjectionMatrix();
+                    
+                    renderer.setSize(newWidth, newHeight);
+                });
+                
+                // Handle point selection
+                const raycaster = new THREE.Raycaster();
+                raycaster.params.Points.threshold = 0.05;
+                
+                const mouse = new THREE.Vector2();
+                
+                container.addEventListener('mousemove', (event) => {
+                    // Calculate mouse position in normalized device coordinates
+                    mouse.x = (event.clientX / width) * 2 - 1;
+                    mouse.y = -(event.clientY / height) * 2 + 1;
+                });
+                
+                container.addEventListener('click', () => {
+                    // Cast a ray from the camera
+                    raycaster.setFromCamera(mouse, camera);
+                    
+                    // Check for intersections with points
+                    const intersects = raycaster.intersectObject(points);
+                    
+                    if (intersects.length > 0) {
+                        const index = intersects[0].index;
+                        const selectedPoint = pointData[index];
+                        
+                        // Display information about the selected point
+                        const infoDiv = document.getElementById('selection-info');
+                        infoDiv.innerHTML = `
+                            <h3>Selected Relationship</h3>
+                            <p><strong>Property:</strong> ${selectedPoint.property.name}</p>
+                            <p><strong>Process:</strong> ${selectedPoint.process.name}</p>
+                            <p><strong>Perspective:</strong> ${selectedPoint.perspective.name}</p>
+                            <p><strong>Strength:</strong> ${selectedPoint.strength.toFixed(2)}</p>
+                            <p><strong>Confidence:</strong> ${selectedPoint.confidence.toFixed(2)}</p>
+                        `;
+                    }
+                });
+                
+                // Animation loop
+                function animate() {
+                    requestAnimationFrame(animate);
+                    controls.update();
+                    renderer.render(scene, camera);
+                }
+                
+                animate();
+            </script>
+            
+            <script>
+                
+            </script>
+        </body>
+        </html>
+        
