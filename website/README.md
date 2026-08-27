@@ -6,7 +6,7 @@ The Pattern Portal for Interdisciplinary Frameworks (P3IF) web interface provide
 
 ### Prerequisites
 
-- Python 3.8 or higher
+- Python 3.9 or higher
 - Flask and other dependencies (see requirements below)
 
 ### Installation
@@ -24,7 +24,7 @@ The Pattern Portal for Interdisciplinary Frameworks (P3IF) web interface provide
 
 3. Create necessary directories:
    ```bash
-   mkdir -p website/logs output
+   mkdir -p website/logs outputs
    ```
 
 ### Running the Web Interface
@@ -50,7 +50,9 @@ python app.py
 - `website/` - Main web application directory
   - `app.py` - Main Flask application
   - `run.py` - Improved startup script
+  - `run_stable.py` - Stable startup script
   - `routes/` - Blueprint routes for different sections
+    - `routes/api/` - Modular REST API (v2) blueprints
   - `templates/` - Jinja2 templates for HTML rendering
   - `static/` - Static files (CSS, JS, images)
   - `logs/` - Log files
@@ -62,7 +64,7 @@ python app.py
 - `/docs/` - Documentation browser
 - `/domains/` - Domain explorer
 - `/visualizations/` - Visualization gallery
-- `/api/` - API endpoints
+- `/api/v2/...` - Modular REST API (domains, patterns, relationships, framework, analysis, visualizations, export, health, OpenAPI spec)
 
 ## Troubleshooting
 

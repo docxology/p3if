@@ -24,13 +24,13 @@ from p3if.utils.config import Config
 # Load configuration
 config = Config("config.json")
 
-# Access settings
+# Access settings (dot notation supported)
 db_path = config.get("storage.path")
 log_level = config.get("logging.level")
 
 # Modify settings
 config.set("visualization.theme", "dark")
-config.save()
+config.save_to_file("config.json")
 ```
 
 ### JSON Utilities (`json.py`)
@@ -62,29 +62,35 @@ storage.save_pattern(pattern)
 # SQLite database storage
 db_storage = SQLiteStorage("p3if.db")
 patterns = db_storage.get_patterns_by_type("property")
+
+# Both backends expose async variants (e.g. save_pattern_async, get_pattern_async)
 ```
 
 ### Performance Monitoring (`performance.py`)
 
-Comprehensive performance tracking with caching, timing decorators, and memory monitoring.
+Performance tracking with timing, caching, and optional memory monitoring (`psutil` when available).
 
 ```python
 from p3if.utils.performance import PerformanceMonitor, timed, cached
 
-@timed
+monitor = PerformanceMonitor()
+
+@timed("analyze_data")
 def analyze_data():
-    # Function execution is automatically timed
+    # Execution is recorded under the "analyze_data" timer
     return process_data()
 
-@cached(max_size=100, ttl=300)
+@cached(cache_key="expensive", ttl=300)
 def expensive_operation(data):
     # Results cached for 5 minutes
     return compute_result(data)
 
-# Manual monitoring
-with PerformanceMonitor() as monitor:
-    result = run_analysis()
-print(f"Execution time: {monitor.get_metrics()['execution_time']}")
+# Manual timing
+monitor.start_timer("run_analysis")
+result = run_analysis()
+monitor.end_timer("run_analysis")
+print(monitor.get_metrics("run_analysis"))
+print(monitor.get_summary_stats("run_analysis"))
 ```
 
 ### Output Organization (`output_organizer.py`)
@@ -94,15 +100,16 @@ Structured output management with session-based organization and metadata tracki
 ```python
 from p3if.utils.output_organizer import OutputOrganizer
 
-organizer = OutputOrganizer()
-session_path = organizer.create_session("analysis_2024")
+organizer = OutputOrganizer("output")
+session_path = organizer.create_session_structure("analysis_2024")
 
-# Save outputs in organized structure
-organizer.save_visualization("chart.html", session_path, "visualizations")
-organizer.save_image("plot.png", session_path, "images")
+# Resolve organized paths for outputs
+viz_path = organizer.get_visualization_path("network", "graph.html")
+img_path = organizer.get_image_path("charts", "plot.png")
 
-# Generate session report
-metadata = organizer.generate_metadata(session_path)
+# Summarize the output directory
+summary = organizer.get_session_summary()
+print(summary["file_counts"])
 ```
 
 ## Usage Patterns
@@ -146,21 +153,17 @@ security_props = [p for p in properties if "security" in p.name.lower()]
 ### Performance Optimization
 
 ```python
-from p3if.utils.performance import PerformanceMonitor, cached
+from p3if.utils.performance import cached, performance_timer
 
-@cached(max_size=50, ttl=600)  # Cache 50 items for 10 minutes
+@cached(cache_key="load_domain", ttl=600)  # Cache results for 10 minutes
 def load_domain_data(domain_name):
     # Expensive data loading operation
     return fetch_domain_data(domain_name)
 
-# Monitor overall performance
-with PerformanceMonitor() as monitor:
+# Timer context manager
+with performance_timer("analysis_block"):
     data = load_domain_data("healthcare")
     analysis = perform_analysis(data)
-
-metrics = monitor.get_metrics()
-print(f"Memory used: {metrics['memory_usage'] / 1024:.1f} KB")
-print(f"Time elapsed: {metrics['execution_time']:.3f}s")
 ```
 
 ### Output Management
@@ -171,20 +174,21 @@ from p3if.visualization.interactive import InteractiveVisualizer
 
 # Create organized output session
 organizer = OutputOrganizer("output")
-session_path = organizer.create_session()
+session_path = organizer.create_session_structure()
 
-# Generate and save visualizations
+# Generate a visualization into the session's visualization path
 visualizer = InteractiveVisualizer(framework)
-html_file = visualizer.generate_3d_cube_html(f"{session_path}/visualizations/cube.html")
+viz_path = organizer.get_visualization_path("cube", "cube.html")
+visualizer.generate_3d_cube_html(viz_path)
 
-# Save additional assets
-organizer.save_data(framework_data, session_path, "data/framework.json")
-organizer.save_report(analysis_report, session_path, "reports/analysis.md")
+# Organize pre-existing files and build an index
+organizer.organize_existing_files("misc_outputs")
+organizer.create_output_index()
 
-# Generate session summary
-summary = organizer.generate_session_summary(session_path)
-print(f"Session created: {summary['session_id']}")
-print(f"Files generated: {summary['file_count']}")
+# Summarize the session
+summary = organizer.get_session_summary()
+print(f"Session directory: {session_path}")
+print(f"Tracked files: {summary['file_counts']}")
 ```
 
 ## Integration with P3IF
@@ -209,11 +213,14 @@ The utils package has minimal dependencies and is designed to be lightweight:
 Run utility tests:
 
 ```bash
-# Test all utilities
-pytest tests/ -k "config or json or storage or performance" -v
+# Test storage (including async variants)
+pytest tests/unit/test_async_storage.py -v
 
-# Test specific module
-pytest tests/unit/test_config.py -v
+# Test performance monitoring
+pytest tests/unit/test_performance_monitoring.py -v
+
+# Test logging
+pytest tests/unit/test_logging.py -v
 ```
 
 ## Error Handling

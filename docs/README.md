@@ -2,7 +2,7 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/)
-[![Documentation Status](https://img.shields.io/badge/docs-latest-brightgreen.svg)](https://p3if.com/docs)
+[![Documentation Status](https://img.shields.io/badge/docs-latest-brightgreen.svg)](README.md)
 
 The **Properties, Processes, and Perspectives Inter-Framework (P3IF)** is a sophisticated meta-framework designed to integrate, analyze, and visualize complex data relationships across multiple domains. P3IF enables seamless interoperability between existing frameworks while providing powerful visualization, analysis, and cognitive security capabilities.
 
@@ -16,11 +16,11 @@ The **Properties, Processes, and Perspectives Inter-Framework (P3IF)** is a soph
 # Generate comprehensive visualizations
 python ../scripts/generate_final_visualizations.py
 
-# Run multi-domain analysis
-python ../scripts/generate_final_visualizations.py
+# Run the full pipeline (tests, visualizations, benchmarks, examples, validation)
+python ../scripts/run_all.py
 
 # View generated outputs
-ls ../outputs/p3if_output_*/
+ls ../outputs/p3if_output_*/ ../outputs/visualizations_*/
 ```
 
 ## ✨ Key Features
@@ -86,6 +86,7 @@ The P3IF documentation is organized into the following sections:
 
 ### Visual Documentation
 - **[System Diagrams](diagrams/system-diagrams.md)**: Visual representations of the P3IF system
+- **[System Architecture](diagrams/system-architecture.md)**: Architecture diagrams
 - **[Process Flows](diagrams/process-flows.md)**: Workflow and process diagrams
 
 ## LLM & AI Development
@@ -97,9 +98,7 @@ The P3IF documentation is organized into the following sections:
 ## Project Reports & Validation
 
 ### Quality Assurance
-- **[Documentation Validation Report](docs_validation_report.json)**: Quality assurance and validation results
 - **[Documentation Improvements Summary](DOCUMENTATION_IMPROVEMENTS_SUMMARY.md)**: Enhancement tracking and improvements
-- **[P3IF Improvements Summary](P3IF_IMPROVEMENTS_SUMMARY.md)**: System evolution and architectural changes
 - **[FAQ](FAQ.md)**: Frequently asked questions and answers
 
 ## 📋 Current Capabilities
@@ -135,12 +134,12 @@ The P3IF documentation is organized into the following sections:
 ```bash
 # Clone the repository
 git clone https://github.com/docxology/p3if.git
-cd P3IF
+cd p3if
 
-# Option 1: Use the interactive setup (recommended)
-../interactive_terminal.sh --setup-only
+# Install with development dependencies
+pip install -e ".[dev,web]"
 
-# Option 2: Manual setup
+# Development environment setup
 python scripts/setup_development.py
 ```
 
@@ -164,11 +163,9 @@ For detailed installation instructions, see [Installation Guide](guides/installa
 # Create PNG graphs, GIF animations, and reports
 python ../scripts/generate_final_visualizations.py
 
-# Output includes:
-# - High-resolution network graphs (small_network.png, large_network.png)
-# - Statistical analysis charts (pattern_statistics.png)
-# - Animated GIF (p3if_components.gif)
-# - Comprehensive report (visualization_report.md)
+# Output includes network, heatmap, cube, hierarchy, matrix, statistical,
+# animation, grid, and list visualizations plus a comprehensive markdown
+# report, organized in a timestamped session directory under outputs/.
 ```
 
 ## Multi-Domain Analysis
@@ -199,10 +196,10 @@ python ../scripts/benchmark_performance.py
 ### View Generated Outputs
 ```bash
 # List all generated visualization files
-find outputs/p3if_output_*/ -name "*.png" -o -name "*.gif" -o -name "*.html"
+find outputs/ -name "*.png" -o -name "*.gif" -o -name "*.html"
 
 # View latest session outputs
-ls -la outputs/p3if_output_$(date +%Y%m%d)_*/
+ls -la outputs/ | tail
 ```
 
 For detailed usage instructions, see [Getting Started](guides/getting-started.md).
@@ -231,8 +228,8 @@ These resources ensure that AI-generated code and documentation maintain consist
 
 ## Contributing
 
-Contributions to the P3IF project are welcome! Please refer to [Contributing Guidelines](CONTRIBUTING.md) for details on how to contribute.
+Contributions to the P3IF project are welcome! Please refer to the [Contributing Guidelines](../CONTRIBUTING.md) for details on how to contribute.
 
 ## License
 
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License (see the license field in `pyproject.toml`).

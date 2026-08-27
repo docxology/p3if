@@ -22,9 +22,16 @@ tests/
 │   ├── test_framework.py         # P3IFFramework tests
 │   ├── test_models.py            # Data model tests
 │   ├── test_composition.py       # Composition and multiplexing tests
-│   └── test_core.py              # Core functionality tests
+│   ├── test_core.py              # Core functionality tests
+│   ├── test_async_storage.py     # Async storage tests
+│   └── ...                       # Additional unit test modules
 ├── integration/                   # Integration tests
-│   └── test_integration.py       # Cross-component tests
+│   ├── test_api.py               # API integration tests
+│   ├── test_core_integration.py  # Core component integration tests
+│   └── test_website_routes.py    # Website route integration tests
+├── data/                          # Data import/export tests
+│   ├── test_importers.py         # Importer tests
+│   └── test_exporters.py         # Exporter tests
 ├── fixtures/                      # Test fixtures and utilities
 │   ├── __init__.py               # Fixture exports
 │   └── helpers.py                # Test utilities and helpers
@@ -79,11 +86,12 @@ Tests for system performance and optimization:
 pytest tests/ -v
 
 # Run with coverage analysis
-pytest tests/ --cov=src/p3if --cov-report=html
+pytest tests/ --cov=p3if --cov-report=html
 
-# Run with parallel execution
-pytest tests/ -n auto
 ```
+
+Note: parallel execution requires the `pytest-xdist` plugin, which is not
+installed by default (`pip install pytest-xdist` to enable `pytest -n auto`).
 
 ### Specific Test Categories
 ```bash
@@ -121,7 +129,11 @@ from tests.fixtures import create_test_framework, create_multi_domain_test_frame
 framework = create_test_framework(num_properties=10, num_processes=8)
 
 # Create multi-domain test framework
-multi_domain = create_multi_domain_test_framework(domains=["healthcare", "finance"])
+multi_domain = create_multi_domain_test_framework(
+    domains=["healthcare", "finance"],
+    patterns_per_domain=5,
+    relationships_per_domain=10
+)
 ```
 
 ### Test Data Generation
@@ -137,7 +149,7 @@ test_data = generate_test_json_data(num_patterns=20, num_relationships=50)
 pattern = create_pattern_with_metadata(
     "property", "Security", domain="cybersecurity",
     quality_score=0.9, confidence=0.95
-)
+)  # type/name/domain are keyword arguments
 ```
 
 ### Assertion Helpers
@@ -161,7 +173,7 @@ assert_framework_integrity(framework)
 ### Coverage Analysis
 ```bash
 # Generate coverage report
-pytest tests/ --cov=src/p3if --cov-report=html
+pytest tests/ --cov=p3if --cov-report=html
 
 # View coverage in browser
 open htmlcov/index.html
@@ -203,24 +215,31 @@ def test_create_pattern_with_metadata():
 Tests are designed to work with CI/CD pipelines:
 
 ```yaml
-# .github/workflows/tests.yml
-name: Tests
-on: [push, pull_request]
+# .github/workflows/ci.yml
+name: P3IF CI
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
 jobs:
   test:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ['3.9', '3.10', '3.11', '3.12']
     steps:
-      - uses: actions/checkout@v2
-      - name: Set up Python
-        uses: actions/setup-python@v2
+      - uses: actions/checkout@v4
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
         with:
-          python-version: 3.9
+          python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: |
-          pip install -r requirements.txt
-          pip install -e ".[dev]"
+          python -m pip install --upgrade pip
+          pip install -e ".[dev,visualization,web]"
       - name: Run tests
-        run: pytest tests/ --cov=src/p3if
+        run: pytest tests/ -v --cov=p3if --cov-report=xml
 ```
 
 ## Debugging Tests
@@ -232,7 +251,7 @@ import logging
 logging.basicConfig(level=logging.DEBUG)
 
 # Run test with debugging
-pytest tests/unit/test_core.py::TestP3IFCore::test_create_pattern -v -s
+pytest tests/unit/test_core.py::TestP3IFCore -v -s
 ```
 
 ### Test Data Inspection
@@ -241,7 +260,8 @@ pytest tests/unit/test_core.py::TestP3IFCore::test_create_pattern -v -s
 from tests.fixtures import create_test_framework
 
 framework = create_test_framework()
-print(f"Framework has {len(framework._patterns)} patterns")
+patterns = framework.get_all_patterns()
+print(f"Framework has {len(patterns)} patterns")
 
 # Inspect relationships
 relationships = framework.get_all_relationships()
@@ -263,7 +283,7 @@ import tracemalloc
 from tests.fixtures import create_large_test_framework
 
 tracemalloc.start()
-framework = create_large_test_framework()
+framework = create_large_test_framework(num_properties=100)
 current, peak = tracemalloc.get_traced_memory()
 print(f"Memory usage: {current / 10**6:.2f}MB (peak: {peak / 10**6:.2f}MB)")
 ```
@@ -271,14 +291,14 @@ print(f"Memory usage: {current / 10**6:.2f}MB (peak: {peak / 10**6:.2f}MB)")
 ## Test Data Management
 
 ### Test Database
-Tests use in-memory SQLite databases by default:
+Frameworks accept an optional storage backend:
 
 ```python
 from p3if.core.framework import P3IFFramework
 from p3if.utils.storage import SQLiteStorage
 
-# Test with persistent database
-framework = P3IFFramework(SQLiteStorage("test_framework.db"))
+# Test with a persistent database
+framework = P3IFFramework(storage_backend=SQLiteStorage("test_framework.db"))
 ```
 
 ### Test File Management

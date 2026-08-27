@@ -24,19 +24,18 @@ The core module provides the fundamental building blocks for the P3IF (Propertie
 
 ```python
 from p3if.core import P3IFCore
+from p3if import Property, Process, Perspective
 
-# Create framework
 core = P3IFCore()
-framework = core.create_framework()
 
-# Add patterns
-framework.add_property("Security", domain="cybersecurity")
-framework.add_process("Authentication", domain="cybersecurity")
-framework.add_perspective("Technical", domain="cybersecurity")
+# Create patterns via the core API
+prop = core.create_pattern("property", "Security", domain="cybersecurity")
+proc = core.create_pattern("process", "Authentication", domain="cybersecurity")
+persp = core.create_pattern("perspective", "Technical", domain="cybersecurity")
 
-# Validate
-result = framework.validate()
-print(f"Framework valid: {result.valid}")
+# Validate a framework
+result = core.validate_framework(framework)
+print(f"Framework valid: {result['overall_valid']}")
 ```
 
 ## Architecture
@@ -55,10 +54,8 @@ The core follows a modular design with clear separation of concerns:
 
 ## Dependencies
 
-- Python 3.8+
+- Python 3.9+
 - pydantic
-- typing
-- dataclasses (standard library)
 
 ## Testing
 

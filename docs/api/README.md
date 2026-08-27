@@ -12,7 +12,6 @@ This document provides comprehensive documentation for the P3IF (Properties, Pro
 - **Output Organization**: Session-based file organization with metadata
 
 ### 🚧 In Development
-- **RESTful API Endpoints**: Currently implemented as Python modules, REST API in development
 - **Authentication System**: Token-based authentication framework
 - **Real-time Updates**: WebSocket support for live visualization updates
 - **Advanced Analytics**: Machine learning-based pattern recognition
@@ -24,7 +23,7 @@ The P3IF API provides RESTful endpoints for interacting with P3IF data, generati
 ## Base URL
 
 ```
-http://localhost:5000/api/v1
+http://localhost:5000/api/v2
 ```
 
 ## Authentication
@@ -444,54 +443,22 @@ The API uses standard HTTP status codes and returns structured error responses:
 
 ## SDK and Client Libraries
 
-### Python SDK
+### Direct Python Usage
+
+There is no dedicated SDK package; call the REST endpoints directly or use
+the Python API in-process:
 
 ```python
-from p3if import P3IFClient
+from p3if import P3IFFramework, Property, Process, Perspective
 
-client = P3IFClient(base_url="http://localhost:5000/api/v1", 
-                   token="your-api-token")
+framework = P3IFFramework()
+framework.add_pattern(Property(name="Data Integrity", domain="cybersecurity"))
 
-# Get all domains
-domains = client.domains.list()
+# Or query the running website's API over HTTP
+import requests
 
-# Create a new property
-property_data = {
-    "name": "Data Integrity",
-    "description": "Ensuring data accuracy and consistency"
-}
-new_property = client.properties.create("cybersecurity", property_data)
-
-# Generate visualization
-viz_config = {
-    "type": "3d_cube",
-    "domain_id": "cybersecurity",
-    "options": {"show_labels": True}
-}
-visualization = client.visualizations.generate(viz_config)
-```
-
-### JavaScript SDK
-
-```javascript
-import { P3IFClient } from '@p3if/client';
-
-const client = new P3IFClient({
-  baseURL: 'http://localhost:5000/api/v1',
-  token: 'your-api-token'
-});
-
-// Get domain details
-const domain = await client.domains.get('cybersecurity');
-
-// Create relationship
-const relationship = await client.relationships.create('cybersecurity', {
-  property_id: 'confidentiality',
-  process_id: 'encryption',
-  perspective_id: 'technical',
-  strength: 0.9,
-  confidence: 0.85
-});
+domains = requests.get("http://localhost:5000/api/v2/domains").json()
+patterns = requests.get("http://localhost:5000/api/v2/patterns").json()
 ```
 
 ## Rate Limiting
@@ -542,6 +509,5 @@ The API uses semantic versioning. Current version is v1. Breaking changes will r
 ## Support
 
 For API support and questions:
-- Documentation: [https://p3if.com/docs/api](https://p3if.com/docs/api)
-- Issues: [https://github.com/p3if/p3if/issues](https://github.com/p3if/p3if/issues)
-- Email: api-support@p3if.com 
+- Issues: [https://github.com/docxology/p3if/issues](https://github.com/docxology/p3if/issues)
+- Documentation: this file and [docs/README.md](../README.md) 

@@ -56,7 +56,7 @@ class NewOrchestrator:
 
     def _setup_orchestrator(self):
         # Define orchestration steps with clear dependencies
-        pass
+        self.orchestrator.add_step("analyze", self._analyze)
 ```
 
 #### Use Proper Type Hints
@@ -89,8 +89,8 @@ def process_domain_data(
         Dictionary containing processed data and validation results
 
     Raises:
-        DomainValidationError: If validation fails
-        ProcessingError: If data processing fails
+        PatternValidationError: If validation fails
+        P3IFError: If data processing fails
 
     Example:
         >>> processed = process_domain_data(raw_data, ["check_integrity"])
@@ -187,13 +187,9 @@ def test_integration_with_core():
     from p3if.core import P3IFCore
 
     core = P3IFCore()
-    new_component = NewClass()
+    framework = core.create_framework("property", "Example", domain="example")
 
-    # Test interaction
-    framework = core.create_framework()
-    result = new_component.process_framework(framework)
-
-    assert result["integration_status"] == "success"
+    assert framework.domain == "example"
 ```
 
 ### 4. Error Handling
@@ -214,12 +210,12 @@ def robust_function(data: Dict[str, Any]) -> Dict[str, Any]:
         # Process data
         result = process_data_internal(data)
 
-        # Validate output
+        # Validate the framework
         validator = ValidationEngine()
-        validation_result = validator.validate_result(result)
+        validation_result = validator.validate_framework(framework)
 
-        if not validation_result["valid"]:
-            raise ValueError("Output validation failed")
+        if not validation_result["overall_valid"]:
+            raise FrameworkValidationError("Output validation failed")
 
         return result
 
@@ -243,14 +239,11 @@ def expensive_operation(data: Dict[str, Any]) -> Dict[str, Any]:
 
 #### Async Support for I/O Operations
 ```python
-async def async_data_processing(data: Dict[str, Any]) -> Dict[str, Any]:
-    """Async data processing function."""
-    # Use async I/O operations
-    async with aiofiles.open("data.json", "r") as f:
-        content = await f.read()
+from p3if.utils.storage import JSONStorage
 
-    # Process data
-    return await process_async(content)
+async def async_data_processing(storage: JSONStorage, pattern: BasePattern) -> None:
+    """Async pattern persistence via the storage layer."""
+    await storage.save_pattern_async(pattern)
 ```
 
 ### 6. Documentation Updates
@@ -388,7 +381,7 @@ def process_complex_data(
         - metadata: Processing metadata
 
     Raises:
-        DataProcessingError: If processing fails
+        P3IFError: If processing fails
         ValidationError: If validation fails and validate=True
 
     Example:

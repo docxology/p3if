@@ -49,15 +49,13 @@ The 3D visualization allows users to explore the relationships between these dim
 ## Files and Directories
 
 - Python scripts (located in `scripts/`):
-  - `update_domain_files.py`: Script to update domain files with relationship data
-  - `test_3d_cube_with_domains.py`: Script to generate the visualization website
+  - `generate_final_visualizations.py`: Generate the complete visualization suite
   - `view_p3if_website.py`: Helper script to open the website in a browser
 - Documentation (located in `docs/visualization/`):
   - `technical_documentation.md`: Comprehensive technical documentation
   - `user_guide.md`: Step-by-step user guide
 - Output directory (`outputs/`):
-  - `p3if_full_website.html`: The main visualization website
-  - `README.md`: Information about the output directory
+  - Timestamped session directories with visualization and report files
 
 ## Getting Started
 
@@ -163,8 +161,7 @@ If you encounter issues:
 - `technical_documentation.md`: Comprehensive technical documentation (in this directory)
 - `user_guide.md`: Step-by-step user guide (in this directory)
 - `domain_visualizations.md`: Documentation for domain-specific visualizations
-- `outputs/README.md`: Information about the output directory
 
 ## License
 
-This project is licensed under the MIT License - see the LICENSE file for details. 
+This project is licensed under the MIT License (see the license field in `pyproject.toml`).

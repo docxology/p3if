@@ -8,7 +8,7 @@ The main P3IF (Properties, Processes, Perspectives Inter-Framework) package.
 p3if/
 ├── __init__.py          # Package exports
 ├── core/                # Core framework and models
-│   ├── framework.py     # P3IFFramework class
+│   ├── framework/       # P3IFFramework class (package)
 │   ├── models.py        # Property, Process, Perspective, Relationship
 │   ├── orchestration.py # ThinOrchestrator, workflow engine
 │   ├── composition.py   # Framework composition and integration
@@ -17,7 +17,8 @@ p3if/
 ├── orchestrators/       # Domain-specific orchestrators
 │   ├── cognitive_security.py
 │   ├── framework_integration.py
-│   └── healthcare_domain.py
+│   ├── healthcare_domain.py
+│   └── integration_examples.py
 ├── visualization/       # Visualization system
 │   ├── static/          # PNG/SVG generation
 │   ├── interactive/     # 3D HTML visualizations
@@ -30,9 +31,10 @@ p3if/
 │   └── exporters.py     # Data export utilities
 └── utils/               # Shared utilities
     ├── config.py        # Configuration management
-    ├── storage.py       # Data persistence
+    ├── storage.py       # Data persistence (async-capable)
     ├── performance.py   # Performance monitoring
-    └── logging.py       # Logging utilities
+    ├── json.py          # JSON utilities
+    └── output_organizer.py  # Output session organization
 ```
 
 ## Usage

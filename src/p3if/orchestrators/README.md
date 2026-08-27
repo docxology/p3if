@@ -11,7 +11,7 @@ Secure information processing workflows with risk assessment and compliance moni
 from p3if.orchestrators.cognitive_security import CognitiveSecurityOrchestrator
 
 orchestrator = CognitiveSecurityOrchestrator()
-result = orchestrator.analyze_information_pipeline(data_pipeline)
+result = orchestrator.execute_analysis()  # optional: domain_context="healthcare"
 ```
 
 ### Framework Integration Orchestrator
@@ -21,7 +21,7 @@ Combine multiple frameworks with conflict resolution and seamless integration.
 from p3if.orchestrators.framework_integration import FrameworkIntegrationOrchestrator
 
 orchestrator = FrameworkIntegrationOrchestrator()
-result = orchestrator.integrate_frameworks([framework1, framework2])
+result = orchestrator.execute_integration(["NIST_CSF", "ISO_27001"])
 ```
 
 ### Healthcare Domain Orchestrator
@@ -31,7 +31,7 @@ Medical domain workflows with patient data management and regulatory compliance.
 from p3if.orchestrators.healthcare_domain import HealthcareDomainOrchestrator
 
 orchestrator = HealthcareDomainOrchestrator()
-result = orchestrator.process_patient_data(patient_record)
+result = orchestrator.execute_healthcare_analysis()  # optional: organization_type="hospital"
 ```
 
 ## Orchestrator Pattern
@@ -46,7 +46,7 @@ All orchestrators follow the thin orchestrator pattern:
 ## Creating Custom Orchestrators
 
 ```python
-from p3if.core.orchestration import ThinOrchestrator
+from p3if.core.orchestration import ThinOrchestrator, OrchestratorType
 from dataclasses import dataclass, field
 
 @dataclass
@@ -55,7 +55,7 @@ class CustomOrchestrator:
     orchestrator: ThinOrchestrator = field(init=False)
 
     def __post_init__(self):
-        self.orchestrator = ThinOrchestrator(self.name)
+        self.orchestrator = ThinOrchestrator(self.name, OrchestratorType.LINEAR)
         self._setup_orchestrator()
 
     def _setup_orchestrator(self):

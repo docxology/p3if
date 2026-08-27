@@ -7,11 +7,11 @@ Advanced visualization and animation system for the P3IF framework, providing mu
 ### Static Visualizations
 Generate fixed visualizations for reports and documentation:
 
-- **3D Cube**: Three-dimensional framework representation
 - **Heatmaps**: Intensity-based relationship visualization
 - **Networks**: Graph-based relationship mapping
 - **Matrices**: Tabular data representation
 - **Hierarchies**: Tree and structure visualization
+- **Grids, Lists, Statistics**: Layout and summary generators
 
 ### Interactive Visualizations
 Dynamic, user-explorable visualizations:
@@ -37,36 +37,39 @@ Comprehensive web-based visualization platforms:
 ## Quick Start
 
 ```python
-from p3if.visualization.static import CubeVisualizer
-from p3if.visualization.interactive import Interactive3DVisualizer
+from p3if import P3IFFramework
+from p3if.visualization.static import GridVisualizer
+from p3if.visualization.interactive import InteractiveVisualizer
 
 # Create framework
-framework = create_sample_framework()
-
-# Static visualization
-static_viz = CubeVisualizer()
-static_viz.generate_cube_html(framework, "cube.html")
+framework = P3IFFramework()
 
 # Interactive visualization
-interactive_viz = Interactive3DVisualizer()
-interactive_viz.create_interactive_cube(framework, "interactive.html")
+interactive_viz = InteractiveVisualizer(framework)
+interactive_viz.generate_3d_cube_html("cube.html")
+
+# Unified interactive dashboard (Overview / 3D Cube / Network / Analytics)
+interactive_viz.generate_modern_dashboard("dashboard.html")
+
+# Static visualization
+static_viz = GridVisualizer(framework)
 ```
 
 ## Configuration
 
+Visualizers take the framework as the first argument and an optional
+`p3if.utils.config.Config` instance:
+
 ```python
-from p3if.visualization.base import VisualizationConfig
+from p3if import P3IFFramework
+from p3if.utils.config import Config
+from p3if.visualization.interactive import InteractiveVisualizer
 
-config = VisualizationConfig(
-    width=1200,
-    height=800,
-    theme="professional",
-    output_format="html",
-    show_labels=True,
-    interactive=True
-)
+config = Config()
+config.set("visualization.theme", "professional")
 
-visualizer = CubeVisualizer(config=config)
+framework = P3IFFramework()
+visualizer = InteractiveVisualizer(framework, config=config)
 ```
 
 ## Output Formats

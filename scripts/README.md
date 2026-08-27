@@ -27,7 +27,7 @@ python scripts/run_all.py --tests --viz
 | `run_examples.py` | Run example orchestrators (cognitive security, healthcare, framework integration) | `outputs/examples/` |
 | `generate_final_visualizations.py` | Generate all visualization types | `outputs/visualizations_{timestamp}/` |
 | `benchmark_performance.py` | Performance benchmarks and metrics | User-specified or stdout |
-| `validate_system.py` | System validation and health checks | `/tmp/p3if_comprehensive_report.json` |
+| `validate_system.py` | System validation and health checks | `/tmp/p3if_validation_report.json` |
 | `setup_development.py` | Development environment setup | - |
 | `view_p3if_website.py` | Launch local website for viewing | - |
 

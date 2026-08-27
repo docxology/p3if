@@ -15,7 +15,7 @@ Analyzes information pipelines for cognitive security vulnerabilities:
 from p3if.orchestrators import CognitiveSecurityOrchestrator
 
 orchestrator = CognitiveSecurityOrchestrator()
-results = orchestrator.execute_analysis("healthcare")
+results = orchestrator.execute_analysis(domain_context="healthcare")
 ```
 
 **Features:**
@@ -64,7 +64,7 @@ Execute all orchestrator examples:
 python scripts/run_examples.py
 ```
 
-This will run all three orchestrators and validate their outputs.
+This will run the example orchestrators and validate their outputs.
 
 ## Getting Started with Examples
 
@@ -152,8 +152,8 @@ Run example validation:
 # Test all examples
 pytest tests/ -k "orchestrator" -v
 
-# Validate example outputs
-python scripts/run_examples.py --validate
+# Run with a custom output directory
+python scripts/run_examples.py --output-dir outputs/examples_custom
 ```
 
 ## Extending Examples

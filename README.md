@@ -119,7 +119,7 @@ P3IF 2.0 follows a modern `src/` layout with unified namespace:
 │   │   ├── orchestration.py # Thin orchestrators and workflow engine
 │   │   ├── validation.py  # Validation framework
 │   │   ├── caching.py     # Performance optimization and caching
-│   │   ├── framework.py   # Main P3IFFramework class
+│   │   ├── framework/     # Main P3IFFramework class (package)
 │   │   ├── models.py      # Pydantic data models
 │   │   ├── exceptions.py  # Custom exception classes
 │   │   └── analysis/      # Analysis tools and pattern recognition

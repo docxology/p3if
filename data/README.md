@@ -13,13 +13,15 @@ The P3IF data model is designed to be:
 ## Directory Structure
 
 ```
-p3if/data/
+data/
 ├── domains/               # Domain-specific data files
 │   ├── index.json         # Index of all available domains
 │   ├── healthcare.json    # Healthcare domain data
 │   ├── blockchain.json    # Blockchain domain data
 │   └── ...                # Other domain files
-├── P3IF_Synthetic_Data.json  # Legacy combined format (deprecated)
+├── cube_data.json         # Cube visualization data
+├── graph_data.json        # Graph visualization data
+├── summary.json           # Data summary
 └── README.md              # This documentation file
 ```
 
@@ -35,15 +37,15 @@ The `domains/index.json` file contains a listing of all available domains and th
       "id": "healthcare",
       "file": "healthcare.json",
       "counts": {
-        "properties": 50,
-        "processes": 50,
-        "perspectives": 50
+        "properties": 55,
+        "processes": 47,
+        "perspectives": 15
       }
     },
     // Additional domains...
   ],
   "version": "1.0",
-  "timestamp": "2023-03-18"
+  "timestamp": "..."
 }
 ```
 
@@ -122,7 +124,7 @@ When a P3IF framework is built from domain data, it combines patterns (propertie
 
 To load domain data into a P3IF framework:
 
-1. Use the `DomainManager` class to identify available domains
+1. Use the `SyntheticDataGenerator.get_available_domains()` to identify available domains
 2. Select one or more domains to incorporate
 3. Use the `SyntheticDataGenerator` to generate patterns and relationships based on domain data
 
@@ -137,7 +139,7 @@ framework = P3IFFramework()
 
 # Create a synthetic data generator with domain data
 generator = SyntheticDataGenerator()
-generator.load_domain_data("path/to/domains/index.json")
+generator.load_domain_data("data/domains/index.json")
 
 # Generate data for specific domains
 generator.generate_for_domain(framework, "Healthcare", num_relationships=100)
@@ -199,16 +201,11 @@ The P3IF visualization components support domain-specific views, including:
 4. **Version Control**: Include version information in all data files
 5. **Documentation**: Document any domain-specific semantics or interpretations
 
-## Data Migration
+## Extending the Index
 
-To migrate from the legacy combined format to the new domain-based format:
-
-```bash
-# Run the domain splitter script
-python3 split_domains.py
-```
-
-This will split the `P3IF_Synthetic_Data.json` file into individual domain files in the `domains/` directory.
+To add a new domain, create its JSON file in `domains/` following the domain
+data format above, then add an entry (name, id, file, counts) to the `domains`
+array in `domains/index.json`.
 
 ## Troubleshooting
 
@@ -217,4 +214,4 @@ Common issues:
 - **Missing Domain Metadata**: Ensure all patterns have a `domain` attribute
 - **Relationship Consistency**: Each relationship should connect at least two dimensions
 - **Domain Index**: Verify that all domains are properly indexed
-- **File Paths**: Use relative paths based on the project structure 
+- **File Paths**: Use relative paths based on the project structure
