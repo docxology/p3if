@@ -368,7 +368,7 @@ Yes! P3IF provides several integration options:
 3. Make your changes
 4. Submit a pull request
 
-See our [Contributing Guide](CONTRIBUTING.md) for detailed instructions.
+See our [Contributing Guide](../CONTRIBUTING.md) for detailed instructions.
 
 ### Commercial Support
 
@@ -424,8 +424,8 @@ Currently, P3IF is an open-source project maintained by the research community. 
 
 **Examples and Templates:**
 - [Example Repository](examples/)
-- [Template Gallery](templates/)
-- [Case Studies](case-studies/)
+- [Template Gallery](../website/templates/)
+- Case Studies: Not documented in repo — needs owner input
 
 ### Bug Reports
 

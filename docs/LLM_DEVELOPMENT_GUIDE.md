@@ -189,13 +189,13 @@ For code that will run autonomously:
 
 ## Additional Resources
 
-- [P3IF Core Concepts](docs/concepts/README.md)
+- [P3IF Core Concepts](concepts/P3IF.md)
 - [Python Type Hints Documentation](https://docs.python.org/3/library/typing.html)
 - [PEP 8 Style Guide](https://www.python.org/dev/peps/pep-0008/)
 - [Google Python Style Guide](https://google.github.io/styleguide/pyguide.html)
 
 ## Contributing
 
-When your code is ready, please ensure it follows our [contribution guidelines](CONTRIBUTING.md) before submitting.
+When your code is ready, please ensure it follows our [contribution guidelines](../CONTRIBUTING.md) before submitting.
 
 Remember that the goal of P3IF is to provide a flexible, interoperable approach to requirements engineering that bridges gaps between existing methodologies and fosters cross-domain collaboration. 

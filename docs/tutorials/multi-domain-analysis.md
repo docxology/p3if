@@ -269,6 +269,6 @@ Multi-domain analysis is a powerful capability of P3IF that helps you discover i
 
 ## Next Steps
 
-- [Advanced Visualization Techniques](advanced-visualizations.md)
-- [Extending P3IF with Custom Domains](extending-p3if.md)
-- [Integrating External Data Sources](data-integration.md) 
+- Advanced Visualization Techniques (not yet documented in repo — needs owner input)
+- Extending P3IF with Custom Domains (not yet documented in repo — needs owner input)
+- Integrating External Data Sources (not yet documented in repo — needs owner input) 

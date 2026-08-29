@@ -502,4 +502,4 @@ export P3IF_LOW_MEMORY=true
    - Use rate limiting
    - Validate all inputs
 
-For production deployment, see the [Deployment Guide](deployment.md). 
+For production deployment, see the Deployment Guide (not yet documented in repo — needs owner input). 

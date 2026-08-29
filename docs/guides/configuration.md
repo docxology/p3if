@@ -726,4 +726,4 @@ data:
       host: "postgres-service"
 ```
 
-For more advanced deployment scenarios, see the [Deployment Guide](deployment.md). 
+For more advanced deployment scenarios, see the Deployment Guide (not yet documented in repo — needs owner input). 
