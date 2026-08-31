@@ -8,6 +8,7 @@ in three-dimensional space with proper P3IF labeling.
 import logging
 import matplotlib.pyplot as plt
 import numpy as np
+from mpl_toolkits.mplot3d import Axes3D
 from pathlib import Path
 from typing import Dict
 
@@ -81,7 +82,7 @@ def _create_3d_p3if_cube(
     perspectives = [p for p in framework._patterns.values() if isinstance(p, Perspective)]
 
     fig = plt.figure(figsize=(12, 10))
-    ax = fig.add_subplot(111, projection="3d")
+    ax: Axes3D = fig.add_subplot(111, projection="3d")
 
     # Define cube dimensions (representing the three P3IF axes)
     cube_size = 10
@@ -325,9 +326,9 @@ def _create_p3if_dimension_cube(
     fig = plt.figure(figsize=(14, 12))
 
     # Create three subplots showing each dimension
-    ax1 = fig.add_subplot(221, projection="3d")
-    ax2 = fig.add_subplot(222, projection="3d")
-    ax3 = fig.add_subplot(223, projection="3d")
+    ax1: Axes3D = fig.add_subplot(221, projection="3d")
+    ax2: Axes3D = fig.add_subplot(222, projection="3d")
+    ax3: Axes3D = fig.add_subplot(223, projection="3d")
     ax4 = fig.add_subplot(224)
 
     # Get patterns by type
@@ -498,7 +499,7 @@ def _create_relationship_cubes(
 ):
     """Create visualizations showing relationship cubes."""
     fig = plt.figure(figsize=(12, 10))
-    ax = fig.add_subplot(111, projection="3d")
+    ax: Axes3D = fig.add_subplot(111, projection="3d")
 
     # Get patterns and relationships
     properties = [p for p in framework._patterns.values() if isinstance(p, Property)]

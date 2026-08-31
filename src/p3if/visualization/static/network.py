@@ -6,6 +6,7 @@ This module provides network visualization capabilities for P3IF data.
 from typing import Dict, List, Optional, Union
 import networkx as nx
 import matplotlib.pyplot as plt
+from matplotlib import colormaps
 from matplotlib.figure import Figure
 from pathlib import Path
 
@@ -403,7 +404,7 @@ class NetworkVisualizer(Visualizer):
             pos,
             node_color=node_colors,
             node_size=node_sizes,
-            cmap=plt.cm.viridis if graph_type == "domain" else None,
+            cmap=colormaps["viridis"] if graph_type == "domain" else None,
         )
 
         # Add labels for top nodes
