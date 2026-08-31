@@ -41,8 +41,8 @@ Before contributing, ensure you have:
 
 ### 1. Find an Issue or Feature
 
-- **Browse existing issues** on [GitHub Issues](https://github.com/p3if/p3if/issues)
-- **Check the roadmap** in [P3IF_IMPROVEMENTS_SUMMARY.md](docs/P3IF_IMPROVEMENTS_SUMMARY.md)
+- **Browse existing issues** on [GitHub Issues](https://github.com/docxology/p3if/issues)
+- **Check the roadmap** in [TODO.md](TODO.md)
 - **Propose new features** by creating an issue with the "enhancement" label
 
 ### 2. Create a Branch

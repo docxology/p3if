@@ -98,7 +98,7 @@ The P3IF documentation is organized into the following sections:
 ## Project Reports & Validation
 
 ### Quality Assurance
-- **[Documentation Improvements Summary](DOCUMENTATION_IMPROVEMENTS_SUMMARY.md)**: Enhancement tracking and improvements
+- **[Documentation Improvements Summary](DOCUMENTATION_IMPROVEMENTS_SUMMARY.md)**: Historical one-time documentation audit record (2025-09-23) — not a current status surface. For current status see the root [TODO.md](../TODO.md) and [CHANGELOG.md](../CHANGELOG.md).
 - **[FAQ](FAQ.md)**: Frequently asked questions and answers
 
 ## 📋 Current Capabilities

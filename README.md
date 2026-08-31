@@ -246,6 +246,21 @@ viz.generate_modern_dashboard("output/unified_dashboard.html", title="P3IF Unifi
 - [Project Rules](.cursorrules) - Code organization standards
 - [Interactive Terminal](interactive_terminal.sh) - AI-friendly interface
 
+## Project Status & Next Actions
+
+**Current state (as of 2026-08-31, verified by `git log --oneline -3` and `cat TODO.md`):** P3IF 2.5.0
+roadmap items (A1, Q10-Q14, M1-M3) are complete; the working tree carries one unreleased
+CHANGELOG "Unreleased" batch on top of the last tag.
+
+- **Backlog / what to do next (single source of truth):** [TODO.md](TODO.md)
+- **Release history (single source of truth):** [CHANGELOG.md](CHANGELOG.md)
+- **Verify status yourself:**
+  - Roadmap completion: `grep -c '\[x\]' TODO.md` (all roadmap items checked) and `head -40 CHANGELOG.md` (Unreleased section)
+  - Branch state: `git status -sb`
+  - Test suite health: `uv run --extra dev pytest tests/ -q` (installs dev deps first: `uv sync --extra dev --extra web`)
+
+If TODO.md shows unchecked items, start there. Do not add a second backlog file — extend TODO.md.
+
 ## Documentation
 
 For comprehensive documentation, see the [docs](docs/README.md) directory.
