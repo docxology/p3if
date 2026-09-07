@@ -1,0 +1,262 @@
+
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>P3IF 3D Cube</title>
+            <style>
+                body { 
+                    margin: 0;
+                    overflow: hidden;
+                    font-family: Arial, sans-serif;
+                }
+                #info {
+                    position: absolute;
+                    top: 10px;
+                    left: 10px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 10px;
+                    border-radius: 5px;
+                    max-width: 300px;
+                    z-index: 100;
+                }
+                #canvas-container {
+                    width: 100%;
+                    height: 100vh;
+                }
+                #legend {
+                    position: absolute;
+                    bottom: 20px;
+                    right: 20px;
+                    background: rgba(255, 255, 255, 0.8);
+                    padding: 10px;
+                    border-radius: 5px;
+                    z-index: 100;
+                }
+                .axis-label {
+                    font-weight: bold;
+                    margin-bottom: 5px;
+                }
+                .property-color { color: #1f77b4; }
+                .process-color { color: #ff7f0e; }
+                .perspective-color { color: #2ca02c; }
+            </style>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+        </head>
+        <body>
+            <div id="info">
+                <h2>P3IF 3D Cube</h2>
+                <p>This visualization represents the P3IF framework as a 3D cube with three dimensions:</p>
+                <p><span class="property-color">X-axis: Properties</span></p>
+                <p><span class="process-color">Y-axis: Processes</span></p>
+                <p><span class="perspective-color">Z-axis: Perspectives</span></p>
+                <p>Each point in the cube represents a relationship between specific property, process, and perspective.</p>
+                <p>Click and drag to rotate. Scroll to zoom. Right-click and drag to pan.</p>
+                <div id="selection-info"></div>
+            </div>
+            
+            <div id="canvas-container"></div>
+            
+            <div id="legend">
+                <div class="axis-label property-color">X-axis: Properties</div>
+                <div class="axis-label process-color">Y-axis: Processes</div>
+                <div class="axis-label perspective-color">Z-axis: Perspectives</div>
+                <div>Point size indicates relationship strength</div>
+            </div>
+            
+            
+            
+            <script>
+                // P3IF data
+                const p3ifData = {"metadata": {"generated_at": "2026-08-30T22:53:19.268797", "total_properties": 10, "total_processes": 10, "total_perspectives": 10, "domains": "all", "max_elements": 1000}, "dimensions": {"property": [{"id": "4094071d-d412-462c-8c6a-13f1ed3a65e7", "name": "Property 0", "description": "Test property 0", "domain": "Domain A", "tags": ["test", "property-0"], "quality_score": 1.0, "validation_status": "draft"}, {"id": "848e8dac-b950-47e2-8d06-b1cb2b61820c", "name": "Property 1", "description": "Test property 1", "domain": "Domain B", "tags": ["test", "property-1"], "quality_score": 1.0, "validation_status": "draft"}, {"id": "02f79678-b731-4e94-855e-cc09ef019654", "name": "Property 2", "description": "Test property 2", "domain": "Domain B", "tags": ["test", "property-2"], "quality_score": 1.0, "validation_status": "draft"}, {"id": "f8261bb6-8231-4ba9-8f6e-e7c0a105b4e5", "name": "Property 3", "description": "Test property 3", "domain": "Domain C", "tags": ["test", "property-3"], "quality_score": 1.0, "validation_status": "draft"}, {"id": "01748b2d-d3da-4760-aa4f-b7d9853c6e99", "name": "Property 4", "description": "Test property 4", "domain": "Domain C", "tags": ["test", "property-4"], "quality_score": 1.0, "validation_status": "draft"}, {"id": "f5132854-eca9-4f70-b0b4-a5ba899e3c55", "name": "Property 5", "description": "Test property 5", "domain": "Domain C", "tags": ["test", "property-5"], "quality_score": 1.0, "validation_status": "draft"}, {"id": "1b2ed575-3aa9-464b-ad63-6e260fefde4f", "name": "Property 6", "description": "Test property 6", "domain": "Domain A", "tags": ["test", "property-6"], "quality_score": 1.0, "validation_status": "draft"}, {"id": "f77f15ec-eca4-4f04-bf64-a928bb4247ae", "name": "Property 7", "description": "Test property 7", "domain": "Domain A", "tags": ["test", "property-7"], "quality_score": 1.0, "validation_status": "draft"}, {"id": "01902a4d-e73d-48c8-8004-3175b87b2252", "name": "Property 8", "description": "Test property 8", "domain": "Domain B", "tags": ["test", "property-8"], "quality_score": 1.0, "validation_status": "draft"}, {"id": "9fd2ba3f-7880-4466-abaf-333c1ccbb167", "name": "Property 9", "description": "Test property 9", "domain": "Domain C", "tags": ["test", "property-9"], "quality_score": 1.0, "validation_status": "draft"}], "process": [{"id": "71e4e710-9e61-44da-88f6-925b3c032c29", "name": "Process 0", "description": "Test process 0", "domain": "Domain A", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "b319df3a-a099-417b-8ee2-a682570a8645", "name": "Process 1", "description": "Test process 1", "domain": "Domain A", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "0fa13ca4-03a6-4409-8d64-8728b80a4172", "name": "Process 2", "description": "Test process 2", "domain": "Domain C", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "4fb86bc4-081b-40f8-8224-16fc88a4e048", "name": "Process 3", "description": "Test process 3", "domain": "Domain B", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "823565a2-9bb8-4a2e-81ad-4c1789e2d002", "name": "Process 4", "description": "Test process 4", "domain": "Domain A", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "d160896b-2fcf-4691-89b7-f900c108505b", "name": "Process 5", "description": "Test process 5", "domain": "Domain B", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "6a4b2ed8-d7ea-4851-a62d-580fcf147a72", "name": "Process 6", "description": "Test process 6", "domain": "Domain A", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "4c53216e-a92d-4aa5-a9bd-fc475c62e93f", "name": "Process 7", "description": "Test process 7", "domain": "Domain C", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "c735fec3-e2a8-43fe-acef-62d6043c1532", "name": "Process 8", "description": "Test process 8", "domain": "Domain A", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}, {"id": "fdad6832-b89d-4c47-9916-f7d969de5324", "name": "Process 9", "description": "Test process 9", "domain": "Domain B", "complexity": "medium", "automation_level": "manual", "quality_score": 1.0}], "perspective": [{"id": "d4eb881d-6ac1-46ef-8d47-b53d023b81b6", "name": "Perspective 0", "description": "Test perspective 0", "domain": "Domain A", "viewpoint": "view_0", "stakeholder_type": null, "quality_score": 1.0}, {"id": "79a581cd-3186-4231-a73e-eeb65000c4c3", "name": "Perspective 1", "description": "Test perspective 1", "domain": "Domain C", "viewpoint": "view_1", "stakeholder_type": null, "quality_score": 1.0}, {"id": "d2fc9302-9d74-4a04-a948-dccb8458aad1", "name": "Perspective 2", "description": "Test perspective 2", "domain": "Domain C", "viewpoint": "view_2", "stakeholder_type": null, "quality_score": 1.0}, {"id": "b14fdab8-8be6-4e96-97db-b428df57200a", "name": "Perspective 3", "description": "Test perspective 3", "domain": "Domain B", "viewpoint": "view_3", "stakeholder_type": null, "quality_score": 1.0}, {"id": "45c13c31-0181-4ea2-af15-c37ce77f175d", "name": "Perspective 4", "description": "Test perspective 4", "domain": "Domain B", "viewpoint": "view_4", "stakeholder_type": null, "quality_score": 1.0}, {"id": "cab3bc40-327b-41a3-bed6-7e3862199fab", "name": "Perspective 5", "description": "Test perspective 5", "domain": "Domain B", "viewpoint": "view_5", "stakeholder_type": null, "quality_score": 1.0}, {"id": "fc950b8a-1e35-4ef1-8334-9914add5215f", "name": "Perspective 6", "description": "Test perspective 6", "domain": "Domain A", "viewpoint": "view_6", "stakeholder_type": null, "quality_score": 1.0}, {"id": "40109d78-db6a-467e-abc6-93eb5703e88b", "name": "Perspective 7", "description": "Test perspective 7", "domain": "Domain A", "viewpoint": "view_7", "stakeholder_type": null, "quality_score": 1.0}, {"id": "cde3a681-e4d9-4f9f-8d6b-8881a0a64322", "name": "Perspective 8", "description": "Test perspective 8", "domain": "Domain B", "viewpoint": "view_8", "stakeholder_type": null, "quality_score": 1.0}, {"id": "9565c739-2012-4058-bd22-fd40cba24a70", "name": "Perspective 9", "description": "Test perspective 9", "domain": "Domain B", "viewpoint": "view_9", "stakeholder_type": null, "quality_score": 1.0}]}, "connections": [{"id": "38766934-8549-44fc-a8e2-f1d643a34295", "property_id": "9fd2ba3f-7880-4466-abaf-333c1ccbb167", "process_id": "d160896b-2fcf-4691-89b7-f900c108505b", "perspective_id": "79a581cd-3186-4231-a73e-eeb65000c4c3", "strength": 0.938902407881444, "confidence": 0.8896814255904468, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 9, "y": 5, "z": 1}, {"id": "7c321501-c788-4a10-ac51-543453acafab", "property_id": "01902a4d-e73d-48c8-8004-3175b87b2252", "process_id": "0fa13ca4-03a6-4409-8d64-8728b80a4172", "perspective_id": "d2fc9302-9d74-4a04-a948-dccb8458aad1", "strength": 0.5920874939450269, "confidence": 0.5169319858109617, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 8, "y": 2, "z": 2}, {"id": "b790cec0-1fcb-4b14-89ac-0e9543a43111", "property_id": "848e8dac-b950-47e2-8d06-b1cb2b61820c", "process_id": "c735fec3-e2a8-43fe-acef-62d6043c1532", "perspective_id": "45c13c31-0181-4ea2-af15-c37ce77f175d", "strength": 0.26050621741695656, "confidence": 0.300320226956754, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 1, "y": 8, "z": 4}, {"id": "97a85c57-1cc4-43d9-a8f9-3fc575562fa2", "property_id": "02f79678-b731-4e94-855e-cc09ef019654", "process_id": "6a4b2ed8-d7ea-4851-a62d-580fcf147a72", "perspective_id": "9565c739-2012-4058-bd22-fd40cba24a70", "strength": 0.46312441201816557, "confidence": 0.9366793972701901, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 2, "y": 6, "z": 9}, {"id": "22e0636d-428e-43a1-b324-0c9c777a7c57", "property_id": "9fd2ba3f-7880-4466-abaf-333c1ccbb167", "process_id": "4c53216e-a92d-4aa5-a9bd-fc475c62e93f", "perspective_id": "40109d78-db6a-467e-abc6-93eb5703e88b", "strength": 0.8454917784988196, "confidence": 0.9481791371665238, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 9, "y": 7, "z": 7}, {"id": "5b7e7adb-80ae-41a4-8b93-1194be6e89ac", "property_id": "f5132854-eca9-4f70-b0b4-a5ba899e3c55", "process_id": "fdad6832-b89d-4c47-9916-f7d969de5324", "perspective_id": "79a581cd-3186-4231-a73e-eeb65000c4c3", "strength": 0.6585150287569601, "confidence": 0.6071555296878591, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 5, "y": 9, "z": 1}, {"id": "c02baeac-a79d-49fa-b33e-e2c128dae52e", "property_id": "f77f15ec-eca4-4f04-bf64-a928bb4247ae", "process_id": "4c53216e-a92d-4aa5-a9bd-fc475c62e93f", "perspective_id": "d4eb881d-6ac1-46ef-8d47-b53d023b81b6", "strength": 0.03793494333308134, "confidence": 0.9779711802492583, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 7, "y": 7, "z": 0}, {"id": "baaa99d7-7a6e-4df9-bdcd-fea8122bc8b9", "property_id": "f5132854-eca9-4f70-b0b4-a5ba899e3c55", "process_id": "4fb86bc4-081b-40f8-8224-16fc88a4e048", "perspective_id": "cde3a681-e4d9-4f9f-8d6b-8881a0a64322", "strength": 0.17568567326244344, "confidence": 0.33618756068124855, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 5, "y": 3, "z": 8}, {"id": "a8b3276a-ec1a-4028-b251-6a6a88e16a9e", "property_id": "848e8dac-b950-47e2-8d06-b1cb2b61820c", "process_id": "6a4b2ed8-d7ea-4851-a62d-580fcf147a72", "perspective_id": "cde3a681-e4d9-4f9f-8d6b-8881a0a64322", "strength": 0.5482157862485424, "confidence": 0.4076560350761814, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 1, "y": 6, "z": 8}, {"id": "b9ac8cef-62fe-4119-be50-b5d757901c9a", "property_id": "01902a4d-e73d-48c8-8004-3175b87b2252", "process_id": "c735fec3-e2a8-43fe-acef-62d6043c1532", "perspective_id": "cde3a681-e4d9-4f9f-8d6b-8881a0a64322", "strength": 0.41454178712991185, "confidence": 0.4537891517264231, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 8, "y": 8, "z": 8}, {"id": "a8eed73b-583f-47b4-ac6e-bf82afcae54b", "property_id": "01748b2d-d3da-4760-aa4f-b7d9853c6e99", "process_id": "0fa13ca4-03a6-4409-8d64-8728b80a4172", "perspective_id": "45c13c31-0181-4ea2-af15-c37ce77f175d", "strength": 0.22627016824908797, "confidence": 0.948496881867174, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 4, "y": 2, "z": 4}, {"id": "4b7f9b93-b62a-4e2d-95c1-ba16b6a577e8", "property_id": "02f79678-b731-4e94-855e-cc09ef019654", "process_id": "c735fec3-e2a8-43fe-acef-62d6043c1532", "perspective_id": "9565c739-2012-4058-bd22-fd40cba24a70", "strength": 0.02736820807013718, "confidence": 0.8619296872916306, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 2, "y": 8, "z": 9}, {"id": "ddd9a41f-7ecf-4492-bb2f-dc3bc69cb777", "property_id": "f77f15ec-eca4-4f04-bf64-a928bb4247ae", "process_id": "d160896b-2fcf-4691-89b7-f900c108505b", "perspective_id": "79a581cd-3186-4231-a73e-eeb65000c4c3", "strength": 0.6848185463658111, "confidence": 0.5791023864908642, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 7, "y": 5, "z": 1}, {"id": "d06f6fad-5134-452d-a625-52f323713a80", "property_id": "f77f15ec-eca4-4f04-bf64-a928bb4247ae", "process_id": "4c53216e-a92d-4aa5-a9bd-fc475c62e93f", "perspective_id": "d2fc9302-9d74-4a04-a948-dccb8458aad1", "strength": 0.3484177808477823, "confidence": 0.917382543920112, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 7, "y": 7, "z": 2}, {"id": "f609ef29-c375-47ce-91a4-a541297cfcd4", "property_id": "01748b2d-d3da-4760-aa4f-b7d9853c6e99", "process_id": "4fb86bc4-081b-40f8-8224-16fc88a4e048", "perspective_id": "9565c739-2012-4058-bd22-fd40cba24a70", "strength": 0.9030110936358828, "confidence": 0.9012996694986428, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 4, "y": 3, "z": 9}, {"id": "131e663c-6e1e-4dac-a717-29e6266bb7ec", "property_id": "f5132854-eca9-4f70-b0b4-a5ba899e3c55", "process_id": "71e4e710-9e61-44da-88f6-925b3c032c29", "perspective_id": "45c13c31-0181-4ea2-af15-c37ce77f175d", "strength": 0.5786444640375861, "confidence": 0.048533353819602554, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 5, "y": 0, "z": 4}, {"id": "42e3ac90-4bcd-418b-b19a-cad88e288895", "property_id": "f5132854-eca9-4f70-b0b4-a5ba899e3c55", "process_id": "71e4e710-9e61-44da-88f6-925b3c032c29", "perspective_id": "d4eb881d-6ac1-46ef-8d47-b53d023b81b6", "strength": 0.3651236578677264, "confidence": 0.5021052576105963, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 5, "y": 0, "z": 0}, {"id": "a310682d-101d-4c3b-9fa5-6b87285fd803", "property_id": "9fd2ba3f-7880-4466-abaf-333c1ccbb167", "process_id": "fdad6832-b89d-4c47-9916-f7d969de5324", "perspective_id": "fc950b8a-1e35-4ef1-8334-9914add5215f", "strength": 0.5028424344283869, "confidence": 0.6694681448766819, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 9, "y": 9, "z": 6}, {"id": "b3d87e46-a8c6-4454-bf1d-167b3287d197", "property_id": "f8261bb6-8231-4ba9-8f6e-e7c0a105b4e5", "process_id": "0fa13ca4-03a6-4409-8d64-8728b80a4172", "perspective_id": "d4eb881d-6ac1-46ef-8d47-b53d023b81b6", "strength": 0.4147492505409872, "confidence": 0.4397833499326884, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 3, "y": 2, "z": 0}, {"id": "7bff71d4-4963-4dbb-a29c-49636331539b", "property_id": "f8261bb6-8231-4ba9-8f6e-e7c0a105b4e5", "process_id": "71e4e710-9e61-44da-88f6-925b3c032c29", "perspective_id": "9565c739-2012-4058-bd22-fd40cba24a70", "strength": 0.4879164652004705, "confidence": 0.8015836216665376, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 3, "y": 0, "z": 9}, {"id": "714bbe38-c3c7-49df-81e2-cd9dcb89dd16", "property_id": "848e8dac-b950-47e2-8d06-b1cb2b61820c", "process_id": "b319df3a-a099-417b-8ee2-a682570a8645", "perspective_id": "b14fdab8-8be6-4e96-97db-b428df57200a", "strength": 0.4160493310432245, "confidence": 0.70396070298177, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 1, "y": 1, "z": 3}, {"id": "a6913a19-d89a-476a-a229-1181c349f200", "property_id": "848e8dac-b950-47e2-8d06-b1cb2b61820c", "process_id": "71e4e710-9e61-44da-88f6-925b3c032c29", "perspective_id": "9565c739-2012-4058-bd22-fd40cba24a70", "strength": 0.47346025962888405, "confidence": 0.008790698115540896, "relationship_type": "general", "bidirectional": true, "status": "active", "x": 1, "y": 0, "z": 9}]};
+                
+                // Setup
+                const container = document.getElementById('canvas-container');
+                const width = container.clientWidth;
+                const height = container.clientHeight;
+                
+                // Scene
+                const scene = new THREE.Scene();
+                scene.background = new THREE.Color(0xf0f0f0);
+                
+                // Camera
+                const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 1000);
+                camera.position.set(2, 2, 2);
+                
+                // Renderer
+                const renderer = new THREE.WebGLRenderer({ antialias: true });
+                renderer.setSize(width, height);
+                container.appendChild(renderer.domElement);
+                
+                // Controls
+                const controls = new THREE.OrbitControls(camera, renderer.domElement);
+                controls.enableDamping = true;
+                controls.dampingFactor = 0.25;
+                
+                // Lighting
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+                scene.add(ambientLight);
+                
+                const directionalLight = new THREE.DirectionalLight(0xffffff, 0.5);
+                directionalLight.position.set(1, 1, 1);
+                scene.add(directionalLight);
+                
+                // Axes helper
+                const axesHelper = new THREE.AxesHelper(1);
+                scene.add(axesHelper);
+                
+                // Create cube frame
+                const cubeSize = 1;
+                const cubeGeometry = new THREE.BoxGeometry(cubeSize, cubeSize, cubeSize);
+                const edgesMaterial = new THREE.LineBasicMaterial({ color: 0x000000, transparent: true, opacity: 0.2 });
+                const cubeEdges = new THREE.LineSegments(
+                    new THREE.EdgesGeometry(cubeGeometry),
+                    edgesMaterial
+                );
+                scene.add(cubeEdges);
+                
+                // Axis labels
+                const createTextSprite = (text, color, position) => {
+                    const canvas = document.createElement('canvas');
+                    const context = canvas.getContext('2d');
+                    canvas.width = 256;
+                    canvas.height = 128;
+                    
+                    context.font = "Bold 36px Arial";
+                    context.fillStyle = "rgba(255, 255, 255, 0.95)";
+                    context.fillRect(0, 0, canvas.width, canvas.height);
+                    
+                    context.fillStyle = color;
+                    context.fillText(text, 10, 64);
+                    
+                    const texture = new THREE.Texture(canvas);
+                    texture.needsUpdate = true;
+                    
+                    const spriteMaterial = new THREE.SpriteMaterial({ map: texture });
+                    const sprite = new THREE.Sprite(spriteMaterial);
+                    sprite.position.copy(position);
+                    sprite.scale.set(0.2, 0.1, 1);
+                    
+                    return sprite;
+                };
+                
+                // Add axis labels
+                scene.add(createTextSprite("Properties (X)", "#1f77b4", new THREE.Vector3(1.2, 0, 0)));
+                scene.add(createTextSprite("Processes (Y)", "#ff7f0e", new THREE.Vector3(0, 1.2, 0)));
+                scene.add(createTextSprite("Perspectives (Z)", "#2ca02c", new THREE.Vector3(0, 0, 1.2)));
+                
+                // Add points for relationships
+                const pointsMaterial = new THREE.PointsMaterial({
+                    size: 0.05,
+                    vertexColors: true,
+                    sizeAttenuation: true
+                });
+                
+                const pointsGeometry = new THREE.BufferGeometry();
+                const positions = [];
+                const colors = [];
+                const pointData = [];
+                
+                // Normalize positions
+                const numProperties = p3ifData.dimensions.property.length;
+                const numProcesses = p3ifData.dimensions.process.length;
+                const numPerspectives = p3ifData.dimensions.perspective.length;
+                
+                p3ifData.connections.forEach(conn => {
+                    // Normalize to 0-1 range and then scale to cube size
+                    const x = (conn.x / Math.max(1, numProperties - 1)) * cubeSize;
+                    const y = (conn.y / Math.max(1, numProcesses - 1)) * cubeSize;
+                    const z = (conn.z / Math.max(1, numPerspectives - 1)) * cubeSize;
+                    
+                    // Center the cube by subtracting half the size
+                    positions.push(x - cubeSize/2, y - cubeSize/2, z - cubeSize/2);
+                    
+                    // Use strength to determine color intensity
+                    const r = 0.5 + conn.strength * 0.5;
+                    const g = 0.5 * (1 - conn.strength);
+                    const b = 0.5 + conn.confidence * 0.5;
+                    
+                    colors.push(r, g, b);
+                    
+                    // Store the original data for interaction
+                    pointData.push({
+                        id: conn.id,
+                        property: p3ifData.dimensions.property[conn.x],
+                        process: p3ifData.dimensions.process[conn.y],
+                        perspective: p3ifData.dimensions.perspective[conn.z],
+                        strength: conn.strength,
+                        confidence: conn.confidence
+                    });
+                });
+                
+                pointsGeometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+                pointsGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+                
+                const points = new THREE.Points(pointsGeometry, pointsMaterial);
+                scene.add(points);
+                
+                // Handle resizing
+                window.addEventListener('resize', () => {
+                    const newWidth = container.clientWidth;
+                    const newHeight = container.clientHeight;
+                    
+                    camera.aspect = newWidth / newHeight;
+                    camera.updateProjectionMatrix();
+                    
+                    renderer.setSize(newWidth, newHeight);
+                });
+                
+                // Handle point selection
+                const raycaster = new THREE.Raycaster();
+                raycaster.params.Points.threshold = 0.05;
+                
+                const mouse = new THREE.Vector2();
+                
+                container.addEventListener('mousemove', (event) => {
+                    // Calculate mouse position in normalized device coordinates
+                    mouse.x = (event.clientX / width) * 2 - 1;
+                    mouse.y = -(event.clientY / height) * 2 + 1;
+                });
+                
+                container.addEventListener('click', () => {
+                    // Cast a ray from the camera
+                    raycaster.setFromCamera(mouse, camera);
+                    
+                    // Check for intersections with points
+                    const intersects = raycaster.intersectObject(points);
+                    
+                    if (intersects.length > 0) {
+                        const index = intersects[0].index;
+                        const selectedPoint = pointData[index];
+                        
+                        // Display information about the selected point
+                        const infoDiv = document.getElementById('selection-info');
+                        infoDiv.innerHTML = `
+                            <h3>Selected Relationship</h3>
+                            <p><strong>Property:</strong> ${selectedPoint.property.name}</p>
+                            <p><strong>Process:</strong> ${selectedPoint.process.name}</p>
+                            <p><strong>Perspective:</strong> ${selectedPoint.perspective.name}</p>
+                            <p><strong>Strength:</strong> ${selectedPoint.strength.toFixed(2)}</p>
+                            <p><strong>Confidence:</strong> ${selectedPoint.confidence.toFixed(2)}</p>
+                        `;
+                    }
+                });
+                
+                // Animation loop
+                function animate() {
+                    requestAnimationFrame(animate);
+                    controls.update();
+                    renderer.render(scene, camera);
+                }
+                
+                animate();
+            </script>
+            
+            <script>
+                
+            </script>
+        </body>
+        </html>
+        

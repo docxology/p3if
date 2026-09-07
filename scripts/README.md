@@ -1,6 +1,7 @@
 # P3IF Scripts
 
 Thin orchestrator scripts for running P3IF components. All outputs go to `outputs/` subdirectories.
+Scripts are thin orchestrators only: business/data/plot/analysis logic lives in `src/p3if/` (see `scripts/AGENTS.md` for the contract and delegation map).
 
 ## Quick Start
 
@@ -21,15 +22,15 @@ python scripts/run_all.py --tests --viz
 
 ## Core Scripts
 
-| Script | Purpose | Output Directory |
-|--------|---------|------------------|
-| `run_all.py` | Master orchestrator - runs all components | `outputs/p3if_run_{timestamp}/` |
-| `run_examples.py` | Run example orchestrators (cognitive security, healthcare, framework integration) | `outputs/examples/` |
-| `generate_final_visualizations.py` | Generate all visualization types | `outputs/visualizations_{timestamp}/` |
-| `benchmark_performance.py` | Performance benchmarks and metrics | User-specified or stdout |
-| `validate_system.py` | System validation and health checks | `/tmp/p3if_validation_report.json` |
-| `setup_development.py` | Development environment setup | - |
-| `view_p3if_website.py` | Launch local website for viewing | - |
+| Script | Purpose | Delegates to | Command |
+|--------|---------|--------------|---------|
+| `run_all.py` | Master orchestrator - runs all components | `p3if.utils.command_runner.run_command`, `p3if.visualization.portals.orchestrator.P3IFVisualizationOrchestrator`, `p3if.orchestrators.*` | `python scripts/run_all.py [--tests\|--viz\|--bench\|--examples\|--validate]` |
+| `run_examples.py` | Run example orchestrators (cognitive security, healthcare, framework integration) | `p3if.orchestrators.*` | `python scripts/run_examples.py` |
+| `generate_final_visualizations.py` | Generate all visualization types | `p3if.visualization.portals.orchestrator.P3IFVisualizationOrchestrator` | `python scripts/generate_final_visualizations.py [--output-dir DIR]` |
+| `benchmark_performance.py` | Performance benchmarks and metrics | `p3if.utils.benchmark.PerformanceBenchmark` | `python scripts/benchmark_performance.py [--quick\|--full] [-o FILE]` |
+| `validate_system.py` | System validation and health checks | pytest suite, `p3if.utils.logging` | `python scripts/validate_system.py` |
+| `setup_development.py` | Development environment setup | pip | `python scripts/setup_development.py` |
+| `view_p3if_website.py` | Launch local website for viewing | `p3if.data.synthetic.SyntheticDataGenerator`, `p3if.visualization.interactive.InteractiveVisualizer` | `python scripts/view_p3if_website.py` |
 
 ## Output Structure
 

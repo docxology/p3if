@@ -14,9 +14,7 @@ Usage:
 """
 
 import sys
-import os
 import argparse
-import subprocess
 import json
 from pathlib import Path
 from datetime import datetime
@@ -79,27 +77,8 @@ class P3IFMasterOrchestrator:
         Returns:
             Tuple of (return_code, stdout, stderr)
         """
-        try:
-            # Set up environment with PYTHONPATH for p3if module
-            env = os.environ.copy()
-            src_path = str(self.project_root / 'src')
-            existing_path = env.get('PYTHONPATH', '')
-            env['PYTHONPATH'] = f"{src_path}:{self.project_root}:{existing_path}" if existing_path else f"{src_path}:{self.project_root}"
-
-            result = subprocess.run(
-                cmd,
-                shell=True,
-                capture_output=True,
-                text=True,
-                cwd=cwd or self.project_root,
-                timeout=timeout,
-                env=env
-            )
-            return result.returncode, result.stdout, result.stderr
-        except subprocess.TimeoutExpired:
-            return -1, '', f'Command timed out after {timeout}s'
-        except Exception as e:
-            return -1, '', str(e)
+        from p3if.utils.command_runner import run_command
+        return run_command(cmd, cwd=cwd, timeout=timeout, project_root=self.project_root)
 
     def run_tests(self) -> Dict[str, Any]:
         """Run the test suite and output results."""

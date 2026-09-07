@@ -11,6 +11,9 @@ The `utils` package contains essential utility modules that support the core P3I
 - **Storage Interfaces**: Abstract storage layer with multiple backend implementations
 - **Performance Monitoring**: Comprehensive performance tracking and optimization
 - **Output Organization**: Structured file and directory management for outputs
+- **Benchmark Suite**: Comprehensive P3IF operation benchmarking (moved from `scripts/`)
+- **Shared Data Builders**: Fixture-style framework/pattern builders used by tests and tooling
+- **Command Runner**: Shared subprocess/timeout plumbing for orchestrator scripts
 
 ## Modules
 
@@ -110,6 +113,47 @@ img_path = organizer.get_image_path("charts", "plot.png")
 # Summarize the output directory
 summary = organizer.get_session_summary()
 print(summary["file_counts"])
+```
+
+### Benchmark Suite (`benchmark.py`)
+
+`PerformanceBenchmark` — timing, memory (tracemalloc/psutil), and statistics
+for framework creation, metrics calculation, pattern queries, visualization
+generation, concurrent operations, and memory usage. `scripts/benchmark_performance.py`
+is a thin orchestrator over this module.
+
+```python
+from p3if.utils.benchmark import PerformanceBenchmark
+
+benchmark = PerformanceBenchmark(output_file="results.json")
+benchmark.run_comprehensive_benchmark()
+benchmark.print_results()
+benchmark.save_results()
+```
+
+### Shared Data Builders (`fixtures.py`)
+
+Canonical, importable home for the shared pattern/framework builders
+(`create_pattern_with_metadata`, `create_test_patterns_with_relationships`).
+`tests/fixtures/helpers.py` re-exports these names for backward compatibility.
+
+```python
+from p3if.utils.fixtures import create_test_patterns_with_relationships
+
+framework = create_test_patterns_with_relationships(
+    num_patterns=5, num_relationships=10
+)
+```
+
+### Command Runner (`command_runner.py`)
+
+Subprocess execution with PYTHONPATH bootstrap, timeout, and captured output.
+Used by orchestrator scripts (`scripts/run_all.py`) instead of inline plumbing.
+
+```python
+from p3if.utils.command_runner import run_command
+
+code, stdout, stderr = run_command("python -m pytest tests/ -q", timeout=600)
 ```
 
 ## Usage Patterns

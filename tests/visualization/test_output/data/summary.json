@@ -9,25 +9,25 @@
     {
       "name": "Domain A",
       "patterns": {
-        "property": 1,
-        "process": 4,
-        "perspective": 1
-      }
-    },
-    {
-      "name": "Domain C",
-      "patterns": {
-        "property": 4,
-        "process": 2,
+        "property": 2,
+        "process": 3,
         "perspective": 3
       }
     },
     {
       "name": "Domain B",
       "patterns": {
-        "property": 5,
+        "property": 3,
         "process": 4,
-        "perspective": 6
+        "perspective": 2
+      }
+    },
+    {
+      "name": "Domain C",
+      "patterns": {
+        "property": 5,
+        "process": 3,
+        "perspective": 5
       }
     }
   ]
