@@ -86,7 +86,7 @@ src/p3if/
 
 ### Core Components
 
-**P3IFFramework** (`core/framework.py`): Main entry point. Manages patterns (Property, Process, Perspective) and relationships with indexing, caching, and validation.
+**P3IFFramework** (`core/framework/`): Main entry point. Manages patterns (Property, Process, Perspective) and relationships with indexing, caching, and validation.
 
 **ThinOrchestrators** (`core/orchestration.py`): Lightweight workflow patterns that compose framework components without heavy inheritance. Examples in `orchestrators/`.
 

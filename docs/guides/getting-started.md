@@ -6,7 +6,7 @@ This guide provides a quick introduction to using P3IF for visualizing and analy
 
 Before you begin, ensure you have:
 
-1. Python 3.8 or later installed
+1. Python 3.9 or later installed
 2. Git installed (for cloning the repository)
 3. Basic familiarity with command-line interfaces
 
@@ -84,20 +84,20 @@ graph TD
 If you want to create custom synthetic data:
 
 ```bash
-python scripts/generate_final_visualizations.py --domains cybersecurity,healthcare --relationships 100 --cross-domain 30 --output-dir output
+python scripts/generate_final_visualizations.py --output-dir output
 ```
 
 This command generates a portal with:
-- Data for cybersecurity and healthcare domains
-- 100 relationships per domain
-- 30 cross-domain connections
+- Data for every configured domain
+- Relationships within each domain
+- Cross-domain connections
 
 ### Step 2: Generate All Visualizations
 
 To generate the complete set of visualizations for all domains:
 
 ```bash
-bash scripts/generate_visualizations.sh
+python scripts/generate_final_visualizations.py
 ```
 
 This creates:

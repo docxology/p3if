@@ -19,7 +19,7 @@ tests_dir = os.path.dirname(current_dir)
 project_root = os.path.dirname(tests_dir)
 sys.path.append(project_root)
 
-from p3if.visualization.portal import (  # noqa: E402 - after sys.path setup
+from p3if.visualization.portals import (  # noqa: E402 - after sys.path setup
     VisualizationPortal,
 )  # noqa: E402 - import after sys.path setup
 from p3if.utils.config import Config  # noqa: E402 - import after sys.path setup

@@ -35,13 +35,13 @@ Unlike traditional frameworks that are static and domain-specific, P3IF is:
 ### System Requirements
 
 **Minimum Requirements:**
-- Python 3.8+
+- Python 3.9+
 - 4 GB RAM
 - 2 GB disk space
 - Modern web browser
 
 **Recommended:**
-- Python 3.9+
+- Python 3.11+
 - 8+ GB RAM
 - 10 GB disk space
 - Multi-core processor
@@ -54,7 +54,7 @@ See the [Installation Guide](guides/installation.md) for detailed requirements.
 
 ```bash
 # Clone the repository
-git clone https://github.com/p3if/p3if.git
+git clone https://github.com/docxology/p3if.git
 cd p3if
 
 # Create virtual environment
@@ -65,7 +65,7 @@ source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 
 # Start the application
-python app.py
+python website/run.py
 ```
 
 For detailed instructions, see the [Installation Guide](guides/installation.md).
@@ -202,7 +202,7 @@ python scripts/export_data.py --domain mydomain --format json --output export.js
 
 **Check Python version:**
 ```bash
-python --version  # Should be 3.8+
+python --version  # Should be 3.9+
 ```
 
 **Check dependencies:**
@@ -418,8 +418,8 @@ Currently, P3IF is an open-source project maintained by the research community. 
 - [Tutorial Collection](tutorials/)
 
 **Community:**
-- [GitHub Discussions](https://github.com/p3if/p3if/discussions)
-- [GitHub Issues](https://github.com/p3if/p3if/issues)
+- [GitHub Discussions](https://github.com/docxology/p3if/discussions)
+- [GitHub Issues](https://github.com/docxology/p3if/issues)
 - User Forum (coming soon)
 
 **Examples and Templates:**
@@ -431,7 +431,7 @@ Currently, P3IF is an open-source project maintained by the research community. 
 
 ### How do I report a bug?
 
-1. **Check existing issues**: Search [GitHub Issues](https://github.com/p3if/p3if/issues)
+1. **Check existing issues**: Search [GitHub Issues](https://github.com/docxology/p3if/issues)
 2. **Gather information**:
    - Operating system and version
    - Python version
@@ -445,7 +445,7 @@ Currently, P3IF is an open-source project maintained by the research community. 
 
 ### How do I request a feature?
 
-1. **Check existing requests**: Search [GitHub Issues](https://github.com/p3if/p3if/issues) for similar requests
+1. **Check existing requests**: Search [GitHub Issues](https://github.com/docxology/p3if/issues) for similar requests
 2. **Describe the use case**: Explain what you're trying to accomplish
 3. **Propose solution**: If you have ideas for implementation
 4. **Consider alternatives**: Are there existing features that could work?
@@ -458,8 +458,8 @@ Currently, P3IF is an open-source project maintained by the research community. 
 If your question isn't answered here:
 
 1. Search the [documentation](README.md)
-2. Check [GitHub Issues](https://github.com/p3if/p3if/issues)
-3. Ask in [GitHub Discussions](https://github.com/p3if/p3if/discussions)
+2. Check [GitHub Issues](https://github.com/docxology/p3if/issues)
+3. Ask in [GitHub Discussions](https://github.com/docxology/p3if/discussions)
 4. Contact the development team
 
 We're here to help you succeed with P3IF! 

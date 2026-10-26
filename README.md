@@ -108,7 +108,7 @@ python3 scripts/validate_system.py
 
 ## Project Structure
 
-P3IF 2.0 follows a modern `src/` layout with unified namespace:
+P3IF follows a modern `src/` layout with unified namespace:
 
 ```
 ├── src/p3if/              # Main package

@@ -2,7 +2,7 @@
 
 **The Comprehensive Specification | Research + Implementation**
 
-[https://p3if.com/](https://p3if.com/) | [GitHub Repository](https://github.com/p3if/p3if) | [Original Research Paper](p3if_paste.md) | [Interactive Portal](../README.md)
+[https://p3if.com/](https://p3if.com/) | [GitHub Repository](https://github.com/docxology/p3if) | [Original Research Paper](p3if_paste.md) | [Interactive Portal](../README.md)
 
 ---
 

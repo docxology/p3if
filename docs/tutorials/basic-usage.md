@@ -105,7 +105,7 @@ cd /path/to/p3if
 source venv/bin/activate
 
 # Start the application
-python app.py
+python website/run.py
 ```
 
 ### Access the Web Interface

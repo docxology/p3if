@@ -8,7 +8,7 @@ Thank you for your interest in contributing to P3IF (Properties, Processes, and 
 
 Before contributing, ensure you have:
 
-1. **Python 3.8+** installed on your system
+1. **Python 3.9+** installed on your system
 2. **Git** for version control
 3. **A GitHub account** to submit pull requests
 4. **Familiarity with the P3IF codebase** (see [Getting Started](docs/guides/getting-started.md))

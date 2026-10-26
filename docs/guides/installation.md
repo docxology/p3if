@@ -7,7 +7,7 @@ This guide provides detailed instructions for installing and setting up the P3IF
 ### Minimum Requirements
 
 - **Operating System**: Linux (Ubuntu 18.04+, CentOS 7+), macOS 10.14+, or Windows 10
-- **Python**: Version 3.8 or higher
+- **Python**: Version 3.9 or higher
 - **Memory**: 4 GB RAM minimum, 8 GB recommended
 - **Storage**: 2 GB available disk space
 - **Network**: Internet connection for downloading dependencies
@@ -47,7 +47,7 @@ brew install python3 git
 ```
 
 **Windows:**
-- Install Python 3.8+ from [python.org](https://python.org)
+- Install Python 3.9+ from [python.org](https://python.org)
 - Install Git from [git-scm.com](https://git-scm.com)
 - Install Visual Studio Build Tools or Visual Studio Community
 
@@ -58,7 +58,7 @@ brew install python3 git
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/p3if/p3if.git
+   git clone https://github.com/docxology/p3if.git
    cd p3if
    ```
 
@@ -113,7 +113,7 @@ For developers who want to contribute to P3IF:
    
    pip install --upgrade pip
    pip install -r requirements.txt
-   pip install -r requirements-dev.txt
+   pip install -e ".[dev]"
    ```
 
 3. **Install in Development Mode**
@@ -159,7 +159,7 @@ For a complete development environment:
 1. **Clone Repository**
 
    ```bash
-   git clone https://github.com/p3if/p3if.git
+   git clone https://github.com/docxology/p3if.git
    cd p3if
    ```
 
@@ -298,7 +298,7 @@ python scripts/create_domain.py --name "cybersecurity" --description "Cybersecur
 ### 3. Start the Application
 
 ```bash
-python app.py
+python website/run.py
 ```
 
 ### 4. Access Web Interface
@@ -329,7 +329,7 @@ pytest tests/ -v
 ### Check System Health
 
 ```bash
-python scripts/health_check.py
+python scripts/validate_system.py
 ```
 
 ## Troubleshooting
@@ -339,7 +339,7 @@ python scripts/health_check.py
 #### 1. Python Version Issues
 
 **Problem**: `ImportError` or syntax errors
-**Solution**: Ensure Python 3.8+ is installed and activated
+**Solution**: Ensure Python 3.9+ is installed and activated
 
 ```bash
 python --version
@@ -403,7 +403,7 @@ psql -h localhost -U p3if_user -d p3if
 If you encounter issues not covered here:
 
 1. Check the [FAQ](../FAQ.md)
-2. Search existing [GitHub Issues](https://github.com/p3if/p3if/issues)
+2. Search existing [GitHub Issues](https://github.com/docxology/p3if/issues)
 3. Create a new issue with:
    - Operating system and version
    - Python version

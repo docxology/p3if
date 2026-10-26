@@ -18,7 +18,7 @@ def get_openapi_spec():
             "version": API_VERSION,
             "contact": {
                 "name": "P3IF Development Team",
-                "url": "https://github.com/p3if/p3if",
+                "url": "https://github.com/docxology/p3if",
             },
         },
         "servers": [

@@ -429,20 +429,12 @@ Examples:
 
 ## Command Line Configuration
 
-Override configuration values at runtime:
+There is no CLI flag parser: configuration overrides are applied at runtime with
+the `P3IF_*` environment variables documented above.
 
 ```bash
 # Start with custom configuration
-python app.py --config config/production.yaml
-
-# Override specific values
-python app.py --host 0.0.0.0 --port 8080 --debug
-
-# Use environment-specific config
-python app.py --env production
-
-# Enable specific features
-python app.py --enable-feature experimental_visualizations
+P3IF_APP_DEBUG=true P3IF_VISUALIZATION_CUBE_3D_DEFAULT_ZOOM=1.5 python website/run.py
 ```
 
 ## Configuration Validation
@@ -597,7 +589,7 @@ api:
    ERROR: Config file not found: config/config.yaml
    
    # Solution: Create the file or specify correct path
-   python app.py --config /path/to/config.yaml
+   python website/run.py
    ```
 
 2. **Invalid YAML Syntax**
@@ -627,7 +619,7 @@ Enable configuration debugging:
 
 ```bash
 export P3IF_CONFIG_DEBUG=true
-python app.py
+python website/run.py
 ```
 
 This will output:
