@@ -136,7 +136,7 @@ domain_data = {
     "perspectives": [...]
 }
 
-response = requests.post('http://localhost:5000/api/v1/domains', json=domain_data)
+response = requests.post('http://localhost:5000/api/v2/domains', json=domain_data)
 ```
 
 **3. JSON File:**
@@ -186,7 +186,7 @@ P3IF offers several visualization types:
 
 **Via API:**
 ```bash
-curl -X GET "http://localhost:5000/api/v1/domains/mydomain/export?format=json" -o export.json
+curl -X GET "http://localhost:5000/api/v2/domains/mydomain/export?format=json" -o export.json
 ```
 
 **Via Command Line:**
@@ -307,7 +307,7 @@ Yes! P3IF supports multi-domain analysis:
 python scripts/generate_final_visualizations.py --domains "cybersecurity,healthcare,finance"
 
 # Compare domains via API
-curl "http://localhost:5000/api/v1/cross-domain/relationships?domains=cybersecurity,healthcare"
+curl "http://localhost:5000/api/v2/cross-domain/relationships?domains=cybersecurity,healthcare"
 ```
 
 ### How do I handle missing data?

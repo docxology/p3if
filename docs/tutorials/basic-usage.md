@@ -405,11 +405,11 @@ If you prefer programmatic access:
 import requests
 
 # Get all domains
-response = requests.get('http://localhost:5000/api/v1/domains')
+response = requests.get('http://localhost:5000/api/v2/domains')
 domains = response.json()
 
 # Get specific domain details
-response = requests.get('http://localhost:5000/api/v1/domains/cybersecurity')
+response = requests.get('http://localhost:5000/api/v2/domains/cybersecurity')
 domain_data = response.json()
 
 # Get relationships with filtering
@@ -418,7 +418,7 @@ params = {
     'perspective_id': 'technical'
 }
 response = requests.get(
-    'http://localhost:5000/api/v1/domains/cybersecurity/relationships',
+    'http://localhost:5000/api/v2/domains/cybersecurity/relationships',
     params=params
 )
 relationships = response.json()
@@ -437,7 +437,7 @@ new_relationship = {
 }
 
 response = requests.post(
-    'http://localhost:5000/api/v1/domains/cybersecurity/relationships',
+    'http://localhost:5000/api/v2/domains/cybersecurity/relationships',
     json=new_relationship
 )
 ```

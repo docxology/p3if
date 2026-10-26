@@ -275,33 +275,15 @@ SQLite is used by default and requires no additional setup. The database file wi
 
    Update `config/config.yaml` with PostgreSQL settings.
 
-4. **Initialize Database**
-
-   ```bash
-   python scripts/init_database.py
-   ```
-
 ## Initial Setup
 
-### 1. Generate Sample Data
-
-```bash
-python scripts/generate_sample_data.py
-```
-
-### 2. Create First Domain
-
-```bash
-python scripts/create_domain.py --name "cybersecurity" --description "Cybersecurity framework"
-```
-
-### 3. Start the Application
+### 1. Start the Application
 
 ```bash
 python website/run.py
 ```
 
-### 4. Access Web Interface
+### 2. Access Web Interface
 
 Open your browser and navigate to `http://localhost:5000`
 
@@ -310,14 +292,11 @@ Open your browser and navigate to `http://localhost:5000`
 ### Test Basic Functionality
 
 ```bash
-# Test data generation
-python scripts/test_data_generation.py
-
-# Test visualization
-python scripts/test_visualization.py
+# Run the full test suite
+python scripts/run_all.py
 
 # Test API
-curl http://localhost:5000/api/v1/domains
+curl http://localhost:5000/api/v2/domains
 ```
 
 ### Run Full Test Suite
