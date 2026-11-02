@@ -2,7 +2,7 @@
 
 Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
 
-Part of the local-only `projects/ongoing/` tree (never committed).
+Part of the P3IF project; see the root `AGENTS.md` for project conventions.
 
 ## Contents
 
@@ -25,6 +25,10 @@ Child folders (verified on disk):
 - `p3if_output_20260820_183653/`
 - `p3if_output_20260820_193838/`
 - `p3if_output_20260820_194735/`
+- `p3if_output_20260831_054913/`
+- `p3if_output_20260831_055512/`
+- `p3if_output_20260831_062812/`
+- `p3if_output_20260831_063419/`
 
 ## Files
 
