@@ -1,16 +1,15 @@
-# AGENTS.md — `p3if/src`
+# AGENTS.md — `src/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+Source root: one package, `p3if/`, laid out for `src`-based installation. The build
+configuration (`pyproject.toml`), the pytest `pythonpath` (`pytest.ini`), and
+`MANIFEST.in` all assume this layout.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../AGENTS.md`](../../../AGENTS.md).
-## Contents
+- Import the package as `p3if`, never by path: the test suite finds it through
+  `pytest.ini`, and CI installs it in editable mode before running anything.
+- Nothing in `src/` is generated and nothing here is data. Rendering output lives
+  under `outputs/` and `visualizations/`; domain JSON lives under `data/`.
+- No test module lives under `src/`: the suite is in [`../tests/`](../tests/), and CI
+  (`.github/workflows/ci.yml`) runs it together with lint and type checks.
 
-Child folders (verified on disk):
-
-- `p3if/`
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Package-level guidance: [`p3if/AGENTS.md`](p3if/AGENTS.md); repository rules,
+including the no-mock rule for tests: [root guide](../AGENTS.md).

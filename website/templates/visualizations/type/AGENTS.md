@@ -1,14 +1,11 @@
-# AGENTS.md — `p3if/website/templates/visualizations/type`
+# AGENTS.md — `website/templates/visualizations/type/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+One page per visualization type: `cube.html`, `matrix.html`, and `network.html`. Each
+lays out a single view for `../show.html` to use.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../../../AGENTS.md`](../../../../../../AGENTS.md).
-## Files
+- The page names are the type's name; a new visualization type needs a template here
+  and the matching name in the route that renders it, or the detail page has nothing to
+  show.
+- No test renders these templates; verify in a browser after editing.
 
-3 HTML.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Parent: [`../AGENTS.md`](../AGENTS.md).

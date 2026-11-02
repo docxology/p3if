@@ -1,14 +1,11 @@
-# AGENTS.md — `p3if/tests/visualization/test_output/test_comparison_dashboard`
+# AGENTS.md — `tests/visualization/test_output/test_comparison_dashboard/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+Plots the comparison-dashboard test wrote: pattern distribution, domain metrics,
+domain network and similarity, and a pattern-correlation matrix. Dashboard code is
+`src/p3if/visualization/portals/dashboard.py`.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../../../AGENTS.md`](../../../../../../AGENTS.md).
-## Files
+- Generated output from one test run. Rerun the suite rather than editing an image.
+- No test asserts on these files, so they are evidence that the generator ran, not
+  that the dashboard is correct or current.
 
-5 PNG.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Dashboard code: [`../../../../src/p3if/visualization/portals/dashboard.py`](../../../../src/p3if/visualization/portals/dashboard.py).

@@ -1,14 +1,13 @@
-# AGENTS.md — `p3if/tests/integration`
+# AGENTS.md — `tests/integration/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+Cross-boundary tests: the core integration path, the HTTP API, and the website routes.
+The point of this folder is to fail when two packages disagree even though each passes
+alone.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../AGENTS.md`](../../../../AGENTS.md).
-## Files
+- `test_website_routes.py` imports the Flask application from `../../website/`, so a
+  route or template change that breaks request handling should fail here.
+- Run with `pytest tests/integration -v`. Nothing here starts a real server or drives
+  a browser: passing tests are not end-to-end confirmation of the running site.
 
-4 Python.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Web application: [`../../website/AGENTS.md`](../../website/AGENTS.md); repository
+rules: [root guide](../../AGENTS.md).

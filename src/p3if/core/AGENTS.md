@@ -1,21 +1,21 @@
-# AGENTS.md — `p3if/src/p3if/core`
+# AGENTS.md — `src/p3if/core/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+The framework's semantics: `framework/` (builder, framework core, metrics),
+`models.py` (Property, Process, Perspective, relationships), `analysis/` (basic,
+meta, network, report), and the supporting machinery — `composition.py`,
+`validation.py`, `indexing.py`, `caching.py`, `orchestration.py`, `dimensions.py`,
+`exceptions.py`, `performance_monitoring.py`.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../../AGENTS.md`](../../../../../AGENTS.md).
-## Contents
+- Keep semantics here. `data/` may load and `visualization/` may render, but neither
+  should re-implement what a framework, model, or analysis class already decides.
+- Tests: `tests/unit/` covers these modules (run with `pytest tests/unit -v`) and
+  `tests/integration/test_core_integration.py` crosses the package boundary. CI runs
+  the full suite on Python 3.9–3.12 with `ruff`, `black --check`, and `mypy`.
+- Caching and indexing change performance without changing the API: measure with
+  `scripts/benchmark_performance.py` instead of assuming an improvement.
+- Not an inventory: the directory listing and the package `README.md` are current;
+  this guide is not updated when modules are added.
 
-Child folders (verified on disk):
-
-- `analysis/`
-- `framework/`
-
-## Files
-
-11 Python.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Sub-guides: [`analysis/AGENTS.md`](analysis/AGENTS.md),
+[`framework/AGENTS.md`](framework/AGENTS.md); repository rules:
+[root guide](../../../AGENTS.md).

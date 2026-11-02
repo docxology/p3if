@@ -1,10 +1,15 @@
-# AGENTS.md — `p3if/docs/api`
+# AGENTS.md — `docs/api/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+The API reference: [`README.md`](README.md) describes the HTTP surface the web portal
+exposes — endpoints, headers, and a hand-written "Current Implementation Status".
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../AGENTS.md`](../../../../AGENTS.md).
-## Gotchas
+- The routes are the truth. `website/routes/api/` implements them, and no test,
+  schema check, or build compares those routes with this document, so drift is
+  possible and this guide cannot tell you which side is stale.
+- The document's status section is dated and manual; read it as a claim about when it
+  was written, not as current state.
+- There is nothing to run here and nothing generated: a change to the API belongs in
+  the code first, with the document updated beside it.
 
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Route code: [`../../website/routes/api/`](../../website/routes/api/); the docs-tree
+guide is [`../AGENTS.md`](../AGENTS.md).

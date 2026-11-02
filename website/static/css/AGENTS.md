@@ -1,14 +1,12 @@
-# AGENTS.md — `p3if/website/static/css`
+# AGENTS.md — `website/static/css/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+`styles.css`, the portal's hand-maintained stylesheet, served directly by Flask —
+no preprocessor, bundler, or minification step.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../../AGENTS.md`](../../../../../AGENTS.md).
-## Files
+- Editing it changes the running site; nothing regenerates or overwrites it.
+- It is unrelated to the generated `styles.css` files under the repository's `assets/`
+  and inside run output directories, which the portal generator writes for standalone
+  portals. Do not copy one over the other.
+- No test or linter reads it.
 
-1 CSS.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Application guide: [`../AGENTS.md`](../AGENTS.md).

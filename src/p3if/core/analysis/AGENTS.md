@@ -1,14 +1,17 @@
-# AGENTS.md — `p3if/src/p3if/core/analysis`
+# AGENTS.md — `src/p3if/core/analysis/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+The analysis engines that read a built framework: `basic.py` (descriptive analysis),
+`meta.py` (analysis over frameworks or domains), `network.py` (graph-shaped
+relationships), and `report.py` (assembling results for output).
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../../../AGENTS.md`](../../../../../../AGENTS.md).
-## Files
+- These modules consume the models in `../models.py` and the framework in
+  `../framework/`; they do not own pattern semantics. A new metric belongs here only
+  if it reads a framework rather than changing one.
+- Tests are in `tests/unit/test_analysis_basic.py` and
+  `tests/unit/test_analysis_modules.py`; the visualization tests
+  exercise the same analyses indirectly, so a green suite there is not a substitute
+  for these.
+- No analysis test asserts on the committed images or reports under `visualizations/`
+  or `outputs/` — those are snapshots, not fixtures.
 
-5 Python.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Repository rules: [root guide](../../../../AGENTS.md).

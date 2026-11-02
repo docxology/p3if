@@ -1,14 +1,11 @@
-# AGENTS.md — `p3if/website/static/js`
+# AGENTS.md — `website/static/js/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+`main.js`, the portal's hand-maintained browser script, served directly by Flask —
+no bundler, no module build step.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../../AGENTS.md`](../../../../../AGENTS.md).
-## Files
+- Edits take effect on reload; nothing regenerates this file, and it is unrelated to
+  the generated `portal.js` under the repository's `assets/` folders.
+- No test executes it. There is no browser test in this repository and CI never starts
+  the server, so a JavaScript error is not caught by the gate.
 
-1 JavaScript.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Application guide: [`../AGENTS.md`](../AGENTS.md).

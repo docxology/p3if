@@ -1,14 +1,12 @@
-# AGENTS.md — `p3if/website/templates/docs`
+# AGENTS.md — `website/templates/docs/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+`index.html`, the documentation-browsing page. It renders Markdown that
+`../routes/docs.py` reads from the repository's `docs/` tree at request time, so the
+page has no content of its own to update.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../../AGENTS.md`](../../../../../AGENTS.md).
-## Files
+- Adding a documentation page does not require a template change; removing or renaming
+  one can break navigation built here.
+- Nothing renders this template in CI — a change is verified only by starting the
+  application and opening the page.
 
-1 HTML.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Routes: [`../../routes/docs.py`](../../routes/docs.py).

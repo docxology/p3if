@@ -1,14 +1,16 @@
-# AGENTS.md — `p3if/data/domains`
+# AGENTS.md — `data/domains/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+The domain library: one JSON file per domain (healthcare, climate change, quantum
+computing, and so on), `index.json` naming them, and `template_domain.json` as the
+starting point for a new one.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../AGENTS.md`](../../../../AGENTS.md).
-## Files
+- The format is defined in [`../README.md`](../README.md); domain discovery reads
+  `index.json` (`src/p3if/data/synthetic.py`), and the website routes skip both
+  `index.json` and `template_domain.json` when listing domains, so a new domain must
+  be registered in the index rather than only added as a file.
+- No test asserts on these files. The suite covers the loader and exporter code with
+  its own fixtures; an invalid domain file is discovered at load time, not in CI.
+- Do not treat the file list here as stable: read the listing and `index.json` for the
+  current set, and keep the two in step.
 
-18 JSON.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Loader code: [`../../src/p3if/data/`](../../src/p3if/data/).

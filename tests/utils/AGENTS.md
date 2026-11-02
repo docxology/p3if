@@ -1,14 +1,12 @@
-# AGENTS.md — `p3if/tests/utils`
+# AGENTS.md — `tests/utils/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+Tests for the utility package: configuration loading (`test_config.py`) and the
+storage layer (`test_storage.py`).
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../AGENTS.md`](../../../../AGENTS.md).
-## Files
+- Run with `pytest tests/utils -v`.
+- Output-path policy is not tested here. Session naming and directory layout come from
+  `../../src/p3if/utils/output_organizer.py` and are exercised indirectly by the
+  visualization tests, so a change to where runs write is more likely to surface
+  there; the async storage path is covered in `../unit/test_async_storage.py`.
 
-3 Python.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Repository rules: [root guide](../../AGENTS.md).

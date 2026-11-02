@@ -1,20 +1,17 @@
-# AGENTS.md — `p3if/website/routes`
+# AGENTS.md — `website/routes/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+The portal's HTTP surface: `docs.py` (browsing the `../../docs/` tree), `domains.py`,
+`visualizations.py`, `viz_generate.py` (starting a generation from the UI), and
+`api/` for the JSON endpoints.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../AGENTS.md`](../../../../AGENTS.md).
-## Contents
+- Blueprints are registered in `../app.py`: a module added here does nothing until it
+  is registered there.
+- These modules read repository content (Markdown under `docs/`, JSON under
+  `data/domains/`) instead of keeping copies of it; a page that looks wrong is often a
+  data or documentation problem, not a routing one.
+- Tests: `tests/integration/test_website_routes.py` (in-process client). Nothing drives
+  a browser, and no test renders every template, so a route can pass its test and still
+  fail on a page nobody requests in CI.
 
-Child folders (verified on disk):
-
-- `api/`
-
-## Files
-
-5 Python.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+API sub-guide: [`api/AGENTS.md`](api/AGENTS.md); application guide:
+[`../AGENTS.md`](../AGENTS.md).

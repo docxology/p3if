@@ -1,17 +1,11 @@
-# AGENTS.md — `p3if/tests/visualization/test_output/assets`
+# AGENTS.md — `tests/visualization/test_output/assets/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+The `css/` and `js/` files the visualization tests wrote for their portal pages — the
+same asset pair the portal generator emits beside every portal it builds.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../../../AGENTS.md`](../../../../../../AGENTS.md).
-## Contents
+- Generated per test run. Rerun the suite to refresh; editing here changes nothing the
+  generator would not overwrite.
+- No test reads them back: their presence shows the generator wrote assets, not that
+  those assets are current or correct.
 
-Child folders (verified on disk):
-
-- `css/`
-- `js/`
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Portal code: [`../../../../src/p3if/visualization/portals/`](../../../../src/p3if/visualization/portals/).

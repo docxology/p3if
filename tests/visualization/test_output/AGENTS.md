@@ -1,26 +1,16 @@
-# AGENTS.md — `p3if/tests/visualization/test_output`
+# AGENTS.md — `tests/visualization/test_output/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+Committed output from past runs of the visualization tests: per-domain HTML pages,
+dashboards and their PNGs, static plots, portal assets, and the JSON data a portal
+embeds. `../README.md` describes the suite that writes it.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../../AGENTS.md`](../../../../../AGENTS.md).
-- Generated pipeline output; regenerate via tooling rather than hand-editing.- Test-run output; produced by the test suite.
-## Contents
+- Generated, not authored. Rerun the suite (`pytest tests/visualization -v`, or
+  `run_visualization_tests.py`) to refresh it; do not edit files here and do not treat
+  them as fixtures — no test asserts on them.
+- The suite writes wherever its output directory is configured, and this folder is the
+  committed instance of that directory. Its contents record one past run, not what the
+  current renderer produces.
+- Not a manifest: the directory listing is the truth for what is here.
 
-Child folders (verified on disk):
-
-- `assets/`
-- `data/`
-- `test_comparison_dashboard/`
-- `test_domain_dashboard/`
-- `test_overview_dashboard/`
-- `visualizations/`
-
-## Files
-
-30 HTML.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Suite: [`../AGENTS.md`](../AGENTS.md); test rules:
+[`../../AGENTS.md`](../../AGENTS.md).

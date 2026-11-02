@@ -1,18 +1,15 @@
-# AGENTS.md — `p3if/website/static`
+# AGENTS.md — `website/static/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+Static assets Flask serves from `static_folder="static"`: `css/`, `js/`, and `img/`.
+No build step produces them — editing a file here changes the running site directly.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../AGENTS.md`](../../../../AGENTS.md).
-## Contents
+- These are hand-maintained site assets. They are not the generated `assets/` copies
+  at the repository root or inside run folders, which the portal generator writes once
+  per output directory.
+- Nothing tests, lints, or minifies these files: a wrong path or a syntax error shows
+  up only in a browser.
+- The three images under `img/` are zero-byte placeholders (verified 2026-11-02), so
+  they render as broken images; they are not screenshots.
 
-Child folders (verified on disk):
-
-- `css/`
-- `img/`
-- `js/`
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Sub-guides: [`css/AGENTS.md`](css/AGENTS.md), [`js/AGENTS.md`](js/AGENTS.md),
+[`img/AGENTS.md`](img/AGENTS.md); application guide: [`../AGENTS.md`](../AGENTS.md).

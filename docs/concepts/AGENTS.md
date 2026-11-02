@@ -1,14 +1,18 @@
-# AGENTS.md — `p3if/docs/concepts`
+# AGENTS.md — `docs/concepts/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+Concept documents: what P3IF is (`P3IF.md`, the long-form explanation),
+its theoretical framing (`CategoryTheory_P3IF.md`), applications
+(`CognitiveSecurity_P3IF.md`), and integration across domains
+(`domain_integration.md`).
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../AGENTS.md`](../../../../AGENTS.md).
-## Files
+- These are prose, not specifications: the code in `../../src/p3if/core/` decides
+  behaviour, and no test checks these documents against it.
+- Two files are not finished documents. `Minecraf-P3IF.md` is a one-line note, and
+  `p3if_paste.md` is a pasted copy of the manuscript text rather than a curated page
+  (the manuscript record is [`../manuscript/MANUSCRIPT_STATUS.md`](../manuscript/MANUSCRIPT_STATUS.md)).
+  Do not treat either as guidance, and read them before citing them.
+- Adding a concept document means registering it in `../README.md`; new files here are
+  invisible otherwise.
 
-6 Markdown.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Type hints, docstrings, and the no-mock rule for tests are in the
+[root guide](../../AGENTS.md).

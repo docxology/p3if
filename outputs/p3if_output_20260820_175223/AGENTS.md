@@ -1,17 +1,16 @@
-# AGENTS.md — `p3if/outputs/p3if_output_20260820_175223`
+# AGENTS.md — `outputs/p3if_output_20260820_175223/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+One committed visualization run from 2026-08-20 (17:52:23 UTC). It holds
+`visualizations/` and nothing else; the directory name is the run's UTC start,
+formatted by `src/p3if/utils/output_organizer.py`.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../AGENTS.md`](../../../../AGENTS.md).
-- Generated pipeline output; regenerate via tooling rather than hand-editing.
-## Contents
+- Generated, not hand-maintained. Rerunning the pipeline writes a new
+  `p3if_output_<UTC timestamp>` directory rather than refreshing this one, so do not
+  hand-edit anything under it.
+- No test, CI job, or script verifies these files. The snapshot records what one run
+  produced; it is not evidence about the current code.
+- This guide is not a manifest — read the directory listing for what this run holds.
+  Four 2026-08-31 runs in this tree have no folder guides at all.
 
-Child folders (verified on disk):
-
-- `visualizations/`
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+The rendering code is [`../../src/p3if/visualization/`](../../src/p3if/visualization/);
+the rules for this tree are in [`../AGENTS.md`](../AGENTS.md).

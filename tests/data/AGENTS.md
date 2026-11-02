@@ -1,14 +1,12 @@
-# AGENTS.md — `p3if/tests/data`
+# AGENTS.md — `tests/data/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+Importer and exporter tests: they build frameworks through the real classes and
+round-trip them through the supported formats. They do not read the committed domain
+files under `../../data/domains/`.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../AGENTS.md`](../../../../AGENTS.md).
-## Files
+- Run just these with `pytest tests/data -v`. They are the executable description of
+  what import and export accept, so a format change belongs here first.
+- These are code-level tests: no fixture file outside `../fixtures/` is required, and
+  nothing here depends on a run having been executed.
 
-3 Python.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Repository rules: [root guide](../../AGENTS.md).

@@ -1,17 +1,18 @@
-# AGENTS.md — `p3if/assets`
+# AGENTS.md — `assets/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+Portal assets: `css/styles.css` and `js/portal.js`. They belong to the generated web
+portal, whose code writes both into an `assets/` directory beside the portal HTML it
+produces (`src/p3if/visualization/portals/portal.py`).
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../AGENTS.md`](../../../AGENTS.md).
-## Contents
+- Treat these as generated copies, not sources. The same pair appears inside
+  generated output directories (for example under `outputs/` and
+  `tests/visualization/test_output/`), because the portal writes its assets once per
+  output directory.
+- Editing these files here changes nothing a rerun would not overwrite: change the
+  generator in `src/p3if/visualization/portals/portal.py` and regenerate.
+- No test or CI job checks these files, and nothing compares them with what the
+  current generator emits.
+- Not an inventory: read the listing for the current file set.
 
-Child folders (verified on disk):
-
-- `css/`
-- `js/`
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Portal code: [`../src/p3if/visualization/portals/`](../src/p3if/visualization/portals/);
+repository rules: [root guide](../AGENTS.md).

@@ -1,14 +1,11 @@
-# AGENTS.md — `p3if/website/static/img`
+# AGENTS.md — `website/static/img/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+Three example images referenced by portal pages — all three are zero bytes as
+committed (verified 2026-11-02), so they render as broken images wherever they appear.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../../AGENTS.md`](../../../../../AGENTS.md).
-## Files
+- They are placeholders, not screenshots, and nothing generates them: replacing one is
+  a content change that has to be made deliberately.
+- No test checks these files or the pages that reference them, so a broken image is
+  invisible to CI.
 
-3 PNG.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Application guide: [`../AGENTS.md`](../AGENTS.md).

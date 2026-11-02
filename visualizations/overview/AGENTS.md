@@ -1,14 +1,14 @@
-# AGENTS.md — `p3if/visualizations/overview`
+# AGENTS.md — `visualizations/overview/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+Overview-level static plots from one visualization run, committed as a snapshot: the
+network and domain-similarity views, the three property/process/perspective matrices,
+and `summary_report.json` with the numbers behind them.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../AGENTS.md`](../../../../AGENTS.md).
-## Files
+- Generated output. Regenerate rather than edit; the generator writes into a
+  timestamped session directory under `outputs/` by default, so this folder is
+  refreshed only when an output directory is passed explicitly.
+- Read `summary_report.json` for the run's numbers. Nothing verifies they still match
+  what the code would compute today, and no test or CI job reads this folder.
+- Listing first: this guide is not a manifest.
 
-6 PNG; 1 JSON.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Static rendering code: [`../../src/p3if/visualization/static/`](../../src/p3if/visualization/static/).

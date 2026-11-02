@@ -1,10 +1,14 @@
-# AGENTS.md — `p3if/docs/examples`
+# AGENTS.md — `docs/examples/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+Documentation for the examples, not the examples themselves: [`README.md`](README.md)
+lists the thin orchestrators and how to run them.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../AGENTS.md`](../../../../AGENTS.md).
-## Gotchas
+- The runnable code lives in [`../../src/p3if/orchestrators/`](../../src/p3if/orchestrators/),
+  and the runner is `scripts/run_examples.py`. A snippet added here is prose until it
+  exists there.
+- Nothing executes or tests the documented examples: no doctest runner is configured
+  (`pytest.ini` runs `tests/` only), so an example can drift from the code without
+  anything failing.
+- Nothing is generated in this folder; it holds Markdown only.
 
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Orchestrator conventions: [`../../src/p3if/orchestrators/AGENTS.md`](../../src/p3if/orchestrators/AGENTS.md).

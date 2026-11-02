@@ -1,14 +1,13 @@
-# AGENTS.md — `p3if/tests/visualization/test_output/data`
+# AGENTS.md — `tests/visualization/test_output/data/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+The JSON a generated portal embeds, written by the visualization tests:
+`cube_data.json`, `graph_data.json`, and `summary.json`. The portal generator writes
+the same three files into every portal's `data/` directory
+(`src/p3if/visualization/portals/portal.py`).
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../../../AGENTS.md`](../../../../../../AGENTS.md).
-## Files
+- Generated per test run; rerun the suite to refresh. Editing these files changes
+  nothing but the committed copy.
+- Their schemas are whatever the current portal code emits; this folder records one
+  past run and nothing verifies it against today's writer.
 
-3 JSON.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Portal code: [`../../../../src/p3if/visualization/portals/`](../../../../src/p3if/visualization/portals/).

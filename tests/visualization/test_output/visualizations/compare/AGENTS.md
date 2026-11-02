@@ -1,14 +1,10 @@
-# AGENTS.md — `p3if/tests/visualization/test_output/visualizations/compare`
+# AGENTS.md — `tests/visualization/test_output/visualizations/compare/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+The comparison view's test output: pattern distribution, domain metrics, domain
+network and similarity, and the pattern-correlation matrix. Written by the
+comparison-visualization test in `tests/visualization/`.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../../../../AGENTS.md`](../../../../../../../AGENTS.md).
-## Files
+- Generated per test run; rerun the suite instead of editing an image.
+- No assertion targets these files — regenerate to see what the current code produces.
 
-5 PNG.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Static rendering code: [`../../../../../src/p3if/visualization/static/`](../../../../../src/p3if/visualization/static/).

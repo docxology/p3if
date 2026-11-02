@@ -1,14 +1,15 @@
-# AGENTS.md — `p3if/docs/diagrams`
+# AGENTS.md — `docs/diagrams/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+Text diagrams, kept as Markdown: `system-architecture.md`, `system-diagrams.md`, and
+`process-flows.md`. Every diagram is drawn in Markdown (Mermaid or ASCII) — there are
+no image assets in this folder.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../AGENTS.md`](../../../../AGENTS.md).
-## Files
+- Diagrams are hand-maintained illustrations of the architecture described in
+  `../technical/architecture.md` and implemented in `../../src/p3if/`. Nothing
+  generates or validates them, so a diagram can be older than the code it describes.
+- When the architecture changes, update the diagram and the technical document
+  together; a corrected diagram alone still leaves the prose stale.
+- No gate reads this folder: no doc build, no link check in CI, no test.
 
-3 Markdown.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Docs-tree guide: [`../AGENTS.md`](../AGENTS.md); repository rules:
+[root guide](../../AGENTS.md).

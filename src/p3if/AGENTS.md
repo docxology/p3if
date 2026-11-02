@@ -1,24 +1,19 @@
-# AGENTS.md — `p3if/src/p3if`
+# AGENTS.md — `src/p3if/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+The importable package, in five parts: `core/` (models, frameworks, analysis,
+validation, caching), `data/` (domain management, importers, exporters, synthetic
+data), `orchestrators/` (thin orchestrator examples), `utils/` (configuration,
+logging, storage, performance, output organization), and `visualization/` (static,
+interactive, animated, portals). `py.typed` marks the package as typed.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../AGENTS.md`](../../../../AGENTS.md).
-## Contents
-
-Child folders (verified on disk):
-
-- `core/`
-- `data/`
-- `orchestrators/`
-- `utils/`
-- `visualization/`
-
-## Files
-
-1 Python; 1 file.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+- Keep the layering: `core/` owns semantics, `data/` loads and writes, `utils/`
+  supports both, `visualization/` renders, and `orchestrators/` composes. A module
+  that needs another layer's job is a design change, not a local convenience.
+- Conventions that CI and review enforce — complete type hints, Google-style
+  docstrings, absolute `from p3if...` imports, no mock objects in tests — are stated
+  in the [root guide](../../AGENTS.md). Follow that, not a local variant.
+- Subpackage guides: [`core/AGENTS.md`](core/AGENTS.md), [`data/AGENTS.md`](data/AGENTS.md),
+  [`orchestrators/AGENTS.md`](orchestrators/AGENTS.md), [`utils/AGENTS.md`](utils/AGENTS.md),
+  [`visualization/AGENTS.md`](visualization/AGENTS.md).
+- Tests live under `tests/`, never inside the package; CI runs them on Python
+  3.9–3.12.

@@ -1,20 +1,14 @@
-# AGENTS.md — `p3if/website/templates/visualizations`
+# AGENTS.md — `website/templates/visualizations/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+Visualization pages: `index.html` (what is available), `show.html` (one view), and
+`generate.html` (the form that starts a generation through `../routes/viz_generate.py`),
+with the per-type pages in `type/`.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../../AGENTS.md`](../../../../../AGENTS.md).
-## Contents
+- The generator form is the only write path in the portal: it starts a run whose output
+  lands in a session directory under `../../outputs/`. Treat it as an operator action,
+  not a browsing feature.
+- No test renders these pages, and no browser test exists; a template change is
+  verified by running the application.
 
-Child folders (verified on disk):
-
-- `type/`
-
-## Files
-
-3 HTML.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Per-type templates: [`type/AGENTS.md`](type/AGENTS.md); routes:
+[`../../routes/viz_generate.py`](../../routes/viz_generate.py).

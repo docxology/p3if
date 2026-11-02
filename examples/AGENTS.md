@@ -1,14 +1,14 @@
-# AGENTS.md — `p3if/examples`
+# AGENTS.md — `examples/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+A package marker, not a folder of examples: `__init__.py` carries a docstring and
+nothing else. The runnable examples are the thin orchestrators in
+`src/p3if/orchestrators/`, and [`README.md`](README.md) here points at them and at
+`scripts/run_examples.py`.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../AGENTS.md`](../../../AGENTS.md).
-## Files
+- Why it exists: it keeps the historical import path working, so code and docs that
+  say `examples` still resolve. There is no code here to test, lint, or run.
+- Behavior and conventions for the actual examples live in
+  [`../src/p3if/orchestrators/AGENTS.md`](../src/p3if/orchestrators/AGENTS.md) and the
+  [root guide](../AGENTS.md); do not add example implementations to this package.
 
-1 Python.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Runner: [`../scripts/run_examples.py`](../scripts/run_examples.py).

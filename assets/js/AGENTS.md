@@ -1,14 +1,12 @@
-# AGENTS.md — `p3if/assets/js`
+# AGENTS.md — `assets/js/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+`portal.js`: the portal's browser script, written into the portal's `assets/js/`
+directory by `src/p3if/visualization/portals/portal.py` alongside the HTML that
+loads it.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../AGENTS.md`](../../../../AGENTS.md).
-## Files
+- Generated copy. Rerunning the portal writes a fresh script into that run's output
+  directory; edit the generator, not this file.
+- No test exercises this script, and no check compares the committed copy with what
+  the generator emits today.
 
-1 JavaScript.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Portal code: [`../../src/p3if/visualization/portals/`](../../src/p3if/visualization/portals/).

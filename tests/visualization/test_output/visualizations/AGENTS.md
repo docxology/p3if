@@ -1,22 +1,12 @@
-# AGENTS.md — `p3if/tests/visualization/test_output/visualizations`
+# AGENTS.md — `tests/visualization/test_output/visualizations/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+Test-written interactive and static views: `force-graph.html` at this level with
+`compare/`, `domain/`, and `overview/` beside it, each holding the plots of the
+corresponding visualization test.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../../../AGENTS.md`](../../../../../../AGENTS.md).
-## Contents
+- Generated output from past test runs; rerun the suite to refresh. Nothing here is
+  hand-maintained and nothing asserts on it.
+- The folder names mirror the visualization types the tests exercise; the guide for
+  each subfolder says which code writes it.
 
-Child folders (verified on disk):
-
-- `compare/`
-- `domain/`
-- `overview/`
-
-## Files
-
-1 HTML.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Suite: [`../../AGENTS.md`](../../AGENTS.md).

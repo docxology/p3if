@@ -1,14 +1,16 @@
-# AGENTS.md — `p3if/src/p3if/data`
+# AGENTS.md — `src/p3if/data/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+Data handling for the framework: `domain_model.py` and `domains.py` (discovering and
+loading the domain library), `importers.py` and `exporters.py` (moving frameworks in
+and out of the supported formats), and `synthetic.py` (generating test frameworks).
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../../AGENTS.md`](../../../../../AGENTS.md).
-## Files
+- The files this package loads are the repository's [`../../../data/`](../../../data/)
+  tree; the format contract is `data/README.md`. Domain discovery reads
+  `data/domains/index.json`, so a new domain must appear there.
+- Tests: `tests/data/test_importers.py` and `tests/data/test_exporters.py`, with
+  fixtures from `tests/fixtures/`. They cover the code, not the committed domain
+  files: invalid domain JSON is found at load time, not in CI.
+- Import/export round-trips are the risky surface — when a format changes, extend the
+  tests rather than the docstring.
 
-6 Python.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Repository rules: [root guide](../../../AGENTS.md).

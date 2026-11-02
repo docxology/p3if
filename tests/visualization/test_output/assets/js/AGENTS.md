@@ -1,14 +1,10 @@
-# AGENTS.md — `p3if/tests/visualization/test_output/assets/js`
+# AGENTS.md — `tests/visualization/test_output/assets/js/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+`portal.js`, written by the visualization tests for the portal pages they generate —
+the same script the portal generator emits into every portal's `assets/js/`.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../../../../AGENTS.md`](../../../../../../../AGENTS.md).
-## Files
+- Generated output, refreshed by rerunning the test suite; not a hand-maintained
+  script.
+- No test loads or asserts on it, so a stale copy here cannot fail anything.
 
-1 JavaScript.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Portal code: [`../../../../../src/p3if/visualization/portals/`](../../../../../src/p3if/visualization/portals/).

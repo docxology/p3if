@@ -1,14 +1,12 @@
-# AGENTS.md — `p3if/assets/css`
+# AGENTS.md — `assets/css/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+`styles.css`: the portal stylesheet written by `_create_css_file` in
+`src/p3if/visualization/portals/portal.py`, beside the portal HTML that references
+it.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../AGENTS.md`](../../../../AGENTS.md).
-## Files
+- A generated copy, not the source of truth. Rerunning the portal writes its own
+  `assets/css/styles.css` into that run's output directory; change the generator
+  instead of this file.
+- Nothing tests, lints, or compares this file with the current generator's output.
 
-1 CSS.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Portal code: [`../../src/p3if/visualization/portals/`](../../src/p3if/visualization/portals/).

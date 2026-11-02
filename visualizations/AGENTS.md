@@ -1,21 +1,19 @@
-# AGENTS.md — `p3if/visualizations`
+# AGENTS.md — `visualizations/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+A committed snapshot of generated static visualizations: `domain/` and `overview/`
+hold PNGs plus a `summary_report.json`, and `force-graph.html` is an interactive
+view. They are written by the visualization package in `src/p3if/visualization/`.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../AGENTS.md`](../../../AGENTS.md).
-## Contents
+- Generated, not hand-maintained. The generators write into a session directory
+  (`scripts/generate_final_visualizations.py` defaults to
+  `outputs/visualizations_<timestamp>/`; `scripts/run_all.py` uses its own session
+  tree), so a rerun does not refresh this folder unless an output directory is passed
+  explicitly. Do not edit the images or the JSON by hand.
+- Nothing in CI builds or checks this tree, and no test asserts on it: the committed
+  images say nothing about what the current renderer produces.
+- `tests/visualization/test_output/` holds a separate, test-generated copy of similar
+  plots. The two trees are independent snapshots, not versions of one another.
+- Not a manifest: read the listing for what is here.
 
-Child folders (verified on disk):
-
-- `domain/`
-- `overview/`
-
-## Files
-
-1 HTML.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Rendering code: [`../src/p3if/visualization/`](../src/p3if/visualization/); repository
+rules: [root guide](../AGENTS.md).

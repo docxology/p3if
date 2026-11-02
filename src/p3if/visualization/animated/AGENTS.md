@@ -1,14 +1,16 @@
-# AGENTS.md — `p3if/src/p3if/visualization/animated`
+# AGENTS.md — `src/p3if/visualization/animated/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+Animated rendering: `animated_dimensions.py` (dimension transitions) and
+`animation_visualizations.py` (sequences), built on the base `Visualizer` in
+`../base.py`. Use them when a view has to show change over time or dimension rather
+than a single state.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../../../AGENTS.md`](../../../../../../AGENTS.md).
-## Files
+- Output is written into a run's session directory under `outputs/` by the
+  visualization pipeline; committed snapshots are read-only records — regenerate, do
+  not edit.
+- Tests: `tests/visualization/test_animated.py`. The suite
+  exercises the generator APIs; no job reviews the rendered animation, so a passing
+  test is not a visual check.
 
-3 Python.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Repository rules: [root guide](../../../../AGENTS.md); the visualization package
+guide is [`../AGENTS.md`](../AGENTS.md).

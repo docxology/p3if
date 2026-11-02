@@ -1,14 +1,11 @@
-# AGENTS.md — `p3if/tests/visualization/test_output/visualizations/domain`
+# AGENTS.md — `tests/visualization/test_output/visualizations/domain/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+The domain view's test output: the domain network, pattern distribution, and the
+three similarity plots. Written by the domain-visualization test in
+`tests/visualization/`.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../../../../AGENTS.md`](../../../../../../../AGENTS.md).
-## Files
+- Generated per test run; refresh by rerunning the suite rather than editing a plot.
+- Nothing asserts on these images, so their presence is not proof the current renderer
+  produces the same picture.
 
-5 PNG.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Static rendering code: [`../../../../../src/p3if/visualization/static/`](../../../../../src/p3if/visualization/static/).

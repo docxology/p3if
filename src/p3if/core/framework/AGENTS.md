@@ -1,14 +1,16 @@
-# AGENTS.md — `p3if/src/p3if/core/framework`
+# AGENTS.md — `src/p3if/core/framework/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+The framework implementation: `builder.py` (constructing frameworks),
+`core.py` (the framework class and its operations), and `metrics.py` (framework-level
+measurements).
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../../../AGENTS.md`](../../../../../../AGENTS.md).
-## Files
+- `core.py` is the largest behavioural surface in the package: pattern storage,
+  indexing, validation hooks, and caching compose here. Change it with the tests in
+  `tests/unit/test_framework.py`, `test_core.py`, and `test_builder_and_models.py`
+  open, and expect `tests/integration/` to notice cross-package effects.
+- Keep measured behaviour measured: `metrics.py` and the performance monitoring in
+  `../performance_monitoring.py` exist so claims about speed come from a run
+  (`scripts/benchmark_performance.py`), not from reading the code.
+- Not a manifest: read the listing and the package README for what is here.
 
-4 Python.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Repository rules: [root guide](../../../../AGENTS.md).

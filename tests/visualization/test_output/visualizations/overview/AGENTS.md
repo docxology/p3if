@@ -1,14 +1,12 @@
-# AGENTS.md — `p3if/tests/visualization/test_output/visualizations/overview`
+# AGENTS.md — `tests/visualization/test_output/visualizations/overview/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+The overview view's test output: the property/process/perspective matrices, the
+network and similarity views, and `summary_report.json`. Written by the
+overview-visualization test in `tests/visualization/`.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../../../../AGENTS.md`](../../../../../../../AGENTS.md).
-## Files
+- Generated per test run; rerun the suite to refresh. Read
+  `summary_report.json` for the numbers; the PNGs are their illustrations.
+- No test asserts on these files, and nothing compares them with the committed
+  snapshots under `visualizations/`.
 
-6 PNG; 1 JSON.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Static rendering code: [`../../../../../src/p3if/visualization/static/`](../../../../../src/p3if/visualization/static/).

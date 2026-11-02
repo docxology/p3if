@@ -1,14 +1,12 @@
-# AGENTS.md — `p3if/tests/visualization/test_output/test_domain_dashboard`
+# AGENTS.md — `tests/visualization/test_output/test_domain_dashboard/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+Plots the domain-dashboard test wrote: property, process, and perspective similarity
+views plus the domain network and pattern distribution. Dashboard code is
+`src/p3if/visualization/portals/dashboard.py`.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../../../AGENTS.md`](../../../../../../AGENTS.md).
-## Files
+- Generated output from one test run; refresh by rerunning the suite, not by editing
+  an image here.
+- Nothing asserts on these plots. They show that generation completed, not that the
+  rendering is right.
 
-5 PNG.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Dashboard code: [`../../../../src/p3if/visualization/portals/dashboard.py`](../../../../src/p3if/visualization/portals/dashboard.py).

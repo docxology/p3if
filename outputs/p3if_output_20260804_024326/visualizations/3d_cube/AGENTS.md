@@ -1,14 +1,17 @@
-# AGENTS.md — `p3if/outputs/p3if_output_20260804_024326/visualizations/3d_cube`
+# AGENTS.md — `outputs/p3if_output_20260804_024326/visualizations/3d_cube/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+The 3D cube material from the 2026-08-04 (02:43:26 UTC) run: the rendered
+`3d-cube.html` plus `test_cube.html` and `test_cube_with_datasets.html`.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../../../AGENTS.md`](../../../../../../AGENTS.md).
-## Files
+- `3d-cube.html` is pipeline output from the interactive visualizer in
+  `src/p3if/visualization/interactive/`. The two `test_cube*.html` pages are written
+  by [`../../../../tests/visualization/test_interactive.py`](../../../../tests/visualization/test_interactive.py)
+  when a test run points its output at this session directory: test output, not
+  pipeline output. The folder mixes the two.
+- Generated, not hand-maintained: rerunning the pipeline or the tests writes a new
+  session directory rather than updating these files.
+- Nothing in CI opens or asserts on these pages; their presence says nothing about
+  whether the current renderer still produces the same output.
+- Not a manifest: the directory listing is the truth for the file set.
 
-3 HTML.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Tree rules: [`../../AGENTS.md`](../../AGENTS.md).

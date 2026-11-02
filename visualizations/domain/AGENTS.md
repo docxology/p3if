@@ -1,14 +1,14 @@
-# AGENTS.md — `p3if/visualizations/domain`
+# AGENTS.md — `visualizations/domain/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+Domain-level static plots from one visualization run, committed as a snapshot: a
+domain network, a pattern distribution, and the three similarity matrices. Rendered
+by `src/p3if/visualization/static/`.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../AGENTS.md`](../../../../AGENTS.md).
-## Files
+- Generated output. Regenerate rather than edit: rerunning the generator writes into
+  a timestamped session directory under `outputs/`, so a refresh reaches this folder
+  only when an output directory is passed explicitly.
+- No CI job or test reads these PNGs. A committed plot records one render; it is not
+  evidence that the current code produces the same image.
+- Listing first: this guide does not name files, and the folder is not a manifest.
 
-5 PNG.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Static rendering code: [`../../src/p3if/visualization/static/`](../../src/p3if/visualization/static/).

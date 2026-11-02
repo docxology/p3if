@@ -1,14 +1,16 @@
-# AGENTS.md — `p3if/website/routes/api`
+# AGENTS.md — `website/routes/api/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+The JSON API: `domains.py`, `patterns.py`, `relationships.py`, `framework.py`,
+`analysis.py`, `visualizations.py`, `export.py`, `health.py`, `spec.py`, and
+`common.py` for shared helpers.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../../AGENTS.md`](../../../../../AGENTS.md).
-## Files
+- These modules are the API's source of truth. The human-facing description is
+  [`../../../docs/api/README.md`](../../../docs/api/README.md), which is written by
+  hand and can lag this code.
+- Tests: `tests/integration/test_api.py` exercises endpoints in-process. Response
+  shapes are asserted only where that file covers them, and there is no schema or
+  contract check, so an uncovered response change is a silent breaking change.
+- No authentication exists: the API is a local read layer, not a public surface, and
+  nothing here should be exposed as one.
 
-11 Python.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Routes guide: [`../AGENTS.md`](../AGENTS.md).

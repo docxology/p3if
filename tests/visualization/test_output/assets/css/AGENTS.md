@@ -1,14 +1,11 @@
-# AGENTS.md — `p3if/tests/visualization/test_output/assets/css`
+# AGENTS.md — `tests/visualization/test_output/assets/css/`
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-Facts below are verified listings, not behavioral claims.
+`styles.css`, written by the visualization tests for the portal pages they generate —
+the same file `_create_css_file` in `src/p3if/visualization/portals/portal.py` emits
+beside every portal.
 
-- Local-only path under the `projects/ongoing/` tree — never commit.
-- Parent standard: [`../../../../../../../AGENTS.md`](../../../../../../../AGENTS.md).
-## Files
+- Generated output, refreshed by rerunning the test suite; not a hand-maintained
+  stylesheet.
+- Nothing asserts on it: a stale copy here cannot fail a test.
 
-1 CSS.
-
-## Gotchas
-
-- Content-only edits: no renames, moves, or deletions of non-doc files.
+Portal code: [`../../../../../src/p3if/visualization/portals/`](../../../../../src/p3if/visualization/portals/).
