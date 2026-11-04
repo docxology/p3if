@@ -652,21 +652,15 @@ class Interactive3DVisualizer:
 
         filename_str = str(filename)
         if format.lower() == "html":
-            output_file = (
-                filename_str if filename_str.endswith(".html") else f"{filename_str}.html"
-            )
+            output_file = filename_str if filename_str.endswith(".html") else f"{filename_str}.html"
             fig.write_html(output_file)
             return output_file
         elif format.lower() == "json":
-            output_file = (
-                filename_str if filename_str.endswith(".json") else f"{filename_str}.json"
-            )
+            output_file = filename_str if filename_str.endswith(".json") else f"{filename_str}.json"
             fig.write_json(output_file)
             return output_file
         elif format.lower() == "png":
-            output_file = (
-                filename_str if filename_str.endswith(".png") else f"{filename_str}.png"
-            )
+            output_file = filename_str if filename_str.endswith(".png") else f"{filename_str}.png"
             fig.write_image(output_file)
             return output_file
         else:

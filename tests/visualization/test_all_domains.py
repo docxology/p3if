@@ -92,7 +92,7 @@ class TestAllDomains(unittest.TestCase):
 
     def test_all_domains_can_be_visualized(self):
         """Test that representative domains can be visualized."""
-        test_domains = self.all_domains[:min(3, len(self.all_domains))]
+        test_domains = self.all_domains[: min(3, len(self.all_domains))]
         for domain_name in test_domains:
             # Create a new framework for each domain
             framework = P3IFFramework()

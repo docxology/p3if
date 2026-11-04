@@ -157,7 +157,9 @@ class HealthcareDomainOrchestrator:
         return {
             "requirements_analysis": requirements,
             "total_data_types": len(data_types_map) if isinstance(data_types_map, dict) else 0,
-            "total_access_patterns": len(access_patterns_map) if isinstance(access_patterns_map, dict) else 0,
+            "total_access_patterns": len(access_patterns_map)
+            if isinstance(access_patterns_map, dict)
+            else 0,
             "compliance_requirements": self._analyze_compliance_requirements(requirements),
             "risk_assessment": self._assess_data_risks(requirements),
         }
