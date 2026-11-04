@@ -11,9 +11,8 @@ Committed snapshots of visualization runs: one directory per run, named
 - Nothing in CI builds, refreshes, or checks anything under `outputs/`, and no
   test asserts on these files. They record what particular runs produced, not what
   the current code produces.
-- Guides exist at this level and for the runs of 2026-08-04 and 2026-08-20 (as of
-  2026-11-02). The four 2026-08-31 runs have no folder guides; an absent guide there
-  is not evidence of an empty run.
+- Every run folder carries guides at all three levels — the run itself, its
+  `visualizations/` and its view folders — read from the tree on 2026-11-04.
 - This guide is not a manifest. The directory listing is the truth about which runs
   exist and what each holds, and the `README.md` files beside the guides are
   generated listings that can lag behind it.
