@@ -6,7 +6,7 @@ and provide basic functionality.
 """
 
 import unittest
-from unittest.mock import MagicMock, patch, mock_open
+from unittest.mock import MagicMock, patch
 import tempfile
 from pathlib import Path
 import sys
@@ -87,20 +87,26 @@ class TestAnimatedDimensions(unittest.TestCase):
         self.assertIsNotNone(animator)
         self.assertIsInstance(animator, type(animator))  # Should return a DimensionAnimator
 
-    @patch("builtins.open", new_callable=mock_open)
     @patch("p3if.visualization.animated.animated_dimensions.MATPLOTLIB_AVAILABLE", True)
-    def test_save_animation(self, mock_file):
+    def test_save_animation(self):
         """Test save_animation function."""
         from p3if.visualization.animated.animated_dimensions import (
             DimensionAnimator,
             save_animation,
         )
 
-        animator = DimensionAnimator()
-        result = save_animation(animator, "test.gif", 10)
-        self.assertIsInstance(result, str)
-        # Should contain the filename
-        self.assertIn("test.gif", result)
+        # A real temporary directory rather than a patched builtins.open: matplotlib
+        # opens files while it draws, so a global mock makes this test depend on
+        # whether the machine already has a warm font cache.
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            target = Path(tmp_dir) / "test.gif"
+            animator = DimensionAnimator()
+            result = save_animation(animator, str(target), 10)
+
+            self.assertIsInstance(result, str)
+            # Should contain the filename
+            self.assertIn("test.gif", result)
+            self.assertTrue(target.exists())
 
 
 class TestAnimationVisualizations(unittest.TestCase):

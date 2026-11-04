@@ -10,7 +10,7 @@ import pytest
 from p3if.core.framework import P3IFFramework
 from p3if.core.models import Property, Process, Perspective, Relationship
 from p3if.utils.fixtures import (
-    create_pattern_with_metadata,
+    create_pattern_with_metadata,  # noqa: F401 - re-exported for tests.fixtures
     create_test_patterns_with_relationships,
 )
 

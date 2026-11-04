@@ -51,9 +51,9 @@ class BasicAnalyzer:
         return {
             "min": min(strengths),
             "max": max(strengths),
-            "mean": np.mean(strengths),
-            "median": np.median(strengths),
-            "std": np.std(strengths),
+            "mean": float(np.mean(strengths)),
+            "median": float(np.median(strengths)),
+            "std": float(np.std(strengths)),
         }
 
     def get_strongest_relationships(self, top_n: int = 5) -> List[Dict[str, Any]]:

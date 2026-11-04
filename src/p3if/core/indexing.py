@@ -87,7 +87,7 @@ class CompositionalIndex:
         self._domain_index: Dict[str, Set[str]] = defaultdict(set)
         self._tag_index: Dict[str, Set[str]] = defaultdict(set)
         self._status_index: Dict[str, Set[str]] = defaultdict(set)
-        
+
         # Primary storage map: id -> pattern
         self._pattern_map: Dict[str, BasePattern] = {}
 

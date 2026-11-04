@@ -16,7 +16,7 @@ Usage:
 """
 import random
 import uuid
-from typing import Any, List
+from typing import Any, List, Optional
 from datetime import datetime, timezone
 
 from p3if.core.framework import P3IFFramework
@@ -25,9 +25,9 @@ from p3if.core.models import Property, Process, Perspective, Relationship
 
 def create_pattern_with_metadata(
     pattern_type: str = "property",
-    name: str = None,
+    name: Optional[str] = None,
     domain: str = "test",
-    tags: List[str] = None,
+    tags: Optional[List[str]] = None,
     quality_score: float = 0.8,
     confidence: float = 0.9,
 ) -> Any:
