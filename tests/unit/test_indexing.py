@@ -13,11 +13,17 @@ def populated_index():
     index = CompositionalIndex()
 
     p1 = Property(name="Security", domain="cyber", tags=["core", "defense"], description="Sec")
-    p2 = Property(name="Privacy", domain="healthcare", tags=["core", "compliance"], description="Priv")
+    p2 = Property(
+        name="Privacy", domain="healthcare", tags=["core", "compliance"], description="Priv"
+    )
     proc1 = Process(name="Authentication", domain="cyber", tags=["defense"], description="Auth")
     proc2 = Process(name="Diagnosis", domain="healthcare", tags=["clinical"], description="Diag")
-    persp1 = Perspective(name="Auditor", domain="cyber", viewpoint="sec_ops", tags=["core"], description="Aud")
-    persp2 = Perspective(name="Doctor", domain="healthcare", viewpoint="clinical", tags=["care"], description="Doc")
+    persp1 = Perspective(
+        name="Auditor", domain="cyber", viewpoint="sec_ops", tags=["core"], description="Aud"
+    )
+    persp2 = Perspective(
+        name="Doctor", domain="healthcare", viewpoint="clinical", tags=["care"], description="Doc"
+    )
 
     for p in [p1, p2, proc1, proc2, persp1, persp2]:
         index.index_pattern(p)

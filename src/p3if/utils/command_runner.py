@@ -38,9 +38,11 @@ def run_command(
     try:
         # Set up environment with PYTHONPATH for p3if module
         env = os.environ.copy()
-        src_path = str(root / 'src')
-        existing_path = env.get('PYTHONPATH', '')
-        env['PYTHONPATH'] = f"{src_path}:{root}:{existing_path}" if existing_path else f"{src_path}:{root}"
+        src_path = str(root / "src")
+        existing_path = env.get("PYTHONPATH", "")
+        env["PYTHONPATH"] = (
+            f"{src_path}:{root}:{existing_path}" if existing_path else f"{src_path}:{root}"
+        )
 
         result = subprocess.run(
             cmd,
@@ -49,10 +51,10 @@ def run_command(
             text=True,
             cwd=cwd or root,
             timeout=timeout,
-            env=env
+            env=env,
         )
         return result.returncode, result.stdout, result.stderr
     except subprocess.TimeoutExpired:
-        return -1, '', f'Command timed out after {timeout}s'
+        return -1, "", f"Command timed out after {timeout}s"
     except Exception as e:
-        return -1, '', str(e)
+        return -1, "", str(e)

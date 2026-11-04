@@ -97,9 +97,7 @@ class SyntheticDataGenerator:
             index_dir = Path(index_path).parent
 
             domains_list = self.domain_index.get("domains", [])
-            self.logger.info(
-                f"Loaded domain index with {len(domains_list)} domains"
-            )
+            self.logger.info(f"Loaded domain index with {len(domains_list)} domains")
 
             # Load each domain referenced in the index
             for domain_info in domains_list:
@@ -278,7 +276,9 @@ class SyntheticDataGenerator:
         for _ in range(num_relationships):
             prop_choice: Optional[Property] = random.choice(properties) if properties else None
             proc_choice: Optional[Process] = random.choice(processes) if processes else None
-            persp_choice: Optional[Perspective] = random.choice(perspectives) if perspectives else None
+            persp_choice: Optional[Perspective] = (
+                random.choice(perspectives) if perspectives else None
+            )
 
             # Ensure at least two dimensions are connected
             while (
