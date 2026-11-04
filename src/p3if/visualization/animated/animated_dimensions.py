@@ -451,4 +451,5 @@ def save_animation(animator, filename: str = "p3if_animation.gif", fps: int = 10
 
     except Exception as e:
         print(f"Error saving animation: {e}")
+        logging.getLogger(__name__).error("Animation save failed", exc_info=True)
         return ""
