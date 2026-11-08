@@ -79,6 +79,8 @@ P3IF supports multiple data formats:
 - **Visualization**: Interactive HTML, static images
 - **Export**: Multiple formats for integration
 
+Use the [versioned interchange contract](interchange.md) when another tool needs stable identifiers, explicit dimensional links, and validation of the retained graph.
+
 ### Can I use P3IF with my existing frameworks?
 
 Yes! P3IF is designed to work with existing frameworks. You can:
@@ -462,4 +464,4 @@ If your question isn't answered here:
 3. Ask in [GitHub Discussions](https://github.com/docxology/p3if/discussions)
 4. Contact the development team
 
-We're here to help you succeed with P3IF! 
+We're here to help you succeed with P3IF!

@@ -8,30 +8,25 @@
     "author": "Author name or organization",
     "tags": ["tag1", "tag2"],
     "count": {
-      "properties": 0,
-      "processes": 0,
-      "perspectives": 0
+      "properties": 1,
+      "processes": 1,
+      "perspectives": 1,
+      "relationships": 1
     }
   },
   "properties": [
-    "Property1",
-    "Property2",
-    "..."
+    "Property1"
   ],
   "processes": [
-    "Process1",
-    "Process2",
-    "..."
+    "Process1"
   ],
   "perspectives": [
-    "Perspective1",
-    "Perspective2",
-    "..."
+    "Perspective1"
   ],
   "patterns": {
     "properties": [
       {
-        "id": "uuid-format-string",
+        "id": "template.property.1",
         "name": "Property1",
         "type": "property",
         "domain": "DomainName",
@@ -44,7 +39,7 @@
     ],
     "processes": [
       {
-        "id": "uuid-format-string",
+        "id": "template.process.1",
         "name": "Process1",
         "type": "process",
         "domain": "DomainName",
@@ -57,11 +52,12 @@
     ],
     "perspectives": [
       {
-        "id": "uuid-format-string",
+        "id": "template.perspective.1",
         "name": "Perspective1",
         "type": "perspective",
         "domain": "DomainName",
         "description": "Description of the perspective",
+        "viewpoint": "Stakeholder viewpoint",
         "metadata": {
           "category": "optional-category",
           "tags": ["tag1", "tag2"]
@@ -71,30 +67,15 @@
   },
   "relationships": [
     {
-      "id": "uuid-format-string",
-      "property_id": "uuid-of-property",
-      "process_id": "uuid-of-process",
-      "perspective_id": "uuid-of-perspective",
-      "strength": 0.0,
-      "confidence": 0.0,
+      "id": "template.relationship.1",
+      "property_id": "template.property.1",
+      "process_id": "template.process.1",
+      "perspective_id": "template.perspective.1",
       "metadata": {
         "type": "relationship-type",
         "tags": ["tag1", "tag2"],
         "notes": "Optional notes about the relationship"
       }
     }
-  ],
-  "metadata": {
-    "count": {
-      "properties": 0,
-      "processes": 0,
-      "perspectives": 0,
-      "relationships": 0
-    },
-    "statistics": {
-      "avg_relationship_strength": 0.0,
-      "avg_relationship_confidence": 0.0,
-      "density": 0.0
-    }
-  }
-} 
+  ]
+}

@@ -60,6 +60,7 @@ The P3IF documentation is organized into the following sections:
 - **[Architecture](technical/architecture.md)**: System architecture and component interactions
 - **[Data Model](technical/data_model.md)**: Detailed explanation of the P3IF data model
 - **[API Reference](api/README.md)**: Complete API documentation for the P3IF framework
+- **[Interchange](interchange.md)**: Versioned JSON, native round-trips, and legacy migration
 
 ## User Guides
 

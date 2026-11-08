@@ -2,7 +2,19 @@
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-P3IF is a sophisticated framework for integrating and visualizing complex data relationships across multiple domains. It provides a flexible, interoperable approach to requirements engineering that bridges gaps between existing methodologies and fosters cross-domain collaboration.
+P3IF maps relationships across three dimensions. **Properties** describe what matters, **Processes** describe what happens, and **Perspectives** identify whose viewpoint is represented. A relationship can connect two or all three dimensions. P3IF supports modeling, comparing, and visualizing these declarations across frameworks.
+
+## Interchange
+
+The versioned JSON contract gives other tools a stable way to load P3IF data. It retains original IDs, axis-specific attributes, typed relationship endpoints, and declared scores and metadata. `inspect` reports what the document actually declares, including unlinked elements and the number of distinct three-axis coordinates.
+
+```sh
+python -m p3if validate examples/interchange/framework-v1.json
+python -m p3if inspect examples/interchange/framework-v1.json
+python -m p3if canonicalize examples/interchange/framework-v1.json --output framework.json
+```
+
+[Interchange guide](docs/interchange.md) · [JSON Schema](schemas/p3if-interchange-v1.schema.json) · [Example framework](examples/interchange/framework-v1.json)
 
 ## 🏗️ **Modular Architecture**
 

@@ -82,6 +82,8 @@ Each domain file follows a standardized structure:
 }
 ```
 
+The shipped domain files also retain a `patterns` object with a list for each of the three axes, plus an array of `relationships` naming exact pattern IDs. The top-level names correspond in order to the structured pattern lists. Use the [domain template](domains/template_domain.json) to see a complete linked example. The [interchange migration](../docs/interchange.md#migrate-older-exports) checks both representations and preserves declared relationships and metadata without generating descriptions or scores.
+
 ## Framework Data Format
 
 When a P3IF framework is built from domain data, it combines patterns (properties, processes, perspectives) and relationships between them. The resulting framework can be exported in the following format:

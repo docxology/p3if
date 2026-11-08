@@ -1,0 +1,96 @@
+{
+  "format": "p3if.interchange",
+  "framework": {
+    "description": "A small teaching example for exact interchange and typed links.",
+    "id": "synthetic.archive-example",
+    "metadata": {
+      "synthetic": true
+    },
+    "name": "Synthetic archive intake"
+  },
+  "perspectives": [
+    {
+      "concerns": [
+        "traceability"
+      ],
+      "description": "The person responsible for an auditable intake.",
+      "domain": "synthetic-archive",
+      "id": "perspective.archive-operator",
+      "name": "Archive operator",
+      "viewpoint": "Archive operations"
+    }
+  ],
+  "processes": [
+    {
+      "description": "Compare an intake checksum before placing a record in the archive.",
+      "domain": "synthetic-archive",
+      "id": "process.verify-intake",
+      "inputs": [
+        "intake bytes",
+        "reference checksum"
+      ],
+      "name": "Verify intake",
+      "outputs": [
+        "verification result"
+      ],
+      "steps": [
+        {
+          "labels": [
+            "α",
+            "🗂"
+          ],
+          "name": "Compare digest",
+          "retry": false
+        }
+      ]
+    }
+  ],
+  "properties": [
+    {
+      "description": "How long the archive keeps an intake record.",
+      "domain": "synthetic-archive",
+      "id": "property.retention-window",
+      "metadata": {
+        "example_values": [
+          0,
+          7,
+          null
+        ]
+      },
+      "name": "Retention window",
+      "range_max": 90.0,
+      "range_min": 0.0,
+      "unit": "days"
+    },
+    {
+      "data_type": "boolean",
+      "description": "Whether retained input matches the bytes received at intake.",
+      "domain": "synthetic-archive",
+      "id": "property.source-fidelity",
+      "name": "Source fidelity",
+      "references": [
+        "Example guide § 1"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "id": "relationship.fidelity-at-intake",
+      "perspective_id": "perspective.archive-operator",
+      "process_id": "process.verify-intake",
+      "property_id": "property.source-fidelity",
+      "relationship_type": "general",
+      "strength": 0.0
+    },
+    {
+      "evidence_sources": [
+        "Example guide § 2"
+      ],
+      "id": "relationship.retention-stakeholder",
+      "perspective_id": "perspective.archive-operator",
+      "property_id": "property.retention-window",
+      "relationship_type": "general"
+    }
+  ],
+  "version": 1
+}

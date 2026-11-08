@@ -12,6 +12,7 @@ from typing import Dict, List, Any, Union
 import networkx as nx
 
 from p3if.core.framework import P3IFFramework
+from p3if.core.models import Perspective
 
 logger = logging.getLogger(__name__)
 
@@ -117,15 +118,16 @@ def export_to_json(framework: P3IFFramework, file_path: Union[str, Path]) -> Pat
 
         # Export perspectives
         for persp in framework.get_patterns_by_type("perspective"):
-            data["perspectives"].append(
-                {
-                    "id": persp.id,
-                    "name": persp.name,
-                    "description": persp.description,
-                    "domain": persp.domain,
-                    "tags": persp.tags,
-                }
-            )
+            perspective: Dict[str, Any] = {
+                "id": persp.id,
+                "name": persp.name,
+                "description": persp.description,
+                "domain": persp.domain,
+                "tags": persp.tags,
+            }
+            if isinstance(persp, Perspective):
+                perspective["viewpoint"] = persp.viewpoint
+            data["perspectives"].append(perspective)
 
         # Export relationships
         for rel in framework.get_all_relationships():

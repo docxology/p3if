@@ -40,7 +40,7 @@ class RelationshipStrength(float):
         return core_schema.no_info_plain_validator_function(
             validate_strength,
             serialization=core_schema.plain_serializer_function_ser_schema(
-                float, return_schema=core_schema.str_schema(), when_used="always"
+                float, return_schema=core_schema.float_schema(), when_used="always"
             ),
         )
 
@@ -62,7 +62,7 @@ class ConfidenceScore(float):
         return core_schema.no_info_plain_validator_function(
             validate_confidence,
             serialization=core_schema.plain_serializer_function_ser_schema(
-                float, return_schema=core_schema.str_schema(), when_used="always"
+                float, return_schema=core_schema.float_schema(), when_used="always"
             ),
         )
 

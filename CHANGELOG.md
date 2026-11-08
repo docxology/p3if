@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **Versioned interchange**: A public JSON Schema and offline `p3if` CLI validate, inspect, canonicalize, and migrate framework snapshots. Native round-trips retain explicit dimensional fields, relationship data, and exact IDs.
 - **Framework split (TODO A1)**: `core/framework.py` (1250 lines) is now a
   `core/framework/` package — `core.py` (P3IFFramework), `metrics.py`
   (FrameworkMetrics), `builder.py` (FrameworkBuilder) — with `__init__.py`
@@ -42,6 +43,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- Grouped JSON exports retain the perspective viewpoint required by the native importer. Relationship score serializers advertise numeric output.
 - **Correctness**: `get_patterns_by_domain_optimized`, `get_patterns_by_type_optimized`,
   and `search_patterns_optimized` were decorated with a global-process cache keyed only
   on arguments. Results went stale after mutations (a new pattern was invisible to the

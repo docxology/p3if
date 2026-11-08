@@ -744,6 +744,21 @@ class P3IFFramework(MetadataMixin):
                 properties=properties, processes=processes, perspectives=perspectives
             )
 
+    def snapshot_models(self) -> tuple[list[BasePattern], list[Relationship]]:
+        """Copy the patterns and relationships under one framework lock.
+
+        Returns:
+            Detached model copies from the same framework state.
+        """
+        with self._lock:
+            return (
+                [pattern.model_copy(deep=True) for pattern in self._patterns.values()],
+                [
+                    relationship.model_copy(deep=True)
+                    for relationship in self._relationships.values()
+                ],
+            )
+
     def export_to_json(
         self, file_path: Optional[str] = None, include_metadata: bool = True
     ) -> Optional[str]:
