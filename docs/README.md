@@ -62,6 +62,7 @@ The P3IF documentation is organized into the following sections:
 - **[API Reference](api/README.md)**: Complete API documentation for the P3IF framework
 - **[Interchange](interchange.md)**: Versioned JSON, sparse analysis, snapshot comparison, native round-trips, and legacy migration
 - **[Interchange methods](manuscript/METHODS.md)**: Measurement definitions and reproducible corpus and revision examples
+- **[ScienceResearch audit](manuscript/scienceresearch-audit.md)**: An editorial proposal, reproducible controls, and a protocol for evaluating reviewer performance
 
 ## User Guides
 

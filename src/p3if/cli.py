@@ -25,6 +25,7 @@ from p3if.interchange import (
     load_interchange,
 )
 from p3if.interchange_analysis import analyze_interchange, compare_interchange
+from p3if.interchange_audit import audit_interchange
 from p3if.interchange_native import (
     framework_from_interchange,
     migrate_legacy,
@@ -131,13 +132,14 @@ def _parser() -> argparse.ArgumentParser:
         ("analyze", "Measure declared axis coverage, sparse coordinates, and score presence."),
         ("compare", "Compare two snapshots of the same framework by exact IDs."),
         ("transition", "Describe changed coordinates across two ordered snapshots."),
+        ("audit", "Audit exact snapshot bytes, declared changes, and analytical deltas."),
         ("canonicalize", "Write stable, sorted interchange JSON."),
         ("migrate", "Convert a recognized legacy P3IF JSON export."),
         ("roundtrip", "Verify exact native framework materialization and re-export."),
         ("schema", "Write the public version-one JSON Schema."),
     ):
         command = commands.add_parser(name, help=help_text, allow_abbrev=False)
-        if name in {"compare", "transition"}:
+        if name in {"compare", "transition", "audit"}:
             command.add_argument("before", help="Earlier JSON file or - for standard input")
             command.add_argument("after", help="Later JSON file or - for standard input")
         elif name != "schema":
@@ -156,9 +158,13 @@ def _run(options: argparse.Namespace) -> None:
     if command == "schema":
         _write(_json(interchange_schema()), options.output)
         return
-    if command in {"compare", "transition"}:
+    if command in {"compare", "transition", "audit"}:
         if options.before == options.after == "-":
             raise InterchangeError("Use standard input for at most one comparison snapshot.")
+        if command == "audit":
+            audit = audit_interchange(_read(options.before), _read(options.after))
+            _write(_json(audit.model_dump(mode="json")), options.output)
+            return
         before = load_interchange(_read(options.before))
         after = load_interchange(_read(options.after))
         report = (

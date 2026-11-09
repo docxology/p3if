@@ -37,6 +37,12 @@ Events are ordered by framework, property, process, perspective, and relationshi
 
 In Python, use `transition_interchange(before, after)` from `p3if.interchange_transition` to get the same typed report. [Controlled revision with coordinate output](manuscript/METHODS.md#reproduce-a-controlled-revision)
 
+## Audit exact snapshot files
+
+Run `p3if audit BEFORE.json AFTER.json` to produce a `p3if.snapshot-audit.v1` receipt. The two inputs must share a framework ID. The receipt carries each file's byte length and SHA-256, each canonical graph SHA-256, and its complete sparse analysis. It classifies the pair as `identical_bytes`, `encoding_only`, or `declared_change`.
+
+The signed counts use after minus before. The receipt summarizes stable-ID additions, removals, modifications, and rewires by declaration kind, then reports axis participation, exact pair and triple coverage, and score-presence deltas. A count of zero means that measure stayed equal across the selected pair. A canonical change can keep every coordinate count equal if an existing relationship moves to another occupied or unoccupied coordinate. Read `p3if transition` alongside the audit to recover exact event IDs and directions. [ScienceResearch worked audit](manuscript/scienceresearch-audit.md)
+
 ## Wire fields
 
 | Field | Meaning |
