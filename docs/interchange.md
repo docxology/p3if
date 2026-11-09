@@ -27,6 +27,16 @@ Use `p3if compare BEFORE.json AFTER.json` for two snapshots with the same framew
 
 The Python methods are `analyze_interchange(snapshot)` and `compare_interchange(before, after)` in `p3if.interchange_analysis`. Both return typed reports that serialize with `model_dump(mode="json")`. [Measurement definitions and worked examples](manuscript/METHODS.md)
 
+## Project changes across two stages
+
+`p3if transition BEFORE.json AFTER.json` exposes a sparse coordinate report for an interactive change viewer. It uses the same validated snapshot order and same-framework requirement as `compare`. The output binds both canonical hashes and supplies three sorted unions of axis IDs so a consumer can keep each axis fixed while changing stages.
+
+Each event carries its record kind, stable ID, operation, changed fields and rewire flag. Coordinates always order Property, Process, and Perspective. A whole `null` means the record is absent from that snapshot. Within a coordinate, `null` means the record declares no endpoint on that axis. An axis member occupies its own slot. Framework fields have no spatial coordinate and carry three null slots. Renderers can display them in a separate list.
+
+Events are ordered by framework, property, process, perspective, and relationship, then by ID within each kind. Changes reflect only the two supplied snapshots. Playback can step between the two stages, and event order supplies a stable inspection sequence. Neither encodes a date or the order of intervening edits. Format-only changes produce an empty event list.
+
+In Python, use `transition_interchange(before, after)` from `p3if.interchange_transition` to get the same typed report. [Controlled revision with coordinate output](manuscript/METHODS.md#reproduce-a-controlled-revision)
+
 ## Wire fields
 
 | Field | Meaning |

@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **Snapshot transitions**: `p3if transition` exports sparse before and after coordinates for declared changes using fixed typed axis identities and both canonical snapshot hashes.
 - **Interchange analysis and comparison**: `p3if analyze` reports sparse axis and coordinate coverage with explicit score missingness. `p3if compare` reports field changes and relationship rewires by stable identity. The existing `inspect` report keeps its previous shape.
 - **Versioned interchange**: A public JSON Schema and offline `p3if` CLI validate, inspect, canonicalize, and migrate framework snapshots. Native round-trips retain explicit dimensional fields, relationship data, and exact IDs.
 - **Framework split (TODO A1)**: `core/framework.py` (1250 lines) is now a

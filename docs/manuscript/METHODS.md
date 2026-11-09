@@ -18,6 +18,12 @@ Validate both snapshots and require the same framework ID. Within each type, ali
 
 The methods apply to a single declared graph or to revisions within one declared framework identity. The combination of a name, ID, and hash identifies what the producer supplied. The resulting report concerns the supplied structure and declared metadata. Assessing authority, framework adequacy, or relationship quality requires separate evidence.
 
+## Coordinate transitions
+
+Use the sorted union of declared IDs on each axis as the discrete coordinate system for both snapshots. A changed relationship occupies the coordinates of its exact endpoints at each stage. A change to a single axis member occupies just that axis. A metadata change to the framework itself has no declared location. Keep a separate null slot for an absent endpoint and a distinct state for a record absent from a whole snapshot. These rules preserve the difference between a pair, a triple, and an added or removed relationship.
+
+Coordinates describe categorical identifiers. Spatial distances depend on how a renderer positions the sorted IDs and have no domain meaning. A line joining the two coordinates of a rewired relationship connects the declared endpoints of that comparison. Two retained snapshots establish the displayed stage order. Additional data is required to date a change or reconstruct intervening activity.
+
 ## Reproduce the ScienceResearch census
 
 From the repository root, install P3IF and put outputs in a new temporary directory.
@@ -79,8 +85,11 @@ with Path(sys.argv[1]).open("x", encoding="utf-8") as output:
 PY
 python -m p3if compare examples/interchange/framework-v1.json \
   "$p3if_work/archive-after.json" --output "$p3if_work/archive-comparison.json"
+python -m p3if transition examples/interchange/framework-v1.json \
+  "$p3if_work/archive-after.json" --output "$p3if_work/archive-transition.json"
 python -m p3if analyze "$p3if_work/archive-after.json"
 cat "$p3if_work/archive-comparison.json"
+cat "$p3if_work/archive-transition.json"
 ```
 
-Expect one added process and one modified relationship with changed `process_id` and `strength` fields. The relationship is marked rewired. The number of observed triple coordinates remains one while the possible triple count grows from two to four. The strength tally moves from one reported zero and one omission to two omissions. The expected changes follow from the explicit edit and can be checked independently of archive practice. [Synthetic archive fixture](../../examples/interchange/framework-v1.json)
+Expect one added process and one modified relationship with changed `process_id` and `strength` fields. The transition places the new process only on the later Process axis. The rewired relationship moves from `process.verify-intake` to `process.recheck-intake` while keeping the same Property and Perspective. The number of observed triple coordinates remains one while the possible triple count grows from two to four. The strength tally moves from one reported zero and one omission to two omissions. The expected changes follow from the explicit edit and can be checked independently of archive practice. [Synthetic archive fixture](../../examples/interchange/framework-v1.json)

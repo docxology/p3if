@@ -29,6 +29,7 @@ from p3if.interchange_native import (
     framework_from_interchange,
     migrate_legacy,
 )
+from p3if.interchange_transition import transition_interchange
 
 
 def _read(source: str) -> bytes:
@@ -129,13 +130,14 @@ def _parser() -> argparse.ArgumentParser:
         ("inspect", "Summarize the declared graph and its content identity."),
         ("analyze", "Measure declared axis coverage, sparse coordinates, and score presence."),
         ("compare", "Compare two snapshots of the same framework by exact IDs."),
+        ("transition", "Describe changed coordinates across two ordered snapshots."),
         ("canonicalize", "Write stable, sorted interchange JSON."),
         ("migrate", "Convert a recognized legacy P3IF JSON export."),
         ("roundtrip", "Verify exact native framework materialization and re-export."),
         ("schema", "Write the public version-one JSON Schema."),
     ):
         command = commands.add_parser(name, help=help_text, allow_abbrev=False)
-        if name == "compare":
+        if name in {"compare", "transition"}:
             command.add_argument("before", help="Earlier JSON file or - for standard input")
             command.add_argument("after", help="Later JSON file or - for standard input")
         elif name != "schema":
@@ -154,12 +156,17 @@ def _run(options: argparse.Namespace) -> None:
     if command == "schema":
         _write(_json(interchange_schema()), options.output)
         return
-    if command == "compare":
+    if command in {"compare", "transition"}:
         if options.before == options.after == "-":
             raise InterchangeError("Use standard input for at most one comparison snapshot.")
         before = load_interchange(_read(options.before))
         after = load_interchange(_read(options.after))
-        _write(_json(compare_interchange(before, after).model_dump(mode="json")), options.output)
+        report = (
+            compare_interchange(before, after)
+            if command == "compare"
+            else transition_interchange(before, after)
+        )
+        _write(_json(report.model_dump(mode="json")), options.output)
         return
     raw = _read(options.input)
     if command == "migrate":
