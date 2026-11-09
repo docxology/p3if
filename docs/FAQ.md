@@ -81,6 +81,10 @@ P3IF supports multiple data formats:
 
 Use the [versioned interchange contract](interchange.md) when another tool needs stable identifiers, explicit dimensional links, and validation of the retained graph.
 
+### How can I compare two versions of the same framework?
+
+Run `p3if compare BEFORE.json AFTER.json`. Give both snapshots the same framework ID and keep element IDs stable across edits. The report separates additions, removals, field changes, and relationship rewires. `p3if analyze SNAPSHOT.json` shows which elements and coordinates the snapshot declares and distinguishes missing scores from reported zeroes. [Reproducible methods](manuscript/METHODS.md)
+
 ### Can I use P3IF with my existing frameworks?
 
 Yes! P3IF is designed to work with existing frameworks. You can:

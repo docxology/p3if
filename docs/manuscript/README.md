@@ -1,10 +1,4 @@
-# manuscript
+# P3IF methods
 
-Auto-expanded 2026-08-29 from on-disk inspection (File_Types doc-fleet pass).
-
-Part of the P3IF project; see the root `AGENTS.md` for project conventions.
-
-## Files
-
-1 Markdown.
+The [interchange methods note](METHODS.md) defines the measurements and provides commands to reproduce a domain-library census and a controlled revision comparison. The [manuscript status](MANUSCRIPT_STATUS.md) records the publication posture.
 

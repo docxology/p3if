@@ -6,15 +6,16 @@ P3IF maps relationships across three dimensions. **Properties** describe what ma
 
 ## Interchange
 
-The versioned JSON contract gives other tools a stable way to load P3IF data. It retains original IDs, axis-specific attributes, typed relationship endpoints, and declared scores and metadata. `inspect` reports what the document actually declares, including unlinked elements and the number of distinct three-axis coordinates.
+The versioned JSON contract gives other tools a stable way to load P3IF data. It retains original IDs, axis-specific attributes, typed relationship endpoints, and declared scores and metadata. `analyze` measures axis coverage, sparse coordinates, and reported scores. `compare` tracks changes between versions of the same framework by exact ID.
 
 ```sh
 python -m p3if validate examples/interchange/framework-v1.json
 python -m p3if inspect examples/interchange/framework-v1.json
+python -m p3if analyze examples/interchange/framework-v1.json
 python -m p3if canonicalize examples/interchange/framework-v1.json --output framework.json
 ```
 
-[Interchange guide](docs/interchange.md) · [JSON Schema](schemas/p3if-interchange-v1.schema.json) · [Example framework](examples/interchange/framework-v1.json)
+[Interchange guide](docs/interchange.md) · [Reproducible methods](docs/manuscript/METHODS.md) · [JSON Schema](schemas/p3if-interchange-v1.schema.json) · [Example framework](examples/interchange/framework-v1.json)
 
 ## 🏗️ **Modular Architecture**
 

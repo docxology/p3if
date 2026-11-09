@@ -10,6 +10,7 @@ Install the package from the checkout and run these commands from its root.
 python -m pip install -e .
 python -m p3if validate examples/interchange/framework-v1.json
 python -m p3if inspect examples/interchange/framework-v1.json
+python -m p3if analyze examples/interchange/framework-v1.json
 python -m p3if canonicalize examples/interchange/framework-v1.json --output framework.json
 python -m p3if schema --output p3if-interchange-v1.schema.json
 ```
@@ -17,6 +18,14 @@ python -m p3if schema --output p3if-interchange-v1.schema.json
 The installed `p3if` command is equivalent to `python -m p3if`. Use `-` for standard input or output. File output creates a new file, so a failed conversion or a repeated command cannot replace an existing artifact. Invalid input or an I/O failure produces a diagnostic on standard error and exits with status 2.
 
 `validate` checks the declared graph and prints the SHA-256 of its canonical representation. `inspect` reports axis counts, domains, unlinked elements, pair and triple relationship counts, and how often strength and confidence were explicitly reported. It counts distinct triples separately from relationship records because several records may declare the same endpoints. The number of possible triples is the product of the three axis counts. These counts describe the declared graph. Whether an unlinked element or an empty coordinate is a meaningful gap depends on the application.
+
+## Analyze and compare snapshots
+
+Use `p3if analyze SNAPSHOT.json` for a report with each axis's total, linked, and unlinked counts. The report shows declared relationships, distinct observed coordinates, the possible coordinate count, and the unobserved count for each of the three pair spaces and the triple space. A triple contributes to the triple space. A pair coordinate requires its own relationship declaration. Score tallies separate omitted values, explicit `null`, zero, and nonzero values.
+
+Use `p3if compare BEFORE.json AFTER.json` for two snapshots with the same framework ID. The report binds both canonical hashes, reports changed framework fields, and groups additions, removals, and modifications by record type. A relationship is rewired when one of its endpoint fields changes value. A metadata-only change appears as a modified field. Omitted and explicitly null values are distinct field states. One comparison input can be `-` for standard input.
+
+The Python methods are `analyze_interchange(snapshot)` and `compare_interchange(before, after)` in `p3if.interchange_analysis`. Both return typed reports that serialize with `model_dump(mode="json")`. [Measurement definitions and worked examples](manuscript/METHODS.md)
 
 ## Wire fields
 

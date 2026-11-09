@@ -3,6 +3,9 @@ include LICENSE
 include CHANGELOG.md
 include pyproject.toml
 include docs/interchange.md
+include docs/manuscript/README.md
+include docs/manuscript/MANUSCRIPT_STATUS.md
+include docs/manuscript/METHODS.md
 include schemas/p3if-interchange-v1.schema.json
 include examples/interchange/framework-v1.json
 recursive-include src/p3if *.py py.typed

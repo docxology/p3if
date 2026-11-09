@@ -2,7 +2,7 @@ name: P3IF CI
 
 on:
   push:
-    branches: [main, develop]
+    branches: [main, develop, codex/p3if-interchange]
   pull_request:
     branches: [main]
 

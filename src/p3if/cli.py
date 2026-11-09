@@ -24,6 +24,7 @@ from p3if.interchange import (
     interchange_sha256,
     load_interchange,
 )
+from p3if.interchange_analysis import analyze_interchange, compare_interchange
 from p3if.interchange_native import (
     framework_from_interchange,
     migrate_legacy,
@@ -89,48 +90,30 @@ def inspect_interchange(document: Interchange) -> dict[str, Any]:
     Returns:
         Declared counts, cardinalities, and the canonical identity as JSON-ready data.
     """
-    counts = {
-        "properties": len(document.properties),
-        "processes": len(document.processes),
-        "perspectives": len(document.perspectives),
-    }
-    linked: tuple[set[str], set[str], set[str]] = (set(), set(), set())
-    triples: set[tuple[str, str, str]] = set()
-    pair_count = 0
-    strength_count = 0
-    confidence_count = 0
-    for relation in document.relationships:
-        property_id, process_id, perspective_id = relation.endpoints()
-        for ids, identity in zip(linked, (property_id, process_id, perspective_id)):
-            if identity is not None:
-                ids.add(identity)
-        if property_id is not None and process_id is not None and perspective_id is not None:
-            triples.add((property_id, process_id, perspective_id))
-        else:
-            pair_count += 1
-        strength_count += relation.strength is not None
-        confidence_count += relation.confidence is not None
+    report = analyze_interchange(document)
+    axis_names = {"property": "properties", "process": "processes", "perspective": "perspectives"}
+    triples = next(space for space in report.spaces if len(space.axes) == 3)
     return {
         "format": document.format,
         "version": document.version,
         "framework": document.framework.model_dump(mode="json", exclude_unset=True),
-        "sha256": interchange_sha256(document),
-        "axes": counts,
-        "unlinked_axes": {key: counts[key] - len(ids) for key, ids in zip(counts, linked)},
+        "sha256": report.semantic_sha256,
+        "axes": {axis_names[axis.axis]: axis.total for axis in report.axes},
+        "unlinked_axes": {axis_names[axis.axis]: axis.unlinked for axis in report.axes},
         "domains": sorted(
             {item.domain for item in document.properties}
             | {item.domain for item in document.processes}
             | {item.domain for item in document.perspectives}
         ),
         "relationships": {
-            "pairs": pair_count,
-            "triples": len(document.relationships) - pair_count,
-            "explicit_strength": strength_count,
-            "explicit_confidence": confidence_count,
+            "pairs": report.relationship_count - triples.relationships,
+            "triples": triples.relationships,
+            "explicit_strength": report.strength.reported,
+            "explicit_confidence": report.confidence.reported,
         },
         "coordinate_space": {
-            "possible_triples": counts["properties"] * counts["processes"] * counts["perspectives"],
-            "linked_triples": len(triples),
+            "possible_triples": triples.possible,
+            "linked_triples": triples.observed,
         },
     }
 
@@ -144,13 +127,18 @@ def _parser() -> argparse.ArgumentParser:
     for name, help_text in (
         ("validate", "Validate the schema and typed relationship graph."),
         ("inspect", "Summarize the declared graph and its content identity."),
+        ("analyze", "Measure declared axis coverage, sparse coordinates, and score presence."),
+        ("compare", "Compare two snapshots of the same framework by exact IDs."),
         ("canonicalize", "Write stable, sorted interchange JSON."),
         ("migrate", "Convert a recognized legacy P3IF JSON export."),
         ("roundtrip", "Verify exact native framework materialization and re-export."),
         ("schema", "Write the public version-one JSON Schema."),
     ):
         command = commands.add_parser(name, help=help_text, allow_abbrev=False)
-        if name != "schema":
+        if name == "compare":
+            command.add_argument("before", help="Earlier JSON file or - for standard input")
+            command.add_argument("after", help="Later JSON file or - for standard input")
+        elif name != "schema":
             command.add_argument("input", help="Local JSON file or - for standard input")
         if name != "validate":
             command.add_argument("-o", "--output", default="-", help="New file or - for stdout")
@@ -166,6 +154,13 @@ def _run(options: argparse.Namespace) -> None:
     if command == "schema":
         _write(_json(interchange_schema()), options.output)
         return
+    if command == "compare":
+        if options.before == options.after == "-":
+            raise InterchangeError("Use standard input for at most one comparison snapshot.")
+        before = load_interchange(_read(options.before))
+        after = load_interchange(_read(options.after))
+        _write(_json(compare_interchange(before, after).model_dump(mode="json")), options.output)
+        return
     raw = _read(options.input)
     if command == "migrate":
         identity = FrameworkIdentity(id=options.id, name=options.name)
@@ -180,6 +175,8 @@ def _run(options: argparse.Namespace) -> None:
         _write(_json({"valid": True, "sha256": interchange_sha256(interchange)}), "-")
     elif command == "inspect":
         _write(_json(inspect_interchange(interchange)), options.output)
+    elif command == "analyze":
+        _write(_json(analyze_interchange(interchange).model_dump(mode="json")), options.output)
     elif command == "roundtrip":
         _native_roundtrip(interchange)
         _write(canonical_bytes(interchange), options.output)
