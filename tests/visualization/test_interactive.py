@@ -156,7 +156,8 @@ class TestInteractiveVisualizer(unittest.TestCase):
             self.assertIn("<title>Test Force Graph</title>", content)
 
             # Check for D3.js inclusion
-            self.assertIn("d3.v7.min.js", content)
+            self.assertIn("d3@7", content)
+            self.assertIn("integrity=", content)
 
             # Check for our data in the script
             self.assertIn("graphData", content)
