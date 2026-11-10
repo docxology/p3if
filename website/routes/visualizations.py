@@ -7,6 +7,7 @@ This module provides routes for displaying P3IF visualizations from the output d
 import json
 from pathlib import Path
 from flask import Blueprint, render_template, abort, current_app, redirect
+from werkzeug.utils import secure_filename
 
 viz_bp = Blueprint('visualizations', __name__, template_folder='../templates')
 
@@ -81,12 +82,11 @@ def dashboard_view():
     return html_content
 
 def _output_subdir(output_root, output_dir):
-    """Resolve one output directory name, rejecting anything outside output_root."""
-    root = output_root.resolve()
-    candidate = (root / output_dir).resolve()
-    if candidate.parent != root:
+    """Return output_root / output_dir, accepting only a plain directory name."""
+    safe_name = secure_filename(output_dir)
+    if not safe_name or safe_name != output_dir:
         abort(404)
-    return candidate
+    return output_root / safe_name
 
 
 @viz_bp.route('/<output_dir>')
