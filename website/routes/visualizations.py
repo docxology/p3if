@@ -80,11 +80,20 @@ def dashboard_view():
 
     return html_content
 
+def _output_subdir(output_root, output_dir):
+    """Resolve one output directory name, rejecting anything outside output_root."""
+    root = output_root.resolve()
+    candidate = (root / output_dir).resolve()
+    if candidate.parent != root:
+        abort(404)
+    return candidate
+
+
 @viz_bp.route('/<output_dir>')
 def show_visualization(output_dir):
     """Show a specific visualization output directory."""
     output_root = Path(current_app.root_path).parent / 'output'
-    viz_path = output_root / output_dir / 'visualizations'
+    viz_path = _output_subdir(output_root, output_dir) / 'visualizations'
     
     if not viz_path.exists():
         abort(404)
@@ -125,7 +134,7 @@ def show_visualization(output_dir):
     
     # Get summary data if available
     summary_data = {}
-    summary_path = output_root / output_dir / 'data' / 'summary.json'
+    summary_path = _output_subdir(output_root, output_dir) / 'data' / 'summary.json'
     if summary_path.exists():
         try:
             with open(summary_path, 'r') as f:
@@ -152,7 +161,7 @@ def show_visualization_type(output_dir, viz_type):
     
     # Handle static visualization directories
     if viz_type in ['overview', 'domain', 'compare']:
-        viz_path = output_root / output_dir / 'visualizations' / viz_type
+        viz_path = _output_subdir(output_root, output_dir) / 'visualizations' / viz_type
         
         if not viz_path.exists():
             abort(404)
