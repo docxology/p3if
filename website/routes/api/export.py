@@ -1,6 +1,7 @@
 """
 Export endpoints for P3IF data in JSON, CSV, and GraphML formats.
 """
+import logging
 import io
 import csv
 from datetime import datetime, timezone
@@ -9,6 +10,7 @@ import networkx as nx
 from p3if.core.framework import P3IFFramework
 from .common import API_BASE_URL, API_AVAILABLE, handle_api_errors, validate_json
 
+logger = logging.getLogger(__name__)
 export_api_bp = Blueprint("api_export", __name__)
 
 
@@ -195,10 +197,11 @@ def export_data():
             "status_code": 400,
         }), 400
 
-    except Exception as e:
+    except Exception:
+        logger.exception("Error exporting data")
         return jsonify({
             "status": "error",
             "error": "Export Error",
-            "message": f"Error exporting data: {str(e)}",
+            "message": "Error exporting data",
             "status_code": 500,
         }), 500

@@ -1,11 +1,13 @@
 """
 Framework metrics and validation API routes.
 """
+import logging
 from datetime import datetime, timezone
 from flask import Blueprint, jsonify
 from p3if.core.framework import P3IFFramework
 from .common import API_BASE_URL, handle_api_errors
 
+logger = logging.getLogger(__name__)
 framework_api_bp = Blueprint("api_framework", __name__)
 
 
@@ -38,11 +40,12 @@ def get_framework_metrics():
                 "cache_info": "Metrics are cached for 5 minutes",
             },
         })
-    except Exception as e:
+    except Exception:
+        logger.exception("Error retrieving framework metrics")
         return jsonify({
             "status": "error",
             "error": "Framework Error",
-            "message": f"Error retrieving framework metrics: {str(e)}",
+            "message": "Error retrieving framework metrics",
             "status_code": 500,
         }), 500
 
@@ -67,10 +70,11 @@ def validate_framework():
                 "validated_at": datetime.now(timezone.utc).isoformat(),
             },
         })
-    except Exception as e:
+    except Exception:
+        logger.exception("Error validating framework")
         return jsonify({
             "status": "error",
             "error": "Validation Error",
-            "message": f"Error validating framework: {str(e)}",
+            "message": "Error validating framework",
             "status_code": 500,
         }), 500

@@ -1,11 +1,13 @@
 """
 Pattern analysis API routes.
 """
+import logging
 from datetime import datetime, timezone
 from flask import Blueprint, jsonify
 from p3if.core.framework import P3IFFramework
 from .common import API_BASE_URL, handle_api_errors
 
+logger = logging.getLogger(__name__)
 analysis_api_bp = Blueprint("api_analysis", __name__)
 
 
@@ -52,10 +54,11 @@ def analyze_patterns():
                 "analysis_version": "2.0",
             },
         })
-    except Exception as e:
+    except Exception:
+        logger.exception("Error performing pattern analysis")
         return jsonify({
             "status": "error",
             "error": "Analysis Error",
-            "message": f"Error performing pattern analysis: {str(e)}",
+            "message": "Error performing pattern analysis",
             "status_code": 500,
         }), 500

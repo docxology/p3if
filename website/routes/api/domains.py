@@ -132,18 +132,19 @@ def get_domain(domain_id: str):
         }
 
         return jsonify({"status": "success", "data": domain_data})
-    except json.JSONDecodeError as e:
+    except json.JSONDecodeError:
+        logger.exception("Domain file %s.json contains invalid JSON", domain_id)
         return jsonify({
             "status": "error",
             "error": "Invalid Domain Data",
             "message": f"Domain file '{domain_id}.json' contains invalid JSON",
-            "details": str(e),
             "status_code": 500,
         }), 500
-    except Exception as e:
+    except Exception:
+        logger.exception("Error reading domain file %s.json", domain_id)
         return jsonify({
             "status": "error",
             "error": "Internal Error",
-            "message": f"Error reading domain file '{domain_id}.json': {e}",
+            "message": f"Error reading domain file '{domain_id}.json'",
             "status_code": 500,
         }), 500

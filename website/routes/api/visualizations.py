@@ -1,11 +1,13 @@
 """
 Visualization capabilities and generation API routes.
 """
+import logging
 import uuid
 from datetime import datetime, timezone
 from flask import Blueprint, jsonify, request
 from .common import API_BASE_URL, API_VERSION, handle_api_errors, validate_json
 
+logger = logging.getLogger(__name__)
 visualizations_api_bp = Blueprint("api_visualizations", __name__)
 
 
@@ -87,11 +89,12 @@ def generate_visualization():
                 "api_version": API_VERSION,
             },
         })
-    except Exception as e:
+    except Exception:
+        logger.exception("Error generating visualization")
         return jsonify({
             "status": "error",
             "error": "Generation Error",
-            "message": f"Error generating visualization: {str(e)}",
+            "message": "Error generating visualization",
             "status_code": 500,
         }), 500
 
@@ -136,10 +139,11 @@ def get_visualization_status(viz_id: str):
                 "visualization_type": viz_status.get("type", "unknown"),
             },
         })
-    except Exception as e:
+    except Exception:
+        logger.exception("Error retrieving visualization status")
         return jsonify({
             "status": "error",
             "error": "Status Check Error",
-            "message": f"Error retrieving visualization status: {str(e)}",
+            "message": "Error retrieving visualization status",
             "status_code": 500,
         }), 500

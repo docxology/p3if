@@ -1,11 +1,13 @@
 """
 Pattern retrieval API routes.
 """
+import logging
 from datetime import datetime, timezone
 from flask import Blueprint, jsonify, request
 from p3if.core.framework import P3IFFramework
 from .common import API_BASE_URL, handle_api_errors
 
+logger = logging.getLogger(__name__)
 patterns_api_bp = Blueprint("api_patterns", __name__)
 
 
@@ -62,11 +64,12 @@ def get_patterns():
                 "generated_at": datetime.now(timezone.utc).isoformat(),
             },
         })
-    except Exception as e:
+    except Exception:
+        logger.exception("Error retrieving patterns")
         return jsonify({
             "status": "error",
             "error": "Query Error",
-            "message": f"Error retrieving patterns: {str(e)}",
+            "message": "Error retrieving patterns",
             "status_code": 500,
         }), 500
 
@@ -99,10 +102,11 @@ def get_pattern(pattern_id: str):
                 "retrieved_at": datetime.now(timezone.utc).isoformat(),
             },
         })
-    except Exception as e:
+    except Exception:
+        logger.exception("Error retrieving pattern")
         return jsonify({
             "status": "error",
             "error": "Retrieval Error",
-            "message": f"Error retrieving pattern: {str(e)}",
+            "message": "Error retrieving pattern",
             "status_code": 500,
         }), 500
