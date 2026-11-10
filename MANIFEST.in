@@ -8,9 +8,15 @@ include docs/manuscript/README.md
 include docs/manuscript/MANUSCRIPT_STATUS.md
 include docs/manuscript/METHODS.md
 include docs/manuscript/scienceresearch-audit.md
+include docs/manuscript/reviewer-study-preregistration.md
+include docs/manuscript/reviewer-study-case-spec.json
+include docs/manuscript/reviewer-study-case-manifest.json
+include docs/manuscript/reviewer-study-packet-manifest.json
 include schemas/p3if-interchange-v1.schema.json
 include examples/interchange/framework-v1.json
 include scripts/scienceresearch_editorial_audit.py
+include scripts/reviewer_study.py
+include scripts/reviewer_study_cases.py
 recursive-include src/p3if *.py py.typed
 recursive-include data/domains *.json
 recursive-exclude * __pycache__

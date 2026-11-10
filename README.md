@@ -17,6 +17,8 @@ python -m p3if canonicalize examples/interchange/framework-v1.json --output fram
 
 [Interchange guide](docs/interchange.md) · [Reproducible methods](docs/manuscript/METHODS.md) · [ScienceResearch audit](docs/manuscript/scienceresearch-audit.md) · [JSON Schema](schemas/p3if-interchange-v1.schema.json) · [Citation metadata](CITATION.cff) · [Example framework](examples/interchange/framework-v1.json)
 
+The [reviewer study preregistration](docs/manuscript/reviewer-study-preregistration.md) specifies a two-domain comparison against a stable-ID diff.
+
 ## 🏗️ **Modular Architecture**
 
 The P3IF codebase follows a modular architecture for maintainability and scalability.

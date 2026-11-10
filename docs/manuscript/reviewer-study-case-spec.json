@@ -1,0 +1,170 @@
+{
+  "cases": [
+    {
+      "case_id": "R01",
+      "domain": "ScienceResearch",
+      "intervention": "identical_bytes"
+    },
+    {
+      "case_id": "R02",
+      "domain": "ScienceResearch",
+      "intervention": "encoding_only"
+    },
+    {
+      "case_id": "R03",
+      "domain": "ScienceResearch",
+      "intervention": "rewire",
+      "relationship": {
+        "change": "modified",
+        "id": "2df34732-0613-4919-adfe-0c871ad9ccd4",
+        "omit": [
+          "strength",
+          "confidence"
+        ],
+        "set": {
+          "process_id": "97e2f3ad-597c-4bc1-bf01-e29105879c50",
+          "status": "proposed"
+        }
+      }
+    },
+    {
+      "case_id": "R04",
+      "domain": "ScienceResearch",
+      "intervention": "metadata",
+      "relationship": {
+        "change": "modified",
+        "id": "0fbf37ae-3c53-414f-af71-f73adda5ef9b",
+        "omit": [],
+        "set": {
+          "status": "proposed"
+        }
+      }
+    },
+    {
+      "case_id": "R05",
+      "domain": "ScienceResearch",
+      "intervention": "removal",
+      "relationship": {
+        "change": "removed",
+        "id": "0a658512-d0ad-4187-888b-32c6615fce0c"
+      }
+    },
+    {
+      "case_id": "R06",
+      "domain": "ScienceResearch",
+      "intervention": "addition",
+      "relationship": {
+        "change": "added",
+        "id": "pilot.v1.scienceresearch.relationship",
+        "set": {
+          "id": "pilot.v1.scienceresearch.relationship",
+          "perspective_id": "dbe7828e-ca4a-49de-92f8-1d75605360d9",
+          "process_id": "97e2f3ad-597c-4bc1-bf01-e29105879c50",
+          "property_id": "b0f10893-b858-481f-b643-a7a1867dd6bf",
+          "status": "proposed"
+        }
+      }
+    },
+    {
+      "case_id": "R07",
+      "domain": "MathEducation",
+      "intervention": "encoding_only"
+    },
+    {
+      "case_id": "R08",
+      "domain": "MathEducation",
+      "intervention": "identical_bytes"
+    },
+    {
+      "case_id": "R09",
+      "domain": "MathEducation",
+      "intervention": "metadata",
+      "relationship": {
+        "change": "modified",
+        "id": "13a516be-fda0-4bd9-b2bb-1428dac48b10",
+        "omit": [],
+        "set": {
+          "status": "proposed"
+        }
+      }
+    },
+    {
+      "case_id": "R10",
+      "domain": "MathEducation",
+      "intervention": "rewire",
+      "relationship": {
+        "change": "modified",
+        "id": "3078bd9d-be9b-4758-ae34-60a6a52bdeb3",
+        "omit": [],
+        "set": {
+          "confidence": null,
+          "process_id": "757f7a9c-514c-4b6a-8ec9-d1098ebc8fc4",
+          "status": "proposed",
+          "strength": 0
+        }
+      }
+    },
+    {
+      "case_id": "R11",
+      "domain": "MathEducation",
+      "intervention": "removal",
+      "relationship": {
+        "change": "removed",
+        "id": "1478c325-199a-4fe6-aaba-9d79a43bd37e"
+      }
+    },
+    {
+      "case_id": "R12",
+      "domain": "MathEducation",
+      "intervention": "addition",
+      "relationship": {
+        "change": "added",
+        "id": "pilot.v1.matheducation.relationship",
+        "set": {
+          "id": "pilot.v1.matheducation.relationship",
+          "perspective_id": "52e98f38-ebe1-4117-93e7-d421543408d5",
+          "process_id": "757f7a9c-514c-4b6a-8ec9-d1098ebc8fc4",
+          "property_id": "664dc252-119c-4c79-aeb4-c68b6be88174",
+          "status": "proposed"
+        }
+      }
+    }
+  ],
+  "domains": {
+    "MathEducation": {
+      "fixture": "matheducation.json",
+      "fixture_sha256": "bf7189b9901e965610fd246dd98b85276dfca316365ffd7b41f055ba57ecbea0",
+      "framework": {
+        "id": "p3if.math-education",
+        "name": "Math education"
+      }
+    },
+    "ScienceResearch": {
+      "fixture": "scienceresearch.json",
+      "fixture_sha256": "79878b37cd39517c1a766bc9c7e0f08437105bbf2fe6d8b5ee36d456156e085c",
+      "framework": {
+        "id": "p3if.science-research",
+        "name": "Science research"
+      }
+    }
+  },
+  "panels": {
+    "A": [
+      "R01",
+      "R04",
+      "R07",
+      "R10",
+      "R11",
+      "R06"
+    ],
+    "B": [
+      "R08",
+      "R03",
+      "R02",
+      "R12",
+      "R09",
+      "R05"
+    ]
+  },
+  "schema_version": "p3if.reviewer-case-spec.v1"
+}
