@@ -68,7 +68,7 @@ if __name__ == '__main__':
         
         # Run the Flask application
         app.run(
-            debug=True, 
+            debug=os.environ.get('FLASK_DEBUG') == '1', 
             host='0.0.0.0', 
             port=5000,
             extra_files=None,
