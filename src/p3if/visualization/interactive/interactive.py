@@ -523,8 +523,8 @@ class InteractiveVisualizer(Visualizer):
                 .process-color {{ color: #ff7f0e; }}
                 .perspective-color {{ color: #2ca02c; }}
             </style>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js" integrity="sha384-h7Aq0o4ZAp7NwOQpyld4gjtp0ucz1DPIOTD+aKxgyqQlccFO/I5rSMXxv4/SofjI" crossorigin="anonymous"></script>
         </head>
         <body>
             <div id="info">
@@ -800,7 +800,6 @@ class InteractiveVisualizer(Visualizer):
 
             <!-- Modern CSS Framework -->
             <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-            <link href="https://cdn.jsdelivr.net/npm/chart.js" rel="stylesheet">
 
             <style>
                 * {{
@@ -1062,12 +1061,12 @@ class InteractiveVisualizer(Visualizer):
             </style>
 
             <!-- Chart.js for analytics -->
-            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js@4.6.1/dist/chart.umd.min.js" integrity="sha384-Emf5ZVIUiarAdhkgtqK+5/Z5qIvM6QoVrS+qAVtfyZVuD5lIHrac0me485+Antp0" crossorigin="anonymous"></script>
             <!-- D3.js for network visualization -->
-            <script src="https://d3js.org/d3.v7.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/d3@7.9.2/dist/d3.min.js" integrity="sha384-LxfWGZyh6PaLjBRPf7NWiEYs9Mn0UQ6ZmqbLLZhxlOBBNWF2a2K0Pfc5efkrNnhQ" crossorigin="anonymous"></script>
             <!-- Three.js and OrbitControls for 3D Cube -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-            <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" integrity="sha384-CI3ELBVUz9XQO+97x6nwMDPosPR5XvsxW2ua7N1Xeygeh1IxtgqtCkGfQY9WWdHu" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js" integrity="sha384-h7Aq0o4ZAp7NwOQpyld4gjtp0ucz1DPIOTD+aKxgyqQlccFO/I5rSMXxv4/SofjI" crossorigin="anonymous"></script>
         </head>
         <body>
             <div class="dashboard-container">
@@ -1700,7 +1699,7 @@ class InteractiveVisualizer(Visualizer):
                     border: 1px solid #ccc;
                 }}
             </style>
-            <script src="https://d3js.org/d3.v7.min.js"></script>
+            <script src="https://cdn.jsdelivr.net/npm/d3@7.9.2/dist/d3.min.js" integrity="sha384-LxfWGZyh6PaLjBRPf7NWiEYs9Mn0UQ6ZmqbLLZhxlOBBNWF2a2K0Pfc5efkrNnhQ" crossorigin="anonymous"></script>
         </head>
         <body>
             <div id="info">
