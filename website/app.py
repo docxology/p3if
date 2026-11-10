@@ -92,8 +92,9 @@ def create_app(testing=False):
         """Serve files from the output directory."""
         if '..' in path or path.startswith('/'):
             abort(404)  # Security check
-        full_path = OUTPUT_ROOT / path
-        if not full_path.exists():
+        output_root = OUTPUT_ROOT.resolve()
+        full_path = (output_root / path).resolve()
+        if not full_path.is_relative_to(output_root) or not full_path.exists():
             abort(404)
         directory = str(full_path.parent)
         filename = full_path.name
