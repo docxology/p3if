@@ -1,0 +1,22 @@
+{
+  "manifest_sha256": "b22c647d30365c1a89f974485ce126d7fbe05c21c841e50a538a601d1b507d94",
+  "matched": {
+    "cases": 12,
+    "citations": 12,
+    "declared_change": 8,
+    "encoding_only": 2,
+    "identical_bytes": 2
+  },
+  "schema": "independent-raw-case-key-check.v1",
+  "spec_sha256": "042e5de13fc780a9721d08fd1e8a55548a9f698ff735300d4b7a0569dd4e3f9f",
+  "unique_triples_before_after": {
+    "R03": [
+      71,
+      71
+    ],
+    "R10": [
+      63,
+      63
+    ]
+  }
+}

@@ -1,0 +1,260 @@
+[
+  {
+    "case_id": "R01",
+    "classification": "identical_bytes",
+    "events": []
+  },
+  {
+    "case_id": "R04",
+    "classification": "declared_change",
+    "events": [
+      {
+        "id": "0fbf37ae-3c53-414f-af71-f73adda5ef9b",
+        "change": "modified",
+        "fields": [
+          "status"
+        ],
+        "before": {
+          "endpoints": [
+            "14afd441-4f3f-4f49-ba55-4d046d1a4895",
+            "58c0f035-a1e2-417b-8980-8e3d21772044",
+            "bf41b8fc-6d69-41af-a949-b6f5ed1eb1de"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": {
+          "endpoints": [
+            "14afd441-4f3f-4f49-ba55-4d046d1a4895",
+            "58c0f035-a1e2-417b-8980-8e3d21772044",
+            "bf41b8fc-6d69-41af-a949-b6f5ed1eb1de"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "R07",
+    "classification": "encoding_only",
+    "events": []
+  },
+  {
+    "case_id": "R10",
+    "classification": "declared_change",
+    "events": [
+      {
+        "id": "3078bd9d-be9b-4758-ae34-60a6a52bdeb3",
+        "change": "modified",
+        "fields": [
+          "confidence",
+          "process_id",
+          "status",
+          "strength"
+        ],
+        "before": {
+          "endpoints": [
+            "664dc252-119c-4c79-aeb4-c68b6be88174",
+            "1d4198b5-2edf-46b2-b635-f4a7122e8a17",
+            "314a50d7-a823-4b44-b5bc-f0a844f1b449"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": {
+          "endpoints": [
+            "664dc252-119c-4c79-aeb4-c68b6be88174",
+            "757f7a9c-514c-4b6a-8ec9-d1098ebc8fc4",
+            "314a50d7-a823-4b44-b5bc-f0a844f1b449"
+          ],
+          "scores": {
+            "strength": "reported_zero",
+            "confidence": "explicit_null"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "R11",
+    "classification": "declared_change",
+    "events": [
+      {
+        "id": "1478c325-199a-4fe6-aaba-9d79a43bd37e",
+        "change": "removed",
+        "fields": [],
+        "before": {
+          "endpoints": [
+            "992833b2-771d-4f3a-ab06-141ec118b896",
+            "1d4198b5-2edf-46b2-b635-f4a7122e8a17",
+            "42ff616f-8811-4bb1-83e6-6e7f1825e1c1"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": null
+      }
+    ]
+  },
+  {
+    "case_id": "R06",
+    "classification": "declared_change",
+    "events": [
+      {
+        "id": "pilot.v1.scienceresearch.relationship",
+        "change": "added",
+        "fields": [],
+        "before": null,
+        "after": {
+          "endpoints": [
+            "b0f10893-b858-481f-b643-a7a1867dd6bf",
+            "97e2f3ad-597c-4bc1-bf01-e29105879c50",
+            "dbe7828e-ca4a-49de-92f8-1d75605360d9"
+          ],
+          "scores": {
+            "strength": "omitted",
+            "confidence": "omitted"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "R08",
+    "classification": "identical_bytes",
+    "events": []
+  },
+  {
+    "case_id": "R03",
+    "classification": "declared_change",
+    "events": [
+      {
+        "id": "2df34732-0613-4919-adfe-0c871ad9ccd4",
+        "change": "modified",
+        "fields": [
+          "confidence",
+          "process_id",
+          "status",
+          "strength"
+        ],
+        "before": {
+          "endpoints": [
+            "68718748-9a33-4c3d-bfa9-54b1c471850d",
+            "096bd1eb-52ba-4bde-8396-56814f8da38b",
+            "dbe7828e-ca4a-49de-92f8-1d75605360d9"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": {
+          "endpoints": [
+            "68718748-9a33-4c3d-bfa9-54b1c471850d",
+            "97e2f3ad-597c-4bc1-bf01-e29105879c50",
+            "dbe7828e-ca4a-49de-92f8-1d75605360d9"
+          ],
+          "scores": {
+            "strength": "omitted",
+            "confidence": "omitted"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "R02",
+    "classification": "encoding_only",
+    "events": []
+  },
+  {
+    "case_id": "R12",
+    "classification": "declared_change",
+    "events": [
+      {
+        "id": "pilot.v1.matheducation.relationship",
+        "change": "added",
+        "fields": [],
+        "before": null,
+        "after": {
+          "endpoints": [
+            "664dc252-119c-4c79-aeb4-c68b6be88174",
+            "757f7a9c-514c-4b6a-8ec9-d1098ebc8fc4",
+            "52e98f38-ebe1-4117-93e7-d421543408d5"
+          ],
+          "scores": {
+            "strength": "omitted",
+            "confidence": "omitted"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "R09",
+    "classification": "declared_change",
+    "events": [
+      {
+        "id": "13a516be-fda0-4bd9-b2bb-1428dac48b10",
+        "change": "modified",
+        "fields": [
+          "status"
+        ],
+        "before": {
+          "endpoints": [
+            "214a35f8-a314-4ec1-befe-c8e5cb84da15",
+            "a40b8a33-e2ac-412a-b577-12e18979cdce",
+            "71305f97-5ce7-4bc5-971d-7b2975f20858"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": {
+          "endpoints": [
+            "214a35f8-a314-4ec1-befe-c8e5cb84da15",
+            "a40b8a33-e2ac-412a-b577-12e18979cdce",
+            "71305f97-5ce7-4bc5-971d-7b2975f20858"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "R05",
+    "classification": "declared_change",
+    "events": [
+      {
+        "id": "0a658512-d0ad-4187-888b-32c6615fce0c",
+        "change": "removed",
+        "fields": [],
+        "before": {
+          "endpoints": [
+            "59a31318-a55b-424e-b0ba-45b6719c2ed9",
+            "1ad3aa52-cdff-4f7a-a616-15ca55b7cb3a",
+            "3ed75da8-b75c-4800-af8d-38b4c7e38453"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": null
+      }
+    ]
+  }
+]

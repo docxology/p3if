@@ -63,7 +63,7 @@ The P3IF documentation is organized into the following sections:
 - **[Interchange](interchange.md)**: Versioned JSON, sparse analysis, snapshot comparison, native round-trips, and legacy migration
 - **[Interchange methods](manuscript/METHODS.md)**: Measurement definitions and reproducible corpus and revision examples
 - **[ScienceResearch audit](manuscript/scienceresearch-audit.md)**: An editorial proposal, reproducible controls, and a protocol for evaluating reviewer performance
-- [Reviewer study preregistration](manuscript/reviewer-study-preregistration.md) records the cases, allocation, and scoring rules for ScienceResearch and MathEducation.
+- [Reviewer study preregistration](manuscript/reviewer-study-preregistration.md) records the cases, allocation, and scoring rules for ScienceResearch and MathEducation. The [technical pilot](manuscript/reviewer-study-pilot.md) publishes the submissions and scores.
 
 ## User Guides
 

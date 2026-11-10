@@ -1,0 +1,23 @@
+{
+  "case_manifest_sha256": "b22c647d30365c1a89f974485ce126d7fbe05c21c841e50a538a601d1b507d94",
+  "packet_manifest_sha256": "9b66b360311e16cf6562060c48dee1fb645504b40a4286a496d0f288791aabce",
+  "preregistration_commit": "f2f1e0c18e6fdc54563e4df81eef59bc651570de",
+  "registration_observed_utc": "2026-11-10T00:04:36.301616+00:00",
+  "schema_version": "p3if.reviewer-pilot-sessions.v1",
+  "sessions": {
+    "T1": {
+      "deviations_reported": [],
+      "response_sha256": "d45b89d97fc648a097b9804015be32a854e7811771ef5d5f34aa6c8c49f7e4b1",
+      "reviewer": "Codex model subagent (GPT-6 family, exact version unavailable)",
+      "reviewer_observation": "Distinguished raw source hashes from the unqualified SHA-256 fields in the transition report, which represent canonical semantic hashes.",
+      "submission_recorded_utc": "2026-11-10T00:06:08.892061+00:00"
+    },
+    "T2": {
+      "deviations_reported": [],
+      "response_sha256": "c5b566779dbe45a22103ba380bfe5aa656b7fecb0504a15cf83394682f261b79",
+      "reviewer": "Codex model subagent (GPT-6 family, exact version unavailable)",
+      "reviewer_observation": "Reported no unresolved ambiguity.",
+      "submission_recorded_utc": "2026-11-10T00:06:16.409239+00:00"
+    }
+  }
+}

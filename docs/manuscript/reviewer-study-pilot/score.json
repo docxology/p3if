@@ -1,0 +1,258 @@
+{
+  "case_manifest_sha256": "b22c647d30365c1a89f974485ce126d7fbe05c21c841e50a538a601d1b507d94",
+  "counts": {
+    "diff": {
+      "correct": 12
+    },
+    "p3if": {
+      "correct": 12
+    }
+  },
+  "response_sha256": {
+    "T1": "d45b89d97fc648a097b9804015be32a854e7811771ef5d5f34aa6c8c49f7e4b1",
+    "T2": "c5b566779dbe45a22103ba380bfe5aa656b7fecb0504a15cf83394682f261b79"
+  },
+  "rows": [
+    {
+      "case_id": "R01",
+      "condition": "p3if",
+      "domain": "ScienceResearch",
+      "false_declared_change": false,
+      "intervention": "identical_bytes",
+      "period": 1,
+      "result": "correct",
+      "session": "T1"
+    },
+    {
+      "case_id": "R04",
+      "condition": "p3if",
+      "domain": "ScienceResearch",
+      "false_declared_change": false,
+      "intervention": "metadata",
+      "period": 1,
+      "result": "correct",
+      "session": "T1"
+    },
+    {
+      "case_id": "R07",
+      "condition": "p3if",
+      "domain": "MathEducation",
+      "false_declared_change": false,
+      "intervention": "encoding_only",
+      "period": 1,
+      "result": "correct",
+      "session": "T1"
+    },
+    {
+      "case_id": "R10",
+      "condition": "p3if",
+      "domain": "MathEducation",
+      "false_declared_change": false,
+      "intervention": "rewire",
+      "period": 1,
+      "result": "correct",
+      "session": "T1"
+    },
+    {
+      "case_id": "R11",
+      "condition": "p3if",
+      "domain": "MathEducation",
+      "false_declared_change": false,
+      "intervention": "removal",
+      "period": 1,
+      "result": "correct",
+      "session": "T1"
+    },
+    {
+      "case_id": "R06",
+      "condition": "p3if",
+      "domain": "ScienceResearch",
+      "false_declared_change": false,
+      "intervention": "addition",
+      "period": 1,
+      "result": "correct",
+      "session": "T1"
+    },
+    {
+      "case_id": "R08",
+      "condition": "diff",
+      "domain": "MathEducation",
+      "false_declared_change": false,
+      "intervention": "identical_bytes",
+      "period": 2,
+      "result": "correct",
+      "session": "T1"
+    },
+    {
+      "case_id": "R03",
+      "condition": "diff",
+      "domain": "ScienceResearch",
+      "false_declared_change": false,
+      "intervention": "rewire",
+      "period": 2,
+      "result": "correct",
+      "session": "T1"
+    },
+    {
+      "case_id": "R02",
+      "condition": "diff",
+      "domain": "ScienceResearch",
+      "false_declared_change": false,
+      "intervention": "encoding_only",
+      "period": 2,
+      "result": "correct",
+      "session": "T1"
+    },
+    {
+      "case_id": "R12",
+      "condition": "diff",
+      "domain": "MathEducation",
+      "false_declared_change": false,
+      "intervention": "addition",
+      "period": 2,
+      "result": "correct",
+      "session": "T1"
+    },
+    {
+      "case_id": "R09",
+      "condition": "diff",
+      "domain": "MathEducation",
+      "false_declared_change": false,
+      "intervention": "metadata",
+      "period": 2,
+      "result": "correct",
+      "session": "T1"
+    },
+    {
+      "case_id": "R05",
+      "condition": "diff",
+      "domain": "ScienceResearch",
+      "false_declared_change": false,
+      "intervention": "removal",
+      "period": 2,
+      "result": "correct",
+      "session": "T1"
+    },
+    {
+      "case_id": "R01",
+      "condition": "diff",
+      "domain": "ScienceResearch",
+      "false_declared_change": false,
+      "intervention": "identical_bytes",
+      "period": 1,
+      "result": "correct",
+      "session": "T2"
+    },
+    {
+      "case_id": "R04",
+      "condition": "diff",
+      "domain": "ScienceResearch",
+      "false_declared_change": false,
+      "intervention": "metadata",
+      "period": 1,
+      "result": "correct",
+      "session": "T2"
+    },
+    {
+      "case_id": "R07",
+      "condition": "diff",
+      "domain": "MathEducation",
+      "false_declared_change": false,
+      "intervention": "encoding_only",
+      "period": 1,
+      "result": "correct",
+      "session": "T2"
+    },
+    {
+      "case_id": "R10",
+      "condition": "diff",
+      "domain": "MathEducation",
+      "false_declared_change": false,
+      "intervention": "rewire",
+      "period": 1,
+      "result": "correct",
+      "session": "T2"
+    },
+    {
+      "case_id": "R11",
+      "condition": "diff",
+      "domain": "MathEducation",
+      "false_declared_change": false,
+      "intervention": "removal",
+      "period": 1,
+      "result": "correct",
+      "session": "T2"
+    },
+    {
+      "case_id": "R06",
+      "condition": "diff",
+      "domain": "ScienceResearch",
+      "false_declared_change": false,
+      "intervention": "addition",
+      "period": 1,
+      "result": "correct",
+      "session": "T2"
+    },
+    {
+      "case_id": "R08",
+      "condition": "p3if",
+      "domain": "MathEducation",
+      "false_declared_change": false,
+      "intervention": "identical_bytes",
+      "period": 2,
+      "result": "correct",
+      "session": "T2"
+    },
+    {
+      "case_id": "R03",
+      "condition": "p3if",
+      "domain": "ScienceResearch",
+      "false_declared_change": false,
+      "intervention": "rewire",
+      "period": 2,
+      "result": "correct",
+      "session": "T2"
+    },
+    {
+      "case_id": "R02",
+      "condition": "p3if",
+      "domain": "ScienceResearch",
+      "false_declared_change": false,
+      "intervention": "encoding_only",
+      "period": 2,
+      "result": "correct",
+      "session": "T2"
+    },
+    {
+      "case_id": "R12",
+      "condition": "p3if",
+      "domain": "MathEducation",
+      "false_declared_change": false,
+      "intervention": "addition",
+      "period": 2,
+      "result": "correct",
+      "session": "T2"
+    },
+    {
+      "case_id": "R09",
+      "condition": "p3if",
+      "domain": "MathEducation",
+      "false_declared_change": false,
+      "intervention": "metadata",
+      "period": 2,
+      "result": "correct",
+      "session": "T2"
+    },
+    {
+      "case_id": "R05",
+      "condition": "p3if",
+      "domain": "ScienceResearch",
+      "false_declared_change": false,
+      "intervention": "removal",
+      "period": 2,
+      "result": "correct",
+      "session": "T2"
+    }
+  ],
+  "schema_version": "p3if.reviewer-study-score.v1"
+}

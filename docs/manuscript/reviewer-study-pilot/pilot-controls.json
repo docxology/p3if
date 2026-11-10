@@ -1,0 +1,11 @@
+{
+  "case_manifest_sha256": "b22c647d30365c1a89f974485ce126d7fbe05c21c841e50a538a601d1b507d94",
+  "negative_session_expected_incorrect": [
+    "R01",
+    "R03"
+  ],
+  "negative_session_other_exact": 10,
+  "positive_session_exact": 12,
+  "schema_version": "p3if.reviewer-pilot-controls.v1",
+  "score_sha256": "783c0f1a9a61c7e47f8a454d5630785d95e3608b32beaf64a8f1ed9e394c0acb"
+}

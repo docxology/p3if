@@ -1,0 +1,8 @@
+{
+  "assignments": 24,
+  "disjoint_pilot_periods": true,
+  "files": 112,
+  "matched_sources_and_lookup": 12,
+  "packet_manifest_sha256": "9b66b360311e16cf6562060c48dee1fb645504b40a4286a496d0f288791aabce",
+  "schema": "independent-packet-mask-check.v1"
+}
