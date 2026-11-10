@@ -90,14 +90,9 @@ def create_app(testing=False):
     @app.route('/output/<path:path>')
     def serve_output(path):
         """Serve files from the output directory."""
-        if '..' in path or path.startswith('/'):
-            abort(404)  # Security check
-        full_path = OUTPUT_ROOT / path
-        if not full_path.exists():
-            abort(404)
-        directory = str(full_path.parent)
-        filename = full_path.name
-        return send_from_directory(directory, filename)
+        # send_from_directory joins with werkzeug's safe_join, which rejects
+        # absolute paths and anything that would escape OUTPUT_ROOT (404).
+        return send_from_directory(OUTPUT_ROOT, path)
 
     app.add_url_rule('/static-output/<path:filename>', 'static_output', serve_output)
 

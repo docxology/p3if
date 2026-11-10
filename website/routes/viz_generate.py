@@ -180,6 +180,8 @@ def generate_visualization():
     
     # Clean output name (replace spaces, remove special chars)
     output_name = "".join(c if c.isalnum() or c in "._-" else "_" for c in output_name)
+    # A name made only of dots ("." or "..") would point at OUTPUT_DIR or its parent.
+    output_name = output_name.strip(".") or f"visualization_{int(time.time())}"
     
     # Create output directory
     output_path = OUTPUT_DIR / output_name
@@ -197,6 +199,10 @@ def generate_visualization():
     domain_data = {}
     domains_info = []
     for domain_id in selected_domains:
+        # Domain ids are plain file stems; reject anything carrying a path.
+        if Path(domain_id).name != domain_id or domain_id in ("", ".", ".."):
+            flash(f"Invalid domain id: {domain_id}", "error")
+            continue
         domain_file = Path(f"data/domains/{domain_id}.json")
         if not domain_file.exists():
             flash(f"Domain file not found: {domain_id}", "error")

@@ -7,6 +7,7 @@ This module provides routes for displaying P3IF visualizations from the output d
 import json
 from pathlib import Path
 from flask import Blueprint, render_template, abort, current_app, redirect
+from werkzeug.utils import secure_filename
 
 viz_bp = Blueprint('visualizations', __name__, template_folder='../templates')
 
@@ -80,11 +81,19 @@ def dashboard_view():
 
     return html_content
 
+def _output_subdir(output_root, output_dir):
+    """Return output_root / output_dir, accepting only a plain directory name."""
+    safe_name = secure_filename(output_dir)
+    if not safe_name or safe_name != output_dir:
+        abort(404)
+    return output_root / safe_name
+
+
 @viz_bp.route('/<output_dir>')
 def show_visualization(output_dir):
     """Show a specific visualization output directory."""
     output_root = Path(current_app.root_path).parent / 'output'
-    viz_path = output_root / output_dir / 'visualizations'
+    viz_path = _output_subdir(output_root, output_dir) / 'visualizations'
     
     if not viz_path.exists():
         abort(404)
@@ -125,7 +134,7 @@ def show_visualization(output_dir):
     
     # Get summary data if available
     summary_data = {}
-    summary_path = output_root / output_dir / 'data' / 'summary.json'
+    summary_path = _output_subdir(output_root, output_dir) / 'data' / 'summary.json'
     if summary_path.exists():
         try:
             with open(summary_path, 'r') as f:
@@ -152,7 +161,7 @@ def show_visualization_type(output_dir, viz_type):
     
     # Handle static visualization directories
     if viz_type in ['overview', 'domain', 'compare']:
-        viz_path = output_root / output_dir / 'visualizations' / viz_type
+        viz_path = _output_subdir(output_root, output_dir) / 'visualizations' / viz_type
         
         if not viz_path.exists():
             abort(404)
