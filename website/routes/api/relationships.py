@@ -1,11 +1,13 @@
 """
 Relationship retrieval API routes.
 """
+import logging
 from datetime import datetime, timezone
 from flask import Blueprint, jsonify, request
 from p3if.core.framework import P3IFFramework
 from .common import API_BASE_URL, handle_api_errors
 
+logger = logging.getLogger(__name__)
 relationships_api_bp = Blueprint("api_relationships", __name__)
 
 
@@ -74,10 +76,11 @@ def get_relationships():
                 "generated_at": datetime.now(timezone.utc).isoformat(),
             },
         })
-    except Exception as e:
+    except Exception:
+        logger.exception("Error retrieving relationships")
         return jsonify({
             "status": "error",
             "error": "Query Error",
-            "message": f"Error retrieving relationships: {str(e)}",
+            "message": "Error retrieving relationships",
             "status_code": 500,
         }), 500

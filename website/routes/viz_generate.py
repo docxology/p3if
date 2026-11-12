@@ -12,6 +12,7 @@ import uuid
 import time
 from datetime import datetime
 from pathlib import Path
+from werkzeug.utils import secure_filename
 from flask import (
     Blueprint, render_template, request, redirect, url_for,
     flash, jsonify, session
@@ -178,10 +179,9 @@ def generate_visualization():
             domains_part += f"_plus{len(selected_domains)-3}"
         output_name = f"{domains_part}_{viz_type}_{timestamp}"
     
-    # Clean output name (replace spaces, remove special chars)
-    output_name = "".join(c if c.isalnum() or c in "._-" else "_" for c in output_name)
-    # A name made only of dots ("." or "..") would point at OUTPUT_DIR or its parent.
-    output_name = output_name.strip(".") or f"visualization_{int(time.time())}"
+    # Reduce the name to a single safe path component: secure_filename keeps
+    # ASCII letters, digits, "_", "-" and ".", and drops separators and leading dots.
+    output_name = secure_filename(output_name) or f"visualization_{int(time.time())}"
     
     # Create output directory
     output_path = OUTPUT_DIR / output_name
@@ -199,10 +199,12 @@ def generate_visualization():
     domain_data = {}
     domains_info = []
     for domain_id in selected_domains:
-        # Domain ids are plain file stems; reject anything carrying a path.
-        if Path(domain_id).name != domain_id or domain_id in ("", ".", ".."):
+        # Domain ids are plain file stems; reject anything secure_filename would change.
+        safe_domain_id = secure_filename(domain_id)
+        if not safe_domain_id or safe_domain_id != domain_id:
             flash(f"Invalid domain id: {domain_id}", "error")
             continue
+        domain_id = safe_domain_id
         domain_file = Path(f"data/domains/{domain_id}.json")
         if not domain_file.exists():
             flash(f"Domain file not found: {domain_id}", "error")
@@ -307,22 +309,24 @@ def generate_visualization():
         flash("Visualization successfully generated", "success")
         return redirect(url_for('visualizations.show_visualization', output_dir=output_name))
         
-    except Exception as e:
-        logging.error(f"Visualization generation failed: {e}", exc_info=True)
+    except Exception:
+        # Full details go to the server log only; the session cookie, the
+        # error marker (served under /output/) and the flash message are client-visible.
+        logging.exception("Visualization generation failed")
         
         # Update session status
         session['viz_generation'] = {
             'status': 'failed',
             'output_dir': output_name,
-            'error': str(e),
+            'error': 'Visualization generation failed; see the server log for details.',
             'end_time': time.time()
         }
         
-        # Create error file for debugging
+        # Create error marker for the output directory
         with open(output_path / 'error.txt', 'w') as f:
-            f.write(f"Error generating visualization: {e}\n")
+            f.write("Error generating visualization; see the server log for details.\n")
         
-        flash(f"Failed to generate visualization: {e}", "error")
+        flash("Failed to generate visualization. See the server log for details.", "error")
         return redirect(url_for('viz_generate_bp.show_generate_form'))
 
 @viz_generate_bp.route('/generate/status')
