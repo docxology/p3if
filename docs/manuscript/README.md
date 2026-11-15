@@ -6,3 +6,5 @@ The [reviewer study preregistration](reviewer-study-preregistration.md) freezes 
 
 
 The [technical reviewer pilot](reviewer-study-pilot.md) reports the two-domain crossover and provides the raw submissions and reproducible scores.
+
+The [held-out conformance follow-up](held-out-conformance.md) verifies compound changes, transport identity, and exact citations across 16 new snapshot pairs. Its [registration](held-out-preregistration.md) and receipts let readers reproduce the technical checks.

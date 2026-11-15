@@ -41,9 +41,9 @@ def _position(text: str, index: int) -> int:
 
 def _source_values(text: str) -> dict[str, tuple[int, int, str]]:
     """Locate top-level framework and array item values in a validated snapshot."""
-    index = _position(text, 0) + 1
+    index = _position(text, _position(text, 0) + 1)
     values: dict[str, tuple[int, int, str]] = {}
-    while text[index := _position(text, index)] != "}":
+    while text[index] != "}":
         name, key_end = _DECODER.raw_decode(text, index)
         start = _position(text, _position(text, key_end) + 1)
         if name in _KINDS.values() and name != "framework":
@@ -63,7 +63,7 @@ def _source_values(text: str) -> dict[str, tuple[int, int, str]]:
                 values["/framework"] = (start, end, record["id"])
         index = _position(text, end)
         if text[index] == ",":
-            index += 1
+            index = _position(text, index + 1)
     return values
 
 

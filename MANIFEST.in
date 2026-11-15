@@ -33,3 +33,7 @@ include scripts/held_out_cases.py
 include scripts/held_out_verify.py
 include docs/manuscript/held-out-source-check.json
 include scripts/held_out_source_check.py
+include docs/manuscript/held-out-conformance.md
+include docs/manuscript/held-out-conformance.json
+include docs/manuscript/held-out-audit-comparison.json
+include scripts/held_out_compare_audit.py
