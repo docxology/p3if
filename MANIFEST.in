@@ -63,3 +63,6 @@ include docs/manuscript/navigation-case-spec.json
 include docs/manuscript/navigation-case-manifest.json
 include scripts/navigation_ablation_packets.py
 include scripts/navigation_ablation_score.py
+include docs/manuscript/navigation-ablation-results.md
+include scripts/navigation_ablation_check_packets.py
+recursive-include docs/manuscript/navigation-ablation *.json *.jsonl

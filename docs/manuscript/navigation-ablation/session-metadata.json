@@ -1,0 +1,30 @@
+{
+  "model_family": "GPT-6 family, Codex",
+  "public_registration_observed_utc": "2026-11-15T21:18:26.147098Z",
+  "reader_runtime": "CPython 3.12.16",
+  "registration_commit": "809419a9af314eeb2ffca62256d5c329feea0970",
+  "schema_version": "p3if.navigation-ablation-run.v1",
+  "scoring_started_utc": "2026-11-15T21:24:26.041999Z",
+  "sessions": {
+    "S1": {
+      "action_log_sha256": "33d2b978386b666162843b45d88549fa3fdde4a4d78d02469960f58e61a516ba",
+      "exact_model_id": null,
+      "reported_deviations": []
+    },
+    "S2": {
+      "action_log_sha256": "6f34367e9117ba13c053dc3b5f9b770e2eb6ed9e0fa66e38d73f58ab6533fcb1",
+      "exact_model_id": null,
+      "reported_deviations": []
+    },
+    "S3": {
+      "action_log_sha256": "b097dfdee0a64c2223dbec1da5bf749d9e7f63c568e7b8234445bb2760f0b5b2",
+      "exact_model_id": null,
+      "reported_deviations": []
+    },
+    "S4": {
+      "action_log_sha256": "bbe5bef039480d196f41289d4ec9e0c7cd162d2bc8d5f99b3cb786378ff60986",
+      "exact_model_id": null,
+      "reported_deviations": []
+    }
+  }
+}
