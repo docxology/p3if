@@ -25,3 +25,11 @@ recursive-exclude * *.pyo
 
 include docs/manuscript/reviewer-study-pilot.md
 recursive-include docs/manuscript/reviewer-study-pilot *.json
+
+include docs/manuscript/held-out-preregistration.md
+include docs/manuscript/held-out-case-spec.json
+include docs/manuscript/held-out-case-manifest.json
+include scripts/held_out_cases.py
+include scripts/held_out_verify.py
+include docs/manuscript/held-out-source-check.json
+include scripts/held_out_source_check.py
