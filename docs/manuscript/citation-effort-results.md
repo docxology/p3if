@@ -25,6 +25,8 @@ The logged operation count measures interactions with the supplied reader. Elaps
 
 Live FOLIO verified all 16 prespecified citation sides across C01, C03, C09, and C12. Twelve present sides replayed from 11 native anchors, and four sides explicitly confirmed absence. Both no-change controls also verified contextual anchors and zero change events. The compact citation inventory agreed with native replay and live HTTP. The in-app browser confirmed a moved pointer, both offset units, full quotation hashes, and the absent side of a removal.
 
+The release changed the packet generator’s resource loader to support direct wheel imports. The reader, frozen packets, and score receipt are byte-identical across the two loaders.
+
 ## Reproduce
 
 Use the [registered regeneration commands](citation-effort-preregistration.md#regenerate-the-packets), then compare the packet inventory, score, and independent replay to the archived files. The original answer bytes and action logs are fixed inputs. A new set of model sessions may produce different answers and times.

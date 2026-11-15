@@ -8,6 +8,7 @@ and assignments without placing either the key or allocation in a packet.
 
 from __future__ import annotations
 
+from importlib.resources import files as resource_files
 from pathlib import Path
 
 from . import citation_review_tool
@@ -186,7 +187,7 @@ def prepare_packets(case_dir: Path, frozen_manifest: Path, output_dir: Path) -> 
     frozen = frozen_manifest.read_bytes()
     materials = _materials(case_dir, frozen)
     assignments = assignment_rows()
-    helper = Path(citation_review_tool.__file__).read_bytes()
+    helper = resource_files("p3if").joinpath("citation_review_tool.py").read_bytes()
     output_dir.mkdir()
     for session in SESSIONS:
         session_root = output_dir / session
