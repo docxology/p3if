@@ -45,3 +45,11 @@ include scripts/held_out_reviewer_score.py
 include docs/manuscript/held-out-reviewer.md
 include scripts/held_out_reviewer_crosscheck.py
 recursive-include docs/manuscript/held-out-reviewer *.json
+
+include docs/manuscript/citation-effort-preregistration.md
+include docs/manuscript/citation-effort-commitment.json
+include docs/manuscript/citation-case-spec.json
+include docs/manuscript/citation-case-manifest.json
+include scripts/citation_cases.py
+include scripts/citation_effort_score.py
+include scripts/citation_effort_packets.py
