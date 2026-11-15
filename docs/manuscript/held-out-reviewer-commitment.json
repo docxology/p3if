@@ -1,0 +1,9 @@
+{
+  "assignments": 32,
+  "case_manifest_sha256": "a7bef1f3fc664afd39aeba5c09235b68e2d85716d1f0afb2754cbe0fe13f4966",
+  "cases": 16,
+  "packet_check_sha256": "0ea2c0f0564a5303c7d82e8633cc50001509e0a5c0000c3ea245082677555d49",
+  "packet_manifest_sha256": "6c8b197ee6a24db057147f1642646d50b92fb151f5b8ae5c1ca62e3a04f56643",
+  "schema_version": "p3if.held-out-reviewer-commitment.v1",
+  "sessions": 4
+}

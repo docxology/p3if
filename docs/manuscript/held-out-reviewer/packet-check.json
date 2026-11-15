@@ -1,0 +1,15 @@
+{
+  "assignment_count": 32,
+  "case_count": 16,
+  "case_manifest_sha256": "a7bef1f3fc664afd39aeba5c09235b68e2d85716d1f0afb2754cbe0fe13f4966",
+  "common_inputs_matched_by_case": 16,
+  "first_workflow_counts": {
+    "diff": 2,
+    "p3if": 2
+  },
+  "hashed_delivery_files": 136,
+  "packet_manifest_sha256": "6c8b197ee6a24db057147f1642646d50b92fb151f5b8ae5c1ca62e3a04f56643",
+  "schema_version": "p3if.held-out-reviewer-packet-check.v1",
+  "session_count": 4,
+  "two_domain_periods_verified": 8
+}

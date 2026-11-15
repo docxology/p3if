@@ -37,3 +37,11 @@ include docs/manuscript/held-out-conformance.md
 include docs/manuscript/held-out-conformance.json
 include docs/manuscript/held-out-audit-comparison.json
 include scripts/held_out_compare_audit.py
+
+include docs/manuscript/held-out-reviewer-preregistration.md
+include docs/manuscript/held-out-reviewer-commitment.json
+include scripts/held_out_reviewer_packets.py
+include scripts/held_out_reviewer_score.py
+include docs/manuscript/held-out-reviewer.md
+include scripts/held_out_reviewer_crosscheck.py
+recursive-include docs/manuscript/held-out-reviewer *.json

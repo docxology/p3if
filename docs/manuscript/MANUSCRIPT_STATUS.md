@@ -9,3 +9,5 @@ The [reviewer study preregistration](reviewer-study-preregistration.md) records 
 The [technical reviewer pilot](reviewer-study-pilot.md) ran on ScienceResearch and MathEducation with two model sessions. Its frozen inputs, submissions, and score are published here. Human feasibility and confirmatory results are pending.
 
 The [held-out conformance follow-up](held-out-conformance.md) verifies the software against 16 prespecified ScienceResearch and MathEducation pairs. It adds exact source and event-level verification on more complex edits.
+
+The [masked held-out model comparison](held-out-reviewer.md) archived a four-session comparison on the same 16 pairs. Both workflows reached the complete-case ceiling. The inputs, scoring, and results can be reproduced locally.
