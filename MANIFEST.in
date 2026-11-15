@@ -53,3 +53,6 @@ include docs/manuscript/citation-case-manifest.json
 include scripts/citation_cases.py
 include scripts/citation_effort_score.py
 include scripts/citation_effort_packets.py
+include docs/manuscript/citation-effort-results.md
+include scripts/citation_effort_crosscheck.py
+recursive-include docs/manuscript/citation-effort *.json *.jsonl

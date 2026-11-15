@@ -1,0 +1,129 @@
+{
+  "chronological_action_ledgers": 4,
+  "matched": {
+    "cases": [
+      {
+        "case_id": "C01",
+        "elapsed_ms_difference": -738,
+        "operation_difference": 0
+      },
+      {
+        "case_id": "C02",
+        "elapsed_ms_difference": 78,
+        "operation_difference": -2
+      },
+      {
+        "case_id": "C03",
+        "elapsed_ms_difference": -4652,
+        "operation_difference": -5
+      },
+      {
+        "case_id": "C04",
+        "elapsed_ms_difference": -6548,
+        "operation_difference": -6
+      },
+      {
+        "case_id": "C05",
+        "elapsed_ms_difference": 907,
+        "operation_difference": 0
+      },
+      {
+        "case_id": "C06",
+        "elapsed_ms_difference": -6381,
+        "operation_difference": -6
+      },
+      {
+        "case_id": "C07",
+        "elapsed_ms_difference": -8127,
+        "operation_difference": -4
+      },
+      {
+        "case_id": "C08",
+        "elapsed_ms_difference": 1634,
+        "operation_difference": 0
+      },
+      {
+        "case_id": "C09",
+        "elapsed_ms_difference": -927,
+        "operation_difference": 0
+      },
+      {
+        "case_id": "C10",
+        "elapsed_ms_difference": -1556,
+        "operation_difference": -2
+      },
+      {
+        "case_id": "C11",
+        "elapsed_ms_difference": 2753,
+        "operation_difference": 0
+      },
+      {
+        "case_id": "C12",
+        "elapsed_ms_difference": -6577,
+        "operation_difference": -6
+      },
+      {
+        "case_id": "C13",
+        "elapsed_ms_difference": -1976,
+        "operation_difference": -2
+      },
+      {
+        "case_id": "C14",
+        "elapsed_ms_difference": 1486,
+        "operation_difference": 0
+      },
+      {
+        "case_id": "C15",
+        "elapsed_ms_difference": -1713,
+        "operation_difference": -4
+      },
+      {
+        "case_id": "C16",
+        "elapsed_ms_difference": -2123,
+        "operation_difference": -2
+      }
+    ],
+    "measured_case_pairs": 16,
+    "median_elapsed_ms_difference": -1634.5,
+    "median_operation_difference": -2.0,
+    "sides": {
+      "both_correct": 72,
+      "diff_only": 0,
+      "neither_correct": 0,
+      "p3if_only": 0
+    }
+  },
+  "scheduled_cases": 32,
+  "scheduled_sides": 144,
+  "score_sha256": "31aa6aaca3226ff1f6f91e2b1293d705c313c300d9fcdfe4a887d0b6f837a1a8",
+  "workflow_accuracy": {
+    "diff": {
+      "assigned": 72,
+      "correct": 72,
+      "incorrect": 0,
+      "malformed": 0,
+      "missing": 0
+    },
+    "p3if": {
+      "assigned": 72,
+      "correct": 72,
+      "incorrect": 0,
+      "malformed": 0,
+      "missing": 0
+    }
+  },
+  "workflow_effort": {
+    "diff": {
+      "measured": 16,
+      "median_elapsed_ms": 12832.5,
+      "median_operations": 10.0,
+      "unmeasured": 0
+    },
+    "p3if": {
+      "measured": 16,
+      "median_elapsed_ms": 9950.0,
+      "median_operations": 8.0,
+      "unmeasured": 0
+    }
+  }
+}

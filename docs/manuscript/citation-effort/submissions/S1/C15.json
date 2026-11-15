@@ -1,0 +1,63 @@
+{
+  "case_id": "C15",
+  "citations": [
+    {
+      "kind": "perspective",
+      "id": "14647040-2084-4616-bf98-8bb70535753e",
+      "before": {
+        "end_byte": 918,
+        "end_char": 918,
+        "pointer": "/perspectives/1",
+        "quote_sha256": "9fad2c8202c3a166d34b370ff5d16100f44eee2dbaa1f622fa01b3cef39cf3ee",
+        "source_sha256": "acfdad6b0eccaefc4bcfce7edbec70301dbc66a452e7499b380667a5e1366658",
+        "start_byte": 754,
+        "start_char": 754
+      },
+      "after": {
+        "end_byte": 9126,
+        "end_char": 9107,
+        "pointer": "/perspectives/48",
+        "quote_sha256": "f8d88b0bd5959ab882932201b3e95ca0078109e12edc646e490608803480e426",
+        "source_sha256": "7ffd47c5f34bd072477db8e0aab1dee11549c051647e7096b75026b73884ead7",
+        "start_byte": 8902,
+        "start_char": 8890
+      }
+    },
+    {
+      "kind": "process",
+      "id": "08953f9c-7c56-41e8-8b8f-cc65402f20c2",
+      "before": {
+        "end_byte": 9333,
+        "end_char": 9333,
+        "pointer": "/processes/1",
+        "quote_sha256": "beb908f7674a7746b08f2746dc87e0710df20462aaa6791548238887d00cd420",
+        "source_sha256": "acfdad6b0eccaefc4bcfce7edbec70301dbc66a452e7499b380667a5e1366658",
+        "start_byte": 9173,
+        "start_char": 9173
+      },
+      "after": {
+        "end_byte": 17686,
+        "end_char": 17667,
+        "pointer": "/processes/48",
+        "quote_sha256": "379cc3f8766db995191df04a72852be6541b29475320fa2ade9bb21a2416501c",
+        "source_sha256": "7ffd47c5f34bd072477db8e0aab1dee11549c051647e7096b75026b73884ead7",
+        "start_byte": 17521,
+        "start_char": 17502
+      }
+    },
+    {
+      "kind": "relationship",
+      "id": "535d2729-c85b-4313-8b3c-b97ca48b71e8",
+      "before": {
+        "end_byte": 31399,
+        "end_char": 31399,
+        "pointer": "/relationships/19",
+        "quote_sha256": "265a0e4336924d266b293311d1922376204b089049f89fd96d555f8ab8a4dea5",
+        "source_sha256": "acfdad6b0eccaefc4bcfce7edbec70301dbc66a452e7499b380667a5e1366658",
+        "start_byte": 31106,
+        "start_char": 31106
+      },
+      "after": null
+    }
+  ]
+}
