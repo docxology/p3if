@@ -1,0 +1,10 @@
+{
+  "assignments": 32,
+  "case_manifest_sha256": "4fb4289eba24307bcb78e01082a6732eedb2cfed8a337f2d056578d1401c017a",
+  "cases": 16,
+  "packet_check_sha256": "d4ae2324580158d3b110991ca8edcda1d43fafc81f2d75ca7e974429e3e8ca73",
+  "packet_manifest_sha256": "db5cddacf710b02a36c7e5bd25acc9c68b3123decaae5da9294dc3a3d12d0983",
+  "scheduled_sides_per_arm": 76,
+  "schema_version": "p3if.navigation-ablation-commitment.v1",
+  "sessions": 4
+}

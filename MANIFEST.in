@@ -56,3 +56,10 @@ include scripts/citation_effort_packets.py
 include docs/manuscript/citation-effort-results.md
 include scripts/citation_effort_crosscheck.py
 recursive-include docs/manuscript/citation-effort *.json *.jsonl
+
+include docs/manuscript/navigation-ablation-preregistration.md
+include docs/manuscript/navigation-ablation-commitment.json
+include docs/manuscript/navigation-case-spec.json
+include docs/manuscript/navigation-case-manifest.json
+include scripts/navigation_ablation_packets.py
+include scripts/navigation_ablation_score.py

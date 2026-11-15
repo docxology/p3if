@@ -8,7 +8,6 @@ from pathlib import Path
 from statistics import median
 import json
 
-ARMS = ("p3if", "diff")
 ROLES = ("before", "after")
 RESULTS = ("correct", "incorrect", "missing", "malformed")
 SPAN = (
@@ -224,15 +223,20 @@ def summarize(rows):
     }
 
 
-def matched(rows):
+def matched(rows, workflow_arms):
     by_case = defaultdict(dict)
     for row in rows:
         by_case[row["case_id"]][row["condition"]] = row
-    side_groups = ("both_correct", "p3if_only", "diff_only", "neither_correct")
+    side_groups = (
+        "both_correct",
+        f"{workflow_arms[0]}_only",
+        f"{workflow_arms[1]}_only",
+        "neither_correct",
+    )
     totals = {name: 0 for name in side_groups}
     effort_rows = []
     for case_id, arms in sorted(by_case.items()):
-        p3if, diff = (arms[arm] for arm in ARMS)
+        left, right = (arms[arm] for arm in workflow_arms)
 
         def sides(row):
             return {
@@ -240,11 +244,11 @@ def matched(rows):
                 for item in row["sides"]
             }
 
-        a, b = sides(p3if), sides(diff)
+        a, b = sides(left), sides(right)
         assert a.keys() == b.keys()
         for key in a:
             totals[side_groups[(not a[key]) * 2 + (not b[key])]] += 1
-        first, second = p3if["effort"], diff["effort"]
+        first, second = left["effort"], right["effort"]
         if first["status"] == second["status"] == "measured":
             operations = first["evidence_operations"] - second["evidence_operations"]
             elapsed = first["elapsed_ms"] - second["elapsed_ms"]
@@ -280,7 +284,11 @@ def main() -> None:
         parser.add_argument(name, type=Path)
     parser.add_argument("--registered-utc", required=True)
     parser.add_argument("--scoring-started-utc", required=True)
+    parser.add_argument("--navigation-ablation", action="store_true")
     args = parser.parse_args()
+    workflow_arms = (
+        ("navigation", "no_navigation") if args.navigation_ablation else ("p3if", "diff")
+    )
     registration, scoring = utc(args.registered_utc), utc(args.scoring_started_utc)
     assert registration < scoring
     case_raw, packet_raw, score_raw = (
@@ -320,15 +328,16 @@ def main() -> None:
     assert all(expected_rows[row["session"], row["case_id"]] == row for row in score["rows"])
     rows = list(expected_rows.values())
     assert score["workflows"] == {
-        arm: summarize([row for row in rows if row["condition"] == arm]) for arm in ARMS
+        arm: summarize([row for row in rows if row["condition"] == arm]) for arm in workflow_arms
     }
-    assert score["paired"] == matched(rows)
+    assert score["paired"] == matched(rows, workflow_arms)
     for domain in {row["domain"] for row in rows}:
         subset = [row for row in rows if row["domain"] == domain]
         expected = {
-            arm: summarize([row for row in subset if row["condition"] == arm]) for arm in ARMS
+            arm: summarize([row for row in subset if row["condition"] == arm])
+            for arm in workflow_arms
         }
-        assert score["domains"][domain] == {**expected, "paired": matched(subset)}
+        assert score["domains"][domain] == {**expected, "paired": matched(subset, workflow_arms)}
     print(
         json.dumps(
             {
@@ -339,8 +348,12 @@ def main() -> None:
                 "scheduled_cases": len(rows),
                 "scheduled_sides": sum(len(row["sides"]) for row in rows),
                 "matched": score["paired"],
-                "workflow_accuracy": {arm: score["workflows"][arm]["accuracy"] for arm in ARMS},
-                "workflow_effort": {arm: score["workflows"][arm]["effort"] for arm in ARMS},
+                "workflow_accuracy": {
+                    arm: score["workflows"][arm]["accuracy"] for arm in workflow_arms
+                },
+                "workflow_effort": {
+                    arm: score["workflows"][arm]["effort"] for arm in workflow_arms
+                },
             },
             indent=2,
             sort_keys=True,
