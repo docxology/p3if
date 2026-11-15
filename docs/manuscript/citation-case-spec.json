@@ -1,0 +1,733 @@
+{
+  "cases": [
+    {
+      "after_encoding": "pretty",
+      "before_encoding": "pretty",
+      "case_id": "C01",
+      "domain": "ScienceResearch",
+      "edits": [],
+      "intervention": "byte_identical_context_citation",
+      "questions": [
+        {
+          "id": "034b3730-c20a-4ed9-a27e-d7a9713a743a",
+          "kind": "property"
+        }
+      ],
+      "reverse_after": [],
+      "seed_edits": []
+    },
+    {
+      "after_encoding": "crlf",
+      "before_encoding": "pretty",
+      "case_id": "C02",
+      "domain": "ScienceResearch",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "0b2748a2-8686-458e-a89e-1c3f5bb13db9",
+          "kind": "property",
+          "set": {
+            "description": "Revision Ω · café · 空間 · 🧾"
+          }
+        }
+      ],
+      "intervention": "shared_label_and_moved_property",
+      "questions": [
+        {
+          "id": "0b2748a2-8686-458e-a89e-1c3f5bb13db9",
+          "kind": "property"
+        },
+        {
+          "id": "0d47582b-b6dd-4b8e-9d2f-3c5474e65bfb",
+          "kind": "property"
+        }
+      ],
+      "reverse_after": [
+        "properties"
+      ],
+      "seed_edits": [
+        {
+          "change": "modified",
+          "id": "0d47582b-b6dd-4b8e-9d2f-3c5474e65bfb",
+          "kind": "property",
+          "set": {
+            "metadata": {
+              "memo": "Escaped decoy \"id\": \"0b2748a2-8686-458e-a89e-1c3f5bb13db9\" · 研究 🧭"
+            },
+            "name": "Research Career Development"
+          }
+        }
+      ]
+    },
+    {
+      "after_encoding": "crlf",
+      "before_encoding": "pretty",
+      "case_id": "C03",
+      "domain": "ScienceResearch",
+      "edits": [
+        {
+          "change": "removed",
+          "id": "30f6f873-3deb-4cd5-8df1-b4cf90ce1c1d",
+          "kind": "property"
+        },
+        {
+          "change": "added",
+          "id": "p3if.citation-study.scienceresearch/property~replacement",
+          "kind": "property",
+          "set": {
+            "description": "Revised companion · é · 研究 · 🔬",
+            "domain": "ScienceResearch",
+            "id": "p3if.citation-study.scienceresearch/property~replacement",
+            "name": "Laboratory Safety",
+            "type": "property"
+          }
+        },
+        {
+          "change": "modified",
+          "id": "2ae0d5af-7909-4f47-9134-cf90746f9a44",
+          "kind": "relationship",
+          "set": {
+            "property_id": "p3if.citation-study.scienceresearch/property~replacement"
+          }
+        }
+      ],
+      "intervention": "replace_property_keep_relationship_identity",
+      "questions": [
+        {
+          "id": "30f6f873-3deb-4cd5-8df1-b4cf90ce1c1d",
+          "kind": "property"
+        },
+        {
+          "id": "p3if.citation-study.scienceresearch/property~replacement",
+          "kind": "property"
+        },
+        {
+          "id": "2ae0d5af-7909-4f47-9134-cf90746f9a44",
+          "kind": "relationship"
+        }
+      ],
+      "reverse_after": [
+        "properties",
+        "relationships"
+      ],
+      "seed_edits": []
+    },
+    {
+      "after_encoding": "ascii",
+      "before_encoding": "compact",
+      "case_id": "C04",
+      "domain": "ScienceResearch",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "273314f2-100c-4b6f-82ee-311a29a149cd",
+          "kind": "relationship",
+          "set": {
+            "metadata": {
+              "annotation": "Cálculo 🧮",
+              "exact_text": "{\"id\":\"32619b67-7b3d-4f82-91a3-049ae60e64d1\"}"
+            }
+          }
+        },
+        {
+          "change": "removed",
+          "id": "32619b67-7b3d-4f82-91a3-049ae60e64d1",
+          "kind": "relationship"
+        },
+        {
+          "change": "added",
+          "id": "p3if.citation-study.scienceresearch/relationship~new",
+          "kind": "relationship",
+          "set": {
+            "confidence": 0.79,
+            "id": "p3if.citation-study.scienceresearch/relationship~new",
+            "metadata": {
+              "replacement": "Café / Δ / 研究 🧭"
+            },
+            "perspective_id": "6524bd4d-76c6-418b-86f6-c61d081142f3",
+            "process_id": "b7ff1d27-b166-4b54-9fde-998f77c427ca",
+            "property_id": "14afd441-4f3f-4f49-ba55-4d046d1a4895",
+            "strength": 0.99
+          }
+        }
+      ],
+      "intervention": "relationship_metadata_and_coordinate_preserving_replacement",
+      "questions": [
+        {
+          "id": "273314f2-100c-4b6f-82ee-311a29a149cd",
+          "kind": "relationship"
+        },
+        {
+          "id": "32619b67-7b3d-4f82-91a3-049ae60e64d1",
+          "kind": "relationship"
+        },
+        {
+          "id": "p3if.citation-study.scienceresearch/relationship~new",
+          "kind": "relationship"
+        }
+      ],
+      "reverse_after": [
+        "relationships"
+      ],
+      "seed_edits": []
+    },
+    {
+      "after_encoding": "crlf",
+      "before_encoding": "pretty",
+      "case_id": "C05",
+      "domain": "ScienceResearch",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "33446a97-6dd2-47f9-a92c-d9755e240d01",
+          "kind": "relationship",
+          "set": {
+            "metadata": {
+              "line": "first\nsecond",
+              "revision": "Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \""
+            }
+          }
+        }
+      ],
+      "intervention": "long_nested_multibyte_quotation",
+      "questions": [
+        {
+          "id": "33446a97-6dd2-47f9-a92c-d9755e240d01",
+          "kind": "relationship"
+        }
+      ],
+      "reverse_after": [],
+      "seed_edits": []
+    },
+    {
+      "after_encoding": "compact",
+      "before_encoding": "pretty",
+      "case_id": "C06",
+      "domain": "ScienceResearch",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "p3if.citation-study.scienceresearch",
+          "kind": "framework",
+          "set": {
+            "metadata": {
+              "résumé": "méthode 🔍"
+            }
+          }
+        },
+        {
+          "change": "modified",
+          "id": "096bd1eb-52ba-4bde-8396-56814f8da38b",
+          "kind": "process",
+          "set": {
+            "description": "Étape révisée · 変化"
+          }
+        },
+        {
+          "change": "modified",
+          "id": "0b263a66-fff9-41c4-904d-5d3b60e89e17",
+          "kind": "perspective",
+          "set": {
+            "description": "Nouvelle lecture · 🧭"
+          }
+        }
+      ],
+      "intervention": "framework_and_two_axes",
+      "questions": [
+        {
+          "id": "p3if.citation-study.scienceresearch",
+          "kind": "framework"
+        },
+        {
+          "id": "096bd1eb-52ba-4bde-8396-56814f8da38b",
+          "kind": "process"
+        },
+        {
+          "id": "0b263a66-fff9-41c4-904d-5d3b60e89e17",
+          "kind": "perspective"
+        }
+      ],
+      "reverse_after": [
+        "processes",
+        "perspectives"
+      ],
+      "seed_edits": []
+    },
+    {
+      "after_encoding": "compact",
+      "before_encoding": "ascii",
+      "case_id": "C07",
+      "domain": "ScienceResearch",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "0da87594-9cb0-403c-aac3-92d7cb01e04e",
+          "kind": "perspective",
+          "set": {
+            "description": "Clarification · λ · 文字"
+          }
+        },
+        {
+          "change": "removed",
+          "id": "34b7ad25-1f81-4798-ab2b-a873ac3ef04a",
+          "kind": "relationship"
+        }
+      ],
+      "intervention": "cross_axis_shared_label_and_relationship_tombstone",
+      "questions": [
+        {
+          "id": "0da87594-9cb0-403c-aac3-92d7cb01e04e",
+          "kind": "perspective"
+        },
+        {
+          "id": "0d5ccc7c-b06f-49cf-a955-0ff5dc9d9c62",
+          "kind": "process"
+        },
+        {
+          "id": "34b7ad25-1f81-4798-ab2b-a873ac3ef04a",
+          "kind": "relationship"
+        }
+      ],
+      "reverse_after": [
+        "processes",
+        "perspectives",
+        "relationships"
+      ],
+      "seed_edits": [
+        {
+          "change": "modified",
+          "id": "0d5ccc7c-b06f-49cf-a955-0ff5dc9d9c62",
+          "kind": "process",
+          "set": {
+            "name": "Research Ethicist"
+          }
+        }
+      ]
+    },
+    {
+      "after_encoding": "compact",
+      "before_encoding": "compact",
+      "case_id": "C08",
+      "domain": "ScienceResearch",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "3641a364-00fb-4242-89a4-69653e1b5c77",
+          "kind": "relationship",
+          "set": {
+            "metadata": {
+              "note": "Revision éclair \"cité\" 📚"
+            }
+          }
+        }
+      ],
+      "intervention": "byte_identical_nested_decoy",
+      "questions": [
+        {
+          "id": "124b234a-78d3-4d85-b59d-921e652e446c",
+          "kind": "property"
+        },
+        {
+          "id": "3641a364-00fb-4242-89a4-69653e1b5c77",
+          "kind": "relationship"
+        }
+      ],
+      "reverse_after": [
+        "properties"
+      ],
+      "seed_edits": [
+        {
+          "change": "modified",
+          "id": "p3if.citation-study.scienceresearch",
+          "kind": "framework",
+          "set": {
+            "metadata": {
+              "archived_copy": {
+                "domain": "ScienceResearch",
+                "id": "124b234a-78d3-4d85-b59d-921e652e446c",
+                "name": "Scientific Publishing",
+                "type": "property"
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "after_encoding": "ascii",
+      "before_encoding": "pretty",
+      "case_id": "C09",
+      "domain": "MathEducation",
+      "edits": [],
+      "intervention": "representation_only_context_citation",
+      "questions": [
+        {
+          "id": "0b96483f-3257-41b3-a488-4cdd970b8abb",
+          "kind": "property"
+        }
+      ],
+      "reverse_after": [
+        "properties",
+        "relationships"
+      ],
+      "seed_edits": []
+    },
+    {
+      "after_encoding": "compact",
+      "before_encoding": "pretty",
+      "case_id": "C10",
+      "domain": "MathEducation",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "11c4714e-0479-4d26-b9d3-7dd139ba088a",
+          "kind": "property",
+          "set": {
+            "description": "Revision Ω · café · 空間 · 🧾"
+          }
+        }
+      ],
+      "intervention": "shared_label_and_moved_property",
+      "questions": [
+        {
+          "id": "11c4714e-0479-4d26-b9d3-7dd139ba088a",
+          "kind": "property"
+        },
+        {
+          "id": "1507c124-26b0-48c5-a9fb-2ca279b65bb6",
+          "kind": "property"
+        }
+      ],
+      "reverse_after": [
+        "properties"
+      ],
+      "seed_edits": [
+        {
+          "change": "modified",
+          "id": "1507c124-26b0-48c5-a9fb-2ca279b65bb6",
+          "kind": "property",
+          "set": {
+            "metadata": {
+              "memo": "Escaped decoy \"id\": \"11c4714e-0479-4d26-b9d3-7dd139ba088a\" · 研究 🧭"
+            },
+            "name": "STEM Integration"
+          }
+        }
+      ]
+    },
+    {
+      "after_encoding": "compact",
+      "before_encoding": "pretty",
+      "case_id": "C11",
+      "domain": "MathEducation",
+      "edits": [
+        {
+          "change": "removed",
+          "id": "8b23cb59-3158-4833-8d4b-fef2ffb3521a",
+          "kind": "property"
+        },
+        {
+          "change": "added",
+          "id": "p3if.citation-study.matheducation/property~replacement",
+          "kind": "property",
+          "set": {
+            "description": "Revised companion · é · 研究 · 🔬",
+            "domain": "MathEducation",
+            "id": "p3if.citation-study.matheducation/property~replacement",
+            "name": "Math Remediation",
+            "type": "property"
+          }
+        },
+        {
+          "change": "modified",
+          "id": "43bf97b0-33dd-4884-9b4e-415d511ed1ce",
+          "kind": "relationship",
+          "set": {
+            "property_id": "p3if.citation-study.matheducation/property~replacement"
+          }
+        }
+      ],
+      "intervention": "replace_property_keep_relationship_identity",
+      "questions": [
+        {
+          "id": "8b23cb59-3158-4833-8d4b-fef2ffb3521a",
+          "kind": "property"
+        },
+        {
+          "id": "p3if.citation-study.matheducation/property~replacement",
+          "kind": "property"
+        },
+        {
+          "id": "43bf97b0-33dd-4884-9b4e-415d511ed1ce",
+          "kind": "relationship"
+        }
+      ],
+      "reverse_after": [
+        "properties",
+        "relationships"
+      ],
+      "seed_edits": []
+    },
+    {
+      "after_encoding": "pretty",
+      "before_encoding": "crlf",
+      "case_id": "C12",
+      "domain": "MathEducation",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "4531f4da-a47c-4699-994c-637b9e8495e6",
+          "kind": "relationship",
+          "set": {
+            "metadata": {
+              "annotation": "Cálculo 🧮",
+              "exact_text": "{\"id\":\"4797a279-956e-4c98-9cfd-378b22cb0d30\"}"
+            }
+          }
+        },
+        {
+          "change": "removed",
+          "id": "4797a279-956e-4c98-9cfd-378b22cb0d30",
+          "kind": "relationship"
+        },
+        {
+          "change": "added",
+          "id": "p3if.citation-study.matheducation/relationship~new",
+          "kind": "relationship",
+          "set": {
+            "confidence": 0.86,
+            "id": "p3if.citation-study.matheducation/relationship~new",
+            "metadata": {
+              "replacement": "Café / Δ / 研究 🧭"
+            },
+            "perspective_id": "d1e3171f-6665-4284-aca6-095e60b869a4",
+            "process_id": "0ea86571-417f-40bb-abdc-bdd8f732c9cc",
+            "property_id": "27a36c61-d152-4059-a81e-bed7ae835001",
+            "strength": 0.86
+          }
+        }
+      ],
+      "intervention": "relationship_metadata_and_coordinate_preserving_replacement",
+      "questions": [
+        {
+          "id": "4531f4da-a47c-4699-994c-637b9e8495e6",
+          "kind": "relationship"
+        },
+        {
+          "id": "4797a279-956e-4c98-9cfd-378b22cb0d30",
+          "kind": "relationship"
+        },
+        {
+          "id": "p3if.citation-study.matheducation/relationship~new",
+          "kind": "relationship"
+        }
+      ],
+      "reverse_after": [
+        "relationships"
+      ],
+      "seed_edits": []
+    },
+    {
+      "after_encoding": "crlf",
+      "before_encoding": "pretty",
+      "case_id": "C13",
+      "domain": "MathEducation",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "4cec8490-34fa-4bd7-a724-5b346cb93bfe",
+          "kind": "relationship",
+          "set": {
+            "metadata": {
+              "line": "first\nsecond",
+              "revision": "Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \" Étape / Δ 🧭 数据 \\ \""
+            }
+          }
+        }
+      ],
+      "intervention": "long_nested_multibyte_quotation",
+      "questions": [
+        {
+          "id": "4cec8490-34fa-4bd7-a724-5b346cb93bfe",
+          "kind": "relationship"
+        }
+      ],
+      "reverse_after": [],
+      "seed_edits": []
+    },
+    {
+      "after_encoding": "compact",
+      "before_encoding": "crlf",
+      "case_id": "C14",
+      "domain": "MathEducation",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "p3if.citation-study.matheducation",
+          "kind": "framework",
+          "set": {
+            "metadata": {
+              "résumé": "méthode 🔍"
+            }
+          }
+        },
+        {
+          "change": "modified",
+          "id": "075fc7a9-fbcf-4c90-b0f8-d9f6fbc6c4bf",
+          "kind": "process",
+          "set": {
+            "description": "Étape révisée · 変化"
+          }
+        },
+        {
+          "change": "modified",
+          "id": "0edba088-062c-45f8-8304-2d73d337a682",
+          "kind": "perspective",
+          "set": {
+            "description": "Nouvelle lecture · 🧭"
+          }
+        }
+      ],
+      "intervention": "framework_and_two_axes",
+      "questions": [
+        {
+          "id": "p3if.citation-study.matheducation",
+          "kind": "framework"
+        },
+        {
+          "id": "075fc7a9-fbcf-4c90-b0f8-d9f6fbc6c4bf",
+          "kind": "process"
+        },
+        {
+          "id": "0edba088-062c-45f8-8304-2d73d337a682",
+          "kind": "perspective"
+        }
+      ],
+      "reverse_after": [
+        "processes",
+        "perspectives"
+      ],
+      "seed_edits": []
+    },
+    {
+      "after_encoding": "crlf",
+      "before_encoding": "ascii",
+      "case_id": "C15",
+      "domain": "MathEducation",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "14647040-2084-4616-bf98-8bb70535753e",
+          "kind": "perspective",
+          "set": {
+            "description": "Clarification · λ · 文字"
+          }
+        },
+        {
+          "change": "removed",
+          "id": "535d2729-c85b-4313-8b3c-b97ca48b71e8",
+          "kind": "relationship"
+        }
+      ],
+      "intervention": "cross_axis_shared_label_and_relationship_tombstone",
+      "questions": [
+        {
+          "id": "14647040-2084-4616-bf98-8bb70535753e",
+          "kind": "perspective"
+        },
+        {
+          "id": "08953f9c-7c56-41e8-8b8f-cc65402f20c2",
+          "kind": "process"
+        },
+        {
+          "id": "535d2729-c85b-4313-8b3c-b97ca48b71e8",
+          "kind": "relationship"
+        }
+      ],
+      "reverse_after": [
+        "processes",
+        "perspectives",
+        "relationships"
+      ],
+      "seed_edits": [
+        {
+          "change": "modified",
+          "id": "08953f9c-7c56-41e8-8b8f-cc65402f20c2",
+          "kind": "process",
+          "set": {
+            "name": "Math Representation Expert"
+          }
+        }
+      ]
+    },
+    {
+      "after_encoding": "compact",
+      "before_encoding": "compact",
+      "case_id": "C16",
+      "domain": "MathEducation",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "55025ecb-99dc-440f-804f-9b27b43abeb3",
+          "kind": "relationship",
+          "set": {
+            "metadata": {
+              "note": "Revision éclair \"cité\" 📚"
+            }
+          }
+        }
+      ],
+      "intervention": "byte_identical_nested_decoy",
+      "questions": [
+        {
+          "id": "1f383348-e406-403c-93f9-8df9021235a3",
+          "kind": "property"
+        },
+        {
+          "id": "55025ecb-99dc-440f-804f-9b27b43abeb3",
+          "kind": "relationship"
+        }
+      ],
+      "reverse_after": [
+        "properties"
+      ],
+      "seed_edits": [
+        {
+          "change": "modified",
+          "id": "p3if.citation-study.matheducation",
+          "kind": "framework",
+          "set": {
+            "metadata": {
+              "archived_copy": {
+                "domain": "MathEducation",
+                "id": "1f383348-e406-403c-93f9-8df9021235a3",
+                "name": "Mathematical Modeling",
+                "type": "property"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "context_template": "Citation study {case_id} · café é · 研究 · 🧭. Literal marker {{\"id\": \"decoy\"}}.",
+  "domains": {
+    "MathEducation": {
+      "fixture": "matheducation.json",
+      "fixture_sha256": "bf7189b9901e965610fd246dd98b85276dfca316365ffd7b41f055ba57ecbea0",
+      "framework": {
+        "id": "p3if.citation-study.matheducation",
+        "name": "Math education"
+      }
+    },
+    "ScienceResearch": {
+      "fixture": "scienceresearch.json",
+      "fixture_sha256": "79878b37cd39517c1a766bc9c7e0f08437105bbf2fe6d8b5ee36d456156e085c",
+      "framework": {
+        "id": "p3if.citation-study.scienceresearch",
+        "name": "Science research"
+      }
+    }
+  },
+  "schema_version": "p3if.citation-case-spec.v1"
+}

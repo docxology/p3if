@@ -1,6 +1,6 @@
 # P3IF manuscript status
 
-Updated 2026-11-14.
+Updated 2026-11-15.
 
 P3IF maintains a technical [interchange methods note](METHODS.md) and a [ScienceResearch editorial audit](scienceresearch-audit.md). They specify the measurement and comparison procedures, reproduce descriptive results from a shipped domain, and check controlled revisions. Their evidence concerns the declared graph and the behavior of the software.
 
@@ -11,3 +11,5 @@ The [technical reviewer pilot](reviewer-study-pilot.md) ran on ScienceResearch a
 The [held-out conformance follow-up](held-out-conformance.md) verifies the software against 16 prespecified ScienceResearch and MathEducation pairs. It adds exact source and event-level verification on more complex edits.
 
 The [masked held-out model comparison](held-out-reviewer.md) archived a four-session comparison on the same 16 pairs. Both workflows reached the complete-case ceiling. The inputs, scoring, and results can be reproduced locally.
+
+The [citation and effort follow-up](citation-effort-results.md) measured exact source citation accuracy and reader operations across four model sessions. The protocol, case key, and reproducible results are public.

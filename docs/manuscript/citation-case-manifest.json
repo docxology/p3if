@@ -1,0 +1,1826 @@
+{
+  "cases": [
+    {
+      "after_sha256": "0bac682b6319c6eed05e3d42489d59a75d8cbcac451ae894670d6066ca3d9519",
+      "before_sha256": "0bac682b6319c6eed05e3d42489d59a75d8cbcac451ae894670d6066ca3d9519",
+      "case_id": "C01",
+      "citations": [
+        {
+          "after": {
+            "end_byte": 16762,
+            "end_char": 16750,
+            "pointer": "/properties/1",
+            "quote_sha256": "7fc7cd935f7e93207b0ebaad89bc389f2259116b2e5ef058ee134692e93a2aad",
+            "source_sha256": "0bac682b6319c6eed05e3d42489d59a75d8cbcac451ae894670d6066ca3d9519",
+            "start_byte": 16614,
+            "start_char": 16602
+          },
+          "before": {
+            "end_byte": 16762,
+            "end_char": 16750,
+            "pointer": "/properties/1",
+            "quote_sha256": "7fc7cd935f7e93207b0ebaad89bc389f2259116b2e5ef058ee134692e93a2aad",
+            "source_sha256": "0bac682b6319c6eed05e3d42489d59a75d8cbcac451ae894670d6066ca3d9519",
+            "start_byte": 16614,
+            "start_char": 16602
+          },
+          "id": "034b3730-c20a-4ed9-a27e-d7a9713a743a",
+          "kind": "property"
+        }
+      ],
+      "domain": "ScienceResearch",
+      "expected": {
+        "case_id": "C01",
+        "classification": "identical_bytes",
+        "events": []
+      },
+      "intervention": "byte_identical_context_citation",
+      "questions": [
+        {
+          "id": "034b3730-c20a-4ed9-a27e-d7a9713a743a",
+          "kind": "property"
+        }
+      ]
+    },
+    {
+      "after_sha256": "0e898093c2be3df240faf4dea4613f2f73db0f65c56b61b6a85f3c7e9b021898",
+      "before_sha256": "e3406b6724c0f571bdc14a2e668f1d6f11d57f16fb0e2e0d67cddd1bfcdc0339",
+      "case_id": "C02",
+      "citations": [
+        {
+          "after": {
+            "end_byte": 25402,
+            "end_char": 25370,
+            "pointer": "/properties/47",
+            "quote_sha256": "d7bdace02e2609a3c65c25a310095445424980c343cf6436e601c3bbc510803a",
+            "source_sha256": "0e898093c2be3df240faf4dea4613f2f73db0f65c56b61b6a85f3c7e9b021898",
+            "start_byte": 25169,
+            "start_char": 25149
+          },
+          "before": {
+            "end_byte": 16932,
+            "end_char": 16920,
+            "pointer": "/properties/2",
+            "quote_sha256": "3fe6bcc29a40eed37abe7a32b737ee6dcd1991fc827c9da9647a822325e13244",
+            "source_sha256": "e3406b6724c0f571bdc14a2e668f1d6f11d57f16fb0e2e0d67cddd1bfcdc0339",
+            "start_byte": 16768,
+            "start_char": 16756
+          },
+          "id": "0b2748a2-8686-458e-a89e-1c3f5bb13db9",
+          "kind": "property"
+        },
+        {
+          "after": {
+            "end_byte": 25162,
+            "end_char": 25142,
+            "pointer": "/properties/46",
+            "quote_sha256": "f35eee5caf246471346313c2d9f0a10dfba6695ad7b1876001f5cc8131f12357",
+            "source_sha256": "0e898093c2be3df240faf4dea4613f2f73db0f65c56b61b6a85f3c7e9b021898",
+            "start_byte": 24865,
+            "start_char": 24853
+          },
+          "before": {
+            "end_byte": 17227,
+            "end_char": 17207,
+            "pointer": "/properties/3",
+            "quote_sha256": "8fe56e521366ff7a562419f2dae55049c5eac6123081c5cf8bd9d158134d8d2f",
+            "source_sha256": "e3406b6724c0f571bdc14a2e668f1d6f11d57f16fb0e2e0d67cddd1bfcdc0339",
+            "start_byte": 16938,
+            "start_char": 16926
+          },
+          "id": "0d47582b-b6dd-4b8e-9d2f-3c5474e65bfb",
+          "kind": "property"
+        }
+      ],
+      "domain": "ScienceResearch",
+      "expected": {
+        "case_id": "C02",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": {
+              "coordinate": [
+                "0b2748a2-8686-458e-a89e-1c3f5bb13db9",
+                null,
+                null
+              ],
+              "scores": null
+            },
+            "before": {
+              "coordinate": [
+                "0b2748a2-8686-458e-a89e-1c3f5bb13db9",
+                null,
+                null
+              ],
+              "scores": null
+            },
+            "change": "modified",
+            "fields": [
+              "description"
+            ],
+            "id": "0b2748a2-8686-458e-a89e-1c3f5bb13db9",
+            "kind": "property",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "shared_label_and_moved_property",
+      "questions": [
+        {
+          "id": "0b2748a2-8686-458e-a89e-1c3f5bb13db9",
+          "kind": "property"
+        },
+        {
+          "id": "0d47582b-b6dd-4b8e-9d2f-3c5474e65bfb",
+          "kind": "property"
+        }
+      ]
+    },
+    {
+      "after_sha256": "987ae18fb41c4e25ab78a213f1658007c2e75e8929d2d3d693d47d6e220a87d9",
+      "before_sha256": "cf2243bea40545044fe0b2475e57a2ae546ab074446fcea1f5fdd8cf7acd5129",
+      "case_id": "C03",
+      "citations": [
+        {
+          "after": null,
+          "before": {
+            "end_byte": 18393,
+            "end_char": 18381,
+            "pointer": "/properties/11",
+            "quote_sha256": "05119c691e7d90df7773e6d71aae6191e9567bdda4faa9db0d8ebdd9b24ca5dd",
+            "source_sha256": "cf2243bea40545044fe0b2475e57a2ae546ab074446fcea1f5fdd8cf7acd5129",
+            "start_byte": 18239,
+            "start_char": 18227
+          },
+          "id": "30f6f873-3deb-4cd5-8df1-b4cf90ce1c1d",
+          "kind": "property"
+        },
+        {
+          "after": {
+            "end_byte": 17289,
+            "end_char": 17266,
+            "pointer": "/properties/0",
+            "quote_sha256": "8fb9c4a7ac09aee956acc0200ecdac7ffeb3bd6812a2fa0605e312aed280dc6b",
+            "source_sha256": "987ae18fb41c4e25ab78a213f1658007c2e75e8929d2d3d693d47d6e220a87d9",
+            "start_byte": 17042,
+            "start_char": 17030
+          },
+          "before": null,
+          "id": "p3if.citation-study.scienceresearch/property~replacement",
+          "kind": "property"
+        },
+        {
+          "after": {
+            "end_byte": 42852,
+            "end_char": 42829,
+            "pointer": "/relationships/55",
+            "quote_sha256": "64c30a37464885b247f0df213c5e31b31d1a9b697caad0174f845fb92c6a33ac",
+            "source_sha256": "987ae18fb41c4e25ab78a213f1658007c2e75e8929d2d3d693d47d6e220a87d9",
+            "start_byte": 42532,
+            "start_char": 42509
+          },
+          "before": {
+            "end_byte": 29446,
+            "end_char": 29434,
+            "pointer": "/relationships/15",
+            "quote_sha256": "a5a04340da066ef700deba221b615caa7275969ca67743ed465a1c0e99082f91",
+            "source_sha256": "cf2243bea40545044fe0b2475e57a2ae546ab074446fcea1f5fdd8cf7acd5129",
+            "start_byte": 29153,
+            "start_char": 29141
+          },
+          "id": "2ae0d5af-7909-4f47-9134-cf90746f9a44",
+          "kind": "relationship"
+        }
+      ],
+      "domain": "ScienceResearch",
+      "expected": {
+        "case_id": "C03",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": null,
+            "before": {
+              "coordinate": [
+                "30f6f873-3deb-4cd5-8df1-b4cf90ce1c1d",
+                null,
+                null
+              ],
+              "scores": null
+            },
+            "change": "removed",
+            "fields": [],
+            "id": "30f6f873-3deb-4cd5-8df1-b4cf90ce1c1d",
+            "kind": "property",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "p3if.citation-study.scienceresearch/property~replacement",
+                null,
+                null
+              ],
+              "scores": null
+            },
+            "before": null,
+            "change": "added",
+            "fields": [],
+            "id": "p3if.citation-study.scienceresearch/property~replacement",
+            "kind": "property",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "p3if.citation-study.scienceresearch/property~replacement",
+                "aefdef13-a82b-4f69-959b-5e28819e2827",
+                "6d88f908-5827-4cd8-9aa8-7095faa6e560"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "30f6f873-3deb-4cd5-8df1-b4cf90ce1c1d",
+                "aefdef13-a82b-4f69-959b-5e28819e2827",
+                "6d88f908-5827-4cd8-9aa8-7095faa6e560"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "property_id"
+            ],
+            "id": "2ae0d5af-7909-4f47-9134-cf90746f9a44",
+            "kind": "relationship",
+            "rewired": true
+          }
+        ]
+      },
+      "intervention": "replace_property_keep_relationship_identity",
+      "questions": [
+        {
+          "id": "30f6f873-3deb-4cd5-8df1-b4cf90ce1c1d",
+          "kind": "property"
+        },
+        {
+          "id": "p3if.citation-study.scienceresearch/property~replacement",
+          "kind": "property"
+        },
+        {
+          "id": "2ae0d5af-7909-4f47-9134-cf90746f9a44",
+          "kind": "relationship"
+        }
+      ]
+    },
+    {
+      "after_sha256": "025eb1f9c7f3528dc58efe01a0276aa2ac51cd27b1df162c4e9c9fe4fd786be5",
+      "before_sha256": "55be0aef1d4bfad53112bf6b5a69e0a11ba5694c21df1fd043836524e966e4c5",
+      "case_id": "C04",
+      "citations": [
+        {
+          "after": {
+            "end_byte": 42004,
+            "end_char": 42004,
+            "pointer": "/relationships/56",
+            "quote_sha256": "2550cc28752273c625739bb84c05e797a6f5844cd2eccdbc8cfe8ee9cb88acdb",
+            "source_sha256": "025eb1f9c7f3528dc58efe01a0276aa2ac51cd27b1df162c4e9c9fe4fd786be5",
+            "start_byte": 41557,
+            "start_char": 41557
+          },
+          "before": {
+            "end_byte": 22003,
+            "end_char": 21991,
+            "pointer": "/relationships/14",
+            "quote_sha256": "a65d38c74df2a71d351b41367058c1c9b398946d472634762ee71de4a286bda7",
+            "source_sha256": "55be0aef1d4bfad53112bf6b5a69e0a11ba5694c21df1fd043836524e966e4c5",
+            "start_byte": 21763,
+            "start_char": 21751
+          },
+          "id": "273314f2-100c-4b6f-82ee-311a29a149cd",
+          "kind": "relationship"
+        },
+        {
+          "after": null,
+          "before": {
+            "end_byte": 22726,
+            "end_char": 22714,
+            "pointer": "/relationships/17",
+            "quote_sha256": "4b2823d7672bb075ab73a9e0e335e2c6108258838b172ecc80877f2149d24ddf",
+            "source_sha256": "55be0aef1d4bfad53112bf6b5a69e0a11ba5694c21df1fd043836524e966e4c5",
+            "start_byte": 22486,
+            "start_char": 22474
+          },
+          "id": "32619b67-7b3d-4f82-91a3-049ae60e64d1",
+          "kind": "relationship"
+        },
+        {
+          "after": {
+            "end_byte": 25116,
+            "end_char": 25116,
+            "pointer": "/relationships/0",
+            "quote_sha256": "627229c04cc2aafc49142a8371743b845151038d8213218dd18bafb0c0643656",
+            "source_sha256": "025eb1f9c7f3528dc58efe01a0276aa2ac51cd27b1df162c4e9c9fe4fd786be5",
+            "start_byte": 24706,
+            "start_char": 24706
+          },
+          "before": null,
+          "id": "p3if.citation-study.scienceresearch/relationship~new",
+          "kind": "relationship"
+        }
+      ],
+      "domain": "ScienceResearch",
+      "expected": {
+        "case_id": "C04",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": {
+              "coordinate": [
+                "14afd441-4f3f-4f49-ba55-4d046d1a4895",
+                "60c4461f-e3d0-49d5-98be-d54f73bdbe06",
+                "6e179e0c-42ab-4182-bf85-c4c48c2e05c5"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "14afd441-4f3f-4f49-ba55-4d046d1a4895",
+                "60c4461f-e3d0-49d5-98be-d54f73bdbe06",
+                "6e179e0c-42ab-4182-bf85-c4c48c2e05c5"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "metadata"
+            ],
+            "id": "273314f2-100c-4b6f-82ee-311a29a149cd",
+            "kind": "relationship",
+            "rewired": false
+          },
+          {
+            "after": null,
+            "before": {
+              "coordinate": [
+                "14afd441-4f3f-4f49-ba55-4d046d1a4895",
+                "b7ff1d27-b166-4b54-9fde-998f77c427ca",
+                "6524bd4d-76c6-418b-86f6-c61d081142f3"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "removed",
+            "fields": [],
+            "id": "32619b67-7b3d-4f82-91a3-049ae60e64d1",
+            "kind": "relationship",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "14afd441-4f3f-4f49-ba55-4d046d1a4895",
+                "b7ff1d27-b166-4b54-9fde-998f77c427ca",
+                "6524bd4d-76c6-418b-86f6-c61d081142f3"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": null,
+            "change": "added",
+            "fields": [],
+            "id": "p3if.citation-study.scienceresearch/relationship~new",
+            "kind": "relationship",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "relationship_metadata_and_coordinate_preserving_replacement",
+      "questions": [
+        {
+          "id": "273314f2-100c-4b6f-82ee-311a29a149cd",
+          "kind": "relationship"
+        },
+        {
+          "id": "32619b67-7b3d-4f82-91a3-049ae60e64d1",
+          "kind": "relationship"
+        },
+        {
+          "id": "p3if.citation-study.scienceresearch/relationship~new",
+          "kind": "relationship"
+        }
+      ]
+    },
+    {
+      "after_sha256": "e02d2fe420e031f9027629258195175ec0449970f8a84472b24c9242e76d179e",
+      "before_sha256": "0eb10c78c76ac57482e517ca60cdb69bd5ed7d722f5a5000306afefaf0b67fec",
+      "case_id": "C05",
+      "citations": [
+        {
+          "after": {
+            "end_byte": 34029,
+            "end_char": 33252,
+            "pointer": "/relationships/18",
+            "quote_sha256": "d50c31c71f269f359b1ea367370d41ae003a93761f3899cb3661d32ff38c1b3c",
+            "source_sha256": "e02d2fe420e031f9027629258195175ec0449970f8a84472b24c9242e76d179e",
+            "start_byte": 31091,
+            "start_char": 31079
+          },
+          "before": {
+            "end_byte": 30343,
+            "end_char": 30331,
+            "pointer": "/relationships/18",
+            "quote_sha256": "383f792c33663ddf714916a3844d97d7b5f49f36cba014d4ffd60bfb40cf8a4e",
+            "source_sha256": "0eb10c78c76ac57482e517ca60cdb69bd5ed7d722f5a5000306afefaf0b67fec",
+            "start_byte": 30050,
+            "start_char": 30038
+          },
+          "id": "33446a97-6dd2-47f9-a92c-d9755e240d01",
+          "kind": "relationship"
+        }
+      ],
+      "domain": "ScienceResearch",
+      "expected": {
+        "case_id": "C05",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": {
+              "coordinate": [
+                "14afd441-4f3f-4f49-ba55-4d046d1a4895",
+                "584f534c-999c-4942-8981-b771f89315a3",
+                "286b96f3-0c23-4d99-85d8-f84f506453be"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "14afd441-4f3f-4f49-ba55-4d046d1a4895",
+                "584f534c-999c-4942-8981-b771f89315a3",
+                "286b96f3-0c23-4d99-85d8-f84f506453be"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "metadata"
+            ],
+            "id": "33446a97-6dd2-47f9-a92c-d9755e240d01",
+            "kind": "relationship",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "long_nested_multibyte_quotation",
+      "questions": [
+        {
+          "id": "33446a97-6dd2-47f9-a92c-d9755e240d01",
+          "kind": "relationship"
+        }
+      ]
+    },
+    {
+      "after_sha256": "30d64dc4ba2438f07946031062cb4d083d08aca0fac9f9091e7d7160e2c81618",
+      "before_sha256": "a85c8e1e2a9ea18b9199cec7b5b09de67e3f1839ce345f4513224a39784a0b4b",
+      "case_id": "C06",
+      "citations": [
+        {
+          "after": {
+            "end_byte": 254,
+            "end_char": 236,
+            "pointer": "/framework",
+            "quote_sha256": "6f36ca84e0664d375f0f46dea57084e16c6b07627178a96b68e22c76d8e89811",
+            "source_sha256": "30d64dc4ba2438f07946031062cb4d083d08aca0fac9f9091e7d7160e2c81618",
+            "start_byte": 41,
+            "start_char": 41
+          },
+          "before": {
+            "end_byte": 519,
+            "end_char": 507,
+            "pointer": "/framework",
+            "quote_sha256": "fb93ae66056cb6df35dcc388b062ea37d9863b0353677f4bff6f5a14024dbe57",
+            "source_sha256": "a85c8e1e2a9ea18b9199cec7b5b09de67e3f1839ce345f4513224a39784a0b4b",
+            "start_byte": 49,
+            "start_char": 49
+          },
+          "id": "p3if.citation-study.scienceresearch",
+          "kind": "framework"
+        },
+        {
+          "after": {
+            "end_byte": 12237,
+            "end_char": 12207,
+            "pointer": "/processes/49",
+            "quote_sha256": "505f1fcd5249af1a6c09f01d1b912076ba978e704bd0ee46d9d20423676154c3",
+            "source_sha256": "30d64dc4ba2438f07946031062cb4d083d08aca0fac9f9091e7d7160e2c81618",
+            "start_byte": 12072,
+            "start_char": 12050
+          },
+          "before": {
+            "end_byte": 8289,
+            "end_char": 8277,
+            "pointer": "/processes/0",
+            "quote_sha256": "e723dee5845f2f4e2d33f8e51c88f0ca5197458446162bc8ba7ded3f0b5d7bc0",
+            "source_sha256": "a85c8e1e2a9ea18b9199cec7b5b09de67e3f1839ce345f4513224a39784a0b4b",
+            "start_byte": 8130,
+            "start_char": 8118
+          },
+          "id": "096bd1eb-52ba-4bde-8396-56814f8da38b",
+          "kind": "process"
+        },
+        {
+          "after": {
+            "end_byte": 5985,
+            "end_char": 5963,
+            "pointer": "/perspectives/44",
+            "quote_sha256": "a4243ff4bb9f460458228f164be46c8d32a293adbcc1dfb60039e22ac7802228",
+            "source_sha256": "30d64dc4ba2438f07946031062cb4d083d08aca0fac9f9091e7d7160e2c81618",
+            "start_byte": 5823,
+            "start_char": 5805
+          },
+          "before": {
+            "end_byte": 703,
+            "end_char": 691,
+            "pointer": "/perspectives/0",
+            "quote_sha256": "983193f1383c95d35ea113ae977a685e6ce9e53b657891ddd7f3e754c23119db",
+            "source_sha256": "a85c8e1e2a9ea18b9199cec7b5b09de67e3f1839ce345f4513224a39784a0b4b",
+            "start_byte": 545,
+            "start_char": 533
+          },
+          "id": "0b263a66-fff9-41c4-904d-5d3b60e89e17",
+          "kind": "perspective"
+        }
+      ],
+      "domain": "ScienceResearch",
+      "expected": {
+        "case_id": "C06",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": {
+              "coordinate": [
+                null,
+                null,
+                null
+              ],
+              "scores": null
+            },
+            "before": {
+              "coordinate": [
+                null,
+                null,
+                null
+              ],
+              "scores": null
+            },
+            "change": "modified",
+            "fields": [
+              "metadata"
+            ],
+            "id": "p3if.citation-study.scienceresearch",
+            "kind": "framework",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                null,
+                null,
+                "0b263a66-fff9-41c4-904d-5d3b60e89e17"
+              ],
+              "scores": null
+            },
+            "before": {
+              "coordinate": [
+                null,
+                null,
+                "0b263a66-fff9-41c4-904d-5d3b60e89e17"
+              ],
+              "scores": null
+            },
+            "change": "modified",
+            "fields": [
+              "description"
+            ],
+            "id": "0b263a66-fff9-41c4-904d-5d3b60e89e17",
+            "kind": "perspective",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                null,
+                "096bd1eb-52ba-4bde-8396-56814f8da38b",
+                null
+              ],
+              "scores": null
+            },
+            "before": {
+              "coordinate": [
+                null,
+                "096bd1eb-52ba-4bde-8396-56814f8da38b",
+                null
+              ],
+              "scores": null
+            },
+            "change": "modified",
+            "fields": [
+              "description"
+            ],
+            "id": "096bd1eb-52ba-4bde-8396-56814f8da38b",
+            "kind": "process",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "framework_and_two_axes",
+      "questions": [
+        {
+          "id": "p3if.citation-study.scienceresearch",
+          "kind": "framework"
+        },
+        {
+          "id": "096bd1eb-52ba-4bde-8396-56814f8da38b",
+          "kind": "process"
+        },
+        {
+          "id": "0b263a66-fff9-41c4-904d-5d3b60e89e17",
+          "kind": "perspective"
+        }
+      ]
+    },
+    {
+      "after_sha256": "d414fec7661941ea866536b597af15e275b644dfaa710aa92a48870d70774252",
+      "before_sha256": "f31640bd723f491f25b888a0c855caec84a882da0e0340dd70b7c9809fb9bc50",
+      "case_id": "C07",
+      "citations": [
+        {
+          "after": {
+            "end_byte": 5974,
+            "end_char": 5955,
+            "pointer": "/perspectives/43",
+            "quote_sha256": "83b3cb1bf4c2446d61c75a57cf34964ef3210c94bdcfa163bc379659f569c739",
+            "source_sha256": "d414fec7661941ea866536b597af15e275b644dfaa710aa92a48870d70774252",
+            "start_byte": 5808,
+            "start_char": 5796
+          },
+          "before": {
+            "end_byte": 900,
+            "end_char": 900,
+            "pointer": "/perspectives/1",
+            "quote_sha256": "f6fec435b9d69b8c9552ba7e8173c38d95fcff5fb7639b3506e0ffa50bb98024",
+            "source_sha256": "f31640bd723f491f25b888a0c855caec84a882da0e0340dd70b7c9809fb9bc50",
+            "start_byte": 743,
+            "start_char": 743
+          },
+          "id": "0da87594-9cb0-403c-aac3-92d7cb01e04e",
+          "kind": "perspective"
+        },
+        {
+          "after": {
+            "end_byte": 12174,
+            "end_char": 12155,
+            "pointer": "/processes/48",
+            "quote_sha256": "2e747ee95e1624cc684337d1985f5a9495c55c710dc624eda7490fedcb8b3f10",
+            "source_sha256": "d414fec7661941ea866536b597af15e275b644dfaa710aa92a48870d70774252",
+            "start_byte": 12058,
+            "start_char": 12039
+          },
+          "before": {
+            "end_byte": 8482,
+            "end_char": 8482,
+            "pointer": "/processes/1",
+            "quote_sha256": "105437c0153e9645d7af30019228fdae9ed3af9d97914f87f42b164aae6471a4",
+            "source_sha256": "f31640bd723f491f25b888a0c855caec84a882da0e0340dd70b7c9809fb9bc50",
+            "start_byte": 8329,
+            "start_char": 8329
+          },
+          "id": "0d5ccc7c-b06f-49cf-a955-0ff5dc9d9c62",
+          "kind": "process"
+        },
+        {
+          "after": null,
+          "before": {
+            "end_byte": 30668,
+            "end_char": 30668,
+            "pointer": "/relationships/19",
+            "quote_sha256": "fd203e870d15f522a38a9e471c5f6f0ac1d1f77dcb20c8b20bc0b0d1b4f2c73a",
+            "source_sha256": "f31640bd723f491f25b888a0c855caec84a882da0e0340dd70b7c9809fb9bc50",
+            "start_byte": 30375,
+            "start_char": 30375
+          },
+          "id": "34b7ad25-1f81-4798-ab2b-a873ac3ef04a",
+          "kind": "relationship"
+        }
+      ],
+      "domain": "ScienceResearch",
+      "expected": {
+        "case_id": "C07",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": {
+              "coordinate": [
+                null,
+                null,
+                "0da87594-9cb0-403c-aac3-92d7cb01e04e"
+              ],
+              "scores": null
+            },
+            "before": {
+              "coordinate": [
+                null,
+                null,
+                "0da87594-9cb0-403c-aac3-92d7cb01e04e"
+              ],
+              "scores": null
+            },
+            "change": "modified",
+            "fields": [
+              "description"
+            ],
+            "id": "0da87594-9cb0-403c-aac3-92d7cb01e04e",
+            "kind": "perspective",
+            "rewired": false
+          },
+          {
+            "after": null,
+            "before": {
+              "coordinate": [
+                "53d1b0b8-5d0f-412c-8840-d1d8779aa3b5",
+                "7d652693-eaa5-4a63-8f58-6b1d0ecb0b1c",
+                "52a00eb1-ddc4-4c8d-9dc7-ca63b99ae7f7"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "removed",
+            "fields": [],
+            "id": "34b7ad25-1f81-4798-ab2b-a873ac3ef04a",
+            "kind": "relationship",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "cross_axis_shared_label_and_relationship_tombstone",
+      "questions": [
+        {
+          "id": "0da87594-9cb0-403c-aac3-92d7cb01e04e",
+          "kind": "perspective"
+        },
+        {
+          "id": "0d5ccc7c-b06f-49cf-a955-0ff5dc9d9c62",
+          "kind": "process"
+        },
+        {
+          "id": "34b7ad25-1f81-4798-ab2b-a873ac3ef04a",
+          "kind": "relationship"
+        }
+      ]
+    },
+    {
+      "after_sha256": "656d1f8a044b448a05823951933acac0b0736e288bc30c620cb81905b9a7414e",
+      "before_sha256": "26d2b774fa9e2807862b0b0d2a8f32728a571771672273074ea05202ec49b185",
+      "case_id": "C08",
+      "citations": [
+        {
+          "after": {
+            "end_byte": 17894,
+            "end_char": 17882,
+            "pointer": "/properties/45",
+            "quote_sha256": "d35bdfabbcc7c636e5827be6549c02c665e246d6158bc23c13a8ef34e5456535",
+            "source_sha256": "656d1f8a044b448a05823951933acac0b0736e288bc30c620cb81905b9a7414e",
+            "start_byte": 17773,
+            "start_char": 17761
+          },
+          "before": {
+            "end_byte": 12886,
+            "end_char": 12874,
+            "pointer": "/properties/4",
+            "quote_sha256": "d35bdfabbcc7c636e5827be6549c02c665e246d6158bc23c13a8ef34e5456535",
+            "source_sha256": "26d2b774fa9e2807862b0b0d2a8f32728a571771672273074ea05202ec49b185",
+            "start_byte": 12765,
+            "start_char": 12753
+          },
+          "id": "124b234a-78d3-4d85-b59d-921e652e446c",
+          "kind": "property"
+        },
+        {
+          "after": {
+            "end_byte": 23508,
+            "end_char": 23491,
+            "pointer": "/relationships/20",
+            "quote_sha256": "d13c0edc15a383b3f38fd5f8e5ad36c1bdb9a021294fc8c0c078c97760724e82",
+            "source_sha256": "656d1f8a044b448a05823951933acac0b0736e288bc30c620cb81905b9a7414e",
+            "start_byte": 23214,
+            "start_char": 23202
+          },
+          "before": {
+            "end_byte": 23454,
+            "end_char": 23442,
+            "pointer": "/relationships/20",
+            "quote_sha256": "ae7f08fc48d22e5d845b1074d14b6ac1f846f8ae8930af062a00ffddbde8ddb2",
+            "source_sha256": "26d2b774fa9e2807862b0b0d2a8f32728a571771672273074ea05202ec49b185",
+            "start_byte": 23214,
+            "start_char": 23202
+          },
+          "id": "3641a364-00fb-4242-89a4-69653e1b5c77",
+          "kind": "relationship"
+        }
+      ],
+      "domain": "ScienceResearch",
+      "expected": {
+        "case_id": "C08",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": {
+              "coordinate": [
+                "a0d7d802-64e2-4ff0-a72f-160e087b3956",
+                "cb768779-7389-4c07-a6d0-7d990b492344",
+                "f21d7a5a-3f98-4b61-9576-a146c34c2736"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "a0d7d802-64e2-4ff0-a72f-160e087b3956",
+                "cb768779-7389-4c07-a6d0-7d990b492344",
+                "f21d7a5a-3f98-4b61-9576-a146c34c2736"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "metadata"
+            ],
+            "id": "3641a364-00fb-4242-89a4-69653e1b5c77",
+            "kind": "relationship",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "byte_identical_nested_decoy",
+      "questions": [
+        {
+          "id": "124b234a-78d3-4d85-b59d-921e652e446c",
+          "kind": "property"
+        },
+        {
+          "id": "3641a364-00fb-4242-89a4-69653e1b5c77",
+          "kind": "relationship"
+        }
+      ]
+    },
+    {
+      "after_sha256": "3092ea1135d0034fe582a700e58821b29795e1fb09fb33b53cac8aa80a4ce77e",
+      "before_sha256": "c3eec2f9e843ab643e29de9130503ae03eaf886c1e7f1a12e43513a189180167",
+      "case_id": "C09",
+      "citations": [
+        {
+          "after": {
+            "end_byte": 25388,
+            "end_char": 25388,
+            "pointer": "/properties/49",
+            "quote_sha256": "977d4e17f1a6047b042ae991efc46d56486d604dbdbb2028eb0d740f2329091c",
+            "source_sha256": "3092ea1135d0034fe582a700e58821b29795e1fb09fb33b53cac8aa80a4ce77e",
+            "start_byte": 25228,
+            "start_char": 25228
+          },
+          "before": {
+            "end_byte": 17370,
+            "end_char": 17358,
+            "pointer": "/properties/0",
+            "quote_sha256": "977d4e17f1a6047b042ae991efc46d56486d604dbdbb2028eb0d740f2329091c",
+            "source_sha256": "c3eec2f9e843ab643e29de9130503ae03eaf886c1e7f1a12e43513a189180167",
+            "start_byte": 17210,
+            "start_char": 17198
+          },
+          "id": "0b96483f-3257-41b3-a488-4cdd970b8abb",
+          "kind": "property"
+        }
+      ],
+      "domain": "MathEducation",
+      "expected": {
+        "case_id": "C09",
+        "classification": "encoding_only",
+        "events": []
+      },
+      "intervention": "representation_only_context_citation",
+      "questions": [
+        {
+          "id": "0b96483f-3257-41b3-a488-4cdd970b8abb",
+          "kind": "property"
+        }
+      ]
+    },
+    {
+      "after_sha256": "774cb96c9ffc22f069f9ec98cbbf792554140b28eb78900a85e8564b26cd5346",
+      "before_sha256": "d17ffb5c46203c8535af00e1477c11822f35d133e49f30b73433e339859db849",
+      "case_id": "C10",
+      "citations": [
+        {
+          "after": {
+            "end_byte": 18896,
+            "end_char": 18864,
+            "pointer": "/properties/48",
+            "quote_sha256": "3d74bbab85fb1736ff69e7ea8a7e1f97f4d45f411ec082ab87d664dcb0542048",
+            "source_sha256": "774cb96c9ffc22f069f9ec98cbbf792554140b28eb78900a85e8564b26cd5346",
+            "start_byte": 18727,
+            "start_char": 18707
+          },
+          "before": {
+            "end_byte": 17527,
+            "end_char": 17515,
+            "pointer": "/properties/1",
+            "quote_sha256": "391062ab946be0e58aa64a9a3e75493e64fd3c21317bb96b8c8023f85a93511b",
+            "source_sha256": "d17ffb5c46203c8535af00e1477c11822f35d133e49f30b73433e339859db849",
+            "start_byte": 17376,
+            "start_char": 17364
+          },
+          "id": "11c4714e-0479-4d26-b9d3-7dd139ba088a",
+          "kind": "property"
+        },
+        {
+          "after": {
+            "end_byte": 18726,
+            "end_char": 18706,
+            "pointer": "/properties/47",
+            "quote_sha256": "c137c2c16a662a2a42a7d61d8dd6d603d5dc97bbd2cefa9e414976da0ce60e1d",
+            "source_sha256": "774cb96c9ffc22f069f9ec98cbbf792554140b28eb78900a85e8564b26cd5346",
+            "start_byte": 18512,
+            "start_char": 18500
+          },
+          "before": {
+            "end_byte": 17809,
+            "end_char": 17789,
+            "pointer": "/properties/2",
+            "quote_sha256": "f2bc2c9f814dbaa0edea1dc102e882e95ef1ca3411eb592764fcf694b73a3218",
+            "source_sha256": "d17ffb5c46203c8535af00e1477c11822f35d133e49f30b73433e339859db849",
+            "start_byte": 17533,
+            "start_char": 17521
+          },
+          "id": "1507c124-26b0-48c5-a9fb-2ca279b65bb6",
+          "kind": "property"
+        }
+      ],
+      "domain": "MathEducation",
+      "expected": {
+        "case_id": "C10",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": {
+              "coordinate": [
+                "11c4714e-0479-4d26-b9d3-7dd139ba088a",
+                null,
+                null
+              ],
+              "scores": null
+            },
+            "before": {
+              "coordinate": [
+                "11c4714e-0479-4d26-b9d3-7dd139ba088a",
+                null,
+                null
+              ],
+              "scores": null
+            },
+            "change": "modified",
+            "fields": [
+              "description"
+            ],
+            "id": "11c4714e-0479-4d26-b9d3-7dd139ba088a",
+            "kind": "property",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "shared_label_and_moved_property",
+      "questions": [
+        {
+          "id": "11c4714e-0479-4d26-b9d3-7dd139ba088a",
+          "kind": "property"
+        },
+        {
+          "id": "1507c124-26b0-48c5-a9fb-2ca279b65bb6",
+          "kind": "property"
+        }
+      ]
+    },
+    {
+      "after_sha256": "e9c462abb0e8ab81addaa290b5ef79179ba32f49d74ceabe735e9535a2191154",
+      "before_sha256": "bd54e3b9018002f36ab5282687e8eba22ceeedce496596ac6c21ec8d1d07cead",
+      "case_id": "C11",
+      "citations": [
+        {
+          "after": null,
+          "before": {
+            "end_byte": 21939,
+            "end_char": 21927,
+            "pointer": "/properties/28",
+            "quote_sha256": "e87670df99a1f6475a69fe25e02089f64e8881c0e39ff2b75120b8ef3455f8fc",
+            "source_sha256": "bd54e3b9018002f36ab5282687e8eba22ceeedce496596ac6c21ec8d1d07cead",
+            "start_byte": 21788,
+            "start_char": 21776
+          },
+          "id": "8b23cb59-3158-4833-8d4b-fef2ffb3521a",
+          "kind": "property"
+        },
+        {
+          "after": {
+            "end_byte": 13019,
+            "end_char": 12996,
+            "pointer": "/properties/0",
+            "quote_sha256": "cd106d1ce02589c45e123a1af380a82133f971b8d4e8628ffeb99345c11d65fa",
+            "source_sha256": "e9c462abb0e8ab81addaa290b5ef79179ba32f49d74ceabe735e9535a2191154",
+            "start_byte": 12828,
+            "start_char": 12816
+          },
+          "before": null,
+          "id": "p3if.citation-study.matheducation/property~replacement",
+          "kind": "property"
+        },
+        {
+          "after": {
+            "end_byte": 30550,
+            "end_char": 30527,
+            "pointer": "/relationships/47",
+            "quote_sha256": "fc2b089690361e21beac053672dad39f4319fa04b1a51cd9d6088e37e52b789a",
+            "source_sha256": "e9c462abb0e8ab81addaa290b5ef79179ba32f49d74ceabe735e9535a2191154",
+            "start_byte": 30292,
+            "start_char": 30269
+          },
+          "before": {
+            "end_byte": 30162,
+            "end_char": 30150,
+            "pointer": "/relationships/15",
+            "quote_sha256": "153ab105a14d4843cc64d37a42f3624dd7c22a4bbaa721382c9da1f6a75efbb5",
+            "source_sha256": "bd54e3b9018002f36ab5282687e8eba22ceeedce496596ac6c21ec8d1d07cead",
+            "start_byte": 29869,
+            "start_char": 29857
+          },
+          "id": "43bf97b0-33dd-4884-9b4e-415d511ed1ce",
+          "kind": "relationship"
+        }
+      ],
+      "domain": "MathEducation",
+      "expected": {
+        "case_id": "C11",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": null,
+            "before": {
+              "coordinate": [
+                "8b23cb59-3158-4833-8d4b-fef2ffb3521a",
+                null,
+                null
+              ],
+              "scores": null
+            },
+            "change": "removed",
+            "fields": [],
+            "id": "8b23cb59-3158-4833-8d4b-fef2ffb3521a",
+            "kind": "property",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "p3if.citation-study.matheducation/property~replacement",
+                null,
+                null
+              ],
+              "scores": null
+            },
+            "before": null,
+            "change": "added",
+            "fields": [],
+            "id": "p3if.citation-study.matheducation/property~replacement",
+            "kind": "property",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "p3if.citation-study.matheducation/property~replacement",
+                "fac2edda-f78e-410b-87f9-694ea4ef5cbf",
+                "14647040-2084-4616-bf98-8bb70535753e"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "8b23cb59-3158-4833-8d4b-fef2ffb3521a",
+                "fac2edda-f78e-410b-87f9-694ea4ef5cbf",
+                "14647040-2084-4616-bf98-8bb70535753e"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "property_id"
+            ],
+            "id": "43bf97b0-33dd-4884-9b4e-415d511ed1ce",
+            "kind": "relationship",
+            "rewired": true
+          }
+        ]
+      },
+      "intervention": "replace_property_keep_relationship_identity",
+      "questions": [
+        {
+          "id": "8b23cb59-3158-4833-8d4b-fef2ffb3521a",
+          "kind": "property"
+        },
+        {
+          "id": "p3if.citation-study.matheducation/property~replacement",
+          "kind": "property"
+        },
+        {
+          "id": "43bf97b0-33dd-4884-9b4e-415d511ed1ce",
+          "kind": "relationship"
+        }
+      ]
+    },
+    {
+      "after_sha256": "85d833939ef679ef5a9956c3b04b9f99c52db801fad2b0ac476dabccc1cdc5be",
+      "before_sha256": "eca1647caa69fa582ba367c826bf1fb7ed923f67ede1e813c0286e8b64c68ca4",
+      "case_id": "C12",
+      "citations": [
+        {
+          "after": {
+            "end_byte": 39659,
+            "end_char": 39634,
+            "pointer": "/relationships/46",
+            "quote_sha256": "88584065dcf91626534311f1891566267616262d3046fb343e318c663fb6652c",
+            "source_sha256": "85d833939ef679ef5a9956c3b04b9f99c52db801fad2b0ac476dabccc1cdc5be",
+            "start_byte": 39224,
+            "start_char": 39203
+          },
+          "before": {
+            "end_byte": 31523,
+            "end_char": 31511,
+            "pointer": "/relationships/16",
+            "quote_sha256": "6669ebcf02500d5bcf0a1cee505e68fcca5ccc7664e0a6134cf6e9bd24e0f279",
+            "source_sha256": "eca1647caa69fa582ba367c826bf1fb7ed923f67ede1e813c0286e8b64c68ca4",
+            "start_byte": 31223,
+            "start_char": 31211
+          },
+          "id": "4531f4da-a47c-4699-994c-637b9e8495e6",
+          "kind": "relationship"
+        },
+        {
+          "after": null,
+          "before": {
+            "end_byte": 31830,
+            "end_char": 31818,
+            "pointer": "/relationships/17",
+            "quote_sha256": "5233fe36fe54431d21cf63b2d456587a47167f455742bf049dd5d7cd60b0202f",
+            "source_sha256": "eca1647caa69fa582ba367c826bf1fb7ed923f67ede1e813c0286e8b64c68ca4",
+            "start_byte": 31530,
+            "start_char": 31518
+          },
+          "id": "4797a279-956e-4c98-9cfd-378b22cb0d30",
+          "kind": "relationship"
+        },
+        {
+          "after": {
+            "end_byte": 25771,
+            "end_char": 25750,
+            "pointer": "/relationships/0",
+            "quote_sha256": "cb47d08beb3cf8ad924366196bae195e5c90c75b91b22ec7a1f0b9ba128d6211",
+            "source_sha256": "85d833939ef679ef5a9956c3b04b9f99c52db801fad2b0ac476dabccc1cdc5be",
+            "start_byte": 25385,
+            "start_char": 25373
+          },
+          "before": null,
+          "id": "p3if.citation-study.matheducation/relationship~new",
+          "kind": "relationship"
+        }
+      ],
+      "domain": "MathEducation",
+      "expected": {
+        "case_id": "C12",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": {
+              "coordinate": [
+                "d1e20390-2bfc-493a-bda2-43597e8cc47e",
+                "08953f9c-7c56-41e8-8b8f-cc65402f20c2",
+                "d6f6934d-a26b-4e73-99ca-33df355a3291"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "d1e20390-2bfc-493a-bda2-43597e8cc47e",
+                "08953f9c-7c56-41e8-8b8f-cc65402f20c2",
+                "d6f6934d-a26b-4e73-99ca-33df355a3291"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "metadata"
+            ],
+            "id": "4531f4da-a47c-4699-994c-637b9e8495e6",
+            "kind": "relationship",
+            "rewired": false
+          },
+          {
+            "after": null,
+            "before": {
+              "coordinate": [
+                "27a36c61-d152-4059-a81e-bed7ae835001",
+                "0ea86571-417f-40bb-abdc-bdd8f732c9cc",
+                "d1e3171f-6665-4284-aca6-095e60b869a4"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "removed",
+            "fields": [],
+            "id": "4797a279-956e-4c98-9cfd-378b22cb0d30",
+            "kind": "relationship",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "27a36c61-d152-4059-a81e-bed7ae835001",
+                "0ea86571-417f-40bb-abdc-bdd8f732c9cc",
+                "d1e3171f-6665-4284-aca6-095e60b869a4"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": null,
+            "change": "added",
+            "fields": [],
+            "id": "p3if.citation-study.matheducation/relationship~new",
+            "kind": "relationship",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "relationship_metadata_and_coordinate_preserving_replacement",
+      "questions": [
+        {
+          "id": "4531f4da-a47c-4699-994c-637b9e8495e6",
+          "kind": "relationship"
+        },
+        {
+          "id": "4797a279-956e-4c98-9cfd-378b22cb0d30",
+          "kind": "relationship"
+        },
+        {
+          "id": "p3if.citation-study.matheducation/relationship~new",
+          "kind": "relationship"
+        }
+      ]
+    },
+    {
+      "after_sha256": "ad3f000ae5d938ac27260d52a16250c996dc0a6565c0436e6869e4acc5883150",
+      "before_sha256": "d87c31a9d48ef7a3cf7c9514112e9645411372de37020b1c9c64ff495349185b",
+      "case_id": "C13",
+      "citations": [
+        {
+          "after": {
+            "end_byte": 34775,
+            "end_char": 33998,
+            "pointer": "/relationships/18",
+            "quote_sha256": "4ccd7b958e64bcb4d0e1372812dcc1f80fc400b8cee65ffa02e1c45b4a711a79",
+            "source_sha256": "ad3f000ae5d938ac27260d52a16250c996dc0a6565c0436e6869e4acc5883150",
+            "start_byte": 31837,
+            "start_char": 31825
+          },
+          "before": {
+            "end_byte": 31059,
+            "end_char": 31047,
+            "pointer": "/relationships/18",
+            "quote_sha256": "71923f58a9bbe18599797ae0fa0aed0edd55e68bcf885c9fa15ce61e77e5265b",
+            "source_sha256": "d87c31a9d48ef7a3cf7c9514112e9645411372de37020b1c9c64ff495349185b",
+            "start_byte": 30766,
+            "start_char": 30754
+          },
+          "id": "4cec8490-34fa-4bd7-a724-5b346cb93bfe",
+          "kind": "relationship"
+        }
+      ],
+      "domain": "MathEducation",
+      "expected": {
+        "case_id": "C13",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": {
+              "coordinate": [
+                "664dc252-119c-4c79-aeb4-c68b6be88174",
+                "84d162fa-ff46-4026-90e8-a3cfe831c0b7",
+                "c409b00f-bff8-4ec8-83d0-b704d0398931"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "664dc252-119c-4c79-aeb4-c68b6be88174",
+                "84d162fa-ff46-4026-90e8-a3cfe831c0b7",
+                "c409b00f-bff8-4ec8-83d0-b704d0398931"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "metadata"
+            ],
+            "id": "4cec8490-34fa-4bd7-a724-5b346cb93bfe",
+            "kind": "relationship",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "long_nested_multibyte_quotation",
+      "questions": [
+        {
+          "id": "4cec8490-34fa-4bd7-a724-5b346cb93bfe",
+          "kind": "relationship"
+        }
+      ]
+    },
+    {
+      "after_sha256": "1b0cce04f58b2964ebfc7a30bc473aa8e7a0524f40511de3ba82653f735e72d3",
+      "before_sha256": "30d67d5e4efc3918eeed9dc071cc138167fa7fdd08aab56ce93c6f918f2056bd",
+      "case_id": "C14",
+      "citations": [
+        {
+          "after": {
+            "end_byte": 250,
+            "end_char": 232,
+            "pointer": "/framework",
+            "quote_sha256": "bc502cb50bdbc82908f09e2ca90bde4d1493b45d494ec5553eff07a0c4d9c9f8",
+            "source_sha256": "1b0cce04f58b2964ebfc7a30bc473aa8e7a0524f40511de3ba82653f735e72d3",
+            "start_byte": 41,
+            "start_char": 41
+          },
+          "before": {
+            "end_byte": 532,
+            "end_char": 520,
+            "pointer": "/framework",
+            "quote_sha256": "543e101ead5b57fe40029d269d487c89176b0f8ca07c38a862676b4f1039660e",
+            "source_sha256": "30d67d5e4efc3918eeed9dc071cc138167fa7fdd08aab56ce93c6f918f2056bd",
+            "start_byte": 51,
+            "start_char": 51
+          },
+          "id": "p3if.citation-study.matheducation",
+          "kind": "framework"
+        },
+        {
+          "after": {
+            "end_byte": 12792,
+            "end_char": 12762,
+            "pointer": "/processes/49",
+            "quote_sha256": "2340a733f08135358072b1246b1ae23d4f57c5631f280421a69d9f25ca5c8c3d",
+            "source_sha256": "1b0cce04f58b2964ebfc7a30bc473aa8e7a0524f40511de3ba82653f735e72d3",
+            "start_byte": 12618,
+            "start_char": 12596
+          },
+          "before": {
+            "end_byte": 9461,
+            "end_char": 9449,
+            "pointer": "/processes/0",
+            "quote_sha256": "42afd340748e0e365667d751faae5432a5c98a4e9f258040f811d0964d93ce33",
+            "source_sha256": "30d67d5e4efc3918eeed9dc071cc138167fa7fdd08aab56ce93c6f918f2056bd",
+            "start_byte": 9288,
+            "start_char": 9276
+          },
+          "id": "075fc7a9-fbcf-4c90-b0f8-d9f6fbc6c4bf",
+          "kind": "process"
+        },
+        {
+          "after": {
+            "end_byte": 6612,
+            "end_char": 6590,
+            "pointer": "/perspectives/49",
+            "quote_sha256": "d3ced88a04d5a5a4f46d1b2aed18cde6c6ab416fc60abd5f6752ac8f52866b4f",
+            "source_sha256": "1b0cce04f58b2964ebfc7a30bc473aa8e7a0524f40511de3ba82653f735e72d3",
+            "start_byte": 6433,
+            "start_char": 6415
+          },
+          "before": {
+            "end_byte": 740,
+            "end_char": 728,
+            "pointer": "/perspectives/0",
+            "quote_sha256": "0a4da626e0c0f5e61efe33393194be4f612f5b238e91f09249eddb8c4d6aaade",
+            "source_sha256": "30d67d5e4efc3918eeed9dc071cc138167fa7fdd08aab56ce93c6f918f2056bd",
+            "start_byte": 560,
+            "start_char": 548
+          },
+          "id": "0edba088-062c-45f8-8304-2d73d337a682",
+          "kind": "perspective"
+        }
+      ],
+      "domain": "MathEducation",
+      "expected": {
+        "case_id": "C14",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": {
+              "coordinate": [
+                null,
+                null,
+                null
+              ],
+              "scores": null
+            },
+            "before": {
+              "coordinate": [
+                null,
+                null,
+                null
+              ],
+              "scores": null
+            },
+            "change": "modified",
+            "fields": [
+              "metadata"
+            ],
+            "id": "p3if.citation-study.matheducation",
+            "kind": "framework",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                null,
+                null,
+                "0edba088-062c-45f8-8304-2d73d337a682"
+              ],
+              "scores": null
+            },
+            "before": {
+              "coordinate": [
+                null,
+                null,
+                "0edba088-062c-45f8-8304-2d73d337a682"
+              ],
+              "scores": null
+            },
+            "change": "modified",
+            "fields": [
+              "description"
+            ],
+            "id": "0edba088-062c-45f8-8304-2d73d337a682",
+            "kind": "perspective",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                null,
+                "075fc7a9-fbcf-4c90-b0f8-d9f6fbc6c4bf",
+                null
+              ],
+              "scores": null
+            },
+            "before": {
+              "coordinate": [
+                null,
+                "075fc7a9-fbcf-4c90-b0f8-d9f6fbc6c4bf",
+                null
+              ],
+              "scores": null
+            },
+            "change": "modified",
+            "fields": [
+              "description"
+            ],
+            "id": "075fc7a9-fbcf-4c90-b0f8-d9f6fbc6c4bf",
+            "kind": "process",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "framework_and_two_axes",
+      "questions": [
+        {
+          "id": "p3if.citation-study.matheducation",
+          "kind": "framework"
+        },
+        {
+          "id": "075fc7a9-fbcf-4c90-b0f8-d9f6fbc6c4bf",
+          "kind": "process"
+        },
+        {
+          "id": "0edba088-062c-45f8-8304-2d73d337a682",
+          "kind": "perspective"
+        }
+      ]
+    },
+    {
+      "after_sha256": "7ffd47c5f34bd072477db8e0aab1dee11549c051647e7096b75026b73884ead7",
+      "before_sha256": "acfdad6b0eccaefc4bcfce7edbec70301dbc66a452e7499b380667a5e1366658",
+      "case_id": "C15",
+      "citations": [
+        {
+          "after": {
+            "end_byte": 9126,
+            "end_char": 9107,
+            "pointer": "/perspectives/48",
+            "quote_sha256": "f8d88b0bd5959ab882932201b3e95ca0078109e12edc646e490608803480e426",
+            "source_sha256": "7ffd47c5f34bd072477db8e0aab1dee11549c051647e7096b75026b73884ead7",
+            "start_byte": 8902,
+            "start_char": 8890
+          },
+          "before": {
+            "end_byte": 918,
+            "end_char": 918,
+            "pointer": "/perspectives/1",
+            "quote_sha256": "9fad2c8202c3a166d34b370ff5d16100f44eee2dbaa1f622fa01b3cef39cf3ee",
+            "source_sha256": "acfdad6b0eccaefc4bcfce7edbec70301dbc66a452e7499b380667a5e1366658",
+            "start_byte": 754,
+            "start_char": 754
+          },
+          "id": "14647040-2084-4616-bf98-8bb70535753e",
+          "kind": "perspective"
+        },
+        {
+          "after": {
+            "end_byte": 17686,
+            "end_char": 17667,
+            "pointer": "/processes/48",
+            "quote_sha256": "379cc3f8766db995191df04a72852be6541b29475320fa2ade9bb21a2416501c",
+            "source_sha256": "7ffd47c5f34bd072477db8e0aab1dee11549c051647e7096b75026b73884ead7",
+            "start_byte": 17521,
+            "start_char": 17502
+          },
+          "before": {
+            "end_byte": 9333,
+            "end_char": 9333,
+            "pointer": "/processes/1",
+            "quote_sha256": "beb908f7674a7746b08f2746dc87e0710df20462aaa6791548238887d00cd420",
+            "source_sha256": "acfdad6b0eccaefc4bcfce7edbec70301dbc66a452e7499b380667a5e1366658",
+            "start_byte": 9173,
+            "start_char": 9173
+          },
+          "id": "08953f9c-7c56-41e8-8b8f-cc65402f20c2",
+          "kind": "process"
+        },
+        {
+          "after": null,
+          "before": {
+            "end_byte": 31399,
+            "end_char": 31399,
+            "pointer": "/relationships/19",
+            "quote_sha256": "265a0e4336924d266b293311d1922376204b089049f89fd96d555f8ab8a4dea5",
+            "source_sha256": "acfdad6b0eccaefc4bcfce7edbec70301dbc66a452e7499b380667a5e1366658",
+            "start_byte": 31106,
+            "start_char": 31106
+          },
+          "id": "535d2729-c85b-4313-8b3c-b97ca48b71e8",
+          "kind": "relationship"
+        }
+      ],
+      "domain": "MathEducation",
+      "expected": {
+        "case_id": "C15",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": {
+              "coordinate": [
+                null,
+                null,
+                "14647040-2084-4616-bf98-8bb70535753e"
+              ],
+              "scores": null
+            },
+            "before": {
+              "coordinate": [
+                null,
+                null,
+                "14647040-2084-4616-bf98-8bb70535753e"
+              ],
+              "scores": null
+            },
+            "change": "modified",
+            "fields": [
+              "description"
+            ],
+            "id": "14647040-2084-4616-bf98-8bb70535753e",
+            "kind": "perspective",
+            "rewired": false
+          },
+          {
+            "after": null,
+            "before": {
+              "coordinate": [
+                "0b96483f-3257-41b3-a488-4cdd970b8abb",
+                "d5a209ba-e866-4ad9-b51e-070fbbf0c0d9",
+                "5b36c251-cdaa-44a9-b8fd-e459251f4ccf"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "removed",
+            "fields": [],
+            "id": "535d2729-c85b-4313-8b3c-b97ca48b71e8",
+            "kind": "relationship",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "cross_axis_shared_label_and_relationship_tombstone",
+      "questions": [
+        {
+          "id": "14647040-2084-4616-bf98-8bb70535753e",
+          "kind": "perspective"
+        },
+        {
+          "id": "08953f9c-7c56-41e8-8b8f-cc65402f20c2",
+          "kind": "process"
+        },
+        {
+          "id": "535d2729-c85b-4313-8b3c-b97ca48b71e8",
+          "kind": "relationship"
+        }
+      ]
+    },
+    {
+      "after_sha256": "73e005afeb373038143bbb8f81a91a843df4b6489727122cf27e9d7c16eb7863",
+      "before_sha256": "0eb1a4b79df70d53b98956a53fd03f3339db5fa82d40aae3f8d5d8184137e980",
+      "case_id": "C16",
+      "citations": [
+        {
+          "after": {
+            "end_byte": 18394,
+            "end_char": 18382,
+            "pointer": "/properties/45",
+            "quote_sha256": "0ff0a5f74f4f399399723195659a34eb4f185f9860b5dfe57ef6ceed1853fc68",
+            "source_sha256": "73e005afeb373038143bbb8f81a91a843df4b6489727122cf27e9d7c16eb7863",
+            "start_byte": 18275,
+            "start_char": 18263
+          },
+          "before": {
+            "end_byte": 13440,
+            "end_char": 13428,
+            "pointer": "/properties/4",
+            "quote_sha256": "0ff0a5f74f4f399399723195659a34eb4f185f9860b5dfe57ef6ceed1853fc68",
+            "source_sha256": "0eb1a4b79df70d53b98956a53fd03f3339db5fa82d40aae3f8d5d8184137e980",
+            "start_byte": 13321,
+            "start_char": 13309
+          },
+          "id": "1f383348-e406-403c-93f9-8df9021235a3",
+          "kind": "property"
+        },
+        {
+          "after": {
+            "end_byte": 24014,
+            "end_char": 23997,
+            "pointer": "/relationships/20",
+            "quote_sha256": "09f313cbe1428e220f87300c4d8a21e7c3e4e4a476a34f4945b81410db6944a7",
+            "source_sha256": "73e005afeb373038143bbb8f81a91a843df4b6489727122cf27e9d7c16eb7863",
+            "start_byte": 23720,
+            "start_char": 23708
+          },
+          "before": {
+            "end_byte": 23960,
+            "end_char": 23948,
+            "pointer": "/relationships/20",
+            "quote_sha256": "60f4ebd006e9ba3b25932ba5fcb7429bf35706fb10adbc43f0193075dc24ee10",
+            "source_sha256": "0eb1a4b79df70d53b98956a53fd03f3339db5fa82d40aae3f8d5d8184137e980",
+            "start_byte": 23720,
+            "start_char": 23708
+          },
+          "id": "55025ecb-99dc-440f-804f-9b27b43abeb3",
+          "kind": "relationship"
+        }
+      ],
+      "domain": "MathEducation",
+      "expected": {
+        "case_id": "C16",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": {
+              "coordinate": [
+                "214a35f8-a314-4ec1-befe-c8e5cb84da15",
+                "795b66ee-4a26-4d4e-8ff5-aae6702b1aa8",
+                "1eb01b55-1c5c-478f-8e56-5dea06a8cba9"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "214a35f8-a314-4ec1-befe-c8e5cb84da15",
+                "795b66ee-4a26-4d4e-8ff5-aae6702b1aa8",
+                "1eb01b55-1c5c-478f-8e56-5dea06a8cba9"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "metadata"
+            ],
+            "id": "55025ecb-99dc-440f-804f-9b27b43abeb3",
+            "kind": "relationship",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "byte_identical_nested_decoy",
+      "questions": [
+        {
+          "id": "1f383348-e406-403c-93f9-8df9021235a3",
+          "kind": "property"
+        },
+        {
+          "id": "55025ecb-99dc-440f-804f-9b27b43abeb3",
+          "kind": "relationship"
+        }
+      ]
+    }
+  ],
+  "domains": {
+    "MathEducation": {
+      "fixture": "matheducation.json",
+      "fixture_sha256": "bf7189b9901e965610fd246dd98b85276dfca316365ffd7b41f055ba57ecbea0",
+      "framework": {
+        "id": "p3if.citation-study.matheducation",
+        "name": "Math education"
+      }
+    },
+    "ScienceResearch": {
+      "fixture": "scienceresearch.json",
+      "fixture_sha256": "79878b37cd39517c1a766bc9c7e0f08437105bbf2fe6d8b5ee36d456156e085c",
+      "framework": {
+        "id": "p3if.citation-study.scienceresearch",
+        "name": "Science research"
+      }
+    }
+  },
+  "schema_version": "p3if.citation-case-manifest.v1",
+  "specification_sha256": "94a892fa1882521065f41f909dd30ac227267ed07ae1dde6a22305ea269c8423"
+}

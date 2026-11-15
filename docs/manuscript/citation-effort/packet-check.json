@@ -1,0 +1,24 @@
+{
+  "assignments": 32,
+  "case_manifest_sha256": "c527afdbb23e926a4974fff921280fa56d36b0d110e91401a2372e67ffb42aed",
+  "common_reader_sha256": "9a10c9e852a13a4983f7a59f0c96cc87fd02f5d3a47c53d6bbfdfd7317c79e12",
+  "hashed_packet_files": 172,
+  "matched_common_cases": 16,
+  "packet_manifest_sha256": "b432bc6ce94eec460467b106edf2128ad3f3c593e2908b4f78f50bee42f0b12b",
+  "report_byte_ranges": {
+    "diff": [
+      286,
+      3216
+    ],
+    "p3if": [
+      14161,
+      16268
+    ]
+  },
+  "schema_version": "p3if.citation-effort-packet-check.v1",
+  "sessions": 4,
+  "workflow_first": {
+    "diff": 2,
+    "p3if": 2
+  }
+}

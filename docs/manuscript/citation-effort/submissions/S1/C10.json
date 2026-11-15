@@ -1,0 +1,49 @@
+{
+  "case_id": "C10",
+  "citations": [
+    {
+      "kind": "property",
+      "id": "11c4714e-0479-4d26-b9d3-7dd139ba088a",
+      "before": {
+        "end_byte": 17527,
+        "end_char": 17515,
+        "pointer": "/properties/1",
+        "quote_sha256": "391062ab946be0e58aa64a9a3e75493e64fd3c21317bb96b8c8023f85a93511b",
+        "source_sha256": "d17ffb5c46203c8535af00e1477c11822f35d133e49f30b73433e339859db849",
+        "start_byte": 17376,
+        "start_char": 17364
+      },
+      "after": {
+        "end_byte": 18896,
+        "end_char": 18864,
+        "pointer": "/properties/48",
+        "quote_sha256": "3d74bbab85fb1736ff69e7ea8a7e1f97f4d45f411ec082ab87d664dcb0542048",
+        "source_sha256": "774cb96c9ffc22f069f9ec98cbbf792554140b28eb78900a85e8564b26cd5346",
+        "start_byte": 18727,
+        "start_char": 18707
+      }
+    },
+    {
+      "kind": "property",
+      "id": "1507c124-26b0-48c5-a9fb-2ca279b65bb6",
+      "before": {
+        "end_byte": 17809,
+        "end_char": 17789,
+        "pointer": "/properties/2",
+        "quote_sha256": "f2bc2c9f814dbaa0edea1dc102e882e95ef1ca3411eb592764fcf694b73a3218",
+        "source_sha256": "d17ffb5c46203c8535af00e1477c11822f35d133e49f30b73433e339859db849",
+        "start_byte": 17533,
+        "start_char": 17521
+      },
+      "after": {
+        "end_byte": 18726,
+        "end_char": 18706,
+        "pointer": "/properties/47",
+        "quote_sha256": "c137c2c16a662a2a42a7d61d8dd6d603d5dc97bbd2cefa9e414976da0ce60e1d",
+        "source_sha256": "774cb96c9ffc22f069f9ec98cbbf792554140b28eb78900a85e8564b26cd5346",
+        "start_byte": 18512,
+        "start_char": 18500
+      }
+    }
+  ]
+}
