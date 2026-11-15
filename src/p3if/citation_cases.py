@@ -14,8 +14,9 @@ from .interchange import load_interchange
 from .reviewer_study_cases import _baseline, _sha
 
 SPEC_SCHEMA = "p3if.citation-case-spec.v1"
+NAVIGATION_SPEC_SCHEMA = "p3if.navigation-case-spec.v1"
 MANIFEST_SCHEMA = "p3if.citation-case-manifest.v1"
-_CASE_IDS = [f"C{index:02d}" for index in range(1, 17)]
+_CASE_PREFIXES = {SPEC_SCHEMA: "C", NAVIGATION_SPEC_SCHEMA: "A"}
 _KINDS = {"framework", *_COLLECTIONS}
 _ENCODINGS = {"pretty", "compact", "ascii", "crlf"}
 Object = dict[str, Any]
@@ -144,13 +145,24 @@ def build_cases(fixtures: Path, specification: Path, output_dir: Path) -> None:
 
     The lexical span scanner reads original JSON tokens independently of both
     analytical arms and resolves only declarations at their actual pointers.
+
+    Args:
+        fixtures: Directory containing the shipped legacy domain fixtures.
+        specification: Citation study or source navigation ablation specification.
+        output_dir: New directory for the original transports and manifest.
+
+    Raises:
+        ValueError: The specification or a pinned fixture fails validation.
+        OSError: An input cannot be read or an output cannot be written.
     """
     raw_spec = specification.read_bytes()
     spec = json.loads(raw_spec)
-    if spec["schema_version"] != SPEC_SCHEMA:
+    prefix = _CASE_PREFIXES.get(spec["schema_version"])
+    if prefix is None:
         raise ValueError("Unknown citation case specification version.")
+    identities = [f"{prefix}{index:02d}" for index in range(1, 17)]
     rows = spec["cases"]
-    if [case["case_id"] for case in rows] != _CASE_IDS or Counter(
+    if [case["case_id"] for case in rows] != identities or Counter(
         case["domain"] for case in rows
     ) != {"ScienceResearch": 8, "MathEducation": 8}:
         raise ValueError("The citation corpus needs all sixteen ordered and balanced case IDs.")

@@ -1,0 +1,49 @@
+{
+  "case_id": "A01",
+  "citations": [
+    {
+      "kind": "property",
+      "id": "68718748-9a33-4c3d-bfa9-54b1c471850d",
+      "before": {
+        "end_byte": 20456,
+        "end_char": 20428,
+        "pointer": "/properties/23",
+        "quote_sha256": "82e8ffd31d48dd7771ece60e01b8676644009152dfb95c15679b0a2064747038",
+        "source_sha256": "7b1c51898114a9a95f988c5402dd05e9cf62f8d7e9a2e2010b346229acd98910",
+        "start_byte": 20298,
+        "start_char": 20270
+      },
+      "after": {
+        "end_byte": 20456,
+        "end_char": 20428,
+        "pointer": "/properties/23",
+        "quote_sha256": "82e8ffd31d48dd7771ece60e01b8676644009152dfb95c15679b0a2064747038",
+        "source_sha256": "7b1c51898114a9a95f988c5402dd05e9cf62f8d7e9a2e2010b346229acd98910",
+        "start_byte": 20298,
+        "start_char": 20270
+      }
+    },
+    {
+      "kind": "process",
+      "id": "276432ec-2682-4744-9e5c-18edaa629209",
+      "before": {
+        "end_byte": 9837,
+        "end_char": 9809,
+        "pointer": "/processes/9",
+        "quote_sha256": "0aef12c8b7c56cc98d43c920b684191f5ceaa3970828fba731fda89d7275ec23",
+        "source_sha256": "7b1c51898114a9a95f988c5402dd05e9cf62f8d7e9a2e2010b346229acd98910",
+        "start_byte": 9682,
+        "start_char": 9654
+      },
+      "after": {
+        "end_byte": 9837,
+        "end_char": 9809,
+        "pointer": "/processes/9",
+        "quote_sha256": "0aef12c8b7c56cc98d43c920b684191f5ceaa3970828fba731fda89d7275ec23",
+        "source_sha256": "7b1c51898114a9a95f988c5402dd05e9cf62f8d7e9a2e2010b346229acd98910",
+        "start_byte": 9682,
+        "start_char": 9654
+      }
+    }
+  ]
+}

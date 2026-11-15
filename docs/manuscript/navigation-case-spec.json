@@ -1,0 +1,822 @@
+{
+  "cases": [
+    {
+      "after_encoding": "pretty",
+      "before_encoding": "pretty",
+      "case_id": "A01",
+      "domain": "ScienceResearch",
+      "edits": [],
+      "intervention": "byte_identical_context_citations",
+      "questions": [
+        {
+          "id": "68718748-9a33-4c3d-bfa9-54b1c471850d",
+          "kind": "property"
+        },
+        {
+          "id": "276432ec-2682-4744-9e5c-18edaa629209",
+          "kind": "process"
+        }
+      ],
+      "reverse_after": [],
+      "seed_edits": []
+    },
+    {
+      "after_encoding": "crlf",
+      "before_encoding": "pretty",
+      "case_id": "A02",
+      "domain": "ScienceResearch",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "53d1b0b8-5d0f-412c-8840-d1d8779aa3b5",
+          "kind": "property",
+          "set": {
+            "description": "Calibration checks now require a traceable reference before a run. Note équipe métrologie · 校正 📐."
+          }
+        },
+        {
+          "change": "modified",
+          "id": "6e179e0c-42ab-4182-bf85-c4c48c2e05c5",
+          "kind": "perspective",
+          "set": {
+            "description": "Records the reference certificate and the setup reading before release."
+          }
+        }
+      ],
+      "intervention": "shared_label_with_nested_identity_marker",
+      "questions": [
+        {
+          "id": "53d1b0b8-5d0f-412c-8840-d1d8779aa3b5",
+          "kind": "property"
+        },
+        {
+          "id": "4c84369f-7937-4fbe-ba86-badc828bf54d",
+          "kind": "property"
+        },
+        {
+          "id": "6e179e0c-42ab-4182-bf85-c4c48c2e05c5",
+          "kind": "perspective"
+        }
+      ],
+      "reverse_after": [
+        "properties",
+        "perspectives"
+      ],
+      "seed_edits": [
+        {
+          "change": "modified",
+          "id": "4c84369f-7937-4fbe-ba86-badc828bf54d",
+          "kind": "property",
+          "set": {
+            "metadata": {
+              "archive_memo": "Copied header from \"53d1b0b8-5d0f-412c-8840-d1d8779aa3b5\" · vérifié"
+            },
+            "name": "Scientific Instrumentation"
+          }
+        }
+      ]
+    },
+    {
+      "after_encoding": "compact",
+      "before_encoding": "ascii",
+      "case_id": "A03",
+      "domain": "ScienceResearch",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "3789d98b-1919-4e22-a946-60c08e5664c6",
+          "kind": "relationship",
+          "omit": [
+            "strength"
+          ],
+          "set": {
+            "confidence": 0.0
+          }
+        },
+        {
+          "change": "modified",
+          "id": "dbe7828e-ca4a-49de-92f8-1d75605360d9",
+          "kind": "perspective",
+          "set": {
+            "metadata": {
+              "annotation": "Retain both strings to replay the manuscript import. 🗂",
+              "fr": {
+                "filed": "Comité",
+                "received": "Comité"
+              },
+              "ja": "査読記録"
+            }
+          }
+        }
+      ],
+      "intervention": "normalization_sensitive_annotation_and_unreported_score",
+      "questions": [
+        {
+          "id": "3789d98b-1919-4e22-a946-60c08e5664c6",
+          "kind": "relationship"
+        },
+        {
+          "id": "dbe7828e-ca4a-49de-92f8-1d75605360d9",
+          "kind": "perspective"
+        }
+      ],
+      "reverse_after": [
+        "perspectives"
+      ],
+      "seed_edits": []
+    },
+    {
+      "after_encoding": "crlf",
+      "before_encoding": "pretty",
+      "case_id": "A04",
+      "domain": "ScienceResearch",
+      "edits": [
+        {
+          "change": "removed",
+          "id": "43bbdf6b-9e6e-49d1-b39b-8afdc108a5ec",
+          "kind": "property"
+        },
+        {
+          "change": "added",
+          "id": "p3if.navigation-study.scienceresearch/property~reporting-revision",
+          "kind": "property",
+          "set": {
+            "description": "The registry keeps the public label and adds a documented verification step before sign-off. Guía de revisión · 审核 📝.",
+            "domain": "ScienceResearch",
+            "id": "p3if.navigation-study.scienceresearch/property~reporting-revision",
+            "name": "Research Commercialization",
+            "type": "property"
+          }
+        },
+        {
+          "change": "modified",
+          "id": "9facc6b7-ad5f-4138-968f-d3ccc87c74f7",
+          "kind": "relationship",
+          "set": {
+            "property_id": "p3if.navigation-study.scienceresearch/property~reporting-revision"
+          }
+        }
+      ],
+      "intervention": "same_label_replacement_and_stable_relationship_rewire",
+      "questions": [
+        {
+          "id": "43bbdf6b-9e6e-49d1-b39b-8afdc108a5ec",
+          "kind": "property"
+        },
+        {
+          "id": "p3if.navigation-study.scienceresearch/property~reporting-revision",
+          "kind": "property"
+        },
+        {
+          "id": "9facc6b7-ad5f-4138-968f-d3ccc87c74f7",
+          "kind": "relationship"
+        }
+      ],
+      "reverse_after": [
+        "properties",
+        "relationships"
+      ],
+      "seed_edits": []
+    },
+    {
+      "after_encoding": "compact",
+      "before_encoding": "compact",
+      "case_id": "A05",
+      "domain": "ScienceResearch",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "3ffc4ada-b2ec-4a1c-b8de-5c810b2791df",
+          "kind": "relationship",
+          "set": {
+            "metadata": {
+              "review_note": "Retain the current linkage pending a second reading of the source notes. Révision № 2 · 研究."
+            }
+          }
+        }
+      ],
+      "intervention": "byte_identical_property_under_framework_metadata",
+      "questions": [
+        {
+          "id": "68865af6-e965-425a-9a8d-d4cd7dce8f85",
+          "kind": "property"
+        },
+        {
+          "id": "3ffc4ada-b2ec-4a1c-b8de-5c810b2791df",
+          "kind": "relationship"
+        }
+      ],
+      "reverse_after": [
+        "properties",
+        "relationships"
+      ],
+      "seed_edits": [
+        {
+          "change": "modified",
+          "id": "p3if.navigation-study.scienceresearch",
+          "kind": "framework",
+          "set": {
+            "metadata": {
+              "archive": [
+                {
+                  "verbatim": {
+                    "domain": "ScienceResearch",
+                    "id": "68865af6-e965-425a-9a8d-d4cd7dce8f85",
+                    "name": "Research Integrity",
+                    "type": "property"
+                  }
+                }
+              ],
+              "status": "For reconciliation only"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "after_encoding": "ascii",
+      "before_encoding": "pretty",
+      "case_id": "A06",
+      "domain": "ScienceResearch",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "p3if.navigation-study.scienceresearch",
+          "kind": "framework",
+          "set": {
+            "metadata": {
+              "revision": {
+                "date": "2026-11-10",
+                "summary": "Added a retention check to the archive handoff."
+              }
+            }
+          }
+        },
+        {
+          "change": "added",
+          "id": "p3if.navigation-study.scienceresearch/relationship~retention-check",
+          "kind": "relationship",
+          "set": {
+            "confidence": null,
+            "id": "p3if.navigation-study.scienceresearch/relationship~retention-check",
+            "metadata": {
+              "verification": "Archive signed checksum manifests alongside specimen-free research data. 日本語の注記 📁."
+            },
+            "process_id": "97e2f3ad-597c-4bc1-bf01-e29105879c50",
+            "property_id": "9bc69f7c-7b4f-40e8-98e8-1a42b8a600d7"
+          }
+        },
+        {
+          "change": "modified",
+          "id": "97e2f3ad-597c-4bc1-bf01-e29105879c50",
+          "kind": "process",
+          "set": {
+            "description": "Before accession, compare the data package checksum with its signed manifest."
+          }
+        }
+      ],
+      "intervention": "framework_and_process_revised_with_two_axis_addition",
+      "questions": [
+        {
+          "id": "p3if.navigation-study.scienceresearch",
+          "kind": "framework"
+        },
+        {
+          "id": "p3if.navigation-study.scienceresearch/relationship~retention-check",
+          "kind": "relationship"
+        },
+        {
+          "id": "97e2f3ad-597c-4bc1-bf01-e29105879c50",
+          "kind": "process"
+        }
+      ],
+      "reverse_after": [
+        "processes"
+      ],
+      "seed_edits": []
+    },
+    {
+      "after_encoding": "crlf",
+      "before_encoding": "compact",
+      "case_id": "A07",
+      "domain": "ScienceResearch",
+      "edits": [
+        {
+          "change": "removed",
+          "id": "42bbe6d8-554a-459c-8b35-22cee04b814d",
+          "kind": "relationship"
+        },
+        {
+          "change": "added",
+          "id": "p3if.navigation-study.scienceresearch/relationship~quality-review-revision",
+          "kind": "relationship",
+          "set": {
+            "confidence": 0.79,
+            "id": "p3if.navigation-study.scienceresearch/relationship~quality-review-revision",
+            "metadata": {
+              "summary": "Reviewed against the traceability log · révision.",
+              "supersedes": "42bbe6d8-554a-459c-8b35-22cee04b814d"
+            },
+            "perspective_id": "e626186b-015d-4459-bcab-ce638cadafb8",
+            "process_id": "1b1728ef-869d-40df-83b4-b60d46c59fe8",
+            "property_id": "c19d64fe-5ce4-4b80-827c-ac514c92e309",
+            "strength": 0.51
+          }
+        }
+      ],
+      "intervention": "relationship_id_replaced_at_the_same_coordinate",
+      "questions": [
+        {
+          "id": "42bbe6d8-554a-459c-8b35-22cee04b814d",
+          "kind": "relationship"
+        },
+        {
+          "id": "p3if.navigation-study.scienceresearch/relationship~quality-review-revision",
+          "kind": "relationship"
+        }
+      ],
+      "reverse_after": [
+        "relationships"
+      ],
+      "seed_edits": []
+    },
+    {
+      "after_encoding": "compact",
+      "before_encoding": "crlf",
+      "case_id": "A08",
+      "domain": "ScienceResearch",
+      "edits": [
+        {
+          "change": "removed",
+          "id": "474220cc-aac8-4f50-b05a-4187d2e5f1bb",
+          "kind": "relationship"
+        }
+      ],
+      "intervention": "removed_relationship_and_unchanged_scientific_context",
+      "questions": [
+        {
+          "id": "474220cc-aac8-4f50-b05a-4187d2e5f1bb",
+          "kind": "relationship"
+        },
+        {
+          "id": "bf41b8fc-6d69-41af-a949-b6f5ed1eb1de",
+          "kind": "perspective"
+        }
+      ],
+      "reverse_after": [
+        "perspectives",
+        "relationships"
+      ],
+      "seed_edits": []
+    },
+    {
+      "after_encoding": "crlf",
+      "before_encoding": "ascii",
+      "case_id": "A09",
+      "domain": "MathEducation",
+      "edits": [],
+      "intervention": "transport_only_movement_and_multilingual_metadata",
+      "questions": [
+        {
+          "id": "795b66ee-4a26-4d4e-8ff5-aae6702b1aa8",
+          "kind": "process"
+        },
+        {
+          "id": "51f41036-6e1b-4fc3-b939-f522eaeafdca",
+          "kind": "perspective"
+        }
+      ],
+      "reverse_after": [
+        "processes",
+        "perspectives"
+      ],
+      "seed_edits": [
+        {
+          "change": "modified",
+          "id": "51f41036-6e1b-4fc3-b939-f522eaeafdca",
+          "kind": "perspective",
+          "set": {
+            "metadata": {
+              "examples": [
+                "数の線",
+                "recta numérica",
+                "droite graduée"
+              ],
+              "lesson_note": "Keep the diagram labels visible beside the spoken explanation. 🧮"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "after_encoding": "ascii",
+      "before_encoding": "pretty",
+      "case_id": "A10",
+      "domain": "MathEducation",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "423ddc17-4d88-487a-9fd0-ed14c9a4eb4a",
+          "kind": "property",
+          "set": {
+            "description": "The rubric now asks students to name a counterexample and justify the inference."
+          }
+        },
+        {
+          "change": "modified",
+          "id": "78df27eb-f64d-4f62-938b-9a3e9a587906",
+          "kind": "perspective",
+          "set": {
+            "description": "Asks learners to distinguish a counterexample from an unrelated observation."
+          }
+        }
+      ],
+      "intervention": "cross_axis_label_reused_with_distinct_stable_ids",
+      "questions": [
+        {
+          "id": "423ddc17-4d88-487a-9fd0-ed14c9a4eb4a",
+          "kind": "property"
+        },
+        {
+          "id": "ffbb19f6-9e16-4c92-8223-bd6a92038d93",
+          "kind": "process"
+        },
+        {
+          "id": "78df27eb-f64d-4f62-938b-9a3e9a587906",
+          "kind": "perspective"
+        }
+      ],
+      "reverse_after": [
+        "properties",
+        "processes",
+        "perspectives"
+      ],
+      "seed_edits": [
+        {
+          "change": "modified",
+          "id": "ffbb19f6-9e16-4c92-8223-bd6a92038d93",
+          "kind": "process",
+          "set": {
+            "metadata": {
+              "classroom_note": "Débat guidé · 反例 📝",
+              "previous_title": "Argumentation Skill Development"
+            },
+            "name": "Mathematical Argumentation"
+          }
+        }
+      ]
+    },
+    {
+      "after_encoding": "compact",
+      "before_encoding": "ascii",
+      "case_id": "A11",
+      "domain": "MathEducation",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "59cabc87-0a36-441d-a85a-944abf71b5c2",
+          "kind": "relationship",
+          "omit": [
+            "confidence"
+          ],
+          "set": {
+            "metadata": {
+              "assessment": "Reviewer withheld confidence pending a second scoring pass. 評価 notes."
+            }
+          }
+        }
+      ],
+      "intervention": "confidence_field_omitted_with_zero_strength_retained",
+      "questions": [
+        {
+          "id": "59cabc87-0a36-441d-a85a-944abf71b5c2",
+          "kind": "relationship"
+        },
+        {
+          "id": "8020c04a-fd89-4fed-80bd-42d97b65af70",
+          "kind": "property"
+        }
+      ],
+      "reverse_after": [
+        "properties"
+      ],
+      "seed_edits": [
+        {
+          "change": "modified",
+          "id": "59cabc87-0a36-441d-a85a-944abf71b5c2",
+          "kind": "relationship",
+          "set": {
+            "confidence": null,
+            "strength": 0.0
+          }
+        }
+      ]
+    },
+    {
+      "after_encoding": "pretty",
+      "before_encoding": "compact",
+      "case_id": "A12",
+      "domain": "MathEducation",
+      "edits": [
+        {
+          "change": "added",
+          "id": "p3if.navigation-study.matheducation/relationship~strategy-annotation",
+          "kind": "relationship",
+          "set": {
+            "confidence": null,
+            "id": "p3if.navigation-study.matheducation/relationship~strategy-annotation",
+            "metadata": {
+              "practice": "Compare the written strategy before and after locating the reasoning error. Ejemplo: «9 + 6 = 14»."
+            },
+            "process_id": "dc38fa12-0dc5-4159-85f4-80aec53080c5",
+            "property_id": "8b320a0a-7061-46c8-b766-899eef0b62ff"
+          }
+        },
+        {
+          "change": "modified",
+          "id": "8b320a0a-7061-46c8-b766-899eef0b62ff",
+          "kind": "property",
+          "set": {
+            "description": "Separate transcription slips from reasoning errors and record the student's explanation."
+          }
+        }
+      ],
+      "intervention": "new_two_axis_relationship_and_revised_error_rubric",
+      "questions": [
+        {
+          "id": "p3if.navigation-study.matheducation/relationship~strategy-annotation",
+          "kind": "relationship"
+        },
+        {
+          "id": "8b320a0a-7061-46c8-b766-899eef0b62ff",
+          "kind": "property"
+        }
+      ],
+      "reverse_after": [
+        "properties",
+        "relationships"
+      ],
+      "seed_edits": []
+    },
+    {
+      "after_encoding": "crlf",
+      "before_encoding": "compact",
+      "case_id": "A13",
+      "domain": "MathEducation",
+      "edits": [
+        {
+          "change": "removed",
+          "id": "b4a10a18-6c46-4298-8b2a-5ee316928e88",
+          "kind": "process"
+        },
+        {
+          "change": "added",
+          "id": "p3if.navigation-study.matheducation/process~instructional-revision",
+          "kind": "process",
+          "set": {
+            "description": "The revised classroom protocol includes an explicit student reflection step. Journal de bord · 授業記録 🗒.",
+            "domain": "MathEducation",
+            "id": "p3if.navigation-study.matheducation/process~instructional-revision",
+            "name": "Mathematical Discussion Facilitation",
+            "type": "process"
+          }
+        },
+        {
+          "change": "modified",
+          "id": "ccd9eeb8-048e-4e92-9687-59026102457a",
+          "kind": "relationship",
+          "set": {
+            "process_id": "p3if.navigation-study.matheducation/process~instructional-revision"
+          }
+        }
+      ],
+      "intervention": "same_label_process_replacement_and_relationship_rewire",
+      "questions": [
+        {
+          "id": "b4a10a18-6c46-4298-8b2a-5ee316928e88",
+          "kind": "process"
+        },
+        {
+          "id": "p3if.navigation-study.matheducation/process~instructional-revision",
+          "kind": "process"
+        },
+        {
+          "id": "ccd9eeb8-048e-4e92-9687-59026102457a",
+          "kind": "relationship"
+        }
+      ],
+      "reverse_after": [
+        "processes",
+        "relationships"
+      ],
+      "seed_edits": []
+    },
+    {
+      "after_encoding": "compact",
+      "before_encoding": "compact",
+      "case_id": "A14",
+      "domain": "MathEducation",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "68cc22fb-ccd3-4005-9155-b83998e80cbe",
+          "kind": "property",
+          "set": {
+            "metadata": {
+              "rubric": {
+                "criterion": "Explain where your original method stopped working.\nShow your revision.",
+                "note": "Écriture mathématique · 数学日記."
+              }
+            }
+          }
+        }
+      ],
+      "intervention": "byte_identical_perspective_under_framework_metadata",
+      "questions": [
+        {
+          "id": "68cc22fb-ccd3-4005-9155-b83998e80cbe",
+          "kind": "property"
+        },
+        {
+          "id": "4ef55354-f998-4387-9d2d-a9898230d1e9",
+          "kind": "perspective"
+        }
+      ],
+      "reverse_after": [
+        "perspectives"
+      ],
+      "seed_edits": [
+        {
+          "change": "modified",
+          "id": "p3if.navigation-study.matheducation",
+          "kind": "framework",
+          "set": {
+            "metadata": {
+              "attachments": [
+                {
+                  "archived_profile": {
+                    "domain": "MathEducation",
+                    "id": "4ef55354-f998-4387-9d2d-a9898230d1e9",
+                    "name": "Portfolio Assessment Specialist",
+                    "type": "perspective"
+                  }
+                }
+              ],
+              "purpose": "Historical annotation"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "after_encoding": "compact",
+      "before_encoding": "pretty",
+      "case_id": "A15",
+      "domain": "MathEducation",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "p3if.navigation-study.matheducation",
+          "kind": "framework",
+          "set": {
+            "metadata": {
+              "revision": {
+                "review": "Confirm links against the revised assessment guidance.",
+                "summary_es": "Guía revisada",
+                "summary_ja": "評価手引き"
+              }
+            }
+          }
+        },
+        {
+          "change": "removed",
+          "id": "6144f5e5-b608-41cd-97a6-7221e65bc745",
+          "kind": "relationship"
+        },
+        {
+          "change": "added",
+          "id": "p3if.navigation-study.matheducation/relationship~assessment-guidance-replacement",
+          "kind": "relationship",
+          "set": {
+            "confidence": 0.74,
+            "id": "p3if.navigation-study.matheducation/relationship~assessment-guidance-replacement",
+            "metadata": {
+              "register": "Guide § 4 → worked example.",
+              "replaces": "6144f5e5-b608-41cd-97a6-7221e65bc745"
+            },
+            "perspective_id": "c409b00f-bff8-4ec8-83d0-b704d0398931",
+            "process_id": "7b4dac49-942b-4e51-a402-f8ec004d9314",
+            "property_id": "33b59f51-d93f-4dbd-8b5a-c4878a74ad59",
+            "strength": 0.71
+          }
+        }
+      ],
+      "intervention": "framework_metadata_revised_during_relationship_replacement",
+      "questions": [
+        {
+          "id": "p3if.navigation-study.matheducation",
+          "kind": "framework"
+        },
+        {
+          "id": "6144f5e5-b608-41cd-97a6-7221e65bc745",
+          "kind": "relationship"
+        },
+        {
+          "id": "p3if.navigation-study.matheducation/relationship~assessment-guidance-replacement",
+          "kind": "relationship"
+        }
+      ],
+      "reverse_after": [
+        "relationships"
+      ],
+      "seed_edits": []
+    },
+    {
+      "after_encoding": "pretty",
+      "before_encoding": "crlf",
+      "case_id": "A16",
+      "domain": "MathEducation",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "f25f4b12-63bb-4959-bec0-72d295161b3e",
+          "kind": "perspective",
+          "set": {
+            "description": "Checks whether score interpretations are comparable for multilingual learners."
+          }
+        },
+        {
+          "change": "modified",
+          "id": "675c9e72-f590-4401-9f88-ac72944ed2b2",
+          "kind": "relationship",
+          "set": {
+            "metadata": {
+              "review_log": [
+                {
+                  "language": "en",
+                  "text": "The prior label \"equivalent\" described the diagram, rather than equivalent evidence.\nRecord the language of the student’s explanation."
+                },
+                {
+                  "language": "fr",
+                  "text": "Le lecteur voit le schéma, l’énoncé et la stratégie annotée avant de confirmer son relevé de preuve."
+                },
+                {
+                  "language": "es",
+                  "text": "El evaluador conserva el procedimiento original y la revisión en el mismo registro de la tarea."
+                },
+                {
+                  "language": "ja",
+                  "text": "採点記録では、元の手順、訂正後の手順、説明の言語を分けて保存する。"
+                },
+                {
+                  "language": "ar",
+                  "text": "يحتفظ المراجع بمثال العمل وتفسير الطالب قبل إصدار الحكم."
+                },
+                {
+                  "language": "und",
+                  "text": "× ≥ ∴ · é · é · 🧮 · \t · \\"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "intervention": "long_nested_multilingual_review_note_with_escaped_lines",
+      "questions": [
+        {
+          "id": "f25f4b12-63bb-4959-bec0-72d295161b3e",
+          "kind": "perspective"
+        },
+        {
+          "id": "675c9e72-f590-4401-9f88-ac72944ed2b2",
+          "kind": "relationship"
+        }
+      ],
+      "reverse_after": [
+        "perspectives",
+        "relationships"
+      ],
+      "seed_edits": []
+    }
+  ],
+  "context_template": "Revision archive {case_id} · Méthode de reprise · レビュー記録 🗂. Local references use exact source quotations; “é” and “é” stay distinct.",
+  "domains": {
+    "MathEducation": {
+      "fixture": "matheducation.json",
+      "fixture_sha256": "bf7189b9901e965610fd246dd98b85276dfca316365ffd7b41f055ba57ecbea0",
+      "framework": {
+        "id": "p3if.navigation-study.matheducation",
+        "name": "Math education"
+      }
+    },
+    "ScienceResearch": {
+      "fixture": "scienceresearch.json",
+      "fixture_sha256": "79878b37cd39517c1a766bc9c7e0f08437105bbf2fe6d8b5ee36d456156e085c",
+      "framework": {
+        "id": "p3if.navigation-study.scienceresearch",
+        "name": "Science research"
+      }
+    }
+  },
+  "schema_version": "p3if.navigation-case-spec.v1"
+}

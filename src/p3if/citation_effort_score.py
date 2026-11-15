@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 from collections import Counter
+from dataclasses import dataclass
 from hashlib import sha256
 from pathlib import Path
 from statistics import median
@@ -11,7 +12,6 @@ from typing import Any, Optional
 from .held_out_reviewer_score import _strict_json
 
 Object = dict[str, Any]
-_ARMS = ("p3if", "diff")
 _SESSIONS = ("S1", "S2", "S3", "S4")
 _ROLES = ("before", "after")
 _SPAN_FIELDS = (
@@ -27,6 +27,25 @@ _EVIDENCE_ACTIONS = frozenset(("open", "find", "search", "cite"))
 _ACTIONS = _EVIDENCE_ACTIONS | {"schedule", "start", "submit"}
 _RESULTS = ("correct", "incorrect", "missing", "malformed")
 _ABSENT = object()
+
+
+@dataclass(frozen=True)
+class _StudyDesign:
+    arms: tuple[str, str]
+    case_prefix: str
+    packet_schema: str
+    score_schema: str
+
+
+_CITATION_EFFORT = _StudyDesign(
+    ("p3if", "diff"), "C", "p3if.citation-effort-packets.v1", "p3if.citation-effort-score.v1"
+)
+_NAVIGATION_ABLATION = _StudyDesign(
+    ("navigation", "no_navigation"),
+    "A",
+    "p3if.navigation-ablation-packets.v1",
+    "p3if.navigation-ablation-score.v1",
+)
 
 
 def _hash(raw: bytes) -> str:
@@ -214,27 +233,28 @@ def _summary(rows: list[Object]) -> Object:
     }
 
 
-def _paired(rows: list[Object]) -> Object:
+def _paired(rows: list[Object], arms: tuple[str, str]) -> Object:
     matched = {(row["case_id"], row["condition"]): row for row in rows}
     counts: Counter[str] = Counter()
     operation_differences: list[int] = []
     elapsed_differences: list[int] = []
     pairs = []
+    first_only, second_only = (f"{arm}_only" for arm in arms)
     for case_id in sorted({row["case_id"] for row in rows}):
-        audited, diff = (matched[case_id, arm] for arm in _ARMS)
-        for a, b in zip(audited["sides"], diff["sides"]):
+        left, right = (matched[case_id, arm] for arm in arms)
+        for a, b in zip(left["sides"], right["sides"]):
             first, second = a["result"] == "correct", b["result"] == "correct"
             label = (
                 "both_correct"
                 if first and second
-                else "p3if_only"
+                else first_only
                 if first
-                else "diff_only"
+                else second_only
                 if second
                 else "neither_correct"
             )
             counts[label] += 1
-        ea, eb = audited["effort"], diff["effort"]
+        ea, eb = left["effort"], right["effort"]
         pair = {"case_id": case_id, "operation_difference": None, "elapsed_ms_difference": None}
         if ea["status"] == eb["status"] == "measured":
             operation = ea["evidence_operations"] - eb["evidence_operations"]
@@ -246,7 +266,7 @@ def _paired(rows: list[Object]) -> Object:
     return {
         "sides": {
             name: counts[name]
-            for name in ("both_correct", "p3if_only", "diff_only", "neither_correct")
+            for name in ("both_correct", first_only, second_only, "neither_correct")
         },
         "measured_case_pairs": len(operation_differences),
         "median_operation_difference": median(operation_differences)
@@ -270,6 +290,28 @@ def score_study(case_manifest: Path, packet_manifest: Path, submissions: Path) -
     Returns:
         Deterministic row, domain, workflow and matched summaries.
     """
+    return _score_study(case_manifest, packet_manifest, submissions, _CITATION_EFFORT)
+
+
+def score_navigation_ablation(
+    case_manifest: Path, packet_manifest: Path, submissions: Path
+) -> Object:
+    """Score the frozen navigation ablation using the exact citation and effort rules.
+
+    Args:
+        case_manifest: Frozen case citations for the navigation ablation.
+        packet_manifest: Frozen crossover assignment and packet inventory.
+        submissions: Original per-session responses and reader action ledgers.
+
+    Returns:
+        Deterministic accuracy and effort summaries for both ablation arms.
+    """
+    return _score_study(case_manifest, packet_manifest, submissions, _NAVIGATION_ABLATION)
+
+
+def _score_study(
+    case_manifest: Path, packet_manifest: Path, submissions: Path, design: _StudyDesign
+) -> Object:
     case_raw, packet_raw = case_manifest.read_bytes(), packet_manifest.read_bytes()
     case_key, packet = _strict_json(case_raw), _strict_json(packet_raw)
     case_hash = _hash(case_raw)
@@ -277,12 +319,12 @@ def score_study(case_manifest: Path, packet_manifest: Path, submissions: Path) -
     assignments = packet["assignments"]
     if (
         case_key["schema_version"] != "p3if.citation-case-manifest.v1"
-        or packet["schema_version"] != "p3if.citation-effort-packets.v1"
+        or packet["schema_version"] != design.packet_schema
         or packet["case_manifest_sha256"] != case_hash
-        or set(cases) != {f"C{i:02d}" for i in range(1, 17)}
+        or set(cases) != {f"{design.case_prefix}{i:02d}" for i in range(1, 17)}
         or len(case_key["cases"]) != 16
         or Counter((row["case_id"], row["condition"]) for row in assignments)
-        != {(case_id, arm): 1 for case_id in cases for arm in _ARMS}
+        != {(case_id, arm): 1 for case_id in cases for arm in design.arms}
         or Counter(row["session"] for row in assignments) != {session: 8 for session in _SESSIONS}
     ):
         raise ValueError("Packet assignments or case identities drifted")
@@ -315,24 +357,24 @@ def score_study(case_manifest: Path, packet_manifest: Path, submissions: Path) -
                 }
             )
     return {
-        "schema_version": "p3if.citation-effort-score.v1",
+        "schema_version": design.score_schema,
         "case_manifest_sha256": case_hash,
         "packet_manifest_sha256": _hash(packet_raw),
         "sessions": traces,
         "rows": rows,
         "workflows": {
-            arm: _summary([row for row in rows if row["condition"] == arm]) for arm in _ARMS
+            arm: _summary([row for row in rows if row["condition"] == arm]) for arm in design.arms
         },
-        "paired": _paired(rows),
+        "paired": _paired(rows, design.arms),
         "domains": {
             domain: {
                 **{
                     arm: _summary(
                         [row for row in rows if row["domain"] == domain and row["condition"] == arm]
                     )
-                    for arm in _ARMS
+                    for arm in design.arms
                 },
-                "paired": _paired([row for row in rows if row["domain"] == domain]),
+                "paired": _paired([row for row in rows if row["domain"] == domain], design.arms),
             }
             for domain in sorted({row["domain"] for row in rows})
         },

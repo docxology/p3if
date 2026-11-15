@@ -13,3 +13,5 @@ The [held-out conformance follow-up](held-out-conformance.md) verifies the softw
 The [masked held-out model comparison](held-out-reviewer.md) archived a four-session comparison on the same 16 pairs. Both workflows reached the complete-case ceiling. The inputs, scoring, and results can be reproduced locally.
 
 The [citation and effort follow-up](citation-effort-results.md) measured exact source citation accuracy and reader operations across four model sessions. The protocol, case key, and reproducible results are public.
+
+The [source navigation ablation](navigation-ablation-results.md) measures the contribution of the source-pointer array while holding the P3IF audit, transition, sources, and reader fixed. It adds exact live replay of contextual citations in two no-change controls.

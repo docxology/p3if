@@ -1,0 +1,2366 @@
+{
+  "case_manifest_sha256": "4fb4289eba24307bcb78e01082a6732eedb2cfed8a337f2d056578d1401c017a",
+  "domains": {
+    "MathEducation": {
+      "navigation": {
+        "absent": {
+          "assigned": 5,
+          "correct": 5,
+          "incorrect": 0,
+          "malformed": 0,
+          "missing": 0
+        },
+        "accuracy": {
+          "assigned": 38,
+          "correct": 38,
+          "incorrect": 0,
+          "malformed": 0,
+          "missing": 0
+        },
+        "cases": 8,
+        "complete_correct_cases": 8,
+        "effort": {
+          "measured": 8,
+          "median_elapsed_ms": 9340.5,
+          "median_operations": 7.0,
+          "unmeasured": 0
+        },
+        "present": {
+          "assigned": 33,
+          "correct": 33,
+          "incorrect": 0,
+          "malformed": 0,
+          "missing": 0
+        }
+      },
+      "no_navigation": {
+        "absent": {
+          "assigned": 5,
+          "correct": 5,
+          "incorrect": 0,
+          "malformed": 0,
+          "missing": 0
+        },
+        "accuracy": {
+          "assigned": 38,
+          "correct": 38,
+          "incorrect": 0,
+          "malformed": 0,
+          "missing": 0
+        },
+        "cases": 8,
+        "complete_correct_cases": 8,
+        "effort": {
+          "measured": 8,
+          "median_elapsed_ms": 13204.0,
+          "median_operations": 10.0,
+          "unmeasured": 0
+        },
+        "present": {
+          "assigned": 33,
+          "correct": 33,
+          "incorrect": 0,
+          "malformed": 0,
+          "missing": 0
+        }
+      },
+      "paired": {
+        "cases": [
+          {
+            "case_id": "A09",
+            "elapsed_ms_difference": 9023,
+            "operation_difference": 0
+          },
+          {
+            "case_id": "A10",
+            "elapsed_ms_difference": -13643,
+            "operation_difference": -4
+          },
+          {
+            "case_id": "A11",
+            "elapsed_ms_difference": 947,
+            "operation_difference": -2
+          },
+          {
+            "case_id": "A12",
+            "elapsed_ms_difference": -7307,
+            "operation_difference": -3
+          },
+          {
+            "case_id": "A13",
+            "elapsed_ms_difference": -7647,
+            "operation_difference": -4
+          },
+          {
+            "case_id": "A14",
+            "elapsed_ms_difference": 941,
+            "operation_difference": -2
+          },
+          {
+            "case_id": "A15",
+            "elapsed_ms_difference": -1135,
+            "operation_difference": -6
+          },
+          {
+            "case_id": "A16",
+            "elapsed_ms_difference": -7381,
+            "operation_difference": -4
+          }
+        ],
+        "measured_case_pairs": 8,
+        "median_elapsed_ms_difference": -4221.0,
+        "median_operation_difference": -3.5,
+        "sides": {
+          "both_correct": 38,
+          "navigation_only": 0,
+          "neither_correct": 0,
+          "no_navigation_only": 0
+        }
+      }
+    },
+    "ScienceResearch": {
+      "navigation": {
+        "absent": {
+          "assigned": 6,
+          "correct": 6,
+          "incorrect": 0,
+          "malformed": 0,
+          "missing": 0
+        },
+        "accuracy": {
+          "assigned": 38,
+          "correct": 38,
+          "incorrect": 0,
+          "malformed": 0,
+          "missing": 0
+        },
+        "cases": 8,
+        "complete_correct_cases": 8,
+        "effort": {
+          "measured": 8,
+          "median_elapsed_ms": 9058.0,
+          "median_operations": 7.0,
+          "unmeasured": 0
+        },
+        "present": {
+          "assigned": 32,
+          "correct": 32,
+          "incorrect": 0,
+          "malformed": 0,
+          "missing": 0
+        }
+      },
+      "no_navigation": {
+        "absent": {
+          "assigned": 6,
+          "correct": 6,
+          "incorrect": 0,
+          "malformed": 0,
+          "missing": 0
+        },
+        "accuracy": {
+          "assigned": 38,
+          "correct": 38,
+          "incorrect": 0,
+          "malformed": 0,
+          "missing": 0
+        },
+        "cases": 8,
+        "complete_correct_cases": 8,
+        "effort": {
+          "measured": 8,
+          "median_elapsed_ms": 14866.0,
+          "median_operations": 10.0,
+          "unmeasured": 0
+        },
+        "present": {
+          "assigned": 32,
+          "correct": 32,
+          "incorrect": 0,
+          "malformed": 0,
+          "missing": 0
+        }
+      },
+      "paired": {
+        "cases": [
+          {
+            "case_id": "A01",
+            "elapsed_ms_difference": 13937,
+            "operation_difference": 0
+          },
+          {
+            "case_id": "A02",
+            "elapsed_ms_difference": -10102,
+            "operation_difference": -4
+          },
+          {
+            "case_id": "A03",
+            "elapsed_ms_difference": -8327,
+            "operation_difference": -4
+          },
+          {
+            "case_id": "A04",
+            "elapsed_ms_difference": -1202,
+            "operation_difference": -6
+          },
+          {
+            "case_id": "A05",
+            "elapsed_ms_difference": 1462,
+            "operation_difference": -2
+          },
+          {
+            "case_id": "A06",
+            "elapsed_ms_difference": -8242,
+            "operation_difference": -5
+          },
+          {
+            "case_id": "A07",
+            "elapsed_ms_difference": -3444,
+            "operation_difference": -2
+          },
+          {
+            "case_id": "A08",
+            "elapsed_ms_difference": 742,
+            "operation_difference": -2
+          }
+        ],
+        "measured_case_pairs": 8,
+        "median_elapsed_ms_difference": -2323.0,
+        "median_operation_difference": -3.0,
+        "sides": {
+          "both_correct": 38,
+          "navigation_only": 0,
+          "neither_correct": 0,
+          "no_navigation_only": 0
+        }
+      }
+    }
+  },
+  "packet_manifest_sha256": "db5cddacf710b02a36c7e5bd25acc9c68b3123decaae5da9294dc3a3d12d0983",
+  "paired": {
+    "cases": [
+      {
+        "case_id": "A01",
+        "elapsed_ms_difference": 13937,
+        "operation_difference": 0
+      },
+      {
+        "case_id": "A02",
+        "elapsed_ms_difference": -10102,
+        "operation_difference": -4
+      },
+      {
+        "case_id": "A03",
+        "elapsed_ms_difference": -8327,
+        "operation_difference": -4
+      },
+      {
+        "case_id": "A04",
+        "elapsed_ms_difference": -1202,
+        "operation_difference": -6
+      },
+      {
+        "case_id": "A05",
+        "elapsed_ms_difference": 1462,
+        "operation_difference": -2
+      },
+      {
+        "case_id": "A06",
+        "elapsed_ms_difference": -8242,
+        "operation_difference": -5
+      },
+      {
+        "case_id": "A07",
+        "elapsed_ms_difference": -3444,
+        "operation_difference": -2
+      },
+      {
+        "case_id": "A08",
+        "elapsed_ms_difference": 742,
+        "operation_difference": -2
+      },
+      {
+        "case_id": "A09",
+        "elapsed_ms_difference": 9023,
+        "operation_difference": 0
+      },
+      {
+        "case_id": "A10",
+        "elapsed_ms_difference": -13643,
+        "operation_difference": -4
+      },
+      {
+        "case_id": "A11",
+        "elapsed_ms_difference": 947,
+        "operation_difference": -2
+      },
+      {
+        "case_id": "A12",
+        "elapsed_ms_difference": -7307,
+        "operation_difference": -3
+      },
+      {
+        "case_id": "A13",
+        "elapsed_ms_difference": -7647,
+        "operation_difference": -4
+      },
+      {
+        "case_id": "A14",
+        "elapsed_ms_difference": 941,
+        "operation_difference": -2
+      },
+      {
+        "case_id": "A15",
+        "elapsed_ms_difference": -1135,
+        "operation_difference": -6
+      },
+      {
+        "case_id": "A16",
+        "elapsed_ms_difference": -7381,
+        "operation_difference": -4
+      }
+    ],
+    "measured_case_pairs": 16,
+    "median_elapsed_ms_difference": -2323.0,
+    "median_operation_difference": -3.5,
+    "sides": {
+      "both_correct": 76,
+      "navigation_only": 0,
+      "neither_correct": 0,
+      "no_navigation_only": 0
+    }
+  },
+  "rows": [
+    {
+      "answer_sha256": "acc68f73e54fe72b3fbb509083e3df474c2a0cce9f8b214f588650b8b055afad",
+      "case_id": "A01",
+      "complete_correct": true,
+      "condition": "navigation",
+      "domain": "ScienceResearch",
+      "effort": {
+        "elapsed_ms": 29762,
+        "evidence_operations": 10,
+        "operation_counts": {
+          "cite": 4,
+          "find": 4,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S1/1/A01",
+      "period": 1,
+      "session": "S1",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "68718748-9a33-4c3d-bfa9-54b1c471850d",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "68718748-9a33-4c3d-bfa9-54b1c471850d",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "276432ec-2682-4744-9e5c-18edaa629209",
+          "kind": "process",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "276432ec-2682-4744-9e5c-18edaa629209",
+          "kind": "process",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "417c7338fd71c4b064f55f61bd6e52fda75f9e8bc1322851dc7d35ad153d0af9",
+      "case_id": "A10",
+      "complete_correct": true,
+      "condition": "navigation",
+      "domain": "MathEducation",
+      "effort": {
+        "elapsed_ms": 17556,
+        "evidence_operations": 10,
+        "operation_counts": {
+          "cite": 6,
+          "find": 2,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S1/1/A10",
+      "period": 1,
+      "session": "S1",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "423ddc17-4d88-487a-9fd0-ed14c9a4eb4a",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "423ddc17-4d88-487a-9fd0-ed14c9a4eb4a",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "ffbb19f6-9e16-4c92-8223-bd6a92038d93",
+          "kind": "process",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "ffbb19f6-9e16-4c92-8223-bd6a92038d93",
+          "kind": "process",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "78df27eb-f64d-4f62-938b-9a3e9a587906",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "78df27eb-f64d-4f62-938b-9a3e9a587906",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "2d70cd39336fb9b339137260d14492c8a2ce43ea116ab8d85cbb81308f323b36",
+      "case_id": "A04",
+      "complete_correct": true,
+      "condition": "navigation",
+      "domain": "ScienceResearch",
+      "effort": {
+        "elapsed_ms": 12705,
+        "evidence_operations": 6,
+        "operation_counts": {
+          "cite": 4,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S1/1/A04",
+      "period": 1,
+      "session": "S1",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "43bbdf6b-9e6e-49d1-b39b-8afdc108a5ec",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": false,
+          "id": "43bbdf6b-9e6e-49d1-b39b-8afdc108a5ec",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": false,
+          "id": "p3if.navigation-study.scienceresearch/property~reporting-revision",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "p3if.navigation-study.scienceresearch/property~reporting-revision",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "9facc6b7-ad5f-4138-968f-d3ccc87c74f7",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "9facc6b7-ad5f-4138-968f-d3ccc87c74f7",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "6e86511e95780a6be47b4bbd297d8b5108bd7e8b8d064d0bde8c2f2258b49f4f",
+      "case_id": "A15",
+      "complete_correct": true,
+      "condition": "navigation",
+      "domain": "MathEducation",
+      "effort": {
+        "elapsed_ms": 10910,
+        "evidence_operations": 6,
+        "operation_counts": {
+          "cite": 4,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S1/1/A15",
+      "period": 1,
+      "session": "S1",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "p3if.navigation-study.matheducation",
+          "kind": "framework",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "p3if.navigation-study.matheducation",
+          "kind": "framework",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "6144f5e5-b608-41cd-97a6-7221e65bc745",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": false,
+          "id": "6144f5e5-b608-41cd-97a6-7221e65bc745",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": false,
+          "id": "p3if.navigation-study.matheducation/relationship~assessment-guidance-replacement",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "p3if.navigation-study.matheducation/relationship~assessment-guidance-replacement",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "0108bf7709fbcfaf41e3bc2e9147e8ba65c75168b84fa6f645da0b5b72a59709",
+      "case_id": "A03",
+      "complete_correct": true,
+      "condition": "no_navigation",
+      "domain": "ScienceResearch",
+      "effort": {
+        "elapsed_ms": 16631,
+        "evidence_operations": 10,
+        "operation_counts": {
+          "cite": 4,
+          "find": 4,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S1/2/A03",
+      "period": 2,
+      "session": "S1",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "3789d98b-1919-4e22-a946-60c08e5664c6",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "3789d98b-1919-4e22-a946-60c08e5664c6",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "dbe7828e-ca4a-49de-92f8-1d75605360d9",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "dbe7828e-ca4a-49de-92f8-1d75605360d9",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "28a86beeaeea79edb12d0a4ad8357c8ec74196f4526f2e5b52ad30f73eee2052",
+      "case_id": "A13",
+      "complete_correct": true,
+      "condition": "no_navigation",
+      "domain": "MathEducation",
+      "effort": {
+        "elapsed_ms": 15409,
+        "evidence_operations": 10,
+        "operation_counts": {
+          "cite": 4,
+          "find": 4,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S1/2/A13",
+      "period": 2,
+      "session": "S1",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "b4a10a18-6c46-4298-8b2a-5ee316928e88",
+          "kind": "process",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": false,
+          "id": "b4a10a18-6c46-4298-8b2a-5ee316928e88",
+          "kind": "process",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": false,
+          "id": "p3if.navigation-study.matheducation/process~instructional-revision",
+          "kind": "process",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "p3if.navigation-study.matheducation/process~instructional-revision",
+          "kind": "process",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "ccd9eeb8-048e-4e92-9687-59026102457a",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "ccd9eeb8-048e-4e92-9687-59026102457a",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "75db3622eaa84fae0b8948aaa54d1f0179c9f21ba2f180eae6f5ef898896b75d",
+      "case_id": "A06",
+      "complete_correct": true,
+      "condition": "no_navigation",
+      "domain": "ScienceResearch",
+      "effort": {
+        "elapsed_ms": 15983,
+        "evidence_operations": 12,
+        "operation_counts": {
+          "cite": 5,
+          "find": 5,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S1/2/A06",
+      "period": 2,
+      "session": "S1",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "p3if.navigation-study.scienceresearch",
+          "kind": "framework",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "p3if.navigation-study.scienceresearch",
+          "kind": "framework",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": false,
+          "id": "p3if.navigation-study.scienceresearch/relationship~retention-check",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "p3if.navigation-study.scienceresearch/relationship~retention-check",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "97e2f3ad-597c-4bc1-bf01-e29105879c50",
+          "kind": "process",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "97e2f3ad-597c-4bc1-bf01-e29105879c50",
+          "kind": "process",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "116769332567a94772407ca379389fe3b90c99522c5fb098abca81624bcd966d",
+      "case_id": "A16",
+      "complete_correct": true,
+      "condition": "no_navigation",
+      "domain": "MathEducation",
+      "effort": {
+        "elapsed_ms": 14238,
+        "evidence_operations": 10,
+        "operation_counts": {
+          "cite": 4,
+          "find": 4,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S1/2/A16",
+      "period": 2,
+      "session": "S1",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "f25f4b12-63bb-4959-bec0-72d295161b3e",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "f25f4b12-63bb-4959-bec0-72d295161b3e",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "675c9e72-f590-4401-9f88-ac72944ed2b2",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "675c9e72-f590-4401-9f88-ac72944ed2b2",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "c394ed8e9d43475af7f798b96a377d29a18a45ab52621743013ae471c03f25fc",
+      "case_id": "A09",
+      "complete_correct": true,
+      "condition": "no_navigation",
+      "domain": "MathEducation",
+      "effort": {
+        "elapsed_ms": 14206,
+        "evidence_operations": 10,
+        "operation_counts": {
+          "cite": 4,
+          "find": 4,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S2/1/A09",
+      "period": 1,
+      "session": "S2",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "795b66ee-4a26-4d4e-8ff5-aae6702b1aa8",
+          "kind": "process",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "795b66ee-4a26-4d4e-8ff5-aae6702b1aa8",
+          "kind": "process",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "51f41036-6e1b-4fc3-b939-f522eaeafdca",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "51f41036-6e1b-4fc3-b939-f522eaeafdca",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "d088c12904b493e9b12fce6329671fec1271abb585732b713cb7c1e74008872c",
+      "case_id": "A02",
+      "complete_correct": true,
+      "condition": "no_navigation",
+      "domain": "ScienceResearch",
+      "effort": {
+        "elapsed_ms": 20316,
+        "evidence_operations": 14,
+        "operation_counts": {
+          "cite": 6,
+          "find": 6,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S2/1/A02",
+      "period": 1,
+      "session": "S2",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "53d1b0b8-5d0f-412c-8840-d1d8779aa3b5",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "53d1b0b8-5d0f-412c-8840-d1d8779aa3b5",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "4c84369f-7937-4fbe-ba86-badc828bf54d",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "4c84369f-7937-4fbe-ba86-badc828bf54d",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "6e179e0c-42ab-4182-bf85-c4c48c2e05c5",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "6e179e0c-42ab-4182-bf85-c4c48c2e05c5",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "a936edb9096d039264ba787aa51efeadaf01d89ae1b45a4894532578bc49b2b0",
+      "case_id": "A12",
+      "complete_correct": true,
+      "condition": "no_navigation",
+      "domain": "MathEducation",
+      "effort": {
+        "elapsed_ms": 12202,
+        "evidence_operations": 8,
+        "operation_counts": {
+          "cite": 3,
+          "find": 3,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S2/1/A12",
+      "period": 1,
+      "session": "S2",
+      "sides": [
+        {
+          "expected_present": false,
+          "id": "p3if.navigation-study.matheducation/relationship~strategy-annotation",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "p3if.navigation-study.matheducation/relationship~strategy-annotation",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "8b320a0a-7061-46c8-b766-899eef0b62ff",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "8b320a0a-7061-46c8-b766-899eef0b62ff",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "6a472dde6bd95fba8f1da647be1ea49112d65958caf82aab6ac6d08563e2b60f",
+      "case_id": "A07",
+      "complete_correct": true,
+      "condition": "no_navigation",
+      "domain": "ScienceResearch",
+      "effort": {
+        "elapsed_ms": 7930,
+        "evidence_operations": 6,
+        "operation_counts": {
+          "cite": 2,
+          "find": 2,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S2/1/A07",
+      "period": 1,
+      "session": "S2",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "42bbe6d8-554a-459c-8b35-22cee04b814d",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": false,
+          "id": "42bbe6d8-554a-459c-8b35-22cee04b814d",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": false,
+          "id": "p3if.navigation-study.scienceresearch/relationship~quality-review-revision",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "p3if.navigation-study.scienceresearch/relationship~quality-review-revision",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "d7699ce3ccea4c746e6b50f8787d39b61b348a60054fe68b9f56bd33ca4f1b7c",
+      "case_id": "A11",
+      "complete_correct": true,
+      "condition": "navigation",
+      "domain": "MathEducation",
+      "effort": {
+        "elapsed_ms": 9274,
+        "evidence_operations": 8,
+        "operation_counts": {
+          "cite": 4,
+          "find": 2,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S2/2/A11",
+      "period": 2,
+      "session": "S2",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "59cabc87-0a36-441d-a85a-944abf71b5c2",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "59cabc87-0a36-441d-a85a-944abf71b5c2",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "8020c04a-fd89-4fed-80bd-42d97b65af70",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "8020c04a-fd89-4fed-80bd-42d97b65af70",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "174d53257c467f1c87e1210923002246124c5831e273ba302a3f8081d0cad665",
+      "case_id": "A05",
+      "complete_correct": true,
+      "condition": "navigation",
+      "domain": "ScienceResearch",
+      "effort": {
+        "elapsed_ms": 8944,
+        "evidence_operations": 8,
+        "operation_counts": {
+          "cite": 4,
+          "find": 2,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S2/2/A05",
+      "period": 2,
+      "session": "S2",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "68865af6-e965-425a-9a8d-d4cd7dce8f85",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "68865af6-e965-425a-9a8d-d4cd7dce8f85",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "3ffc4ada-b2ec-4a1c-b8de-5c810b2791df",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "3ffc4ada-b2ec-4a1c-b8de-5c810b2791df",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "edf1f6c2723d85a37db160db2981e4c83c853f727f7fb3e551e26cd8e7137b87",
+      "case_id": "A14",
+      "complete_correct": true,
+      "condition": "navigation",
+      "domain": "MathEducation",
+      "effort": {
+        "elapsed_ms": 9407,
+        "evidence_operations": 8,
+        "operation_counts": {
+          "cite": 4,
+          "find": 2,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S2/2/A14",
+      "period": 2,
+      "session": "S2",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "68cc22fb-ccd3-4005-9155-b83998e80cbe",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "68cc22fb-ccd3-4005-9155-b83998e80cbe",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "4ef55354-f998-4387-9d2d-a9898230d1e9",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "4ef55354-f998-4387-9d2d-a9898230d1e9",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "ce0430690279f72b6a0d01ccfb5b8abeea0f6a1b34478932c23607ab332ab005",
+      "case_id": "A08",
+      "complete_correct": true,
+      "condition": "navigation",
+      "domain": "ScienceResearch",
+      "effort": {
+        "elapsed_ms": 9172,
+        "evidence_operations": 7,
+        "operation_counts": {
+          "cite": 3,
+          "find": 2,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S2/2/A08",
+      "period": 2,
+      "session": "S2",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "474220cc-aac8-4f50-b05a-4187d2e5f1bb",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": false,
+          "id": "474220cc-aac8-4f50-b05a-4187d2e5f1bb",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "bf41b8fc-6d69-41af-a949-b6f5ed1eb1de",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "bf41b8fc-6d69-41af-a949-b6f5ed1eb1de",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "94a9a7454d8533fbb13239a5ecfd920a934ac5c44cf6c901d9d1e50a77b63c27",
+      "case_id": "A01",
+      "complete_correct": true,
+      "condition": "no_navigation",
+      "domain": "ScienceResearch",
+      "effort": {
+        "elapsed_ms": 15825,
+        "evidence_operations": 10,
+        "operation_counts": {
+          "cite": 4,
+          "find": 4,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S3/1/A01",
+      "period": 1,
+      "session": "S3",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "68718748-9a33-4c3d-bfa9-54b1c471850d",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "68718748-9a33-4c3d-bfa9-54b1c471850d",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "276432ec-2682-4744-9e5c-18edaa629209",
+          "kind": "process",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "276432ec-2682-4744-9e5c-18edaa629209",
+          "kind": "process",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "ed555356fc766128cbbe106cc90a9f22413eb786b2532f497f2a2f65bdc388bf",
+      "case_id": "A10",
+      "complete_correct": true,
+      "condition": "no_navigation",
+      "domain": "MathEducation",
+      "effort": {
+        "elapsed_ms": 31199,
+        "evidence_operations": 14,
+        "operation_counts": {
+          "cite": 6,
+          "find": 6,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S3/1/A10",
+      "period": 1,
+      "session": "S3",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "423ddc17-4d88-487a-9fd0-ed14c9a4eb4a",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "423ddc17-4d88-487a-9fd0-ed14c9a4eb4a",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "ffbb19f6-9e16-4c92-8223-bd6a92038d93",
+          "kind": "process",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "ffbb19f6-9e16-4c92-8223-bd6a92038d93",
+          "kind": "process",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "78df27eb-f64d-4f62-938b-9a3e9a587906",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "78df27eb-f64d-4f62-938b-9a3e9a587906",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "a008931611a9caa7046974b39610bef666243d077cfbfa232add643e41b65550",
+      "case_id": "A04",
+      "complete_correct": true,
+      "condition": "no_navigation",
+      "domain": "ScienceResearch",
+      "effort": {
+        "elapsed_ms": 13907,
+        "evidence_operations": 12,
+        "operation_counts": {
+          "cite": 4,
+          "find": 6,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 2
+      },
+      "folder": "S3/1/A04",
+      "period": 1,
+      "session": "S3",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "43bbdf6b-9e6e-49d1-b39b-8afdc108a5ec",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": false,
+          "id": "43bbdf6b-9e6e-49d1-b39b-8afdc108a5ec",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": false,
+          "id": "p3if.navigation-study.scienceresearch/property~reporting-revision",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "p3if.navigation-study.scienceresearch/property~reporting-revision",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "9facc6b7-ad5f-4138-968f-d3ccc87c74f7",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "9facc6b7-ad5f-4138-968f-d3ccc87c74f7",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "af4c43e9dc7df5fd304049c6563205ee8ffe0199bc43c9611cb287a52853ffd2",
+      "case_id": "A15",
+      "complete_correct": true,
+      "condition": "no_navigation",
+      "domain": "MathEducation",
+      "effort": {
+        "elapsed_ms": 12045,
+        "evidence_operations": 12,
+        "operation_counts": {
+          "cite": 4,
+          "find": 6,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 2
+      },
+      "folder": "S3/1/A15",
+      "period": 1,
+      "session": "S3",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "p3if.navigation-study.matheducation",
+          "kind": "framework",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "p3if.navigation-study.matheducation",
+          "kind": "framework",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "6144f5e5-b608-41cd-97a6-7221e65bc745",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": false,
+          "id": "6144f5e5-b608-41cd-97a6-7221e65bc745",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": false,
+          "id": "p3if.navigation-study.matheducation/relationship~assessment-guidance-replacement",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "p3if.navigation-study.matheducation/relationship~assessment-guidance-replacement",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "428188d6f58f778e6fd8d5eb3eabbac5cb24153e0523231ff26418f8eb481f20",
+      "case_id": "A03",
+      "complete_correct": true,
+      "condition": "navigation",
+      "domain": "ScienceResearch",
+      "effort": {
+        "elapsed_ms": 8304,
+        "evidence_operations": 6,
+        "operation_counts": {
+          "cite": 4,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S3/2/A03",
+      "period": 2,
+      "session": "S3",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "3789d98b-1919-4e22-a946-60c08e5664c6",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "3789d98b-1919-4e22-a946-60c08e5664c6",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "dbe7828e-ca4a-49de-92f8-1d75605360d9",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "dbe7828e-ca4a-49de-92f8-1d75605360d9",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "d9e4ac4beccfd5e962e5c81e70c95def50a15e66e1a4df7e76029b8b5b906195",
+      "case_id": "A13",
+      "complete_correct": true,
+      "condition": "navigation",
+      "domain": "MathEducation",
+      "effort": {
+        "elapsed_ms": 7762,
+        "evidence_operations": 6,
+        "operation_counts": {
+          "cite": 4,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S3/2/A13",
+      "period": 2,
+      "session": "S3",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "b4a10a18-6c46-4298-8b2a-5ee316928e88",
+          "kind": "process",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": false,
+          "id": "b4a10a18-6c46-4298-8b2a-5ee316928e88",
+          "kind": "process",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": false,
+          "id": "p3if.navigation-study.matheducation/process~instructional-revision",
+          "kind": "process",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "p3if.navigation-study.matheducation/process~instructional-revision",
+          "kind": "process",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "ccd9eeb8-048e-4e92-9687-59026102457a",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "ccd9eeb8-048e-4e92-9687-59026102457a",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "bf97e8cffc0ae6bf8f4d611b3a70dd4efaf0e9c76a23b4fda0906e15af1ea9de",
+      "case_id": "A06",
+      "complete_correct": true,
+      "condition": "navigation",
+      "domain": "ScienceResearch",
+      "effort": {
+        "elapsed_ms": 7741,
+        "evidence_operations": 7,
+        "operation_counts": {
+          "cite": 5,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S3/2/A06",
+      "period": 2,
+      "session": "S3",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "p3if.navigation-study.scienceresearch",
+          "kind": "framework",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "p3if.navigation-study.scienceresearch",
+          "kind": "framework",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": false,
+          "id": "p3if.navigation-study.scienceresearch/relationship~retention-check",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "p3if.navigation-study.scienceresearch/relationship~retention-check",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "97e2f3ad-597c-4bc1-bf01-e29105879c50",
+          "kind": "process",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "97e2f3ad-597c-4bc1-bf01-e29105879c50",
+          "kind": "process",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "b879a216010b31b6280b3630b8ca3c7e21bfc29f82760e59625274c1b4e73638",
+      "case_id": "A16",
+      "complete_correct": true,
+      "condition": "navigation",
+      "domain": "MathEducation",
+      "effort": {
+        "elapsed_ms": 6857,
+        "evidence_operations": 6,
+        "operation_counts": {
+          "cite": 4,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S3/2/A16",
+      "period": 2,
+      "session": "S3",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "f25f4b12-63bb-4959-bec0-72d295161b3e",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "f25f4b12-63bb-4959-bec0-72d295161b3e",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "675c9e72-f590-4401-9f88-ac72944ed2b2",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "675c9e72-f590-4401-9f88-ac72944ed2b2",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "c394ed8e9d43475af7f798b96a377d29a18a45ab52621743013ae471c03f25fc",
+      "case_id": "A09",
+      "complete_correct": true,
+      "condition": "navigation",
+      "domain": "MathEducation",
+      "effort": {
+        "elapsed_ms": 23229,
+        "evidence_operations": 10,
+        "operation_counts": {
+          "cite": 4,
+          "find": 4,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S4/1/A09",
+      "period": 1,
+      "session": "S4",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "795b66ee-4a26-4d4e-8ff5-aae6702b1aa8",
+          "kind": "process",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "795b66ee-4a26-4d4e-8ff5-aae6702b1aa8",
+          "kind": "process",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "51f41036-6e1b-4fc3-b939-f522eaeafdca",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "51f41036-6e1b-4fc3-b939-f522eaeafdca",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "d088c12904b493e9b12fce6329671fec1271abb585732b713cb7c1e74008872c",
+      "case_id": "A02",
+      "complete_correct": true,
+      "condition": "navigation",
+      "domain": "ScienceResearch",
+      "effort": {
+        "elapsed_ms": 10214,
+        "evidence_operations": 10,
+        "operation_counts": {
+          "cite": 6,
+          "find": 2,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S4/1/A02",
+      "period": 1,
+      "session": "S4",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "53d1b0b8-5d0f-412c-8840-d1d8779aa3b5",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "53d1b0b8-5d0f-412c-8840-d1d8779aa3b5",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "4c84369f-7937-4fbe-ba86-badc828bf54d",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "4c84369f-7937-4fbe-ba86-badc828bf54d",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "6e179e0c-42ab-4182-bf85-c4c48c2e05c5",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "6e179e0c-42ab-4182-bf85-c4c48c2e05c5",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "a936edb9096d039264ba787aa51efeadaf01d89ae1b45a4894532578bc49b2b0",
+      "case_id": "A12",
+      "complete_correct": true,
+      "condition": "navigation",
+      "domain": "MathEducation",
+      "effort": {
+        "elapsed_ms": 4895,
+        "evidence_operations": 5,
+        "operation_counts": {
+          "cite": 3,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S4/1/A12",
+      "period": 1,
+      "session": "S4",
+      "sides": [
+        {
+          "expected_present": false,
+          "id": "p3if.navigation-study.matheducation/relationship~strategy-annotation",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "p3if.navigation-study.matheducation/relationship~strategy-annotation",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "8b320a0a-7061-46c8-b766-899eef0b62ff",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "8b320a0a-7061-46c8-b766-899eef0b62ff",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "6a472dde6bd95fba8f1da647be1ea49112d65958caf82aab6ac6d08563e2b60f",
+      "case_id": "A07",
+      "complete_correct": true,
+      "condition": "navigation",
+      "domain": "ScienceResearch",
+      "effort": {
+        "elapsed_ms": 4486,
+        "evidence_operations": 4,
+        "operation_counts": {
+          "cite": 2,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S4/1/A07",
+      "period": 1,
+      "session": "S4",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "42bbe6d8-554a-459c-8b35-22cee04b814d",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": false,
+          "id": "42bbe6d8-554a-459c-8b35-22cee04b814d",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": false,
+          "id": "p3if.navigation-study.scienceresearch/relationship~quality-review-revision",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "p3if.navigation-study.scienceresearch/relationship~quality-review-revision",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "d7699ce3ccea4c746e6b50f8787d39b61b348a60054fe68b9f56bd33ca4f1b7c",
+      "case_id": "A11",
+      "complete_correct": true,
+      "condition": "no_navigation",
+      "domain": "MathEducation",
+      "effort": {
+        "elapsed_ms": 8327,
+        "evidence_operations": 10,
+        "operation_counts": {
+          "cite": 4,
+          "find": 4,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S4/2/A11",
+      "period": 2,
+      "session": "S4",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "59cabc87-0a36-441d-a85a-944abf71b5c2",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "59cabc87-0a36-441d-a85a-944abf71b5c2",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "8020c04a-fd89-4fed-80bd-42d97b65af70",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "8020c04a-fd89-4fed-80bd-42d97b65af70",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "174d53257c467f1c87e1210923002246124c5831e273ba302a3f8081d0cad665",
+      "case_id": "A05",
+      "complete_correct": true,
+      "condition": "no_navigation",
+      "domain": "ScienceResearch",
+      "effort": {
+        "elapsed_ms": 7482,
+        "evidence_operations": 10,
+        "operation_counts": {
+          "cite": 4,
+          "find": 4,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S4/2/A05",
+      "period": 2,
+      "session": "S4",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "68865af6-e965-425a-9a8d-d4cd7dce8f85",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "68865af6-e965-425a-9a8d-d4cd7dce8f85",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "3ffc4ada-b2ec-4a1c-b8de-5c810b2791df",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "3ffc4ada-b2ec-4a1c-b8de-5c810b2791df",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "edf1f6c2723d85a37db160db2981e4c83c853f727f7fb3e551e26cd8e7137b87",
+      "case_id": "A14",
+      "complete_correct": true,
+      "condition": "no_navigation",
+      "domain": "MathEducation",
+      "effort": {
+        "elapsed_ms": 8466,
+        "evidence_operations": 10,
+        "operation_counts": {
+          "cite": 4,
+          "find": 4,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 0
+      },
+      "folder": "S4/2/A14",
+      "period": 2,
+      "session": "S4",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "68cc22fb-ccd3-4005-9155-b83998e80cbe",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "68cc22fb-ccd3-4005-9155-b83998e80cbe",
+          "kind": "property",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "4ef55354-f998-4387-9d2d-a9898230d1e9",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "4ef55354-f998-4387-9d2d-a9898230d1e9",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    },
+    {
+      "answer_sha256": "ce0430690279f72b6a0d01ccfb5b8abeea0f6a1b34478932c23607ab332ab005",
+      "case_id": "A08",
+      "complete_correct": true,
+      "condition": "no_navigation",
+      "domain": "ScienceResearch",
+      "effort": {
+        "elapsed_ms": 8430,
+        "evidence_operations": 9,
+        "operation_counts": {
+          "cite": 3,
+          "find": 4,
+          "open": 2
+        },
+        "status": "measured",
+        "unsuccessful_operations": 1
+      },
+      "folder": "S4/2/A08",
+      "period": 2,
+      "session": "S4",
+      "sides": [
+        {
+          "expected_present": true,
+          "id": "474220cc-aac8-4f50-b05a-4187d2e5f1bb",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": false,
+          "id": "474220cc-aac8-4f50-b05a-4187d2e5f1bb",
+          "kind": "relationship",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        },
+        {
+          "expected_present": true,
+          "id": "bf41b8fc-6d69-41af-a949-b6f5ed1eb1de",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "before"
+        },
+        {
+          "expected_present": true,
+          "id": "bf41b8fc-6d69-41af-a949-b6f5ed1eb1de",
+          "kind": "perspective",
+          "mismatched_fields": [],
+          "result": "correct",
+          "side": "after"
+        }
+      ]
+    }
+  ],
+  "schema_version": "p3if.navigation-ablation-score.v1",
+  "sessions": {
+    "S1": {
+      "schedule_operations": 1,
+      "sha256": "33d2b978386b666162843b45d88549fa3fdde4a4d78d02469960f58e61a516ba",
+      "status": "parsed"
+    },
+    "S2": {
+      "schedule_operations": 1,
+      "sha256": "6f34367e9117ba13c053dc3b5f9b770e2eb6ed9e0fa66e38d73f58ab6533fcb1",
+      "status": "parsed"
+    },
+    "S3": {
+      "schedule_operations": 1,
+      "sha256": "b097dfdee0a64c2223dbec1da5bf749d9e7f63c568e7b8234445bb2760f0b5b2",
+      "status": "parsed"
+    },
+    "S4": {
+      "schedule_operations": 1,
+      "sha256": "bbe5bef039480d196f41289d4ec9e0c7cd162d2bc8d5f99b3cb786378ff60986",
+      "status": "parsed"
+    }
+  },
+  "workflows": {
+    "navigation": {
+      "absent": {
+        "assigned": 11,
+        "correct": 11,
+        "incorrect": 0,
+        "malformed": 0,
+        "missing": 0
+      },
+      "accuracy": {
+        "assigned": 76,
+        "correct": 76,
+        "incorrect": 0,
+        "malformed": 0,
+        "missing": 0
+      },
+      "cases": 16,
+      "complete_correct_cases": 16,
+      "effort": {
+        "measured": 16,
+        "median_elapsed_ms": 9223.0,
+        "median_operations": 7.0,
+        "unmeasured": 0
+      },
+      "present": {
+        "assigned": 65,
+        "correct": 65,
+        "incorrect": 0,
+        "malformed": 0,
+        "missing": 0
+      }
+    },
+    "no_navigation": {
+      "absent": {
+        "assigned": 11,
+        "correct": 11,
+        "incorrect": 0,
+        "malformed": 0,
+        "missing": 0
+      },
+      "accuracy": {
+        "assigned": 76,
+        "correct": 76,
+        "incorrect": 0,
+        "malformed": 0,
+        "missing": 0
+      },
+      "cases": 16,
+      "complete_correct_cases": 16,
+      "effort": {
+        "measured": 16,
+        "median_elapsed_ms": 14056.5,
+        "median_operations": 10.0,
+        "unmeasured": 0
+      },
+      "present": {
+        "assigned": 65,
+        "correct": 65,
+        "incorrect": 0,
+        "malformed": 0,
+        "missing": 0
+      }
+    }
+  }
+}

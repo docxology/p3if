@@ -1,0 +1,55 @@
+{
+  "case_id": "A04",
+  "citations": [
+    {
+      "kind": "property",
+      "id": "43bbdf6b-9e6e-49d1-b39b-8afdc108a5ec",
+      "before": {
+        "end_byte": 19133,
+        "end_char": 19105,
+        "pointer": "/properties/15",
+        "quote_sha256": "0b5f5eee1a6f165b0d1e404d0b215b3fe041ca74a6dbb76c9f2a77d9c1887ac5",
+        "source_sha256": "eb8f66732624b54f4bbf44240f3c64030c351422acec328985aca80c29d8ba2a",
+        "start_byte": 18970,
+        "start_char": 18942
+      },
+      "after": null
+    },
+    {
+      "kind": "property",
+      "id": "p3if.navigation-study.scienceresearch/property~reporting-revision",
+      "before": null,
+      "after": {
+        "end_byte": 17463,
+        "end_char": 17425,
+        "pointer": "/properties/0",
+        "quote_sha256": "1449b068ef766b8cd6d90e41733456bf154c3b8c66410a03d7bda89b56ab4aca",
+        "source_sha256": "4ef60c5ba7a022837ab1a9205f7dc4c0fcf3b1fc96fd533b4daaacf9c605d763",
+        "start_byte": 17113,
+        "start_char": 17085
+      }
+    },
+    {
+      "kind": "relationship",
+      "id": "9facc6b7-ad5f-4138-968f-d3ccc87c74f7",
+      "before": {
+        "end_byte": 37588,
+        "end_char": 37560,
+        "pointer": "/relationships/42",
+        "quote_sha256": "30dc6fb0380ca5e76a4aa2b63c9b0654c98d947583c815f7b3824405c87bb964",
+        "source_sha256": "eb8f66732624b54f4bbf44240f3c64030c351422acec328985aca80c29d8ba2a",
+        "start_byte": 37295,
+        "start_char": 37267
+      },
+      "after": {
+        "end_byte": 34739,
+        "end_char": 34701,
+        "pointer": "/relationships/28",
+        "quote_sha256": "3321111f4bf04329a5f5d255c763b758fb637aa219b915bc6d3234dfc390940d",
+        "source_sha256": "4ef60c5ba7a022837ab1a9205f7dc4c0fcf3b1fc96fd533b4daaacf9c605d763",
+        "start_byte": 34410,
+        "start_char": 34372
+      }
+    }
+  ]
+}
