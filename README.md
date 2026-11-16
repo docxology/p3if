@@ -172,6 +172,7 @@ P3IF follows a modern `src/` layout with unified namespace:
 ├── data/                 # Domain data files
 │   └── domains/          # Domain-specific data files
 ├── website/              # Web portal and API
+```
 
 ## Python Usage
 
