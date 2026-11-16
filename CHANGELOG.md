@@ -46,6 +46,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Fixed
 
+- **README**: Close the project-structure code fence so the Python Usage heading and example render correctly on the repository homepage.
 - Grouped JSON exports retain the perspective viewpoint required by the native importer. Relationship score serializers advertise numeric output.
 - **Correctness**: `get_patterns_by_domain_optimized`, `get_patterns_by_type_optimized`,
   and `search_patterns_optimized` were decorated with a global-process cache keyed only
