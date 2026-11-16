@@ -1,0 +1,11 @@
+{
+  "complete_session_arrays": 4,
+  "independently_reproduced_cases": 32,
+  "pairs": {
+    "both_correct": 16,
+    "diff_only": 0,
+    "neither_correct": 0,
+    "p3if_only": 0
+  },
+  "score_sha256": "839a99ff4730ebe3db1926e924faeac08fc2f0ba6be7d432db6d9cacfa5ac4c4"
+}

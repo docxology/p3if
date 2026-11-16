@@ -1,0 +1,26 @@
+{
+  "assignments": 32,
+  "case_manifest_sha256": "4fb4289eba24307bcb78e01082a6732eedb2cfed8a337f2d056578d1401c017a",
+  "changed_reports_with_navigation_only": 14,
+  "common_reader_sha256": "3b73bd27f3736ee24a3b34a76b71e0b9cd238ac5c06e403deaac6ab1b8a8a371",
+  "hashed_packet_files": 172,
+  "matched_common_cases": 16,
+  "matched_report_bodies": 16,
+  "packet_manifest_sha256": "db5cddacf710b02a36c7e5bd25acc9c68b3123decaae5da9294dc3a3d12d0983",
+  "report_byte_ranges": {
+    "navigation": [
+      14169,
+      16283
+    ],
+    "no_navigation": [
+      14169,
+      15761
+    ]
+  },
+  "schema_version": "p3if.navigation-ablation-packet-check.v1",
+  "sessions": 4,
+  "workflow_first": {
+    "navigation": 2,
+    "no_navigation": 2
+  }
+}

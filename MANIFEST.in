@@ -25,3 +25,44 @@ recursive-exclude * *.pyo
 
 include docs/manuscript/reviewer-study-pilot.md
 recursive-include docs/manuscript/reviewer-study-pilot *.json
+
+include docs/manuscript/held-out-preregistration.md
+include docs/manuscript/held-out-case-spec.json
+include docs/manuscript/held-out-case-manifest.json
+include scripts/held_out_cases.py
+include scripts/held_out_verify.py
+include docs/manuscript/held-out-source-check.json
+include scripts/held_out_source_check.py
+include docs/manuscript/held-out-conformance.md
+include docs/manuscript/held-out-conformance.json
+include docs/manuscript/held-out-audit-comparison.json
+include scripts/held_out_compare_audit.py
+
+include docs/manuscript/held-out-reviewer-preregistration.md
+include docs/manuscript/held-out-reviewer-commitment.json
+include scripts/held_out_reviewer_packets.py
+include scripts/held_out_reviewer_score.py
+include docs/manuscript/held-out-reviewer.md
+include scripts/held_out_reviewer_crosscheck.py
+recursive-include docs/manuscript/held-out-reviewer *.json
+
+include docs/manuscript/citation-effort-preregistration.md
+include docs/manuscript/citation-effort-commitment.json
+include docs/manuscript/citation-case-spec.json
+include docs/manuscript/citation-case-manifest.json
+include scripts/citation_cases.py
+include scripts/citation_effort_score.py
+include scripts/citation_effort_packets.py
+include docs/manuscript/citation-effort-results.md
+include scripts/citation_effort_crosscheck.py
+recursive-include docs/manuscript/citation-effort *.json *.jsonl
+
+include docs/manuscript/navigation-ablation-preregistration.md
+include docs/manuscript/navigation-ablation-commitment.json
+include docs/manuscript/navigation-case-spec.json
+include docs/manuscript/navigation-case-manifest.json
+include scripts/navigation_ablation_packets.py
+include scripts/navigation_ablation_score.py
+include docs/manuscript/navigation-ablation-results.md
+include scripts/navigation_ablation_check_packets.py
+recursive-include docs/manuscript/navigation-ablation *.json *.jsonl

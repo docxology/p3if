@@ -1,0 +1,662 @@
+[
+  {
+    "case_id": "H09",
+    "classification": "encoding_only",
+    "events": []
+  },
+  {
+    "case_id": "H02",
+    "classification": "declared_change",
+    "events": [
+      {
+        "kind": "relationship",
+        "id": "02ad7c7f-8aa2-4a1c-835e-64a456194531",
+        "change": "modified",
+        "fields": [
+          "confidence",
+          "metadata",
+          "process_id",
+          "status",
+          "strength"
+        ],
+        "rewired": true,
+        "before": {
+          "coordinate": [
+            "b0f10893-b858-481f-b643-a7a1867dd6bf",
+            "b3bda89d-ad1a-4f82-aa0e-acd93ebd44ee",
+            "52a00eb1-ddc4-4c8d-9dc7-ca63b99ae7f7"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": {
+          "coordinate": [
+            "b0f10893-b858-481f-b643-a7a1867dd6bf",
+            "a6fbf31c-9f35-4e5b-9bb8-4ef28eb61365",
+            "52a00eb1-ddc4-4c8d-9dc7-ca63b99ae7f7"
+          ],
+          "scores": {
+            "strength": "reported_zero",
+            "confidence": "omitted"
+          }
+        }
+      },
+      {
+        "kind": "relationship",
+        "id": "0c43fda0-e6ff-4fe5-88b8-987fe200ccac",
+        "change": "removed",
+        "fields": [],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            "e7549422-eb5c-4445-a667-426ae5f4e179",
+            "2e7f3ce3-3980-4ab8-ba6e-3a8fb21c227e",
+            "f89aafdc-8b27-4bde-8ac1-3d56787bb7f0"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": null
+      },
+      {
+        "kind": "relationship",
+        "id": "held-out.v1.scienceresearch.compound-link",
+        "change": "added",
+        "fields": [],
+        "rewired": false,
+        "before": null,
+        "after": {
+          "coordinate": [
+            "e7549422-eb5c-4445-a667-426ae5f4e179",
+            "2e7f3ce3-3980-4ab8-ba6e-3a8fb21c227e",
+            "52a00eb1-ddc4-4c8d-9dc7-ca63b99ae7f7"
+          ],
+          "scores": {
+            "strength": "omitted",
+            "confidence": "explicit_null"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "H12",
+    "classification": "declared_change",
+    "events": [
+      {
+        "kind": "relationship",
+        "id": "284cdcb1-9291-4d0e-a1ad-be719c88ab43",
+        "change": "modified",
+        "fields": [
+          "metadata"
+        ],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            "1507c124-26b0-48c5-a9fb-2ca279b65bb6",
+            "9c246b27-ce9b-4208-b12c-2761f39be574",
+            "e47bfa95-7d49-4322-84e7-9a9341dec3ff"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": {
+          "coordinate": [
+            "1507c124-26b0-48c5-a9fb-2ca279b65bb6",
+            "9c246b27-ce9b-4208-b12c-2761f39be574",
+            "e47bfa95-7d49-4322-84e7-9a9341dec3ff"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        }
+      },
+      {
+        "kind": "relationship",
+        "id": "296152d5-2e66-40e4-9c6d-1481d573b477",
+        "change": "modified",
+        "fields": [
+          "metadata"
+        ],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            "cd538a6a-26b6-4fb0-ab35-8ada57c057f1",
+            "7b4dac49-942b-4e51-a402-f8ec004d9314",
+            "1eb6f34a-a415-45a1-9cbe-14bbbbcae7ff"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": {
+          "coordinate": [
+            "cd538a6a-26b6-4fb0-ab35-8ada57c057f1",
+            "7b4dac49-942b-4e51-a402-f8ec004d9314",
+            "1eb6f34a-a415-45a1-9cbe-14bbbbcae7ff"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "H07",
+    "classification": "declared_change",
+    "events": [
+      {
+        "kind": "relationship",
+        "id": "242ad385-567e-4e2a-85f7-3d21ecfa7651",
+        "change": "removed",
+        "fields": [],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            "e7549422-eb5c-4445-a667-426ae5f4e179",
+            "996f0d67-ce74-4379-bee5-13aae30a3c53",
+            "b58a5fcb-cd42-4490-8a52-29217c5037f0"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": null
+      },
+      {
+        "kind": "relationship",
+        "id": "held-out.v1.scienceresearch.replacement-link",
+        "change": "added",
+        "fields": [],
+        "rewired": false,
+        "before": null,
+        "after": {
+          "coordinate": [
+            "e7549422-eb5c-4445-a667-426ae5f4e179",
+            "996f0d67-ce74-4379-bee5-13aae30a3c53",
+            "b58a5fcb-cd42-4490-8a52-29217c5037f0"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "H11",
+    "classification": "declared_change",
+    "events": [
+      {
+        "kind": "relationship",
+        "id": "15f31005-6055-4452-b135-5068b5fe23e1",
+        "change": "modified",
+        "fields": [
+          "confidence",
+          "strength"
+        ],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            "c117133e-64cd-42b4-8dd6-5585072c74c8",
+            "fbc52ec3-25e3-4590-9163-483cbedb0478",
+            "73acbdb2-7433-4a16-96a1-86715f628c39"
+          ],
+          "scores": {
+            "strength": "omitted",
+            "confidence": "omitted"
+          }
+        },
+        "after": {
+          "coordinate": [
+            "c117133e-64cd-42b4-8dd6-5585072c74c8",
+            "fbc52ec3-25e3-4590-9163-483cbedb0478",
+            "73acbdb2-7433-4a16-96a1-86715f628c39"
+          ],
+          "scores": {
+            "strength": "explicit_null",
+            "confidence": "reported_zero"
+          }
+        }
+      },
+      {
+        "kind": "relationship",
+        "id": "1ad5adb7-a4cc-4516-83e6-b884ddaba08a",
+        "change": "modified",
+        "fields": [
+          "confidence",
+          "strength"
+        ],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            "ff60080a-bf7b-4818-acb2-bac3e4c5e39e",
+            "075fc7a9-fbcf-4c90-b0f8-d9f6fbc6c4bf",
+            "cbe9970d-c98e-443c-bf14-ba22bf8a014f"
+          ],
+          "scores": {
+            "strength": "explicit_null",
+            "confidence": "explicit_null"
+          }
+        },
+        "after": {
+          "coordinate": [
+            "ff60080a-bf7b-4818-acb2-bac3e4c5e39e",
+            "075fc7a9-fbcf-4c90-b0f8-d9f6fbc6c4bf",
+            "cbe9970d-c98e-443c-bf14-ba22bf8a014f"
+          ],
+          "scores": {
+            "strength": "reported_zero",
+            "confidence": "omitted"
+          }
+        }
+      },
+      {
+        "kind": "relationship",
+        "id": "1e40f2c4-bde0-461a-8a2b-757e6882e207",
+        "change": "modified",
+        "fields": [
+          "confidence",
+          "strength"
+        ],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            "cd538a6a-26b6-4fb0-ab35-8ada57c057f1",
+            "fbc52ec3-25e3-4590-9163-483cbedb0478",
+            "3dd32268-4e1f-4eae-b2a2-97979bf2d395"
+          ],
+          "scores": {
+            "strength": "reported_zero",
+            "confidence": "reported_zero"
+          }
+        },
+        "after": {
+          "coordinate": [
+            "cd538a6a-26b6-4fb0-ab35-8ada57c057f1",
+            "fbc52ec3-25e3-4590-9163-483cbedb0478",
+            "3dd32268-4e1f-4eae-b2a2-97979bf2d395"
+          ],
+          "scores": {
+            "strength": "omitted",
+            "confidence": "explicit_null"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "H05",
+    "classification": "declared_change",
+    "events": [
+      {
+        "kind": "framework",
+        "id": "p3if.science-research",
+        "change": "modified",
+        "fields": [
+          "description"
+        ],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            null,
+            null,
+            null
+          ],
+          "scores": null
+        },
+        "after": {
+          "coordinate": [
+            null,
+            null,
+            null
+          ],
+          "scores": null
+        }
+      },
+      {
+        "kind": "perspective",
+        "id": "a5d6fa27-1f2a-416a-a810-dab2c9ff7961",
+        "change": "modified",
+        "fields": [
+          "name"
+        ],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            null,
+            null,
+            "a5d6fa27-1f2a-416a-a810-dab2c9ff7961"
+          ],
+          "scores": null
+        },
+        "after": {
+          "coordinate": [
+            null,
+            null,
+            "a5d6fa27-1f2a-416a-a810-dab2c9ff7961"
+          ],
+          "scores": null
+        }
+      },
+      {
+        "kind": "process",
+        "id": "1131e6dd-9082-4c17-b849-0b426b4770a2",
+        "change": "modified",
+        "fields": [
+          "name"
+        ],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            null,
+            "1131e6dd-9082-4c17-b849-0b426b4770a2",
+            null
+          ],
+          "scores": null
+        },
+        "after": {
+          "coordinate": [
+            null,
+            "1131e6dd-9082-4c17-b849-0b426b4770a2",
+            null
+          ],
+          "scores": null
+        }
+      },
+      {
+        "kind": "property",
+        "id": "dfb8bf38-7541-4aa4-a337-a272f8e79d85",
+        "change": "modified",
+        "fields": [
+          "name"
+        ],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            "dfb8bf38-7541-4aa4-a337-a272f8e79d85",
+            null,
+            null
+          ],
+          "scores": null
+        },
+        "after": {
+          "coordinate": [
+            "dfb8bf38-7541-4aa4-a337-a272f8e79d85",
+            null,
+            null
+          ],
+          "scores": null
+        }
+      },
+      {
+        "kind": "relationship",
+        "id": "1949f907-fc66-4a14-804c-2174a95d3f92",
+        "change": "modified",
+        "fields": [
+          "status"
+        ],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            "dfb8bf38-7541-4aa4-a337-a272f8e79d85",
+            "1131e6dd-9082-4c17-b849-0b426b4770a2",
+            "a5d6fa27-1f2a-416a-a810-dab2c9ff7961"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": {
+          "coordinate": [
+            "dfb8bf38-7541-4aa4-a337-a272f8e79d85",
+            "1131e6dd-9082-4c17-b849-0b426b4770a2",
+            "a5d6fa27-1f2a-416a-a810-dab2c9ff7961"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "H14",
+    "classification": "declared_change",
+    "events": [
+      {
+        "kind": "relationship",
+        "id": "32931bcd-6c41-48d0-b855-41fbf635793e",
+        "change": "modified",
+        "fields": [
+          "perspective_id"
+        ],
+        "rewired": true,
+        "before": {
+          "coordinate": [
+            "214a35f8-a314-4ec1-befe-c8e5cb84da15",
+            "8be49d6d-ab3d-41ed-b529-47e6250c795c",
+            "e47bfa95-7d49-4322-84e7-9a9341dec3ff"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": {
+          "coordinate": [
+            "214a35f8-a314-4ec1-befe-c8e5cb84da15",
+            "8be49d6d-ab3d-41ed-b529-47e6250c795c",
+            null
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        }
+      },
+      {
+        "kind": "relationship",
+        "id": "3655987d-f817-4421-bab1-8469ab447cc1",
+        "change": "modified",
+        "fields": [
+          "perspective_id"
+        ],
+        "rewired": true,
+        "before": {
+          "coordinate": [
+            "e9c8e22a-230f-4f06-a22a-fb7c3d8b1d1a",
+            "35fac30d-6a5f-44cf-9a35-c818533dc547",
+            null
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": {
+          "coordinate": [
+            "e9c8e22a-230f-4f06-a22a-fb7c3d8b1d1a",
+            "35fac30d-6a5f-44cf-9a35-c818533dc547",
+            "235b6eba-59f8-4db1-a0f4-020a02286265"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        }
+      },
+      {
+        "kind": "relationship",
+        "id": "40f03e9f-d54c-4313-8322-23379c5fe16f",
+        "change": "modified",
+        "fields": [
+          "perspective_id"
+        ],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            "27a36c61-d152-4059-a81e-bed7ae835001",
+            "c05a6923-5e9e-44b0-b118-1d4e97c87538",
+            null
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": {
+          "coordinate": [
+            "27a36c61-d152-4059-a81e-bed7ae835001",
+            "c05a6923-5e9e-44b0-b118-1d4e97c87538",
+            null
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        }
+      },
+      {
+        "kind": "relationship",
+        "id": "held-out.v1.matheducation.parallel-pair",
+        "change": "added",
+        "fields": [],
+        "rewired": false,
+        "before": null,
+        "after": {
+          "coordinate": [
+            "214a35f8-a314-4ec1-befe-c8e5cb84da15",
+            "8be49d6d-ab3d-41ed-b529-47e6250c795c",
+            null
+          ],
+          "scores": {
+            "strength": "omitted",
+            "confidence": "omitted"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "H08",
+    "classification": "declared_change",
+    "events": [
+      {
+        "kind": "property",
+        "id": "027e891a-c838-4b84-8c08-e8721812db3e",
+        "change": "removed",
+        "fields": [],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            "027e891a-c838-4b84-8c08-e8721812db3e",
+            null,
+            null
+          ],
+          "scores": null
+        },
+        "after": null
+      },
+      {
+        "kind": "property",
+        "id": "held-out.v1.scienceresearch.new-property",
+        "change": "added",
+        "fields": [],
+        "rewired": false,
+        "before": null,
+        "after": {
+          "coordinate": [
+            "held-out.v1.scienceresearch.new-property",
+            null,
+            null
+          ],
+          "scores": null
+        }
+      },
+      {
+        "kind": "relationship",
+        "id": "7a59af2c-f0dd-4505-afa7-94f1ecb376a2",
+        "change": "removed",
+        "fields": [],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            "027e891a-c838-4b84-8c08-e8721812db3e",
+            "996f0d67-ce74-4379-bee5-13aae30a3c53",
+            "5eb35ae6-d3e4-4859-bc42-2835baa127db"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": null
+      },
+      {
+        "kind": "relationship",
+        "id": "96711461-250f-4439-b98b-c4b8900c9616",
+        "change": "modified",
+        "fields": [
+          "property_id"
+        ],
+        "rewired": true,
+        "before": {
+          "coordinate": [
+            "027e891a-c838-4b84-8c08-e8721812db3e",
+            "1f17fb9b-7e4f-446d-a334-1e132ca9c5df",
+            "d9b8743a-d2ae-414d-8afd-4bd3e8804013"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": {
+          "coordinate": [
+            "held-out.v1.scienceresearch.new-property",
+            "1f17fb9b-7e4f-446d-a334-1e132ca9c5df",
+            "d9b8743a-d2ae-414d-8afd-4bd3e8804013"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        }
+      },
+      {
+        "kind": "relationship",
+        "id": "held-out.v1.scienceresearch.lifecycle-pair",
+        "change": "added",
+        "fields": [],
+        "rewired": false,
+        "before": null,
+        "after": {
+          "coordinate": [
+            "held-out.v1.scienceresearch.new-property",
+            "996f0d67-ce74-4379-bee5-13aae30a3c53",
+            null
+          ],
+          "scores": {
+            "strength": "omitted",
+            "confidence": "omitted"
+          }
+        }
+      }
+    ]
+  }
+]

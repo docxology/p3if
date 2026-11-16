@@ -1,0 +1,2398 @@
+{
+  "cases": [
+    {
+      "after_sha256": "e78d9e2f79a27050ae18350171884b355521efc978608996ada5ad4970e9ed7d",
+      "before_sha256": "d363221ed9d535b16fa33b0fd24e4df6b47a48af986fc7b024516d6f441f9f99",
+      "case_id": "H01",
+      "citations": [],
+      "domain": "ScienceResearch",
+      "expected": {
+        "case_id": "H01",
+        "classification": "encoding_only",
+        "events": []
+      },
+      "intervention": "reorder_and_escape"
+    },
+    {
+      "after_sha256": "fa9f91b7c64f567a68843dda622f28b37f73cf5981e589e33ea23eda3fb8b50e",
+      "before_sha256": "224b49674da161f9026f46c043d8bece32a32d5b9b0ecc779eafc150c07e21d1",
+      "case_id": "H02",
+      "citations": [
+        {
+          "after": {
+            "end_byte": 45901,
+            "end_char": 45889,
+            "pointer": "/relationships/70",
+            "quote_sha256": "6c1517a13c09b4fa230d434d87356d986177d79d62ea7405f7e81f5dbb0936ff",
+            "source_sha256": "fa9f91b7c64f567a68843dda622f28b37f73cf5981e589e33ea23eda3fb8b50e",
+            "start_byte": 45534,
+            "start_char": 45528
+          },
+          "before": {
+            "end_byte": 24902,
+            "end_char": 24896,
+            "pointer": "/relationships/0",
+            "quote_sha256": "9d5302ffb5b34ff5b2a7af52ea08eeaa2289785e77066f3b2df6deb3aba4f585",
+            "source_sha256": "224b49674da161f9026f46c043d8bece32a32d5b9b0ecc779eafc150c07e21d1",
+            "start_byte": 24609,
+            "start_char": 24603
+          },
+          "id": "02ad7c7f-8aa2-4a1c-835e-64a456194531",
+          "kind": "relationship"
+        },
+        {
+          "after": null,
+          "before": {
+            "end_byte": 25499,
+            "end_char": 25493,
+            "pointer": "/relationships/2",
+            "quote_sha256": "c3b1de90d0cd510fdd1d76274c973bf585737a10b9d26c59bf9814e08c9a1783",
+            "source_sha256": "224b49674da161f9026f46c043d8bece32a32d5b9b0ecc779eafc150c07e21d1",
+            "start_byte": 25206,
+            "start_char": 25200
+          },
+          "id": "0c43fda0-e6ff-4fe5-88b8-987fe200ccac",
+          "kind": "relationship"
+        },
+        {
+          "after": {
+            "end_byte": 24911,
+            "end_char": 24905,
+            "pointer": "/relationships/0",
+            "quote_sha256": "fde1b4659d92f1bed7b48ddc9d0657b24a9d89c68e0a411095a64c8a85861073",
+            "source_sha256": "fa9f91b7c64f567a68843dda622f28b37f73cf5981e589e33ea23eda3fb8b50e",
+            "start_byte": 24609,
+            "start_char": 24603
+          },
+          "before": null,
+          "id": "held-out.v1.scienceresearch.compound-link",
+          "kind": "relationship"
+        }
+      ],
+      "domain": "ScienceResearch",
+      "expected": {
+        "case_id": "H02",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": {
+              "coordinate": [
+                "b0f10893-b858-481f-b643-a7a1867dd6bf",
+                "a6fbf31c-9f35-4e5b-9bb8-4ef28eb61365",
+                "52a00eb1-ddc4-4c8d-9dc7-ca63b99ae7f7"
+              ],
+              "scores": {
+                "confidence": "omitted",
+                "strength": "reported_zero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "b0f10893-b858-481f-b643-a7a1867dd6bf",
+                "b3bda89d-ad1a-4f82-aa0e-acd93ebd44ee",
+                "52a00eb1-ddc4-4c8d-9dc7-ca63b99ae7f7"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "confidence",
+              "metadata",
+              "process_id",
+              "status",
+              "strength"
+            ],
+            "id": "02ad7c7f-8aa2-4a1c-835e-64a456194531",
+            "kind": "relationship",
+            "rewired": true
+          },
+          {
+            "after": null,
+            "before": {
+              "coordinate": [
+                "e7549422-eb5c-4445-a667-426ae5f4e179",
+                "2e7f3ce3-3980-4ab8-ba6e-3a8fb21c227e",
+                "f89aafdc-8b27-4bde-8ac1-3d56787bb7f0"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "removed",
+            "fields": [],
+            "id": "0c43fda0-e6ff-4fe5-88b8-987fe200ccac",
+            "kind": "relationship",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "e7549422-eb5c-4445-a667-426ae5f4e179",
+                "2e7f3ce3-3980-4ab8-ba6e-3a8fb21c227e",
+                "52a00eb1-ddc4-4c8d-9dc7-ca63b99ae7f7"
+              ],
+              "scores": {
+                "confidence": "explicit_null",
+                "strength": "omitted"
+              }
+            },
+            "before": null,
+            "change": "added",
+            "fields": [],
+            "id": "held-out.v1.scienceresearch.compound-link",
+            "kind": "relationship",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "rewire_add_remove"
+    },
+    {
+      "after_sha256": "d2a50c9ea5787bf5346ff3ecd69f6283b6d50fc3940e4eb3946a5366495a119d",
+      "before_sha256": "ba4eeea001e9f9e8550b057102db1909be9c40223af5f6780752d446f8a28dd2",
+      "case_id": "H03",
+      "citations": [
+        {
+          "after": {
+            "end_byte": 26094,
+            "end_char": 26088,
+            "pointer": "/relationships/4",
+            "quote_sha256": "1e9a474605c6b63a000a80ee96681f1b19cac4c6d6a3492ceca5528702128e5e",
+            "source_sha256": "d2a50c9ea5787bf5346ff3ecd69f6283b6d50fc3940e4eb3946a5366495a119d",
+            "start_byte": 25804,
+            "start_char": 25798
+          },
+          "before": {
+            "end_byte": 26047,
+            "end_char": 26041,
+            "pointer": "/relationships/4",
+            "quote_sha256": "305279330f432565d10a2e4df9511d50452d4bc3507b856e887d2c2c9c2c241f",
+            "source_sha256": "ba4eeea001e9f9e8550b057102db1909be9c40223af5f6780752d446f8a28dd2",
+            "start_byte": 25804,
+            "start_char": 25798
+          },
+          "id": "10a4782a-d01a-4760-9285-603722a0ba8e",
+          "kind": "relationship"
+        },
+        {
+          "after": {
+            "end_byte": 26364,
+            "end_char": 26358,
+            "pointer": "/relationships/5",
+            "quote_sha256": "4c96cff746bd98a22da57516fda9afac8fb6a9bdf8b4226f65bcdb8718e7069f",
+            "source_sha256": "d2a50c9ea5787bf5346ff3ecd69f6283b6d50fc3940e4eb3946a5366495a119d",
+            "start_byte": 26100,
+            "start_char": 26094
+          },
+          "before": {
+            "end_byte": 26346,
+            "end_char": 26340,
+            "pointer": "/relationships/5",
+            "quote_sha256": "5b29b507a238eff26743e434c10fbbf2de98d8705a816537c777cb4a3c94e25d",
+            "source_sha256": "ba4eeea001e9f9e8550b057102db1909be9c40223af5f6780752d446f8a28dd2",
+            "start_byte": 26053,
+            "start_char": 26047
+          },
+          "id": "110291e3-2665-4617-ab3a-b2c31ed82ab4",
+          "kind": "relationship"
+        },
+        {
+          "after": {
+            "end_byte": 26639,
+            "end_char": 26633,
+            "pointer": "/relationships/6",
+            "quote_sha256": "bc48baa354cac65ada80711821c62ee3f17759eb74b09f4d1e87498e0b83d942",
+            "source_sha256": "d2a50c9ea5787bf5346ff3ecd69f6283b6d50fc3940e4eb3946a5366495a119d",
+            "start_byte": 26370,
+            "start_char": 26364
+          },
+          "before": {
+            "end_byte": 26639,
+            "end_char": 26633,
+            "pointer": "/relationships/6",
+            "quote_sha256": "67da0a515930d81dbe970235c482b393adc35a460441c555e4028f4e938fb2f5",
+            "source_sha256": "ba4eeea001e9f9e8550b057102db1909be9c40223af5f6780752d446f8a28dd2",
+            "start_byte": 26352,
+            "start_char": 26346
+          },
+          "id": "159864bd-5cdc-4f61-b18b-271fc0c38521",
+          "kind": "relationship"
+        }
+      ],
+      "domain": "ScienceResearch",
+      "expected": {
+        "case_id": "H03",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": {
+              "coordinate": [
+                "8ac17b7b-8350-405a-8c11-110170fa0c9c",
+                "56999c18-4f9c-4a16-81e5-66ae2546b5c2",
+                "26a788cf-1b25-49e4-ab9c-044002f4c9b1"
+              ],
+              "scores": {
+                "confidence": "reported_zero",
+                "strength": "explicit_null"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "8ac17b7b-8350-405a-8c11-110170fa0c9c",
+                "56999c18-4f9c-4a16-81e5-66ae2546b5c2",
+                "26a788cf-1b25-49e4-ab9c-044002f4c9b1"
+              ],
+              "scores": {
+                "confidence": "omitted",
+                "strength": "omitted"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "confidence",
+              "strength"
+            ],
+            "id": "10a4782a-d01a-4760-9285-603722a0ba8e",
+            "kind": "relationship",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "a97403cf-26d0-46d7-9652-bb518b768ad4",
+                "276432ec-2682-4744-9e5c-18edaa629209",
+                "c08dde26-4cf8-4f19-abfb-9bb009e69d55"
+              ],
+              "scores": {
+                "confidence": "omitted",
+                "strength": "reported_zero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "a97403cf-26d0-46d7-9652-bb518b768ad4",
+                "276432ec-2682-4744-9e5c-18edaa629209",
+                "c08dde26-4cf8-4f19-abfb-9bb009e69d55"
+              ],
+              "scores": {
+                "confidence": "explicit_null",
+                "strength": "explicit_null"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "confidence",
+              "strength"
+            ],
+            "id": "110291e3-2665-4617-ab3a-b2c31ed82ab4",
+            "kind": "relationship",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "8ac17b7b-8350-405a-8c11-110170fa0c9c",
+                "689c78d0-e339-4221-b3f6-ee21d1a39d3d",
+                "8761d0c8-e775-4442-80e5-93cf07a4b104"
+              ],
+              "scores": {
+                "confidence": "explicit_null",
+                "strength": "omitted"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "8ac17b7b-8350-405a-8c11-110170fa0c9c",
+                "689c78d0-e339-4221-b3f6-ee21d1a39d3d",
+                "8761d0c8-e775-4442-80e5-93cf07a4b104"
+              ],
+              "scores": {
+                "confidence": "reported_zero",
+                "strength": "reported_zero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "confidence",
+              "strength"
+            ],
+            "id": "159864bd-5cdc-4f61-b18b-271fc0c38521",
+            "kind": "relationship",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "score_presence_cycle"
+    },
+    {
+      "after_sha256": "21c3c78217f02fb876423bd6794a6f2a61afcb7557fc4213ebb01ba3ba0d0027",
+      "before_sha256": "c60ddf049bcb6fd1863a6f76478bd39f9184bfc9b6c51ecd9c004024be85e2c9",
+      "case_id": "H04",
+      "citations": [
+        {
+          "after": {
+            "end_byte": 27104,
+            "end_char": 27097,
+            "pointer": "/relationships/7",
+            "quote_sha256": "6c41fc9f398cd1b1749f5cf889981903846c29d2fd9e295f463341995d0aa7d5",
+            "source_sha256": "21c3c78217f02fb876423bd6794a6f2a61afcb7557fc4213ebb01ba3ba0d0027",
+            "start_byte": 26701,
+            "start_char": 26695
+          },
+          "before": {
+            "end_byte": 27107,
+            "end_char": 27100,
+            "pointer": "/relationships/7",
+            "quote_sha256": "37c2a4b4ac72a76097e2fe378e34ff3e8541907e52094a042f985c42118c8d16",
+            "source_sha256": "c60ddf049bcb6fd1863a6f76478bd39f9184bfc9b6c51ecd9c004024be85e2c9",
+            "start_byte": 26701,
+            "start_char": 26695
+          },
+          "id": "1785fa1b-8941-484e-815e-3e4194612aa9",
+          "kind": "relationship"
+        },
+        {
+          "after": {
+            "end_byte": 27525,
+            "end_char": 27517,
+            "pointer": "/relationships/8",
+            "quote_sha256": "be7e19cb3ebff0ba4a7cbfad4f3e30bd01bd40bbc933e23533b96986d24c1254",
+            "source_sha256": "21c3c78217f02fb876423bd6794a6f2a61afcb7557fc4213ebb01ba3ba0d0027",
+            "start_byte": 27110,
+            "start_char": 27103
+          },
+          "before": {
+            "end_byte": 27528,
+            "end_char": 27520,
+            "pointer": "/relationships/8",
+            "quote_sha256": "4112d57a14c97d1b09f78d0e6a1a8698ee631c646ee0b36f959b88fd9cabfe01",
+            "source_sha256": "c60ddf049bcb6fd1863a6f76478bd39f9184bfc9b6c51ecd9c004024be85e2c9",
+            "start_byte": 27113,
+            "start_char": 27106
+          },
+          "id": "180a4c7a-98b7-4f48-886d-89b24c741f7e",
+          "kind": "relationship"
+        }
+      ],
+      "domain": "ScienceResearch",
+      "expected": {
+        "case_id": "H04",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": {
+              "coordinate": [
+                "87bde78a-d624-4185-96fb-1b7842af5e6b",
+                "8ff49df7-8cd5-41a2-9dbd-f3873c6d780d",
+                "6d88f908-5827-4cd8-9aa8-7095faa6e560"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "87bde78a-d624-4185-96fb-1b7842af5e6b",
+                "8ff49df7-8cd5-41a2-9dbd-f3873c6d780d",
+                "6d88f908-5827-4cd8-9aa8-7095faa6e560"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "metadata"
+            ],
+            "id": "1785fa1b-8941-484e-815e-3e4194612aa9",
+            "kind": "relationship",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "2c94cc3f-2db6-48bb-8416-22c017d5621c",
+                "1131e6dd-9082-4c17-b849-0b426b4770a2",
+                "6e179e0c-42ab-4182-bf85-c4c48c2e05c5"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "2c94cc3f-2db6-48bb-8416-22c017d5621c",
+                "1131e6dd-9082-4c17-b849-0b426b4770a2",
+                "6e179e0c-42ab-4182-bf85-c4c48c2e05c5"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "metadata"
+            ],
+            "id": "180a4c7a-98b7-4f48-886d-89b24c741f7e",
+            "kind": "relationship",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "nested_metadata_type_and_order"
+    },
+    {
+      "after_sha256": "7d1ca58fed8ecac35c7f786b3ac78a3854c19044f587e99cbd8a45565b777bd6",
+      "before_sha256": "98d8ce04a879bdcd21b36b447501f5816db9cc20868b80445e50d8fe57a1e529",
+      "case_id": "H05",
+      "citations": [
+        {
+          "after": {
+            "end_byte": 478,
+            "end_char": 472,
+            "pointer": "/framework",
+            "quote_sha256": "21f77764d6e22431ecf3db682364a6d59eee718811bd7017e1c0f11c6e660e83",
+            "source_sha256": "7d1ca58fed8ecac35c7f786b3ac78a3854c19044f587e99cbd8a45565b777bd6",
+            "start_byte": 49,
+            "start_char": 49
+          },
+          "before": {
+            "end_byte": 456,
+            "end_char": 450,
+            "pointer": "/framework",
+            "quote_sha256": "7da627f25f584c55c241c206fa580a6724b889b42900071a31c274273ca3c9c0",
+            "source_sha256": "98d8ce04a879bdcd21b36b447501f5816db9cc20868b80445e50d8fe57a1e529",
+            "start_byte": 49,
+            "start_char": 49
+          },
+          "id": "p3if.science-research",
+          "kind": "framework"
+        },
+        {
+          "after": {
+            "end_byte": 5071,
+            "end_char": 5064,
+            "pointer": "/perspectives/26",
+            "quote_sha256": "e50156635915084c0186018c555ea6bb93758f15056b23ffea292e12555e6dad",
+            "source_sha256": "7d1ca58fed8ecac35c7f786b3ac78a3854c19044f587e99cbd8a45565b777bd6",
+            "start_byte": 4891,
+            "start_char": 4885
+          },
+          "before": {
+            "end_byte": 5037,
+            "end_char": 5031,
+            "pointer": "/perspectives/26",
+            "quote_sha256": "3d915093f11d7b63fbab5d3b69875401296af90998c7f44d7d05ca7e36a14eda",
+            "source_sha256": "98d8ce04a879bdcd21b36b447501f5816db9cc20868b80445e50d8fe57a1e529",
+            "start_byte": 4869,
+            "start_char": 4863
+          },
+          "id": "a5d6fa27-1f2a-416a-a810-dab2c9ff7961",
+          "kind": "perspective"
+        },
+        {
+          "after": {
+            "end_byte": 8763,
+            "end_char": 8755,
+            "pointer": "/processes/3",
+            "quote_sha256": "978cb101a0d7375a591777250ea615280705e9eba3fba33e0c78acfafc15a02c",
+            "source_sha256": "7d1ca58fed8ecac35c7f786b3ac78a3854c19044f587e99cbd8a45565b777bd6",
+            "start_byte": 8592,
+            "start_char": 8585
+          },
+          "before": {
+            "end_byte": 8717,
+            "end_char": 8711,
+            "pointer": "/processes/3",
+            "quote_sha256": "0a7fafe60d3fc545cba5b5076fe9adc7547944f33f9b2747702287276eb43201",
+            "source_sha256": "98d8ce04a879bdcd21b36b447501f5816db9cc20868b80445e50d8fe57a1e529",
+            "start_byte": 8558,
+            "start_char": 8552
+          },
+          "id": "1131e6dd-9082-4c17-b849-0b426b4770a2",
+          "kind": "process"
+        },
+        {
+          "after": {
+            "end_byte": 24310,
+            "end_char": 24301,
+            "pointer": "/properties/47",
+            "quote_sha256": "a64356d54c4b19ee3686160b3a8ae0f45f5217d0f309a812d6d55b5fe7556829",
+            "source_sha256": "7d1ca58fed8ecac35c7f786b3ac78a3854c19044f587e99cbd8a45565b777bd6",
+            "start_byte": 24142,
+            "start_char": 24134
+          },
+          "before": {
+            "end_byte": 24252,
+            "end_char": 24246,
+            "pointer": "/properties/47",
+            "quote_sha256": "115f8ba46dab225ebddfc1601e4781b297dd7f68223102266e0b404c258fd056",
+            "source_sha256": "98d8ce04a879bdcd21b36b447501f5816db9cc20868b80445e50d8fe57a1e529",
+            "start_byte": 24096,
+            "start_char": 24090
+          },
+          "id": "dfb8bf38-7541-4aa4-a337-a272f8e79d85",
+          "kind": "property"
+        },
+        {
+          "after": {
+            "end_byte": 27677,
+            "end_char": 27668,
+            "pointer": "/relationships/9",
+            "quote_sha256": "091ed9acea46996f3e47a7bc77b9891bcece79c38b7c1dacd21b630cc8e496bc",
+            "source_sha256": "7d1ca58fed8ecac35c7f786b3ac78a3854c19044f587e99cbd8a45565b777bd6",
+            "start_byte": 27356,
+            "start_char": 27347
+          },
+          "before": {
+            "end_byte": 27591,
+            "end_char": 27585,
+            "pointer": "/relationships/9",
+            "quote_sha256": "bab882c80bc9e566c752d0ad8dd21bf1e8cea16859cb583f64c2c96957f26da2",
+            "source_sha256": "98d8ce04a879bdcd21b36b447501f5816db9cc20868b80445e50d8fe57a1e529",
+            "start_byte": 27298,
+            "start_char": 27292
+          },
+          "id": "1949f907-fc66-4a14-804c-2174a95d3f92",
+          "kind": "relationship"
+        }
+      ],
+      "domain": "ScienceResearch",
+      "expected": {
+        "case_id": "H05",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": {
+              "coordinate": [
+                null,
+                null,
+                null
+              ],
+              "scores": null
+            },
+            "before": {
+              "coordinate": [
+                null,
+                null,
+                null
+              ],
+              "scores": null
+            },
+            "change": "modified",
+            "fields": [
+              "description"
+            ],
+            "id": "p3if.science-research",
+            "kind": "framework",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                null,
+                null,
+                "a5d6fa27-1f2a-416a-a810-dab2c9ff7961"
+              ],
+              "scores": null
+            },
+            "before": {
+              "coordinate": [
+                null,
+                null,
+                "a5d6fa27-1f2a-416a-a810-dab2c9ff7961"
+              ],
+              "scores": null
+            },
+            "change": "modified",
+            "fields": [
+              "name"
+            ],
+            "id": "a5d6fa27-1f2a-416a-a810-dab2c9ff7961",
+            "kind": "perspective",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                null,
+                "1131e6dd-9082-4c17-b849-0b426b4770a2",
+                null
+              ],
+              "scores": null
+            },
+            "before": {
+              "coordinate": [
+                null,
+                "1131e6dd-9082-4c17-b849-0b426b4770a2",
+                null
+              ],
+              "scores": null
+            },
+            "change": "modified",
+            "fields": [
+              "name"
+            ],
+            "id": "1131e6dd-9082-4c17-b849-0b426b4770a2",
+            "kind": "process",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "dfb8bf38-7541-4aa4-a337-a272f8e79d85",
+                null,
+                null
+              ],
+              "scores": null
+            },
+            "before": {
+              "coordinate": [
+                "dfb8bf38-7541-4aa4-a337-a272f8e79d85",
+                null,
+                null
+              ],
+              "scores": null
+            },
+            "change": "modified",
+            "fields": [
+              "name"
+            ],
+            "id": "dfb8bf38-7541-4aa4-a337-a272f8e79d85",
+            "kind": "property",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "dfb8bf38-7541-4aa4-a337-a272f8e79d85",
+                "1131e6dd-9082-4c17-b849-0b426b4770a2",
+                "a5d6fa27-1f2a-416a-a810-dab2c9ff7961"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "dfb8bf38-7541-4aa4-a337-a272f8e79d85",
+                "1131e6dd-9082-4c17-b849-0b426b4770a2",
+                "a5d6fa27-1f2a-416a-a810-dab2c9ff7961"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "status"
+            ],
+            "id": "1949f907-fc66-4a14-804c-2174a95d3f92",
+            "kind": "relationship",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "framework_axis_and_relationship_metadata"
+    },
+    {
+      "after_sha256": "e4b79f76848f6289e668d16793f94433434f747360c9ea530366e886cec52def",
+      "before_sha256": "fd89a36a9e5399ca0d799963618b7d46787f4a196c548f59a615fcf9961f0b06",
+      "case_id": "H06",
+      "citations": [
+        {
+          "after": {
+            "end_byte": 27826,
+            "end_char": 27820,
+            "pointer": "/relationships/10",
+            "quote_sha256": "5f71b5f88c78f2c6c23e062ea00994a7325a36ccefbc9e2370dd25df6642196a",
+            "source_sha256": "e4b79f76848f6289e668d16793f94433434f747360c9ea530366e886cec52def",
+            "start_byte": 27597,
+            "start_char": 27591
+          },
+          "before": {
+            "end_byte": 27890,
+            "end_char": 27884,
+            "pointer": "/relationships/10",
+            "quote_sha256": "a387ab4449866c03e78883f827ae91ec97a2c735207a57145707d79f2b51cc73",
+            "source_sha256": "fd89a36a9e5399ca0d799963618b7d46787f4a196c548f59a615fcf9961f0b06",
+            "start_byte": 27597,
+            "start_char": 27591
+          },
+          "id": "1d3fdd41-7c63-46d6-a27f-3bc81c15edc4",
+          "kind": "relationship"
+        },
+        {
+          "after": {
+            "end_byte": 28124,
+            "end_char": 28118,
+            "pointer": "/relationships/11",
+            "quote_sha256": "3f8cf1ad778fcd5a0a8914c39295dd48a737e34b91039ee1f12b327a3337ad8a",
+            "source_sha256": "e4b79f76848f6289e668d16793f94433434f747360c9ea530366e886cec52def",
+            "start_byte": 27832,
+            "start_char": 27826
+          },
+          "before": {
+            "end_byte": 28124,
+            "end_char": 28118,
+            "pointer": "/relationships/11",
+            "quote_sha256": "711e9262b50927fa28d8048493b5769623a5410e9ddd1904178786ef4f6e205b",
+            "source_sha256": "fd89a36a9e5399ca0d799963618b7d46787f4a196c548f59a615fcf9961f0b06",
+            "start_byte": 27896,
+            "start_char": 27890
+          },
+          "id": "1f08dbff-fb04-4d55-b995-a74d3632416c",
+          "kind": "relationship"
+        },
+        {
+          "after": {
+            "end_byte": 28389,
+            "end_char": 28383,
+            "pointer": "/relationships/12",
+            "quote_sha256": "29737f79e2c6c102d9511bcf8fdef92310f195c5242b6a360d12239a12a3f5ea",
+            "source_sha256": "e4b79f76848f6289e668d16793f94433434f747360c9ea530366e886cec52def",
+            "start_byte": 28130,
+            "start_char": 28124
+          },
+          "before": {
+            "end_byte": 28359,
+            "end_char": 28353,
+            "pointer": "/relationships/12",
+            "quote_sha256": "ff236492f9c550bc86001ad45ef12a2c49c24456645c57229d4777dc25c16896",
+            "source_sha256": "fd89a36a9e5399ca0d799963618b7d46787f4a196c548f59a615fcf9961f0b06",
+            "start_byte": 28130,
+            "start_char": 28124
+          },
+          "id": "23527ae1-aa66-4319-8342-2eefce0e3e08",
+          "kind": "relationship"
+        },
+        {
+          "after": {
+            "end_byte": 45940,
+            "end_char": 45934,
+            "pointer": "/relationships/71",
+            "quote_sha256": "97eb17b14a55a2457d84aa35308c8f398c5fba16d3caabcbb075132b415fcae6",
+            "source_sha256": "e4b79f76848f6289e668d16793f94433434f747360c9ea530366e886cec52def",
+            "start_byte": 45726,
+            "start_char": 45720
+          },
+          "before": null,
+          "id": "held-out.v1.scienceresearch.parallel-pair",
+          "kind": "relationship"
+        }
+      ],
+      "domain": "ScienceResearch",
+      "expected": {
+        "case_id": "H06",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": {
+              "coordinate": [
+                "b36c2bdc-18c7-4fb0-aaa5-e39b16357ebe",
+                "0d5ccc7c-b06f-49cf-a955-0ff5dc9d9c62",
+                null
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "b36c2bdc-18c7-4fb0-aaa5-e39b16357ebe",
+                "0d5ccc7c-b06f-49cf-a955-0ff5dc9d9c62",
+                "ed57118d-7987-48dc-8a90-82e5f4e22caf"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "perspective_id"
+            ],
+            "id": "1d3fdd41-7c63-46d6-a27f-3bc81c15edc4",
+            "kind": "relationship",
+            "rewired": true
+          },
+          {
+            "after": {
+              "coordinate": [
+                "4aadd845-7983-4633-894e-7f54addc2e40",
+                "1f17fb9b-7e4f-446d-a334-1e132ca9c5df",
+                "f67cd546-1c4b-4ca3-b01a-25d6ea7c1af7"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "4aadd845-7983-4633-894e-7f54addc2e40",
+                "1f17fb9b-7e4f-446d-a334-1e132ca9c5df",
+                null
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "perspective_id"
+            ],
+            "id": "1f08dbff-fb04-4d55-b995-a74d3632416c",
+            "kind": "relationship",
+            "rewired": true
+          },
+          {
+            "after": {
+              "coordinate": [
+                "a19d0f67-ffae-4ac4-9565-9d658f01a21b",
+                "6ed8be09-1411-4e26-b5fd-e95d7ea85d65",
+                null
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "a19d0f67-ffae-4ac4-9565-9d658f01a21b",
+                "6ed8be09-1411-4e26-b5fd-e95d7ea85d65",
+                null
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "perspective_id"
+            ],
+            "id": "23527ae1-aa66-4319-8342-2eefce0e3e08",
+            "kind": "relationship",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "b36c2bdc-18c7-4fb0-aaa5-e39b16357ebe",
+                "0d5ccc7c-b06f-49cf-a955-0ff5dc9d9c62",
+                null
+              ],
+              "scores": {
+                "confidence": "omitted",
+                "strength": "omitted"
+              }
+            },
+            "before": null,
+            "change": "added",
+            "fields": [],
+            "id": "held-out.v1.scienceresearch.parallel-pair",
+            "kind": "relationship",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "partial_coordinates_and_shared_pair"
+    },
+    {
+      "after_sha256": "bda8aa91fa68d8f8c1b91fdb23eb50f647e301b7d2fd0e2a42cfc6396bbbf075",
+      "before_sha256": "d4af1e832bade2430c7ae7e2d15a67debdd9d96a5163228ddf336509c5f3a5f0",
+      "case_id": "H07",
+      "citations": [
+        {
+          "after": null,
+          "before": {
+            "end_byte": 28785,
+            "end_char": 28779,
+            "pointer": "/relationships/13",
+            "quote_sha256": "636f83b0d4dc5ea312237db17612bc2d7355d1b9d6ead95beab5c7fede853462",
+            "source_sha256": "d4af1e832bade2430c7ae7e2d15a67debdd9d96a5163228ddf336509c5f3a5f0",
+            "start_byte": 28493,
+            "start_char": 28487
+          },
+          "id": "242ad385-567e-4e2a-85f7-3d21ecfa7651",
+          "kind": "relationship"
+        },
+        {
+          "after": {
+            "end_byte": 45826,
+            "end_char": 45820,
+            "pointer": "/relationships/70",
+            "quote_sha256": "1aef1fa5d5874cbac6cf31286dfe2cfa7e7599dce00901259598dcf222461e6d",
+            "source_sha256": "bda8aa91fa68d8f8c1b91fdb23eb50f647e301b7d2fd0e2a42cfc6396bbbf075",
+            "start_byte": 45526,
+            "start_char": 45520
+          },
+          "before": null,
+          "id": "held-out.v1.scienceresearch.replacement-link",
+          "kind": "relationship"
+        }
+      ],
+      "domain": "ScienceResearch",
+      "expected": {
+        "case_id": "H07",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": null,
+            "before": {
+              "coordinate": [
+                "e7549422-eb5c-4445-a667-426ae5f4e179",
+                "996f0d67-ce74-4379-bee5-13aae30a3c53",
+                "b58a5fcb-cd42-4490-8a52-29217c5037f0"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "removed",
+            "fields": [],
+            "id": "242ad385-567e-4e2a-85f7-3d21ecfa7651",
+            "kind": "relationship",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "e7549422-eb5c-4445-a667-426ae5f4e179",
+                "996f0d67-ce74-4379-bee5-13aae30a3c53",
+                "b58a5fcb-cd42-4490-8a52-29217c5037f0"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": null,
+            "change": "added",
+            "fields": [],
+            "id": "held-out.v1.scienceresearch.replacement-link",
+            "kind": "relationship",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "same_coordinate_identity_replacement"
+    },
+    {
+      "after_sha256": "75f7c787f8566e79026480be729ef0b3d180bbd620ee27a69f4de3ba95d4babd",
+      "before_sha256": "8b78d61eb33803ecc489faaad2d16d859e9c7b2543609d6bc3aca9758c96e362",
+      "case_id": "H08",
+      "citations": [
+        {
+          "after": null,
+          "before": {
+            "end_byte": 16545,
+            "end_char": 16539,
+            "pointer": "/properties/0",
+            "quote_sha256": "b33a8ecf26d4e4e86e99ee6e1b9974ae452f54d3c684b993270cd948eccb6fa5",
+            "source_sha256": "8b78d61eb33803ecc489faaad2d16d859e9c7b2543609d6bc3aca9758c96e362",
+            "start_byte": 16384,
+            "start_char": 16378
+          },
+          "id": "027e891a-c838-4b84-8c08-e8721812db3e",
+          "kind": "property"
+        },
+        {
+          "after": {
+            "end_byte": 24590,
+            "end_char": 24584,
+            "pointer": "/properties/49",
+            "quote_sha256": "09c525a6a2b6ada20857ccf0f82348cadad2eb29ca83de03635bd059003bf350",
+            "source_sha256": "75f7c787f8566e79026480be729ef0b3d180bbd620ee27a69f4de3ba95d4babd",
+            "start_byte": 24417,
+            "start_char": 24411
+          },
+          "before": null,
+          "id": "held-out.v1.scienceresearch.new-property",
+          "kind": "property"
+        },
+        {
+          "after": null,
+          "before": {
+            "end_byte": 35062,
+            "end_char": 35056,
+            "pointer": "/relationships/34",
+            "quote_sha256": "5912b363459ff589ad046d83682409d759a830326e8c7e3ff092fba58735b972",
+            "source_sha256": "8b78d61eb33803ecc489faaad2d16d859e9c7b2543609d6bc3aca9758c96e362",
+            "start_byte": 34770,
+            "start_char": 34764
+          },
+          "id": "7a59af2c-f0dd-4505-afa7-94f1ecb376a2",
+          "kind": "relationship"
+        },
+        {
+          "after": {
+            "end_byte": 36574,
+            "end_char": 36568,
+            "pointer": "/relationships/39",
+            "quote_sha256": "2c8042ec5b4188a447b6ea15d9b231eb0eac6a14e3971f01269b46c7520d4a1b",
+            "source_sha256": "75f7c787f8566e79026480be729ef0b3d180bbd620ee27a69f4de3ba95d4babd",
+            "start_byte": 36277,
+            "start_char": 36271
+          },
+          "before": {
+            "end_byte": 36856,
+            "end_char": 36850,
+            "pointer": "/relationships/40",
+            "quote_sha256": "99c9729060039fe32d3ba318d77991a4f7e6367ea4a826647013de1f1637d21e",
+            "source_sha256": "8b78d61eb33803ecc489faaad2d16d859e9c7b2543609d6bc3aca9758c96e362",
+            "start_byte": 36563,
+            "start_char": 36557
+          },
+          "id": "96711461-250f-4439-b98b-c4b8900c9616",
+          "kind": "relationship"
+        },
+        {
+          "after": {
+            "end_byte": 45759,
+            "end_char": 45753,
+            "pointer": "/relationships/70",
+            "quote_sha256": "64de5e401f9f8b1fbe15afd648a98c5da1b5498bc81fb7989bdd0c11546f43df",
+            "source_sha256": "75f7c787f8566e79026480be729ef0b3d180bbd620ee27a69f4de3ba95d4babd",
+            "start_byte": 45542,
+            "start_char": 45536
+          },
+          "before": null,
+          "id": "held-out.v1.scienceresearch.lifecycle-pair",
+          "kind": "relationship"
+        }
+      ],
+      "domain": "ScienceResearch",
+      "expected": {
+        "case_id": "H08",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": null,
+            "before": {
+              "coordinate": [
+                "027e891a-c838-4b84-8c08-e8721812db3e",
+                null,
+                null
+              ],
+              "scores": null
+            },
+            "change": "removed",
+            "fields": [],
+            "id": "027e891a-c838-4b84-8c08-e8721812db3e",
+            "kind": "property",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "held-out.v1.scienceresearch.new-property",
+                null,
+                null
+              ],
+              "scores": null
+            },
+            "before": null,
+            "change": "added",
+            "fields": [],
+            "id": "held-out.v1.scienceresearch.new-property",
+            "kind": "property",
+            "rewired": false
+          },
+          {
+            "after": null,
+            "before": {
+              "coordinate": [
+                "027e891a-c838-4b84-8c08-e8721812db3e",
+                "996f0d67-ce74-4379-bee5-13aae30a3c53",
+                "5eb35ae6-d3e4-4859-bc42-2835baa127db"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "removed",
+            "fields": [],
+            "id": "7a59af2c-f0dd-4505-afa7-94f1ecb376a2",
+            "kind": "relationship",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "held-out.v1.scienceresearch.new-property",
+                "1f17fb9b-7e4f-446d-a334-1e132ca9c5df",
+                "d9b8743a-d2ae-414d-8afd-4bd3e8804013"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "027e891a-c838-4b84-8c08-e8721812db3e",
+                "1f17fb9b-7e4f-446d-a334-1e132ca9c5df",
+                "d9b8743a-d2ae-414d-8afd-4bd3e8804013"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "property_id"
+            ],
+            "id": "96711461-250f-4439-b98b-c4b8900c9616",
+            "kind": "relationship",
+            "rewired": true
+          },
+          {
+            "after": {
+              "coordinate": [
+                "held-out.v1.scienceresearch.new-property",
+                "996f0d67-ce74-4379-bee5-13aae30a3c53",
+                null
+              ],
+              "scores": {
+                "confidence": "omitted",
+                "strength": "omitted"
+              }
+            },
+            "before": null,
+            "change": "added",
+            "fields": [],
+            "id": "held-out.v1.scienceresearch.lifecycle-pair",
+            "kind": "relationship",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "endpoint_lifecycle_closed_graph"
+    },
+    {
+      "after_sha256": "a64fa26dd4d09ea5346d9dff90e0c4cdd3f23dc53b1be5005f40fcab9ee01d30",
+      "before_sha256": "be0db12ce8b7f850ddd8da39efb73e452f66b9c83ec20410bd21c77f231fbe16",
+      "case_id": "H09",
+      "citations": [],
+      "domain": "MathEducation",
+      "expected": {
+        "case_id": "H09",
+        "classification": "encoding_only",
+        "events": []
+      },
+      "intervention": "reorder_and_escape"
+    },
+    {
+      "after_sha256": "b1880bf092271e19d20b8b299ac836eb81b20bf1f44a7036b2341a69b834ad43",
+      "before_sha256": "1f463b412af4d45d7ff0e87601b46b47e40236d84783de262ccc925ca35f16f5",
+      "case_id": "H10",
+      "citations": [
+        {
+          "after": {
+            "end_byte": 44225,
+            "end_char": 44213,
+            "pointer": "/relationships/62",
+            "quote_sha256": "4dd2c71260ebfdba968c3febf511f73863e4def0e50db3f778e90271928c9627",
+            "source_sha256": "b1880bf092271e19d20b8b299ac836eb81b20bf1f44a7036b2341a69b834ad43",
+            "start_byte": 43858,
+            "start_char": 43852
+          },
+          "before": {
+            "end_byte": 25615,
+            "end_char": 25609,
+            "pointer": "/relationships/0",
+            "quote_sha256": "bf2d5a347c4468f1357f928f0d1a478119495108679ecb7cde612f2591d09f28",
+            "source_sha256": "1f463b412af4d45d7ff0e87601b46b47e40236d84783de262ccc925ca35f16f5",
+            "start_byte": 25322,
+            "start_char": 25316
+          },
+          "id": "0d281d78-3ee5-4324-b01b-cdbafe1eb61e",
+          "kind": "relationship"
+        },
+        {
+          "after": null,
+          "before": {
+            "end_byte": 25914,
+            "end_char": 25908,
+            "pointer": "/relationships/1",
+            "quote_sha256": "4d6c66220196d08e092315fcea6afd659a3576e32494fe0d32945394b4185713",
+            "source_sha256": "1f463b412af4d45d7ff0e87601b46b47e40236d84783de262ccc925ca35f16f5",
+            "start_byte": 25621,
+            "start_char": 25615
+          },
+          "id": "11c76d95-d6bd-4a5a-be16-9aacc261523e",
+          "kind": "relationship"
+        },
+        {
+          "after": {
+            "end_byte": 25622,
+            "end_char": 25616,
+            "pointer": "/relationships/0",
+            "quote_sha256": "cac0c860cd036ef9fa19b5e07d03a353188bc071e77745a966231f10015ac230",
+            "source_sha256": "b1880bf092271e19d20b8b299ac836eb81b20bf1f44a7036b2341a69b834ad43",
+            "start_byte": 25322,
+            "start_char": 25316
+          },
+          "before": null,
+          "id": "held-out.v1.matheducation.compound-link",
+          "kind": "relationship"
+        }
+      ],
+      "domain": "MathEducation",
+      "expected": {
+        "case_id": "H10",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": {
+              "coordinate": [
+                "33b59f51-d93f-4dbd-8b5a-c4878a74ad59",
+                "075fc7a9-fbcf-4c90-b0f8-d9f6fbc6c4bf",
+                "51f41036-6e1b-4fc3-b939-f522eaeafdca"
+              ],
+              "scores": {
+                "confidence": "omitted",
+                "strength": "reported_zero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "33b59f51-d93f-4dbd-8b5a-c4878a74ad59",
+                "901cd857-35bf-46b2-b60c-1d80c3f4c4ea",
+                "51f41036-6e1b-4fc3-b939-f522eaeafdca"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "confidence",
+              "metadata",
+              "process_id",
+              "status",
+              "strength"
+            ],
+            "id": "0d281d78-3ee5-4324-b01b-cdbafe1eb61e",
+            "kind": "relationship",
+            "rewired": true
+          },
+          {
+            "after": null,
+            "before": {
+              "coordinate": [
+                "65b43340-241e-4381-b0b8-d113abd499c9",
+                "b40c66f5-bb93-46de-991a-7ed47e301fe1",
+                "58b30920-1bc2-412c-ac88-4269eabce055"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "removed",
+            "fields": [],
+            "id": "11c76d95-d6bd-4a5a-be16-9aacc261523e",
+            "kind": "relationship",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "65b43340-241e-4381-b0b8-d113abd499c9",
+                "b40c66f5-bb93-46de-991a-7ed47e301fe1",
+                "51f41036-6e1b-4fc3-b939-f522eaeafdca"
+              ],
+              "scores": {
+                "confidence": "explicit_null",
+                "strength": "omitted"
+              }
+            },
+            "before": null,
+            "change": "added",
+            "fields": [],
+            "id": "held-out.v1.matheducation.compound-link",
+            "kind": "relationship",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "rewire_add_remove"
+    },
+    {
+      "after_sha256": "42363cae61703ed5f758f04839441d738bb35d7187253941ab7fd573a92db24f",
+      "before_sha256": "2047da5a35f4a9e2beaec15e259fe7bfcda75bcc6f5004d5fd3b4ea5a0248ceb",
+      "case_id": "H11",
+      "citations": [
+        {
+          "after": {
+            "end_byte": 26808,
+            "end_char": 26802,
+            "pointer": "/relationships/4",
+            "quote_sha256": "4546fb726ca8b8324e2b802d9975f09df7c79639fa9f92a06e0e29998934489c",
+            "source_sha256": "42363cae61703ed5f758f04839441d738bb35d7187253941ab7fd573a92db24f",
+            "start_byte": 26518,
+            "start_char": 26512
+          },
+          "before": {
+            "end_byte": 26761,
+            "end_char": 26755,
+            "pointer": "/relationships/4",
+            "quote_sha256": "3e4a2c4b76e33160ceeabef6e5ccf2fc1620697a56dce30aa0ed25543821c842",
+            "source_sha256": "2047da5a35f4a9e2beaec15e259fe7bfcda75bcc6f5004d5fd3b4ea5a0248ceb",
+            "start_byte": 26518,
+            "start_char": 26512
+          },
+          "id": "15f31005-6055-4452-b135-5068b5fe23e1",
+          "kind": "relationship"
+        },
+        {
+          "after": {
+            "end_byte": 27078,
+            "end_char": 27072,
+            "pointer": "/relationships/5",
+            "quote_sha256": "58241b58440ea64715b1eaf3ddf180e4a20ac447e954d8ec5a57b9f5e0ebf259",
+            "source_sha256": "42363cae61703ed5f758f04839441d738bb35d7187253941ab7fd573a92db24f",
+            "start_byte": 26814,
+            "start_char": 26808
+          },
+          "before": {
+            "end_byte": 27060,
+            "end_char": 27054,
+            "pointer": "/relationships/5",
+            "quote_sha256": "0ca16678ad8c337071f6be733c3010d0c962f5d4fd71cfe6fcef6a31aa742c1d",
+            "source_sha256": "2047da5a35f4a9e2beaec15e259fe7bfcda75bcc6f5004d5fd3b4ea5a0248ceb",
+            "start_byte": 26767,
+            "start_char": 26761
+          },
+          "id": "1ad5adb7-a4cc-4516-83e6-b884ddaba08a",
+          "kind": "relationship"
+        },
+        {
+          "after": {
+            "end_byte": 27353,
+            "end_char": 27347,
+            "pointer": "/relationships/6",
+            "quote_sha256": "38ed603ee2b8d79322e3eb88aef9d72212cbef8cbe065cc97405cc938093f898",
+            "source_sha256": "42363cae61703ed5f758f04839441d738bb35d7187253941ab7fd573a92db24f",
+            "start_byte": 27084,
+            "start_char": 27078
+          },
+          "before": {
+            "end_byte": 27353,
+            "end_char": 27347,
+            "pointer": "/relationships/6",
+            "quote_sha256": "032632d7ed2803dc8263e7dc066f5ca99be66e50c9a93f058d20eec78f5e86cd",
+            "source_sha256": "2047da5a35f4a9e2beaec15e259fe7bfcda75bcc6f5004d5fd3b4ea5a0248ceb",
+            "start_byte": 27066,
+            "start_char": 27060
+          },
+          "id": "1e40f2c4-bde0-461a-8a2b-757e6882e207",
+          "kind": "relationship"
+        }
+      ],
+      "domain": "MathEducation",
+      "expected": {
+        "case_id": "H11",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": {
+              "coordinate": [
+                "c117133e-64cd-42b4-8dd6-5585072c74c8",
+                "fbc52ec3-25e3-4590-9163-483cbedb0478",
+                "73acbdb2-7433-4a16-96a1-86715f628c39"
+              ],
+              "scores": {
+                "confidence": "reported_zero",
+                "strength": "explicit_null"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "c117133e-64cd-42b4-8dd6-5585072c74c8",
+                "fbc52ec3-25e3-4590-9163-483cbedb0478",
+                "73acbdb2-7433-4a16-96a1-86715f628c39"
+              ],
+              "scores": {
+                "confidence": "omitted",
+                "strength": "omitted"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "confidence",
+              "strength"
+            ],
+            "id": "15f31005-6055-4452-b135-5068b5fe23e1",
+            "kind": "relationship",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "ff60080a-bf7b-4818-acb2-bac3e4c5e39e",
+                "075fc7a9-fbcf-4c90-b0f8-d9f6fbc6c4bf",
+                "cbe9970d-c98e-443c-bf14-ba22bf8a014f"
+              ],
+              "scores": {
+                "confidence": "omitted",
+                "strength": "reported_zero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "ff60080a-bf7b-4818-acb2-bac3e4c5e39e",
+                "075fc7a9-fbcf-4c90-b0f8-d9f6fbc6c4bf",
+                "cbe9970d-c98e-443c-bf14-ba22bf8a014f"
+              ],
+              "scores": {
+                "confidence": "explicit_null",
+                "strength": "explicit_null"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "confidence",
+              "strength"
+            ],
+            "id": "1ad5adb7-a4cc-4516-83e6-b884ddaba08a",
+            "kind": "relationship",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "cd538a6a-26b6-4fb0-ab35-8ada57c057f1",
+                "fbc52ec3-25e3-4590-9163-483cbedb0478",
+                "3dd32268-4e1f-4eae-b2a2-97979bf2d395"
+              ],
+              "scores": {
+                "confidence": "explicit_null",
+                "strength": "omitted"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "cd538a6a-26b6-4fb0-ab35-8ada57c057f1",
+                "fbc52ec3-25e3-4590-9163-483cbedb0478",
+                "3dd32268-4e1f-4eae-b2a2-97979bf2d395"
+              ],
+              "scores": {
+                "confidence": "reported_zero",
+                "strength": "reported_zero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "confidence",
+              "strength"
+            ],
+            "id": "1e40f2c4-bde0-461a-8a2b-757e6882e207",
+            "kind": "relationship",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "score_presence_cycle"
+    },
+    {
+      "after_sha256": "9118c283481543b523b298835176c38e58e721173805e4a91b99676e338f1a15",
+      "before_sha256": "99e7a29b8b89cc9946dfe6b80008b3733d25fdf6ca6f863883d2226591803e67",
+      "case_id": "H12",
+      "citations": [
+        {
+          "after": {
+            "end_byte": 27817,
+            "end_char": 27810,
+            "pointer": "/relationships/7",
+            "quote_sha256": "865a01894e4f044fd386234c219d94148a5b01dd5a0b5a146e259d2bc5caf5e8",
+            "source_sha256": "9118c283481543b523b298835176c38e58e721173805e4a91b99676e338f1a15",
+            "start_byte": 27414,
+            "start_char": 27408
+          },
+          "before": {
+            "end_byte": 27820,
+            "end_char": 27813,
+            "pointer": "/relationships/7",
+            "quote_sha256": "aa0bd7e6089398c0b0d7b20e019282861907c06a26411890cf529ed04491c9aa",
+            "source_sha256": "99e7a29b8b89cc9946dfe6b80008b3733d25fdf6ca6f863883d2226591803e67",
+            "start_byte": 27414,
+            "start_char": 27408
+          },
+          "id": "284cdcb1-9291-4d0e-a1ad-be719c88ab43",
+          "kind": "relationship"
+        },
+        {
+          "after": {
+            "end_byte": 28239,
+            "end_char": 28231,
+            "pointer": "/relationships/8",
+            "quote_sha256": "ec8152a2f719758084a85c5c2e7f53de99e2d2b108b8a638a0de299679432df2",
+            "source_sha256": "9118c283481543b523b298835176c38e58e721173805e4a91b99676e338f1a15",
+            "start_byte": 27823,
+            "start_char": 27816
+          },
+          "before": {
+            "end_byte": 28242,
+            "end_char": 28234,
+            "pointer": "/relationships/8",
+            "quote_sha256": "2cf90c763b8c7afcda112413ed8613e9794c710b6528d2936fd9d72e4bcfb670",
+            "source_sha256": "99e7a29b8b89cc9946dfe6b80008b3733d25fdf6ca6f863883d2226591803e67",
+            "start_byte": 27826,
+            "start_char": 27819
+          },
+          "id": "296152d5-2e66-40e4-9c6d-1481d573b477",
+          "kind": "relationship"
+        }
+      ],
+      "domain": "MathEducation",
+      "expected": {
+        "case_id": "H12",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": {
+              "coordinate": [
+                "1507c124-26b0-48c5-a9fb-2ca279b65bb6",
+                "9c246b27-ce9b-4208-b12c-2761f39be574",
+                "e47bfa95-7d49-4322-84e7-9a9341dec3ff"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "1507c124-26b0-48c5-a9fb-2ca279b65bb6",
+                "9c246b27-ce9b-4208-b12c-2761f39be574",
+                "e47bfa95-7d49-4322-84e7-9a9341dec3ff"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "metadata"
+            ],
+            "id": "284cdcb1-9291-4d0e-a1ad-be719c88ab43",
+            "kind": "relationship",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "cd538a6a-26b6-4fb0-ab35-8ada57c057f1",
+                "7b4dac49-942b-4e51-a402-f8ec004d9314",
+                "1eb6f34a-a415-45a1-9cbe-14bbbbcae7ff"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "cd538a6a-26b6-4fb0-ab35-8ada57c057f1",
+                "7b4dac49-942b-4e51-a402-f8ec004d9314",
+                "1eb6f34a-a415-45a1-9cbe-14bbbbcae7ff"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "metadata"
+            ],
+            "id": "296152d5-2e66-40e4-9c6d-1481d573b477",
+            "kind": "relationship",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "nested_metadata_type_and_order"
+    },
+    {
+      "after_sha256": "cc66cf72e3b242bd36be663c3934cc8dbea996c871e874edfe2e4ecf5515739d",
+      "before_sha256": "a8d8af134123c0ce637188d7e08aaa077f2c235bf1e9c95808663ec1db3a4760",
+      "case_id": "H13",
+      "citations": [
+        {
+          "after": {
+            "end_byte": 472,
+            "end_char": 466,
+            "pointer": "/framework",
+            "quote_sha256": "dece30e54ccec68265ca232c92dcef4cb5245870b13a7bb4430208d9287e9cfe",
+            "source_sha256": "cc66cf72e3b242bd36be663c3934cc8dbea996c871e874edfe2e4ecf5515739d",
+            "start_byte": 49,
+            "start_char": 49
+          },
+          "before": {
+            "end_byte": 450,
+            "end_char": 444,
+            "pointer": "/framework",
+            "quote_sha256": "29160b90dff07df2051da34ebb86ea642e379f1b3530126ce99c2b2e42837f4a",
+            "source_sha256": "a8d8af134123c0ce637188d7e08aaa077f2c235bf1e9c95808663ec1db3a4760",
+            "start_byte": 49,
+            "start_char": 49
+          },
+          "id": "p3if.math-education",
+          "kind": "framework"
+        },
+        {
+          "after": {
+            "end_byte": 5698,
+            "end_char": 5691,
+            "pointer": "/perspectives/30",
+            "quote_sha256": "3179b896050d24d5d2be100783d824e60b1bcfb4f4af0eab04bd6d53638c1f47",
+            "source_sha256": "cc66cf72e3b242bd36be663c3934cc8dbea996c871e874edfe2e4ecf5515739d",
+            "start_byte": 5534,
+            "start_char": 5528
+          },
+          "before": {
+            "end_byte": 5664,
+            "end_char": 5658,
+            "pointer": "/perspectives/30",
+            "quote_sha256": "f957a3a6f425a20ac621006402d1d9b10da1cc85fe04965d4104ae930f333440",
+            "source_sha256": "a8d8af134123c0ce637188d7e08aaa077f2c235bf1e9c95808663ec1db3a4760",
+            "start_byte": 5512,
+            "start_char": 5506
+          },
+          "id": "76a659c9-7a7f-4756-ba02-851966b66686",
+          "kind": "perspective"
+        },
+        {
+          "after": {
+            "end_byte": 11430,
+            "end_char": 11422,
+            "pointer": "/processes/14",
+            "quote_sha256": "4265f6a546d5c09e3747eea2c561230b5e50586f3561a17295271ef7ba16f81e",
+            "source_sha256": "cc66cf72e3b242bd36be663c3934cc8dbea996c871e874edfe2e4ecf5515739d",
+            "start_byte": 11257,
+            "start_char": 11250
+          },
+          "before": {
+            "end_byte": 11384,
+            "end_char": 11378,
+            "pointer": "/processes/14",
+            "quote_sha256": "ae6b93231158311561a731a9bf5ad5188de20a51dc2deb3239504f743f77ae62",
+            "source_sha256": "a8d8af134123c0ce637188d7e08aaa077f2c235bf1e9c95808663ec1db3a4760",
+            "start_byte": 11223,
+            "start_char": 11217
+          },
+          "id": "4fa9479a-cdd4-4130-9664-e57173e17827",
+          "kind": "process"
+        },
+        {
+          "after": {
+            "end_byte": 19338,
+            "end_char": 19329,
+            "pointer": "/properties/12",
+            "quote_sha256": "62e1801fedee6fffbe46a1414da3b80ebfd2504d4787a4a5343fa185520fa974",
+            "source_sha256": "cc66cf72e3b242bd36be663c3934cc8dbea996c871e874edfe2e4ecf5515739d",
+            "start_byte": 19164,
+            "start_char": 19156
+          },
+          "before": {
+            "end_byte": 19280,
+            "end_char": 19274,
+            "pointer": "/properties/12",
+            "quote_sha256": "21f50c71e30cb604f6dc6dee5e46ec2441b535488baab3d3cb67a131695b69ee",
+            "source_sha256": "a8d8af134123c0ce637188d7e08aaa077f2c235bf1e9c95808663ec1db3a4760",
+            "start_byte": 19118,
+            "start_char": 19112
+          },
+          "id": "4418cf46-187a-4888-bd5b-3c8c54d4a7bb",
+          "kind": "property"
+        },
+        {
+          "after": {
+            "end_byte": 28391,
+            "end_char": 28382,
+            "pointer": "/relationships/9",
+            "quote_sha256": "2cfc8695acad6659d77f1bd43993cf9e8084cbaf6718d27192309e5015f50c34",
+            "source_sha256": "cc66cf72e3b242bd36be663c3934cc8dbea996c871e874edfe2e4ecf5515739d",
+            "start_byte": 28070,
+            "start_char": 28061
+          },
+          "before": {
+            "end_byte": 28305,
+            "end_char": 28299,
+            "pointer": "/relationships/9",
+            "quote_sha256": "6083c5ad048496802dc2c77eb7cae3a6dc0616f151ceba064dc0b4f3e6c257d5",
+            "source_sha256": "a8d8af134123c0ce637188d7e08aaa077f2c235bf1e9c95808663ec1db3a4760",
+            "start_byte": 28012,
+            "start_char": 28006
+          },
+          "id": "2985decf-37ca-4a13-b40b-9ca5beab44f7",
+          "kind": "relationship"
+        }
+      ],
+      "domain": "MathEducation",
+      "expected": {
+        "case_id": "H13",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": {
+              "coordinate": [
+                null,
+                null,
+                null
+              ],
+              "scores": null
+            },
+            "before": {
+              "coordinate": [
+                null,
+                null,
+                null
+              ],
+              "scores": null
+            },
+            "change": "modified",
+            "fields": [
+              "description"
+            ],
+            "id": "p3if.math-education",
+            "kind": "framework",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                null,
+                null,
+                "76a659c9-7a7f-4756-ba02-851966b66686"
+              ],
+              "scores": null
+            },
+            "before": {
+              "coordinate": [
+                null,
+                null,
+                "76a659c9-7a7f-4756-ba02-851966b66686"
+              ],
+              "scores": null
+            },
+            "change": "modified",
+            "fields": [
+              "name"
+            ],
+            "id": "76a659c9-7a7f-4756-ba02-851966b66686",
+            "kind": "perspective",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                null,
+                "4fa9479a-cdd4-4130-9664-e57173e17827",
+                null
+              ],
+              "scores": null
+            },
+            "before": {
+              "coordinate": [
+                null,
+                "4fa9479a-cdd4-4130-9664-e57173e17827",
+                null
+              ],
+              "scores": null
+            },
+            "change": "modified",
+            "fields": [
+              "name"
+            ],
+            "id": "4fa9479a-cdd4-4130-9664-e57173e17827",
+            "kind": "process",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "4418cf46-187a-4888-bd5b-3c8c54d4a7bb",
+                null,
+                null
+              ],
+              "scores": null
+            },
+            "before": {
+              "coordinate": [
+                "4418cf46-187a-4888-bd5b-3c8c54d4a7bb",
+                null,
+                null
+              ],
+              "scores": null
+            },
+            "change": "modified",
+            "fields": [
+              "name"
+            ],
+            "id": "4418cf46-187a-4888-bd5b-3c8c54d4a7bb",
+            "kind": "property",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "4418cf46-187a-4888-bd5b-3c8c54d4a7bb",
+                "4fa9479a-cdd4-4130-9664-e57173e17827",
+                "76a659c9-7a7f-4756-ba02-851966b66686"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "4418cf46-187a-4888-bd5b-3c8c54d4a7bb",
+                "4fa9479a-cdd4-4130-9664-e57173e17827",
+                "76a659c9-7a7f-4756-ba02-851966b66686"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "status"
+            ],
+            "id": "2985decf-37ca-4a13-b40b-9ca5beab44f7",
+            "kind": "relationship",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "framework_axis_and_relationship_metadata"
+    },
+    {
+      "after_sha256": "6029465695f6a567eaf6011d53a89e673b7ba30ad7464ab5b75b7aaa0169abaf",
+      "before_sha256": "c58f816a18eeec2b67550daf93bab77241ae7b8a6c9057bda4e8e043a7a8b530",
+      "case_id": "H14",
+      "citations": [
+        {
+          "after": {
+            "end_byte": 28839,
+            "end_char": 28833,
+            "pointer": "/relationships/11",
+            "quote_sha256": "6e496b7750a5b374945df53eea29acabb69d122999d544379a4179db303ee8a0",
+            "source_sha256": "6029465695f6a567eaf6011d53a89e673b7ba30ad7464ab5b75b7aaa0169abaf",
+            "start_byte": 28610,
+            "start_char": 28604
+          },
+          "before": {
+            "end_byte": 28903,
+            "end_char": 28897,
+            "pointer": "/relationships/11",
+            "quote_sha256": "1a702269a7260e4cf6b532eb3b062a1e66b68cf648c9af873e9317f7fd0eb395",
+            "source_sha256": "c58f816a18eeec2b67550daf93bab77241ae7b8a6c9057bda4e8e043a7a8b530",
+            "start_byte": 28610,
+            "start_char": 28604
+          },
+          "id": "32931bcd-6c41-48d0-b855-41fbf635793e",
+          "kind": "relationship"
+        },
+        {
+          "after": {
+            "end_byte": 29138,
+            "end_char": 29132,
+            "pointer": "/relationships/12",
+            "quote_sha256": "ace4fcad8e706dd85aff7d02e4ee695ad92f0d2c5c72cc9f7d0519486183ae72",
+            "source_sha256": "6029465695f6a567eaf6011d53a89e673b7ba30ad7464ab5b75b7aaa0169abaf",
+            "start_byte": 28845,
+            "start_char": 28839
+          },
+          "before": {
+            "end_byte": 29138,
+            "end_char": 29132,
+            "pointer": "/relationships/12",
+            "quote_sha256": "178f16fd148489c995e616618aa8429e9d234339a297c4ba5ddee466c40d59f7",
+            "source_sha256": "c58f816a18eeec2b67550daf93bab77241ae7b8a6c9057bda4e8e043a7a8b530",
+            "start_byte": 28909,
+            "start_char": 28903
+          },
+          "id": "3655987d-f817-4421-bab1-8469ab447cc1",
+          "kind": "relationship"
+        },
+        {
+          "after": {
+            "end_byte": 29403,
+            "end_char": 29397,
+            "pointer": "/relationships/13",
+            "quote_sha256": "da5f9ba5fbdcf95e77652f46b5c4062e348ae7a5420740829a78ced258a14d6e",
+            "source_sha256": "6029465695f6a567eaf6011d53a89e673b7ba30ad7464ab5b75b7aaa0169abaf",
+            "start_byte": 29144,
+            "start_char": 29138
+          },
+          "before": {
+            "end_byte": 29373,
+            "end_char": 29367,
+            "pointer": "/relationships/13",
+            "quote_sha256": "01bc8b34f068191eb4699e46aef9cce65e255f5dc4bc13b18346786cb2df4284",
+            "source_sha256": "c58f816a18eeec2b67550daf93bab77241ae7b8a6c9057bda4e8e043a7a8b530",
+            "start_byte": 29144,
+            "start_char": 29138
+          },
+          "id": "40f03e9f-d54c-4313-8322-23379c5fe16f",
+          "kind": "relationship"
+        },
+        {
+          "after": {
+            "end_byte": 44264,
+            "end_char": 44258,
+            "pointer": "/relationships/63",
+            "quote_sha256": "0f8cb295c0aeb32917385829ad1c73d79d0a0c6211b953c16a89cf36edc1bceb",
+            "source_sha256": "6029465695f6a567eaf6011d53a89e673b7ba30ad7464ab5b75b7aaa0169abaf",
+            "start_byte": 44052,
+            "start_char": 44046
+          },
+          "before": null,
+          "id": "held-out.v1.matheducation.parallel-pair",
+          "kind": "relationship"
+        }
+      ],
+      "domain": "MathEducation",
+      "expected": {
+        "case_id": "H14",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": {
+              "coordinate": [
+                "214a35f8-a314-4ec1-befe-c8e5cb84da15",
+                "8be49d6d-ab3d-41ed-b529-47e6250c795c",
+                null
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "214a35f8-a314-4ec1-befe-c8e5cb84da15",
+                "8be49d6d-ab3d-41ed-b529-47e6250c795c",
+                "e47bfa95-7d49-4322-84e7-9a9341dec3ff"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "perspective_id"
+            ],
+            "id": "32931bcd-6c41-48d0-b855-41fbf635793e",
+            "kind": "relationship",
+            "rewired": true
+          },
+          {
+            "after": {
+              "coordinate": [
+                "e9c8e22a-230f-4f06-a22a-fb7c3d8b1d1a",
+                "35fac30d-6a5f-44cf-9a35-c818533dc547",
+                "235b6eba-59f8-4db1-a0f4-020a02286265"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "e9c8e22a-230f-4f06-a22a-fb7c3d8b1d1a",
+                "35fac30d-6a5f-44cf-9a35-c818533dc547",
+                null
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "perspective_id"
+            ],
+            "id": "3655987d-f817-4421-bab1-8469ab447cc1",
+            "kind": "relationship",
+            "rewired": true
+          },
+          {
+            "after": {
+              "coordinate": [
+                "27a36c61-d152-4059-a81e-bed7ae835001",
+                "c05a6923-5e9e-44b0-b118-1d4e97c87538",
+                null
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "27a36c61-d152-4059-a81e-bed7ae835001",
+                "c05a6923-5e9e-44b0-b118-1d4e97c87538",
+                null
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "perspective_id"
+            ],
+            "id": "40f03e9f-d54c-4313-8322-23379c5fe16f",
+            "kind": "relationship",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "214a35f8-a314-4ec1-befe-c8e5cb84da15",
+                "8be49d6d-ab3d-41ed-b529-47e6250c795c",
+                null
+              ],
+              "scores": {
+                "confidence": "omitted",
+                "strength": "omitted"
+              }
+            },
+            "before": null,
+            "change": "added",
+            "fields": [],
+            "id": "held-out.v1.matheducation.parallel-pair",
+            "kind": "relationship",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "partial_coordinates_and_shared_pair"
+    },
+    {
+      "after_sha256": "ea83699c7dab3538d6400a0365bdc110e0e616c08ea3a52edf54a8e688ca01bd",
+      "before_sha256": "5d66e1d3c5efc0bad70ba498b8ccc712cd892c50f77665799664811f9be35586",
+      "case_id": "H15",
+      "citations": [
+        {
+          "after": null,
+          "before": {
+            "end_byte": 29800,
+            "end_char": 29794,
+            "pointer": "/relationships/14",
+            "quote_sha256": "1cae894905b0b646af8428108c1fc7e4b717aafc13722828b0e49276d7b29315",
+            "source_sha256": "5d66e1d3c5efc0bad70ba498b8ccc712cd892c50f77665799664811f9be35586",
+            "start_byte": 29507,
+            "start_char": 29501
+          },
+          "id": "4108aecf-b2db-4257-9935-a0e49ec71afd",
+          "kind": "relationship"
+        },
+        {
+          "after": {
+            "end_byte": 44150,
+            "end_char": 44144,
+            "pointer": "/relationships/62",
+            "quote_sha256": "b18fe26528380fa65dc9f8bbbf13713a558cc0ef67901f63847a007534665a76",
+            "source_sha256": "ea83699c7dab3538d6400a0365bdc110e0e616c08ea3a52edf54a8e688ca01bd",
+            "start_byte": 43851,
+            "start_char": 43845
+          },
+          "before": null,
+          "id": "held-out.v1.matheducation.replacement-link",
+          "kind": "relationship"
+        }
+      ],
+      "domain": "MathEducation",
+      "expected": {
+        "case_id": "H15",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": null,
+            "before": {
+              "coordinate": [
+                "c37b6391-13a0-4698-9966-a5ce4c250c2f",
+                "5b4ced03-2733-48a7-a11d-f03297557d48",
+                "ace00bea-c1e3-4c8d-908c-832383242003"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "removed",
+            "fields": [],
+            "id": "4108aecf-b2db-4257-9935-a0e49ec71afd",
+            "kind": "relationship",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "c37b6391-13a0-4698-9966-a5ce4c250c2f",
+                "5b4ced03-2733-48a7-a11d-f03297557d48",
+                "ace00bea-c1e3-4c8d-908c-832383242003"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": null,
+            "change": "added",
+            "fields": [],
+            "id": "held-out.v1.matheducation.replacement-link",
+            "kind": "relationship",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "same_coordinate_identity_replacement"
+    },
+    {
+      "after_sha256": "227fca9c9a1df7961b093bd81e013d1893ea0c2b0a93c6bb97a5b8827cec76d7",
+      "before_sha256": "bc24d9581c2450f54a1d0c7f89b39f9a987033a74d1c1cee4932953cfd61d45f",
+      "case_id": "H16",
+      "citations": [
+        {
+          "after": null,
+          "before": {
+            "end_byte": 17797,
+            "end_char": 17791,
+            "pointer": "/properties/3",
+            "quote_sha256": "3622a4818b75e8acccd93a91882620e1665a77f61c377c841e436e201693a243",
+            "source_sha256": "bc24d9581c2450f54a1d0c7f89b39f9a987033a74d1c1cee4932953cfd61d45f",
+            "start_byte": 17639,
+            "start_char": 17633
+          },
+          "id": "1cfc4933-a20b-4f44-9e25-984522c434ef",
+          "kind": "property"
+        },
+        {
+          "after": {
+            "end_byte": 25301,
+            "end_char": 25295,
+            "pointer": "/properties/49",
+            "quote_sha256": "9e29c38a39af9ff2584a5b1b69cadbbbc5ac09fd81f2064bc54c343b038f4bc0",
+            "source_sha256": "227fca9c9a1df7961b093bd81e013d1893ea0c2b0a93c6bb97a5b8827cec76d7",
+            "start_byte": 25133,
+            "start_char": 25127
+          },
+          "before": null,
+          "id": "held-out.v1.matheducation.new-property",
+          "kind": "property"
+        },
+        {
+          "after": null,
+          "before": {
+            "end_byte": 31893,
+            "end_char": 31887,
+            "pointer": "/relationships/21",
+            "quote_sha256": "150ee44504653e01bb2139e9f231f4abcc1cbfe409f6ab261456adbb99b0a9bc",
+            "source_sha256": "bc24d9581c2450f54a1d0c7f89b39f9a987033a74d1c1cee4932953cfd61d45f",
+            "start_byte": 31600,
+            "start_char": 31594
+          },
+          "id": "558bc376-02ae-47e6-aa07-e8308d220d3f",
+          "kind": "relationship"
+        },
+        {
+          "after": {
+            "end_byte": 38777,
+            "end_char": 38771,
+            "pointer": "/relationships/44",
+            "quote_sha256": "9983a625d4e05cf2ca3e9e9a1b239cef723347e20c1a9fc58d1c7321db3d89a2",
+            "source_sha256": "227fca9c9a1df7961b093bd81e013d1893ea0c2b0a93c6bb97a5b8827cec76d7",
+            "start_byte": 38482,
+            "start_char": 38476
+          },
+          "before": {
+            "end_byte": 39064,
+            "end_char": 39058,
+            "pointer": "/relationships/45",
+            "quote_sha256": "ead0b0ef955332b34be889412f81eb6609cdea92afa14aa43f3bf6c9940a78ce",
+            "source_sha256": "bc24d9581c2450f54a1d0c7f89b39f9a987033a74d1c1cee4932953cfd61d45f",
+            "start_byte": 38771,
+            "start_char": 38765
+          },
+          "id": "d3bc060d-597b-4448-9f73-14b838845429",
+          "kind": "relationship"
+        },
+        {
+          "after": {
+            "end_byte": 44076,
+            "end_char": 44070,
+            "pointer": "/relationships/62",
+            "quote_sha256": "3440ede125e3d1eff234f4f971bf557b211ae8881038f846183a53254a10ff36",
+            "source_sha256": "227fca9c9a1df7961b093bd81e013d1893ea0c2b0a93c6bb97a5b8827cec76d7",
+            "start_byte": 43863,
+            "start_char": 43857
+          },
+          "before": null,
+          "id": "held-out.v1.matheducation.lifecycle-pair",
+          "kind": "relationship"
+        }
+      ],
+      "domain": "MathEducation",
+      "expected": {
+        "case_id": "H16",
+        "classification": "declared_change",
+        "events": [
+          {
+            "after": null,
+            "before": {
+              "coordinate": [
+                "1cfc4933-a20b-4f44-9e25-984522c434ef",
+                null,
+                null
+              ],
+              "scores": null
+            },
+            "change": "removed",
+            "fields": [],
+            "id": "1cfc4933-a20b-4f44-9e25-984522c434ef",
+            "kind": "property",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "held-out.v1.matheducation.new-property",
+                null,
+                null
+              ],
+              "scores": null
+            },
+            "before": null,
+            "change": "added",
+            "fields": [],
+            "id": "held-out.v1.matheducation.new-property",
+            "kind": "property",
+            "rewired": false
+          },
+          {
+            "after": null,
+            "before": {
+              "coordinate": [
+                "1cfc4933-a20b-4f44-9e25-984522c434ef",
+                "dc38fa12-0dc5-4159-85f4-80aec53080c5",
+                "ebc6e7f0-c3d7-4378-89ee-1793a9f38efe"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "removed",
+            "fields": [],
+            "id": "558bc376-02ae-47e6-aa07-e8308d220d3f",
+            "kind": "relationship",
+            "rewired": false
+          },
+          {
+            "after": {
+              "coordinate": [
+                "held-out.v1.matheducation.new-property",
+                "809b8b8f-31a5-4a01-bcd9-61c831332a99",
+                "42ff616f-8811-4bb1-83e6-6e7f1825e1c1"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "before": {
+              "coordinate": [
+                "1cfc4933-a20b-4f44-9e25-984522c434ef",
+                "809b8b8f-31a5-4a01-bcd9-61c831332a99",
+                "42ff616f-8811-4bb1-83e6-6e7f1825e1c1"
+              ],
+              "scores": {
+                "confidence": "reported_nonzero",
+                "strength": "reported_nonzero"
+              }
+            },
+            "change": "modified",
+            "fields": [
+              "property_id"
+            ],
+            "id": "d3bc060d-597b-4448-9f73-14b838845429",
+            "kind": "relationship",
+            "rewired": true
+          },
+          {
+            "after": {
+              "coordinate": [
+                "held-out.v1.matheducation.new-property",
+                "dc38fa12-0dc5-4159-85f4-80aec53080c5",
+                null
+              ],
+              "scores": {
+                "confidence": "omitted",
+                "strength": "omitted"
+              }
+            },
+            "before": null,
+            "change": "added",
+            "fields": [],
+            "id": "held-out.v1.matheducation.lifecycle-pair",
+            "kind": "relationship",
+            "rewired": false
+          }
+        ]
+      },
+      "intervention": "endpoint_lifecycle_closed_graph"
+    }
+  ],
+  "domains": {
+    "MathEducation": {
+      "fixture": "matheducation.json",
+      "fixture_sha256": "bf7189b9901e965610fd246dd98b85276dfca316365ffd7b41f055ba57ecbea0",
+      "framework": {
+        "id": "p3if.math-education",
+        "name": "Math education"
+      }
+    },
+    "ScienceResearch": {
+      "fixture": "scienceresearch.json",
+      "fixture_sha256": "79878b37cd39517c1a766bc9c7e0f08437105bbf2fe6d8b5ee36d456156e085c",
+      "framework": {
+        "id": "p3if.science-research",
+        "name": "Science research"
+      }
+    }
+  },
+  "schema_version": "p3if.held-out-case-manifest.v1",
+  "specification_sha256": "d86284da20dfa874bb19ff8cabd33756e3fb4f07d99115de3ce6cd2e0d4806d2"
+}

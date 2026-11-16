@@ -1,0 +1,824 @@
+{
+  "cases": [
+    {
+      "after_encoding": {
+        "ascii": true,
+        "reverse": [
+          "properties",
+          "processes",
+          "perspectives",
+          "relationships"
+        ]
+      },
+      "case_id": "H01",
+      "domain": "ScienceResearch",
+      "edits": [],
+      "intervention": "reorder_and_escape",
+      "seed_edits": []
+    },
+    {
+      "after_encoding": {
+        "ascii": false,
+        "reverse": [
+          "relationships"
+        ]
+      },
+      "case_id": "H02",
+      "domain": "ScienceResearch",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "02ad7c7f-8aa2-4a1c-835e-64a456194531",
+          "kind": "relationship",
+          "omit": [
+            "confidence"
+          ],
+          "set": {
+            "metadata": {
+              "review_note": "Révision · Δ 🧭"
+            },
+            "process_id": "a6fbf31c-9f35-4e5b-9bb8-4ef28eb61365",
+            "status": "proposed",
+            "strength": 0
+          }
+        },
+        {
+          "change": "removed",
+          "id": "0c43fda0-e6ff-4fe5-88b8-987fe200ccac",
+          "kind": "relationship"
+        },
+        {
+          "change": "added",
+          "id": "held-out.v1.scienceresearch.compound-link",
+          "kind": "relationship",
+          "set": {
+            "confidence": null,
+            "id": "held-out.v1.scienceresearch.compound-link",
+            "perspective_id": "52a00eb1-ddc4-4c8d-9dc7-ca63b99ae7f7",
+            "process_id": "2e7f3ce3-3980-4ab8-ba6e-3a8fb21c227e",
+            "property_id": "e7549422-eb5c-4445-a667-426ae5f4e179",
+            "status": "proposed"
+          }
+        }
+      ],
+      "intervention": "rewire_add_remove",
+      "seed_edits": []
+    },
+    {
+      "after_encoding": {
+        "ascii": false,
+        "reverse": []
+      },
+      "case_id": "H03",
+      "domain": "ScienceResearch",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "10a4782a-d01a-4760-9285-603722a0ba8e",
+          "kind": "relationship",
+          "set": {
+            "confidence": 0,
+            "strength": null
+          }
+        },
+        {
+          "change": "modified",
+          "id": "110291e3-2665-4617-ab3a-b2c31ed82ab4",
+          "kind": "relationship",
+          "omit": [
+            "confidence"
+          ],
+          "set": {
+            "strength": 0
+          }
+        },
+        {
+          "change": "modified",
+          "id": "159864bd-5cdc-4f61-b18b-271fc0c38521",
+          "kind": "relationship",
+          "omit": [
+            "strength"
+          ],
+          "set": {
+            "confidence": null
+          }
+        }
+      ],
+      "intervention": "score_presence_cycle",
+      "seed_edits": [
+        {
+          "change": "modified",
+          "id": "10a4782a-d01a-4760-9285-603722a0ba8e",
+          "kind": "relationship",
+          "omit": [
+            "strength",
+            "confidence"
+          ]
+        },
+        {
+          "change": "modified",
+          "id": "110291e3-2665-4617-ab3a-b2c31ed82ab4",
+          "kind": "relationship",
+          "set": {
+            "confidence": null,
+            "strength": null
+          }
+        },
+        {
+          "change": "modified",
+          "id": "159864bd-5cdc-4f61-b18b-271fc0c38521",
+          "kind": "relationship",
+          "set": {
+            "confidence": 0,
+            "strength": 0
+          }
+        }
+      ]
+    },
+    {
+      "after_encoding": {
+        "ascii": false,
+        "reverse": []
+      },
+      "case_id": "H04",
+      "domain": "ScienceResearch",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "1785fa1b-8941-484e-815e-3e4194612aa9",
+          "kind": "relationship",
+          "set": {
+            "metadata": {
+              "review": {
+                "enabled": 1,
+                "label": "café"
+              }
+            }
+          }
+        },
+        {
+          "change": "modified",
+          "id": "180a4c7a-98b7-4f48-886d-89b24c741f7e",
+          "kind": "relationship",
+          "set": {
+            "metadata": {
+              "label": "café",
+              "path": [
+                "reviewed",
+                "draft"
+              ]
+            }
+          }
+        }
+      ],
+      "intervention": "nested_metadata_type_and_order",
+      "seed_edits": [
+        {
+          "change": "modified",
+          "id": "1785fa1b-8941-484e-815e-3e4194612aa9",
+          "kind": "relationship",
+          "set": {
+            "metadata": {
+              "review": {
+                "enabled": true,
+                "label": "café"
+              }
+            }
+          }
+        },
+        {
+          "change": "modified",
+          "id": "180a4c7a-98b7-4f48-886d-89b24c741f7e",
+          "kind": "relationship",
+          "set": {
+            "metadata": {
+              "label": "café",
+              "path": [
+                "draft",
+                "reviewed"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "after_encoding": {
+        "ascii": false,
+        "reverse": []
+      },
+      "case_id": "H05",
+      "domain": "ScienceResearch",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "p3if.science-research",
+          "kind": "framework",
+          "set": {
+            "description": "Reviewer corpus H05 · café Δ 🧭. Description reviewed."
+          }
+        },
+        {
+          "change": "modified",
+          "id": "dfb8bf38-7541-4aa4-a337-a272f8e79d85",
+          "kind": "property",
+          "set": {
+            "name": "Research Networking · reviewed"
+          }
+        },
+        {
+          "change": "modified",
+          "id": "1131e6dd-9082-4c17-b849-0b426b4770a2",
+          "kind": "process",
+          "set": {
+            "name": "Ethics Approval Process · reviewed"
+          }
+        },
+        {
+          "change": "modified",
+          "id": "a5d6fa27-1f2a-416a-a810-dab2c9ff7961",
+          "kind": "perspective",
+          "set": {
+            "name": "Collaboration Tool Developer · reviewed"
+          }
+        },
+        {
+          "change": "modified",
+          "id": "1949f907-fc66-4a14-804c-2174a95d3f92",
+          "kind": "relationship",
+          "set": {
+            "status": "proposed"
+          }
+        }
+      ],
+      "intervention": "framework_axis_and_relationship_metadata",
+      "seed_edits": []
+    },
+    {
+      "after_encoding": {
+        "ascii": false,
+        "reverse": []
+      },
+      "case_id": "H06",
+      "domain": "ScienceResearch",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "1d3fdd41-7c63-46d6-a27f-3bc81c15edc4",
+          "kind": "relationship",
+          "omit": [
+            "perspective_id"
+          ]
+        },
+        {
+          "change": "modified",
+          "id": "1f08dbff-fb04-4d55-b995-a74d3632416c",
+          "kind": "relationship",
+          "set": {
+            "perspective_id": "f67cd546-1c4b-4ca3-b01a-25d6ea7c1af7"
+          }
+        },
+        {
+          "change": "modified",
+          "id": "23527ae1-aa66-4319-8342-2eefce0e3e08",
+          "kind": "relationship",
+          "set": {
+            "perspective_id": null
+          }
+        },
+        {
+          "change": "added",
+          "id": "held-out.v1.scienceresearch.parallel-pair",
+          "kind": "relationship",
+          "set": {
+            "id": "held-out.v1.scienceresearch.parallel-pair",
+            "perspective_id": null,
+            "process_id": "0d5ccc7c-b06f-49cf-a955-0ff5dc9d9c62",
+            "property_id": "b36c2bdc-18c7-4fb0-aaa5-e39b16357ebe"
+          }
+        }
+      ],
+      "intervention": "partial_coordinates_and_shared_pair",
+      "seed_edits": [
+        {
+          "change": "modified",
+          "id": "1f08dbff-fb04-4d55-b995-a74d3632416c",
+          "kind": "relationship",
+          "omit": [
+            "perspective_id"
+          ]
+        },
+        {
+          "change": "modified",
+          "id": "23527ae1-aa66-4319-8342-2eefce0e3e08",
+          "kind": "relationship",
+          "omit": [
+            "perspective_id"
+          ]
+        }
+      ]
+    },
+    {
+      "after_encoding": {
+        "ascii": false,
+        "reverse": []
+      },
+      "case_id": "H07",
+      "domain": "ScienceResearch",
+      "edits": [
+        {
+          "change": "removed",
+          "id": "242ad385-567e-4e2a-85f7-3d21ecfa7651",
+          "kind": "relationship"
+        },
+        {
+          "change": "added",
+          "id": "held-out.v1.scienceresearch.replacement-link",
+          "kind": "relationship",
+          "set": {
+            "confidence": 0.7,
+            "id": "held-out.v1.scienceresearch.replacement-link",
+            "perspective_id": "b58a5fcb-cd42-4490-8a52-29217c5037f0",
+            "process_id": "996f0d67-ce74-4379-bee5-13aae30a3c53",
+            "property_id": "e7549422-eb5c-4445-a667-426ae5f4e179",
+            "strength": 0.65
+          }
+        }
+      ],
+      "intervention": "same_coordinate_identity_replacement",
+      "seed_edits": []
+    },
+    {
+      "after_encoding": {
+        "ascii": false,
+        "reverse": []
+      },
+      "case_id": "H08",
+      "domain": "ScienceResearch",
+      "edits": [
+        {
+          "change": "removed",
+          "id": "027e891a-c838-4b84-8c08-e8721812db3e",
+          "kind": "property"
+        },
+        {
+          "change": "added",
+          "id": "held-out.v1.scienceresearch.new-property",
+          "kind": "property",
+          "set": {
+            "domain": "ScienceResearch",
+            "id": "held-out.v1.scienceresearch.new-property",
+            "name": "Audited Scientific Peer Networks",
+            "type": "property"
+          }
+        },
+        {
+          "change": "removed",
+          "id": "7a59af2c-f0dd-4505-afa7-94f1ecb376a2",
+          "kind": "relationship"
+        },
+        {
+          "change": "modified",
+          "id": "96711461-250f-4439-b98b-c4b8900c9616",
+          "kind": "relationship",
+          "set": {
+            "property_id": "held-out.v1.scienceresearch.new-property"
+          }
+        },
+        {
+          "change": "added",
+          "id": "held-out.v1.scienceresearch.lifecycle-pair",
+          "kind": "relationship",
+          "set": {
+            "id": "held-out.v1.scienceresearch.lifecycle-pair",
+            "process_id": "996f0d67-ce74-4379-bee5-13aae30a3c53",
+            "property_id": "held-out.v1.scienceresearch.new-property",
+            "status": "proposed"
+          }
+        }
+      ],
+      "intervention": "endpoint_lifecycle_closed_graph",
+      "seed_edits": []
+    },
+    {
+      "after_encoding": {
+        "ascii": true,
+        "reverse": [
+          "properties",
+          "processes",
+          "perspectives",
+          "relationships"
+        ]
+      },
+      "case_id": "H09",
+      "domain": "MathEducation",
+      "edits": [],
+      "intervention": "reorder_and_escape",
+      "seed_edits": []
+    },
+    {
+      "after_encoding": {
+        "ascii": false,
+        "reverse": [
+          "relationships"
+        ]
+      },
+      "case_id": "H10",
+      "domain": "MathEducation",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "0d281d78-3ee5-4324-b01b-cdbafe1eb61e",
+          "kind": "relationship",
+          "omit": [
+            "confidence"
+          ],
+          "set": {
+            "metadata": {
+              "review_note": "Révision · Δ 🧭"
+            },
+            "process_id": "075fc7a9-fbcf-4c90-b0f8-d9f6fbc6c4bf",
+            "status": "proposed",
+            "strength": 0
+          }
+        },
+        {
+          "change": "removed",
+          "id": "11c76d95-d6bd-4a5a-be16-9aacc261523e",
+          "kind": "relationship"
+        },
+        {
+          "change": "added",
+          "id": "held-out.v1.matheducation.compound-link",
+          "kind": "relationship",
+          "set": {
+            "confidence": null,
+            "id": "held-out.v1.matheducation.compound-link",
+            "perspective_id": "51f41036-6e1b-4fc3-b939-f522eaeafdca",
+            "process_id": "b40c66f5-bb93-46de-991a-7ed47e301fe1",
+            "property_id": "65b43340-241e-4381-b0b8-d113abd499c9",
+            "status": "proposed"
+          }
+        }
+      ],
+      "intervention": "rewire_add_remove",
+      "seed_edits": []
+    },
+    {
+      "after_encoding": {
+        "ascii": false,
+        "reverse": []
+      },
+      "case_id": "H11",
+      "domain": "MathEducation",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "15f31005-6055-4452-b135-5068b5fe23e1",
+          "kind": "relationship",
+          "set": {
+            "confidence": 0,
+            "strength": null
+          }
+        },
+        {
+          "change": "modified",
+          "id": "1ad5adb7-a4cc-4516-83e6-b884ddaba08a",
+          "kind": "relationship",
+          "omit": [
+            "confidence"
+          ],
+          "set": {
+            "strength": 0
+          }
+        },
+        {
+          "change": "modified",
+          "id": "1e40f2c4-bde0-461a-8a2b-757e6882e207",
+          "kind": "relationship",
+          "omit": [
+            "strength"
+          ],
+          "set": {
+            "confidence": null
+          }
+        }
+      ],
+      "intervention": "score_presence_cycle",
+      "seed_edits": [
+        {
+          "change": "modified",
+          "id": "15f31005-6055-4452-b135-5068b5fe23e1",
+          "kind": "relationship",
+          "omit": [
+            "strength",
+            "confidence"
+          ]
+        },
+        {
+          "change": "modified",
+          "id": "1ad5adb7-a4cc-4516-83e6-b884ddaba08a",
+          "kind": "relationship",
+          "set": {
+            "confidence": null,
+            "strength": null
+          }
+        },
+        {
+          "change": "modified",
+          "id": "1e40f2c4-bde0-461a-8a2b-757e6882e207",
+          "kind": "relationship",
+          "set": {
+            "confidence": 0,
+            "strength": 0
+          }
+        }
+      ]
+    },
+    {
+      "after_encoding": {
+        "ascii": false,
+        "reverse": []
+      },
+      "case_id": "H12",
+      "domain": "MathEducation",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "284cdcb1-9291-4d0e-a1ad-be719c88ab43",
+          "kind": "relationship",
+          "set": {
+            "metadata": {
+              "review": {
+                "enabled": 1,
+                "label": "café"
+              }
+            }
+          }
+        },
+        {
+          "change": "modified",
+          "id": "296152d5-2e66-40e4-9c6d-1481d573b477",
+          "kind": "relationship",
+          "set": {
+            "metadata": {
+              "label": "café",
+              "path": [
+                "reviewed",
+                "draft"
+              ]
+            }
+          }
+        }
+      ],
+      "intervention": "nested_metadata_type_and_order",
+      "seed_edits": [
+        {
+          "change": "modified",
+          "id": "284cdcb1-9291-4d0e-a1ad-be719c88ab43",
+          "kind": "relationship",
+          "set": {
+            "metadata": {
+              "review": {
+                "enabled": true,
+                "label": "café"
+              }
+            }
+          }
+        },
+        {
+          "change": "modified",
+          "id": "296152d5-2e66-40e4-9c6d-1481d573b477",
+          "kind": "relationship",
+          "set": {
+            "metadata": {
+              "label": "café",
+              "path": [
+                "draft",
+                "reviewed"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "after_encoding": {
+        "ascii": false,
+        "reverse": []
+      },
+      "case_id": "H13",
+      "domain": "MathEducation",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "p3if.math-education",
+          "kind": "framework",
+          "set": {
+            "description": "Reviewer corpus H13 · café Δ 🧭. Description reviewed."
+          }
+        },
+        {
+          "change": "modified",
+          "id": "4418cf46-187a-4888-bd5b-3c8c54d4a7bb",
+          "kind": "property",
+          "set": {
+            "name": "Math Test-Taking Strategies · reviewed"
+          }
+        },
+        {
+          "change": "modified",
+          "id": "4fa9479a-cdd4-4130-9664-e57173e17827",
+          "kind": "process",
+          "set": {
+            "name": "Advanced Topic Introduction · reviewed"
+          }
+        },
+        {
+          "change": "modified",
+          "id": "76a659c9-7a7f-4756-ba02-851966b66686",
+          "kind": "perspective",
+          "set": {
+            "name": "Math Historian · reviewed"
+          }
+        },
+        {
+          "change": "modified",
+          "id": "2985decf-37ca-4a13-b40b-9ca5beab44f7",
+          "kind": "relationship",
+          "set": {
+            "status": "proposed"
+          }
+        }
+      ],
+      "intervention": "framework_axis_and_relationship_metadata",
+      "seed_edits": []
+    },
+    {
+      "after_encoding": {
+        "ascii": false,
+        "reverse": []
+      },
+      "case_id": "H14",
+      "domain": "MathEducation",
+      "edits": [
+        {
+          "change": "modified",
+          "id": "32931bcd-6c41-48d0-b855-41fbf635793e",
+          "kind": "relationship",
+          "omit": [
+            "perspective_id"
+          ]
+        },
+        {
+          "change": "modified",
+          "id": "3655987d-f817-4421-bab1-8469ab447cc1",
+          "kind": "relationship",
+          "set": {
+            "perspective_id": "235b6eba-59f8-4db1-a0f4-020a02286265"
+          }
+        },
+        {
+          "change": "modified",
+          "id": "40f03e9f-d54c-4313-8322-23379c5fe16f",
+          "kind": "relationship",
+          "set": {
+            "perspective_id": null
+          }
+        },
+        {
+          "change": "added",
+          "id": "held-out.v1.matheducation.parallel-pair",
+          "kind": "relationship",
+          "set": {
+            "id": "held-out.v1.matheducation.parallel-pair",
+            "perspective_id": null,
+            "process_id": "8be49d6d-ab3d-41ed-b529-47e6250c795c",
+            "property_id": "214a35f8-a314-4ec1-befe-c8e5cb84da15"
+          }
+        }
+      ],
+      "intervention": "partial_coordinates_and_shared_pair",
+      "seed_edits": [
+        {
+          "change": "modified",
+          "id": "3655987d-f817-4421-bab1-8469ab447cc1",
+          "kind": "relationship",
+          "omit": [
+            "perspective_id"
+          ]
+        },
+        {
+          "change": "modified",
+          "id": "40f03e9f-d54c-4313-8322-23379c5fe16f",
+          "kind": "relationship",
+          "omit": [
+            "perspective_id"
+          ]
+        }
+      ]
+    },
+    {
+      "after_encoding": {
+        "ascii": false,
+        "reverse": []
+      },
+      "case_id": "H15",
+      "domain": "MathEducation",
+      "edits": [
+        {
+          "change": "removed",
+          "id": "4108aecf-b2db-4257-9935-a0e49ec71afd",
+          "kind": "relationship"
+        },
+        {
+          "change": "added",
+          "id": "held-out.v1.matheducation.replacement-link",
+          "kind": "relationship",
+          "set": {
+            "confidence": 0.72,
+            "id": "held-out.v1.matheducation.replacement-link",
+            "perspective_id": "ace00bea-c1e3-4c8d-908c-832383242003",
+            "process_id": "5b4ced03-2733-48a7-a11d-f03297557d48",
+            "property_id": "c37b6391-13a0-4698-9966-a5ce4c250c2f",
+            "strength": 0.76
+          }
+        }
+      ],
+      "intervention": "same_coordinate_identity_replacement",
+      "seed_edits": []
+    },
+    {
+      "after_encoding": {
+        "ascii": false,
+        "reverse": []
+      },
+      "case_id": "H16",
+      "domain": "MathEducation",
+      "edits": [
+        {
+          "change": "removed",
+          "id": "1cfc4933-a20b-4f44-9e25-984522c434ef",
+          "kind": "property"
+        },
+        {
+          "change": "added",
+          "id": "held-out.v1.matheducation.new-property",
+          "kind": "property",
+          "set": {
+            "domain": "MathEducation",
+            "id": "held-out.v1.matheducation.new-property",
+            "name": "Audited Mathematical Creativity",
+            "type": "property"
+          }
+        },
+        {
+          "change": "removed",
+          "id": "558bc376-02ae-47e6-aa07-e8308d220d3f",
+          "kind": "relationship"
+        },
+        {
+          "change": "modified",
+          "id": "d3bc060d-597b-4448-9f73-14b838845429",
+          "kind": "relationship",
+          "set": {
+            "property_id": "held-out.v1.matheducation.new-property"
+          }
+        },
+        {
+          "change": "added",
+          "id": "held-out.v1.matheducation.lifecycle-pair",
+          "kind": "relationship",
+          "set": {
+            "id": "held-out.v1.matheducation.lifecycle-pair",
+            "process_id": "dc38fa12-0dc5-4159-85f4-80aec53080c5",
+            "property_id": "held-out.v1.matheducation.new-property",
+            "status": "proposed"
+          }
+        }
+      ],
+      "intervention": "endpoint_lifecycle_closed_graph",
+      "seed_edits": []
+    }
+  ],
+  "context_template": "Reviewer corpus {case_id} · café Δ 🧭.",
+  "domains": {
+    "MathEducation": {
+      "fixture": "matheducation.json",
+      "fixture_sha256": "bf7189b9901e965610fd246dd98b85276dfca316365ffd7b41f055ba57ecbea0",
+      "framework": {
+        "id": "p3if.math-education",
+        "name": "Math education"
+      }
+    },
+    "ScienceResearch": {
+      "fixture": "scienceresearch.json",
+      "fixture_sha256": "79878b37cd39517c1a766bc9c7e0f08437105bbf2fe6d8b5ee36d456156e085c",
+      "framework": {
+        "id": "p3if.science-research",
+        "name": "Science research"
+      }
+    }
+  },
+  "schema_version": "p3if.held-out-case-spec.v1"
+}

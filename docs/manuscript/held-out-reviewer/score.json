@@ -1,0 +1,829 @@
+{
+  "case_manifest_sha256": "a7bef1f3fc664afd39aeba5c09235b68e2d85716d1f0afb2754cbe0fe13f4966",
+  "counts": {
+    "diff": {
+      "assigned": 16,
+      "correct": 16,
+      "encoding_controls": 2,
+      "false_declared_changes": 0,
+      "incorrect": 0,
+      "malformed": 0,
+      "missing": 0
+    },
+    "p3if": {
+      "assigned": 16,
+      "correct": 16,
+      "encoding_controls": 2,
+      "false_declared_changes": 0,
+      "incorrect": 0,
+      "malformed": 0,
+      "missing": 0
+    }
+  },
+  "domains": {
+    "MathEducation": {
+      "counts": {
+        "diff": {
+          "assigned": 8,
+          "correct": 8,
+          "encoding_controls": 1,
+          "false_declared_changes": 0,
+          "incorrect": 0,
+          "malformed": 0,
+          "missing": 0
+        },
+        "p3if": {
+          "assigned": 8,
+          "correct": 8,
+          "encoding_controls": 1,
+          "false_declared_changes": 0,
+          "incorrect": 0,
+          "malformed": 0,
+          "missing": 0
+        }
+      },
+      "paired_counts": {
+        "both_correct": 8,
+        "diff_only": 0,
+        "difference_correct_cases": 0,
+        "neither_correct": 0,
+        "p3if_only": 0,
+        "pairs": 8
+      }
+    },
+    "ScienceResearch": {
+      "counts": {
+        "diff": {
+          "assigned": 8,
+          "correct": 8,
+          "encoding_controls": 1,
+          "false_declared_changes": 0,
+          "incorrect": 0,
+          "malformed": 0,
+          "missing": 0
+        },
+        "p3if": {
+          "assigned": 8,
+          "correct": 8,
+          "encoding_controls": 1,
+          "false_declared_changes": 0,
+          "incorrect": 0,
+          "malformed": 0,
+          "missing": 0
+        }
+      },
+      "paired_counts": {
+        "both_correct": 8,
+        "diff_only": 0,
+        "difference_correct_cases": 0,
+        "neither_correct": 0,
+        "p3if_only": 0,
+        "pairs": 8
+      }
+    }
+  },
+  "packet_manifest_sha256": "6c8b197ee6a24db057147f1642646d50b92fb151f5b8ae5c1ca62e3a04f56643",
+  "paired_counts": {
+    "both_correct": 16,
+    "diff_only": 0,
+    "difference_correct_cases": 0,
+    "neither_correct": 0,
+    "p3if_only": 0,
+    "pairs": 16
+  },
+  "paired_rows": [
+    {
+      "case_id": "H01",
+      "diff": "correct",
+      "domain": "ScienceResearch",
+      "p3if": "correct"
+    },
+    {
+      "case_id": "H02",
+      "diff": "correct",
+      "domain": "ScienceResearch",
+      "p3if": "correct"
+    },
+    {
+      "case_id": "H03",
+      "diff": "correct",
+      "domain": "ScienceResearch",
+      "p3if": "correct"
+    },
+    {
+      "case_id": "H04",
+      "diff": "correct",
+      "domain": "ScienceResearch",
+      "p3if": "correct"
+    },
+    {
+      "case_id": "H05",
+      "diff": "correct",
+      "domain": "ScienceResearch",
+      "p3if": "correct"
+    },
+    {
+      "case_id": "H06",
+      "diff": "correct",
+      "domain": "ScienceResearch",
+      "p3if": "correct"
+    },
+    {
+      "case_id": "H07",
+      "diff": "correct",
+      "domain": "ScienceResearch",
+      "p3if": "correct"
+    },
+    {
+      "case_id": "H08",
+      "diff": "correct",
+      "domain": "ScienceResearch",
+      "p3if": "correct"
+    },
+    {
+      "case_id": "H09",
+      "diff": "correct",
+      "domain": "MathEducation",
+      "p3if": "correct"
+    },
+    {
+      "case_id": "H10",
+      "diff": "correct",
+      "domain": "MathEducation",
+      "p3if": "correct"
+    },
+    {
+      "case_id": "H11",
+      "diff": "correct",
+      "domain": "MathEducation",
+      "p3if": "correct"
+    },
+    {
+      "case_id": "H12",
+      "diff": "correct",
+      "domain": "MathEducation",
+      "p3if": "correct"
+    },
+    {
+      "case_id": "H13",
+      "diff": "correct",
+      "domain": "MathEducation",
+      "p3if": "correct"
+    },
+    {
+      "case_id": "H14",
+      "diff": "correct",
+      "domain": "MathEducation",
+      "p3if": "correct"
+    },
+    {
+      "case_id": "H15",
+      "diff": "correct",
+      "domain": "MathEducation",
+      "p3if": "correct"
+    },
+    {
+      "case_id": "H16",
+      "diff": "correct",
+      "domain": "MathEducation",
+      "p3if": "correct"
+    }
+  ],
+  "rows": [
+    {
+      "case_id": "H01",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "encoding_only"
+      },
+      "condition": "p3if",
+      "domain": "ScienceResearch",
+      "expected_classification": "encoding_only",
+      "false_declared_change": false,
+      "folder": "S1/1/H01",
+      "intervention": "reorder_and_escape",
+      "period": 1,
+      "result": "correct",
+      "session": "S1"
+    },
+    {
+      "case_id": "H10",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "p3if",
+      "domain": "MathEducation",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S1/1/H10",
+      "intervention": "rewire_add_remove",
+      "period": 1,
+      "result": "correct",
+      "session": "S1"
+    },
+    {
+      "case_id": "H04",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "p3if",
+      "domain": "ScienceResearch",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S1/1/H04",
+      "intervention": "nested_metadata_type_and_order",
+      "period": 1,
+      "result": "correct",
+      "session": "S1"
+    },
+    {
+      "case_id": "H15",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "p3if",
+      "domain": "MathEducation",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S1/1/H15",
+      "intervention": "same_coordinate_identity_replacement",
+      "period": 1,
+      "result": "correct",
+      "session": "S1"
+    },
+    {
+      "case_id": "H03",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "diff",
+      "domain": "ScienceResearch",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S1/2/H03",
+      "intervention": "score_presence_cycle",
+      "period": 2,
+      "result": "correct",
+      "session": "S1"
+    },
+    {
+      "case_id": "H13",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "diff",
+      "domain": "MathEducation",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S1/2/H13",
+      "intervention": "framework_axis_and_relationship_metadata",
+      "period": 2,
+      "result": "correct",
+      "session": "S1"
+    },
+    {
+      "case_id": "H06",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "diff",
+      "domain": "ScienceResearch",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S1/2/H06",
+      "intervention": "partial_coordinates_and_shared_pair",
+      "period": 2,
+      "result": "correct",
+      "session": "S1"
+    },
+    {
+      "case_id": "H16",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "diff",
+      "domain": "MathEducation",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S1/2/H16",
+      "intervention": "endpoint_lifecycle_closed_graph",
+      "period": 2,
+      "result": "correct",
+      "session": "S1"
+    },
+    {
+      "case_id": "H09",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "encoding_only"
+      },
+      "condition": "diff",
+      "domain": "MathEducation",
+      "expected_classification": "encoding_only",
+      "false_declared_change": false,
+      "folder": "S2/1/H09",
+      "intervention": "reorder_and_escape",
+      "period": 1,
+      "result": "correct",
+      "session": "S2"
+    },
+    {
+      "case_id": "H02",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "diff",
+      "domain": "ScienceResearch",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S2/1/H02",
+      "intervention": "rewire_add_remove",
+      "period": 1,
+      "result": "correct",
+      "session": "S2"
+    },
+    {
+      "case_id": "H12",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "diff",
+      "domain": "MathEducation",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S2/1/H12",
+      "intervention": "nested_metadata_type_and_order",
+      "period": 1,
+      "result": "correct",
+      "session": "S2"
+    },
+    {
+      "case_id": "H07",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "diff",
+      "domain": "ScienceResearch",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S2/1/H07",
+      "intervention": "same_coordinate_identity_replacement",
+      "period": 1,
+      "result": "correct",
+      "session": "S2"
+    },
+    {
+      "case_id": "H11",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "p3if",
+      "domain": "MathEducation",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S2/2/H11",
+      "intervention": "score_presence_cycle",
+      "period": 2,
+      "result": "correct",
+      "session": "S2"
+    },
+    {
+      "case_id": "H05",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "p3if",
+      "domain": "ScienceResearch",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S2/2/H05",
+      "intervention": "framework_axis_and_relationship_metadata",
+      "period": 2,
+      "result": "correct",
+      "session": "S2"
+    },
+    {
+      "case_id": "H14",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "p3if",
+      "domain": "MathEducation",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S2/2/H14",
+      "intervention": "partial_coordinates_and_shared_pair",
+      "period": 2,
+      "result": "correct",
+      "session": "S2"
+    },
+    {
+      "case_id": "H08",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "p3if",
+      "domain": "ScienceResearch",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S2/2/H08",
+      "intervention": "endpoint_lifecycle_closed_graph",
+      "period": 2,
+      "result": "correct",
+      "session": "S2"
+    },
+    {
+      "case_id": "H01",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "encoding_only"
+      },
+      "condition": "diff",
+      "domain": "ScienceResearch",
+      "expected_classification": "encoding_only",
+      "false_declared_change": false,
+      "folder": "S3/1/H01",
+      "intervention": "reorder_and_escape",
+      "period": 1,
+      "result": "correct",
+      "session": "S3"
+    },
+    {
+      "case_id": "H10",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "diff",
+      "domain": "MathEducation",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S3/1/H10",
+      "intervention": "rewire_add_remove",
+      "period": 1,
+      "result": "correct",
+      "session": "S3"
+    },
+    {
+      "case_id": "H04",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "diff",
+      "domain": "ScienceResearch",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S3/1/H04",
+      "intervention": "nested_metadata_type_and_order",
+      "period": 1,
+      "result": "correct",
+      "session": "S3"
+    },
+    {
+      "case_id": "H15",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "diff",
+      "domain": "MathEducation",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S3/1/H15",
+      "intervention": "same_coordinate_identity_replacement",
+      "period": 1,
+      "result": "correct",
+      "session": "S3"
+    },
+    {
+      "case_id": "H03",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "p3if",
+      "domain": "ScienceResearch",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S3/2/H03",
+      "intervention": "score_presence_cycle",
+      "period": 2,
+      "result": "correct",
+      "session": "S3"
+    },
+    {
+      "case_id": "H13",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "p3if",
+      "domain": "MathEducation",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S3/2/H13",
+      "intervention": "framework_axis_and_relationship_metadata",
+      "period": 2,
+      "result": "correct",
+      "session": "S3"
+    },
+    {
+      "case_id": "H06",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "p3if",
+      "domain": "ScienceResearch",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S3/2/H06",
+      "intervention": "partial_coordinates_and_shared_pair",
+      "period": 2,
+      "result": "correct",
+      "session": "S3"
+    },
+    {
+      "case_id": "H16",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "p3if",
+      "domain": "MathEducation",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S3/2/H16",
+      "intervention": "endpoint_lifecycle_closed_graph",
+      "period": 2,
+      "result": "correct",
+      "session": "S3"
+    },
+    {
+      "case_id": "H09",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "encoding_only"
+      },
+      "condition": "p3if",
+      "domain": "MathEducation",
+      "expected_classification": "encoding_only",
+      "false_declared_change": false,
+      "folder": "S4/1/H09",
+      "intervention": "reorder_and_escape",
+      "period": 1,
+      "result": "correct",
+      "session": "S4"
+    },
+    {
+      "case_id": "H02",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "p3if",
+      "domain": "ScienceResearch",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S4/1/H02",
+      "intervention": "rewire_add_remove",
+      "period": 1,
+      "result": "correct",
+      "session": "S4"
+    },
+    {
+      "case_id": "H12",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "p3if",
+      "domain": "MathEducation",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S4/1/H12",
+      "intervention": "nested_metadata_type_and_order",
+      "period": 1,
+      "result": "correct",
+      "session": "S4"
+    },
+    {
+      "case_id": "H07",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "p3if",
+      "domain": "ScienceResearch",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S4/1/H07",
+      "intervention": "same_coordinate_identity_replacement",
+      "period": 1,
+      "result": "correct",
+      "session": "S4"
+    },
+    {
+      "case_id": "H11",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "diff",
+      "domain": "MathEducation",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S4/2/H11",
+      "intervention": "score_presence_cycle",
+      "period": 2,
+      "result": "correct",
+      "session": "S4"
+    },
+    {
+      "case_id": "H05",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "diff",
+      "domain": "ScienceResearch",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S4/2/H05",
+      "intervention": "framework_axis_and_relationship_metadata",
+      "period": 2,
+      "result": "correct",
+      "session": "S4"
+    },
+    {
+      "case_id": "H14",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "diff",
+      "domain": "MathEducation",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S4/2/H14",
+      "intervention": "partial_coordinates_and_shared_pair",
+      "period": 2,
+      "result": "correct",
+      "session": "S4"
+    },
+    {
+      "case_id": "H08",
+      "comparison": {
+        "classification_correct": true,
+        "event_disagreements": [],
+        "extraneous_events": [],
+        "missing_events": [],
+        "reported_classification": "declared_change"
+      },
+      "condition": "diff",
+      "domain": "ScienceResearch",
+      "expected_classification": "declared_change",
+      "false_declared_change": false,
+      "folder": "S4/2/H08",
+      "intervention": "endpoint_lifecycle_closed_graph",
+      "period": 2,
+      "result": "correct",
+      "session": "S4"
+    }
+  ],
+  "schema_version": "p3if.held-out-reviewer-score.v1",
+  "sessions": {
+    "S1": {
+      "duplicate_case_ids": [],
+      "file_status": "parsed",
+      "sha256": "6e1061798bab924005b6e37b464718f5d7033ab40691ca86c580515b91947667",
+      "unassignable_rows": 0
+    },
+    "S2": {
+      "duplicate_case_ids": [],
+      "file_status": "parsed",
+      "sha256": "129b3c7ea87727583831e022110ff096479bb1ba506dd9ce1b9419dc0445d533",
+      "unassignable_rows": 0
+    },
+    "S3": {
+      "duplicate_case_ids": [],
+      "file_status": "parsed",
+      "sha256": "d3ded993e342c0713df63b1e8388a7dd371486884ed280aa1ea9c34dad6bae6d",
+      "unassignable_rows": 0
+    },
+    "S4": {
+      "duplicate_case_ids": [],
+      "file_status": "parsed",
+      "sha256": "dfc952615b4e4aa578b19b064f1bae836764098ad3beaed823323962cdaac974",
+      "unassignable_rows": 0
+    }
+  }
+}

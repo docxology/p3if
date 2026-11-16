@@ -1,0 +1,11 @@
+{
+  "assignments": 32,
+  "case_manifest_sha256": "c527afdbb23e926a4974fff921280fa56d36b0d110e91401a2372e67ffb42aed",
+  "cases": 16,
+  "packet_check_sha256": "348ad11183f0060de2a7a486d067d3804b20f8630b6490afd050af23284ea590",
+  "packet_manifest_sha256": "b432bc6ce94eec460467b106edf2128ad3f3c593e2908b4f78f50bee42f0b12b",
+  "scheduled_sides_per_workflow": 72,
+  "schema_version": "p3if.citation-effort-commitment.v1",
+  "sessions": 4,
+  "source_check_sha256": "7be56ee4f7f87d2f5ef4de26e644282fb04c4916ff686f75239c42392e06540e"
+}

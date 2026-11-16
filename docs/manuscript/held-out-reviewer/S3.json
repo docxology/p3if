@@ -1,0 +1,662 @@
+[
+  {
+    "case_id": "H01",
+    "classification": "encoding_only",
+    "events": []
+  },
+  {
+    "case_id": "H10",
+    "classification": "declared_change",
+    "events": [
+      {
+        "kind": "relationship",
+        "id": "0d281d78-3ee5-4324-b01b-cdbafe1eb61e",
+        "change": "modified",
+        "fields": [
+          "confidence",
+          "metadata",
+          "process_id",
+          "status",
+          "strength"
+        ],
+        "rewired": true,
+        "before": {
+          "coordinate": [
+            "33b59f51-d93f-4dbd-8b5a-c4878a74ad59",
+            "901cd857-35bf-46b2-b60c-1d80c3f4c4ea",
+            "51f41036-6e1b-4fc3-b939-f522eaeafdca"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": {
+          "coordinate": [
+            "33b59f51-d93f-4dbd-8b5a-c4878a74ad59",
+            "075fc7a9-fbcf-4c90-b0f8-d9f6fbc6c4bf",
+            "51f41036-6e1b-4fc3-b939-f522eaeafdca"
+          ],
+          "scores": {
+            "strength": "reported_zero",
+            "confidence": "omitted"
+          }
+        }
+      },
+      {
+        "kind": "relationship",
+        "id": "11c76d95-d6bd-4a5a-be16-9aacc261523e",
+        "change": "removed",
+        "fields": [],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            "65b43340-241e-4381-b0b8-d113abd499c9",
+            "b40c66f5-bb93-46de-991a-7ed47e301fe1",
+            "58b30920-1bc2-412c-ac88-4269eabce055"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": null
+      },
+      {
+        "kind": "relationship",
+        "id": "held-out.v1.matheducation.compound-link",
+        "change": "added",
+        "fields": [],
+        "rewired": false,
+        "before": null,
+        "after": {
+          "coordinate": [
+            "65b43340-241e-4381-b0b8-d113abd499c9",
+            "b40c66f5-bb93-46de-991a-7ed47e301fe1",
+            "51f41036-6e1b-4fc3-b939-f522eaeafdca"
+          ],
+          "scores": {
+            "strength": "omitted",
+            "confidence": "explicit_null"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "H04",
+    "classification": "declared_change",
+    "events": [
+      {
+        "kind": "relationship",
+        "id": "1785fa1b-8941-484e-815e-3e4194612aa9",
+        "change": "modified",
+        "fields": [
+          "metadata"
+        ],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            "87bde78a-d624-4185-96fb-1b7842af5e6b",
+            "8ff49df7-8cd5-41a2-9dbd-f3873c6d780d",
+            "6d88f908-5827-4cd8-9aa8-7095faa6e560"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": {
+          "coordinate": [
+            "87bde78a-d624-4185-96fb-1b7842af5e6b",
+            "8ff49df7-8cd5-41a2-9dbd-f3873c6d780d",
+            "6d88f908-5827-4cd8-9aa8-7095faa6e560"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        }
+      },
+      {
+        "kind": "relationship",
+        "id": "180a4c7a-98b7-4f48-886d-89b24c741f7e",
+        "change": "modified",
+        "fields": [
+          "metadata"
+        ],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            "2c94cc3f-2db6-48bb-8416-22c017d5621c",
+            "1131e6dd-9082-4c17-b849-0b426b4770a2",
+            "6e179e0c-42ab-4182-bf85-c4c48c2e05c5"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": {
+          "coordinate": [
+            "2c94cc3f-2db6-48bb-8416-22c017d5621c",
+            "1131e6dd-9082-4c17-b849-0b426b4770a2",
+            "6e179e0c-42ab-4182-bf85-c4c48c2e05c5"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "H15",
+    "classification": "declared_change",
+    "events": [
+      {
+        "kind": "relationship",
+        "id": "4108aecf-b2db-4257-9935-a0e49ec71afd",
+        "change": "removed",
+        "fields": [],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            "c37b6391-13a0-4698-9966-a5ce4c250c2f",
+            "5b4ced03-2733-48a7-a11d-f03297557d48",
+            "ace00bea-c1e3-4c8d-908c-832383242003"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": null
+      },
+      {
+        "kind": "relationship",
+        "id": "held-out.v1.matheducation.replacement-link",
+        "change": "added",
+        "fields": [],
+        "rewired": false,
+        "before": null,
+        "after": {
+          "coordinate": [
+            "c37b6391-13a0-4698-9966-a5ce4c250c2f",
+            "5b4ced03-2733-48a7-a11d-f03297557d48",
+            "ace00bea-c1e3-4c8d-908c-832383242003"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "H03",
+    "classification": "declared_change",
+    "events": [
+      {
+        "kind": "relationship",
+        "id": "10a4782a-d01a-4760-9285-603722a0ba8e",
+        "change": "modified",
+        "fields": [
+          "confidence",
+          "strength"
+        ],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            "8ac17b7b-8350-405a-8c11-110170fa0c9c",
+            "56999c18-4f9c-4a16-81e5-66ae2546b5c2",
+            "26a788cf-1b25-49e4-ab9c-044002f4c9b1"
+          ],
+          "scores": {
+            "strength": "omitted",
+            "confidence": "omitted"
+          }
+        },
+        "after": {
+          "coordinate": [
+            "8ac17b7b-8350-405a-8c11-110170fa0c9c",
+            "56999c18-4f9c-4a16-81e5-66ae2546b5c2",
+            "26a788cf-1b25-49e4-ab9c-044002f4c9b1"
+          ],
+          "scores": {
+            "strength": "explicit_null",
+            "confidence": "reported_zero"
+          }
+        }
+      },
+      {
+        "kind": "relationship",
+        "id": "110291e3-2665-4617-ab3a-b2c31ed82ab4",
+        "change": "modified",
+        "fields": [
+          "confidence",
+          "strength"
+        ],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            "a97403cf-26d0-46d7-9652-bb518b768ad4",
+            "276432ec-2682-4744-9e5c-18edaa629209",
+            "c08dde26-4cf8-4f19-abfb-9bb009e69d55"
+          ],
+          "scores": {
+            "strength": "explicit_null",
+            "confidence": "explicit_null"
+          }
+        },
+        "after": {
+          "coordinate": [
+            "a97403cf-26d0-46d7-9652-bb518b768ad4",
+            "276432ec-2682-4744-9e5c-18edaa629209",
+            "c08dde26-4cf8-4f19-abfb-9bb009e69d55"
+          ],
+          "scores": {
+            "strength": "reported_zero",
+            "confidence": "omitted"
+          }
+        }
+      },
+      {
+        "kind": "relationship",
+        "id": "159864bd-5cdc-4f61-b18b-271fc0c38521",
+        "change": "modified",
+        "fields": [
+          "confidence",
+          "strength"
+        ],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            "8ac17b7b-8350-405a-8c11-110170fa0c9c",
+            "689c78d0-e339-4221-b3f6-ee21d1a39d3d",
+            "8761d0c8-e775-4442-80e5-93cf07a4b104"
+          ],
+          "scores": {
+            "strength": "reported_zero",
+            "confidence": "reported_zero"
+          }
+        },
+        "after": {
+          "coordinate": [
+            "8ac17b7b-8350-405a-8c11-110170fa0c9c",
+            "689c78d0-e339-4221-b3f6-ee21d1a39d3d",
+            "8761d0c8-e775-4442-80e5-93cf07a4b104"
+          ],
+          "scores": {
+            "strength": "omitted",
+            "confidence": "explicit_null"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "H13",
+    "classification": "declared_change",
+    "events": [
+      {
+        "kind": "framework",
+        "id": "p3if.math-education",
+        "change": "modified",
+        "fields": [
+          "description"
+        ],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            null,
+            null,
+            null
+          ],
+          "scores": null
+        },
+        "after": {
+          "coordinate": [
+            null,
+            null,
+            null
+          ],
+          "scores": null
+        }
+      },
+      {
+        "kind": "property",
+        "id": "4418cf46-187a-4888-bd5b-3c8c54d4a7bb",
+        "change": "modified",
+        "fields": [
+          "name"
+        ],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            "4418cf46-187a-4888-bd5b-3c8c54d4a7bb",
+            null,
+            null
+          ],
+          "scores": null
+        },
+        "after": {
+          "coordinate": [
+            "4418cf46-187a-4888-bd5b-3c8c54d4a7bb",
+            null,
+            null
+          ],
+          "scores": null
+        }
+      },
+      {
+        "kind": "process",
+        "id": "4fa9479a-cdd4-4130-9664-e57173e17827",
+        "change": "modified",
+        "fields": [
+          "name"
+        ],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            null,
+            "4fa9479a-cdd4-4130-9664-e57173e17827",
+            null
+          ],
+          "scores": null
+        },
+        "after": {
+          "coordinate": [
+            null,
+            "4fa9479a-cdd4-4130-9664-e57173e17827",
+            null
+          ],
+          "scores": null
+        }
+      },
+      {
+        "kind": "perspective",
+        "id": "76a659c9-7a7f-4756-ba02-851966b66686",
+        "change": "modified",
+        "fields": [
+          "name"
+        ],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            null,
+            null,
+            "76a659c9-7a7f-4756-ba02-851966b66686"
+          ],
+          "scores": null
+        },
+        "after": {
+          "coordinate": [
+            null,
+            null,
+            "76a659c9-7a7f-4756-ba02-851966b66686"
+          ],
+          "scores": null
+        }
+      },
+      {
+        "kind": "relationship",
+        "id": "2985decf-37ca-4a13-b40b-9ca5beab44f7",
+        "change": "modified",
+        "fields": [
+          "status"
+        ],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            "4418cf46-187a-4888-bd5b-3c8c54d4a7bb",
+            "4fa9479a-cdd4-4130-9664-e57173e17827",
+            "76a659c9-7a7f-4756-ba02-851966b66686"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": {
+          "coordinate": [
+            "4418cf46-187a-4888-bd5b-3c8c54d4a7bb",
+            "4fa9479a-cdd4-4130-9664-e57173e17827",
+            "76a659c9-7a7f-4756-ba02-851966b66686"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "H06",
+    "classification": "declared_change",
+    "events": [
+      {
+        "kind": "relationship",
+        "id": "1d3fdd41-7c63-46d6-a27f-3bc81c15edc4",
+        "change": "modified",
+        "fields": [
+          "perspective_id"
+        ],
+        "rewired": true,
+        "before": {
+          "coordinate": [
+            "b36c2bdc-18c7-4fb0-aaa5-e39b16357ebe",
+            "0d5ccc7c-b06f-49cf-a955-0ff5dc9d9c62",
+            "ed57118d-7987-48dc-8a90-82e5f4e22caf"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": {
+          "coordinate": [
+            "b36c2bdc-18c7-4fb0-aaa5-e39b16357ebe",
+            "0d5ccc7c-b06f-49cf-a955-0ff5dc9d9c62",
+            null
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        }
+      },
+      {
+        "kind": "relationship",
+        "id": "1f08dbff-fb04-4d55-b995-a74d3632416c",
+        "change": "modified",
+        "fields": [
+          "perspective_id"
+        ],
+        "rewired": true,
+        "before": {
+          "coordinate": [
+            "4aadd845-7983-4633-894e-7f54addc2e40",
+            "1f17fb9b-7e4f-446d-a334-1e132ca9c5df",
+            null
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": {
+          "coordinate": [
+            "4aadd845-7983-4633-894e-7f54addc2e40",
+            "1f17fb9b-7e4f-446d-a334-1e132ca9c5df",
+            "f67cd546-1c4b-4ca3-b01a-25d6ea7c1af7"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        }
+      },
+      {
+        "kind": "relationship",
+        "id": "23527ae1-aa66-4319-8342-2eefce0e3e08",
+        "change": "modified",
+        "fields": [
+          "perspective_id"
+        ],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            "a19d0f67-ffae-4ac4-9565-9d658f01a21b",
+            "6ed8be09-1411-4e26-b5fd-e95d7ea85d65",
+            null
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": {
+          "coordinate": [
+            "a19d0f67-ffae-4ac4-9565-9d658f01a21b",
+            "6ed8be09-1411-4e26-b5fd-e95d7ea85d65",
+            null
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        }
+      },
+      {
+        "kind": "relationship",
+        "id": "held-out.v1.scienceresearch.parallel-pair",
+        "change": "added",
+        "fields": [],
+        "rewired": false,
+        "before": null,
+        "after": {
+          "coordinate": [
+            "b36c2bdc-18c7-4fb0-aaa5-e39b16357ebe",
+            "0d5ccc7c-b06f-49cf-a955-0ff5dc9d9c62",
+            null
+          ],
+          "scores": {
+            "strength": "omitted",
+            "confidence": "omitted"
+          }
+        }
+      }
+    ]
+  },
+  {
+    "case_id": "H16",
+    "classification": "declared_change",
+    "events": [
+      {
+        "kind": "property",
+        "id": "1cfc4933-a20b-4f44-9e25-984522c434ef",
+        "change": "removed",
+        "fields": [],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            "1cfc4933-a20b-4f44-9e25-984522c434ef",
+            null,
+            null
+          ],
+          "scores": null
+        },
+        "after": null
+      },
+      {
+        "kind": "property",
+        "id": "held-out.v1.matheducation.new-property",
+        "change": "added",
+        "fields": [],
+        "rewired": false,
+        "before": null,
+        "after": {
+          "coordinate": [
+            "held-out.v1.matheducation.new-property",
+            null,
+            null
+          ],
+          "scores": null
+        }
+      },
+      {
+        "kind": "relationship",
+        "id": "558bc376-02ae-47e6-aa07-e8308d220d3f",
+        "change": "removed",
+        "fields": [],
+        "rewired": false,
+        "before": {
+          "coordinate": [
+            "1cfc4933-a20b-4f44-9e25-984522c434ef",
+            "dc38fa12-0dc5-4159-85f4-80aec53080c5",
+            "ebc6e7f0-c3d7-4378-89ee-1793a9f38efe"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": null
+      },
+      {
+        "kind": "relationship",
+        "id": "d3bc060d-597b-4448-9f73-14b838845429",
+        "change": "modified",
+        "fields": [
+          "property_id"
+        ],
+        "rewired": true,
+        "before": {
+          "coordinate": [
+            "1cfc4933-a20b-4f44-9e25-984522c434ef",
+            "809b8b8f-31a5-4a01-bcd9-61c831332a99",
+            "42ff616f-8811-4bb1-83e6-6e7f1825e1c1"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        },
+        "after": {
+          "coordinate": [
+            "held-out.v1.matheducation.new-property",
+            "809b8b8f-31a5-4a01-bcd9-61c831332a99",
+            "42ff616f-8811-4bb1-83e6-6e7f1825e1c1"
+          ],
+          "scores": {
+            "strength": "reported_nonzero",
+            "confidence": "reported_nonzero"
+          }
+        }
+      },
+      {
+        "kind": "relationship",
+        "id": "held-out.v1.matheducation.lifecycle-pair",
+        "change": "added",
+        "fields": [],
+        "rewired": false,
+        "before": null,
+        "after": {
+          "coordinate": [
+            "held-out.v1.matheducation.new-property",
+            "dc38fa12-0dc5-4159-85f4-80aec53080c5",
+            null
+          ],
+          "scores": {
+            "strength": "omitted",
+            "confidence": "omitted"
+          }
+        }
+      }
+    ]
+  }
+]

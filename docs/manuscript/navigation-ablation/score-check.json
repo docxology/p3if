@@ -1,0 +1,129 @@
+{
+  "chronological_action_ledgers": 4,
+  "matched": {
+    "cases": [
+      {
+        "case_id": "A01",
+        "elapsed_ms_difference": 13937,
+        "operation_difference": 0
+      },
+      {
+        "case_id": "A02",
+        "elapsed_ms_difference": -10102,
+        "operation_difference": -4
+      },
+      {
+        "case_id": "A03",
+        "elapsed_ms_difference": -8327,
+        "operation_difference": -4
+      },
+      {
+        "case_id": "A04",
+        "elapsed_ms_difference": -1202,
+        "operation_difference": -6
+      },
+      {
+        "case_id": "A05",
+        "elapsed_ms_difference": 1462,
+        "operation_difference": -2
+      },
+      {
+        "case_id": "A06",
+        "elapsed_ms_difference": -8242,
+        "operation_difference": -5
+      },
+      {
+        "case_id": "A07",
+        "elapsed_ms_difference": -3444,
+        "operation_difference": -2
+      },
+      {
+        "case_id": "A08",
+        "elapsed_ms_difference": 742,
+        "operation_difference": -2
+      },
+      {
+        "case_id": "A09",
+        "elapsed_ms_difference": 9023,
+        "operation_difference": 0
+      },
+      {
+        "case_id": "A10",
+        "elapsed_ms_difference": -13643,
+        "operation_difference": -4
+      },
+      {
+        "case_id": "A11",
+        "elapsed_ms_difference": 947,
+        "operation_difference": -2
+      },
+      {
+        "case_id": "A12",
+        "elapsed_ms_difference": -7307,
+        "operation_difference": -3
+      },
+      {
+        "case_id": "A13",
+        "elapsed_ms_difference": -7647,
+        "operation_difference": -4
+      },
+      {
+        "case_id": "A14",
+        "elapsed_ms_difference": 941,
+        "operation_difference": -2
+      },
+      {
+        "case_id": "A15",
+        "elapsed_ms_difference": -1135,
+        "operation_difference": -6
+      },
+      {
+        "case_id": "A16",
+        "elapsed_ms_difference": -7381,
+        "operation_difference": -4
+      }
+    ],
+    "measured_case_pairs": 16,
+    "median_elapsed_ms_difference": -2323.0,
+    "median_operation_difference": -3.5,
+    "sides": {
+      "both_correct": 76,
+      "navigation_only": 0,
+      "neither_correct": 0,
+      "no_navigation_only": 0
+    }
+  },
+  "scheduled_cases": 32,
+  "scheduled_sides": 152,
+  "score_sha256": "cb14ac3ee3be6539b741d84f9815880b1b74ebeb5331d4b9eb2cfe102d20f0b4",
+  "workflow_accuracy": {
+    "navigation": {
+      "assigned": 76,
+      "correct": 76,
+      "incorrect": 0,
+      "malformed": 0,
+      "missing": 0
+    },
+    "no_navigation": {
+      "assigned": 76,
+      "correct": 76,
+      "incorrect": 0,
+      "malformed": 0,
+      "missing": 0
+    }
+  },
+  "workflow_effort": {
+    "navigation": {
+      "measured": 16,
+      "median_elapsed_ms": 9223.0,
+      "median_operations": 7.0,
+      "unmeasured": 0
+    },
+    "no_navigation": {
+      "measured": 16,
+      "median_elapsed_ms": 14056.5,
+      "median_operations": 10.0,
+      "unmeasured": 0
+    }
+  }
+}

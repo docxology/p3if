@@ -1,0 +1,34 @@
+{
+  "model_family": "GPT-6 family, Codex",
+  "public_registration_observed_utc": "2026-11-15T20:25:58.440200Z",
+  "reader_runtime": "CPython 3.12.16",
+  "registration_commit": "6f6bb684c40e1526afef923f3c2039272ae3d210",
+  "schema_version": "p3if.citation-effort-run.v1",
+  "scoring_started_utc": "2026-11-15T20:31:56.353794Z",
+  "sessions": {
+    "S1": {
+      "action_log_sha256": "164732f5e7b5dfbaca8a8acabd68a4405015c312a320c23c95b1dd18c7fed1b6",
+      "exact_model_id": null,
+      "reported_deviations": [
+        "A shell-side report display filter failed on an optional field during C03. The reader opened the report twice and logged both opens before submission."
+      ]
+    },
+    "S2": {
+      "action_log_sha256": "406aa8421199cb9673fa868a0b0fafc59cdb5220cd81d6618cc956c89e947c69",
+      "exact_model_id": null,
+      "reported_deviations": []
+    },
+    "S3": {
+      "action_log_sha256": "f7432187c1c09f278e302402cb8e569e7ba6b3875128773fe766a1185be33025",
+      "exact_model_id": null,
+      "reported_deviations": [
+        "A shell wrapper stopped after the successful C01 submission and before the next case started. The session resumed in order. The interruption was between case timers."
+      ]
+    },
+    "S4": {
+      "action_log_sha256": "b7e6413efa56f5b3d4ef5ce54c5d4147dc89a7437d3967b974c0dd678e2a5831",
+      "exact_model_id": null,
+      "reported_deviations": []
+    }
+  }
+}
