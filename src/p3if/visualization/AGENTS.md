@@ -13,7 +13,7 @@ not here; [`README.md`](README.md) documents each visualization type.
   instead.
 - Behavior changes need tests under `tests/visualization/` (layout described in
   `tests/visualization/README.md`). CI
-  (`.github/workflows/ci.yml`) runs `pytest tests/ -v` on Python 3.9–3.12 along
+  (`.github/workflows/ci.yml`) runs `pytest tests/ -v` on Python 3.11–3.12 along
   with `ruff check`, `black --check`, and `mypy`. The suite exercises the generator
   APIs; no job reviews rendered appearance, so a green run is not a visual review.
 - Package rules, typing, and docstring conventions are in

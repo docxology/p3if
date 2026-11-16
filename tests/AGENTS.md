@@ -5,7 +5,7 @@ The test suite: `unit/`, `integration/`, `data/`, `utils/`, `fixtures/`, and
 layout (`testpaths = tests`, `pythonpath = src`) and defines the markers `unit`,
 `integration`, `visualization`, and `slow`.
 
-- CI runs `pytest tests/ -v --cov=p3if` on Python 3.9–3.12 after `ruff check`,
+- CI runs `pytest tests/ -v --cov=p3if` on Python 3.11–3.12 after `ruff check`,
   `black --check`, and `mypy` (`.github/workflows/ci.yml`). Run the same commands for
   a change; a subset that passes is not the gate.
 - The repository rule against mock objects is explicit: use the real P3IF classes and

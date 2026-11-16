@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Require Python 3.11 or later; align setup guidance and lint targets with the supported floor.
+- Remove the pre-3.11 interchange typing branch without changing nullable field semantics.
+- Let mypy use the running CI interpreter so dependency stubs selected for Python 3.12 are not parsed as Python 3.11; the Python 3.11 matrix job still checks the minimum runtime.
+
+
 ### Added
 
 - A preregistered source navigation ablation with a regenerable held-out corpus, masked reviewer packets, original action ledgers, and an independent exact citation and effort replay.

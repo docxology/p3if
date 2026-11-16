@@ -96,6 +96,8 @@ graph TD
 
 ## Quick Start
 
+P3IF requires Python 3.11 or later. CI runs the full lint, type, and test gate on Python 3.11 and 3.12.
+
 ```bash
 # Clone the repository
 git clone https://github.com/docxology/p3if.git

@@ -5,17 +5,13 @@ and optional metrics. Graph validation applies to relationship endpoints.
 Other pattern references remain declarations that can refer outside a file.
 """
 
-# Python 3.9 resolves the alias through typing.Optional.
-# ruff: noqa: UP045
-
 from __future__ import annotations
 
 import hashlib
 import json
 import math
-import sys
 from datetime import datetime  # noqa: TC003 - Pydantic resolves this at runtime.
-from typing import TYPE_CHECKING, Annotated, ClassVar, Literal, TypeVar, cast
+from typing import Annotated, ClassVar, Literal, TypeAlias, TypeVar, cast
 
 from pydantic import (
     BaseModel,
@@ -27,14 +23,8 @@ from pydantic import (
     model_validator,
 )
 
-# Pydantic resolves the runtime alias on all supported Python versions.
-if TYPE_CHECKING and sys.version_info >= (3, 10):
-    from typing import TypeAlias
-
-    _T = TypeVar("_T")
-    Nullable: TypeAlias = _T | None  # noqa: UP040 - The file must parse on Python 3.9.
-else:
-    from typing import Optional as Nullable  # pyright: ignore[reportUnreachable]
+_T = TypeVar("_T")
+Nullable: TypeAlias = _T | None
 
 FORMAT = "p3if.interchange"
 VERSION = 1
