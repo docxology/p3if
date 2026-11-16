@@ -214,33 +214,9 @@ def test_create_pattern_with_metadata():
 ### CI Pipeline Integration
 Tests are designed to work with CI/CD pipelines:
 
-```yaml
-# .github/workflows/ci.yml
-name: P3IF CI
-on:
-  push:
-    branches: [main, develop]
-  pull_request:
-    branches: [main]
-jobs:
-  test:
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        python-version: ['3.9', '3.10', '3.11', '3.12']
-    steps:
-      - uses: actions/checkout@v4
-      - name: Set up Python ${{ matrix.python-version }}
-        uses: actions/setup-python@v5
-        with:
-          python-version: ${{ matrix.python-version }}
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -e ".[dev,visualization,web]"
-      - name: Run tests
-        run: pytest tests/ -v --cov=p3if --cov-report=xml
-```
+The authoritative [CI workflow](../.github/workflows/ci.yml) runs the complete
+lint, type, and test gate on Python 3.11 and 3.12. Use that pinned workflow rather
+than a copied pipeline definition.
 
 ## Debugging Tests
 

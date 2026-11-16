@@ -6,7 +6,7 @@ The Pattern Portal for Interdisciplinary Frameworks (P3IF) web interface provide
 
 ### Prerequisites
 
-- Python 3.9 or higher
+- Python 3.11 or higher
 - Flask and other dependencies (see requirements below)
 
 ### Installation

@@ -7,14 +7,14 @@ This guide provides detailed instructions for installing and setting up the P3IF
 ### Minimum Requirements
 
 - **Operating System**: Linux (Ubuntu 18.04+, CentOS 7+), macOS 10.14+, or Windows 10
-- **Python**: Version 3.9 or higher
+- **Python**: Version 3.11 or higher
 - **Memory**: 4 GB RAM minimum, 8 GB recommended
 - **Storage**: 2 GB available disk space
 - **Network**: Internet connection for downloading dependencies
 
 ### Recommended Requirements
 
-- **Python**: Version 3.9 or 3.10
+- **Python**: Version 3.11 or 3.12 (the CI-tested versions)
 - **Memory**: 16 GB RAM for large datasets
 - **Storage**: 10 GB available disk space
 - **CPU**: Multi-core processor for parallel processing
@@ -47,7 +47,7 @@ brew install python3 git
 ```
 
 **Windows:**
-- Install Python 3.9+ from [python.org](https://python.org)
+- Install Python 3.11+ from [python.org](https://python.org)
 - Install Git from [git-scm.com](https://git-scm.com)
 - Install Visual Studio Build Tools or Visual Studio Community
 
@@ -318,7 +318,7 @@ python scripts/validate_system.py
 #### 1. Python Version Issues
 
 **Problem**: `ImportError` or syntax errors
-**Solution**: Ensure Python 3.9+ is installed and activated
+**Solution**: Ensure Python 3.11+ is installed and activated
 
 ```bash
 python --version

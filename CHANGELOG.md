@@ -7,6 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- Require Python 3.11 or later; align setup guidance and lint/type targets with the supported floor.
+- Remove the pre-3.11 interchange typing branch without changing nullable field semantics.
+
+
 ### Added
 
 - **Snapshot audits**. `p3if audit` binds exact file bytes and canonical graph identities, reports stable-ID change counts and signed structural deltas, and distinguishes encoding-only changes.

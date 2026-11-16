@@ -10,7 +10,7 @@ meta, network, report), and the supporting machinery — `composition.py`,
   should re-implement what a framework, model, or analysis class already decides.
 - Tests: `tests/unit/` covers these modules (run with `pytest tests/unit -v`) and
   `tests/integration/test_core_integration.py` crosses the package boundary. CI runs
-  the full suite on Python 3.9–3.12 with `ruff`, `black --check`, and `mypy`.
+  the full suite on Python 3.11–3.12 with `ruff`, `black --check`, and `mypy`.
 - Caching and indexing change performance without changing the API: measure with
   `scripts/benchmark_performance.py` instead of assuming an improvement.
 - Not an inventory: the directory listing and the package `README.md` are current;

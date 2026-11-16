@@ -5,7 +5,7 @@ Nothing in this folder runs on your machine, and no local command reads it.
 
 - [`workflows/ci.yml`](workflows/ci.yml) is the repository's only automated gate. It
   triggers on pushes to `main`/`develop` and on pull requests to `main`, and runs
-  `ruff`, `black --check`, `mypy`, and `pytest` on Python 3.9–3.12. Copy those
+  `ruff`, `black --check`, `mypy`, and `pytest` on Python 3.11–3.12. Copy those
   commands rather than inventing a local check.
 - Third-party actions are pinned to reviewed commit SHAs (2026-11-02). Keep the pin
   when editing: a floating tag is a supply-chain change, not a convenience.

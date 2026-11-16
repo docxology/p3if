@@ -2,7 +2,7 @@
 
 CI workflow definitions. `ci.yml` is the only workflow: one `test` job that installs
 the package (`pip install -e ".[dev,visualization,web]"`) and runs the lint, type,
-and test gate on Python 3.9, 3.10, 3.11, and 3.12.
+and test gate on Python 3.11 and 3.12.
 
 - The gate, in order: `ruff check src tests`, `black --check src tests`,
   `mypy src/p3if --ignore-missing-imports`, `pytest tests/ -v --cov=p3if`.
