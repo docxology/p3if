@@ -9,8 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
-- Require Python 3.11 or later; align setup guidance and lint/type targets with the supported floor.
+- Require Python 3.11 or later; align setup guidance and lint targets with the supported floor.
 - Remove the pre-3.11 interchange typing branch without changing nullable field semantics.
+- Let mypy use the running CI interpreter so dependency stubs selected for Python 3.12 are not parsed as Python 3.11; the Python 3.11 matrix job still checks the minimum runtime.
 
 
 ### Added
