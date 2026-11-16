@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- A preregistered source navigation ablation with a regenerable held-out corpus, masked reviewer packets, original action ledgers, and an independent exact citation and effort replay.
 - **Snapshot audits**. `p3if audit` binds exact file bytes and canonical graph identities, reports stable-ID change counts and signed structural deltas, and distinguishes encoding-only changes.
 - **Snapshot transitions**: `p3if transition` exports sparse before and after coordinates for declared changes using fixed typed axis identities and both canonical snapshot hashes.
 - **Interchange analysis and comparison**: `p3if analyze` reports sparse axis and coordinate coverage with explicit score missingness. `p3if compare` reports field changes and relationship rewires by stable identity. The existing `inspect` report keeps its previous shape.

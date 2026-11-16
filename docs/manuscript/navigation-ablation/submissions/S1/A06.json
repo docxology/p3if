@@ -1,0 +1,63 @@
+{
+  "case_id": "A06",
+  "citations": [
+    {
+      "kind": "framework",
+      "id": "p3if.navigation-study.scienceresearch",
+      "before": {
+        "end_byte": 590,
+        "end_char": 562,
+        "pointer": "/framework",
+        "quote_sha256": "894d21629c8c75e152a50a15500772104709e7e6f7122b3a23878a9f657f16fb",
+        "source_sha256": "010dc848352a1a8fdd6fe9a88c1c7ddc976d5c600590a8c60b367d8250853a25",
+        "start_byte": 49,
+        "start_char": 49
+      },
+      "after": {
+        "end_byte": 524,
+        "end_char": 524,
+        "pointer": "/framework",
+        "quote_sha256": "6a6edbe5925d900965b0e642cd2d83bf8f9a840c4e015d5e4a52ad2653b46c4d",
+        "source_sha256": "a92d15e9cd7afe3679a9423792e58476239ff0cdc124fc153673c6ec1b919e9f",
+        "start_byte": 49,
+        "start_char": 49
+      }
+    },
+    {
+      "kind": "relationship",
+      "id": "p3if.navigation-study.scienceresearch/relationship~retention-check",
+      "before": null,
+      "after": {
+        "end_byte": 46408,
+        "end_char": 46408,
+        "pointer": "/relationships/71",
+        "quote_sha256": "8f6b82433195e77fa1800ea0dde2890ae34d06c3a524cb0bfe3e880f7c6aaa0a",
+        "source_sha256": "a92d15e9cd7afe3679a9423792e58476239ff0cdc124fc153673c6ec1b919e9f",
+        "start_byte": 45994,
+        "start_char": 45994
+      }
+    },
+    {
+      "kind": "process",
+      "id": "97e2f3ad-597c-4bc1-bf01-e29105879c50",
+      "before": {
+        "end_byte": 13003,
+        "end_char": 12975,
+        "pointer": "/processes/28",
+        "quote_sha256": "62906b06867feb8cb6033786a658e19d6b4101cd69aa92645fd09eb003336d8d",
+        "source_sha256": "010dc848352a1a8fdd6fe9a88c1c7ddc976d5c600590a8c60b367d8250853a25",
+        "start_byte": 12841,
+        "start_char": 12813
+      },
+      "after": {
+        "end_byte": 11886,
+        "end_char": 11886,
+        "pointer": "/processes/21",
+        "quote_sha256": "0e4eea21a97f34a6d33574a2eaae1a46343809805a4e9dd73e803277dc50973e",
+        "source_sha256": "a92d15e9cd7afe3679a9423792e58476239ff0cdc124fc153673c6ec1b919e9f",
+        "start_byte": 11622,
+        "start_char": 11622
+      }
+    }
+  ]
+}

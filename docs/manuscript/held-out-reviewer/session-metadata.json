@@ -1,0 +1,34 @@
+{
+  "isolation": "Fresh sessions with no inherited conversation and one instruction-scoped delivery folder each",
+  "model_family": "GPT-6 family, Codex",
+  "public_registration_observed_utc": "2026-11-15T03:39:16Z",
+  "registration_commit": "59e0d13d6f9d81705d0476ba2c1977aba6d75a17",
+  "schema_version": "p3if.held-out-reviewer-run.v1",
+  "scoring_started_utc": "2026-11-15T03:44:50Z",
+  "sessions": {
+    "S1": {
+      "deviations": [],
+      "exact_model_id": null,
+      "sha256": "6e1061798bab924005b6e37b464718f5d7033ab40691ca86c580515b91947667",
+      "submitted_utc": "2026-11-15T03:41:39.001Z"
+    },
+    "S2": {
+      "deviations": [],
+      "exact_model_id": null,
+      "sha256": "129b3c7ea87727583831e022110ff096479bb1ba506dd9ce1b9419dc0445d533",
+      "submitted_utc": "2026-11-15T03:42:06.499Z"
+    },
+    "S3": {
+      "deviations": [],
+      "exact_model_id": null,
+      "sha256": "d3ded993e342c0713df63b1e8388a7dd371486884ed280aa1ea9c34dad6bae6d",
+      "submitted_utc": "2026-11-15T03:44:03.346Z"
+    },
+    "S4": {
+      "deviations": [],
+      "exact_model_id": null,
+      "sha256": "dfc952615b4e4aa578b19b064f1bae836764098ad3beaed823323962cdaac974",
+      "submitted_utc": "2026-11-15T03:44:30.130Z"
+    }
+  }
+}

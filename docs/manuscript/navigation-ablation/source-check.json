@@ -1,0 +1,28 @@
+{
+  "absent_sides": 11,
+  "cases_by_classification": {
+    "declared_change": 14,
+    "encoding_only": 1,
+    "identical_bytes": 1
+  },
+  "crlf_transports": 7,
+  "distinct_source_digests": 31,
+  "live_absent_sides": 4,
+  "live_case_ids": [
+    "A01",
+    "A04",
+    "A09",
+    "A13"
+  ],
+  "live_present_sides": 16,
+  "live_unique_source_pointer_pairs": 14,
+  "longest_quotation_bytes": 1412,
+  "moved_pointers": 20,
+  "multibyte_prefix_sides": 50,
+  "present_sides": 65,
+  "questions": 38,
+  "source_manifest_sha256": "4fb4289eba24307bcb78e01082a6732eedb2cfed8a337f2d056578d1401c017a",
+  "specification_sha256": "e764bc8afcff197dcaa919a198d82d662a02e8e312a24980c2c3fa47168a7a32",
+  "transports": 32,
+  "validated_fixture_lineage_pairs": 16
+}

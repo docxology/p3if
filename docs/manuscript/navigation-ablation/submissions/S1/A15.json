@@ -1,0 +1,55 @@
+{
+  "case_id": "A15",
+  "citations": [
+    {
+      "kind": "framework",
+      "id": "p3if.navigation-study.matheducation",
+      "before": {
+        "end_byte": 584,
+        "end_char": 556,
+        "pointer": "/framework",
+        "quote_sha256": "e7b3423f4bba5c673c56284b0af4aac5d5f8ea3189876417fa3238da65a828df",
+        "source_sha256": "935b29a9eaaf6757411c2ac047ff52ba8083cbf0b314d159397c472ee27b6d3f",
+        "start_byte": 49,
+        "start_char": 49
+      },
+      "after": {
+        "end_byte": 434,
+        "end_char": 395,
+        "pointer": "/framework",
+        "quote_sha256": "9a2309c3db6db383f3e0042c873bcf1eadf440a9e63bd714618c481329bd482e",
+        "source_sha256": "7629d66c3d4a1a24ce59b7a49841a4e80b2764b6b4694454ce48d66c68e7316a",
+        "start_byte": 41,
+        "start_char": 41
+      }
+    },
+    {
+      "kind": "relationship",
+      "id": "6144f5e5-b608-41cd-97a6-7221e65bc745",
+      "before": {
+        "end_byte": 32625,
+        "end_char": 32597,
+        "pointer": "/relationships/23",
+        "quote_sha256": "419777c35a1e93b1a66fddd4802f70b8aa2511ac885b7df8c502a035d8fc6de1",
+        "source_sha256": "935b29a9eaaf6757411c2ac047ff52ba8083cbf0b314d159397c472ee27b6d3f",
+        "start_byte": 32332,
+        "start_char": 32304
+      },
+      "after": null
+    },
+    {
+      "kind": "relationship",
+      "id": "p3if.navigation-study.matheducation/relationship~assessment-guidance-replacement",
+      "before": null,
+      "after": {
+        "end_byte": 19367,
+        "end_char": 19325,
+        "pointer": "/relationships/0",
+        "quote_sha256": "c7d7c8b4b89c099a2afef49e0acbfb76778c265bbd49d393a7e8b015e94ee1e3",
+        "source_sha256": "7629d66c3d4a1a24ce59b7a49841a4e80b2764b6b4694454ce48d66c68e7316a",
+        "start_byte": 18976,
+        "start_char": 18937
+      }
+    }
+  ]
+}

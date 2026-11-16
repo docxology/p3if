@@ -1,0 +1,17 @@
+{
+  "absent_sides": 10,
+  "cases_by_classification": {
+    "declared_change": 14,
+    "encoding_only": 1,
+    "identical_bytes": 1
+  },
+  "crlf_transports": 7,
+  "distinct_source_sha256s": 31,
+  "longest_quotation_bytes": 2938,
+  "manifest_sha256": "c527afdbb23e926a4974fff921280fa56d36b0d110e91401a2372e67ffb42aed",
+  "moved_pointers": 19,
+  "present_sides": 62,
+  "present_sides_with_multibyte_prefix": 49,
+  "questions": 36,
+  "source_transports": 32
+}
