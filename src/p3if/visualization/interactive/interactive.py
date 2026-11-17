@@ -5,13 +5,14 @@ This module provides modern, high-performance interactive visualization capabili
 for P3IF data, including 3D visualizations, network graphs, and web-based interactive elements
 with enhanced user experience and performance optimizations.
 """
-from typing import Dict, List, Any, Optional, Union
+
+from typing import Any
 import json
 from pathlib import Path
 import os
 from dataclasses import dataclass
 from datetime import datetime
-from enum import Enum
+from enum import StrEnum
 import hashlib
 from concurrent.futures import ThreadPoolExecutor
 import time
@@ -24,7 +25,7 @@ from p3if.utils.performance import get_performance_monitor, get_cache, performan
 from p3if.utils.output_organizer import get_output_organizer
 
 
-class VisualizationType(str, Enum):
+class VisualizationType(StrEnum):
     """Types of visualizations available."""
 
     CUBE_3D = "cube_3d"
@@ -37,7 +38,7 @@ class VisualizationType(str, Enum):
     SCATTER_PLOT = "scatter_plot"
 
 
-class InteractionMode(str, Enum):
+class InteractionMode(StrEnum):
     """Different interaction modes for visualizations."""
 
     VIEW_ONLY = "view_only"
@@ -67,7 +68,7 @@ class VisualizationConfig:
 class InteractiveVisualizer(Visualizer):
     """Enhanced interactive visualizer with modern capabilities."""
 
-    def __init__(self, framework: P3IFFramework, config: Optional[Config] = None):
+    def __init__(self, framework: P3IFFramework, config: Config | None = None):
         """
         Initialize enhanced interactive visualizer.
 
@@ -79,20 +80,20 @@ class InteractiveVisualizer(Visualizer):
 
         # Enhanced caching with LRU and TTL support
         self._cache = get_cache("visualization")  # Use global cache
-        self._local_cache: Dict[str, Dict[str, Any]] = {}  # Local cache for session data
-        self._cache_expiry: Dict[str, float] = {}
+        self._local_cache: dict[str, dict[str, Any]] = {}  # Local cache for session data
+        self._cache_expiry: dict[str, float] = {}
         self._max_cache_size = 100  # Maximum local cache entries
 
         # Performance monitoring and optimization
         self._performance_monitor = get_performance_monitor()
-        self._render_times: List[float] = []
-        self._memory_usage: List[int] = []
+        self._render_times: list[float] = []
+        self._memory_usage: list[int] = []
 
         # Concurrent rendering support (optimized)
         self._executor = ThreadPoolExecutor(max_workers=4, thread_name_prefix="viz")
 
         # Data preprocessing optimization
-        self._preprocessed_data: Optional[Dict[str, Any]] = None
+        self._preprocessed_data: dict[str, Any] | None = None
         self._last_preprocess_time: float = 0
         self._preprocess_interval = 300  # 5 minutes
 
@@ -137,7 +138,7 @@ class InteractiveVisualizer(Visualizer):
         key_data = f"{method_name}:{json.dumps(kwargs, sort_keys=True)}"
         return hashlib.md5(key_data.encode()).hexdigest()
 
-    def _get_cached_data(self, cache_key: str) -> Optional[Dict[str, Any]]:
+    def _get_cached_data(self, cache_key: str) -> dict[str, Any] | None:
         """Get cached visualization data if available and not expired."""
         if cache_key in self._cache:
             if time.time() - self._cache_expiry.get(cache_key, 0) < 3600:  # 1 hour expiry
@@ -152,7 +153,7 @@ class InteractiveVisualizer(Visualizer):
                 self._cache_expiry.pop(cache_key, None)
         return None
 
-    def _cache_data(self, cache_key: str, data: Dict[str, Any]) -> None:
+    def _cache_data(self, cache_key: str, data: dict[str, Any]) -> None:
         """Cache visualization data."""
         if len(self._cache) >= self._max_cache_size:
             # Remove oldest entries
@@ -170,7 +171,7 @@ class InteractiveVisualizer(Visualizer):
         self._cache[cache_key] = data
         self._cache_expiry[cache_key] = time.time()
 
-    def _sample_patterns(self, patterns: List[BasePattern], max_elements: int) -> List[BasePattern]:
+    def _sample_patterns(self, patterns: list[BasePattern], max_elements: int) -> list[BasePattern]:
         """Intelligently sample patterns for better performance."""
         if len(patterns) <= max_elements:
             return patterns
@@ -199,7 +200,7 @@ class InteractiveVisualizer(Visualizer):
 
         return high_quality_patterns + sampled_remaining
 
-    def _preprocess_data(self) -> Dict[str, Any]:
+    def _preprocess_data(self) -> dict[str, Any]:
         """Preprocess data for better rendering performance."""
         now = time.time()
 
@@ -212,7 +213,7 @@ class InteractiveVisualizer(Visualizer):
 
         # Preprocess pattern data
         all_patterns = list(self.framework._patterns.values())
-        pattern_types: Dict[str, List[BasePattern]] = {}
+        pattern_types: dict[str, list[BasePattern]] = {}
         domains = set()
 
         for pattern in all_patterns:
@@ -230,12 +231,16 @@ class InteractiveVisualizer(Visualizer):
         all_relationships = list(self.framework._relationships.values())
         relationship_stats = {
             "total": len(all_relationships),
-            "avg_strength": sum(r.strength for r in all_relationships) / len(all_relationships)
-            if all_relationships
-            else 0,
-            "avg_confidence": sum(r.confidence for r in all_relationships) / len(all_relationships)
-            if all_relationships
-            else 0,
+            "avg_strength": (
+                sum(r.strength for r in all_relationships) / len(all_relationships)
+                if all_relationships
+                else 0
+            ),
+            "avg_confidence": (
+                sum(r.confidence for r in all_relationships) / len(all_relationships)
+                if all_relationships
+                else 0
+            ),
         }
 
         self._preprocessed_data = {
@@ -248,7 +253,7 @@ class InteractiveVisualizer(Visualizer):
         self._last_preprocess_time = now
         return self._preprocessed_data
 
-    def get_performance_stats(self) -> Dict[str, Any]:
+    def get_performance_stats(self) -> dict[str, Any]:
         """Get visualization performance statistics."""
         cache_stats = self._cache.stats() if hasattr(self._cache, "stats") else {}
 
@@ -256,22 +261,22 @@ class InteractiveVisualizer(Visualizer):
             "cache_stats": cache_stats,
             "render_times": {
                 "count": len(self._render_times),
-                "average": sum(self._render_times) / len(self._render_times)
-                if self._render_times
-                else 0,
+                "average": (
+                    sum(self._render_times) / len(self._render_times) if self._render_times else 0
+                ),
                 "min": min(self._render_times) if self._render_times else 0,
                 "max": max(self._render_times) if self._render_times else 0,
             },
             "memory_usage": self._memory_usage[-10:] if self._memory_usage else [],
-            "preprocessed_data_age": time.time() - self._last_preprocess_time
-            if self._preprocessed_data
-            else None,
+            "preprocessed_data_age": (
+                time.time() - self._last_preprocess_time if self._preprocessed_data else None
+            ),
         }
 
     @performance_timer("generate_3d_cube_data")
     def generate_3d_cube_data(
-        self, domains: Optional[List[str]] = None, max_elements: int = 1000
-    ) -> Dict[str, Any]:
+        self, domains: list[str] | None = None, max_elements: int = 1000
+    ) -> dict[str, Any]:
         """
         Generate enhanced data for a 3D interactive cube visualization with performance optimizations.
 
@@ -316,8 +321,8 @@ class InteractiveVisualizer(Visualizer):
         perspective_map = {p.id: i for i, p in enumerate(perspectives)}
 
         # Prepare enhanced data structure
-        connections_list: List[Dict[str, Any]] = []
-        cube_data: Dict[str, Any] = {
+        connections_list: list[dict[str, Any]] = []
+        cube_data: dict[str, Any] = {
             "metadata": {
                 "generated_at": datetime.now().isoformat(),
                 "total_properties": len(properties),
@@ -399,11 +404,11 @@ class InteractiveVisualizer(Visualizer):
 
     def generate_3d_cube_html(
         self,
-        output_file: Union[str, Path],
-        cube_data: Optional[Dict[str, Any]] = None,
+        output_file: str | Path,
+        cube_data: dict[str, Any] | None = None,
         title: str = "P3IF 3D Cube Visualization",
         include_dataset_selector: bool = False,
-        datasets: Optional[List[Dict[str, str]]] = None,
+        datasets: list[dict[str, str]] | None = None,
     ) -> Path:
         """
         Generate an HTML file with an interactive 3D cube visualization.
@@ -750,8 +755,8 @@ class InteractiveVisualizer(Visualizer):
 
     def generate_modern_dashboard(
         self,
-        output_file: Union[str, Path],
-        config: Optional[VisualizationConfig] = None,
+        output_file: str | Path,
+        config: VisualizationConfig | None = None,
         title: str = "P3IF Modern Dashboard",
     ) -> Path:
         """
@@ -1541,7 +1546,7 @@ class InteractiveVisualizer(Visualizer):
         self.logger.info(f"Modern dashboard generated at {output_path} in {render_time:.2f}s")
         return output_path
 
-    def generate_force_directed_graph_data(self) -> Dict[str, Any]:
+    def generate_force_directed_graph_data(self) -> dict[str, Any]:
         """
         Generate data for a force-directed graph visualization.
 
@@ -1600,8 +1605,8 @@ class InteractiveVisualizer(Visualizer):
 
     def generate_force_directed_graph_html(
         self,
-        output_file: Union[str, Path],
-        graph_data: Optional[Dict[str, Any]] = None,
+        output_file: str | Path,
+        graph_data: dict[str, Any] | None = None,
         title: str = "P3IF Force-Directed Graph",
     ) -> Path:
         """

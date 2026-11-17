@@ -1,6 +1,7 @@
 """
 Unit tests for P3IF storage utilities.
 """
+
 import json
 import tempfile
 from pathlib import Path
@@ -41,7 +42,7 @@ class TestJSONStorage:
             assert pattern.id in storage._data["patterns"]
 
             # Verify persistence
-            with open(temp_path, "r") as f:
+            with open(temp_path) as f:
                 saved_data = json.load(f)
 
             assert pattern.id in saved_data["patterns"]

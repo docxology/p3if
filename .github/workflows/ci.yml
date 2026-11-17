@@ -2,7 +2,7 @@ name: P3IF CI
 
 on:
   push:
-    branches: [main, develop, codex/p3if-interchange]
+    branches: [main]
   pull_request:
     branches: [main]
 
@@ -17,9 +17,9 @@ jobs:
       matrix:
         include:
           - os: ubuntu-latest
-            python-version: '3.11'
+            python-version: '3.13'
           - os: ubuntu-latest
-            python-version: '3.12'
+            python-version: '3.14'
 
     steps:
     - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # actions/checkout@v7.0.1
@@ -32,7 +32,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -e ".[dev,visualization,web]"
+        pip install -e ".[dev,visualization,web]" build
 
     - name: Run linting
       run: |
@@ -50,3 +50,6 @@ jobs:
       with:
         files: ./coverage.xml
         fail_ci_if_error: false
+
+    - name: Build package
+      run: python -m build

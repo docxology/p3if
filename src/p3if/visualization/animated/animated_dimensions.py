@@ -6,7 +6,7 @@ enabling dynamic visualization of Properties, Processes, and Perspectives.
 """
 
 import math
-from typing import Dict, List, Any, Tuple
+from typing import Any
 from dataclasses import dataclass, field
 import logging
 
@@ -26,8 +26,8 @@ class DimensionAnimator:
     """Advanced animator for P3IF dimensions."""
 
     name: str = "dimension_animator"
-    framework_data: Dict[str, Any] = field(default_factory=dict)
-    animation_config: Dict[str, Any] = field(default_factory=dict)
+    framework_data: dict[str, Any] = field(default_factory=dict)
+    animation_config: dict[str, Any] = field(default_factory=dict)
     logger: logging.Logger = field(default_factory=lambda: logging.getLogger(__name__))
 
     def __post_init__(self):
@@ -62,7 +62,7 @@ class DimensionAnimator:
 
         self.logger = logging.getLogger(__name__)
 
-    def load_framework_data(self, data: Dict[str, Any]):
+    def load_framework_data(self, data: dict[str, Any]):
         """Load P3IF framework data for animation."""
         self.framework_data = data
         self.logger.info(
@@ -122,7 +122,7 @@ class DimensionAnimator:
             self.logger.error(f"Error creating orbit animation: {e}")
             return self._create_ascii_orbit_animation()
 
-    def _create_animation_elements(self) -> List[Any]:
+    def _create_animation_elements(self) -> list[Any]:
         """Create animation elements for each dimension."""
         elements = []
 
@@ -176,7 +176,7 @@ class DimensionAnimator:
 
         return elements
 
-    def _draw_relationships(self, ax, elements: List[Any], angle: float):
+    def _draw_relationships(self, ax, elements: list[Any], angle: float):
         """Draw relationships between animated elements."""
         # Find elements by type
         properties = [e for e in elements if e.element_type == "property"]
@@ -348,7 +348,7 @@ class AnimationElement:
     bounce_height: float = 0.0
     rotation_angle: float = 0.0
 
-    def get_current_position(self) -> Tuple[float, float]:
+    def get_current_position(self) -> tuple[float, float]:
         """Get current position of the element."""
         x = self.radius * math.cos(self.current_angle)
         y = self.radius * math.sin(self.current_angle)
@@ -425,7 +425,7 @@ class AnimationElement:
             ax.text(x, y, self.name[:6], ha="center", va="center", fontsize=7, fontweight="bold")
 
 
-def create_dimension_animator(framework_data: Dict[str, Any]) -> DimensionAnimator:
+def create_dimension_animator(framework_data: dict[str, Any]) -> DimensionAnimator:
     """Create a dimension animator with the given framework data."""
     animator = DimensionAnimator()
     animator.load_framework_data(framework_data)

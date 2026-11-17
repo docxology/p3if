@@ -9,7 +9,7 @@ from __future__ import annotations
 import json
 from hashlib import sha256
 from pathlib import Path
-from typing import Any, ClassVar, Literal, Optional
+from typing import Any, ClassVar, Literal
 
 from pydantic import BaseModel, ConfigDict, Field, ValidationError
 
@@ -32,8 +32,8 @@ class _Scores(_ClosedModel):
 
 
 class _Side(_ClosedModel):
-    coordinate: list[Optional[str]] = Field(min_length=3, max_length=3)
-    scores: Optional[_Scores]
+    coordinate: list[str | None] = Field(min_length=3, max_length=3)
+    scores: _Scores | None
 
 
 class _Event(_ClosedModel):
@@ -42,8 +42,8 @@ class _Event(_ClosedModel):
     change: Literal["added", "removed", "modified"]
     fields: list[str]
     rewired: bool
-    before: Optional[_Side]
-    after: Optional[_Side]
+    before: _Side | None
+    after: _Side | None
 
     def key(self) -> _EventKey:
         return self.kind, self.id
@@ -139,7 +139,7 @@ def _session_answers(path: Path, assigned: set[str]) -> tuple[dict[str, Any], se
     )
 
 
-def _side_errors(prefix: str, expected: Optional[_Side], answer: Optional[_Side]) -> list[str]:
+def _side_errors(prefix: str, expected: _Side | None, answer: _Side | None) -> list[str]:
     if expected is None or answer is None:
         return [] if expected is answer else [f"{prefix}_presence"]
     errors = []

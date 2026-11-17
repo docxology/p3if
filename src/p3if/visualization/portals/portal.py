@@ -3,7 +3,8 @@ P3IF Visualization Portal
 
 This module provides functionality to generate an integrated web portal with all P3IF visualizations.
 """
-from typing import Dict, List, Optional, Union, Any
+
+from typing import Any
 import logging
 import json
 from pathlib import Path
@@ -19,7 +20,7 @@ from p3if.utils.config import Config
 class VisualizationPortal:
     """Portal generator for P3IF visualizations."""
 
-    def __init__(self, framework: P3IFFramework, config: Optional[Config] = None):
+    def __init__(self, framework: P3IFFramework, config: Config | None = None):
         """
         Initialize visualization portal generator.
 
@@ -37,12 +38,12 @@ class VisualizationPortal:
 
     def generate_portal(
         self,
-        output_file: Union[str, Path],
+        output_file: str | Path,
         title: str = "P3IF Visualization Portal",
         include_dataset_dropdown: bool = False,
-        datasets: Optional[List[Dict[str, str]]] = None,
+        datasets: list[dict[str, str]] | None = None,
         include_component_selector: bool = False,
-        components: Optional[List[Dict[str, str]]] = None,
+        components: list[dict[str, str]] | None = None,
         include_3d_cube: bool = True,
         include_network: bool = True,
         include_matrix: bool = True,
@@ -123,7 +124,7 @@ class VisualizationPortal:
         self.logger.info(f"Portal generation complete. Access via {output_path}")
         return output_path
 
-    def generate_dataset_dropdown(self, datasets: List[Dict[str, str]]) -> str:
+    def generate_dataset_dropdown(self, datasets: list[dict[str, str]]) -> str:
         """
         Generate HTML for a dataset dropdown selector.
 
@@ -152,7 +153,7 @@ class VisualizationPortal:
 
         return html
 
-    def generate_component_selector(self, components: List[Dict[str, str]]) -> str:
+    def generate_component_selector(self, components: list[dict[str, str]]) -> str:
         """
         Generate HTML for a component selector.
 
@@ -193,7 +194,7 @@ class VisualizationPortal:
 
         return html
 
-    def _generate_visualizations(self, output_dir: Path) -> Dict[str, Path]:
+    def _generate_visualizations(self, output_dir: Path) -> dict[str, Path]:
         """Generate visualizations for the portal."""
         visualizations = {}
 
@@ -205,10 +206,10 @@ class VisualizationPortal:
 
         # Create Force Directed Graph
         graph_path = output_dir / "force-graph.html"
-        visualizations[
-            "force_graph"
-        ] = self.interactive_visualizer.generate_force_directed_graph_html(
-            output_file=graph_path, title="P3IF Network Graph"
+        visualizations["force_graph"] = (
+            self.interactive_visualizer.generate_force_directed_graph_html(
+                output_file=graph_path, title="P3IF Network Graph"
+            )
         )
 
         # Create Overview Dashboard Visualizations
@@ -246,7 +247,7 @@ class VisualizationPortal:
 
         return visualizations
 
-    def _generate_data_files(self, data_dir: Path) -> Dict[str, Path]:
+    def _generate_data_files(self, data_dir: Path) -> dict[str, Path]:
         """Generate data files for the portal."""
         data_files = {}
 
@@ -265,8 +266,8 @@ class VisualizationPortal:
         data_files["graph_data"] = graph_data_path
 
         # Generate framework summary data
-        domains_summary_list: List[Dict[str, Any]] = []
-        summary_data: Dict[str, Any] = {
+        domains_summary_list: list[dict[str, Any]] = []
+        summary_data: dict[str, Any] = {
             "pattern_counts": {
                 "property": len(self.framework.get_patterns_by_type("property")),
                 "process": len(self.framework.get_patterns_by_type("process")),
@@ -304,9 +305,9 @@ class VisualizationPortal:
         output_path: Path,
         title: str = "P3IF Visualization Portal",
         include_dataset_dropdown: bool = False,
-        datasets: Optional[List[Dict[str, str]]] = None,
+        datasets: list[dict[str, str]] | None = None,
         include_component_selector: bool = False,
-        components: Optional[List[Dict[str, str]]] = None,
+        components: list[dict[str, str]] | None = None,
         include_3d_cube: bool = True,
         include_network: bool = True,
         include_matrix: bool = True,

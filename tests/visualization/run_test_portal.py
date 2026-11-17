@@ -5,6 +5,7 @@ Test script for P3IF Visualization Portal.
 This script generates a complete visualization portal with all components enabled
 and opens it in the default web browser for manual testing.
 """
+
 import os
 import sys
 import webbrowser

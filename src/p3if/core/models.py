@@ -4,18 +4,19 @@ P3IF Core Models
 This module defines the core data models for the P3IF framework with
 validation, metadata support, and performance optimizations.
 """
+
 from __future__ import annotations
 
 import uuid
-from datetime import datetime, timezone
-from typing import Optional, Dict, Any, List, Set
-from enum import Enum
+from datetime import datetime, UTC
+from typing import Any
+from enum import StrEnum
 from pydantic import BaseModel, Field, field_validator, model_validator
 from dataclasses import dataclass
 from p3if.utils.logging import logged_method
 
 
-class PatternType(str, Enum):
+class PatternType(StrEnum):
     """Enumeration of valid pattern types."""
 
     PROPERTY = "property"
@@ -74,13 +75,13 @@ class MetadataMixin:
     When used with Pydantic BaseModel, these are declared on the concrete model.
     """
 
-    metadata: Dict[str, Any]
+    metadata: dict[str, Any]
     updated_at: datetime
 
     def update_metadata(self, key: str, value: Any) -> None:
         """Update metadata field."""
         self.metadata[key] = value
-        self.updated_at = datetime.now(timezone.utc)
+        self.updated_at = datetime.now(UTC)
 
     def get_metadata(self, key: str, default: Any = None) -> Any:
         """Get metadata value with default."""
@@ -102,22 +103,22 @@ class BasePattern(BaseModel, MetadataMixin):
     domain: str = Field(..., min_length=1, max_length=100)
 
     # Metadata and tracking
-    tags: List[str] = Field(default_factory=list)
-    metadata: Dict[str, Any] = Field(default_factory=dict)
-    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
-    updated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    tags: list[str] = Field(default_factory=list)
+    metadata: dict[str, Any] = Field(default_factory=dict)
+    created_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
+    updated_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
 
     # Versioning
     version: str = Field(default="1.0.0")
-    parent_id: Optional[str] = None  # For pattern hierarchies
+    parent_id: str | None = None  # For pattern hierarchies
 
     # Validation and quality
     validation_status: str = Field(default="draft")  # draft, validated, deprecated
     quality_score: float = Field(default=1.0, ge=0.0, le=1.0)
 
     # References
-    references: List[str] = Field(default_factory=list)  # URLs, citations, etc.
-    related_patterns: List[str] = Field(default_factory=list)  # IDs of related patterns
+    references: list[str] = Field(default_factory=list)  # URLs, citations, etc.
+    related_patterns: list[str] = Field(default_factory=list)  # IDs of related patterns
 
     model_config = {
         "validate_assignment": True,
@@ -125,7 +126,7 @@ class BasePattern(BaseModel, MetadataMixin):
 
     @field_validator("tags")
     @classmethod
-    def validate_tags(cls, v: List[str]) -> List[str]:
+    def validate_tags(cls, v: list[str]) -> list[str]:
         """Ensure tags are valid."""
         if not all(isinstance(tag, str) and tag.strip() for tag in v):
             raise ValueError("All tags must be non-empty strings")
@@ -145,20 +146,20 @@ class BasePattern(BaseModel, MetadataMixin):
         tag = tag.strip().lower()
         if tag not in self.tags:
             self.tags.append(tag)
-            self.updated_at = datetime.now(timezone.utc)
+            self.updated_at = datetime.now(UTC)
 
     def remove_tag(self, tag: str) -> None:
         """Remove a tag from the pattern."""
         tag = tag.strip().lower()
         if tag in self.tags:
             self.tags.remove(tag)
-            self.updated_at = datetime.now(timezone.utc)
+            self.updated_at = datetime.now(UTC)
 
     def is_deprecated(self) -> bool:
         """Check if pattern is deprecated."""
         return self.validation_status == "deprecated"
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary with all fields."""
         return self.model_dump(by_alias=True)
 
@@ -186,14 +187,14 @@ class Property(BasePattern):
     type: PatternType = PatternType.PROPERTY
 
     # Property-specific attributes
-    data_type: Optional[str] = None  # string, number, boolean, etc.
-    unit: Optional[str] = None  # measurement unit
-    range_min: Optional[float] = None
-    range_max: Optional[float] = None
-    allowed_values: List[str] = Field(default_factory=list)
+    data_type: str | None = None  # string, number, boolean, etc.
+    unit: str | None = None  # measurement unit
+    range_min: float | None = None
+    range_max: float | None = None
+    allowed_values: list[str] = Field(default_factory=list)
 
     # Categorization
-    category: Optional[str] = None  # security, performance, usability, etc.
+    category: str | None = None  # security, performance, usability, etc.
     priority: str = Field(default="medium")  # low, medium, high, critical
 
     @field_validator("priority")
@@ -212,18 +213,18 @@ class Process(BasePattern):
     type: PatternType = PatternType.PROCESS
 
     # Process-specific attributes
-    steps: List[Dict[str, Any]] = Field(default_factory=list)  # Process steps
-    inputs: List[str] = Field(default_factory=list)  # Input requirements
-    outputs: List[str] = Field(default_factory=list)  # Output specifications
+    steps: list[dict[str, Any]] = Field(default_factory=list)  # Process steps
+    inputs: list[str] = Field(default_factory=list)  # Input requirements
+    outputs: list[str] = Field(default_factory=list)  # Output specifications
 
     # Process characteristics
-    duration: Optional[str] = None  # estimated duration
+    duration: str | None = None  # estimated duration
     complexity: str = Field(default="medium")  # low, medium, high
     automation_level: str = Field(default="manual")  # manual, semi-automated, fully-automated
 
     # Dependencies
-    prerequisites: List[str] = Field(default_factory=list)  # Required patterns
-    dependencies: List[str] = Field(default_factory=list)  # Dependent patterns
+    prerequisites: list[str] = Field(default_factory=list)  # Required patterns
+    dependencies: list[str] = Field(default_factory=list)  # Dependent patterns
 
     @field_validator("complexity")
     @classmethod
@@ -251,15 +252,15 @@ class Perspective(BasePattern):
 
     # Perspective-specific attributes
     viewpoint: str = Field(..., max_length=100)  # stakeholder viewpoint
-    concerns: List[str] = Field(default_factory=list)  # Areas of concern
-    constraints: List[str] = Field(default_factory=list)  # Limiting factors
+    concerns: list[str] = Field(default_factory=list)  # Areas of concern
+    constraints: list[str] = Field(default_factory=list)  # Limiting factors
 
     # Perspective characteristics
     scope: str = Field(default="general")  # general, specific, detailed
     bias_factor: float = Field(default=0.0, ge=0.0, le=1.0)  # Potential bias indicator
 
     # Stakeholder information
-    stakeholder_type: Optional[str] = None  # internal, external, customer, etc.
+    stakeholder_type: str | None = None  # internal, external, customer, etc.
     expertise_level: str = Field(default="intermediate")  # novice, intermediate, expert
 
     @field_validator("scope")
@@ -287,9 +288,9 @@ class Relationship(BaseModel, MetadataMixin):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
 
     # Core relationship connections
-    property_id: Optional[str] = None
-    process_id: Optional[str] = None
-    perspective_id: Optional[str] = None
+    property_id: str | None = None
+    process_id: str | None = None
+    perspective_id: str | None = None
 
     # Relationship metrics
     strength: RelationshipStrength = RelationshipStrength(0.5)
@@ -298,21 +299,21 @@ class Relationship(BaseModel, MetadataMixin):
     # Relationship characteristics
     bidirectional: bool = True
     relationship_type: str = Field(default="general")  # general, causal, dependency, etc.
-    direction: Optional[str] = None  # forward, backward, bidirectional
+    direction: str | None = None  # forward, backward, bidirectional
 
     # Temporal aspects
-    temporal_context: Optional[str] = None  # current, future, historical
-    validity_period: Optional[Dict[str, datetime]] = None  # start_date, end_date
+    temporal_context: str | None = None  # current, future, historical
+    validity_period: dict[str, datetime] | None = None  # start_date, end_date
 
     # Evidence and validation
-    evidence_sources: List[str] = Field(default_factory=list)  # URLs, documents, etc.
-    validation_method: Optional[str] = None  # manual, automated, expert_review
-    assumptions: List[str] = Field(default_factory=list)
+    evidence_sources: list[str] = Field(default_factory=list)  # URLs, documents, etc.
+    validation_method: str | None = None  # manual, automated, expert_review
+    assumptions: list[str] = Field(default_factory=list)
 
     # Metadata
-    metadata: Dict[str, Any] = Field(default_factory=dict)
-    created_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
-    updated_at: datetime = Field(default_factory=lambda: datetime.now(timezone.utc))
+    metadata: dict[str, Any] = Field(default_factory=dict)
+    created_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
+    updated_at: datetime = Field(default_factory=lambda: datetime.now(UTC))
 
     # Quality and status
     status: str = Field(default="active")  # active, deprecated, experimental
@@ -359,7 +360,7 @@ class Relationship(BaseModel, MetadataMixin):
             raise ValueError(f"Relationship type must be one of: {valid_types}")
         return v
 
-    def get_connected_patterns(self) -> List[str]:
+    def get_connected_patterns(self) -> list[str]:
         """Get list of connected pattern IDs."""
         return [pid for pid in [self.property_id, self.process_id, self.perspective_id] if pid]
 
@@ -367,7 +368,7 @@ class Relationship(BaseModel, MetadataMixin):
         """Check if relationship is bidirectional."""
         return self.bidirectional or self.direction == "bidirectional"
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Convert to dictionary with all fields."""
         return self.model_dump(by_alias=True)
 
@@ -403,26 +404,26 @@ class Relationship(BaseModel, MetadataMixin):
 class PatternCollection:
     """Collection of patterns with utility methods."""
 
-    properties: List[Property]
-    processes: List[Process]
-    perspectives: List[Perspective]
+    properties: list[Property]
+    processes: list[Process]
+    perspectives: list[Perspective]
 
-    def all_patterns(self) -> List[BasePattern]:
+    def all_patterns(self) -> list[BasePattern]:
         """Get all patterns as a single list."""
-        result: List[BasePattern] = []
+        result: list[BasePattern] = []
         result.extend(self.properties)
         result.extend(self.processes)
         result.extend(self.perspectives)
         return result
 
-    def get_by_id(self, pattern_id: str) -> Optional[BasePattern]:
+    def get_by_id(self, pattern_id: str) -> BasePattern | None:
         """Find pattern by ID across all types."""
         for pattern in self.all_patterns():
             if pattern.id == pattern_id:
                 return pattern
         return None
 
-    def get_by_domain(self, domain: str) -> "PatternCollection":
+    def get_by_domain(self, domain: str) -> PatternCollection:
         """Filter collection by domain."""
         return PatternCollection(
             properties=[p for p in self.properties if p.domain == domain],
@@ -438,6 +439,6 @@ class RelationshipAnalysis:
     total_relationships: int
     average_strength: float
     average_confidence: float
-    relationship_types: Dict[str, int]
-    domains_involved: Set[str]
-    orphaned_patterns: List[str]  # Patterns with no relationships
+    relationship_types: dict[str, int]
+    domains_involved: set[str]
+    orphaned_patterns: list[str]  # Patterns with no relationships

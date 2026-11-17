@@ -5,13 +5,13 @@ Custom exceptions for the P3IF core framework to provide more specific error han
 and better error messages throughout the system.
 """
 
-from typing import Any, Optional, Dict
+from typing import Any
 
 
 class P3IFError(Exception):
     """Base exception for all P3IF-related errors."""
 
-    def __init__(self, message: str, details: Optional[Dict[str, Any]] = None):
+    def __init__(self, message: str, details: dict[str, Any] | None = None):
         self.message = message
         self.details = details or {}
         super().__init__(self.message)
@@ -32,7 +32,7 @@ class PatternError(P3IFError):
 class PatternNotFoundError(PatternError):
     """Raised when a pattern cannot be found."""
 
-    def __init__(self, pattern_id: str, pattern_type: Optional[str] = None):
+    def __init__(self, pattern_id: str, pattern_type: str | None = None):
         self.pattern_id = pattern_id
         self.pattern_type = pattern_type
         message = f"Pattern not found: {pattern_id}"
@@ -71,7 +71,7 @@ class RelationshipError(P3IFError):
 class RelationshipValidationError(RelationshipError):
     """Raised when relationship validation fails."""
 
-    def __init__(self, validation_errors: list[str], pattern_ids: Optional[list[str]] = None):
+    def __init__(self, validation_errors: list[str], pattern_ids: list[str] | None = None):
         message = f"Relationship validation failed: {', '.join(validation_errors)}"
         details = {"validation_errors": validation_errors}
         if pattern_ids:

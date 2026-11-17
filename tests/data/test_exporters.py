@@ -1,6 +1,7 @@
 """
 Unit tests for P3IF data exporters.
 """
+
 import json
 import tempfile
 from pathlib import Path
@@ -49,7 +50,7 @@ class TestDataExporter:
             assert result_path.exists()
 
             # Verify JSON content
-            with open(result_path, "r") as f:
+            with open(result_path) as f:
                 data = json.load(f)
 
             assert "properties" in data
@@ -93,7 +94,7 @@ class TestDataExporter:
             assert result["relationships"].exists()
 
             # Verify patterns CSV has header
-            with open(result["patterns"], "r") as f:
+            with open(result["patterns"]) as f:
                 header = f.readline()
                 assert "id" in header
                 assert "name" in header
@@ -131,7 +132,7 @@ class TestDataExporter:
             assert result_path.exists()
 
             # Verify GraphML content
-            with open(result_path, "r") as f:
+            with open(result_path) as f:
                 content = f.read()
 
             assert "graphml" in content.lower()
@@ -221,7 +222,7 @@ class TestExportEmptyFramework:
         try:
             result = export_to_json(framework, output_path)
 
-            with open(result, "r") as f:
+            with open(result) as f:
                 data = json.load(f)
 
             assert data["properties"] == []
@@ -247,7 +248,7 @@ class TestExportEmptyFramework:
             result = export_to_csv(framework, patterns_path, rels_path)
 
             # Should have header but no data rows
-            with open(result["patterns"], "r") as f:
+            with open(result["patterns"]) as f:
                 lines = f.readlines()
                 assert len(lines) == 1  # Just header
         finally:

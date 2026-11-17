@@ -3,7 +3,8 @@ P3IF Network Analyzer
 
 This module provides network analysis capabilities for P3IF data.
 """
-from typing import Dict, List, Any, Optional, cast
+
+from typing import Any, cast
 import logging
 import networkx as nx
 from collections import defaultdict
@@ -23,8 +24,8 @@ class NetworkAnalyzer:
         """
         self.framework = framework
         self.logger = logging.getLogger(__name__)
-        self._graph: Optional[nx.Graph] = None
-        self._graph_type: Optional[str] = None
+        self._graph: nx.Graph | None = None
+        self._graph_type: str | None = None
 
     def _build_graph(self, graph_type: str = "full") -> nx.Graph:
         """
@@ -156,7 +157,7 @@ class NetworkAnalyzer:
             return self._build_graph(graph_type)
         return self._graph
 
-    def get_network_statistics(self, graph_type: str = "full") -> Dict[str, Any]:
+    def get_network_statistics(self, graph_type: str = "full") -> dict[str, Any]:
         """
         Get statistics about the network.
 
@@ -172,9 +173,11 @@ class NetworkAnalyzer:
             "num_nodes": G.number_of_nodes(),
             "num_edges": G.number_of_edges(),
             "density": nx.density(G),
-            "avg_degree": sum(dict(G.degree()).values()) / G.number_of_nodes()
-            if G.number_of_nodes() > 0
-            else 0,
+            "avg_degree": (
+                sum(dict(G.degree()).values()) / G.number_of_nodes()
+                if G.number_of_nodes() > 0
+                else 0
+            ),
         }
 
         # Calculate connected components
@@ -208,7 +211,7 @@ class NetworkAnalyzer:
 
     def get_centrality_measures(
         self, graph_type: str = "full", top_n: int = 10
-    ) -> Dict[str, List[Dict[str, Any]]]:
+    ) -> dict[str, list[dict[str, Any]]]:
         """
         Get centrality measures for nodes in the network.
 
@@ -270,7 +273,7 @@ class NetworkAnalyzer:
 
     def get_communities(
         self, graph_type: str = "full", algorithm: str = "louvain"
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """
         Detect communities in the network.
 
@@ -284,7 +287,7 @@ class NetworkAnalyzer:
         G = self.get_graph(graph_type)
 
         communities = []
-        algorithm_info: Dict[str, Any] = {"name": algorithm}
+        algorithm_info: dict[str, Any] = {"name": algorithm}
 
         try:
             if algorithm == "louvain":
@@ -342,7 +345,7 @@ class NetworkAnalyzer:
             communities = []
 
         # Convert communities to a suitable format
-        formatted_communities: List[Dict[str, Any]] = []
+        formatted_communities: list[dict[str, Any]] = []
         for i, community in enumerate(communities):
             community_nodes = []
             for node_id in community:
@@ -380,7 +383,7 @@ class NetworkAnalyzer:
             "communities": formatted_communities,
         }
 
-    def _calculate_modularity(self, G: nx.Graph, communities: List[Any]) -> float:
+    def _calculate_modularity(self, G: nx.Graph, communities: list[Any]) -> float:
         """
         Calculate modularity of a network partition.
 
@@ -413,7 +416,7 @@ class NetworkAnalyzer:
 
             return cast(float, modularity / (2 * m))
 
-    def run_full_analysis(self) -> Dict[str, Any]:
+    def run_full_analysis(self) -> dict[str, Any]:
         """
         Run a full network analysis.
 

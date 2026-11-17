@@ -5,12 +5,12 @@ P3IF 3D Cube Visualizations
 Generates 3D cube representations showing Properties, Processes, and Perspectives
 in three-dimensional space with proper P3IF labeling.
 """
+
 import logging
 import matplotlib.pyplot as plt
 import numpy as np
 from mpl_toolkits.mplot3d import Axes3D
 from pathlib import Path
-from typing import Dict
 
 from p3if.core.framework import P3IFFramework
 from p3if.core.models import Property, Process, Perspective
@@ -73,7 +73,7 @@ def generate_3d_cube_visualizations(
 
 
 def _create_3d_p3if_cube(
-    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: Dict[str, str]
+    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: dict[str, str]
 ):
     """Create a 3D cube representation of the P3IF framework."""
     # Get patterns by type
@@ -265,7 +265,7 @@ def _position_perspectives_in_cube(perspectives: list, cube_size: int) -> list:
 def _draw_relationship_lines(
     ax,
     framework: P3IFFramework,
-    colors: Dict[str, str],
+    colors: dict[str, str],
     prop_positions: list,
     proc_positions: list,
     persp_positions: list,
@@ -320,7 +320,7 @@ def _draw_relationship_lines(
 
 
 def _create_p3if_dimension_cube(
-    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: Dict[str, str]
+    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: dict[str, str]
 ):
     """Create a dimension cube showing the three P3IF dimensions clearly."""
     fig = plt.figure(figsize=(14, 12))
@@ -377,7 +377,7 @@ def _draw_dimension_focus(
     processes: list,
     perspectives: list,
     cube_size: int,
-    colors: Dict[str, str],
+    colors: dict[str, str],
     focus_axis: str,
 ):
     """Draw a cube focusing on one dimension."""
@@ -450,7 +450,7 @@ def _draw_dimension_focus(
 
 
 def _create_dimension_summary(
-    ax, properties: list, processes: list, perspectives: list, colors: Dict[str, str]
+    ax, properties: list, processes: list, perspectives: list, colors: dict[str, str]
 ):
     """Create a summary visualization of the three P3IF dimensions."""
     # Create dimension bars
@@ -495,7 +495,7 @@ def _create_dimension_summary(
 
 
 def _create_relationship_cubes(
-    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: Dict[str, str]
+    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: dict[str, str]
 ):
     """Create visualizations showing relationship cubes."""
     fig = plt.figure(figsize=(12, 10))
@@ -593,7 +593,7 @@ def _draw_small_cube(ax, x: float, y: float, z: float, size: float, color: str, 
 def _draw_relationship_connections(
     ax,
     framework: P3IFFramework,
-    colors: Dict[str, str],
+    colors: dict[str, str],
     prop_positions: list,
     proc_positions: list,
     persp_positions: list,

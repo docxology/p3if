@@ -4,14 +4,15 @@ P3IF Validation Methods
 This module provides validation and constraint checking methods for P3IF frameworks.
 """
 
-from typing import Dict, List, Any, Optional, Callable
+from typing import Any
+from collections.abc import Callable
 from dataclasses import dataclass, field
-from enum import Enum
+from enum import StrEnum
 from datetime import datetime
 import re
 
 
-class ValidationSeverity(str, Enum):
+class ValidationSeverity(StrEnum):
     """Severity levels for validation issues."""
 
     ERROR = "error"
@@ -28,7 +29,7 @@ class ValidationRule:
         check_function: Callable,
         severity: ValidationSeverity = ValidationSeverity.ERROR,
         description: str = "",
-        applies_to: Optional[str] = None,
+        applies_to: str | None = None,
     ):
         self.name = name
         self.check_function = check_function
@@ -37,7 +38,7 @@ class ValidationRule:
         # applies_to: 'pattern', 'relationship', 'framework', or None for all
         self.applies_to = applies_to
 
-    def validate(self, target: Any) -> List[Dict[str, Any]]:
+    def validate(self, target: Any) -> list[dict[str, Any]]:
         """Run validation check and return issues."""
         issues = []
         try:
@@ -69,8 +70,8 @@ class ValidationRule:
 class ValidationEngine:
     """Engine for validating P3IF frameworks and components."""
 
-    rules: Dict[str, ValidationRule] = field(default_factory=dict)
-    validation_history: List[Dict[str, Any]] = field(default_factory=list)
+    rules: dict[str, ValidationRule] = field(default_factory=dict)
+    validation_history: list[dict[str, Any]] = field(default_factory=list)
 
     def __repr__(self) -> str:
         return f"ValidationEngine(rules={len(self.rules)}, history={len(self.validation_history)})"
@@ -79,9 +80,9 @@ class ValidationEngine:
         """Add a validation rule."""
         self.rules[rule.name] = rule
 
-    def validate_framework(self, framework: Any) -> Dict[str, Any]:
+    def validate_framework(self, framework: Any) -> dict[str, Any]:
         """Validate an entire P3IF framework."""
-        validation_result: Dict[str, Any] = {
+        validation_result: dict[str, Any] = {
             "framework": getattr(framework, "name", "unknown"),
             "timestamp": datetime.now().isoformat(),
             "overall_valid": True,
@@ -104,7 +105,7 @@ class ValidationEngine:
                             validation_result["issues"].extend(issues)
 
                 # Validate all relationships with relationship rules
-                relationships: List[Any] = getattr(framework, "get_all_relationships", lambda: [])()
+                relationships: list[Any] = getattr(framework, "get_all_relationships", lambda: [])()
                 for rel in relationships:
                     for rule_name, rule in self.rules.items():
                         if rule.applies_to in (None, "relationship"):
@@ -144,9 +145,9 @@ class ValidationEngine:
         self.validation_history.append(validation_result)
         return validation_result
 
-    def validate_dimension(self, dimension_name: str, elements: List[Any]) -> Dict[str, Any]:
+    def validate_dimension(self, dimension_name: str, elements: list[Any]) -> dict[str, Any]:
         """Validate a specific dimension."""
-        validation_result: Dict[str, Any] = {
+        validation_result: dict[str, Any] = {
             "dimension": dimension_name,
             "element_count": len(elements),
             "timestamp": datetime.now().isoformat(),
@@ -170,7 +171,7 @@ class ValidationEngine:
 
         return validation_result
 
-    def _validate_element(self, element: Any) -> List[Dict[str, Any]]:
+    def _validate_element(self, element: Any) -> list[dict[str, Any]]:
         """Validate a single element using registered rules."""
         issues = []
 
@@ -237,15 +238,15 @@ Issues Found:
 class ConstraintManager:
     """Manages constraints and rules for P3IF elements."""
 
-    constraints: Dict[str, List[Dict[str, Any]]] = field(default_factory=dict)
+    constraints: dict[str, list[dict[str, Any]]] = field(default_factory=dict)
 
-    def add_constraint(self, element_type: str, constraint: Dict[str, Any]) -> None:
+    def add_constraint(self, element_type: str, constraint: dict[str, Any]) -> None:
         """Add a constraint for an element type."""
         if element_type not in self.constraints:
             self.constraints[element_type] = []
         self.constraints[element_type].append(constraint)
 
-    def check_constraints(self, element: Any) -> List[Dict[str, Any]]:
+    def check_constraints(self, element: Any) -> list[dict[str, Any]]:
         """Check all constraints for an element."""
         violations = []
         element_type = type(element).__name__.lower()
@@ -264,7 +265,7 @@ class ConstraintManager:
 
         return violations
 
-    def _check_single_constraint(self, element: Any, constraint: Dict[str, Any]) -> bool:
+    def _check_single_constraint(self, element: Any, constraint: dict[str, Any]) -> bool:
         """Check a single constraint against an element."""
         constraint_type = constraint.get("type")
 
@@ -311,13 +312,13 @@ class ConstraintManager:
 
 
 # Pre-defined validation rules
-def create_default_validation_rules() -> Dict[str, ValidationRule]:
+def create_default_validation_rules() -> dict[str, ValidationRule]:
     """Create a set of default validation rules for P3IF."""
 
     rules = {}
 
     # Rule: Element must have a name
-    def check_name(element: Any) -> Dict[str, Any]:
+    def check_name(element: Any) -> dict[str, Any]:
         try:
             # Try to access the name field from Pydantic model
             if hasattr(element, "name") and element.name:
@@ -339,7 +340,7 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
     )
 
     # Rule: Description should be meaningful
-    def check_description(element: Any) -> Dict[str, Any]:
+    def check_description(element: Any) -> dict[str, Any]:
         if hasattr(element, "description"):
             desc = element.description or ""
             if len(desc) < 10:
@@ -355,7 +356,7 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
     )
 
     # Rule: Framework should have minimum elements
-    def check_minimum_elements(framework: Any) -> Dict[str, Any]:
+    def check_minimum_elements(framework: Any) -> dict[str, Any]:
         try:
             collection = getattr(framework, "get_pattern_collection", lambda: None)()
             if collection is None:
@@ -385,7 +386,7 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
     )
 
     # Rule: Relationship must connect at least two dimensions
-    def check_relationship_validity(relationship: Any) -> Dict[str, Any]:
+    def check_relationship_validity(relationship: Any) -> dict[str, Any]:
         try:
             # Try to access as Pydantic model
             if hasattr(relationship, "property_id"):
@@ -426,7 +427,7 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
     )
 
     # Rule: Relationship strength should be in valid range
-    def check_strength_range(relationship: Any) -> Dict[str, Any]:
+    def check_strength_range(relationship: Any) -> dict[str, Any]:
         if hasattr(relationship, "strength"):
             strength = getattr(relationship, "strength", 0.5)
             if not (0.0 <= strength <= 1.0):
@@ -442,7 +443,7 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
     )
 
     # Rule: Relationship confidence should be in valid range
-    def check_confidence_range(relationship: Any) -> Dict[str, Any]:
+    def check_confidence_range(relationship: Any) -> dict[str, Any]:
         if hasattr(relationship, "confidence"):
             confidence = getattr(relationship, "confidence", 1.0)
             if not (0.0 <= confidence <= 1.0):
@@ -458,7 +459,7 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
     )
 
     # Rule: Framework should have balanced dimensions
-    def check_dimension_balance(framework: Any) -> Dict[str, Any]:
+    def check_dimension_balance(framework: Any) -> dict[str, Any]:
         prop_count = len(getattr(framework, "properties", []))
         proc_count = len(getattr(framework, "processes", []))
         pers_count = len(getattr(framework, "perspectives", []))
@@ -498,10 +499,10 @@ def create_default_validation_rules() -> Dict[str, ValidationRule]:
 
 
 # Pre-defined constraints
-def create_default_constraints() -> Dict[str, List[Dict[str, Any]]]:
+def create_default_constraints() -> dict[str, list[dict[str, Any]]]:
     """Create default constraints for P3IF elements."""
 
-    constraints: Dict[str, List[Dict[str, Any]]] = {}
+    constraints: dict[str, list[dict[str, Any]]] = {}
 
     # Property constraints
     constraints["property"] = [

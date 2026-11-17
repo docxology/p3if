@@ -10,14 +10,14 @@ simple in-memory tracking without model validation overhead. Use the core.models
 classes (Property, Process, Perspective) when validation and serialization are needed.
 """
 
-from typing import Dict, List, Any, Optional
+from typing import Any
 from dataclasses import dataclass, field
-from enum import Enum
+from enum import StrEnum
 from collections import defaultdict
 from datetime import datetime
 
 
-class PropertyType(str, Enum):
+class PropertyType(StrEnum):
     """Types of properties."""
 
     SECURITY = "security"
@@ -27,7 +27,7 @@ class PropertyType(str, Enum):
     COMPLIANCE = "compliance"
 
 
-class ProcessType(str, Enum):
+class ProcessType(StrEnum):
     """Types of processes."""
 
     OPERATIONAL = "operational"
@@ -37,7 +37,7 @@ class ProcessType(str, Enum):
     INTEGRATION = "integration"
 
 
-class PerspectiveType(str, Enum):
+class PerspectiveType(StrEnum):
     """Types of perspectives."""
 
     STAKEHOLDER = "stakeholder"
@@ -51,15 +51,15 @@ class PerspectiveType(str, Enum):
 class PropertyManager:
     """Manages properties and their relationships."""
 
-    properties: Dict[str, Any] = field(default_factory=dict)
-    property_types: Dict[str, PropertyType] = field(default_factory=dict)
+    properties: dict[str, Any] = field(default_factory=dict)
+    property_types: dict[str, PropertyType] = field(default_factory=dict)
 
     def add_property(
         self,
         name: str,
         prop_type: PropertyType = PropertyType.TECHNICAL,
         description: str = "",
-        attributes: Optional[Dict[str, Any]] = None,
+        attributes: dict[str, Any] | None = None,
     ) -> Any:
         """Add a new property."""
         property_obj = {
@@ -73,14 +73,14 @@ class PropertyManager:
         self.property_types[name] = prop_type
         return property_obj
 
-    def categorize_properties(self) -> Dict[PropertyType, List[str]]:
+    def categorize_properties(self) -> dict[PropertyType, list[str]]:
         """Categorize properties by type."""
         categories = defaultdict(list)
         for name, prop_type in self.property_types.items():
             categories[prop_type].append(name)
         return dict(categories)
 
-    def find_similar_properties(self, name: str, threshold: float = 0.7) -> List[str]:
+    def find_similar_properties(self, name: str, threshold: float = 0.7) -> list[str]:
         """Find properties with similar names."""
         similar = []
         name_lower = name.lower()
@@ -98,8 +98,8 @@ class PropertyManager:
         return similar
 
     def validate_property_dependencies(
-        self, property_name: str, required_props: List[str]
-    ) -> Dict[str, bool]:
+        self, property_name: str, required_props: list[str]
+    ) -> dict[str, bool]:
         """Validate that required properties exist."""
         validation = {}
         for req_prop in required_props:
@@ -111,17 +111,17 @@ class PropertyManager:
 class ProcessManager:
     """Manages processes and their sequences."""
 
-    processes: Dict[str, Any] = field(default_factory=dict)
-    process_types: Dict[str, ProcessType] = field(default_factory=dict)
-    process_sequences: Dict[str, List[str]] = field(default_factory=dict)
+    processes: dict[str, Any] = field(default_factory=dict)
+    process_types: dict[str, ProcessType] = field(default_factory=dict)
+    process_sequences: dict[str, list[str]] = field(default_factory=dict)
 
     def add_process(
         self,
         name: str,
         proc_type: ProcessType = ProcessType.OPERATIONAL,
         description: str = "",
-        inputs: Optional[List[str]] = None,
-        outputs: Optional[List[str]] = None,
+        inputs: list[str] | None = None,
+        outputs: list[str] | None = None,
     ) -> Any:
         """Add a new process."""
         process_obj = {
@@ -136,11 +136,11 @@ class ProcessManager:
         self.process_types[name] = proc_type
         return process_obj
 
-    def define_process_sequence(self, sequence_name: str, process_list: List[str]) -> None:
+    def define_process_sequence(self, sequence_name: str, process_list: list[str]) -> None:
         """Define a sequence of processes."""
         self.process_sequences[sequence_name] = process_list
 
-    def get_process_dependencies(self, process_name: str) -> Dict[str, List[str]]:
+    def get_process_dependencies(self, process_name: str) -> dict[str, list[str]]:
         """Get dependencies for a process."""
         if process_name not in self.processes:
             return {}
@@ -148,9 +148,9 @@ class ProcessManager:
         process = self.processes[process_name]
         return {"inputs": process["inputs"], "outputs": process["outputs"]}
 
-    def validate_process_chain(self, process_list: List[str]) -> Dict[str, Any]:
+    def validate_process_chain(self, process_list: list[str]) -> dict[str, Any]:
         """Validate that a process chain is complete and consistent."""
-        validation: Dict[str, Any] = {
+        validation: dict[str, Any] = {
             "valid": True,
             "missing_processes": [],
             "broken_links": [],
@@ -190,9 +190,9 @@ class ProcessManager:
 class PerspectiveManager:
     """Manages perspectives and their viewpoints."""
 
-    perspectives: Dict[str, Any] = field(default_factory=dict)
-    perspective_types: Dict[str, PerspectiveType] = field(default_factory=dict)
-    viewpoint_hierarchies: Dict[str, List[str]] = field(default_factory=dict)
+    perspectives: dict[str, Any] = field(default_factory=dict)
+    perspective_types: dict[str, PerspectiveType] = field(default_factory=dict)
+    viewpoint_hierarchies: dict[str, list[str]] = field(default_factory=dict)
 
     def add_perspective(
         self,
@@ -213,17 +213,17 @@ class PerspectiveManager:
         self.perspective_types[name] = pers_type
         return perspective_obj
 
-    def define_viewpoint_hierarchy(self, hierarchy_name: str, viewpoints: List[str]) -> None:
+    def define_viewpoint_hierarchy(self, hierarchy_name: str, viewpoints: list[str]) -> None:
         """Define a hierarchy of viewpoints."""
         self.viewpoint_hierarchies[hierarchy_name] = viewpoints
 
-    def get_perspectives_by_type(self, pers_type: PerspectiveType) -> List[str]:
+    def get_perspectives_by_type(self, pers_type: PerspectiveType) -> list[str]:
         """Get all perspectives of a specific type."""
         return [name for name, ptype in self.perspective_types.items() if ptype == pers_type]
 
-    def analyze_perspective_coverage(self, elements: List[Any]) -> Dict[str, Any]:
+    def analyze_perspective_coverage(self, elements: list[Any]) -> dict[str, Any]:
         """Analyze how well perspectives cover different elements."""
-        coverage: Dict[str, Any] = {
+        coverage: dict[str, Any] = {
             "total_elements": len(elements),
             "covered_elements": 0,
             "perspective_effectiveness": {},
@@ -262,7 +262,7 @@ class PerspectiveManager:
 
         return coverage
 
-    def _perspective_covers_element(self, perspective: Dict, element: Any) -> bool:
+    def _perspective_covers_element(self, perspective: dict, element: Any) -> bool:
         """Check if a perspective covers a specific element."""
         perspective_keywords = set(perspective["name"].lower().split())
         element_keywords = set()

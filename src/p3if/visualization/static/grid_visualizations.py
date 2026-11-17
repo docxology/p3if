@@ -5,12 +5,13 @@ P3IF 2D Grid Visualizations
 Generates 2D grid visualizations showing combinations of Properties, Processes, and Perspectives
 with proper P3IF labeling and data integration.
 """
+
 import logging
 import matplotlib.pyplot as plt
 import matplotlib.patches as patches
 import numpy as np
 from pathlib import Path
-from typing import Dict, List, Any
+from typing import Any
 
 from p3if.core.framework import P3IFFramework
 from p3if.core.models import Property, Process, Perspective, Relationship
@@ -83,7 +84,7 @@ def generate_grid_visualizations(
 
 
 def _create_p3if_component_grid(
-    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: Dict[str, str]
+    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: dict[str, str]
 ):
     """Create a 2D grid showing all P3IF components organized by type."""
     # Get components by type
@@ -160,7 +161,7 @@ def _create_p3if_component_grid(
 
 
 def _draw_main_p3if_grid(
-    ax, properties: list, processes: list, perspectives: list, colors: Dict[str, str]
+    ax, properties: list, processes: list, perspectives: list, colors: dict[str, str]
 ):
     """Draw the main P3IF component grid."""
     ax.axis("off")
@@ -296,7 +297,7 @@ def _draw_component_pair_grid(
     )
 
 
-def _add_grid_summary(ax, framework: P3IFFramework, colors: Dict[str, str]):
+def _add_grid_summary(ax, framework: P3IFFramework, colors: dict[str, str]):
     """Add summary statistics to the grid."""
     ax.axis("off")
 
@@ -334,13 +335,13 @@ def _add_grid_summary(ax, framework: P3IFFramework, colors: Dict[str, str]):
 
 
 def _create_relationship_grid(
-    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: Dict[str, str]
+    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: dict[str, str]
 ):
     """Create a grid showing relationship patterns."""
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(16, 14))
 
     # Get relationships by type
-    rel_types: Dict[str, List[Relationship]] = {}
+    rel_types: dict[str, list[Relationship]] = {}
     for rel in framework._relationships.values():
         rel_type = getattr(rel, "relationship_type", "general")
         if rel_type not in rel_types:
@@ -452,7 +453,7 @@ def _create_relationship_grid(
 
 
 def _create_domain_grid(
-    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: Dict[str, str]
+    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: dict[str, str]
 ):
     """Create a grid showing domain organization."""
     fig, ax = plt.subplots(1, 1, figsize=(12, 10))
@@ -593,7 +594,7 @@ def _create_comprehensive_p3if_matrix(
     session_path: Path,
     filename: str,
     title: str,
-    colors: Dict[str, str],
+    colors: dict[str, str],
 ):
     """Create a comprehensive matrix showing all P3IF combinations."""
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(16, 14))
@@ -740,7 +741,7 @@ def _create_comprehensive_p3if_matrix(
     logger.info(f"Generated: {output_path}")
 
 
-def _calculate_framework_grid_stats(framework: P3IFFramework) -> Dict[str, Any]:
+def _calculate_framework_grid_stats(framework: P3IFFramework) -> dict[str, Any]:
     """Calculate comprehensive statistics for grid visualization."""
     properties = [p for p in framework._patterns.values() if isinstance(p, Property)]
     processes = [p for p in framework._patterns.values() if isinstance(p, Process)]

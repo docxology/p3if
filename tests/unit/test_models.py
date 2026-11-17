@@ -1,9 +1,10 @@
 """
 Comprehensive unit tests for the P3IF data models.
 """
+
 import unittest
 import pytest
-from datetime import datetime, timezone
+from datetime import datetime, UTC
 from pydantic import ValidationError
 
 from p3if.core.models import (
@@ -35,7 +36,7 @@ class TestMetadataMixin(unittest.TestCase):
 
     def test_metadata_mixin_custom_values(self):
         """Test MetadataMixin initialization with custom values on Property."""
-        now = datetime.now(timezone.utc)
+        now = datetime.now(UTC)
         prop = Property(
             name="Test",
             description="Test description",
@@ -86,7 +87,7 @@ class TestBasePattern(unittest.TestCase):
 
     def test_base_pattern_custom_values(self):
         """Test BasePattern initialization with custom values."""
-        now = datetime.now(timezone.utc)
+        now = datetime.now(UTC)
         pattern = Property(
             name="Custom Pattern",
             description="Custom description",
@@ -802,7 +803,7 @@ class TestModelIntegration(unittest.TestCase):
             Perspective(
                 name="Test Perspective",
                 description="Test description",
-                domain="test_domain"
+                domain="test_domain",
                 # viewpoint is required but missing
             )
 

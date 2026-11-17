@@ -281,7 +281,7 @@ class TestP3IFCore(unittest.TestCase):
             self.assertTrue(os.path.exists(temp_file))
 
             # Check file contents
-            with open(temp_file, "r") as f:
+            with open(temp_file) as f:
                 data = json.load(f)
 
             self.assertIn("patterns", data)

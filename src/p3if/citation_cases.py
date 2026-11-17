@@ -6,7 +6,7 @@ import json
 from collections import Counter
 from copy import deepcopy
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any
 
 from .held_out_cases import _COLLECTIONS, _apply_edits, _encode, _event, _record
 from .held_out_verify import _source_values
@@ -43,7 +43,7 @@ def _span(
     source_sha256: str,
     kind: str,
     identity: str,
-) -> Optional[Object]:
+) -> Object | None:
     index, row = _record(document, kind, identity)
     if row is None:
         return None

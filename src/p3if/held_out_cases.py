@@ -12,7 +12,7 @@ import json
 import re
 from copy import deepcopy
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any
 
 from .interchange import load_interchange
 from .reviewer_study_cases import _baseline, _score, _sha
@@ -39,7 +39,7 @@ def _encode(document: Object, *, ascii_only: bool = False) -> bytes:
     return (_json(document, ascii_only=ascii_only) + "\n").encode("utf-8")
 
 
-def _record(document: Object, kind: str, identity: str) -> tuple[Optional[int], Optional[Object]]:
+def _record(document: Object, kind: str, identity: str) -> tuple[int | None, Object | None]:
     if kind == "framework":
         framework = document["framework"]
         if framework["id"] != identity:
@@ -100,7 +100,7 @@ def _apply_edits(document: Object, edits: list[Object]) -> None:
         _apply(document, edit)
 
 
-def _side(kind: str, row: Optional[Object]) -> Optional[Object]:
+def _side(kind: str, row: Object | None) -> Object | None:
     if row is None:
         return None
     if kind == "relationship":
@@ -114,7 +114,7 @@ def _side(kind: str, row: Optional[Object]) -> Optional[Object]:
     }
 
 
-def _event(edit: Object, earlier: Optional[Object], later: Optional[Object]) -> Object:
+def _event(edit: Object, earlier: Object | None, later: Object | None) -> Object:
     kind, operation = edit["kind"], edit["change"]
     left, right = _side(kind, earlier), _side(kind, later)
     fields = (
@@ -136,9 +136,7 @@ def _event(edit: Object, earlier: Optional[Object], later: Optional[Object]) -> 
     }
 
 
-def _citation(
-    data: bytes, kind: str, found: tuple[Optional[int], Optional[Object]]
-) -> Optional[Object]:
+def _citation(data: bytes, kind: str, found: tuple[int | None, Object | None]) -> Object | None:
     index, record = found
     if record is None:
         return None

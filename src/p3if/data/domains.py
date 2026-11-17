@@ -3,7 +3,9 @@ P3IF Domain Manager
 
 This module provides domain management functionality for P3IF.
 """
-from typing import Set, Dict, List, Any, Optional, Union, Iterable
+
+from typing import Any
+from collections.abc import Iterable
 import json
 from pathlib import Path
 import logging
@@ -28,7 +30,7 @@ class DomainManager:
     def __repr__(self) -> str:
         return f"DomainManager(domains={len(self.framework.get_all_domains())})"
 
-    def get_domains(self) -> Set[str]:
+    def get_domains(self) -> set[str]:
         """
         Get all domains in the framework.
 
@@ -47,7 +49,7 @@ class DomainManager:
 
         return domains
 
-    def get_patterns_by_domain(self, domain: str) -> Dict[str, List[BasePattern]]:
+    def get_patterns_by_domain(self, domain: str) -> dict[str, list[BasePattern]]:
         """
         Get all patterns in a domain.
 
@@ -57,7 +59,7 @@ class DomainManager:
         Returns:
             Dictionary of pattern lists by type
         """
-        result: Dict[str, List[BasePattern]] = {
+        result: dict[str, list[BasePattern]] = {
             "property": [],
             "process": [],
             "perspective": [],
@@ -72,7 +74,7 @@ class DomainManager:
 
         return result
 
-    def get_domain_statistics(self, domain: Optional[str] = None) -> Dict[str, Any]:
+    def get_domain_statistics(self, domain: str | None = None) -> dict[str, Any]:
         """
         Get statistics for a domain or all domains.
 
@@ -122,7 +124,7 @@ class DomainManager:
 
         return result
 
-    def get_cross_domain_relationships(self) -> List[Dict[str, Any]]:
+    def get_cross_domain_relationships(self) -> list[dict[str, Any]]:
         """
         Get all cross-domain relationships.
 
@@ -165,7 +167,7 @@ class DomainManager:
 
         return result
 
-    def export_domain(self, domain: str, file_path: Union[str, Path]) -> None:
+    def export_domain(self, domain: str, file_path: str | Path) -> None:
         """
         Export a domain to a JSON file.
 
@@ -209,14 +211,14 @@ class DomainManager:
 
         self.logger.info(f"Exported domain '{domain}' to {file_path}")
 
-    def import_domain(self, file_path: Union[str, Path]) -> None:
+    def import_domain(self, file_path: str | Path) -> None:
         """
         Import a domain from a JSON file.
 
         Args:
             file_path: Path to import file
         """
-        with open(file_path, "r") as f:
+        with open(file_path) as f:
             data = json.load(f)
 
         domain = data.get("domain")
@@ -270,7 +272,7 @@ class DomainManager:
 
         self.logger.info(f"Imported domain '{domain}' from {file_path}")
 
-    def merge_domains(self, source_domains: List[str], target_domain: str) -> None:
+    def merge_domains(self, source_domains: list[str], target_domain: str) -> None:
         """
         Merge multiple domains into a new domain.
 

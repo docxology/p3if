@@ -1,6 +1,7 @@
 """
 Tests to verify all domain data can be visualized correctly.
 """
+
 import unittest
 from pathlib import Path
 import sys
@@ -129,7 +130,7 @@ class TestAllDomains(unittest.TestCase):
                 )
 
                 # Check that it contains the expected visualization elements
-                with open(result_file, "r") as f:
+                with open(result_file) as f:
                     content = f.read()
                     self.assertIn(
                         "3d-cube-container", content, f"3D cube missing for domain: {domain_name}"
@@ -206,7 +207,7 @@ class TestAllDomains(unittest.TestCase):
             self.assertGreater(result_file.stat().st_size, 0, "Empty multi-domain visualization")
 
             # Check that it contains the expected elements
-            with open(result_file, "r") as f:
+            with open(result_file) as f:
                 content = f.read()
                 self.assertIn(
                     "dataset-selector",

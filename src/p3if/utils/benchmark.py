@@ -17,6 +17,7 @@ Usage:
     benchmark.print_results()
     benchmark.save_results()
 """
+
 import time
 
 try:
@@ -27,8 +28,8 @@ import tracemalloc
 import json
 import tempfile
 from pathlib import Path
-from typing import Dict, List, Any, Optional
-from datetime import datetime, timezone
+from typing import Any
+from datetime import datetime, UTC
 
 from p3if.core.framework import P3IFFramework
 from p3if.visualization.interactive import InteractiveVisualizer
@@ -40,21 +41,21 @@ from .fixtures import create_test_patterns_with_relationships
 class PerformanceBenchmark:
     """Comprehensive performance benchmarking suite."""
 
-    def __init__(self, output_file: Optional[str] = None):
+    def __init__(self, output_file: str | None = None):
         """Initialize the benchmark suite.
 
         Args:
             output_file: Optional file to save results
         """
         self.output_file = output_file
-        self.results: Dict[str, Any] = {
-            "timestamp": datetime.now(timezone.utc).isoformat(),
+        self.results: dict[str, Any] = {
+            "timestamp": datetime.now(UTC).isoformat(),
             "system_info": self._get_system_info(),
             "benchmarks": {},
             "summary": {},
         }
 
-    def _get_system_info(self) -> Dict[str, Any]:
+    def _get_system_info(self) -> dict[str, Any]:
         """Get system information for the benchmark."""
         try:
             import platform
@@ -69,7 +70,7 @@ class PerformanceBenchmark:
         except ImportError:
             return {"error": "psutil not available"}
 
-    def _time_operation(self, operation_name: str, func, *args, **kwargs) -> Dict[str, Any]:
+    def _time_operation(self, operation_name: str, func, *args, **kwargs) -> dict[str, Any]:
         """Time a single operation and collect metrics.
 
         Args:
@@ -122,7 +123,7 @@ class PerformanceBenchmark:
         except Exception:
             return 0
 
-    def benchmark_framework_creation(self, sizes: List[int]) -> Dict[str, Any]:
+    def benchmark_framework_creation(self, sizes: list[int]) -> dict[str, Any]:
         """Benchmark framework creation with different sizes."""
         results = {}
 
@@ -143,7 +144,7 @@ class PerformanceBenchmark:
 
     def benchmark_metrics_calculation(
         self, framework: P3IFFramework, iterations: int = 10
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """Benchmark metrics calculation performance."""
         results = []
 
@@ -175,7 +176,7 @@ class PerformanceBenchmark:
 
     def benchmark_pattern_queries(
         self, framework: P3IFFramework, num_queries: int = 50
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """Benchmark pattern query performance."""
         query_results = {}
 
@@ -202,7 +203,7 @@ class PerformanceBenchmark:
 
         return query_results
 
-    def benchmark_visualization_generation(self, framework: P3IFFramework) -> Dict[str, Any]:
+    def benchmark_visualization_generation(self, framework: P3IFFramework) -> dict[str, Any]:
         """Benchmark visualization generation performance."""
         visualizer = InteractiveVisualizer(framework)
         dashboard_path = Path(tempfile.gettempdir()) / "p3if_benchmark_dashboard.html"
@@ -223,7 +224,7 @@ class PerformanceBenchmark:
 
     def benchmark_concurrent_operations(
         self, framework: P3IFFramework, num_threads: int = 4
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """Benchmark concurrent operations performance."""
         import concurrent.futures
 
@@ -270,7 +271,7 @@ class PerformanceBenchmark:
             },
         }
 
-    def benchmark_memory_usage(self, framework: P3IFFramework) -> Dict[str, Any]:
+    def benchmark_memory_usage(self, framework: P3IFFramework) -> dict[str, Any]:
         """Benchmark memory usage patterns."""
         memory_results = {}
 
@@ -312,7 +313,7 @@ class PerformanceBenchmark:
 
         return memory_results
 
-    def run_comprehensive_benchmark(self) -> Dict[str, Any]:
+    def run_comprehensive_benchmark(self) -> dict[str, Any]:
         """Run a comprehensive performance benchmark."""
         print("🚀 Starting P3IF Performance Benchmark Suite")
         print("=" * 60)

@@ -10,7 +10,7 @@ import sys
 import time
 import json
 import functools
-from typing import Optional, Dict, Any
+from typing import Any
 from pathlib import Path
 from datetime import datetime
 from collections import defaultdict
@@ -39,8 +39,8 @@ class P3IFLogger:
     )
 
     _configured = False
-    _loggers: Dict[str, logging.Logger] = {}
-    _metrics: Dict[str, Dict[str, Any]] = defaultdict(
+    _loggers: dict[str, logging.Logger] = {}
+    _metrics: dict[str, dict[str, Any]] = defaultdict(
         lambda: {"count": 0, "total_time": 0.0, "errors": 0}
     )
 
@@ -48,8 +48,8 @@ class P3IFLogger:
     def configure(
         cls,
         level: int = logging.INFO,
-        format_string: Optional[str] = None,
-        log_file: Optional[Path] = None,
+        format_string: str | None = None,
+        log_file: Path | None = None,
         json_format: bool = False,
         enable_console: bool = True,
     ) -> None:
@@ -117,7 +117,7 @@ class P3IFLogger:
             cls._metrics[operation]["errors"] += 1
 
     @classmethod
-    def get_metrics(cls) -> Dict[str, Dict[str, Any]]:
+    def get_metrics(cls) -> dict[str, dict[str, Any]]:
         """Get collected performance metrics."""
         metrics = {}
         for operation, data in cls._metrics.items():
@@ -152,7 +152,7 @@ def log_method_call(
     logger: logging.Logger,
     method_name: str,
     args: tuple = (),
-    kwargs: Optional[Dict[str, Any]] = None,
+    kwargs: dict[str, Any] | None = None,
 ) -> None:
     """Log method entry with parameters."""
     if kwargs is None:
@@ -183,7 +183,7 @@ def log_method_result(
     logger: logging.Logger,
     method_name: str,
     result,
-    duration: Optional[float] = None,
+    duration: float | None = None,
 ) -> None:
     """Log method completion with result."""
     result_str = str(result)[:200] if result is not None else "None"
@@ -203,7 +203,7 @@ def log_error(
     logger: logging.Logger,
     method_name: str,
     error: Exception,
-    context: Optional[Dict[str, Any]] = None,
+    context: dict[str, Any] | None = None,
 ) -> None:
     """Log method errors with context."""
     context_str = f" | Context: {context}" if context else ""
@@ -214,8 +214,8 @@ def log_operation(
     logger: logging.Logger,
     operation: str,
     status: str,
-    details: Optional[Dict[str, Any]] = None,
-    duration: Optional[float] = None,
+    details: dict[str, Any] | None = None,
+    duration: float | None = None,
 ) -> None:
     """Log operations with structured data for better observability."""
     details = details or {}
@@ -336,12 +336,12 @@ def performance_monitor(threshold_ms: float = 1000.0):
     return decorator
 
 
-def setup_default_logging(log_file: Optional[Path] = None) -> None:
+def setup_default_logging(log_file: Path | None = None) -> None:
     """Setup default P3IF logging configuration."""
     P3IFLogger.configure(level=logging.INFO, log_file=log_file, enable_console=True)
 
 
-def get_performance_report() -> Dict[str, Any]:
+def get_performance_report() -> dict[str, Any]:
     """Generate a comprehensive performance report."""
     metrics = P3IFLogger.get_metrics()
 
@@ -369,9 +369,9 @@ def get_performance_report() -> Dict[str, Any]:
             "total_operations": total_operations,
             "total_errors": total_errors,
             "total_time": total_time,
-            "average_time_per_operation": total_time / total_operations
-            if total_operations > 0
-            else 0,
+            "average_time_per_operation": (
+                total_time / total_operations if total_operations > 0 else 0
+            ),
             "overall_error_rate": total_errors / total_operations if total_operations > 0 else 0,
         },
         "slowest_operations": slowest_ops,

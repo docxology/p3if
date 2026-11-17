@@ -5,7 +5,6 @@ This module tests the PropertyManager, ProcessManager, and PerspectiveManager cl
 that provide specialized functionality for working with P3IF dimensions.
 """
 
-
 from p3if.core.dimensions import (
     PropertyManager,
     ProcessManager,

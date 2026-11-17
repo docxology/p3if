@@ -3,11 +3,11 @@ P3IF Data Importers
 
 This module provides functions for importing P3IF data from various file formats.
 """
+
 import csv
 import json
 import logging
 from pathlib import Path
-from typing import Union, Optional
 
 from p3if.core.framework import P3IFFramework
 from p3if.core.models import (
@@ -24,7 +24,7 @@ logger = logging.getLogger(__name__)
 
 
 def import_from_json(
-    file_path: Union[str, Path], framework: Optional[P3IFFramework] = None
+    file_path: str | Path, framework: P3IFFramework | None = None
 ) -> P3IFFramework:
     """
     Import P3IF data from a JSON file.
@@ -43,7 +43,7 @@ def import_from_json(
     logger.info(f"Importing P3IF data from JSON: {file_path}")
 
     try:
-        with open(file_path, "r") as f:
+        with open(file_path) as f:
             data = json.load(f)
 
         # Import patterns with correct type mapping
@@ -77,9 +77,9 @@ def import_from_json(
 
 
 def import_from_csv(
-    patterns_file: Union[str, Path],
-    relationships_file: Union[str, Path],
-    framework: Optional[P3IFFramework] = None,
+    patterns_file: str | Path,
+    relationships_file: str | Path,
+    framework: P3IFFramework | None = None,
 ) -> P3IFFramework:
     """
     Import P3IF data from CSV files.
@@ -103,7 +103,7 @@ def import_from_csv(
 
     try:
         # Import patterns
-        with open(patterns_file, "r", newline="") as csvfile:
+        with open(patterns_file, newline="") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 pattern_type = row.get("type")
@@ -135,7 +135,7 @@ def import_from_csv(
                 framework.add_pattern(pattern)
 
         # Import relationships
-        with open(relationships_file, "r", newline="") as csvfile:
+        with open(relationships_file, newline="") as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 relationship = Relationship(

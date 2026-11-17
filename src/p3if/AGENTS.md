@@ -16,4 +16,4 @@ interactive, animated, portals). `py.typed` marks the package as typed.
   [`orchestrators/AGENTS.md`](orchestrators/AGENTS.md), [`utils/AGENTS.md`](utils/AGENTS.md),
   [`visualization/AGENTS.md`](visualization/AGENTS.md).
 - Tests live under `tests/`, never inside the package; CI runs them on Python
-  3.11–3.12.
+  3.13–3.14.

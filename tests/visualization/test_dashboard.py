@@ -2,6 +2,7 @@
 """
 Tests for the dashboard generator in the P3IF framework.
 """
+
 import unittest
 from pathlib import Path
 import sys
@@ -180,7 +181,7 @@ class TestDashboardGenerator(unittest.TestCase):
         self.assertTrue(output_file.stat().st_size > 0)
 
         # Check the content of the file
-        with open(output_file, "r") as f:
+        with open(output_file) as f:
             content = f.read()
 
             # Check for dataset selector
@@ -214,7 +215,7 @@ class TestDashboardGenerator(unittest.TestCase):
         self.assertTrue(output_file.exists())
 
         # Check for responsive design elements in CSS
-        with open(output_file, "r") as f:
+        with open(output_file) as f:
             content = f.read()
 
             # Check for responsive design CSS

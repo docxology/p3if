@@ -5,7 +5,6 @@ Pydantic models for validating domain JSON files loaded from data/domains/.
 """
 
 from pydantic import BaseModel, Field, field_validator
-from typing import List
 
 
 class DomainData(BaseModel):
@@ -23,9 +22,9 @@ class DomainData(BaseModel):
 
     domain: str = Field(..., min_length=1, max_length=200, description="Domain name")
     version: str = Field(default="1.0", description="Domain data version")
-    properties: List[str] = Field(default_factory=list, description="Property names")
-    processes: List[str] = Field(default_factory=list, description="Process names")
-    perspectives: List[str] = Field(default_factory=list, description="Perspective names")
+    properties: list[str] = Field(default_factory=list, description="Property names")
+    processes: list[str] = Field(default_factory=list, description="Process names")
+    perspectives: list[str] = Field(default_factory=list, description="Perspective names")
 
     model_config = {
         "extra": "ignore",
@@ -40,7 +39,7 @@ class DomainData(BaseModel):
 
     @field_validator("properties", "processes", "perspectives")
     @classmethod
-    def validate_lists(cls, v: List[str]) -> List[str]:
+    def validate_lists(cls, v: list[str]) -> list[str]:
         """Ensure all entries are non-empty strings."""
         cleaned = []
         for item in v:

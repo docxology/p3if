@@ -3,6 +3,7 @@ JSON utilities for the P3IF framework.
 
 This module provides utilities for JSON encoding and decoding of P3IF objects.
 """
+
 import json
 from datetime import datetime
 

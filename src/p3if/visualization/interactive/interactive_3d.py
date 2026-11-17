@@ -6,7 +6,7 @@ enabling users to explore Properties, Processes, and Perspectives in immersive 3
 """
 
 import math
-from typing import Dict, List, Any, Tuple, Union
+from typing import Any
 from pathlib import Path
 from dataclasses import dataclass, field
 import logging
@@ -26,8 +26,8 @@ class Interactive3DVisualizer:
     """Advanced interactive 3D visualization for P3IF frameworks."""
 
     name: str = "interactive_3d_visualizer"
-    framework_data: Dict[str, Any] = field(default_factory=dict)
-    visualization_config: Dict[str, Any] = field(default_factory=dict)
+    framework_data: dict[str, Any] = field(default_factory=dict)
+    visualization_config: dict[str, Any] = field(default_factory=dict)
     logger = logging.getLogger(__name__)
 
     def __post_init__(self):
@@ -45,7 +45,7 @@ class Interactive3DVisualizer:
             "animation": {"enabled": True, "duration": 1000, "easing": "cubic-in-out"},
         }
 
-    def load_framework_data(self, data: Dict[str, Any]):
+    def load_framework_data(self, data: dict[str, Any]):
         """Load P3IF framework data for visualization."""
         self.framework_data = data
 
@@ -371,7 +371,7 @@ class Interactive3DVisualizer:
 
     def _calculate_rotated_positions(
         self, dimension: str, angle_degrees: int, radius: float = 3.0
-    ) -> List[Tuple[float, float, float]]:
+    ) -> list[tuple[float, float, float]]:
         """Calculate rotated positions for animation."""
         angle_radians = math.radians(angle_degrees)
         positions = []
@@ -644,7 +644,7 @@ class Interactive3DVisualizer:
         return fig
 
     def export_visualization(
-        self, fig: Any, format: str = "html", filename: Union[str, Path] = "p3if_cube"
+        self, fig: Any, format: str = "html", filename: str | Path = "p3if_cube"
     ) -> str:
         """Export visualization to various formats."""
         if not PLOTLY_AVAILABLE:

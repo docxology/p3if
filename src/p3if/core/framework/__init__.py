@@ -10,6 +10,7 @@ navigability and maintainability:
 - ``metrics``: the :class:`FrameworkMetrics` data structure.
 - ``builder``: the fluent :class:`FrameworkBuilder` API.
 """
+
 from .core import P3IFFramework
 from .metrics import FrameworkMetrics
 from .builder import FrameworkBuilder

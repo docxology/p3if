@@ -4,6 +4,7 @@ Performance monitoring and optimization utilities for P3IF.
 This module provides comprehensive performance monitoring, profiling, caching,
 and optimization utilities for the P3IF framework.
 """
+
 import time
 import functools
 from datetime import datetime
@@ -18,7 +19,8 @@ except ImportError:
     PSUTIL_AVAILABLE = False
 
 import threading
-from typing import Dict, Any, List, Optional, Callable, Union
+from typing import Any
+from collections.abc import Callable
 from contextlib import contextmanager
 from dataclasses import dataclass, field
 from collections import defaultdict, OrderedDict
@@ -45,7 +47,7 @@ class PerformanceMetrics:
     network_requests: int = 0
     timestamp: float = field(default_factory=time.time)
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Convert metrics to dictionary."""
         return {
             "execution_time": self.execution_time,
@@ -69,7 +71,7 @@ class CacheEntry:
     last_accessed: float
     access_count: int = 0
     size_bytes: int = 0
-    ttl: Optional[float] = None  # Time to live in seconds
+    ttl: float | None = None  # Time to live in seconds
 
     def is_expired(self) -> bool:
         """Check if cache entry has expired."""
@@ -86,7 +88,7 @@ class CacheEntry:
 class LRUCache:
     """Least Recently Used (LRU) cache with size and TTL support."""
 
-    def __init__(self, max_size: int = 1000, default_ttl: Optional[float] = None):
+    def __init__(self, max_size: int = 1000, default_ttl: float | None = None):
         """Initialize LRU cache.
 
         Args:
@@ -141,7 +143,7 @@ class LRUCache:
             if key in self.cache:
                 del self.cache[key]
 
-    def get(self, key: str) -> Optional[Any]:
+    def get(self, key: str) -> Any | None:
         """Get value from cache."""
         with self.lock:
             if key not in self.cache:
@@ -160,7 +162,7 @@ class LRUCache:
             self.hits += 1
             return entry.value
 
-    def put(self, key: str, value: Any, ttl: Optional[float] = None):
+    def put(self, key: str, value: Any, ttl: float | None = None):
         """Put value in cache."""
         with self.lock:
             # Calculate size if possible
@@ -202,7 +204,7 @@ class LRUCache:
             self.hits = 0
             self.misses = 0
 
-    def stats(self) -> Dict[str, Any]:
+    def stats(self) -> dict[str, Any]:
         """Get cache statistics."""
         with self.lock:
             total_size = sum(entry.size_bytes for entry in self.cache.values())
@@ -211,9 +213,9 @@ class LRUCache:
                 "max_size": self.max_size,
                 "hits": self.hits,
                 "misses": self.misses,
-                "hit_rate": self.hits / (self.hits + self.misses)
-                if (self.hits + self.misses) > 0
-                else 0,
+                "hit_rate": (
+                    self.hits / (self.hits + self.misses) if (self.hits + self.misses) > 0 else 0
+                ),
                 "total_size_bytes": total_size,
             }
 
@@ -223,8 +225,8 @@ class PerformanceMonitor:
 
     def __init__(self):
         """Initialize performance monitor."""
-        self.metrics: Dict[str, List[PerformanceMetrics]] = defaultdict(list)
-        self.active_timers: Dict[str, float] = {}
+        self.metrics: dict[str, list[PerformanceMetrics]] = defaultdict(list)
+        self.active_timers: dict[str, float] = {}
         self.lock = threading.Lock()
         self.enabled = True
         self.logger = logging.getLogger(__name__)
@@ -241,8 +243,8 @@ class PerformanceMonitor:
             self.active_timers[name] = time.time()
 
     def end_timer(
-        self, name: str, metadata: Optional[Dict[str, Any]] = None
-    ) -> Optional[PerformanceMetrics]:
+        self, name: str, metadata: dict[str, Any] | None = None
+    ) -> PerformanceMetrics | None:
         """End a performance timer and record metrics."""
         if not self.enabled:
             return None
@@ -278,11 +280,11 @@ class PerformanceMonitor:
             self.metrics[name].append(metrics)
             return metrics
 
-    def get_metrics(self, name: str) -> List[PerformanceMetrics]:
+    def get_metrics(self, name: str) -> list[PerformanceMetrics]:
         """Get performance metrics for a specific timer."""
         return self.metrics.get(name, [])
 
-    def get_summary_stats(self, name: str) -> Dict[str, Any]:
+    def get_summary_stats(self, name: str) -> dict[str, Any]:
         """Get summary statistics for a timer."""
         metrics = self.get_metrics(name)
 
@@ -364,7 +366,7 @@ _framework_cache = LRUCache(max_size=500, default_ttl=600)  # 10 minutes default
 _visualization_cache = LRUCache(max_size=100, default_ttl=1800)  # 30 minutes default TTL
 
 
-def performance_timer(name: str, metadata: Optional[Dict[str, Any]] = None):
+def performance_timer(name: str, metadata: dict[str, Any] | None = None):
     """Decorator for timing function execution."""
 
     def decorator(func: Callable):
@@ -384,7 +386,7 @@ def performance_timer(name: str, metadata: Optional[Dict[str, Any]] = None):
     return decorator
 
 
-def cached(cache_key: Optional[Union[str, Callable]] = None, ttl: Optional[float] = None):
+def cached(cache_key: str | Callable | None = None, ttl: float | None = None):
     """Decorator for caching function results."""
 
     # Handle both @cached and @cached() syntax
@@ -480,7 +482,7 @@ def clear_all_caches():
 
 
 @contextmanager
-def performance_context(name: str, metadata: Optional[Dict[str, Any]] = None):
+def performance_context(name: str, metadata: dict[str, Any] | None = None):
     """Context manager for performance monitoring."""
     monitor = get_performance_monitor()
     monitor.start_timer(name)
@@ -490,7 +492,7 @@ def performance_context(name: str, metadata: Optional[Dict[str, Any]] = None):
         monitor.end_timer(name, metadata)
 
 
-async def async_performance_timer(name: str, metadata: Optional[Dict[str, Any]] = None):
+async def async_performance_timer(name: str, metadata: dict[str, Any] | None = None):
     """Async context manager for performance monitoring."""
     monitor = get_performance_monitor()
     monitor.start_timer(name)
@@ -575,7 +577,7 @@ def get_system_resources():
         return {"error": "psutil not available"}
 
 
-def create_performance_report(output_file: Optional[str] = None) -> Dict[str, Any]:
+def create_performance_report(output_file: str | None = None) -> dict[str, Any]:
     """Create a comprehensive performance report.
 
     Args:

@@ -7,7 +7,7 @@ from dataclasses import dataclass
 from hashlib import sha256
 from pathlib import Path
 from statistics import median
-from typing import Any, Optional
+from typing import Any
 
 from .held_out_reviewer_score import _strict_json
 
@@ -71,7 +71,7 @@ def _span(value: Any) -> bool:
     )
 
 
-def _grade_side(expected: Optional[Object], candidate: Any) -> tuple[str, list[str]]:
+def _grade_side(expected: Object | None, candidate: Any) -> tuple[str, list[str]]:
     if candidate is _ABSENT:
         return "missing", []
     if candidate is None:
@@ -84,7 +84,7 @@ def _grade_side(expected: Optional[Object], candidate: Any) -> tuple[str, list[s
     return ("incorrect", differences) if differences else ("correct", [])
 
 
-def _grade(case: Object, raw: Optional[bytes]) -> list[Object]:
+def _grade(case: Object, raw: bytes | None) -> list[Object]:
     expected = _index(case["citations"])
     actual: dict[tuple[str, str], Object] = {}
     malformed = False
@@ -179,7 +179,7 @@ def _read_actions(path: Path, assigned: list[str]) -> tuple[dict[str, list[Objec
     return by_case, {"status": "parsed", **provenance, "schedule_operations": schedules}
 
 
-def _effort(actions: list[Object], raw: Optional[bytes]) -> Object:
+def _effort(actions: list[Object], raw: bytes | None) -> Object:
     evidence = [row for row in actions if row["action"] in _EVIDENCE_ACTIONS]
     submits = [row for row in actions if row["action"] == "submit" and row["status"] == "ok"]
     if not actions:
@@ -212,12 +212,12 @@ def _effort_summary(rows: list[Object]) -> Object:
     return {
         "measured": len(summaries),
         "unmeasured": len(rows) - len(summaries),
-        "median_operations": median([row["evidence_operations"] for row in summaries])
-        if summaries
-        else None,
-        "median_elapsed_ms": median([row["elapsed_ms"] for row in summaries])
-        if summaries
-        else None,
+        "median_operations": (
+            median([row["evidence_operations"] for row in summaries]) if summaries else None
+        ),
+        "median_elapsed_ms": (
+            median([row["elapsed_ms"] for row in summaries]) if summaries else None
+        ),
     }
 
 
@@ -247,11 +247,7 @@ def _paired(rows: list[Object], arms: tuple[str, str]) -> Object:
             label = (
                 "both_correct"
                 if first and second
-                else first_only
-                if first
-                else second_only
-                if second
-                else "neither_correct"
+                else first_only if first else second_only if second else "neither_correct"
             )
             counts[label] += 1
         ea, eb = left["effort"], right["effort"]
@@ -269,12 +265,12 @@ def _paired(rows: list[Object], arms: tuple[str, str]) -> Object:
             for name in ("both_correct", first_only, second_only, "neither_correct")
         },
         "measured_case_pairs": len(operation_differences),
-        "median_operation_difference": median(operation_differences)
-        if operation_differences
-        else None,
-        "median_elapsed_ms_difference": median(elapsed_differences)
-        if elapsed_differences
-        else None,
+        "median_operation_difference": (
+            median(operation_differences) if operation_differences else None
+        ),
+        "median_elapsed_ms_difference": (
+            median(elapsed_differences) if elapsed_differences else None
+        ),
         "cases": pairs,
     }
 
@@ -339,7 +335,7 @@ def _score_study(
             case_id = assignment["case_id"]
             case = cases[case_id]
             try:
-                raw: Optional[bytes] = (folder / f"{case_id}.json").read_bytes()
+                raw: bytes | None = (folder / f"{case_id}.json").read_bytes()
             except FileNotFoundError:
                 raw = None
             sides = _grade(case, raw)

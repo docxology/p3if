@@ -1,6 +1,7 @@
 """
 Unit tests for P3IF configuration utilities.
 """
+
 import pytest
 import json
 import tempfile
@@ -113,7 +114,7 @@ class TestConfig:
             config.save_to_file(temp_path)
 
             # Verify file exists and contains correct data
-            with open(temp_path, "r") as f:
+            with open(temp_path) as f:
                 saved_config = json.load(f)
 
             assert saved_config["test"]["value"] == "saved"
@@ -178,7 +179,7 @@ class TestConfig:
             assert temp_path.exists()
 
             # Verify it contains default config
-            with open(temp_path, "r") as f:
+            with open(temp_path) as f:
                 saved_config = json.load(f)
 
             assert "storage" in saved_config

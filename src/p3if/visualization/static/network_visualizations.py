@@ -4,11 +4,11 @@ P3IF Network Visualizations
 
 Generates network graphs showing relationships between Properties, Processes, and Perspectives.
 """
+
 import logging
 import matplotlib.pyplot as plt
 import networkx as nx
 from pathlib import Path
-from typing import Dict
 
 from p3if.core.framework import P3IFFramework
 
@@ -46,7 +46,7 @@ def generate_network_visualizations(
 
 
 def _create_general_network_graph(
-    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: Dict[str, str]
+    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: dict[str, str]
 ):
     """Create a general network graph showing all P3IF components."""
     fig, ax = plt.subplots(1, 1, figsize=(12, 9))
@@ -161,7 +161,7 @@ def _create_general_network_graph(
 
 
 def _create_component_specific_networks(
-    framework: P3IFFramework, session_path: Path, colors: Dict[str, str]
+    framework: P3IFFramework, session_path: Path, colors: dict[str, str]
 ):
     """Create networks specific to each P3IF component type."""
     # Properties network
@@ -186,7 +186,7 @@ def _create_component_network(
     component_type: str,
     pattern_type: str,
     title: str,
-    colors: Dict[str, str],
+    colors: dict[str, str],
 ):
     """Create a network showing relationships for a specific component type."""
     fig, ax = plt.subplots(1, 1, figsize=(10, 8))
@@ -270,7 +270,7 @@ def _create_component_network(
 
 
 def _create_domain_specific_networks(
-    framework: P3IFFramework, session_path: Path, colors: Dict[str, str]
+    framework: P3IFFramework, session_path: Path, colors: dict[str, str]
 ):
     """Create networks specific to each domain."""
     # Get unique domains
@@ -281,7 +281,7 @@ def _create_domain_specific_networks(
 
 
 def _create_domain_network(
-    framework: P3IFFramework, session_path: Path, domain: str, colors: Dict[str, str]
+    framework: P3IFFramework, session_path: Path, domain: str, colors: dict[str, str]
 ):
     """Create a network showing relationships within a specific domain."""
     fig, ax = plt.subplots(1, 1, figsize=(10, 8))

@@ -5,7 +5,8 @@ A fluent builder API for constructing P3IF frameworks with method chaining.
 Extracted from the framework module to keep ``framework/core.py`` focused on
 the core framework class.
 """
-from typing import Optional, Any
+
+from typing import Any
 
 from p3if.core.framework.core import P3IFFramework
 from p3if.core.models import (
@@ -30,7 +31,7 @@ class FrameworkBuilder:
               .build())
     """
 
-    def __init__(self, framework: Optional[P3IFFramework] = None):
+    def __init__(self, framework: P3IFFramework | None = None):
         self._framework = framework or P3IFFramework()
 
     def add_property(
@@ -64,9 +65,9 @@ class FrameworkBuilder:
 
     def add_relationship(
         self,
-        property_id: Optional[str] = None,
-        process_id: Optional[str] = None,
-        perspective_id: Optional[str] = None,
+        property_id: str | None = None,
+        process_id: str | None = None,
+        perspective_id: str | None = None,
         strength: float = 0.5,
         confidence: float = 1.0,
         relationship_type: str = "general",

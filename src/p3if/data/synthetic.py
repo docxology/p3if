@@ -3,9 +3,10 @@ P3IF Synthetic Data Generator
 
 This module provides functionality for generating synthetic P3IF data.
 """
+
 import random
 from p3if.utils.logging import get_logger
-from typing import List, Dict, Any, Optional, Union, Tuple
+from typing import Any
 import json
 from pathlib import Path
 import sys
@@ -30,7 +31,7 @@ from p3if.core.models import (
 class SyntheticDataGenerator:
     """Generator for synthetic P3IF data across domains."""
 
-    def __init__(self, domain_data_path: Optional[Union[str, Path]] = None):
+    def __init__(self, domain_data_path: str | Path | None = None):
         """
         Initialize the synthetic data generator.
 
@@ -38,8 +39,8 @@ class SyntheticDataGenerator:
             domain_data_path: Optional path to domain data file or directory
         """
         self.logger = get_logger(__name__)
-        self.domains: Dict[str, Any] = {}
-        self.domain_index: Optional[Dict[str, Any]] = None
+        self.domains: dict[str, Any] = {}
+        self.domain_index: dict[str, Any] | None = None
 
         if domain_data_path:
             self.load_domain_data(domain_data_path)
@@ -81,7 +82,7 @@ class SyntheticDataGenerator:
                         f"No domain data found. Checked: {domains_dir}, {default_data_path}"
                     )
 
-    def load_domain_index(self, index_path: Union[str, Path]) -> None:
+    def load_domain_index(self, index_path: str | Path) -> None:
         """
         Load domain index information from a JSON file.
 
@@ -89,7 +90,7 @@ class SyntheticDataGenerator:
             index_path: Path to domain index file
         """
         try:
-            with open(index_path, "r") as f:
+            with open(index_path) as f:
                 loaded_index = json.load(f)
             self.domain_index = loaded_index if isinstance(loaded_index, dict) else {}
 
@@ -109,7 +110,7 @@ class SyntheticDataGenerator:
         except Exception as e:
             self.logger.error(f"Error loading domain index: {str(e)}")
 
-    def load_domain_file(self, domain_path: Union[str, Path]) -> None:
+    def load_domain_file(self, domain_path: str | Path) -> None:
         """
         Load a single domain file.
 
@@ -117,7 +118,7 @@ class SyntheticDataGenerator:
             domain_path: Path to domain file
         """
         try:
-            with open(domain_path, "r") as f:
+            with open(domain_path) as f:
                 domain_data = json.load(f)
 
             domain_name = domain_data.get("domain")
@@ -138,7 +139,7 @@ class SyntheticDataGenerator:
         except Exception as e:
             self.logger.error(f"Error loading domain file {domain_path}: {str(e)}")
 
-    def load_domain_data(self, data_path: Union[str, Path]) -> None:
+    def load_domain_data(self, data_path: str | Path) -> None:
         """
         Load domain data from a file or directory.
 
@@ -164,7 +165,7 @@ class SyntheticDataGenerator:
                 f"Path {data_path} is not a directory. Legacy file loading has been removed."
             )
 
-    def get_available_domains(self) -> List[str]:
+    def get_available_domains(self) -> list[str]:
         """
         Get a list of available domain names.
 
@@ -173,7 +174,7 @@ class SyntheticDataGenerator:
         """
         return list(self.domains.keys())
 
-    def get_domain_info(self, domain_name: str) -> Dict[str, Any]:
+    def get_domain_info(self, domain_name: str) -> dict[str, Any]:
         """
         Get information about a specific domain.
 
@@ -227,7 +228,7 @@ class SyntheticDataGenerator:
         framework: P3IFFramework,
         domain_name: str,
         num_relationships: int = 100,
-        strength_range: Tuple[float, float] = (0.0, 1.0),
+        strength_range: tuple[float, float] = (0.0, 1.0),
         include_all_patterns: bool = False,
     ) -> None:
         """
@@ -274,11 +275,9 @@ class SyntheticDataGenerator:
 
         # Generate relationships
         for _ in range(num_relationships):
-            prop_choice: Optional[Property] = random.choice(properties) if properties else None
-            proc_choice: Optional[Process] = random.choice(processes) if processes else None
-            persp_choice: Optional[Perspective] = (
-                random.choice(perspectives) if perspectives else None
-            )
+            prop_choice: Property | None = random.choice(properties) if properties else None
+            proc_choice: Process | None = random.choice(processes) if processes else None
+            persp_choice: Perspective | None = random.choice(perspectives) if perspectives else None
 
             # Ensure at least two dimensions are connected
             while (
@@ -311,7 +310,7 @@ class SyntheticDataGenerator:
     def generate_multi_domain(
         self,
         framework: P3IFFramework,
-        domain_names: Optional[List[str]] = None,
+        domain_names: list[str] | None = None,
         relationships_per_domain: int = 100,
     ) -> None:
         """
@@ -354,9 +353,9 @@ class SyntheticDataGenerator:
         all_perspectives = framework.get_patterns_by_type("perspective")
 
         # Group by domain
-        properties_by_domain: Dict[str, List[BasePattern]] = {}
-        processes_by_domain: Dict[str, List[BasePattern]] = {}
-        perspectives_by_domain: Dict[str, List[BasePattern]] = {}
+        properties_by_domain: dict[str, list[BasePattern]] = {}
+        processes_by_domain: dict[str, list[BasePattern]] = {}
+        perspectives_by_domain: dict[str, list[BasePattern]] = {}
 
         for prop in all_properties:
             domain = getattr(prop, "domain", None)

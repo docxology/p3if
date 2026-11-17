@@ -1,6 +1,7 @@
 """
 Tests for High-Performance Compositional Indexing Engine (p3if.core.indexing).
 """
+
 import pytest
 from p3if.core.framework import P3IFFramework
 from p3if.core.models import Property, Process, Perspective, Relationship

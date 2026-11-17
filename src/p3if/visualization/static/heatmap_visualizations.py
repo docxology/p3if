@@ -5,12 +5,13 @@ P3IF Heatmap Visualizations
 Generates heatmaps showing relationships between Properties, Processes, and Perspectives,
 and domain relationships.
 """
+
 import logging
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 from pathlib import Path
-from typing import Dict, Any
+from typing import Any
 import pandas as pd
 
 from p3if.core.framework import P3IFFramework
@@ -82,7 +83,7 @@ def generate_heatmap_visualizations(
 
 
 def _create_p3if_relationship_heatmap(
-    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: Dict[str, str]
+    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: dict[str, str]
 ):
     """Create a heatmap showing relationships between P3IF components."""
     # Get all patterns organized by type
@@ -252,7 +253,7 @@ def _create_p3if_relationship_heatmap(
 
 
 def _create_domain_heatmap(
-    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: Dict[str, str]
+    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: dict[str, str]
 ):
     """Create a heatmap showing domain relationships."""
     # Get unique domains
@@ -375,7 +376,7 @@ def _create_domain_heatmap(
 
 
 def _create_component_strength_heatmap(
-    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: Dict[str, str]
+    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: dict[str, str]
 ):
     """Create a heatmap showing component strength relationships."""
     # Get all patterns organized by type

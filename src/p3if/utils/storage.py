@@ -3,6 +3,7 @@ P3IF Storage Utilities
 
 This module provides storage interfaces and implementations for P3IF data.
 """
+
 from __future__ import annotations
 
 import asyncio
@@ -10,7 +11,7 @@ import json
 import os
 import sqlite3
 from abc import ABC, abstractmethod
-from typing import Dict, List, Optional, Any, Union, TYPE_CHECKING
+from typing import Any, TYPE_CHECKING
 from datetime import datetime
 from pathlib import Path
 
@@ -31,20 +32,20 @@ class StorageInterface(ABC):
         await asyncio.to_thread(self.save_pattern, pattern)
 
     @abstractmethod
-    def get_pattern(self, pattern_id: str) -> Optional[BasePattern]:
+    def get_pattern(self, pattern_id: str) -> BasePattern | None:
         """Retrieve a pattern by ID."""
         pass
 
-    async def get_pattern_async(self, pattern_id: str) -> Optional[BasePattern]:
+    async def get_pattern_async(self, pattern_id: str) -> BasePattern | None:
         """Asynchronously retrieve a pattern by ID."""
         return await asyncio.to_thread(self.get_pattern, pattern_id)
 
     @abstractmethod
-    def get_patterns_by_type(self, pattern_type: str) -> List[BasePattern]:
+    def get_patterns_by_type(self, pattern_type: str) -> list[BasePattern]:
         """Retrieve all patterns of a specific type."""
         pass
 
-    async def get_patterns_by_type_async(self, pattern_type: str) -> List[BasePattern]:
+    async def get_patterns_by_type_async(self, pattern_type: str) -> list[BasePattern]:
         """Asynchronously retrieve all patterns of a specific type."""
         return await asyncio.to_thread(self.get_patterns_by_type, pattern_type)
 
@@ -67,11 +68,11 @@ class StorageInterface(ABC):
         await asyncio.to_thread(self.save_relationship, relationship)
 
     @abstractmethod
-    def get_relationship(self, relationship_id: str) -> Optional[Relationship]:
+    def get_relationship(self, relationship_id: str) -> Relationship | None:
         """Retrieve a relationship by ID."""
         pass
 
-    async def get_relationship_async(self, relationship_id: str) -> Optional[Relationship]:
+    async def get_relationship_async(self, relationship_id: str) -> Relationship | None:
         """Asynchronously retrieve a relationship by ID."""
         return await asyncio.to_thread(self.get_relationship, relationship_id)
 
@@ -97,7 +98,7 @@ class StorageInterface(ABC):
 class JSONStorage(StorageInterface):
     """JSON file-based storage implementation."""
 
-    def __init__(self, file_path: Union[str, Path]):
+    def __init__(self, file_path: str | Path):
         """
         Initialize JSON storage.
 
@@ -105,11 +106,11 @@ class JSONStorage(StorageInterface):
             file_path: Path to the JSON file
         """
         self.file_path = Path(file_path)
-        self._data: Dict[str, Dict[str, Any]] = {"patterns": {}, "relationships": {}}
+        self._data: dict[str, dict[str, Any]] = {"patterns": {}, "relationships": {}}
 
         # Load existing data if file exists
         if self.file_path.exists():
-            with open(self.file_path, "r") as f:
+            with open(self.file_path) as f:
                 try:
                     data = json.load(f)
                     self._data = data
@@ -128,7 +129,7 @@ class JSONStorage(StorageInterface):
         self._data["patterns"][pattern.id] = pattern.model_dump()
         self._save_to_file()
 
-    def get_pattern(self, pattern_id: str) -> Optional[BasePattern]:
+    def get_pattern(self, pattern_id: str) -> BasePattern | None:
         """Retrieve a pattern by ID."""
         pattern_data = self._data["patterns"].get(pattern_id)
         if pattern_data:
@@ -150,7 +151,7 @@ class JSONStorage(StorageInterface):
                 return None
         return None
 
-    def get_patterns_by_type(self, pattern_type: str) -> List[BasePattern]:
+    def get_patterns_by_type(self, pattern_type: str) -> list[BasePattern]:
         """Retrieve all patterns of a specific type."""
         result = []
         for pattern_id, pattern_data in self._data["patterns"].items():
@@ -173,7 +174,7 @@ class JSONStorage(StorageInterface):
         self._data["relationships"][relationship.id] = relationship.model_dump()
         self._save_to_file()
 
-    def get_relationship(self, relationship_id: str) -> Optional[Relationship]:
+    def get_relationship(self, relationship_id: str) -> Relationship | None:
         """Retrieve a relationship by ID."""
         rel_data = self._data["relationships"].get(relationship_id)
         if rel_data:
@@ -199,7 +200,7 @@ class JSONStorage(StorageInterface):
 class SQLiteStorage(StorageInterface):
     """SQLite-based storage implementation."""
 
-    def __init__(self, db_path: Union[str, Path]):
+    def __init__(self, db_path: str | Path):
         """
         Initialize SQLite storage.
 
@@ -223,8 +224,7 @@ class SQLiteStorage(StorageInterface):
         cursor = self.conn.cursor()
 
         # Create patterns table
-        cursor.execute(
-            """
+        cursor.execute("""
         CREATE TABLE IF NOT EXISTS patterns (
             id TEXT PRIMARY KEY,
             name TEXT NOT NULL,
@@ -237,12 +237,10 @@ class SQLiteStorage(StorageInterface):
             updated_at TEXT,
             data TEXT
         )
-        """
-        )
+        """)
 
         # Create relationships table
-        cursor.execute(
-            """
+        cursor.execute("""
         CREATE TABLE IF NOT EXISTS relationships (
             id TEXT PRIMARY KEY,
             property_id TEXT,
@@ -255,8 +253,7 @@ class SQLiteStorage(StorageInterface):
             created_at TEXT,
             updated_at TEXT
         )
-        """
-        )
+        """)
 
         self.conn.commit()
 
@@ -296,7 +293,7 @@ class SQLiteStorage(StorageInterface):
 
         self.conn.commit()
 
-    def get_pattern(self, pattern_id: str) -> Optional[BasePattern]:
+    def get_pattern(self, pattern_id: str) -> BasePattern | None:
         """Retrieve a pattern by ID."""
         cursor = self.conn.cursor()
         cursor.execute("SELECT * FROM patterns WHERE id = ?", (pattern_id,))
@@ -337,7 +334,7 @@ class SQLiteStorage(StorageInterface):
 
         return None
 
-    def get_patterns_by_type(self, pattern_type: str) -> List[BasePattern]:
+    def get_patterns_by_type(self, pattern_type: str) -> list[BasePattern]:
         """Retrieve all patterns of a specific type."""
         cursor = self.conn.cursor()
         cursor.execute("SELECT id FROM patterns WHERE type = ?", (pattern_type,))
@@ -387,7 +384,7 @@ class SQLiteStorage(StorageInterface):
 
         self.conn.commit()
 
-    def get_relationship(self, relationship_id: str) -> Optional[Relationship]:
+    def get_relationship(self, relationship_id: str) -> Relationship | None:
         """Retrieve a relationship by ID."""
         cursor = self.conn.cursor()
         cursor.execute("SELECT * FROM relationships WHERE id = ?", (relationship_id,))
@@ -434,14 +431,14 @@ class SQLiteStorage(StorageInterface):
 class VisualizationStorage:
     """Storage interface for visualization status tracking."""
 
-    def __init__(self, storage_path: Optional[Union[str, Path]] = None):
+    def __init__(self, storage_path: str | Path | None = None):
         """
         Initialize visualization storage.
 
         Args:
             storage_path: Optional path to store visualization data
         """
-        self._visualizations: Dict[str, Dict[str, Any]] = {}
+        self._visualizations: dict[str, dict[str, Any]] = {}
         self.storage_path = Path(storage_path) if storage_path else None
 
         if self.storage_path and self.storage_path.exists():
@@ -451,9 +448,9 @@ class VisualizationStorage:
         """Load visualization data from file."""
         if self.storage_path and self.storage_path.exists():
             try:
-                with open(self.storage_path, "r") as f:
+                with open(self.storage_path) as f:
                     self._visualizations = json.load(f)
-            except (json.JSONDecodeError, IOError):
+            except (OSError, json.JSONDecodeError):
                 self._visualizations = {}
 
     def _save_to_file(self) -> None:
@@ -463,7 +460,7 @@ class VisualizationStorage:
             with open(self.storage_path, "w") as f:
                 json.dump(self._visualizations, f, indent=2, default=str)
 
-    def save_visualization(self, viz_id: str, viz_data: Dict[str, Any]) -> None:
+    def save_visualization(self, viz_id: str, viz_data: dict[str, Any]) -> None:
         """
         Save visualization status.
 
@@ -474,7 +471,7 @@ class VisualizationStorage:
         self._visualizations[viz_id] = {**viz_data, "updated_at": datetime.now().isoformat()}
         self._save_to_file()
 
-    def get_visualization_status(self, viz_id: str) -> Optional[Dict[str, Any]]:
+    def get_visualization_status(self, viz_id: str) -> dict[str, Any] | None:
         """
         Get visualization status.
 
@@ -499,7 +496,7 @@ class VisualizationStorage:
             "processing_time": 0.5,
         }
 
-    def get_visualization_files(self, viz_id: str) -> List[Dict[str, Any]]:
+    def get_visualization_files(self, viz_id: str) -> list[dict[str, Any]]:
         """
         Get files associated with a visualization.
 
@@ -537,7 +534,7 @@ class VisualizationStorage:
             return True
         return False
 
-    def list_visualizations(self) -> List[Dict[str, Any]]:
+    def list_visualizations(self) -> list[dict[str, Any]]:
         """
         List all visualizations.
 

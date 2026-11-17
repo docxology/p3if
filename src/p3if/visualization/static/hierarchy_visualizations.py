@@ -5,12 +5,12 @@ P3IF Hierarchical Visualizations
 Generates hierarchical structure diagrams showing the organization of
 Properties, Processes, and Perspectives in tree and organizational chart formats.
 """
+
 import logging
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle, Circle, FancyBboxPatch
 import networkx as nx
 from pathlib import Path
-from typing import Dict, List, Tuple
 import numpy as np
 
 from p3if.core.framework import P3IFFramework
@@ -98,7 +98,7 @@ def generate_hierarchical_visualizations(
 
 
 def _create_p3if_hierarchy(
-    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: Dict[str, str]
+    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: dict[str, str]
 ):
     """Create a hierarchical visualization of the P3IF framework."""
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(16, 14))
@@ -138,7 +138,7 @@ def _create_p3if_hierarchy(
 
 
 def _draw_p3if_tree(
-    ax, properties: list, processes: list, perspectives: list, colors: Dict[str, str]
+    ax, properties: list, processes: list, perspectives: list, colors: dict[str, str]
 ):
     """Draw a tree structure showing P3IF component organization."""
     ax.axis("off")
@@ -223,7 +223,7 @@ def _draw_p3if_tree(
         y_pos -= 0.1
 
 
-def _draw_domain_org_chart(ax, framework: P3IFFramework, colors: Dict[str, str]):
+def _draw_domain_org_chart(ax, framework: P3IFFramework, colors: dict[str, str]):
     """Draw an organizational chart showing domain structure."""
     ax.axis("off")
 
@@ -300,7 +300,7 @@ def _draw_domain_org_chart(ax, framework: P3IFFramework, colors: Dict[str, str])
             )
 
 
-def _draw_relationship_tree(ax, framework: P3IFFramework, colors: Dict[str, str]):
+def _draw_relationship_tree(ax, framework: P3IFFramework, colors: dict[str, str]):
     """Draw a tree showing relationship dependencies."""
     ax.axis("off")
 
@@ -417,7 +417,7 @@ def _draw_hierarchy_summary(
     processes: list,
     perspectives: list,
     framework: P3IFFramework,
-    colors: Dict[str, str],
+    colors: dict[str, str],
 ):
     """Draw a comprehensive summary of the hierarchy."""
     ax.axis("off")
@@ -477,7 +477,7 @@ def _draw_hierarchy_summary(
 
 
 def _create_domain_hierarchy(
-    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: Dict[str, str]
+    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: dict[str, str]
 ):
     """Create a hierarchical visualization organized by domains."""
     fig, ax = plt.subplots(1, 1, figsize=(14, 10))
@@ -622,7 +622,7 @@ def _create_domain_hierarchy(
 
 
 def _create_component_type_hierarchy(
-    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: Dict[str, str]
+    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: dict[str, str]
 ):
     """Create a hierarchy based on component types."""
     fig, ax = plt.subplots(1, 1, figsize=(12, 10))
@@ -662,7 +662,7 @@ def _create_component_type_hierarchy(
 
     # Add component type details
     y_pos = 0.3
-    comp_types_data: List[Tuple[str, List[BasePattern], str]] = [
+    comp_types_data: list[tuple[str, list[BasePattern], str]] = [
         ("Properties", list(properties), colors["property"]),
         ("Processes", list(processes), colors["process"]),
         ("Perspectives", list(perspectives), colors["perspective"]),
@@ -711,7 +711,7 @@ def _create_component_type_hierarchy(
 
 
 def _create_relationship_hierarchy(
-    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: Dict[str, str]
+    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: dict[str, str]
 ):
     """Create a hierarchy showing relationship organization."""
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(16, 12))
@@ -728,7 +728,7 @@ def _create_relationship_hierarchy(
     ax1.set_ylabel("Count")
 
     # Relationship types
-    rel_types: Dict[str, int] = {}
+    rel_types: dict[str, int] = {}
     for rel in framework._relationships.values():
         rel_type = rel.relationship_type
         rel_types[rel_type] = rel_types.get(rel_type, 0) + 1
