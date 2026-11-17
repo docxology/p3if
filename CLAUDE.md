@@ -25,8 +25,8 @@ python scripts/run_all.py
 ## Testing
 
 ```bash
-# Run full test suite (pytest.ini adds `-n auto --dist loadgroup`: every core, with the
-# tests that write fixed repository paths kept on one worker; see tests/conftest.py)
+# Run full test suite (pytest.ini adds `-n auto --dist loadgroup`: every core, with tests
+# that write fixed repository paths grouped so they never race; see tests/conftest.py)
 pytest tests/ -v
 
 # Debug serially
