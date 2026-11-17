@@ -4,9 +4,10 @@ GitHub-side configuration only: `workflows/` holds the repository's CI definitio
 Nothing in this folder runs on your machine, and no local command reads it.
 
 - [`workflows/ci.yml`](workflows/ci.yml) is the repository's only automated gate. It
-  triggers on pushes to `main`/`develop` and on pull requests to `main`, and runs
-  `ruff`, `black --check`, `mypy`, and `pytest` on Python 3.11–3.12. Copy those
-  commands rather than inventing a local check.
+  triggers on pushes to `main` and on pull requests to `main`, checks `uv.lock`, syncs
+  the frozen environment, and runs `ruff`, `black --check`, `mypy`, `pytest` and
+  `uv build` on Python 3.13 and 3.14. Copy those commands rather than inventing a
+  local check.
 - Third-party actions are pinned to reviewed commit SHAs (2026-11-02). Keep the pin
   when editing: a floating tag is a supply-chain change, not a convenience.
 - There is no deployment, release, docs-build, or scheduled job here, and the

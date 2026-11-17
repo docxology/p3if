@@ -215,7 +215,7 @@ def test_create_pattern_with_metadata():
 Tests are designed to work with CI/CD pipelines:
 
 The authoritative [CI workflow](../.github/workflows/ci.yml) runs the complete
-lint, type, and test gate on Python 3.11 and 3.12. Use that pinned workflow rather
+lint, type, and test gate on Python 3.13 and 3.14. Use that pinned workflow rather
 than a copied pipeline definition.
 
 ## Debugging Tests

@@ -1,7 +1,7 @@
 # P3IF System Documentation
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
+[![Python 3.13+](https://img.shields.io/badge/python-3.13+-blue.svg)](https://www.python.org/downloads/)
 [![Documentation Status](https://img.shields.io/badge/docs-latest-brightgreen.svg)](README.md)
 
 The **Properties, Processes, and Perspectives Inter-Framework (P3IF)** is a sophisticated meta-framework designed to integrate, analyze, and visualize complex data relationships across multiple domains. P3IF enables seamless interoperability between existing frameworks while providing powerful visualization, analysis, and cognitive security capabilities.

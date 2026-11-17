@@ -61,7 +61,7 @@ The 3D visualization allows users to explore the relationships between these dim
 
 ### Prerequisites
 
-- Python 3.6 or higher
+- Python 3.13 or higher
 - Modern web browser (Chrome, Firefox, Safari, or Edge)
 
 ### Generate Comprehensive Visualizations
