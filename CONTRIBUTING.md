@@ -55,6 +55,15 @@ git checkout -b feature/your-feature-name
 git checkout -b fix/issue-number-description
 ```
 
+To work on a second branch without disturbing your current checkout, create a parallel
+worktree. [`git-twig`](https://github.com/leostera/git-twig) is a drop-in, faster
+`git worktree add` on copy-on-write filesystems (APFS, Btrfs, reflink XFS) and falls back to
+ordinary Git elsewhere:
+
+```bash
+git twig new -b feature/your-feature-name ../p3if-your-feature-name HEAD
+```
+
 ### 3. Make Your Changes
 
 - **Follow the established code patterns** (see [AGENTS.md](AGENTS.md) for AI development guidelines)
