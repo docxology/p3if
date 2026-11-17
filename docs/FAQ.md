@@ -35,13 +35,13 @@ Unlike traditional frameworks that are static and domain-specific, P3IF is:
 ### System Requirements
 
 **Minimum Requirements:**
-- Python 3.11+
+- Python 3.13+
 - 4 GB RAM
 - 2 GB disk space
 - Modern web browser
 
 **Recommended:**
-- Python 3.11+
+- Python 3.13+
 - 8+ GB RAM
 - 10 GB disk space
 - Multi-core processor
@@ -208,7 +208,7 @@ python scripts/export_data.py --domain mydomain --format json --output export.js
 
 **Check Python version:**
 ```bash
-python --version  # Should be 3.11+
+python --version  # Should be 3.13+
 ```
 
 **Check dependencies:**

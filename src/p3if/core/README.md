@@ -54,7 +54,7 @@ The core follows a modular design with clear separation of concerns:
 
 ## Dependencies
 
-- Python 3.11+
+- Python 3.13+
 - pydantic
 
 ## Testing

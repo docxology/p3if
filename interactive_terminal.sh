@@ -87,11 +87,37 @@ setup_uv() {
     echo "UV package manager is ready"
 }
 
+# Read the interpreter pin from the project, not from the caller's directory
+project_python_pin() {
+    local pin_file="$PROJECT_ROOT/.python-version"
+    local pin=""
+    if [ -f "$pin_file" ]; then
+        IFS= read -r pin < "$pin_file" || true
+        pin="${pin//[[:space:]]/}"
+    fi
+    if [ -z "$pin" ]; then
+        echo -e "${RED}Error: no interpreter pin in $pin_file${NC}" >&2
+        return 1
+    fi
+    printf '%s\n' "$pin"
+}
+
 # Create virtual environment
 setup_venv() {
+    local python_pin venv_version
+    python_pin="$(project_python_pin)"
     if [ ! -d "$PROJECT_ROOT/$VENV_NAME" ]; then
-        echo "Creating virtual environment..."
-        uv venv "$PROJECT_ROOT/$VENV_NAME" --python 3.11
+        echo "Creating virtual environment (Python $python_pin)..."
+        # --directory keeps uv's project discovery on PROJECT_ROOT when the script runs elsewhere.
+        uv venv --directory "$PROJECT_ROOT" --python "$python_pin" "$PROJECT_ROOT/$VENV_NAME"
+    else
+        venv_version="$("$PROJECT_ROOT/$VENV_NAME/bin/python" -c 'import sys; print("%d.%d.%d" % sys.version_info[:3])' 2>/dev/null || true)"
+        case "$venv_version." in
+            "$python_pin".*) ;;
+            *)
+                echo -e "${YELLOW}Warning: $PROJECT_ROOT/$VENV_NAME uses Python ${venv_version:-unknown}, not the pinned $python_pin; recreate it to match .python-version${NC}" >&2
+                ;;
+        esac
     fi
     source "$PROJECT_ROOT/$VENV_NAME/bin/activate"
     echo "Virtual environment activated"

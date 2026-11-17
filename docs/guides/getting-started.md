@@ -6,7 +6,7 @@ This guide provides a quick introduction to using P3IF for visualizing and analy
 
 Before you begin, ensure you have:
 
-1. Python 3.11 or later installed
+1. Python 3.13 or later installed
 2. Git installed (for cloning the repository)
 3. Basic familiarity with command-line interfaces
 

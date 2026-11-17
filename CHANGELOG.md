@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed
 
+- `interactive_terminal.sh` creates `.venv` with the interpreter pinned in the project's `.python-version` (3.13), wherever it is run from, and warns when an existing `.venv` uses another version; setup, FAQ, component and CI guides now state the Python 3.13 floor and the 3.13/3.14 CI matrix. The 3.11 entries below are retained as history.
 - Require Python 3.11 or later; align setup guidance and lint targets with the supported floor.
 - Remove the pre-3.11 interchange typing branch without changing nullable field semantics.
 - Let mypy use the running CI interpreter so dependency stubs selected for Python 3.12 are not parsed as Python 3.11; the Python 3.11 matrix job still checks the minimum runtime.
