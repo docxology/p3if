@@ -66,3 +66,34 @@ def populated_framework():
     framework.add_pattern(persp)
 
     return framework
+
+
+# Modules whose tests write fixed paths inside the repository: the committed
+# `tests/visualization/test_output/` gallery, `outputs/` (output organizer sessions and the
+# unified dashboard) and the website's output folders. Under `pytest -n` they share one xdist
+# group, so they run in order on a single worker and never race on the same file, while every
+# other test spreads across the remaining workers.
+_REPOSITORY_OUTPUT_MODULES = frozenset(
+    {
+        "tests/test_visualization_runner.py",
+        "tests/integration/test_api.py",
+        "tests/integration/test_website_routes.py",
+        "tests/unit/test_interactive_3d.py",
+        "tests/unit/test_orchestration.py",
+        "tests/unit/test_orchestrator_modules.py",
+        "tests/unit/test_orchestrators.py",
+    }
+)
+
+
+def _writes_repository_outputs(relative: str) -> bool:
+    """Return whether a repository-relative test module writes fixed repository paths."""
+    return relative.startswith("tests/visualization/") or relative in _REPOSITORY_OUTPUT_MODULES
+
+
+def pytest_collection_modifyitems(config: pytest.Config, items: list[pytest.Item]) -> None:
+    """Serialize repository-output writers into one xdist group (inert without xdist)."""
+    for item in items:
+        relative = Path(str(item.path)).resolve().relative_to(project_root).as_posix()
+        if _writes_repository_outputs(relative):
+            item.add_marker(pytest.mark.xdist_group("repository-outputs"))
