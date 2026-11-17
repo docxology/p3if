@@ -91,6 +91,9 @@ def _writes_repository_outputs(relative: str) -> bool:
     return relative.startswith("tests/visualization/") or relative in _REPOSITORY_OUTPUT_MODULES
 
 
+# tryfirst: this conftest loads before xdist's worker plugin registers, so without it xdist
+# would read the markers (and suffix node IDs with the group) before they are added.
+@pytest.hookimpl(tryfirst=True)
 def pytest_collection_modifyitems(config: pytest.Config, items: list[pytest.Item]) -> None:
     """Serialize repository-output writers into one xdist group (inert without xdist)."""
     for item in items:
