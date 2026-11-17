@@ -5,14 +5,15 @@ Comprehensive test runner for the P3IF project.
 This script runs all tests across the P3IF codebase with comprehensive reporting,
 coverage analysis, and performance metrics.
 """
+
 import sys
 import time
 import argparse
 import subprocess
 from pathlib import Path
-from typing import List, Dict, Any
+from typing import Any
 import json
-from datetime import datetime, timezone
+from datetime import datetime, UTC
 
 
 class TestRunner:
@@ -32,7 +33,7 @@ class TestRunner:
         self.project_root = Path(__file__).parent.parent
         self.test_results = {}
 
-    def run_command(self, command: List[str], description: str) -> Dict[str, Any]:
+    def run_command(self, command: list[str], description: str) -> dict[str, Any]:
         """Run a shell command and return the result.
 
         Args:
@@ -82,7 +83,7 @@ class TestRunner:
                 "error": str(e),
             }
 
-    def run_pytest(self, test_path: str, additional_args: List[str] = None) -> Dict[str, Any]:
+    def run_pytest(self, test_path: str, additional_args: list[str] = None) -> dict[str, Any]:
         """Run pytest on a specific test path.
 
         Args:
@@ -122,42 +123,42 @@ class TestRunner:
 
         return self.run_command(cmd_args, f"Running pytest on {test_path}")
 
-    def run_core_tests(self) -> Dict[str, Any]:
+    def run_core_tests(self) -> dict[str, Any]:
         """Run core module tests."""
         if self.verbose:
             print("\n🧠 Running Core Module Tests")
 
         return self.run_pytest("tests/unit/", ["--maxfail=5", "--durations=10"])
 
-    def run_api_tests(self) -> Dict[str, Any]:
+    def run_api_tests(self) -> dict[str, Any]:
         """Run API tests."""
         if self.verbose:
             print("\n🌐 Running API Tests")
 
         return self.run_pytest("tests/integration/", ["--maxfail=3"])
 
-    def run_visualization_tests(self) -> Dict[str, Any]:
+    def run_visualization_tests(self) -> dict[str, Any]:
         """Run visualization tests."""
         if self.verbose:
             print("\n📊 Running Visualization Tests")
 
         return self.run_pytest("tests/visualization/", ["--maxfail=3", "--durations=20"])
 
-    def run_integration_tests(self) -> Dict[str, Any]:
+    def run_integration_tests(self) -> dict[str, Any]:
         """Run integration tests."""
         if self.verbose:
             print("\n🔗 Running Integration Tests")
 
         return self.run_pytest("tests/", ["-k", "integration", "--maxfail=2"])
 
-    def run_performance_tests(self) -> Dict[str, Any]:
+    def run_performance_tests(self) -> dict[str, Any]:
         """Run performance tests."""
         if self.verbose:
             print("\n⚡ Running Performance Tests")
 
         return self.run_pytest("tests/", ["-k", "performance", "--maxfail=1"])
 
-    def run_type_checking(self) -> Dict[str, Any]:
+    def run_type_checking(self) -> dict[str, Any]:
         """Run type checking with mypy."""
         if self.verbose:
             print("\n🔍 Running Type Checking")
@@ -174,7 +175,7 @@ class TestRunner:
             "Running mypy type checking",
         )
 
-    def run_linting(self) -> Dict[str, Any]:
+    def run_linting(self) -> dict[str, Any]:
         """Run linting with flake8."""
         if self.verbose:
             print("\n🧹 Running Linting")
@@ -191,7 +192,7 @@ class TestRunner:
             "Running flake8 linting",
         )
 
-    def run_security_check(self) -> Dict[str, Any]:
+    def run_security_check(self) -> dict[str, Any]:
         """Run security check with bandit."""
         if self.verbose:
             print("\n🔒 Running Security Check")
@@ -201,14 +202,14 @@ class TestRunner:
             "Running bandit security check",
         )
 
-    def generate_test_report(self) -> Dict[str, Any]:
+    def generate_test_report(self) -> dict[str, Any]:
         """Generate comprehensive test report.
 
         Returns:
             Dictionary containing test report
         """
         report = {
-            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "timestamp": datetime.now(UTC).isoformat(),
             "test_results": {},
             "summary": {
                 "total_duration": 0,
@@ -289,7 +290,7 @@ class TestRunner:
 
         return report
 
-    def run_all_tests(self) -> Dict[str, Any]:
+    def run_all_tests(self) -> dict[str, Any]:
         """Run all tests and quality checks.
 
         Returns:
@@ -351,7 +352,7 @@ class TestRunner:
 
         return report
 
-    def print_report(self, report: Dict[str, Any]):
+    def print_report(self, report: dict[str, Any]):
         """Print a formatted test report.
 
         Args:
@@ -444,7 +445,7 @@ def main():
         # Try to load previous results
         report_file = Path("test_report.json")
         if report_file.exists():
-            with open(report_file, "r") as f:
+            with open(report_file) as f:
                 report = json.load(f)
             runner.print_report(report)
         else:

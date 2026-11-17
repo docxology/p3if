@@ -5,11 +5,12 @@ P3IF Statistical Visualizations
 Generates statistical charts and analyses for Properties, Processes, and Perspectives
 including distributions, trends, and quality metrics.
 """
+
 import logging
 import matplotlib.pyplot as plt
 import numpy as np
 from pathlib import Path
-from typing import Dict, List, Any
+from typing import Any
 
 from p3if.core.framework import P3IFFramework
 from p3if.core.models import Property, Process, Perspective
@@ -82,7 +83,7 @@ def _create_component_distributions(
     session_path: Path,
     filename: str,
     title: str,
-    colors: Dict[str, str],
+    colors: dict[str, str],
 ):
     """Create component type distribution visualizations."""
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(16, 14))
@@ -185,14 +186,14 @@ def _create_quality_metrics_analysis(
     session_path: Path,
     filename: str,
     title: str,
-    colors: Dict[str, str],
+    colors: dict[str, str],
 ):
     """Create quality metrics analysis visualizations."""
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(16, 14))
 
     # Get quality scores for all components
-    small_quality_scores: List[float] = []
-    large_quality_scores: List[float] = []
+    small_quality_scores: list[float] = []
+    large_quality_scores: list[float] = []
 
     for framework, scores_list in [
         (small_framework, small_quality_scores),
@@ -273,13 +274,13 @@ def _create_quality_metrics_analysis(
     ax4.axis("off")
 
     # Calculate quality by type
-    small_prop_quality: List[float] = []
-    small_proc_quality: List[float] = []
-    small_persp_quality: List[float] = []
+    small_prop_quality: list[float] = []
+    small_proc_quality: list[float] = []
+    small_persp_quality: list[float] = []
 
-    large_prop_quality: List[float] = []
-    large_proc_quality: List[float] = []
-    large_persp_quality: List[float] = []
+    large_prop_quality: list[float] = []
+    large_proc_quality: list[float] = []
+    large_persp_quality: list[float] = []
 
     for framework, prop_list, proc_list, persp_list in [
         (small_framework, small_prop_quality, small_proc_quality, small_persp_quality),
@@ -343,16 +344,16 @@ def _create_relationship_statistics(
     session_path: Path,
     filename: str,
     title: str,
-    colors: Dict[str, str],
+    colors: dict[str, str],
 ):
     """Create relationship statistics visualizations."""
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(16, 14))
 
     # Get relationship strengths and confidences
-    small_strengths: List[float] = []
-    small_confidences: List[float] = []
-    large_strengths: List[float] = []
-    large_confidences: List[float] = []
+    small_strengths: list[float] = []
+    small_confidences: list[float] = []
+    large_strengths: list[float] = []
+    large_confidences: list[float] = []
 
     for framework, str_list, conf_list in [
         (small_framework, small_strengths, small_confidences),
@@ -429,14 +430,14 @@ def _create_domain_analysis(
     session_path: Path,
     filename: str,
     title: str,
-    colors: Dict[str, str],
+    colors: dict[str, str],
 ):
     """Create domain analysis visualizations."""
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(16, 14))
 
     # Get domain data
-    small_domains: Dict[str, Dict[str, int]] = {}
-    large_domains: Dict[str, Dict[str, int]] = {}
+    small_domains: dict[str, dict[str, int]] = {}
+    large_domains: dict[str, dict[str, int]] = {}
 
     for framework, domain_dict in [
         (small_framework, small_domains),
@@ -569,7 +570,7 @@ def _create_statistical_overview(
     session_path: Path,
     filename: str,
     title: str,
-    colors: Dict[str, str],
+    colors: dict[str, str],
 ):
     """Create a comprehensive statistical overview."""
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(16, 14))
@@ -718,7 +719,7 @@ def _create_statistical_overview(
     logger.info(f"Generated: {output_path}")
 
 
-def _calculate_framework_stats(framework: P3IFFramework) -> Dict[str, Any]:
+def _calculate_framework_stats(framework: P3IFFramework) -> dict[str, Any]:
     """Calculate comprehensive statistics for a framework."""
     properties = [p for p in framework._patterns.values() if isinstance(p, Property)]
     processes = [p for p in framework._patterns.values() if isinstance(p, Process)]

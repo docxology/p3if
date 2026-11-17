@@ -11,7 +11,7 @@ import json
 from collections import Counter
 from hashlib import sha256
 from pathlib import Path
-from typing import Any, ClassVar, Literal, Optional
+from typing import Any, ClassVar, Literal
 
 from pydantic import BaseModel, ConfigDict, ValidationError
 
@@ -55,7 +55,7 @@ class _Scores(_ClosedModel):
 
 
 class _Side(_ClosedModel):
-    endpoints: list[Optional[str]]
+    endpoints: list[str | None]
     scores: _Scores
 
 
@@ -63,8 +63,8 @@ class _Event(_ClosedModel):
     id: str
     change: Literal["added", "removed", "modified"]
     fields: list[str]
-    before: Optional[_Side]
-    after: Optional[_Side]
+    before: _Side | None
+    after: _Side | None
 
 
 class _Response(_ClosedModel):

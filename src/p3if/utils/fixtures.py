@@ -14,10 +14,11 @@ Usage:
         num_patterns=5, num_relationships=10
     )
 """
+
 import random
 import uuid
-from typing import Any, List, Optional
-from datetime import datetime, timezone
+from typing import Any
+from datetime import datetime, UTC
 
 from p3if.core.framework import P3IFFramework
 from p3if.core.models import Property, Process, Perspective, Relationship
@@ -25,9 +26,9 @@ from p3if.core.models import Property, Process, Perspective, Relationship
 
 def create_pattern_with_metadata(
     pattern_type: str = "property",
-    name: Optional[str] = None,
+    name: str | None = None,
     domain: str = "test",
-    tags: Optional[List[str]] = None,
+    tags: list[str] | None = None,
     quality_score: float = 0.8,
     confidence: float = 0.9,
 ) -> Any:
@@ -66,8 +67,8 @@ def create_pattern_with_metadata(
         "quality_score": quality_score,
         "confidence": confidence,
         "version": "1.0.0",
-        "created_at": datetime.now(timezone.utc),
-        "updated_at": datetime.now(timezone.utc),
+        "created_at": datetime.now(UTC),
+        "updated_at": datetime.now(UTC),
     }
 
     # Add pattern-specific fields

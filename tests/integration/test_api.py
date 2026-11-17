@@ -1,6 +1,7 @@
 """
 Comprehensive tests for the P3IF API endpoints.
 """
+
 import pytest
 
 from website.app import create_app

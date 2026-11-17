@@ -5,14 +5,15 @@ This module provides thin orchestrators for flexible composition of P3IF methods
 enabling lightweight, reusable workflow patterns.
 """
 
-from typing import Dict, List, Any, Callable, Set, cast
+from typing import Any, cast
+from collections.abc import Callable
 from dataclasses import dataclass, field
-from enum import Enum
+from enum import StrEnum
 import asyncio
 from ..utils.logging import get_logger, performance_monitor
 
 
-class OrchestratorType(str, Enum):
+class OrchestratorType(StrEnum):
     """Types of thin orchestrators."""
 
     LINEAR = "linear"
@@ -29,9 +30,9 @@ class OrchestrationStep:
 
     name: str
     method: Callable
-    parameters: Dict[str, Any] = field(default_factory=dict)
-    dependencies: List[str] = field(default_factory=list)
-    outputs: List[str] = field(default_factory=list)
+    parameters: dict[str, Any] = field(default_factory=dict)
+    dependencies: list[str] = field(default_factory=list)
+    outputs: list[str] = field(default_factory=list)
     error_handling: str = "continue"  # continue, stop, retry
     description: str = ""
 
@@ -42,8 +43,8 @@ class ThinOrchestrator:
 
     name: str
     orchestrator_type: OrchestratorType
-    steps: List[OrchestrationStep] = field(default_factory=list)
-    context: Dict[str, Any] = field(default_factory=dict)
+    steps: list[OrchestrationStep] = field(default_factory=list)
+    context: dict[str, Any] = field(default_factory=dict)
     max_concurrent: int = 5
 
     def __repr__(self) -> str:
@@ -87,7 +88,7 @@ class ThinOrchestrator:
                 break
 
     @performance_monitor(threshold_ms=2000)
-    async def execute_async(self) -> Dict[str, Any]:
+    async def execute_async(self) -> dict[str, Any]:
         """Execute the orchestrator asynchronously."""
         self.logger = get_logger(f"{self.__class__.__name__}.{self.name}")
 
@@ -117,7 +118,7 @@ class ThinOrchestrator:
             self.logger.error(f"Orchestrator execution failed: {self.name} - {e}")
             raise
 
-    def execute_sync(self) -> Dict[str, Any]:
+    def execute_sync(self) -> dict[str, Any]:
         """Execute the orchestrator synchronously."""
         try:
             # If we're already in an async context, create a new loop in a thread
@@ -126,12 +127,12 @@ class ThinOrchestrator:
 
             with concurrent.futures.ThreadPoolExecutor() as executor:
                 future = executor.submit(self._run_in_new_loop)
-                return cast(Dict[str, Any], future.result())
+                return cast(dict[str, Any], future.result())
         except RuntimeError:
             # No running event loop — safe to create one
             return asyncio.run(self.execute_async())
 
-    def _run_in_new_loop(self) -> Dict[str, Any]:
+    def _run_in_new_loop(self) -> dict[str, Any]:
         """Run the orchestrator in a new event loop."""
         loop = asyncio.new_event_loop()
         asyncio.set_event_loop(loop)
@@ -140,10 +141,10 @@ class ThinOrchestrator:
         finally:
             loop.close()
 
-    async def _execute_linear(self) -> Dict[str, Any]:
+    async def _execute_linear(self) -> dict[str, Any]:
         """Execute steps in linear sequence."""
-        results: Dict[str, Any] = {}
-        completed_steps: Set[str] = set()
+        results: dict[str, Any] = {}
+        completed_steps: set[str] = set()
 
         for step in self.steps:
             # Check dependencies
@@ -175,7 +176,7 @@ class ThinOrchestrator:
 
         return results
 
-    async def _execute_parallel(self) -> Dict[str, Any]:
+    async def _execute_parallel(self) -> dict[str, Any]:
         """Execute independent steps in parallel."""
         results = {}
 
@@ -201,7 +202,7 @@ class ThinOrchestrator:
 
         return results
 
-    async def _execute_conditional(self) -> Dict[str, Any]:
+    async def _execute_conditional(self) -> dict[str, Any]:
         """Execute steps based on conditions."""
         results = {}
 
@@ -298,14 +299,14 @@ class ThinOrchestrator:
 
         return False
 
-    def _check_dependencies(self, dependencies: List[str], completed_steps: Set[str]) -> bool:
+    def _check_dependencies(self, dependencies: list[str], completed_steps: set[str]) -> bool:
         """Check if all dependencies are satisfied."""
         return all(dep in completed_steps for dep in dependencies)
 
-    def _build_dependency_levels(self) -> List[List[str]]:
+    def _build_dependency_levels(self) -> list[list[str]]:
         """Build dependency levels for parallel execution."""
-        levels: List[List[str]] = []
-        processed: Set[str] = set()
+        levels: list[list[str]] = []
+        processed: set[str] = set()
 
         while len(processed) < len(self.steps):
             current_level = []
@@ -351,8 +352,8 @@ class WorkflowEngine:
     """Advanced workflow engine for complex orchestrations."""
 
     def __init__(self) -> None:
-        self.orchestrators: Dict[str, ThinOrchestrator] = {}
-        self.global_context: Dict[str, Any] = {}
+        self.orchestrators: dict[str, ThinOrchestrator] = {}
+        self.global_context: dict[str, Any] = {}
 
     def create_orchestrator(
         self, name: str, orchestrator_type: OrchestratorType
@@ -363,7 +364,7 @@ class WorkflowEngine:
         return orchestrator
 
     def compose_orchestrators(
-        self, orchestrators: List[str], composition_type: str = "sequence"
+        self, orchestrators: list[str], composition_type: str = "sequence"
     ) -> ThinOrchestrator:
         """Compose multiple orchestrators into a single workflow."""
         if composition_type == "sequence":

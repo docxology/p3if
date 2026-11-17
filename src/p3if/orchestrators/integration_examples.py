@@ -5,7 +5,7 @@ This module provides practical examples of how to integrate P3IF with various
 external systems, frameworks, and data sources.
 """
 
-from typing import Dict, List, Any
+from typing import Any
 from dataclasses import dataclass, field
 import logging
 from datetime import datetime
@@ -35,15 +35,15 @@ class IntegrationExample:
     def __post_init__(self):
         self.logger = logging.getLogger(self.__class__.__name__)
 
-    def execute(self) -> Dict[str, Any]:
+    def execute(self) -> dict[str, Any]:
         """Execute the integration example."""
         raise NotImplementedError("Subclasses must implement execute method")
 
-    def get_requirements(self) -> List[str]:
+    def get_requirements(self) -> list[str]:
         """Get requirements for this integration."""
         return ["P3IF core functionality"]
 
-    def get_benefits(self) -> List[str]:
+    def get_benefits(self) -> list[str]:
         """Get benefits of this integration."""
         return ["Enhanced functionality", "Improved interoperability"]
 
@@ -57,7 +57,7 @@ class NISTIntegrationExample(IntegrationExample):
             description="Integrate NIST Cybersecurity Framework with P3IF for enhanced security analysis",
         )
 
-    def execute(self) -> Dict[str, Any]:
+    def execute(self) -> dict[str, Any]:
         """Execute the NIST integration example."""
         self.logger.info("Starting NIST CSF integration example")
 
@@ -90,9 +90,9 @@ class NISTIntegrationExample(IntegrationExample):
             "source_framework": "NIST_CSF",
         }
 
-    def _create_nist_patterns(self) -> List[BasePattern]:
+    def _create_nist_patterns(self) -> list[BasePattern]:
         """Create NIST CSF patterns in P3IF format."""
-        patterns: List[BasePattern] = []
+        patterns: list[BasePattern] = []
 
         # Properties (NIST Functions)
         nist_functions = [
@@ -171,7 +171,7 @@ class NISTIntegrationExample(IntegrationExample):
 
         return patterns
 
-    def _create_nist_relationships(self, patterns: List[Any]) -> List[Relationship]:
+    def _create_nist_relationships(self, patterns: list[Any]) -> list[Relationship]:
         """Create relationships between NIST patterns."""
         relationships = []
 
@@ -206,7 +206,7 @@ class NISTIntegrationExample(IntegrationExample):
 
         return relationships
 
-    def _analyze_nist_integration(self, framework: P3IFFramework) -> Dict[str, Any]:
+    def _analyze_nist_integration(self, framework: P3IFFramework) -> dict[str, Any]:
         """Analyze the NIST integration results."""
         return {
             "total_patterns": len(framework),
@@ -228,7 +228,7 @@ class HealthcareIntegrationExample(IntegrationExample):
             description="Integrate healthcare frameworks (HIPAA, HITECH) with P3IF",
         )
 
-    def execute(self) -> Dict[str, Any]:
+    def execute(self) -> dict[str, Any]:
         """Execute the healthcare integration example."""
         self.logger.info("Starting healthcare integration example")
 
@@ -261,9 +261,9 @@ class HealthcareIntegrationExample(IntegrationExample):
             "domain": "healthcare",
         }
 
-    def _create_healthcare_patterns(self) -> List[BasePattern]:
+    def _create_healthcare_patterns(self) -> list[BasePattern]:
         """Create healthcare-specific patterns."""
-        patterns: List[BasePattern] = []
+        patterns: list[BasePattern] = []
 
         # Properties
         privacy_prop = Property(
@@ -324,7 +324,7 @@ class HealthcareIntegrationExample(IntegrationExample):
 
         return patterns
 
-    def _create_healthcare_relationships(self, patterns: List[Any]) -> List[Relationship]:
+    def _create_healthcare_relationships(self, patterns: list[Any]) -> list[Relationship]:
         """Create relationships between healthcare patterns."""
         relationships = []
 
@@ -357,7 +357,7 @@ class HealthcareIntegrationExample(IntegrationExample):
 
         return relationships
 
-    def _analyze_healthcare_integration(self, framework: P3IFFramework) -> Dict[str, Any]:
+    def _analyze_healthcare_integration(self, framework: P3IFFramework) -> dict[str, Any]:
         """Analyze the healthcare integration results."""
         return {
             "total_patterns": len(framework),
@@ -380,7 +380,7 @@ class MultiFrameworkIntegrationExample(IntegrationExample):
             description="Integrate NIST CSF, HIPAA, and ISO 27001 with P3IF",
         )
 
-    def execute(self) -> Dict[str, Any]:
+    def execute(self) -> dict[str, Any]:
         """Execute the multi-framework integration example."""
         self.logger.info("Starting multi-framework integration example")
 
@@ -495,7 +495,7 @@ class MultiFrameworkIntegrationExample(IntegrationExample):
         # Add ISO patterns...
         return framework
 
-    def _analyze_multi_framework_integration(self, framework: P3IFFramework) -> Dict[str, Any]:
+    def _analyze_multi_framework_integration(self, framework: P3IFFramework) -> dict[str, Any]:
         """Analyze the multi-framework integration results."""
         return {
             "total_patterns": len(framework),
@@ -517,7 +517,7 @@ class DatabaseIntegrationExample(IntegrationExample):
             description="Integrate P3IF with PostgreSQL database for persistent storage",
         )
 
-    def execute(self) -> Dict[str, Any]:
+    def execute(self) -> dict[str, Any]:
         """Execute the database integration example."""
         self.logger.info("Starting database integration example")
 
@@ -546,7 +546,7 @@ class APIIntegrationExample(IntegrationExample):
             description="Integrate P3IF with external REST APIs for data exchange",
         )
 
-    def execute(self) -> Dict[str, Any]:
+    def execute(self) -> dict[str, Any]:
         """Execute the API integration example."""
         self.logger.info("Starting API integration example")
 
@@ -566,7 +566,7 @@ class APIIntegrationExample(IntegrationExample):
         }
 
 
-def run_all_integration_examples() -> Dict[str, Any]:
+def run_all_integration_examples() -> dict[str, Any]:
     """Run all integration examples."""
     examples = [
         NISTIntegrationExample(),

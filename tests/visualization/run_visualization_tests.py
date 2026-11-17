@@ -5,10 +5,11 @@ Test runner for P3IF visualization tests.
 This script runs all the visualization test suites and generates a report.
 It can be run with various options to control which tests are executed.
 
-All test outputs (HTML files, PNG images, etc.) are saved to the test_output directory 
+All test outputs (HTML files, PNG images, etc.) are saved to the test_output directory
 within the visualization tests folder. This allows for easy inspection of the generated
 visualizations after the tests have completed.
 """
+
 import sys
 import unittest
 import argparse
@@ -102,7 +103,7 @@ class OutputPathTrackingTestResult(unittest.TextTestResult):
             # Inspect HTML files for additional output references
             for html_file in base_path.glob("**/*.html"):
                 try:
-                    with open(html_file, "r") as f:
+                    with open(html_file) as f:
                         content = f.read()
                         # Look for file references in HTML
                         for match in re.finditer(r'src=[\'"]([^\'"]+)[\'"]', content):

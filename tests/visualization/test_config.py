@@ -1,9 +1,10 @@
 """
 Configuration settings for P3IF visualization tests.
 
-This module provides test configuration constants and helper functions 
+This module provides test configuration constants and helper functions
 to set up the visualization test environment.
 """
+
 import os
 from pathlib import Path
 import logging
@@ -166,7 +167,7 @@ def load_test_config(path=None):
         return DEFAULT_TEST_SETTINGS
 
     try:
-        with open(path, "r") as f:
+        with open(path) as f:
             config = json.load(f)
         logger.info(f"Test configuration loaded from {path}")
         return config

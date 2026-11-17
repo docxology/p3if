@@ -5,14 +5,15 @@ This module provides methods for composing and multiplexing P3IF frameworks,
 enabling flexible combination of different framework elements and dimensions.
 """
 
-from typing import Dict, List, Any, Callable
+from typing import Any
+from collections.abc import Callable
 from dataclasses import dataclass
-from enum import Enum
+from enum import StrEnum
 from datetime import datetime
 import logging
 
 
-class CompositionType(str, Enum):
+class CompositionType(StrEnum):
     """Types of composition operations."""
 
     OVERLAY = "overlay"
@@ -23,7 +24,7 @@ class CompositionType(str, Enum):
     PROJECT = "project"
 
 
-class MultiplexingStrategy(str, Enum):
+class MultiplexingStrategy(StrEnum):
     """Strategies for multiplexing framework elements."""
 
     UNION = "union"
@@ -39,10 +40,10 @@ class FrameworkAdapter:
     name: str
     version: str
     source_framework: str
-    mapping_rules: Dict[str, Any]
-    transformation_functions: Dict[str, Callable]
+    mapping_rules: dict[str, Any]
+    transformation_functions: dict[str, Callable]
 
-    def map_element(self, element: Any, element_type: str) -> Dict[str, Any]:
+    def map_element(self, element: Any, element_type: str) -> dict[str, Any]:
         """Map an element from the source framework to P3IF format."""
         if element_type in self.mapping_rules:
             mapping = self.mapping_rules[element_type]
@@ -57,8 +58,8 @@ class CompositionEngine:
     """Engine for composing and manipulating P3IF frameworks."""
 
     def __init__(self) -> None:
-        self.adapters: Dict[str, FrameworkAdapter] = {}
-        self.composition_history: List[Dict[str, Any]] = []
+        self.adapters: dict[str, FrameworkAdapter] = {}
+        self.composition_history: list[dict[str, Any]] = []
         self.logger = logging.getLogger(__name__)
 
     def __repr__(self) -> str:
@@ -120,7 +121,7 @@ class CompositionEngine:
         self._record_composition("transform", framework, None, result)
         return result
 
-    def filter_by_criteria(self, framework: Any, criteria: Dict[str, Any]) -> Any:
+    def filter_by_criteria(self, framework: Any, criteria: dict[str, Any]) -> Any:
         """Filter framework elements by specified criteria."""
         result = framework.copy()
 
@@ -137,7 +138,7 @@ class CompositionEngine:
         self._record_composition("filter", framework, None, result)
         return result
 
-    def project_dimensions(self, framework: Any, dimensions: List[str]) -> Any:
+    def project_dimensions(self, framework: Any, dimensions: list[str]) -> Any:
         """Project framework to specified dimensions only."""
         result = framework.copy()
 
@@ -151,7 +152,7 @@ class CompositionEngine:
         return result
 
     def create_composite_framework(
-        self, frameworks: List[Any], composition_rules: Dict[str, Any]
+        self, frameworks: list[Any], composition_rules: dict[str, Any]
     ) -> Any:
         """Create a composite framework from multiple frameworks."""
         if not frameworks:
@@ -166,7 +167,7 @@ class CompositionEngine:
         self._record_composition("composite", frameworks, None, base)
         return base
 
-    def _matches_criteria(self, element: Any, criteria: Dict[str, Any]) -> bool:
+    def _matches_criteria(self, element: Any, criteria: dict[str, Any]) -> bool:
         """Check if an element matches specified criteria."""
         for key, value in criteria.items():
             if hasattr(element, key):
@@ -200,18 +201,18 @@ class Multiplexer:
     """Handles multiplexing of framework elements across dimensions."""
 
     def __init__(self) -> None:
-        self.multiplexing_rules: Dict[str, Dict[str, Any]] = {}
+        self.multiplexing_rules: dict[str, dict[str, Any]] = {}
         self.logger = logging.getLogger(__name__)
 
-    def add_multiplexing_rule(self, rule_name: str, rule_config: Dict[str, Any]) -> None:
+    def add_multiplexing_rule(self, rule_name: str, rule_config: dict[str, Any]) -> None:
         """Add a multiplexing rule."""
         self.multiplexing_rules[rule_name] = rule_config
 
     def multiplex_properties_to_processes(
-        self, properties: List[Any], mapping_rules: Dict[str, str]
-    ) -> Dict[str, List[Any]]:
+        self, properties: list[Any], mapping_rules: dict[str, str]
+    ) -> dict[str, list[Any]]:
         """Multiplex properties into process representations."""
-        process_map: Dict[str, List[Any]] = {}
+        process_map: dict[str, list[Any]] = {}
 
         for prop in properties:
             for process_type, prop_attribute in mapping_rules.items():
@@ -223,10 +224,10 @@ class Multiplexer:
         return process_map
 
     def multiplex_processes_to_perspectives(
-        self, processes: List[Any], mapping_rules: Dict[str, str]
-    ) -> Dict[str, List[Any]]:
+        self, processes: list[Any], mapping_rules: dict[str, str]
+    ) -> dict[str, list[Any]]:
         """Multiplex processes into perspective representations."""
-        perspective_map: Dict[str, List[Any]] = {}
+        perspective_map: dict[str, list[Any]] = {}
 
         for process in processes:
             for perspective_type, process_attribute in mapping_rules.items():
@@ -237,7 +238,7 @@ class Multiplexer:
 
         return perspective_map
 
-    def create_cross_dimensional_links(self, framework: Any) -> List[Dict[str, Any]]:
+    def create_cross_dimensional_links(self, framework: Any) -> list[dict[str, Any]]:
         """Create links across dimensions based on common attributes."""
         links = []
 

@@ -1,10 +1,11 @@
 """
 Test utilities for P3IF tests.
 """
+
 import random
 import uuid
-from typing import List, Dict, Any, Optional
-from datetime import datetime, timezone
+from typing import Any
+from datetime import datetime, UTC
 import pytest
 
 from p3if.core.framework import P3IFFramework
@@ -20,7 +21,7 @@ def create_test_framework(
     num_processes: int = 5,
     num_perspectives: int = 5,
     num_relationships: int = 20,
-    domains: Optional[List[str]] = None,
+    domains: list[str] | None = None,
 ) -> P3IFFramework:
     """
     Create a P3IF framework with test data.
@@ -122,7 +123,7 @@ def create_test_framework(
 
 
 def create_multi_domain_test_framework(
-    domains: List[str] = None,
+    domains: list[str] = None,
     patterns_per_domain: int = 5,
     relationships_per_domain: int = 10,
     cross_domain_relationships: int = 5,
@@ -337,16 +338,16 @@ def create_relationship_with_metadata(
         direction="bidirectional",
         temporal_context="current",
         validity_period={
-            "start_date": datetime(2024, 1, 1, tzinfo=timezone.utc),
-            "end_date": datetime(2024, 12, 31, 23, 59, 59, tzinfo=timezone.utc),
+            "start_date": datetime(2024, 1, 1, tzinfo=UTC),
+            "end_date": datetime(2024, 12, 31, 23, 59, 59, tzinfo=UTC),
         },
         evidence_sources=["test_source"],
         validation_method="automated",
         assumptions=["test_assumption"],
         status="active",
         quality_score=0.85,
-        created_at=datetime.now(timezone.utc),
-        updated_at=datetime.now(timezone.utc),
+        created_at=datetime.now(UTC),
+        updated_at=datetime.now(UTC),
     )
 
 
@@ -418,7 +419,7 @@ def assert_framework_integrity(framework: P3IFFramework):
         assert rel_id in framework._relationship_index, f"Relationship {rel_id} not in index"
 
 
-def generate_test_json_data(num_patterns: int = 5, num_relationships: int = 10) -> Dict[str, Any]:
+def generate_test_json_data(num_patterns: int = 5, num_relationships: int = 10) -> dict[str, Any]:
     """
     Generate test JSON data for import/export testing.
 
@@ -445,8 +446,8 @@ def generate_test_json_data(num_patterns: int = 5, num_relationships: int = 10) 
             "quality_score": round(0.7 + random.random() * 0.3, 2),
             "confidence": round(0.8 + random.random() * 0.2, 2),
             "version": "1.0.0",
-            "created_at": datetime.now(timezone.utc).isoformat(),
-            "updated_at": datetime.now(timezone.utc).isoformat(),
+            "created_at": datetime.now(UTC).isoformat(),
+            "updated_at": datetime.now(UTC).isoformat(),
         }
 
         # Add perspective-specific fields
@@ -478,8 +479,8 @@ def generate_test_json_data(num_patterns: int = 5, num_relationships: int = 10) 
             "direction": random.choice(["unidirectional", "bidirectional"]),
             "status": random.choice(["active", "deprecated", "experimental"]),
             "quality_score": round(0.7 + random.random() * 0.3, 2),
-            "created_at": datetime.now(timezone.utc).isoformat(),
-            "updated_at": datetime.now(timezone.utc).isoformat(),
+            "created_at": datetime.now(UTC).isoformat(),
+            "updated_at": datetime.now(UTC).isoformat(),
         }
 
         # Set the second pattern's ID in the appropriate field
@@ -496,7 +497,7 @@ def generate_test_json_data(num_patterns: int = 5, num_relationships: int = 10) 
         "patterns": patterns,
         "relationships": relationships,
         "metadata": {
-            "generated_at": datetime.now(timezone.utc).isoformat(),
+            "generated_at": datetime.now(UTC).isoformat(),
             "generator": "test_utils",
             "version": "1.0.0",
         },

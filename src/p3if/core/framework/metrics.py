@@ -5,8 +5,8 @@ Data structures for framework performance and usage metrics. Extracted from
 the framework module to keep ``framework/core.py`` focused on the core
 framework class.
 """
+
 from dataclasses import dataclass
-from typing import Dict
 
 
 @dataclass
@@ -18,8 +18,8 @@ class FrameworkMetrics:
     average_relationship_strength: float
     average_confidence: float
     domain_count: int
-    pattern_types_count: Dict[str, int]
-    relationship_types_count: Dict[str, int]
+    pattern_types_count: dict[str, int]
+    relationship_types_count: dict[str, int]
     orphaned_patterns: int
     deprecated_patterns: int
     validation_issues: int

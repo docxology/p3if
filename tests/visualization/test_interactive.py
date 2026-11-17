@@ -1,6 +1,7 @@
 """
 Tests for the P3IF interactive visualizations.
 """
+
 import unittest
 from pathlib import Path
 
@@ -89,7 +90,7 @@ class TestInteractiveVisualizer(unittest.TestCase):
         self.assertIsInstance(result_path, Path)
 
         # Check the content of the file
-        with open(result_path, "r") as f:
+        with open(result_path) as f:
             content = f.read()
 
             # Check for key HTML elements
@@ -148,7 +149,7 @@ class TestInteractiveVisualizer(unittest.TestCase):
         self.assertIsInstance(result_path, Path)
 
         # Check the content of the file
-        with open(result_path, "r") as f:
+        with open(result_path) as f:
             content = f.read()
 
             # Check for key HTML elements
@@ -191,7 +192,7 @@ class TestInteractiveVisualizer(unittest.TestCase):
         self.assertIsInstance(result_path, Path)
 
         # Check the content of the file
-        with open(result_path, "r") as f:
+        with open(result_path) as f:
             content = f.read()
 
             # Check for dataset selector

@@ -11,7 +11,7 @@ The orchestrator follows thin orchestration principles:
 - Comprehensive logging and error handling
 """
 
-from typing import Dict, List, Any, Optional
+from typing import Any
 from dataclasses import dataclass, field
 from datetime import datetime
 
@@ -81,7 +81,7 @@ class CognitiveSecurityOrchestrator:
             )
         )
 
-    def _analyze_information_supply_chain(self) -> Dict[str, Any]:
+    def _analyze_information_supply_chain(self) -> dict[str, Any]:
         """Analyze the information supply chain for vulnerabilities."""
         # This would analyze the flow from source to decision
         return {
@@ -132,8 +132,8 @@ class CognitiveSecurityOrchestrator:
         }
 
     def _identify_cognitive_biases(
-        self, orchestrator_context: Optional[Dict[str, Any]] = None
-    ) -> Dict[str, Any]:
+        self, orchestrator_context: dict[str, Any] | None = None
+    ) -> dict[str, Any]:
         """Identify cognitive biases in the supply chain."""
         # Get the supply chain analysis from the orchestrator context
 
@@ -158,7 +158,7 @@ class CognitiveSecurityOrchestrator:
 
         return {"identified_biases": biases, "risk_assessment": self._assess_bias_risks(biases)}
 
-    def _assess_bias_risks(self, biases: Dict[str, Any]) -> Dict[str, Any]:
+    def _assess_bias_risks(self, biases: dict[str, Any]) -> dict[str, Any]:
         """Assess risks associated with identified biases."""
         risk_levels = {}
         for bias_name, bias_info in biases.items():
@@ -173,8 +173,8 @@ class CognitiveSecurityOrchestrator:
         return risk_levels
 
     def _assess_manipulation_risks(
-        self, orchestrator_context: Optional[Dict[str, Any]] = None
-    ) -> Dict[str, Any]:
+        self, orchestrator_context: dict[str, Any] | None = None
+    ) -> dict[str, Any]:
         """Assess risks of information manipulation."""
         # Get the bias analysis from the orchestrator context
 
@@ -212,7 +212,7 @@ class CognitiveSecurityOrchestrator:
             "overall_risk_level": self._calculate_overall_risk(manipulation_risks),
         }
 
-    def _calculate_overall_risk(self, risks: Dict[str, Any]) -> str:
+    def _calculate_overall_risk(self, risks: dict[str, Any]) -> str:
         """Calculate overall risk level from individual risks."""
         risk_levels = [risk["risk_level"] for risk in risks.values()]
         if "high" in risk_levels:
@@ -223,8 +223,8 @@ class CognitiveSecurityOrchestrator:
             return "low"
 
     def _design_cognitive_protection(
-        self, orchestrator_context: Optional[Dict[str, Any]] = None
-    ) -> Dict[str, Any]:
+        self, orchestrator_context: dict[str, Any] | None = None
+    ) -> dict[str, Any]:
         """Design protective measures for cognitive security."""
         # Get the manipulation assessment from the orchestrator context
 
@@ -254,7 +254,7 @@ class CognitiveSecurityOrchestrator:
             "implementation_priority": self._prioritize_implementation(protection_measures),
         }
 
-    def _prioritize_implementation(self, measures: Dict[str, List[str]]) -> Dict[str, str]:
+    def _prioritize_implementation(self, measures: dict[str, list[str]]) -> dict[str, str]:
         """Prioritize implementation of protection measures."""
         priorities = {}
         for category, measure_list in measures.items():
@@ -267,7 +267,7 @@ class CognitiveSecurityOrchestrator:
         return priorities
 
     @logged_method()
-    def execute_analysis(self, domain_context: str = "general") -> Dict[str, Any]:
+    def execute_analysis(self, domain_context: str = "general") -> dict[str, Any]:
         """Execute the cognitive security analysis."""
         self.logger.info(f"Starting cognitive security analysis for domain: {domain_context}")
 
@@ -289,7 +289,7 @@ class CognitiveSecurityOrchestrator:
         self.logger.info("Cognitive security analysis completed")
         return final_report
 
-    def _generate_summary(self, results: Dict[str, Any]) -> Dict[str, Any]:
+    def _generate_summary(self, results: dict[str, Any]) -> dict[str, Any]:
         """Generate summary of analysis results."""
         return {
             "total_steps_completed": len(results),
@@ -297,7 +297,7 @@ class CognitiveSecurityOrchestrator:
             "protection_measures_count": len(results.get("design_protection", {})),
         }
 
-    def _extract_risk_levels(self, results: Dict[str, Any]) -> Dict[str, str]:
+    def _extract_risk_levels(self, results: dict[str, Any]) -> dict[str, str]:
         """Extract risk levels from results."""
         risk_levels = {}
 
@@ -314,7 +314,7 @@ class CognitiveSecurityOrchestrator:
 
         return risk_levels
 
-    def _generate_recommendations(self, results: Dict[str, Any]) -> List[str]:
+    def _generate_recommendations(self, results: dict[str, Any]) -> list[str]:
         """Generate actionable recommendations."""
         recommendations = []
 

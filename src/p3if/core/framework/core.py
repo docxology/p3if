@@ -4,12 +4,14 @@ P3IF Core Framework
 This module contains the main P3IF framework class with performance,
 validation, and analysis capabilities.
 """
-from typing import Dict, List, Optional, Union, Any, Set, Iterator, Callable
+
+from typing import Any
+from collections.abc import Iterator, Callable
 import asyncio
 import json
 import os
 from pathlib import Path
-from datetime import datetime, timezone
+from datetime import datetime, UTC
 from collections import defaultdict, Counter
 import threading
 from concurrent.futures import ThreadPoolExecutor
@@ -50,7 +52,7 @@ class P3IFFramework(MetadataMixin):
     """
 
     def __init__(
-        self, storage_backend: Optional[StorageInterface] = None, config: Optional[Config] = None
+        self, storage_backend: StorageInterface | None = None, config: Config | None = None
     ):
         """
         Initialize an enhanced P3IF framework instance.
@@ -65,17 +67,17 @@ class P3IFFramework(MetadataMixin):
 
         # Core data structures with thread safety
         self._lock = threading.RLock()
-        self._patterns: Dict[str, BasePattern] = {}
-        self._relationships: Dict[str, Relationship] = {}
+        self._patterns: dict[str, BasePattern] = {}
+        self._relationships: dict[str, Relationship] = {}
 
         # Enhanced indexing for performance
-        self._pattern_index: Dict[str, Dict[str, List[str]]] = {
+        self._pattern_index: dict[str, dict[str, list[str]]] = {
             "domain": defaultdict(list),
             "type": defaultdict(list),
             "tags": defaultdict(list),
             "status": defaultdict(list),
         }
-        self._relationship_index: Dict[str, Dict[str, List[str]]] = {
+        self._relationship_index: dict[str, dict[str, list[str]]] = {
             "property": defaultdict(list),
             "process": defaultdict(list),
             "perspective": defaultdict(list),
@@ -84,8 +86,8 @@ class P3IFFramework(MetadataMixin):
         }
 
         # Enhanced caching with performance monitoring
-        self._metrics_cache: Optional[FrameworkMetrics] = None
-        self._metrics_cache_time: Optional[datetime] = None
+        self._metrics_cache: FrameworkMetrics | None = None
+        self._metrics_cache_time: datetime | None = None
         self._cache_timeout = 300  # 5 minutes
 
         # Performance monitoring and optimization
@@ -94,7 +96,7 @@ class P3IFFramework(MetadataMixin):
         self._query_cache = LRUCache(max_size=200, default_ttl=300)  # 5 minutes
 
         # Batch operations for performance
-        self._batch_operations: List[Callable] = []
+        self._batch_operations: list[Callable] = []
         self._batch_mode = False
         self._batch_size_threshold = 100
 
@@ -105,13 +107,13 @@ class P3IFFramework(MetadataMixin):
 
         # Initialize metadata
         self.metadata = {
-            "created_at": datetime.now(timezone.utc),
+            "created_at": datetime.now(UTC),
             "version": "2.5.0",
             "framework_type": "enhanced_p3if",
         }
 
     def _update_indexes(
-        self, pattern: Optional[BasePattern] = None, relationship: Optional[Relationship] = None
+        self, pattern: BasePattern | None = None, relationship: Relationship | None = None
     ) -> None:
         """Update internal indexes for fast lookups."""
         with self._lock:
@@ -188,7 +190,7 @@ class P3IFFramework(MetadataMixin):
         """Asynchronously add a pattern to the framework."""
         return await asyncio.to_thread(self.add_pattern, pattern)
 
-    def get_pattern(self, pattern_id: str) -> Optional[BasePattern]:
+    def get_pattern(self, pattern_id: str) -> BasePattern | None:
         """
         Retrieve a pattern by ID with fast lookup.
 
@@ -201,7 +203,7 @@ class P3IFFramework(MetadataMixin):
         with self._lock:
             return self._patterns.get(pattern_id)
 
-    def get_patterns_by_type(self, pattern_type: Union[str, PatternType]) -> List[BasePattern]:
+    def get_patterns_by_type(self, pattern_type: str | PatternType) -> list[BasePattern]:
         """
         Retrieve all patterns of a specific type using indexing.
 
@@ -218,7 +220,7 @@ class P3IFFramework(MetadataMixin):
             pattern_ids = self._pattern_index["type"].get(pattern_type, [])
             return [self._patterns[pid] for pid in pattern_ids if pid in self._patterns]
 
-    def get_patterns_by_domain(self, domain: str) -> List[BasePattern]:
+    def get_patterns_by_domain(self, domain: str) -> list[BasePattern]:
         """
         Retrieve all patterns in a specific domain.
 
@@ -232,7 +234,7 @@ class P3IFFramework(MetadataMixin):
             pattern_ids = self._pattern_index["domain"].get(domain, [])
             return [self._patterns[pid] for pid in pattern_ids if pid in self._patterns]
 
-    def get_patterns_by_tag(self, tag: str) -> List[BasePattern]:
+    def get_patterns_by_tag(self, tag: str) -> list[BasePattern]:
         """
         Retrieve all patterns with a specific tag.
 
@@ -246,7 +248,7 @@ class P3IFFramework(MetadataMixin):
             pattern_ids = self._pattern_index["tags"].get(tag.lower(), [])
             return [self._patterns[pid] for pid in pattern_ids if pid in self._patterns]
 
-    def search_patterns(self, query: str, limit: int = 50) -> List[BasePattern]:
+    def search_patterns(self, query: str, limit: int = 50) -> list[BasePattern]:
         """
         Search patterns by name, description, or tags.
 
@@ -317,7 +319,7 @@ class P3IFFramework(MetadataMixin):
         """Asynchronously add a relationship to the framework."""
         return await asyncio.to_thread(self.add_relationship, relationship)
 
-    def get_relationship(self, relationship_id: str) -> Optional[Relationship]:
+    def get_relationship(self, relationship_id: str) -> Relationship | None:
         """
         Retrieve a relationship by ID.
 
@@ -330,7 +332,7 @@ class P3IFFramework(MetadataMixin):
         with self._lock:
             return self._relationships.get(relationship_id)
 
-    def get_relationships_by_pattern(self, pattern_id: str) -> List[Relationship]:
+    def get_relationships_by_pattern(self, pattern_id: str) -> list[Relationship]:
         """
         Get all relationships involving a specific pattern.
 
@@ -355,7 +357,7 @@ class P3IFFramework(MetadataMixin):
                     results.append(self._relationships[rid])
             return results
 
-    def get_relationships_by_type(self, relationship_type: str) -> List[Relationship]:
+    def get_relationships_by_type(self, relationship_type: str) -> list[Relationship]:
         """
         Get all relationships of a specific type.
 
@@ -371,7 +373,7 @@ class P3IFFramework(MetadataMixin):
                 self._relationships[rid] for rid in relationship_ids if rid in self._relationships
             ]
 
-    def get_all_relationships(self) -> List[Relationship]:
+    def get_all_relationships(self) -> list[Relationship]:
         """
         Get all relationships in the framework.
 
@@ -381,7 +383,7 @@ class P3IFFramework(MetadataMixin):
         with self._lock:
             return list(self._relationships.values())
 
-    def get_all_patterns(self) -> List[BasePattern]:
+    def get_all_patterns(self) -> list[BasePattern]:
         """
         Get all patterns in the framework.
 
@@ -391,7 +393,7 @@ class P3IFFramework(MetadataMixin):
         with self._lock:
             return list(self._patterns.values())
 
-    def get_all_domains(self) -> Set[str]:
+    def get_all_domains(self) -> set[str]:
         """
         Get all domains present in the framework.
 
@@ -529,7 +531,7 @@ class P3IFFramework(MetadataMixin):
         return issues
 
     @performance_timer("add_pattern_batch")
-    def add_patterns_batch(self, patterns: List[BasePattern]) -> Dict[str, Any]:
+    def add_patterns_batch(self, patterns: list[BasePattern]) -> dict[str, Any]:
         """
         Add multiple patterns in a batch for better performance.
 
@@ -559,7 +561,7 @@ class P3IFFramework(MetadataMixin):
         }
 
     @performance_timer("add_relationship_batch")
-    def add_relationships_batch(self, relationships: List[Relationship]) -> Dict[str, Any]:
+    def add_relationships_batch(self, relationships: list[Relationship]) -> dict[str, Any]:
         """
         Add multiple relationships in a batch for better performance.
 
@@ -588,7 +590,7 @@ class P3IFFramework(MetadataMixin):
             "total": len(relationships),
         }
 
-    def get_patterns_by_domain_optimized(self, domain: str) -> List[BasePattern]:
+    def get_patterns_by_domain_optimized(self, domain: str) -> list[BasePattern]:
         """Get patterns by domain.
 
         Delegates to the index-backed :meth:`get_patterns_by_domain`. Kept as a
@@ -596,18 +598,18 @@ class P3IFFramework(MetadataMixin):
         """
         return self.get_patterns_by_domain(domain)
 
-    def get_patterns_by_type_optimized(self, pattern_type: str) -> List[BasePattern]:
+    def get_patterns_by_type_optimized(self, pattern_type: str) -> list[BasePattern]:
         """Get patterns by type.
 
         Delegates to the index-backed :meth:`get_patterns_by_type`.
         """
         return self.get_patterns_by_type(pattern_type)
 
-    def search_patterns_optimized(self, query: str, limit: int = 100) -> List[BasePattern]:
+    def search_patterns_optimized(self, query: str, limit: int = 100) -> list[BasePattern]:
         """Search patterns by query, limited to ``limit`` results."""
         return self.search_patterns(query)[:limit]
 
-    def get_performance_stats(self) -> Dict[str, Any]:
+    def get_performance_stats(self) -> dict[str, Any]:
         """Get performance statistics for the framework."""
         return {
             "cache_stats": {
@@ -637,7 +639,7 @@ class P3IFFramework(MetadataMixin):
             FrameworkMetrics object
         """
         with self._lock:
-            now = datetime.now(timezone.utc)
+            now = datetime.now(UTC)
 
             # Check cache validity
             if (
@@ -682,8 +684,8 @@ class P3IFFramework(MetadataMixin):
         domain_count = len(self._pattern_index.get("domain", {}))
 
         # Relationship metrics
-        strengths: List[float] = []
-        confidences: List[float] = []
+        strengths: list[float] = []
+        confidences: list[float] = []
         relationship_types_count: Counter = Counter()
 
         for rel in self._relationships.values():
@@ -760,8 +762,8 @@ class P3IFFramework(MetadataMixin):
             )
 
     def export_to_json(
-        self, file_path: Optional[str] = None, include_metadata: bool = True
-    ) -> Optional[str]:
+        self, file_path: str | None = None, include_metadata: bool = True
+    ) -> str | None:
         """
         Export the framework data to JSON with enhanced metadata.
 
@@ -778,15 +780,17 @@ class P3IFFramework(MetadataMixin):
                 "relationships": [
                     r.model_dump(by_alias=True) for r in self._relationships.values()
                 ],
-                "framework_metadata": {
-                    "exported_at": datetime.now(timezone.utc).isoformat(),
-                    "framework_version": "2.5.0",
-                    "total_patterns": len(self._patterns),
-                    "total_relationships": len(self._relationships),
-                    "exporter": "p3if-enhanced",
-                }
-                if include_metadata
-                else None,
+                "framework_metadata": (
+                    {
+                        "exported_at": datetime.now(UTC).isoformat(),
+                        "framework_version": "2.5.0",
+                        "total_patterns": len(self._patterns),
+                        "total_relationships": len(self._relationships),
+                        "exporter": "p3if-enhanced",
+                    }
+                    if include_metadata
+                    else None
+                ),
             }
 
             def custom_serializer(obj: Any) -> Any:
@@ -806,8 +810,8 @@ class P3IFFramework(MetadataMixin):
                 return json.dumps(data, indent=2, ensure_ascii=False, default=custom_serializer)
 
     def import_from_json(
-        self, json_data: Union[str, Path, Dict], validate: bool = True
-    ) -> Dict[str, int]:
+        self, json_data: str | Path | dict, validate: bool = True
+    ) -> dict[str, int]:
         """
         Import framework data from JSON with enhanced validation.
 
@@ -821,7 +825,7 @@ class P3IFFramework(MetadataMixin):
         with self._lock:
             # Load data from various sources
             if isinstance(json_data, Path):
-                with open(json_data, "r", encoding="utf-8") as f:
+                with open(json_data, encoding="utf-8") as f:
                     data = json.load(f)
             elif isinstance(json_data, dict):
                 data = json_data
@@ -832,7 +836,7 @@ class P3IFFramework(MetadataMixin):
                     data = json.loads(json_data)
                 else:
                     # File path
-                    with open(json_data, "r", encoding="utf-8") as f:
+                    with open(json_data, encoding="utf-8") as f:
                         data = json.load(f)
             else:
                 raise ValueError("Invalid JSON data format")
@@ -894,7 +898,7 @@ class P3IFFramework(MetadataMixin):
             }
 
     def hot_swap_dimension(
-        self, old_dimension: Union[str, PatternType], new_dimension: Union[str, PatternType]
+        self, old_dimension: str | PatternType, new_dimension: str | PatternType
     ) -> int:
         """
         Hot-swap one dimension with another across all relationships.
@@ -939,7 +943,7 @@ class P3IFFramework(MetadataMixin):
                     old_value = getattr(relationship, old_attr)
                     setattr(relationship, new_attr, old_value)
                     setattr(relationship, old_attr, None)
-                    relationship.updated_at = datetime.now(timezone.utc)
+                    relationship.updated_at = datetime.now(UTC)
                     modified_count += 1
 
             if modified_count > 0:
@@ -953,8 +957,8 @@ class P3IFFramework(MetadataMixin):
             return modified_count
 
     def multiplex_frameworks(
-        self, external_framework: Dict[str, List[Dict[str, Any]]]
-    ) -> Dict[str, Dict[str, int]]:
+        self, external_framework: dict[str, list[dict[str, Any]]]
+    ) -> dict[str, dict[str, int]]:
         """
         Integrate patterns from an external framework with advanced conflict resolution.
 
@@ -999,7 +1003,7 @@ class P3IFFramework(MetadataMixin):
                             for key, value in item_data.items():
                                 if key not in ["id", "created_at"] and hasattr(existing, key):
                                     setattr(existing, key, value)
-                            existing.updated_at = datetime.now(timezone.utc)
+                            existing.updated_at = datetime.now(UTC)
                             skipped[dimension] += 1
                         else:
                             # Create new pattern
@@ -1041,7 +1045,7 @@ class P3IFFramework(MetadataMixin):
 
             self.logger.info("Framework cleared")
 
-    def get_summary_statistics(self) -> Dict[str, Any]:
+    def get_summary_statistics(self) -> dict[str, Any]:
         """
         Get comprehensive summary statistics for the framework.
 
@@ -1052,7 +1056,7 @@ class P3IFFramework(MetadataMixin):
 
         with self._lock:
             # Domain analysis
-            domain_stats: Dict[str, int] = defaultdict(int)
+            domain_stats: dict[str, int] = defaultdict(int)
             for pattern in self._patterns.values():
                 if pattern.domain:
                     domain_stats[pattern.domain] += 1
@@ -1094,7 +1098,7 @@ class P3IFFramework(MetadataMixin):
                 "validation": {"issues": metrics.validation_issues},
             }
 
-    def validate_framework(self) -> Dict[str, Any]:
+    def validate_framework(self) -> dict[str, Any]:
         """
         Validate the framework for consistency and quality issues.
 

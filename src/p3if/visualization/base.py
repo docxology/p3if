@@ -3,7 +3,8 @@ P3IF Base Visualizer
 
 This module provides the base visualization class for P3IF data.
 """
-from typing import Dict, List, Any, Optional, Union, Tuple
+
+from typing import Any
 import logging
 import os
 import matplotlib.pyplot as plt
@@ -18,7 +19,7 @@ from p3if.utils.config import Config
 class Visualizer:
     """Base class for all P3IF visualizers."""
 
-    def __init__(self, framework: P3IFFramework, config: Optional[Config] = None):
+    def __init__(self, framework: P3IFFramework, config: Config | None = None):
         """
         Initialize the visualizer.
 
@@ -54,8 +55,8 @@ class Visualizer:
     def save_figure(
         self,
         fig: plt.Figure,
-        file_path: Union[str, Path],
-        title: Optional[str] = None,
+        file_path: str | Path,
+        title: str | None = None,
         tight_layout: bool = True,
     ) -> None:
         """
@@ -145,7 +146,7 @@ class Visualizer:
         finally:
             plt.close(fig)
 
-    def get_color_palette(self, n_colors: int) -> List[str]:
+    def get_color_palette(self, n_colors: int) -> list[str]:
         """
         Get a color palette for visualization.
 
@@ -157,7 +158,7 @@ class Visualizer:
         """
         return list(sns.color_palette(self.colormap, n_colors=n_colors).as_hex())
 
-    def get_domain_colors(self) -> Dict[str, str]:
+    def get_domain_colors(self) -> dict[str, str]:
         """
         Get a consistent color mapping for domains.
 
@@ -177,7 +178,7 @@ class Visualizer:
 
         return dict(zip(domain_list, colors))
 
-    def get_pattern_type_colors(self) -> Dict[str, str]:
+    def get_pattern_type_colors(self) -> dict[str, str]:
         """
         Get a consistent color mapping for pattern types.
 
@@ -190,8 +191,8 @@ class Visualizer:
         return dict(zip(pattern_types, colors))
 
     def setup_figure(
-        self, nrows: int = 1, ncols: int = 1, figsize: Optional[Tuple[float, float]] = None
-    ) -> Tuple[plt.Figure, Any]:
+        self, nrows: int = 1, ncols: int = 1, figsize: tuple[float, float] | None = None
+    ) -> tuple[plt.Figure, Any]:
         """
         Set up a matplotlib figure and axes.
 

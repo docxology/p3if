@@ -3,11 +3,12 @@ P3IF Configuration Utility
 
 This module provides configuration management for P3IF.
 """
+
 import os
 import json
 import copy
 from pathlib import Path
-from typing import Any, Dict, Optional, Union
+from typing import Any
 
 
 class Config:
@@ -33,20 +34,20 @@ class Config:
         "export": {"formats": ["json", "csv", "graphml"]},
     }
 
-    def __init__(self, config_file: Optional[Union[str, Path]] = None):
+    def __init__(self, config_file: str | Path | None = None):
         """
         Initialize configuration.
 
         Args:
             config_file: Optional path to configuration file
         """
-        self._config: Dict[str, Any] = copy.deepcopy(self.DEFAULT_CONFIG)
+        self._config: dict[str, Any] = copy.deepcopy(self.DEFAULT_CONFIG)
 
         # Load from file if provided
         if config_file:
             self.load_from_file(config_file)
 
-    def load_from_file(self, config_file: Union[str, Path]) -> None:
+    def load_from_file(self, config_file: str | Path) -> None:
         """
         Load configuration from file.
 
@@ -55,7 +56,7 @@ class Config:
         """
         path = Path(config_file)
         if path.exists():
-            with open(path, "r") as f:
+            with open(path) as f:
                 try:
                     loaded_config = json.load(f)
                     self._merge_config(loaded_config)
@@ -65,7 +66,7 @@ class Config:
             # Create default config file
             self.save_to_file(config_file)
 
-    def save_to_file(self, config_file: Union[str, Path]) -> None:
+    def save_to_file(self, config_file: str | Path) -> None:
         """
         Save configuration to file.
 
@@ -78,7 +79,7 @@ class Config:
         with open(path, "w") as f:
             json.dump(self._config, f, indent=2)
 
-    def _merge_config(self, new_config: Dict[str, Any]) -> None:
+    def _merge_config(self, new_config: dict[str, Any]) -> None:
         """
         Merge new configuration with existing configuration.
 
@@ -92,7 +93,7 @@ class Config:
             else:
                 self._config[key] = value
 
-    def _merge_dict(self, target: Dict[str, Any], source: Dict[str, Any]) -> None:
+    def _merge_dict(self, target: dict[str, Any], source: dict[str, Any]) -> None:
         """
         Recursively merge source dict into target dict.
 
@@ -148,7 +149,7 @@ class Config:
         # Set the value
         target[keys[-1]] = value
 
-    def get_all(self) -> Dict[str, Any]:
+    def get_all(self) -> dict[str, Any]:
         """
         Get the entire configuration.
 

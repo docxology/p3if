@@ -9,11 +9,11 @@ from __future__ import annotations
 
 import argparse
 from dataclasses import dataclass
-from datetime import datetime, timezone
+from datetime import datetime, UTC
 from hashlib import sha256
 from pathlib import Path
 from time import monotonic_ns
-from typing import Any, Optional
+from typing import Any
 import json
 import os
 import re
@@ -40,7 +40,7 @@ class RecordSpan:
 
     kind: str
     identity: str
-    name: Optional[str]
+    name: str | None
     start: int
     end: int
 
@@ -166,7 +166,7 @@ def _submit(case_id: str, output: Path) -> tuple[bytes, str]:
     return _json({"case_id": case_id, "answer_sha256": digest}), digest
 
 
-def _command(args: argparse.Namespace, root: Path) -> tuple[bytes, Optional[int]]:
+def _command(args: argparse.Namespace, root: Path) -> tuple[bytes, int | None]:
     if args.action == "schedule":
         return _packet_file(root, "schedule.json"), None
     folder = _case_folder(root, args.case_id)
@@ -235,7 +235,7 @@ def _parser() -> argparse.ArgumentParser:
 
 
 def _utc_now() -> str:
-    return datetime.now(timezone.utc).isoformat(timespec="microseconds").replace("+00:00", "Z")
+    return datetime.now(UTC).isoformat(timespec="microseconds").replace("+00:00", "Z")
 
 
 def _append(output: Path, row: dict[str, Any]) -> None:

@@ -3,7 +3,8 @@ P3IF Basic Analyzer
 
 This module provides basic analysis capabilities for P3IF data.
 """
-from typing import Dict, List, Any
+
+from typing import Any
 import logging
 import numpy as np
 from collections import Counter
@@ -24,7 +25,7 @@ class BasicAnalyzer:
         self.framework = framework
         self.logger = logging.getLogger(__name__)
 
-    def get_pattern_distribution(self) -> Dict[str, int]:
+    def get_pattern_distribution(self) -> dict[str, int]:
         """
         Get distribution of patterns by type.
 
@@ -36,7 +37,7 @@ class BasicAnalyzer:
             result[pattern_type] = len(self.framework.get_patterns_by_type(pattern_type))
         return result
 
-    def get_relationship_strength_statistics(self) -> Dict[str, float]:
+    def get_relationship_strength_statistics(self) -> dict[str, float]:
         """
         Get statistics about relationship strengths.
 
@@ -56,7 +57,7 @@ class BasicAnalyzer:
             "std": float(np.std(strengths)),
         }
 
-    def get_strongest_relationships(self, top_n: int = 5) -> List[Dict[str, Any]]:
+    def get_strongest_relationships(self, top_n: int = 5) -> list[dict[str, Any]]:
         """
         Get the strongest relationships.
 
@@ -74,9 +75,9 @@ class BasicAnalyzer:
             self.framework._relationships.values(), key=lambda r: r.strength, reverse=True
         )
 
-        result: List[Dict[str, Any]] = []
+        result: list[dict[str, Any]] = []
         for r in sorted_relationships[:top_n]:
-            relationship_info: Dict[str, Any] = {
+            relationship_info: dict[str, Any] = {
                 "id": r.id,
                 "strength": r.strength,
                 "confidence": r.confidence,
@@ -115,7 +116,7 @@ class BasicAnalyzer:
 
         return result
 
-    def get_tag_distribution(self) -> Dict[str, int]:
+    def get_tag_distribution(self) -> dict[str, int]:
         """
         Get distribution of tags across all patterns.
 
@@ -129,14 +130,14 @@ class BasicAnalyzer:
 
         return dict(tag_counter)
 
-    def get_pattern_activity(self) -> Dict[str, Dict[str, int]]:
+    def get_pattern_activity(self) -> dict[str, dict[str, int]]:
         """
         Get activity metrics for patterns.
 
         Returns:
             Dictionary mapping pattern types to dictionaries of pattern IDs and relationship counts
         """
-        result: Dict[str, Dict[str, int]] = {"property": {}, "process": {}, "perspective": {}}
+        result: dict[str, dict[str, int]] = {"property": {}, "process": {}, "perspective": {}}
 
         # Count relationships for each pattern
         for rel in self.framework._relationships.values():
@@ -151,7 +152,7 @@ class BasicAnalyzer:
 
         return result
 
-    def get_most_connected_patterns(self, top_n: int = 5) -> Dict[str, List[Dict[str, Any]]]:
+    def get_most_connected_patterns(self, top_n: int = 5) -> dict[str, list[dict[str, Any]]]:
         """
         Get the most connected patterns by type.
 
@@ -185,7 +186,7 @@ class BasicAnalyzer:
 
         return result
 
-    def get_pattern_similarity_matrix(self, pattern_type: str) -> Dict[str, Any]:
+    def get_pattern_similarity_matrix(self, pattern_type: str) -> dict[str, Any]:
         """
         Generate a similarity matrix for patterns of a specific type.
 
@@ -256,7 +257,7 @@ class BasicAnalyzer:
             "patterns": pattern_info,
         }
 
-    def run_full_analysis(self) -> Dict[str, Any]:
+    def run_full_analysis(self) -> dict[str, Any]:
         """
         Run a full basic analysis.
 

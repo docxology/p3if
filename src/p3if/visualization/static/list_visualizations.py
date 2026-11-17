@@ -5,10 +5,10 @@ P3IF List Visualizations
 Generates detailed list visualizations for each P3IF component type,
 showing Properties, Processes, and Perspectives in structured formats.
 """
+
 import logging
 import matplotlib.pyplot as plt
 from pathlib import Path
-from typing import Dict
 from matplotlib.table import Table
 from matplotlib.transforms import Bbox
 
@@ -66,7 +66,7 @@ def generate_list_visualizations(
 
 
 def _create_properties_list(
-    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: Dict[str, str]
+    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: dict[str, str]
 ):
     """Create a detailed list visualization of Properties."""
     # Get all properties
@@ -156,7 +156,7 @@ def _create_properties_list(
 
 
 def _create_processes_list(
-    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: Dict[str, str]
+    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: dict[str, str]
 ):
     """Create a detailed list visualization of Processes."""
     # Get all processes
@@ -245,7 +245,7 @@ def _create_processes_list(
 
 
 def _create_perspectives_list(
-    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: Dict[str, str]
+    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: dict[str, str]
 ):
     """Create a detailed list visualization of Perspectives."""
     # Get all perspectives
@@ -337,7 +337,7 @@ def _create_comprehensive_overview(
     small_framework: P3IFFramework,
     large_framework: P3IFFramework,
     session_path: Path,
-    colors: Dict[str, str],
+    colors: dict[str, str],
 ):
     """Create a comprehensive overview of all P3IF components."""
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(16, 12))

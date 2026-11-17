@@ -5,6 +5,7 @@ P3IF Visualization Orchestrator
 Coordinates multiple specialized visualization generators to create comprehensive
 visual representations of Properties, Processes, and Perspectives.
 """
+
 import logging
 from pathlib import Path
 import importlib.util

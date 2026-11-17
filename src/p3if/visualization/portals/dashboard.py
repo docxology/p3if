@@ -3,7 +3,8 @@ P3IF Dashboard Generator
 
 This module provides dashboard generation capabilities for P3IF data.
 """
-from typing import Dict, List, Any, Optional, Union
+
+from typing import Any
 import matplotlib.pyplot as plt
 import seaborn as sns
 from pathlib import Path
@@ -23,7 +24,7 @@ from p3if.core.analysis.report import AnalysisReport
 class DashboardGenerator(Visualizer):
     """Dashboard generator for P3IF data."""
 
-    def __init__(self, framework: P3IFFramework, config: Optional[Config] = None):
+    def __init__(self, framework: P3IFFramework, config: Config | None = None):
         """
         Initialize dashboard generator.
 
@@ -36,7 +37,7 @@ class DashboardGenerator(Visualizer):
         self.matrix_visualizer = MatrixVisualizer(framework, config)
         self.analysis_report = AnalysisReport(framework)
 
-    def generate_overview_dashboard(self, output_dir: Union[str, Path]) -> Dict[str, Path]:
+    def generate_overview_dashboard(self, output_dir: str | Path) -> dict[str, Path]:
         """
         Generate an overview dashboard with key visualizations.
 
@@ -90,9 +91,7 @@ class DashboardGenerator(Visualizer):
         self.logger.info(f"Overview dashboard generated at {output_path}")
         return visualizations
 
-    def generate_domain_dashboard(
-        self, domain: str, output_dir: Union[str, Path]
-    ) -> Dict[str, Path]:
+    def generate_domain_dashboard(self, domain: str, output_dir: str | Path) -> dict[str, Path]:
         """
         Generate a dashboard focused on a specific domain.
 
@@ -298,8 +297,8 @@ class DashboardGenerator(Visualizer):
         return visualizations
 
     def generate_comparative_dashboard(
-        self, domains: List[str], output_dir: Union[str, Path]
-    ) -> Dict[str, Path]:
+        self, domains: list[str], output_dir: str | Path
+    ) -> dict[str, Path]:
         """
         Generate a dashboard comparing multiple domains.
 
@@ -395,7 +394,7 @@ class DashboardGenerator(Visualizer):
         return visualizations
 
     def generate_html_report(
-        self, visualizations: Dict[str, Path], output_file: Union[str, Path]
+        self, visualizations: dict[str, Path], output_file: str | Path
     ) -> None:
         """
         Generate an HTML report from dashboard visualizations.
@@ -493,7 +492,7 @@ class DashboardGenerator(Visualizer):
 
         self.logger.info(f"HTML report generated at {output_path}")
 
-    def generate_interactive_filters(self, filters: List[Dict[str, Any]]) -> str:
+    def generate_interactive_filters(self, filters: list[dict[str, Any]]) -> str:
         """
         Generate HTML for interactive filters.
 
@@ -528,7 +527,7 @@ class DashboardGenerator(Visualizer):
         self,
         output_file: str,
         title: str = "Full Dashboard with Dataset Selector",
-        datasets: Optional[List[Dict[str, str]]] = None,
+        datasets: list[dict[str, str]] | None = None,
     ) -> Path:
         """
         Generate a complete dashboard with multiple components and an optional dataset selector.

@@ -1,6 +1,7 @@
 """
 Tests for Interactive 3D Visualizer (p3if.visualization.interactive.interactive_3d).
 """
+
 import pytest
 from pathlib import Path
 from p3if.visualization.interactive.interactive_3d import Interactive3DVisualizer

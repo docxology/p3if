@@ -5,20 +5,16 @@ This module provides multi-attribute inverted indexing, compositional query
 evaluation (intersection, union, difference, threshold filtering), bitmap-like
 set operations, and fast sub-millisecond retrieval for P3IF frameworks.
 """
+
 from __future__ import annotations
 
 import logging
 from collections import defaultdict
 from typing import (
-    Dict,
-    List,
-    Optional,
-    Set,
     Any,
-    Callable,
-    Iterable,
     TYPE_CHECKING,
 )
+from collections.abc import Callable, Iterable
 
 if TYPE_CHECKING:
     from p3if.core.models import BasePattern, Relationship
@@ -83,20 +79,20 @@ class CompositionalIndex:
     def __init__(self) -> None:
         """Initialize empty indices."""
         # Pattern inverted indices: attribute -> value -> Set[pattern_id]
-        self._type_index: Dict[str, Set[str]] = defaultdict(set)
-        self._domain_index: Dict[str, Set[str]] = defaultdict(set)
-        self._tag_index: Dict[str, Set[str]] = defaultdict(set)
-        self._status_index: Dict[str, Set[str]] = defaultdict(set)
+        self._type_index: dict[str, set[str]] = defaultdict(set)
+        self._domain_index: dict[str, set[str]] = defaultdict(set)
+        self._tag_index: dict[str, set[str]] = defaultdict(set)
+        self._status_index: dict[str, set[str]] = defaultdict(set)
 
         # Primary storage map: id -> pattern
-        self._pattern_map: Dict[str, BasePattern] = {}
+        self._pattern_map: dict[str, BasePattern] = {}
 
         # Relationship index: dimension -> pattern_id -> Set[relationship_id]
-        self._rel_property_index: Dict[str, Set[str]] = defaultdict(set)
-        self._rel_process_index: Dict[str, Set[str]] = defaultdict(set)
-        self._rel_perspective_index: Dict[str, Set[str]] = defaultdict(set)
-        self._rel_type_index: Dict[str, Set[str]] = defaultdict(set)
-        self._relationship_map: Dict[str, Relationship] = {}
+        self._rel_property_index: dict[str, set[str]] = defaultdict(set)
+        self._rel_process_index: dict[str, set[str]] = defaultdict(set)
+        self._rel_perspective_index: dict[str, set[str]] = defaultdict(set)
+        self._rel_type_index: dict[str, set[str]] = defaultdict(set)
+        self._relationship_map: dict[str, Relationship] = {}
 
     def __len__(self) -> int:
         return len(self._pattern_map)
@@ -187,30 +183,30 @@ class CompositionalIndex:
 
     def query_ids(
         self,
-        types: Optional[Iterable[str]] = None,
-        domains: Optional[Iterable[str]] = None,
-        tags: Optional[Iterable[str]] = None,
+        types: Iterable[str] | None = None,
+        domains: Iterable[str] | None = None,
+        tags: Iterable[str] | None = None,
         operator: str = "AND",
-    ) -> Set[str]:
+    ) -> set[str]:
         """
         Fast compositional ID lookup supporting conjunctions (AND) and disjunctions (OR).
         """
-        candidate_sets: List[Set[str]] = []
+        candidate_sets: list[set[str]] = []
 
         if types:
-            type_set: Set[str] = set()
+            type_set: set[str] = set()
             for t in types:
                 type_set |= self._type_index.get(t.lower(), set())
             candidate_sets.append(type_set)
 
         if domains:
-            domain_set: Set[str] = set()
+            domain_set: set[str] = set()
             for d in domains:
                 domain_set |= self._domain_index.get(d.lower(), set())
             candidate_sets.append(domain_set)
 
         if tags:
-            tag_set: Set[str] = set()
+            tag_set: set[str] = set()
             for tg in tags:
                 tag_set |= self._tag_index.get(tg.lower(), set())
             candidate_sets.append(tag_set)
@@ -235,12 +231,12 @@ class CompositionalIndex:
 
     def query(
         self,
-        types: Optional[Iterable[str]] = None,
-        domains: Optional[Iterable[str]] = None,
-        tags: Optional[Iterable[str]] = None,
+        types: Iterable[str] | None = None,
+        domains: Iterable[str] | None = None,
+        tags: Iterable[str] | None = None,
         operator: str = "AND",
-        filter_fn: Optional[Callable[[BasePattern], bool]] = None,
-    ) -> List[BasePattern]:
+        filter_fn: Callable[[BasePattern], bool] | None = None,
+    ) -> list[BasePattern]:
         """
         Execute compositional query returning hydrated BasePattern models.
         """
@@ -253,8 +249,8 @@ class CompositionalIndex:
         return results
 
     def find_connected_patterns(
-        self, pattern_id: str, relationship_type: Optional[str] = None
-    ) -> List[BasePattern]:
+        self, pattern_id: str, relationship_type: str | None = None
+    ) -> list[BasePattern]:
         """Find all patterns connected to the given pattern ID via indexed relationships."""
         rel_ids = (
             self._rel_property_index.get(pattern_id, set())
@@ -262,7 +258,7 @@ class CompositionalIndex:
             | self._rel_perspective_index.get(pattern_id, set())
         )
 
-        connected_ids: Set[str] = set()
+        connected_ids: set[str] = set()
         for rid in rel_ids:
             rel = self._relationship_map.get(rid)
             if not rel:

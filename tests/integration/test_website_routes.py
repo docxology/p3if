@@ -1,6 +1,7 @@
 """
 Integration tests for all website HTML and template routes (P11).
 """
+
 import pytest
 from website.app import create_app
 

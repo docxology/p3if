@@ -4,6 +4,7 @@ Tests for the P3IF integrated visualization website with selectors.
 This module focuses on testing the full integrated website with dropdown
 selectors for datasets and visualization components.
 """
+
 import unittest
 from pathlib import Path
 import re
@@ -84,7 +85,7 @@ class TestIntegratedWebsite(unittest.TestCase):
         )
 
         # Check the content
-        with open(output_file, "r") as f:
+        with open(output_file) as f:
             content = f.read()
 
             # Check for dataset selector
@@ -112,7 +113,7 @@ class TestIntegratedWebsite(unittest.TestCase):
         )
 
         # Check the content
-        with open(output_file, "r") as f:
+        with open(output_file) as f:
             content = f.read()
 
             # Check for component selector
@@ -151,7 +152,7 @@ class TestIntegratedWebsite(unittest.TestCase):
         self.assertTrue(output_file.stat().st_size > 0)
 
         # Check the content of the file
-        with open(output_file, "r") as f:
+        with open(output_file) as f:
             content = f.read()
             soup = BeautifulSoup(content, "html.parser")
 
@@ -207,7 +208,7 @@ class TestIntegratedWebsite(unittest.TestCase):
         )
 
         # Check content for dataset loading script
-        with open(output_file, "r") as f:
+        with open(output_file) as f:
             content = f.read()
 
             # Check for data loading function that actually exists
@@ -231,7 +232,7 @@ class TestIntegratedWebsite(unittest.TestCase):
 
         # Check content for basic page structure instead of export buttons
         # since the actual implementation might not have export buttons yet
-        with open(output_file, "r") as f:
+        with open(output_file) as f:
             content = f.read()
             soup = BeautifulSoup(content, "html.parser")
 
@@ -262,7 +263,7 @@ class TestIntegratedWebsite(unittest.TestCase):
         )
 
         # Check the content for responsive design elements
-        with open(output_file, "r") as f:
+        with open(output_file) as f:
             content = f.read()
             soup = BeautifulSoup(content, "html.parser")
 

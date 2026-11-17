@@ -81,7 +81,7 @@ class TestP3IFLogger(unittest.TestCase):
         try:
             P3IFLogger.export_metrics(temp_path)
 
-            with open(temp_path, "r") as f:
+            with open(temp_path) as f:
                 data = json.load(f)
 
             self.assertIn("timestamp", data)
@@ -251,7 +251,7 @@ class TestPerformanceReporting(unittest.TestCase):
         try:
             export_performance_report(temp_path)
 
-            with open(temp_path, "r") as f:
+            with open(temp_path) as f:
                 data = json.load(f)
 
             self.assertIn("summary", data)

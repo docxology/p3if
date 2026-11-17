@@ -5,7 +5,8 @@ This module provides comprehensive performance monitoring, profiling, and optimi
 capabilities for P3IF operations and frameworks.
 """
 
-from typing import Dict, List, Any, Optional, Iterator, cast
+from typing import Any, cast
+from collections.abc import Iterator
 from dataclasses import dataclass, field
 from datetime import datetime
 import time
@@ -30,21 +31,21 @@ class PerformanceMetrics:
 
     operation_name: str
     start_time: float
-    end_time: Optional[float] = None
-    duration: Optional[float] = None
+    end_time: float | None = None
+    duration: float | None = None
     memory_usage: int = 0  # bytes
     cpu_usage: float = 0.0
     cache_hits: int = 0
     cache_misses: int = 0
     error_count: int = 0
-    metadata: Dict[str, Any] = field(default_factory=dict)
+    metadata: dict[str, Any] = field(default_factory=dict)
 
     def finish(self) -> None:
         """Mark the operation as finished and calculate duration."""
         self.end_time = time.time()
         self.duration = self.end_time - self.start_time
 
-    def to_dict(self) -> Dict[str, Any]:
+    def to_dict(self) -> dict[str, Any]:
         """Convert metrics to dictionary."""
         return {
             "operation_name": self.operation_name,
@@ -66,18 +67,16 @@ class PerformanceMonitor:
     def __init__(self, max_history: int = 1000, enable_system_metrics: bool = True):
         self.max_history = max_history
         self.enable_system_metrics = enable_system_metrics
-        self.metrics_history: List[PerformanceMetrics] = []
-        self.active_operations: Dict[str, PerformanceMetrics] = {}
-        self.aggregates: Dict[str, Dict[str, float]] = defaultdict(dict)
+        self.metrics_history: list[PerformanceMetrics] = []
+        self.active_operations: dict[str, PerformanceMetrics] = {}
+        self.aggregates: dict[str, dict[str, float]] = defaultdict(dict)
         self.logger = logging.getLogger(__name__)
 
         # System monitoring
         self.process = psutil.Process() if PSUTIL_AVAILABLE else None
         self.system_start_time = time.time()
 
-    def start_operation(
-        self, operation_name: str, metadata: Optional[Dict[str, Any]] = None
-    ) -> str:
+    def start_operation(self, operation_name: str, metadata: dict[str, Any] | None = None) -> str:
         """Start monitoring an operation."""
         operation_id = f"{operation_name}_{int(time.time() * 1000)}"
 
@@ -89,8 +88,8 @@ class PerformanceMonitor:
         return operation_id
 
     def end_operation(
-        self, operation_id: str, error: Optional[Exception] = None
-    ) -> Optional[PerformanceMetrics]:
+        self, operation_id: str, error: Exception | None = None
+    ) -> PerformanceMetrics | None:
         """End monitoring an operation."""
         if operation_id not in self.active_operations:
             self.logger.warning(f"Operation {operation_id} not found in active operations")
@@ -129,8 +128,8 @@ class PerformanceMonitor:
         return metrics
 
     def get_operation_metrics(
-        self, operation_name: str, limit: Optional[int] = None
-    ) -> List[PerformanceMetrics]:
+        self, operation_name: str, limit: int | None = None
+    ) -> list[PerformanceMetrics]:
         """Get metrics for a specific operation."""
         matching_metrics = [m for m in self.metrics_history if m.operation_name == operation_name]
 
@@ -138,11 +137,11 @@ class PerformanceMonitor:
             return matching_metrics[-limit:]
         return matching_metrics
 
-    def get_aggregate_metrics(self, operation_name: str) -> Dict[str, float]:
+    def get_aggregate_metrics(self, operation_name: str) -> dict[str, float]:
         """Get aggregated metrics for an operation."""
         return self.aggregates.get(operation_name, {})
 
-    def get_system_metrics(self) -> Dict[str, Any]:
+    def get_system_metrics(self) -> dict[str, Any]:
         """Get current system metrics."""
         if not PSUTIL_AVAILABLE:
             return {"uptime_seconds": time.time() - self.system_start_time}
@@ -165,7 +164,7 @@ class PerformanceMonitor:
             self.logger.error(f"Failed to get system metrics: {e}")
             return {}
 
-    def get_performance_summary(self) -> Dict[str, Any]:
+    def get_performance_summary(self) -> dict[str, Any]:
         """Get a comprehensive performance summary."""
         if not self.metrics_history:
             return {"message": "No performance data available"}
@@ -222,8 +221,8 @@ class PerformanceMonitor:
 @contextmanager
 def monitor_operation(
     operation_name: str,
-    monitor: Optional[PerformanceMonitor] = None,
-    metadata: Optional[Dict[str, Any]] = None,
+    monitor: PerformanceMonitor | None = None,
+    metadata: dict[str, Any] | None = None,
 ) -> Iterator[str]:
     """Context manager for monitoring operations."""
     if monitor is None:
@@ -243,20 +242,20 @@ def monitor_operation(
 class P3IFPerformanceOptimizer:
     """Performance optimization utilities for P3IF frameworks."""
 
-    def __init__(self, framework: P3IFFramework, monitor: Optional[PerformanceMonitor] = None):
+    def __init__(self, framework: P3IFFramework, monitor: PerformanceMonitor | None = None):
         self.framework = framework
         self.monitor = monitor or PerformanceMonitor()
-        self.optimization_cache: Dict[str, Any] = {}
+        self.optimization_cache: dict[str, Any] = {}
 
-    def optimize_pattern_queries(self, query_patterns: List[str]) -> Dict[str, Any]:
+    def optimize_pattern_queries(self, query_patterns: list[str]) -> dict[str, Any]:
         """Optimize pattern queries for better performance."""
         cache_key = f"pattern_query_{hash(tuple(query_patterns))}"
 
         if cache_key in self.optimization_cache:
-            return cast(Dict[str, Any], self.optimization_cache[cache_key])
+            return cast(dict[str, Any], self.optimization_cache[cache_key])
 
         with monitor_operation("pattern_query_optimization", self.monitor):
-            optimization: Dict[str, Any] = {
+            optimization: dict[str, Any] = {
                 "query_patterns": query_patterns,
                 "estimated_cost": len(query_patterns) * 10,  # Simple cost model
                 "suggested_indexing": [],
@@ -272,16 +271,16 @@ class P3IFPerformanceOptimizer:
             return optimization
 
     def optimize_relationship_queries(
-        self, relationship_criteria: Dict[str, Any]
-    ) -> Dict[str, Any]:
+        self, relationship_criteria: dict[str, Any]
+    ) -> dict[str, Any]:
         """Optimize relationship queries."""
         cache_key = f"relationship_query_{hash(str(relationship_criteria))}"
 
         if cache_key in self.optimization_cache:
-            return cast(Dict[str, Any], self.optimization_cache[cache_key])
+            return cast(dict[str, Any], self.optimization_cache[cache_key])
 
         with monitor_operation("relationship_query_optimization", self.monitor):
-            optimization: Dict[str, Any] = {
+            optimization: dict[str, Any] = {
                 "criteria": relationship_criteria,
                 "estimated_cost": sum(
                     len(str(v)) if hasattr(v, "__len__") else 1
@@ -302,7 +301,7 @@ class P3IFPerformanceOptimizer:
             self.optimization_cache[cache_key] = optimization
             return optimization
 
-    def get_optimization_recommendations(self) -> List[str]:
+    def get_optimization_recommendations(self) -> list[str]:
         """Get optimization recommendations based on usage patterns."""
         recommendations = []
 
@@ -325,7 +324,7 @@ class P3IFPerformanceOptimizer:
 
         return recommendations
 
-    def generate_performance_report(self) -> Dict[str, Any]:
+    def generate_performance_report(self) -> dict[str, Any]:
         """Generate a comprehensive performance report."""
         return {
             "framework_stats": {
@@ -341,7 +340,7 @@ class P3IFPerformanceOptimizer:
             "timestamp": datetime.now().isoformat(),
         }
 
-    def _get_cache_statistics(self) -> Dict[str, Any]:
+    def _get_cache_statistics(self) -> dict[str, Any]:
         """Get cache performance statistics."""
         return {
             "cache_enabled": True,
@@ -352,7 +351,7 @@ class P3IFPerformanceOptimizer:
 
 
 # Global performance monitor instance
-_global_monitor: Optional[PerformanceMonitor] = None
+_global_monitor: PerformanceMonitor | None = None
 
 
 def get_global_performance_monitor() -> PerformanceMonitor:
@@ -381,7 +380,7 @@ def reset_global_monitoring() -> None:
 
 @contextmanager
 def performance_monitored(
-    operation_name: str, metadata: Optional[Dict[str, Any]] = None
+    operation_name: str, metadata: dict[str, Any] | None = None
 ) -> Iterator[None]:
     """Context manager for automatic performance monitoring."""
     monitor = get_global_performance_monitor()

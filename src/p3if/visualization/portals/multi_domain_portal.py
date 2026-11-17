@@ -6,7 +6,7 @@ within the P3IF framework, enabling cross-domain analysis and comparison.
 """
 
 import json
-from typing import Dict, Any
+from typing import Any
 from dataclasses import dataclass, field
 import logging
 from collections import defaultdict
@@ -27,8 +27,8 @@ class MultiDomainPortal:
     """Portal for multi-domain P3IF visualization and analysis."""
 
     name: str = "multi_domain_portal"
-    domains: Dict[str, Dict[str, Any]] = field(default_factory=dict)
-    portal_config: Dict[str, Any] = field(default_factory=dict)
+    domains: dict[str, dict[str, Any]] = field(default_factory=dict)
+    portal_config: dict[str, Any] = field(default_factory=dict)
     logger = logging.getLogger(__name__)
 
     def __post_init__(self):
@@ -51,7 +51,7 @@ class MultiDomainPortal:
             },
         }
 
-    def add_domain(self, domain_name: str, domain_data: Dict[str, Any]):
+    def add_domain(self, domain_name: str, domain_data: dict[str, Any]):
         """Add a domain to the portal."""
         self.domains[domain_name] = domain_data
         self.logger.info(f"Added domain to portal: {domain_name}")
@@ -59,7 +59,7 @@ class MultiDomainPortal:
     def load_domains_from_file(self, filepath: str):
         """Load domains from a JSON file."""
         try:
-            with open(filepath, "r") as f:
+            with open(filepath) as f:
                 data = json.load(f)
                 self.domains.update(data)
                 self.logger.info(f"Loaded domains from {filepath}")
@@ -114,7 +114,7 @@ class MultiDomainPortal:
             return self._create_ascii_portal()
 
     def _add_domain_visualization(
-        self, fig, domain_name: str, domain_data: Dict[str, Any], row: int, col: int
+        self, fig, domain_name: str, domain_data: dict[str, Any], row: int, col: int
     ):
         """Add visualization for a specific domain."""
         if not PLOTLY_AVAILABLE:
@@ -149,7 +149,7 @@ class MultiDomainPortal:
 
             # Add property distribution
             elif row == 1 and col == 2:
-                prop_types: Dict[str, int] = defaultdict(int)
+                prop_types: dict[str, int] = defaultdict(int)
                 for prop in properties:
                     prop_type = prop.get("type", "unknown")
                     prop_types[prop_type] += 1
@@ -167,7 +167,7 @@ class MultiDomainPortal:
 
             # Add process analysis
             elif row == 2 and col == 1:
-                proc_types: Dict[str, int] = defaultdict(int)
+                proc_types: dict[str, int] = defaultdict(int)
                 for proc in processes:
                     proc_type = proc.get("type", "unknown")
                     proc_types[proc_type] += 1
@@ -186,7 +186,7 @@ class MultiDomainPortal:
 
             # Add perspective coverage
             elif row == 2 and col == 2:
-                pers_types: Dict[str, int] = defaultdict(int)
+                pers_types: dict[str, int] = defaultdict(int)
                 for pers in perspectives:
                     pers_type = pers.get("type", "unknown")
                     pers_types[pers_type] += 1
@@ -241,7 +241,7 @@ class MultiDomainPortal:
             self.logger.error(f"Error creating cross-domain comparison: {e}")
             return self._create_ascii_comparison()
 
-    def _prepare_comparison_data(self) -> Dict[str, Any]:
+    def _prepare_comparison_data(self) -> dict[str, Any]:
         """Prepare data for cross-domain comparison."""
         domain_names = list(self.domains.keys())
         n_domains = len(domain_names)

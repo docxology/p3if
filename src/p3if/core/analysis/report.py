@@ -3,7 +3,8 @@ P3IF Analysis Report
 
 This module provides report generation functionality for P3IF analysis results.
 """
-from typing import Dict, List, Any, Union, Optional
+
+from typing import Any
 import logging
 import json
 import os
@@ -35,14 +36,14 @@ class AnalysisReport:
         self.meta_analyzer = MetaAnalyzer(framework)
 
         # Analysis results cache
-        self._results: Optional[Dict[str, Any]] = None
+        self._results: dict[str, Any] | None = None
 
     def __repr__(self) -> str:
         return f"AnalysisReport(patterns={len(self.framework)}, results={'available' if self._results else 'none'})"
 
     def run_analysis(
         self, include_basic: bool = True, include_network: bool = True, include_meta: bool = True
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """
         Run comprehensive analysis on the framework.
 
@@ -77,7 +78,7 @@ class AnalysisReport:
         self._results = results
         return results
 
-    def export_to_json(self, file_path: Union[str, Path]) -> None:
+    def export_to_json(self, file_path: str | Path) -> None:
         """
         Export analysis results to a JSON file.
 
@@ -96,7 +97,7 @@ class AnalysisReport:
 
         self.logger.info(f"Analysis report exported to {path}")
 
-    def get_domain_summary(self) -> Dict[str, Any]:
+    def get_domain_summary(self) -> dict[str, Any]:
         """
         Get a summary of domain statistics.
 
@@ -133,7 +134,7 @@ class AnalysisReport:
             "domain_pairs": cross_domain.get("domain_pairs", []),
         }
 
-    def get_top_patterns(self, top_n: int = 10) -> Dict[str, Any]:
+    def get_top_patterns(self, top_n: int = 10) -> dict[str, Any]:
         """
         Get the top patterns by connectivity.
 
@@ -164,7 +165,7 @@ class AnalysisReport:
 
     def get_network_summary(
         self, top_n_nodes: int = 5, top_n_communities: int = 3
-    ) -> Dict[str, Any]:
+    ) -> dict[str, Any]:
         """
         Get a summary of network analysis results.
 
@@ -218,15 +219,15 @@ class AnalysisReport:
             "communities": community_summary,
         }
 
-    def _count_node_types(self, nodes: List[Dict[str, Any]]) -> Dict[str, int]:
+    def _count_node_types(self, nodes: list[dict[str, Any]]) -> dict[str, int]:
         """Count the number of nodes by type."""
-        type_counts: Dict[str, int] = {}
+        type_counts: dict[str, int] = {}
         for node in nodes:
             node_type = node.get("type", "unknown")
             type_counts[node_type] = type_counts.get(node_type, 0) + 1
         return type_counts
 
-    def get_common_patterns_across_domains(self) -> Dict[str, Any]:
+    def get_common_patterns_across_domains(self) -> dict[str, Any]:
         """
         Get patterns that are common across multiple domains.
 

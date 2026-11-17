@@ -3,7 +3,8 @@ P3IF Matrix Visualizer
 
 This module provides matrix visualization capabilities for P3IF data.
 """
-from typing import Dict, List, Optional, Union, Any, Set
+
+from typing import Any
 import matplotlib.pyplot as plt
 from matplotlib.figure import Figure
 import seaborn as sns
@@ -21,7 +22,7 @@ from p3if.core.analysis.meta import MetaAnalyzer
 class MatrixVisualizer(Visualizer):
     """Matrix visualizer for P3IF data."""
 
-    def __init__(self, framework: P3IFFramework, config: Optional[Config] = None):
+    def __init__(self, framework: P3IFFramework, config: Config | None = None):
         """
         Initialize matrix visualizer.
 
@@ -35,19 +36,19 @@ class MatrixVisualizer(Visualizer):
 
     def visualize_relationship_matrix(
         self,
-        file_path: Optional[Union[str, Path]],
+        file_path: str | Path | None,
         pattern_type_x: str,
         pattern_type_y: str,
-        relationship_type: Optional[str] = None,
+        relationship_type: str | None = None,
         cmap: str = "YlOrRd",
-        top_n: Optional[int] = 100,
+        top_n: int | None = 100,
         min_relationship_strength: float = 0.0,
-        title: Optional[str] = None,
-        annotate: Optional[bool] = None,
+        title: str | None = None,
+        annotate: bool | None = None,
         font_size: int = 8,
         max_patterns: int = 25,
         use_progressive_rendering: bool = True,
-    ) -> Optional[Figure]:
+    ) -> Figure | None:
         """
         Visualize a matrix of relationships between two pattern types.
 
@@ -199,10 +200,10 @@ class MatrixVisualizer(Visualizer):
 
     def visualize_similarity_matrix(
         self,
-        file_path: Optional[Union[str, Path]] = None,
+        file_path: str | Path | None = None,
         pattern_type: str = "property",
         cmap: str = "viridis",
-    ) -> Optional[Figure]:
+    ) -> Figure | None:
         """
         Visualize a similarity matrix for patterns of a specific type.
 
@@ -274,11 +275,11 @@ class MatrixVisualizer(Visualizer):
 
     def visualize_domain_similarity(
         self,
-        file_path: Optional[Union[str, Path]] = None,
+        file_path: str | Path | None = None,
         min_similarity: float = 0.0,
         normalize: bool = True,
         max_domains: int = 30,
-    ) -> Optional[Figure]:
+    ) -> Figure | None:
         """
         Visualize similarity between domains.
 
@@ -292,13 +293,13 @@ class MatrixVisualizer(Visualizer):
             Matplotlib figure if file_path is None
         """
         # Get all domains
-        domain_set: Set[str] = set()
+        domain_set: set[str] = set()
         for pattern in self.framework._patterns.values():
             domain = getattr(pattern, "domain", None)
             if domain:
                 domain_set.add(domain)
 
-        domains: List[str] = list(domain_set)
+        domains: list[str] = list(domain_set)
 
         if not domains:
             self.logger.warning("No domains found")
@@ -309,7 +310,7 @@ class MatrixVisualizer(Visualizer):
             self.logger.warning(f"Too many domains ({len(domains)}), limiting to {max_domains}")
 
             # Find domains with most patterns
-            domain_pattern_counts: Dict[str, int] = {}
+            domain_pattern_counts: dict[str, int] = {}
             for pattern in self.framework._patterns.values():
                 domain = getattr(pattern, "domain", None)
                 if domain:
@@ -395,14 +396,14 @@ class MatrixVisualizer(Visualizer):
 
     def visualize_domain_metrics(
         self,
-        file_path: Union[str, Path],
-        domains: List[str],
-        metrics: Optional[List[str]] = None,
+        file_path: str | Path,
+        domains: list[str],
+        metrics: list[str] | None = None,
         cmap: str = "viridis",
-        title: Optional[str] = None,
+        title: str | None = None,
         font_size: int = 10,
         normalize: bool = False,
-    ) -> Optional[Figure]:
+    ) -> Figure | None:
         """
         Create a domain metrics matrix visualization.
 
@@ -526,10 +527,10 @@ class MatrixVisualizer(Visualizer):
 
     def visualize_pattern_correlation(
         self,
-        file_path: Optional[Union[str, Path]] = None,
+        file_path: str | Path | None = None,
         min_correlation: float = 0.0,
         max_patterns: int = 100,
-    ) -> Optional[Figure]:
+    ) -> Figure | None:
         """
         Create a correlation matrix visualization between patterns.
 
@@ -624,17 +625,17 @@ class MatrixVisualizer(Visualizer):
 
     def visualize_relationship_matrix_progressive(
         self,
-        file_path: Optional[Union[str, Path]],
+        file_path: str | Path | None,
         pattern_type_x: str,
         pattern_type_y: str,
-        patterns_x: List[BasePattern],
-        patterns_y: List[BasePattern],
-        relationship_type: Optional[str] = None,
+        patterns_x: list[BasePattern],
+        patterns_y: list[BasePattern],
+        relationship_type: str | None = None,
         cmap: str = "YlOrRd",
         min_relationship_strength: float = 0.0,
-        title: Optional[str] = None,
+        title: str | None = None,
         font_size: int = 8,
-    ) -> Optional[Figure]:
+    ) -> Figure | None:
         """
         Visualize a large matrix using progressive rendering to avoid timeouts.
         This breaks down large matrices into smaller chunks.

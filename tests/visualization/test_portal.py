@@ -1,6 +1,7 @@
 """
 Tests for the P3IF Visualization Portal.
 """
+
 import unittest
 from pathlib import Path
 import re
@@ -150,7 +151,7 @@ class TestVisualizationPortal(unittest.TestCase):
         self.assertEqual(result_path, output_file)
 
         # Check the content of the file
-        with open(output_file, "r") as f:
+        with open(output_file) as f:
             content = f.read()
 
             # Check for key HTML elements
@@ -187,7 +188,7 @@ class TestVisualizationPortal(unittest.TestCase):
         self.assertTrue(output_file.stat().st_size > 0)
 
         # Check the content of the file
-        with open(output_file, "r") as f:
+        with open(output_file) as f:
             content = f.read()
 
             # Check for domain-specific content
@@ -208,7 +209,7 @@ class TestVisualizationPortal(unittest.TestCase):
         self.portal.generate_portal(output_file=output_file, title="Test CSS Portal")
 
         # Check for CSS content
-        with open(output_file, "r") as f:
+        with open(output_file) as f:
             content = f.read()
 
             # Find the CSS section
@@ -235,7 +236,7 @@ class TestVisualizationPortal(unittest.TestCase):
         self.portal.generate_portal(output_file=output_file, title="Test JS Portal")
 
         # Check for JavaScript content
-        with open(output_file, "r") as f:
+        with open(output_file) as f:
             content = f.read()
 
             # Find the JavaScript section

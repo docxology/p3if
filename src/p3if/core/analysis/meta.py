@@ -3,7 +3,8 @@ P3IF Meta-Analyzer
 
 This module provides meta-analysis capabilities for P3IF data across domains.
 """
-from typing import Dict, List, Any, Set, cast
+
+from typing import Any, cast
 import logging
 import numpy as np
 import pandas as pd
@@ -27,7 +28,7 @@ class MetaAnalyzer:
         self.domain_manager = DomainManager(framework)
         self.logger = logging.getLogger(__name__)
 
-    def get_domain_comparison(self) -> Dict[str, Any]:
+    def get_domain_comparison(self) -> dict[str, Any]:
         """
         Compare domains in the framework.
 
@@ -59,7 +60,7 @@ class MetaAnalyzer:
             "similarity_matrix": similarity_matrix,
         }
 
-    def _calculate_domain_similarity_matrix(self, domains: Set[str]) -> List[List[float]]:
+    def _calculate_domain_similarity_matrix(self, domains: set[str]) -> list[list[float]]:
         """
         Calculate similarity matrix between domains.
 
@@ -90,8 +91,8 @@ class MetaAnalyzer:
                     continue
 
                 # Get all pattern names for each domain
-                names_i: Set[str] = set()
-                names_j: Set[str] = set()
+                names_i: set[str] = set()
+                names_j: set[str] = set()
 
                 for pattern_type in ["property", "process", "perspective"]:
                     names_i.update(
@@ -108,9 +109,9 @@ class MetaAnalyzer:
                 if union > 0:
                     similarity_matrix[i, j] = intersection / union  # type: ignore[index]
 
-        return cast(List[List[float]], similarity_matrix.tolist())  # type: ignore[attr-defined]
+        return cast(list[list[float]], similarity_matrix.tolist())  # type: ignore[attr-defined]
 
-    def get_cross_domain_relationships(self) -> Dict[str, Any]:
+    def get_cross_domain_relationships(self) -> dict[str, Any]:
         """
         Analyze relationships that span multiple domains.
 
@@ -165,7 +166,7 @@ class MetaAnalyzer:
             "strongest_connections": strongest_connections,
         }
 
-    def get_pattern_correlation_matrix(self) -> Dict[str, Any]:
+    def get_pattern_correlation_matrix(self) -> dict[str, Any]:
         """
         Generate correlation matrix between pattern types across domains.
 
@@ -180,7 +181,7 @@ class MetaAnalyzer:
         domain_stats = self.domain_manager.get_domain_statistics()
 
         # Create dataframe for correlation calculation
-        data: Dict[str, List[Any]] = {
+        data: dict[str, list[Any]] = {
             "domain": [],
             "num_properties": [],
             "num_processes": [],
@@ -203,7 +204,7 @@ class MetaAnalyzer:
 
         return {"features": corr_columns, "correlation_matrix": correlation_matrix}
 
-    def get_common_patterns(self) -> Dict[str, Any]:
+    def get_common_patterns(self) -> dict[str, Any]:
         """
         Find common patterns across domains.
 
@@ -215,7 +216,7 @@ class MetaAnalyzer:
             return {"common_patterns": []}
 
         # Get all pattern names by type and domain
-        all_pattern_names: Dict[str, Dict[str, List[str]]] = {
+        all_pattern_names: dict[str, dict[str, list[str]]] = {
             "property": defaultdict(list),
             "process": defaultdict(list),
             "perspective": defaultdict(list),
@@ -247,7 +248,7 @@ class MetaAnalyzer:
 
         return {"common_patterns": common_patterns}
 
-    def get_cross_domain_similarity(self) -> Dict[str, Any]:
+    def get_cross_domain_similarity(self) -> dict[str, Any]:
         """
         Analyze similarity of pattern types across domains.
 
@@ -294,7 +295,7 @@ class MetaAnalyzer:
 
         return {"similarities": similarities}
 
-    def run_full_analysis(self) -> Dict[str, Any]:
+    def run_full_analysis(self) -> dict[str, Any]:
         """
         Run a full meta-analysis.
 

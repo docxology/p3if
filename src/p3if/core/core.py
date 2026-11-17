@@ -6,9 +6,9 @@ including pattern management, relationship analysis, and basic framework operati
 """
 
 import uuid
-from typing import Dict, List, Any, Optional, Union
+from typing import Any
 from dataclasses import dataclass, field
-from enum import Enum
+from enum import StrEnum
 from datetime import datetime
 
 from .models import (
@@ -31,7 +31,7 @@ from .exceptions import (
 from ..utils.logging import get_logger, performance_monitor
 
 
-class OperationType(str, Enum):
+class OperationType(StrEnum):
     """Types of P3IF operations."""
 
     CREATE = "create"
@@ -50,7 +50,7 @@ class P3IFOperation:
     id: str = field(default_factory=lambda: str(uuid.uuid4()))
     operation_type: OperationType = OperationType.CREATE
     description: str = ""
-    parameters: Dict[str, Any] = field(default_factory=dict)
+    parameters: dict[str, Any] = field(default_factory=dict)
     result: Any = None
     timestamp: datetime = field(default_factory=datetime.now)
     status: str = "pending"
@@ -61,7 +61,7 @@ class P3IFCore:
 
     def __init__(self) -> None:
         self.framework = P3IFFramework()
-        self.operations: List[P3IFOperation] = []
+        self.operations: list[P3IFOperation] = []
         self.logger = get_logger(__name__)
 
     def __repr__(self) -> str:
@@ -72,8 +72,8 @@ class P3IFCore:
         self,
         pattern_type: str,
         name: str,
-        domain: Optional[str] = None,
-        description: Optional[str] = None,
+        domain: str | None = None,
+        description: str | None = None,
         **attributes: Any,
     ) -> BasePattern:
         """Create a new pattern with specified attributes and validation."""
@@ -195,7 +195,7 @@ class P3IFCore:
                 pattern.id if hasattr(pattern, "id") else "unknown", errors
             )
 
-    def create_pattern_bulk(self, patterns_data: List[Dict[str, Any]]) -> List[BasePattern]:
+    def create_pattern_bulk(self, patterns_data: list[dict[str, Any]]) -> list[BasePattern]:
         """Create multiple patterns in bulk with validation."""
         created_patterns = []
 
@@ -224,7 +224,7 @@ class P3IFCore:
         return created_patterns
 
     @performance_monitor(threshold_ms=300)
-    def update_pattern(self, pattern_id: str, updates: Dict[str, Any]) -> BasePattern:
+    def update_pattern(self, pattern_id: str, updates: dict[str, Any]) -> BasePattern:
         """Update an existing pattern with validation."""
         operation = P3IFOperation(
             operation_type=OperationType.UPDATE,
@@ -263,7 +263,7 @@ class P3IFCore:
             self.logger.error(f"Failed to update pattern: {e}")
             raise
 
-    def _validate_pattern_updates(self, pattern: BasePattern, updates: Dict[str, Any]) -> None:
+    def _validate_pattern_updates(self, pattern: BasePattern, updates: dict[str, Any]) -> None:
         """Validate pattern updates."""
         errors = []
 
@@ -326,7 +326,7 @@ class P3IFCore:
             self.logger.error(f"Failed to delete pattern: {e}")
             raise
 
-    def find_patterns(self, criteria: Dict[str, Any]) -> List[BasePattern]:
+    def find_patterns(self, criteria: dict[str, Any]) -> list[BasePattern]:
         """Find patterns matching specified criteria."""
         matching_patterns = []
 
@@ -357,9 +357,9 @@ class P3IFCore:
 
     def create_relationship(
         self,
-        property_id: Union[str, BasePattern, None] = None,
-        process_id: Union[str, BasePattern, None] = None,
-        perspective_id: Union[str, BasePattern, None] = None,
+        property_id: str | BasePattern | None = None,
+        process_id: str | BasePattern | None = None,
+        perspective_id: str | BasePattern | None = None,
         strength: float = 1.0,
         confidence: float = 1.0,
         relationship_type: str = "general",
@@ -433,8 +433,8 @@ class P3IFCore:
             raise
 
     def _extract_pattern_id(
-        self, pattern_arg: Union[str, BasePattern, None], expected_type: str
-    ) -> Optional[str]:
+        self, pattern_arg: str | BasePattern | None, expected_type: str
+    ) -> str | None:
         """Extract pattern ID from argument (supports both ID strings and pattern objects)."""
         if pattern_arg is None:
             return None
@@ -451,9 +451,9 @@ class P3IFCore:
 
     def _validate_relationship_constraints(
         self,
-        property_id: Optional[str],
-        process_id: Optional[str],
-        perspective_id: Optional[str],
+        property_id: str | None,
+        process_id: str | None,
+        perspective_id: str | None,
         strength: float,
         confidence: float,
     ) -> None:
@@ -490,9 +490,9 @@ class P3IFCore:
         if validation_errors:
             raise RelationshipValidationError(validation_errors, pattern_ids)
 
-    def analyze_patterns(self, domain: Optional[str] = None) -> Dict[str, Any]:
+    def analyze_patterns(self, domain: str | None = None) -> dict[str, Any]:
         """Analyze patterns and relationships."""
-        analysis: Dict[str, Any] = {
+        analysis: dict[str, Any] = {
             "total_patterns": len(self.framework._patterns),
             "total_relationships": len(self.framework._relationships),
             "domains": {},
@@ -521,11 +521,11 @@ class P3IFCore:
 
         return analysis
 
-    def get_operation_history(self) -> List[P3IFOperation]:
+    def get_operation_history(self) -> list[P3IFOperation]:
         """Get history of operations performed."""
         return self.operations.copy()
 
-    def export_framework(self, format: str = "json", path: Optional[str] = None) -> str:
+    def export_framework(self, format: str = "json", path: str | None = None) -> str:
         """Export framework in specified format."""
         if format.lower() == "json":
             export_data = {

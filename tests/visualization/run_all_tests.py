@@ -10,10 +10,11 @@ This script discovers and runs all visualization tests, including:
 5. Domain-specific tests
 6. Website reference tests
 """
-import sys
-import unittest
+
 import argparse
 import logging
+import sys
+import unittest
 from pathlib import Path
 
 # Configure matplotlib to use the non-interactive Agg backend to prevent popups during tests
@@ -49,121 +50,45 @@ def run_all_tests(verbosity=2, pattern=None, skip_slow=False):
     # Start with an empty test suite
     test_suite = unittest.TestSuite()
 
-    # Discover tests in the visualization directory
-    if pattern:
-        logger.info(f"Discovering tests matching pattern: {pattern}")
-        test_loader = unittest.TestLoader()
-        pattern_suite = test_loader.discover(start_dir=Path(__file__).parent, pattern=pattern)
-        test_suite.addTests(pattern_suite)
-    else:
-        # Add specific test files in the desired order
-        logger.info("Loading visualization tests in specified order")
+    class DiscoveryFailure(unittest.TestCase):
+        """Keep a discovery exception visible in the suite result."""
 
-        # Basic component tests
-        test_loader = unittest.TestLoader()
+        def __init__(self, selector, error):
+            super().__init__("runTest")
+            self.selector = selector
+            self.error = error
 
-        # Add base visualization tests first
-        logger.info("Adding base visualization component tests")
-        try:
-            base_tests = test_loader.discover(
-                start_dir=Path(__file__).parent, pattern="test_base.py"
-            )
-            test_suite.addTests(base_tests)
-        except Exception as e:
-            logger.error(f"Error loading base tests: {str(e)}")
+        def runTest(self):
+            raise RuntimeError(f"Error loading {self.selector}: {self.error}") from self.error
 
-        # Add portal tests
-        logger.info("Adding portal visualization tests")
-        try:
-            portal_tests = test_loader.discover(
-                start_dir=Path(__file__).parent, pattern="test_portal.py"
-            )
-            test_suite.addTests(portal_tests)
-        except Exception as e:
-            logger.error(f"Error loading portal tests: {str(e)}")
-
-        # Add network tests
-        logger.info("Adding network visualization tests")
-        try:
-            network_tests = test_loader.discover(
-                start_dir=Path(__file__).parent, pattern="test_network.py"
-            )
-            test_suite.addTests(network_tests)
-        except Exception as e:
-            logger.error(f"Error loading network tests: {str(e)}")
-
-        # Add matrix tests
-        logger.info("Adding matrix visualization tests")
-        try:
-            matrix_tests = test_loader.discover(
-                start_dir=Path(__file__).parent, pattern="test_matrix.py"
-            )
-            test_suite.addTests(matrix_tests)
-        except Exception as e:
-            logger.error(f"Error loading matrix tests: {str(e)}")
-
-        # Add interactive tests
-        logger.info("Adding interactive visualization tests")
-        try:
-            interactive_tests = test_loader.discover(
-                start_dir=Path(__file__).parent, pattern="test_interactive.py"
-            )
-            test_suite.addTests(interactive_tests)
-        except Exception as e:
-            logger.error(f"Error loading interactive tests: {str(e)}")
-
-        # Add dashboard tests
-        logger.info("Adding dashboard visualization tests")
-        try:
-            dashboard_tests = test_loader.discover(
-                start_dir=Path(__file__).parent, pattern="test_dashboard.py"
-            )
-            test_suite.addTests(dashboard_tests)
-        except Exception as e:
-            logger.error(f"Error loading dashboard tests: {str(e)}")
-
-        # Add website tests
-        logger.info("Adding website reference tests")
-        try:
-            website_tests = test_loader.discover(
-                start_dir=Path(__file__).parent, pattern="test_ensure_website_references.py"
-            )
-            test_suite.addTests(website_tests)
-        except Exception as e:
-            logger.error(f"Error loading website reference tests: {str(e)}")
-
-        try:
-            visualization_path_tests = test_loader.discover(
-                start_dir=Path(__file__).parent, pattern="test_fix_visualization_paths.py"
-            )
-            test_suite.addTests(visualization_path_tests)
-        except Exception as e:
-            logger.error(f"Error loading visualization path tests: {str(e)}")
-
-        # Add domain tests last (these are slow)
+    selectors = (
+        [pattern]
+        if pattern
+        else [
+            "test_base.py",
+            "test_portal.py",
+            "test_network.py",
+            "test_matrix.py",
+            "test_interactive.py",
+            "test_dashboard.py",
+            "test_ensure_website_references.py",
+            "test_fix_visualization_paths.py",
+        ]
+    )
+    if not pattern:
         if not skip_slow:
-            logger.info("Adding domain visualization tests")
-            try:
-                domain_tests = test_loader.discover(
-                    start_dir=Path(__file__).parent, pattern="test_all_domains.py"
-                )
-                test_suite.addTests(domain_tests)
-            except Exception as e:
-                logger.error(f"Error loading domain tests: {str(e)}")
-        else:
-            logger.info("Skipping slow domain tests")
-
-        # Add any remaining tests that weren't explicitly specified
-        logger.info("Adding any remaining visualization tests")
+            selectors.append("test_all_domains.py")
+        selectors.append("test_*.py")
+    test_loader = unittest.TestLoader()
+    for selector in selectors:
+        logger.info(f"Discovering tests matching pattern: {selector}")
         try:
-            remaining_tests = test_loader.discover(
-                start_dir=Path(__file__).parent, pattern="test_*.py"
-            )
-            for test in remaining_tests:
-                if test not in test_suite:
-                    test_suite.addTest(test)
-        except Exception as e:
-            logger.error(f"Error loading remaining tests: {str(e)}")
+            # Keep loader-created _FailedTest instances: their import exceptions
+            # become errors when TextTestRunner executes the suite.
+            test_suite.addTests(test_loader.discover(start_dir=current_dir, pattern=selector))
+        except Exception as error:
+            logger.error(f"Error loading {selector}: {error}")
+            test_suite.addTest(DiscoveryFailure(selector, error))
 
     # Run the tests
     logger.info("Running visualization tests...")

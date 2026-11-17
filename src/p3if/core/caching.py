@@ -10,9 +10,10 @@ This module's cached decorator requires a CacheManager argument. Both coexist
 for backward compatibility — new code should use utils/performance.py.
 """
 
-from typing import Dict, List, Any, Optional, Callable
+from typing import Any
+from collections.abc import Callable
 from dataclasses import dataclass
-from enum import Enum
+from enum import StrEnum
 import time
 import hashlib
 from collections import OrderedDict, defaultdict
@@ -20,7 +21,7 @@ import logging
 import functools
 
 
-class CacheStrategy(str, Enum):
+class CacheStrategy(StrEnum):
     """Caching strategies."""
 
     LRU = "lru"
@@ -36,7 +37,7 @@ class CacheEntry:
     key: str
     value: Any
     timestamp: float
-    ttl: Optional[float] = None
+    ttl: float | None = None
     access_count: int = 0
     size: int = 0
 
@@ -59,7 +60,7 @@ class CacheManager:
         self,
         strategy: CacheStrategy = CacheStrategy.LRU,
         max_size: int = 1000,
-        default_ttl: Optional[float] = None,
+        default_ttl: float | None = None,
     ):
         self.strategy = strategy
         self.max_size = max_size
@@ -79,7 +80,7 @@ class CacheManager:
         key_string = str(key_data)
         return hashlib.md5(key_string.encode()).hexdigest()
 
-    def get(self, key: str) -> Optional[Any]:
+    def get(self, key: str) -> Any | None:
         """Get a value from cache."""
         if key not in self.cache:
             self.misses += 1
@@ -103,7 +104,7 @@ class CacheManager:
         self.hits += 1
         return entry.value
 
-    def put(self, key: str, value: Any, ttl: Optional[float] = None) -> None:
+    def put(self, key: str, value: Any, ttl: float | None = None) -> None:
         """Put a value in cache."""
         # Check size limits
         if len(self.cache) >= self.max_size:
@@ -135,7 +136,7 @@ class CacheManager:
         self.hits = 0
         self.misses = 0
 
-    def get_stats(self) -> Dict[str, Any]:
+    def get_stats(self) -> dict[str, Any]:
         """Get cache statistics."""
         total_requests = self.hits + self.misses
         hit_rate = (self.hits / total_requests * 100) if total_requests > 0 else 0
@@ -152,9 +153,9 @@ class CacheManager:
 
 
 def cached(
-    cache_manager: Optional[CacheManager] = None,
-    ttl: Optional[float] = None,
-    cache_key: Optional[str] = None,
+    cache_manager: CacheManager | None = None,
+    ttl: float | None = None,
+    cache_key: str | None = None,
 ) -> Any:
     """Decorator for caching function results."""
 
@@ -192,7 +193,7 @@ class PerformanceOptimizer:
     """Optimizes P3IF operations for better performance."""
 
     def __init__(self) -> None:
-        self.metrics: Dict[str, List[float]] = defaultdict(list)
+        self.metrics: dict[str, list[float]] = defaultdict(list)
         self.logger = logging.getLogger(__name__)
 
     def time_operation(self, operation_name: str) -> "PerformanceTimer":
@@ -210,7 +211,7 @@ class PerformanceOptimizer:
             return 0.0
         return sum(self.metrics[metric_name]) / len(self.metrics[metric_name])
 
-    def get_metrics_summary(self) -> Dict[str, Dict[str, float]]:
+    def get_metrics_summary(self) -> dict[str, dict[str, float]]:
         """Get a summary of all metrics."""
         summary = {}
         for metric_name, values in self.metrics.items():
@@ -227,8 +228,8 @@ class PerformanceOptimizer:
     def optimize_query(
         self,
         query_func: Callable,
-        data: List[Any],
-        optimization_hints: Optional[Dict[str, Any]] = None,
+        data: list[Any],
+        optimization_hints: dict[str, Any] | None = None,
     ) -> Any:
         """Optimize a query operation based on data characteristics."""
         optimization_hints = optimization_hints or {}
@@ -247,7 +248,7 @@ class PerformanceOptimizer:
             # Large dataset: advanced optimization
             return self._optimized_query_large(query_func, data, optimization_hints)
 
-    def _optimized_query_small(self, query_func: Callable, data: List[Any]) -> Any:
+    def _optimized_query_small(self, query_func: Callable, data: list[Any]) -> Any:
         """Optimized query for small datasets."""
         start_time = time.time()
         result = query_func(data)
@@ -257,7 +258,7 @@ class PerformanceOptimizer:
         return result
 
     def _optimized_query_large(
-        self, query_func: Callable, data: List[Any], hints: Dict[str, Any]
+        self, query_func: Callable, data: list[Any], hints: dict[str, Any]
     ) -> Any:
         """Optimized query for large datasets."""
         start_time = time.time()
@@ -268,7 +269,7 @@ class PerformanceOptimizer:
 
         if hints.get("use_index", False):
             # Create index if beneficial
-            index: Dict[Any, List[Any]] = {}
+            index: dict[Any, list[Any]] = {}
             for item in data:
                 key_value = getattr(item, hints.get("index_key", "name"), "")
                 if key_value not in index:
@@ -282,9 +283,9 @@ class PerformanceOptimizer:
         self.record_metric("large_query_time", execution_time)
         return result
 
-    def suggest_optimizations(self, operation_history: List[Dict[str, Any]]) -> List[str]:
+    def suggest_optimizations(self, operation_history: list[dict[str, Any]]) -> list[str]:
         """Suggest optimizations based on operation history."""
-        suggestions: List[str] = []
+        suggestions: list[str] = []
 
         if not operation_history:
             return suggestions
@@ -313,7 +314,7 @@ class PerformanceTimer:
     def __init__(self, optimizer: PerformanceOptimizer, operation_name: str):
         self.optimizer = optimizer
         self.operation_name = operation_name
-        self.start_time: Optional[float] = None
+        self.start_time: float | None = None
 
     def __enter__(self) -> "PerformanceTimer":
         self.start_time = time.time()
@@ -335,7 +336,7 @@ def get_cache_manager() -> CacheManager:
 
 
 def configure_global_cache(
-    strategy: CacheStrategy = CacheStrategy.LRU, max_size: int = 1000, ttl: Optional[float] = None
+    strategy: CacheStrategy = CacheStrategy.LRU, max_size: int = 1000, ttl: float | None = None
 ) -> None:
     """Configure the global cache manager."""
     global _global_cache_manager

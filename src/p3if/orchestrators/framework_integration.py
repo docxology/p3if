@@ -5,7 +5,7 @@ This thin orchestrator demonstrates how to integrate multiple existing framework
 into a unified P3IF model with conflict resolution and harmonization.
 """
 
-from typing import Dict, List, Any, Optional
+from typing import Any
 from dataclasses import dataclass, field
 import logging
 from datetime import datetime
@@ -23,7 +23,7 @@ class FrameworkIntegrationOrchestrator:
     core: P3IFCore = field(default_factory=P3IFCore)
     composition_engine: CompositionEngine = field(default_factory=CompositionEngine)
     orchestrator: ThinOrchestrator = field(init=False)
-    integrated_frameworks: List[str] = field(default_factory=list)
+    integrated_frameworks: list[str] = field(default_factory=list)
 
     def __post_init__(self):
         self.orchestrator = ThinOrchestrator(self.name, OrchestratorType.LINEAR)
@@ -91,7 +91,7 @@ class FrameworkIntegrationOrchestrator:
         self.composition_engine.register_adapter(adapter)
         self.integrated_frameworks.append(adapter.source_framework)
 
-    def _map_framework_elements(self) -> Dict[str, Any]:
+    def _map_framework_elements(self) -> dict[str, Any]:
         """Map elements from different frameworks to P3IF dimensions."""
         mapping_results = {}
 
@@ -111,7 +111,7 @@ class FrameworkIntegrationOrchestrator:
             "total_frameworks": len(self.integrated_frameworks),
         }
 
-    def _simulate_property_mapping(self, adapter: FrameworkAdapter) -> List[Dict[str, Any]]:
+    def _simulate_property_mapping(self, adapter: FrameworkAdapter) -> list[dict[str, Any]]:
         """Simulate mapping properties from a framework."""
         # This is a simulation - real implementation would map actual framework elements
         if "CIA" in adapter.source_framework:
@@ -131,7 +131,7 @@ class FrameworkIntegrationOrchestrator:
         else:
             return [{"name": "Generic Property", "type": "general", "mapped": True}]
 
-    def _simulate_process_mapping(self, adapter: FrameworkAdapter) -> List[Dict[str, Any]]:
+    def _simulate_process_mapping(self, adapter: FrameworkAdapter) -> list[dict[str, Any]]:
         """Simulate mapping processes from a framework."""
         if "CIA" in adapter.source_framework:
             return [
@@ -148,7 +148,7 @@ class FrameworkIntegrationOrchestrator:
         else:
             return [{"name": "Generic Process", "type": "general", "mapped": True}]
 
-    def _simulate_perspective_mapping(self, adapter: FrameworkAdapter) -> List[Dict[str, Any]]:
+    def _simulate_perspective_mapping(self, adapter: FrameworkAdapter) -> list[dict[str, Any]]:
         """Simulate mapping perspectives from a framework."""
         if "CIA" in adapter.source_framework:
             return [
@@ -166,15 +166,15 @@ class FrameworkIntegrationOrchestrator:
             return [{"name": "Generic Perspective", "type": "general", "mapped": True}]
 
     def _identify_conflicts(
-        self, orchestrator_context: Optional[Dict[str, Any]] = None
-    ) -> Dict[str, Any]:
+        self, orchestrator_context: dict[str, Any] | None = None
+    ) -> dict[str, Any]:
         """Identify conflicts and overlaps between frameworks."""
         # Get the mapping results from the orchestrator context
         mapping_results = (
             orchestrator_context.get("mapping_results", {}) if orchestrator_context else {}
         )
 
-        conflicts: Dict[str, Any] = {
+        conflicts: dict[str, Any] = {
             "element_conflicts": [],
             "semantic_conflicts": [],
             "structural_conflicts": [],
@@ -219,15 +219,15 @@ class FrameworkIntegrationOrchestrator:
         return conflicts
 
     def _resolve_conflicts(
-        self, orchestrator_context: Optional[Dict[str, Any]] = None
-    ) -> Dict[str, Any]:
+        self, orchestrator_context: dict[str, Any] | None = None
+    ) -> dict[str, Any]:
         """Resolve identified conflicts between frameworks."""
         # Get the conflicts from the orchestrator context
         conflicts = (
             orchestrator_context.get("conflict_identification", {}) if orchestrator_context else {}
         )
 
-        resolution_results: Dict[str, Any] = {
+        resolution_results: dict[str, Any] = {
             "resolved_conflicts": [],
             "applied_strategies": [],
             "remaining_issues": [],
@@ -266,12 +266,12 @@ class FrameworkIntegrationOrchestrator:
         return resolution_results
 
     def _create_unified_model(
-        self, orchestrator_context: Optional[Dict[str, Any]] = None
-    ) -> Dict[str, Any]:
+        self, orchestrator_context: dict[str, Any] | None = None
+    ) -> dict[str, Any]:
         """Create a unified P3IF model from resolved frameworks."""
         # Get the conflict resolution from the orchestrator context
 
-        unified_model: Dict[str, Any] = {
+        unified_model: dict[str, Any] = {
             "properties": [],
             "processes": [],
             "perspectives": [],
@@ -310,15 +310,15 @@ class FrameworkIntegrationOrchestrator:
         return unified_model
 
     def _validate_integration(
-        self, orchestrator_context: Optional[Dict[str, Any]] = None
-    ) -> Dict[str, Any]:
+        self, orchestrator_context: dict[str, Any] | None = None
+    ) -> dict[str, Any]:
         """Validate the integrated framework."""
         # Get the unified model from the orchestrator context
         unified_model = (
             orchestrator_context.get("unified_model", {}) if orchestrator_context else {}
         )
 
-        validation_results: Dict[str, Any] = {
+        validation_results: dict[str, Any] = {
             "validation_passed": True,
             "checks_performed": [],
             "issues_found": [],
@@ -347,7 +347,7 @@ class FrameworkIntegrationOrchestrator:
 
         return validation_results
 
-    def _check_completeness(self, model: Dict[str, Any]) -> Dict[str, Any]:
+    def _check_completeness(self, model: dict[str, Any]) -> dict[str, Any]:
         """Check if the model has all required dimensions."""
         required_dimensions = ["properties", "processes", "perspectives"]
         missing_dimensions = []
@@ -360,15 +360,17 @@ class FrameworkIntegrationOrchestrator:
         return {
             "check": "completeness",
             "passed": len(missing_dimensions) == 0,
-            "issues": [f"Missing dimension: {dim}" for dim in missing_dimensions]
-            if missing_dimensions
-            else [],
+            "issues": (
+                [f"Missing dimension: {dim}" for dim in missing_dimensions]
+                if missing_dimensions
+                else []
+            ),
             "details": {
                 "total_elements": sum(len(model.get(dim, [])) for dim in required_dimensions)
             },
         }
 
-    def _check_consistency(self, model: Dict[str, Any]) -> Dict[str, Any]:
+    def _check_consistency(self, model: dict[str, Any]) -> dict[str, Any]:
         """Check for consistency in element naming and structure."""
         consistency_issues = []
 
@@ -392,7 +394,7 @@ class FrameworkIntegrationOrchestrator:
             "details": {"total_issues": len(consistency_issues)},
         }
 
-    def _check_no_conflicts(self, model: Dict[str, Any]) -> Dict[str, Any]:
+    def _check_no_conflicts(self, model: dict[str, Any]) -> dict[str, Any]:
         """Check that no conflicts remain in the unified model."""
         # In a real implementation, this would check for actual conflicts
         return {
@@ -402,7 +404,7 @@ class FrameworkIntegrationOrchestrator:
             "details": {"conflicts_found": 0},
         }
 
-    def _check_semantic_validity(self, model: Dict[str, Any]) -> Dict[str, Any]:
+    def _check_semantic_validity(self, model: dict[str, Any]) -> dict[str, Any]:
         """Check semantic validity of the unified model."""
         # Basic semantic checks
         semantic_issues = []
@@ -423,7 +425,7 @@ class FrameworkIntegrationOrchestrator:
             "details": {"semantic_issues": len(semantic_issues)},
         }
 
-    def execute_integration(self, framework_names: List[str]) -> Dict[str, Any]:
+    def execute_integration(self, framework_names: list[str]) -> dict[str, Any]:
         """Execute framework integration for specified frameworks."""
         self.logger.info(f"Starting framework integration for: {framework_names}")
 
@@ -446,7 +448,7 @@ class FrameworkIntegrationOrchestrator:
         self.logger.info("Framework integration completed")
         return final_report
 
-    def _generate_integration_summary(self, results: Dict[str, Any]) -> Dict[str, Any]:
+    def _generate_integration_summary(self, results: dict[str, Any]) -> dict[str, Any]:
         """Generate summary of integration results."""
         summary = {
             "total_steps_completed": len(results),

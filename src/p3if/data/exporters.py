@@ -3,11 +3,12 @@ P3IF Data Exporters
 
 This module provides functions for exporting P3IF data to various file formats.
 """
+
 import json
 import csv
 import logging
 from pathlib import Path
-from typing import Dict, List, Any, Union
+from typing import Any
 
 import networkx as nx
 
@@ -29,7 +30,7 @@ class DataExporter:
         """
         self.framework = framework
 
-    def export_to_json(self, file_path: Union[str, Path]) -> Path:
+    def export_to_json(self, file_path: str | Path) -> Path:
         """
         Export P3IF framework data to a JSON file.
 
@@ -42,8 +43,8 @@ class DataExporter:
         return export_to_json(self.framework, file_path)
 
     def export_to_csv(
-        self, patterns_file: Union[str, Path], relationships_file: Union[str, Path]
-    ) -> Dict[str, Path]:
+        self, patterns_file: str | Path, relationships_file: str | Path
+    ) -> dict[str, Path]:
         """
         Export P3IF framework data to CSV files.
 
@@ -56,7 +57,7 @@ class DataExporter:
         """
         return export_to_csv(self.framework, patterns_file, relationships_file)
 
-    def export_to_graphml(self, file_path: Union[str, Path]) -> Path:
+    def export_to_graphml(self, file_path: str | Path) -> Path:
         """
         Export P3IF framework data to a GraphML file.
 
@@ -69,7 +70,7 @@ class DataExporter:
         return export_to_graphml(self.framework, file_path)
 
 
-def export_to_json(framework: P3IFFramework, file_path: Union[str, Path]) -> Path:
+def export_to_json(framework: P3IFFramework, file_path: str | Path) -> Path:
     """
     Export P3IF framework data to a JSON file.
 
@@ -85,7 +86,7 @@ def export_to_json(framework: P3IFFramework, file_path: Union[str, Path]) -> Pat
 
     try:
         # Build the data structure
-        data: Dict[str, List[Dict[str, Any]]] = {
+        data: dict[str, list[dict[str, Any]]] = {
             "properties": [],
             "processes": [],
             "perspectives": [],
@@ -118,7 +119,7 @@ def export_to_json(framework: P3IFFramework, file_path: Union[str, Path]) -> Pat
 
         # Export perspectives
         for persp in framework.get_patterns_by_type("perspective"):
-            perspective: Dict[str, Any] = {
+            perspective: dict[str, Any] = {
                 "id": persp.id,
                 "name": persp.name,
                 "description": persp.description,
@@ -155,8 +156,8 @@ def export_to_json(framework: P3IFFramework, file_path: Union[str, Path]) -> Pat
 
 
 def export_to_csv(
-    framework: P3IFFramework, patterns_file: Union[str, Path], relationships_file: Union[str, Path]
-) -> Dict[str, Path]:
+    framework: P3IFFramework, patterns_file: str | Path, relationships_file: str | Path
+) -> dict[str, Path]:
     """
     Export P3IF framework data to CSV files.
 
@@ -253,7 +254,7 @@ def export_to_csv(
         raise
 
 
-def export_to_graphml(framework: P3IFFramework, file_path: Union[str, Path]) -> Path:
+def export_to_graphml(framework: P3IFFramework, file_path: str | Path) -> Path:
     """
     Export P3IF framework data to a GraphML file for use in network visualization tools.
 

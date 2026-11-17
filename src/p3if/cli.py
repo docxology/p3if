@@ -9,7 +9,8 @@ import sys
 from contextlib import redirect_stdout
 from pathlib import Path
 from tempfile import NamedTemporaryFile
-from typing import Any, Optional, Sequence
+from typing import Any
+from collections.abc import Sequence
 
 from pydantic import ValidationError
 
@@ -197,7 +198,7 @@ def _run(options: argparse.Namespace) -> None:
         _write(canonical_bytes(interchange), options.output)
 
 
-def main(argv: Optional[Sequence[str]] = None) -> int:
+def main(argv: Sequence[str] | None = None) -> int:
     """Run the command-line entry point.
 
     Args:

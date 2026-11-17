@@ -5,12 +5,12 @@ P3IF Animation Visualizations
 Generates animated GIF visualizations showing dynamic aspects of Properties,
 Processes, and Perspectives relationships and evolution.
 """
+
 import logging
 import matplotlib.pyplot as plt
 from matplotlib.patches import Circle, Rectangle
 import numpy as np
 from pathlib import Path
-from typing import Dict
 from PIL import Image
 import io
 
@@ -80,7 +80,7 @@ def _create_p3if_rotation_animation(
     session_path: Path,
     filename: str,
     title: str,
-    colors: Dict[str, str],
+    colors: dict[str, str],
 ):
     """Create an animation showing P3IF components rotating around the central framework."""
     logger.info(f"Creating P3IF rotation animation: {filename}")
@@ -189,7 +189,7 @@ def _create_framework_evolution_animation(
     session_path: Path,
     filename: str,
     title: str,
-    colors: Dict[str, str],
+    colors: dict[str, str],
 ):
     """Create an animation showing framework evolution from small to large."""
     logger.info(f"Creating framework evolution animation: {filename}")
@@ -246,7 +246,7 @@ def _create_framework_evolution_animation(
 
 
 def _draw_framework_snapshot(
-    ax, framework: P3IFFramework, label: str, x_offset: float, colors: Dict[str, str], alpha: float
+    ax, framework: P3IFFramework, label: str, x_offset: float, colors: dict[str, str], alpha: float
 ):
     """Draw a snapshot of a framework at a given position."""
     # Get component counts
@@ -326,7 +326,7 @@ def _create_relationship_dynamics_animation(
     session_path: Path,
     filename: str,
     title: str,
-    colors: Dict[str, str],
+    colors: dict[str, str],
 ):
     """Create an animation showing relationship dynamics."""
     logger.info(f"Creating relationship dynamics animation: {filename}")
@@ -379,7 +379,7 @@ def _create_relationship_dynamics_animation(
         logger.info(f"Generated: {output_path}")
 
 
-def _draw_p3if_triangle(ax, colors: Dict[str, str]):
+def _draw_p3if_triangle(ax, colors: dict[str, str]):
     """Draw the P3IF triangle structure."""
     # Triangle vertices
     vertices = [(-1, -1.5), (2, -1.5), (0.5, 2)]  # Properties  # Processes  # Perspectives
@@ -405,7 +405,7 @@ def _draw_p3if_triangle(ax, colors: Dict[str, str]):
 
 
 def _draw_relationship_connections(
-    ax, framework: P3IFFramework, colors: Dict[str, str], max_rels: int, frame: int
+    ax, framework: P3IFFramework, colors: dict[str, str], max_rels: int, frame: int
 ):
     """Draw relationship connections within the triangle."""
     # Get all patterns organized by type
@@ -465,7 +465,7 @@ def _create_component_interaction_animation(
     session_path: Path,
     filename: str,
     title: str,
-    colors: Dict[str, str],
+    colors: dict[str, str],
 ):
     """Create an animation showing component interactions."""
     logger.info(f"Creating component interaction animation: {filename}")
@@ -513,7 +513,7 @@ def _create_component_interaction_animation(
         logger.info(f"Generated: {output_path}")
 
 
-def _draw_interaction_scene(ax, colors: Dict[str, str]):
+def _draw_interaction_scene(ax, colors: dict[str, str]):
     """Draw the basic interaction scene."""
     # Background elements
     ax.add_patch(Rectangle((-3, -2), 6, 4, color="lightblue", alpha=0.1))
@@ -530,7 +530,7 @@ def _draw_interaction_scene(ax, colors: Dict[str, str]):
 
 
 def _draw_evolving_interactions(
-    ax, framework: P3IFFramework, colors: Dict[str, str], frame: int, n_frames: int
+    ax, framework: P3IFFramework, colors: dict[str, str], frame: int, n_frames: int
 ):
     """Draw evolving component interactions."""
     # Get component counts

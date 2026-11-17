@@ -24,7 +24,8 @@ from pydantic import (
 )
 
 _T = TypeVar("_T")
-Nullable: TypeAlias = _T | None
+# Keep an implicit alias: a PEP 695 alias adds $defs to the public wire schema.
+Nullable: TypeAlias = _T | None  # noqa: UP040
 
 FORMAT = "p3if.interchange"
 VERSION = 1

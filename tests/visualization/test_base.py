@@ -3,6 +3,7 @@ Tests for P3IF base visualizer.
 
 This module contains tests for the base visualization class in the P3IF framework.
 """
+
 import pytest
 import os
 import tempfile

@@ -5,7 +5,7 @@ This thin orchestrator demonstrates P3IF application in the healthcare domain,
 focusing on patient privacy, clinical workflows, and regulatory compliance.
 """
 
-from typing import Dict, List, Any, Optional
+from typing import Any
 from dataclasses import dataclass, field
 import logging
 from datetime import datetime
@@ -76,7 +76,7 @@ class HealthcareDomainOrchestrator:
             )
         )
 
-    def _analyze_healthcare_data_requirements(self) -> Dict[str, Any]:
+    def _analyze_healthcare_data_requirements(self) -> dict[str, Any]:
         """Analyze data requirements specific to healthcare."""
         requirements = {
             "data_types": {
@@ -157,14 +157,14 @@ class HealthcareDomainOrchestrator:
         return {
             "requirements_analysis": requirements,
             "total_data_types": len(data_types_map) if isinstance(data_types_map, dict) else 0,
-            "total_access_patterns": len(access_patterns_map)
-            if isinstance(access_patterns_map, dict)
-            else 0,
+            "total_access_patterns": (
+                len(access_patterns_map) if isinstance(access_patterns_map, dict) else 0
+            ),
             "compliance_requirements": self._analyze_compliance_requirements(requirements),
             "risk_assessment": self._assess_data_risks(requirements),
         }
 
-    def _analyze_compliance_requirements(self, requirements: Dict[str, Any]) -> Dict[str, Any]:
+    def _analyze_compliance_requirements(self, requirements: dict[str, Any]) -> dict[str, Any]:
         """Analyze compliance requirements for healthcare data."""
         return {
             "hipaa_requirements": [
@@ -186,7 +186,7 @@ class HealthcareDomainOrchestrator:
             ],
         }
 
-    def _assess_data_risks(self, requirements: Dict[str, Any]) -> Dict[str, Any]:
+    def _assess_data_risks(self, requirements: dict[str, Any]) -> dict[str, Any]:
         """Assess risks associated with healthcare data handling."""
         return {
             "high_risk_areas": [
@@ -210,8 +210,8 @@ class HealthcareDomainOrchestrator:
         }
 
     def _map_regulatory_compliance(
-        self, orchestrator_context: Optional[Dict[str, Any]] = None
-    ) -> Dict[str, Any]:
+        self, orchestrator_context: dict[str, Any] | None = None
+    ) -> dict[str, Any]:
         """Map healthcare regulatory compliance requirements."""
         # Get the requirements analysis from the orchestrator context
 
@@ -254,7 +254,7 @@ class HealthcareDomainOrchestrator:
             "overlapping_requirements": self._identify_overlapping_requirements(compliance_mapping),
         }
 
-    def _identify_overlapping_requirements(self, frameworks: Dict[str, Any]) -> List[str]:
+    def _identify_overlapping_requirements(self, frameworks: dict[str, Any]) -> list[str]:
         """Identify overlapping requirements across frameworks."""
         # Simple analysis of common themes
         overlaps = []
@@ -274,8 +274,8 @@ class HealthcareDomainOrchestrator:
         return overlaps
 
     def _design_privacy_protection(
-        self, orchestrator_context: Optional[Dict[str, Any]] = None
-    ) -> Dict[str, Any]:
+        self, orchestrator_context: dict[str, Any] | None = None
+    ) -> dict[str, Any]:
         """Design privacy protection mechanisms."""
         # Get the compliance mapping from the orchestrator context
 
@@ -330,7 +330,7 @@ class HealthcareDomainOrchestrator:
             ),
         }
 
-    def _prioritize_protection_mechanisms(self, mechanisms: Dict[str, Any]) -> Dict[str, str]:
+    def _prioritize_protection_mechanisms(self, mechanisms: dict[str, Any]) -> dict[str, str]:
         """Prioritize implementation of protection mechanisms."""
         priorities = {}
         for mechanism_name, mechanism in mechanisms.items():
@@ -343,8 +343,8 @@ class HealthcareDomainOrchestrator:
         return priorities
 
     def _optimize_clinical_workflows(
-        self, orchestrator_context: Optional[Dict[str, Any]] = None
-    ) -> Dict[str, Any]:
+        self, orchestrator_context: dict[str, Any] | None = None
+    ) -> dict[str, Any]:
         """Optimize clinical workflows with privacy constraints."""
         # Get the privacy design from the orchestrator context
 
@@ -384,7 +384,7 @@ class HealthcareDomainOrchestrator:
             "expected_improvements": self._calculate_expected_improvements(workflow_optimizations),
         }
 
-    def _calculate_expected_improvements(self, optimizations: Dict[str, Any]) -> Dict[str, Any]:
+    def _calculate_expected_improvements(self, optimizations: dict[str, Any]) -> dict[str, Any]:
         """Calculate expected improvements from workflow optimizations."""
         improvements = {
             "efficiency_gains": "20-30% reduction in administrative time",
@@ -395,7 +395,7 @@ class HealthcareDomainOrchestrator:
 
         return improvements
 
-    def execute_healthcare_analysis(self, organization_type: str = "hospital") -> Dict[str, Any]:
+    def execute_healthcare_analysis(self, organization_type: str = "hospital") -> dict[str, Any]:
         """Execute healthcare domain analysis."""
         self.logger.info(f"Starting healthcare analysis for: {organization_type}")
 
@@ -419,7 +419,7 @@ class HealthcareDomainOrchestrator:
         self.logger.info("Healthcare domain analysis completed")
         return final_report
 
-    def _generate_healthcare_summary(self, results: Dict[str, Any]) -> Dict[str, Any]:
+    def _generate_healthcare_summary(self, results: dict[str, Any]) -> dict[str, Any]:
         """Generate summary of healthcare analysis results."""
         summary = {
             "total_steps_completed": len(results),
@@ -441,7 +441,7 @@ class HealthcareDomainOrchestrator:
 
         return summary
 
-    def _generate_healthcare_recommendations(self, results: Dict[str, Any]) -> List[str]:
+    def _generate_healthcare_recommendations(self, results: dict[str, Any]) -> list[str]:
         """Generate actionable healthcare recommendations."""
         recommendations = []
 

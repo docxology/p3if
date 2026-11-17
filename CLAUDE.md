@@ -149,3 +149,5 @@ outputs/p3if_run_{timestamp}/
 ├── validation/
 └── logs/
 ```
+
+Supported runtime: Python 3.13+; CI tests Python 3.13 and 3.14.

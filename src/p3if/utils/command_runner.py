@@ -10,18 +10,18 @@ Usage:
 
     code, stdout, stderr = run_command("python -m pytest tests/ -q", timeout=600)
 """
+
 import os
 import subprocess
 from pathlib import Path
-from typing import Optional, Tuple
 
 
 def run_command(
     cmd: str,
-    cwd: Optional[Path] = None,
+    cwd: Path | None = None,
     timeout: int = 300,
-    project_root: Optional[Path] = None,
-) -> Tuple[int, str, str]:
+    project_root: Path | None = None,
+) -> tuple[int, str, str]:
     """Run a shell command and capture output.
 
     Args:

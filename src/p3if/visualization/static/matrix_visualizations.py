@@ -5,12 +5,13 @@ P3IF Matrix Visualizations
 Generates matrix visualizations showing relationships between Properties,
 Processes, and Perspectives in tabular and heatmap formats.
 """
+
 import logging
 import matplotlib.pyplot as plt
 import seaborn as sns
 import numpy as np
 from pathlib import Path
-from typing import Dict, List, Any
+from typing import Any
 
 from p3if.core.framework import P3IFFramework
 from p3if.core.models import Property, Process, Perspective
@@ -91,7 +92,7 @@ def generate_matrix_visualizations(
 
 
 def _create_adjacency_matrix(
-    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: Dict[str, str]
+    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: dict[str, str]
 ):
     """Create an adjacency matrix showing connections between components."""
     # Get all patterns organized by type
@@ -236,7 +237,7 @@ def _create_adjacency_matrix(
 
 
 def _create_correlation_matrix(
-    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: Dict[str, str]
+    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: dict[str, str]
 ):
     """Create a correlation matrix showing relationship strengths."""
     # Get all patterns organized by type
@@ -316,7 +317,7 @@ def _create_correlation_matrix(
         ax2.set_title("Correlation Value Distribution")
 
     # Component type correlations
-    type_correlations: Dict[str, List[float]] = {
+    type_correlations: dict[str, list[float]] = {
         "P-P": [],
         "P-Proc": [],
         "P-Persp": [],
@@ -402,7 +403,7 @@ def _create_correlation_matrix(
 
 
 def _create_strength_matrix(
-    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: Dict[str, str]
+    framework: P3IFFramework, session_path: Path, filename: str, title: str, colors: dict[str, str]
 ):
     """Create a matrix showing relationship strengths."""
     # Get all patterns organized by type
@@ -480,7 +481,7 @@ def _create_matrix_overview(
     session_path: Path,
     filename: str,
     title: str,
-    colors: Dict[str, str],
+    colors: dict[str, str],
 ):
     """Create a comprehensive overview of all matrix types."""
     fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(2, 2, figsize=(16, 14))

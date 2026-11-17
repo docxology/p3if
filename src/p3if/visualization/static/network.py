@@ -3,7 +3,7 @@ P3IF Network Visualizer
 
 This module provides network visualization capabilities for P3IF data.
 """
-from typing import Dict, List, Optional, Union
+
 import networkx as nx
 import matplotlib.pyplot as plt
 from matplotlib import colormaps
@@ -19,7 +19,7 @@ from p3if.core.analysis.network import NetworkAnalyzer
 class NetworkVisualizer(Visualizer):
     """Network visualizer for P3IF data."""
 
-    def __init__(self, framework: P3IFFramework, config: Optional[Config] = None):
+    def __init__(self, framework: P3IFFramework, config: Config | None = None):
         """
         Initialize network visualizer.
 
@@ -32,13 +32,13 @@ class NetworkVisualizer(Visualizer):
 
     def visualize_full_network(
         self,
-        file_path: Optional[Union[str, Path]] = None,
+        file_path: str | Path | None = None,
         layout: str = "spring",
         color_by: str = "type",
         min_edge_width: float = 1.0,
         max_edge_width: float = 5.0,
         show_labels: bool = True,
-    ) -> Optional[Figure]:
+    ) -> Figure | None:
         """
         Visualize the full P3IF network.
 
@@ -167,11 +167,11 @@ class NetworkVisualizer(Visualizer):
 
     def visualize_domain_network(
         self,
-        file_path: Optional[Union[str, Path]] = None,
+        file_path: str | Path | None = None,
         layout: str = "spring",
         min_edge_width: float = 2.0,
         max_edge_width: float = 10.0,
-    ) -> Optional[Figure]:
+    ) -> Figure | None:
         """
         Visualize the domain-level network.
 
@@ -204,7 +204,7 @@ class NetworkVisualizer(Visualizer):
             pos = nx.spring_layout(G, seed=42)
 
         # Get node sizes based on the number of patterns in each domain
-        domain_sizes: Dict[str, int] = {}
+        domain_sizes: dict[str, int] = {}
         for pattern in self.framework._patterns.values():
             domain = getattr(pattern, "domain", None)
             if domain:
@@ -264,10 +264,10 @@ class NetworkVisualizer(Visualizer):
 
     def visualize_communities(
         self,
-        file_path: Optional[Union[str, Path]] = None,
+        file_path: str | Path | None = None,
         graph_type: str = "full",
         algorithm: str = "louvain",
-    ) -> Optional[Figure]:
+    ) -> Figure | None:
         """
         Visualize communities in the network.
 
@@ -344,10 +344,10 @@ class NetworkVisualizer(Visualizer):
 
     def visualize_centrality(
         self,
-        file_path: Optional[Union[str, Path]] = None,
+        file_path: str | Path | None = None,
         graph_type: str = "full",
         measure: str = "degree",
-    ) -> Optional[Figure]:
+    ) -> Figure | None:
         """
         Visualize node centrality in the network.
 
@@ -385,7 +385,7 @@ class NetworkVisualizer(Visualizer):
             node_sizes.append(10 + value * 3000)
 
         # Get node colors based on domain or type
-        node_colors: Union[List[int], List[str]]
+        node_colors: list[int] | list[str]
         if graph_type == "domain":
             node_colors = list(range(len(G.nodes)))  # Just use a gradient for domains
         else:

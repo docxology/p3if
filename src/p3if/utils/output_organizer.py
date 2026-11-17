@@ -5,11 +5,12 @@ Output Organization Utility for P3IF Visualizations and Animations
 This module provides a comprehensive system for organizing all visualization outputs
 into a consistent directory structure under the main output folder.
 """
+
 import json
 import shutil
 from pathlib import Path
-from typing import Dict, List, Any, Optional, Union
-from datetime import datetime, timezone
+from typing import Any
+from datetime import datetime, UTC
 import logging
 from dataclasses import dataclass, field
 
@@ -19,16 +20,14 @@ class OutputDirectoryStructure:
     """Defines the standard output directory structure for P3IF."""
 
     base_name: str
-    timestamp: str = field(
-        default_factory=lambda: datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
-    )
+    timestamp: str = field(default_factory=lambda: datetime.now(UTC).strftime("%Y%m%d_%H%M%S"))
 
-    def get_base_path(self, root_output_dir: Union[str, Path]) -> Path:
+    def get_base_path(self, root_output_dir: str | Path) -> Path:
         """Get the base output path for this structure."""
         root_path = Path(root_output_dir)
         return root_path / f"{self.base_name}_{self.timestamp}"
 
-    def get_subdirs(self) -> Dict[str, str]:
+    def get_subdirs(self) -> dict[str, str]:
         """Get the standard subdirectory structure."""
         return {
             "visualizations": "Interactive visualizations (HTML files)",
@@ -46,7 +45,7 @@ class OutputDirectoryStructure:
 class OutputOrganizer:
     """Manages the organization of P3IF visualization outputs."""
 
-    def __init__(self, root_output_dir: Optional[Union[str, Path]] = None):
+    def __init__(self, root_output_dir: str | Path | None = None):
         """
         Initialize the output organizer.
 
@@ -78,7 +77,7 @@ class OutputOrganizer:
         self.current_session = OutputDirectoryStructure("p3if_output")
         self.current_base_path = self.current_session.get_base_path(self.root_output_dir)
 
-    def create_session_structure(self, session_name: Optional[str] = None) -> Path:
+    def create_session_structure(self, session_name: str | None = None) -> Path:
         """
         Create a new output session with organized subdirectories.
 
@@ -114,7 +113,7 @@ class OutputOrganizer:
         metadata = {
             "session_name": self.current_session.base_name,
             "timestamp": self.current_session.timestamp,
-            "created_at": datetime.now(timezone.utc).isoformat(),
+            "created_at": datetime.now(UTC).isoformat(),
             "structure_version": "2.0",
             "subdirectories": self.current_session.get_subdirs(),
         }
@@ -208,7 +207,7 @@ class OutputOrganizer:
 
         return asset_dir / filename
 
-    def organize_existing_files(self, source_dir: Union[str, Path], copy_files: bool = True):
+    def organize_existing_files(self, source_dir: str | Path, copy_files: bool = True):
         """
         Organize existing visualization files from a source directory.
 
@@ -283,7 +282,7 @@ class OutputOrganizer:
                 "name": self.current_session.base_name,
                 "timestamp": self.current_session.timestamp,
                 "base_path": str(self.current_base_path),
-                "created_at": datetime.now(timezone.utc).isoformat(),
+                "created_at": datetime.now(UTC).isoformat(),
             },
             "directory_structure": self.current_session.get_subdirs(),
             "files_by_category": self._catalog_files(),
@@ -296,7 +295,7 @@ class OutputOrganizer:
         self.logger.info(f"Created output index at: {index_path}")
         return index_path
 
-    def _catalog_files(self) -> Dict[str, List[str]]:
+    def _catalog_files(self) -> dict[str, list[str]]:
         """Catalog all files in the output structure."""
         catalog = {}
 
@@ -311,7 +310,7 @@ class OutputOrganizer:
 
         return catalog
 
-    def get_session_summary(self) -> Dict[str, Any]:
+    def get_session_summary(self) -> dict[str, Any]:
         """Get a summary of the current session."""
         return {
             "session_name": self.current_session.base_name,
@@ -330,9 +329,9 @@ class OutputOrganizer:
                 total_size += file_path.stat().st_size
         return total_size
 
-    def _count_files_by_type(self) -> Dict[str, int]:
+    def _count_files_by_type(self) -> dict[str, int]:
         """Count files by type/extension."""
-        counts: Dict[str, int] = {}
+        counts: dict[str, int] = {}
 
         for file_path in self.current_base_path.rglob("*"):
             if file_path.is_file():
@@ -369,7 +368,7 @@ class OutputOrganizer:
             shutil.rmtree(session_dir)
             self.logger.info(f"Removed old session: {session_dir}")
 
-    def list_sessions(self) -> List[Dict[str, Any]]:
+    def list_sessions(self) -> list[dict[str, Any]]:
         """List all available output sessions."""
         sessions = []
 
@@ -399,7 +398,7 @@ _default_organizer = None
 
 
 def get_output_organizer(
-    root_output_dir: Optional[Union[str, Path]] = None,
+    root_output_dir: str | Path | None = None,
 ) -> OutputOrganizer:
     """Get the global output organizer instance."""
     global _default_organizer
@@ -412,7 +411,7 @@ def organize_visualization_output(
     visualization_type: str,
     filename: str,
     content: Any,
-    root_output_dir: Optional[Union[str, Path]] = None,
+    root_output_dir: str | Path | None = None,
 ) -> Path:
     """
     Convenience function to organize a visualization output.
@@ -445,7 +444,7 @@ def organize_animation_output(
     animation_type: str,
     filename: str,
     content: Any,
-    root_output_dir: Optional[Union[str, Path]] = None,
+    root_output_dir: str | Path | None = None,
 ) -> Path:
     """
     Convenience function to organize an animation output.
@@ -475,7 +474,7 @@ def organize_animation_output(
 
 
 def create_standard_output_structure(
-    root_output_dir: Optional[Union[str, Path]] = None,
+    root_output_dir: str | Path | None = None,
 ) -> Path:
     """
     Create a standard output structure for P3IF visualizations.

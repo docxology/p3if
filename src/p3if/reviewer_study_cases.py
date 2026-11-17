@@ -11,7 +11,7 @@ import hashlib
 import json
 from copy import deepcopy
 from pathlib import Path
-from typing import Any, Optional
+from typing import Any
 
 from .interchange import FrameworkIdentity, canonical_bytes, load_interchange
 from .interchange_native import migrate_legacy
@@ -54,7 +54,7 @@ def _score(record: Object, key: str) -> str:
     return "reported_zero" if value == 0 else "reported_nonzero"
 
 
-def _side(record: Optional[Object]) -> Optional[Object]:
+def _side(record: Object | None) -> Object | None:
     if record is None:
         return None
     return {
@@ -63,7 +63,7 @@ def _side(record: Optional[Object]) -> Optional[Object]:
     }
 
 
-def _citation(data: bytes, document: Object, record: Optional[Object]) -> Optional[Object]:
+def _citation(data: bytes, document: Object, record: Object | None) -> Object | None:
     if record is None:
         return None
     index = next(i for i, row in enumerate(document["relationships"]) if row["id"] == record["id"])
@@ -85,7 +85,7 @@ def _citation(data: bytes, document: Object, record: Optional[Object]) -> Option
     }
 
 
-def _apply(document: Object, intervention: Object) -> tuple[Optional[Object], Optional[Object]]:
+def _apply(document: Object, intervention: Object) -> tuple[Object | None, Object | None]:
     operation = intervention["change"]
     identity = intervention["id"]
     rows = document["relationships"]

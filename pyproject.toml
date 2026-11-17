@@ -7,7 +7,7 @@ name = "p3if"
 version = "2.5.0"
 description = "Properties, Processes, and Perspectives Inter-Framework"
 readme = "README.md"
-requires-python = ">=3.11"
+requires-python = ">=3.13"
 license = {text = "MIT"}
 authors = [
     {name = "P3IF Contributors"}
@@ -18,9 +18,8 @@ classifiers = [
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
 ]
 
 dependencies = [
@@ -39,13 +38,13 @@ p3if = "p3if.cli:main"
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=7.0",
+    "pytest>=8.0",
     "pytest-cov>=4.0",
     "pytest-asyncio>=0.21.0",
     "beautifulsoup4>=4.9.0",
-    "black==23.*",
-    "ruff==0.1.*",
-    "mypy==1.8.*",
+    "black>=24.10",
+    "ruff>=0.14,<1",
+    "mypy>=1.14",
     "types-requests",
     "types-PyYAML",
 ]
@@ -73,11 +72,14 @@ p3if = ["py.typed"]
 
 [tool.black]
 line-length = 100
-target-version = ['py311', 'py312']
+target-version = ['py313']
 
 [tool.ruff]
 line-length = 100
-target-version = "py311"
+target-version = "py313"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "UP"]
 
 [tool.ruff.lint.per-file-ignores]
 "scripts/*" = ["E402", "F841", "F401"]
@@ -87,3 +89,11 @@ target-version = "py311"
 
 
 
+
+[dependency-groups]
+dev = [
+    "p3if[dev,visualization,web]",
+    "build>=1.2",
+    "setuptools>=61.0",
+    "wheel",
+]

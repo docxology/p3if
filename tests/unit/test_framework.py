@@ -1,6 +1,7 @@
 """
 Comprehensive unit tests for the P3IF Framework core module.
 """
+
 import unittest
 import json
 import tempfile
@@ -408,7 +409,7 @@ class TestP3IFFramework(unittest.TestCase):
             self.assertTrue(output_file.exists())
 
             # Check the exported content
-            with open(output_file, "r") as f:
+            with open(output_file) as f:
                 data = json.load(f)
 
             self.assertIn("patterns", data)
