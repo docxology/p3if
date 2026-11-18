@@ -29,7 +29,9 @@ def test_matched_packet_materials_and_pointer_intervention(cases: Path, tmp_path
     packets = tmp_path / "packets"
     prepare_packets(cases, _MANIFEST, packets)
     truth = {row["case_id"]: row for row in json.loads(_MANIFEST.read_bytes())["cases"]}
-    manifest = json.loads((packets / "packet-manifest.json").read_bytes())
+    inventory = (packets / "packet-manifest.json").read_bytes()
+    assert inventory == (_DOCS / "citation-effort" / "packet-manifest.json").read_bytes()
+    manifest = json.loads(inventory)
     rows = manifest["assignments"]
     assert manifest["schema_version"] == PACKET_SCHEMA
     assert manifest["case_manifest_sha256"] == sha256(_MANIFEST.read_bytes()).hexdigest()
