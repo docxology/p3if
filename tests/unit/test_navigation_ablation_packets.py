@@ -32,7 +32,9 @@ def packets(tmp_path_factory: pytest.TempPathFactory) -> Path:
 
 
 def test_packet_inventory_and_counterbalancing(packets: Path) -> None:
-    manifest = json.loads((packets / "packet-manifest.json").read_bytes())
+    inventory = (packets / "packet-manifest.json").read_bytes()
+    assert inventory == (_DOCS / "navigation-ablation" / "packet-manifest.json").read_bytes()
+    manifest = json.loads(inventory)
     assert manifest["schema_version"] == PACKET_SCHEMA
     assert manifest["case_manifest_sha256"] == sha256(_MANIFEST.read_bytes()).hexdigest()
     files = manifest["files"]
