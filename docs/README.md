@@ -35,9 +35,9 @@ ls ../outputs/p3if_output_*/ ../outputs/visualizations_*/
 ## Table of Contents
 
 - [Documentation Structure](#documentation-structure)
-- [Features](#features)
+- [Key features](#-key-features)
 - [Installation](#installation)
-- [Usage](#usage)
+- [Usage examples](#-usage-examples)
 - [Technical Details](#technical-details)
 - [LLM & AI Development Resources](#llm--ai-development-resources)
 - [Contributing](#contributing)
