@@ -31,27 +31,26 @@ This document unifies the **original P3IF research paper** ([p3if_paste.md](p3if
 4. [Multiplexing & Interoperability](#4-multiplexing--interoperability)
 
 ### Part II: Implementation Specification
-5. [Core Architecture & Design](#5-core-architecture--design)
-6. [Modular Methods & Composition](#6-modular-methods--composition)
-7. [Thin Orchestrators & Examples](#7-thin-orchestrators--examples)
-8. [Interactive Visualization System](#8-interactive-visualization-system)
-9. [Animation & Dynamic Representation](#9-animation--dynamic-representation)
-
-### Part III: Advanced Topics
-10. [Mathematical Foundations](#10-mathematical-foundations)
-11. [Category Theoretic Formalism](#11-category-theoretic-formalism)
-12. [Performance & Scalability](#12-performance--scalability)
-13. [Testing & Validation Framework](#13-testing--validation-framework)
-
-### Part IV: Applications & Integration
-14. [Domain Integration Patterns](#14-domain-integration-patterns)
-15. [Case Studies & Real-World Applications](#15-case-studies--real-world-applications)
-16. [API & External Integration](#16-api--external-integration)
-17. [Future Directions & Extensions](#17-future-directions--extensions)
-
-### Reference
-18. [Contributing & Community](#18-contributing--community)
-19. [Appendices & References](#19-appendices--references)
+1. [Executive Summary](#1-executive-summary)
+2. [Introduction](#2-introduction)
+3. [Contextualization](#3-contextualization)
+4. [Technical Overview and Specification](#4-technical-overview-and-specification)
+5. [Mathematical Foundations](#5-mathematical-foundations)
+6. [Category Theoretic Description](#6-category-theoretic-description)
+7. [Architecture and Implementation](#7-architecture-and-implementation)
+8. [P3IF in Practice](#8-p3if-in-practice)
+9. [Development and Integration Guide](#9-development-and-integration-guide)
+10. [Visualization and User Interface](#10-visualization-and-user-interface)
+11. [API Reference and Data Models](#11-api-reference-and-data-models)
+12. [Performance and Scalability](#12-performance-and-scalability)
+13. [Security and Risk Management](#13-security-and-risk-management)
+14. [Case Studies and Applications](#14-case-studies-and-applications)
+15. [Comparison with Other Frameworks](#15-comparison-with-other-frameworks)
+16. [Troubleshooting and FAQ](#16-troubleshooting-and-faq)
+17. [Future Directions](#17-future-directions)
+18. [Community and Contributing](#18-community-and-contributing)
+19. [Appendices](#19-appendices)
+20. [References](#20-references)
 
 ---
 
