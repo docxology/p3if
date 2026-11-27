@@ -96,7 +96,7 @@ graph TD
 
 ## Quick Start
 
-P3IF requires Python 3.13 or later. CI runs the full lint, type, and test gate on Python 3.13 and 3.14.
+P3IF requires Python 3.13 or later. The tracked CI definition includes the full lint, type, and test gate on Python 3.13 and 3.14.
 
 ```bash
 # Clone the repository
