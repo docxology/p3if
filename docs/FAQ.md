@@ -145,11 +145,11 @@ domain_data = {
 response = requests.post('http://localhost:5000/api/v2/domains', json=domain_data)
 ```
 
-**3. JSON File:**
-Create a domain definition file and load it:
-```bash
-python scripts/load_domain.py --file my_domain.json
-```
+**3. Local JSON snapshot**
+
+Use the version 1 example as a starting point for a framework snapshot, or
+convert a supported older domain export. [Example snapshot](../examples/interchange/framework-v1.json) ·
+[Migration guide](interchange.md#migrate-older-exports)
 
 ### Relationship Interpretation
 
@@ -195,10 +195,18 @@ P3IF offers several visualization types:
 curl -X GET "http://localhost:5000/api/v2/domains/mydomain/export?format=json" -o export.json
 ```
 
-**Via Command Line:**
-```bash
-python scripts/export_data.py --domain mydomain --format json --output export.json
+**Via command line**
+
+After installing P3IF, run this from the repository root to write a canonical
+copy of a version 1 snapshot. Use your snapshot's path as the input and a new
+file as the output.
+
+```sh
+uv run --no-sync p3if canonicalize examples/interchange/framework-v1.json --output framework.json
 ```
+
+[Installation guide](guides/installation.md#install-from-a-local-checkout) ·
+[Export from a Python framework](interchange.md#export-and-materialize-native-frameworks)
 
 ## Troubleshooting
 
@@ -237,10 +245,10 @@ tail -f logs/p3if.log
 **Clear browser cache:**
 - Hard refresh with Ctrl+F5 (Windows/Linux) or Cmd+Shift+R (Mac)
 
-**Check data format:**
-```bash
-python scripts/validate_domain.py --file data/domains/mydomain.json
-```
+**Check data format**
+
+If the visualization uses an interchange snapshot, check its schema and
+relationship references first. [Validate an interchange snapshot](#importexport-issues)
 
 ### Performance Issues
 
@@ -283,10 +291,17 @@ ls -la data/domains/
 chmod 644 data/domains/mydomain.json
 ```
 
-**Verify schema:**
-```bash
-python scripts/validate_schema.py --file mydomain.json
+**Validate a version 1 interchange snapshot**
+
+Run this from the repository root with your snapshot's path in place of the
+example.
+
+```sh
+uv run --no-sync p3if validate examples/interchange/framework-v1.json
 ```
+
+[Interchange schema](../schemas/p3if-interchange-v1.schema.json) ·
+[Migration guide](interchange.md#migrate-older-exports)
 
 ## Data and Analysis Questions
 
