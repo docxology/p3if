@@ -1,0 +1,19 @@
+paper:
+  title: "Measuring declared relationships in P3IF graph snapshots"
+  subtitle: "A sparse-coverage census and a controlled revision"
+  version: "2.5.0"
+authors:
+  - name: P3IF Contributors
+publication:
+  github_repository: docxology/p3if
+  repository_url: https://github.com/docxology/p3if
+metadata:
+  license: MIT
+  language: en
+render:
+  formats:
+    pdf: true
+    html: true
+    slides: false
+    docx: false
+    epub: false

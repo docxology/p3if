@@ -61,9 +61,10 @@ The P3IF documentation is organized into the following sections:
 - **[Data Model](technical/data_model.md)**: Detailed explanation of the P3IF data model
 - **[API Reference](api/README.md)**: Complete API documentation for the P3IF framework
 - **[Interchange](interchange.md)**: Versioned JSON, sparse analysis, snapshot comparison, native round-trips, and legacy migration
-- **[Interchange methods](manuscript/METHODS.md)**: Measurement definitions and reproducible corpus and revision examples
-- **[ScienceResearch audit](manuscript/scienceresearch-audit.md)**: An editorial proposal, reproducible controls, and a protocol for evaluating reviewer performance
-- [Reviewer study preregistration](manuscript/reviewer-study-preregistration.md) records the cases, allocation, and scoring rules for ScienceResearch and MathEducation. The [technical pilot](manuscript/reviewer-study-pilot.md) publishes the submissions and scores.
+- [Canonical manuscript and reproduction](manuscript/README.md)
+- **[Interchange methods](studies/METHODS.md)**: Measurement definitions and reproducible corpus and revision examples
+- **[ScienceResearch audit](studies/scienceresearch-audit.md)**: An editorial proposal, reproducible controls, and a protocol for evaluating reviewer performance
+- [Reviewer study preregistration](studies/reviewer-study-preregistration.md) records the cases, allocation, and scoring rules for ScienceResearch and MathEducation. The [technical pilot](studies/reviewer-study-pilot.md) publishes the submissions and scores.
 
 ## User Guides
 
@@ -102,7 +103,7 @@ The P3IF documentation is organized into the following sections:
 ## Project Reports & Validation
 
 ### Quality Assurance
-- **[Documentation Improvements Summary](DOCUMENTATION_IMPROVEMENTS_SUMMARY.md)**: Historical one-time documentation audit record (2025-09-23) — not a current status surface. For current status see the root [TODO.md](../TODO.md) and [CHANGELOG.md](../CHANGELOG.md).
+- **[Documentation Improvements Summary](DOCUMENTATION_IMPROVEMENTS_SUMMARY.md)**: Historical one-time documentation audit record (2025-09-23) — not a current status surface. For current status see the root [TODO.md](roadmap.md) and [CHANGELOG.md](releases/CHANGELOG.md).
 - **[FAQ](FAQ.md)**: Frequently asked questions and answers
 
 ## 📋 Current Capabilities
@@ -232,7 +233,7 @@ These resources ensure that AI-generated code and documentation maintain consist
 
 ## Contributing
 
-Contributions to the P3IF project are welcome! Please refer to the [Contributing Guidelines](../CONTRIBUTING.md) for details on how to contribute.
+Contributions to the P3IF project are welcome! Please refer to the [Contributing Guidelines](contributing.md) for details on how to contribute.
 
 ## License
 

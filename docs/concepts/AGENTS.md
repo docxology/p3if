@@ -9,7 +9,7 @@ its theoretical framing (`CategoryTheory_P3IF.md`), applications
   behaviour, and no test checks these documents against it.
 - Two files are not finished documents. `Minecraf-P3IF.md` is a one-line note, and
   `p3if_paste.md` is a pasted copy of the manuscript text rather than a curated page
-  (the manuscript record is [`../manuscript/MANUSCRIPT_STATUS.md`](../manuscript/MANUSCRIPT_STATUS.md)).
+  (the manuscript record is [`../manuscript/MANUSCRIPT_STATUS.md`](../archive/manuscript-status.md)).
   Do not treat either as guidance, and read them before citing them.
 - Adding a concept document means registering it in `../README.md`; new files here are
   invisible otherwise.

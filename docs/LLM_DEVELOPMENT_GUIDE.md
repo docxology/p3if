@@ -196,6 +196,6 @@ For code that will run autonomously:
 
 ## Contributing
 
-When your code is ready, please ensure it follows our [contribution guidelines](../CONTRIBUTING.md) before submitting.
+When your code is ready, please ensure it follows our [contribution guidelines](contributing.md) before submitting.
 
 Remember that the goal of P3IF is to provide a flexible, interoperable approach to requirements engineering that bridges gaps between existing methodologies and fosters cross-domain collaboration. 

@@ -1,6 +1,6 @@
 # Source navigation ablation
 
-Four fresh Codex sessions reviewed 16 constructed ScienceResearch and MathEducation revision pairs. Each case appeared once per arm at the same ordinal position and period in different sessions. The protocol, answer key, and packet commitment were anonymously readable on public GitHub before the first reader event. [Public preregistration](https://github.com/docxology/p3if/commit/809419a9af314eeb2ffca62256d5c329feea0970) · [Protocol](navigation-ablation-preregistration.md) · [Session metadata](navigation-ablation/session-metadata.json)
+Four fresh Codex sessions reviewed 16 constructed ScienceResearch and MathEducation revision pairs. Each case appeared once per arm at the same ordinal position and period in different sessions. The protocol, answer key, and packet commitment were anonymously readable on public GitHub before the first reader event. [Public preregistration](https://github.com/docxology/p3if/commit/809419a9af314eeb2ffca62256d5c329feea0970) · [Protocol](navigation-ablation-preregistration.md) · [Session metadata](../manuscript/navigation-ablation/session-metadata.json)
 
 | Workflow or domain | Exact sides | Complete cases | Measured cases | Median evidence operations | Median elapsed time |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -11,11 +11,11 @@ Four fresh Codex sessions reviewed 16 constructed ScienceResearch and MathEducat
 | MathEducation, with source navigation | 38/38 | 8/8 | 8/8 | 7 | 9.341 s |
 | MathEducation, empty navigation array | 38/38 | 8/8 | 8/8 | 10 | 13.204 s |
 
-All 76 matched sides were correct in both arms, comprising 65 present citations and 11 explicit absences. [Side-level scores](navigation-ablation/score.json)
+All 76 matched sides were correct in both arms, comprising 65 present citations and 11 explicit absences. [Side-level scores](../manuscript/navigation-ablation/score.json)
 
-Among 16 matched cases, the median within-case difference was -3.5 evidence operations and -2.323 s, taking navigation minus the empty-array control. Elapsed time includes the model and tool delays between the first evidence operation and the accepted submission. [Independent score replay](navigation-ablation/score-check.json)
+Among 16 matched cases, the median within-case difference was -3.5 evidence operations and -2.323 s, taking navigation minus the empty-array control. Elapsed time includes the model and tool delays between the first evidence operation and the accepted submission. [Independent score replay](../manuscript/navigation-ablation/score-check.json)
 
-Both arms received the same source bytes, question lists, lookups, reader, audit and transition fields. Only the source navigation array differed on the 14 changed cases. The audit checked 172 delivered files and all 16 paired report bodies. Sessions could see whether the array was populated. Each fresh session received only its own materials and generic instructions. The exact deployed model identifier was unavailable. [Packet inventory](navigation-ablation/packet-manifest.json) · [Packet audit](navigation-ablation/packet-check.json)
+Both arms received the same source bytes, question lists, lookups, reader, audit and transition fields. Only the source navigation array differed on the 14 changed cases. The audit checked 172 delivered files and all 16 paired report bodies. Sessions could see whether the array was populated. Each fresh session received only its own materials and generic instructions. The exact deployed model identifier was unavailable. [Packet inventory](../manuscript/navigation-ablation/packet-manifest.json) · [Packet audit](../manuscript/navigation-ablation/packet-check.json)
 
 | Workflow | Opens | Finds | Searches | Citation extractions | Total |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -24,7 +24,7 @@ Both arms received the same source bytes, question lists, lookups, reader, audit
 
 Navigation saved evidence operations in all 14 changed cases. The two no-change controls had empty navigation in both packets and identical operation counts. Their navigation-minus-control elapsed times still differed by +13.937 s for A01 (identical bytes) and +9.023 s for A09 (encoding only).
 
-Independent source replay checked 32 transports, 20 moved pointers, 7 CRLF transports, and 50 present sides after multibyte text. The operation and timing differences describe the four observed sessions on these fixed revisions. [Source check](navigation-ablation/source-check.json) · [Session departures](navigation-ablation/session-metadata.json)
+Independent source replay checked 32 transports, 20 moved pointers, 7 CRLF transports, and 50 present sides after multibyte text. The operation and timing differences describe the four observed sessions on these fixed revisions. [Source check](../manuscript/navigation-ablation/source-check.json) · [Session departures](../manuscript/navigation-ablation/session-metadata.json)
 
 ## Live FOLIO verification
 
@@ -47,4 +47,4 @@ python scripts/citation_effort_crosscheck.py "$key" "$packets" "$results/submiss
 cmp "$trial/score-check.json" "$results/score-check.json"
 ~~~
 
-[Session S1 action log](navigation-ablation/submissions/S1/actions.jsonl) · [Session S2 action log](navigation-ablation/submissions/S2/actions.jsonl) · [Session S3 action log](navigation-ablation/submissions/S3/actions.jsonl) · [Session S4 action log](navigation-ablation/submissions/S4/actions.jsonl)
+[Session S1 action log](../manuscript/navigation-ablation/submissions/S1/actions.jsonl) · [Session S2 action log](../manuscript/navigation-ablation/submissions/S2/actions.jsonl) · [Session S3 action log](../manuscript/navigation-ablation/submissions/S3/actions.jsonl) · [Session S4 action log](../manuscript/navigation-ablation/submissions/S4/actions.jsonl)

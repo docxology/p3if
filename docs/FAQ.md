@@ -83,7 +83,7 @@ Use the [versioned interchange contract](interchange.md) when another tool needs
 
 ### How can I compare two versions of the same framework?
 
-Run `p3if compare BEFORE.json AFTER.json`. Give both snapshots the same framework ID and keep element IDs stable across edits. The report separates additions, removals, field changes, and relationship rewires. `p3if analyze SNAPSHOT.json` shows which elements and coordinates the snapshot declares and distinguishes missing scores from reported zeroes. [Reproducible methods](manuscript/METHODS.md)
+Run `p3if compare BEFORE.json AFTER.json`. Give both snapshots the same framework ID and keep element IDs stable across edits. The report separates additions, removals, field changes, and relationship rewires. `p3if analyze SNAPSHOT.json` shows which elements and coordinates the snapshot declares and distinguishes missing scores from reported zeroes. [Reproducible methods](studies/METHODS.md)
 
 ### Can I use P3IF with my existing frameworks?
 
@@ -374,7 +374,7 @@ Yes! P3IF provides several integration options:
 3. Make your changes
 4. Submit a pull request
 
-See our [Contributing Guide](../CONTRIBUTING.md) for detailed instructions.
+See our [Contributing Guide](contributing.md) for detailed instructions.
 
 ### Commercial Support
 

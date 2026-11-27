@@ -1,12 +1,12 @@
 # Preregistered ablation of P3IF source navigation
 
-This experiment follows the [citation and effort comparison](citation-effort-results.md), where the P3IF workflow and stable-ID diff both reached the accuracy ceiling and differed in effort. The new comparison holds the P3IF audit and transition report fixed and varies its source navigation. It uses 16 fresh revision pairs from ScienceResearch and MathEducation. The [case specification](navigation-case-spec.json) and [answer manifest](navigation-case-manifest.json) freeze declarations, context questions, raw sources, and exact citation answers.
+This experiment follows the [citation and effort comparison](citation-effort-results.md), where the P3IF workflow and stable-ID diff both reached the accuracy ceiling and differed in effort. The new comparison holds the P3IF audit and transition report fixed and varies its source navigation. It uses 16 fresh revision pairs from ScienceResearch and MathEducation. The [case specification](../manuscript/navigation-case-spec.json) and [answer manifest](../manuscript/navigation-case-manifest.json) freeze declarations, context questions, raw sources, and exact citation answers.
 
 Four fresh model sessions each review eight cases in two periods. Every case appears once per arm, at the same position and period in two different sessions. Two sessions receive navigation first and two receive the other arm first. Each period contains two cases from each domain. Sessions receive their assigned packet without previous conversation, assignment labels, the answer key, or other packets. They can recognize whether navigation pointers are populated.
 
 Both arms receive identical snapshots, citation questions, lookups, reader code, and report fields. The navigation condition fills `changes.source_pointers` with pointers for changed declarations on each side and explicit nulls for absent declarations. The control sets that array to empty. Auditing and transition fields are otherwise identical. The reader offers the same commands in both arms, including record search and exact extraction for a chosen pointer. Contextual citations on no-change controls use the same reader in both arms.
 
-Publish these methods, the packet builder and scorer, and the [packet commitment](navigation-ablation-commitment.json) before delivery. Independently check every file digest and compare both reports for each case after removing only the navigation array. Session folders bind the packets and action logs. Delivered materials omit condition labels.
+Publish these methods, the packet builder and scorer, and the [packet commitment](../manuscript/navigation-ablation-commitment.json) before delivery. Independently check every file digest and compare both reports for each case after removing only the navigation array. Session folders bind the packets and action logs. Delivered materials omit condition labels.
 
 ## Outcomes
 
