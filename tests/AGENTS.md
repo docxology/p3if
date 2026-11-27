@@ -5,15 +5,21 @@ The test suite: `unit/`, `integration/`, `data/`, `utils/`, `fixtures/`, and
 layout (`testpaths = tests`, `pythonpath = src`) and defines the markers `unit`,
 `integration`, `visualization`, and `slow`.
 
-- CI runs `pytest tests/ -v --cov=p3if` on Python 3.13–3.14 after `ruff check`,
-  `black --check`, and `mypy` (`.github/workflows/ci.yml`). Run the same commands for
-  a change; a subset that passes is not the gate.
+- The [tracked CI workflow](../.github/workflows/ci.yml) configures Python 3.13
+  and 3.14. Use its full local qualification commands for a change.
+
+  - **Install dependencies** runs `uv lock --check` and `uv sync --frozen`.
+  - **Run linting** runs `uv run --no-sync ruff check src tests` and
+    `uv run --no-sync black --check src tests`.
+  - **Run type checking** runs `uv run --no-sync mypy src/p3if --ignore-missing-imports`.
+  - **Run tests** runs `uv run --no-sync pytest tests/ --cov=p3if --cov-report=xml`.
+  - **Build package** runs `uv build`.
+
 - The repository rule against mock objects is explicit: use the real P3IF classes and
   `pytest.skip` when an optional dependency is missing. It is stated in the
   [root guide](../AGENTS.md).
-- The four markers are declared in `pytest.ini` but effectively unused: as of
-  2026-11-02 the only marker applied anywhere under `tests/` is `pytest.mark.asyncio`,
-  in one unit module. Select by path (`pytest tests/unit -v`) rather than by `-m`.
+- Select unit, integration, and visualization tests by directory. Their registered
+  category markers currently select zero tests. See [the test guide](README.md).
 - `tests/visualization/test_output/` is committed output from past test runs, not an
   input the suite asserts on.
 

@@ -90,8 +90,8 @@ pytest tests/ --cov=p3if --cov-report=html
 
 ```
 
-Note: parallel execution requires the `pytest-xdist` plugin, which is not
-installed by default (`pip install pytest-xdist` to enable `pytest -n auto`).
+The locked development setup (`uv sync --frozen`) includes `pytest-xdist`.
+`pytest.ini` enables parallel workers by default. Add `-n 0` to run serially.
 
 ### Specific Test Categories
 ```bash
@@ -103,12 +103,10 @@ pytest tests/integration/ -v
 
 # Visualization tests only
 pytest tests/visualization/ -v
-
-# Tests by marker
-pytest tests/ -m unit -v
-pytest tests/ -m integration -v
-pytest tests/ -m visualization -v
 ```
+
+Use directory selection for these categories. The category markers registered
+in `pytest.ini` currently select zero tests.
 
 ### Individual Test Files
 ```bash
@@ -214,9 +212,9 @@ def test_create_pattern_with_metadata():
 ### CI Pipeline Integration
 Tests are designed to work with CI/CD pipelines:
 
-The authoritative [CI workflow](../.github/workflows/ci.yml) runs the complete
-lint, type, and test gate on Python 3.13 and 3.14. Use that pinned workflow rather
-than a copied pipeline definition.
+The [tracked CI workflow](../.github/workflows/ci.yml) configures linting, type
+checking, and tests for Python 3.13 and 3.14. Use its pinned commands when
+running the corresponding checks locally.
 
 ## Debugging Tests
 
