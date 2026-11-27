@@ -1,6 +1,6 @@
 # Preregistration for exact citation accuracy and model review effort
 
-This comparison uses 16 new ordered pairs from the public ScienceResearch and MathEducation fixtures. It follows the [earlier masked study](held-out-reviewer.md), where both workflows reached the complete-case scoring ceiling. The new task is to identify and locate complete original JSON records, including a contextual record in each no-change control. The [case specification](citation-case-spec.json) and [case manifest](citation-case-manifest.json) fix the question identities, both source digests, exact answers, and expected absent sides before delivery.
+This comparison uses 16 new ordered pairs from the public ScienceResearch and MathEducation fixtures. It follows the [earlier masked study](held-out-reviewer.md), where both workflows reached the complete-case scoring ceiling. The new task is to identify and locate complete original JSON records, including a contextual record in each no-change control. The [case specification](../manuscript/citation-case-spec.json) and [case manifest](../manuscript/citation-case-manifest.json) fix the question identities, both source digests, exact answers, and expected absent sides before delivery.
 
 Four fresh Codex sessions each review eight cases in two periods of four, with one workflow per period and two sessions starting with each workflow. Every case occurs once per workflow, at the same period and position in two different sessions. Each period contains two cases per domain. Neither session history nor allocation labels nor the answer key is delivered. Sessions receive only their assigned packet and the same instrumented reader. Original sources, name lookups, and citation questions match across workflows. The publicly regenerable packets are masked at delivery. The report contents and the presence of source navigation may reveal which workflow produced them.
 
@@ -16,7 +16,7 @@ Sessions use the reader for evidence access and submission, with operations run 
 
 ## Verification and release
 
-Publish the protocol, generator, scorer, and [SHA-256 commitments](citation-effort-commitment.json) before starting any session. Verify all delivered files independently and compare common inputs across arms. After submission, publish raw JSON answers, reader logs, registration and session metadata, and the score receipt. Confirm that regenerating packets and replaying the archived answers and logs reproduces the receipt byte-for-byte.
+Publish the protocol, generator, scorer, and [SHA-256 commitments](../manuscript/citation-effort-commitment.json) before starting any session. Verify all delivered files independently and compare common inputs across arms. After submission, publish raw JSON answers, reader logs, registration and session metadata, and the score receipt. Confirm that regenerating packets and replaying the archived answers and logs reproduces the receipt byte-for-byte.
 
 In the live FOLIO workspace, verify all questions for C01, C03, C09, and C12 against the frozen source hashes, pointers, both offset units, quotation hashes, and absent sides. The controls exercise contextual native citations when a transition has no events. Preserve every existing workspace object, and publish only aggregate verification results.
 

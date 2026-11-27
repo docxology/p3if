@@ -25,7 +25,7 @@ Use `p3if analyze SNAPSHOT.json` for a report with each axis's total, linked, an
 
 Use `p3if compare BEFORE.json AFTER.json` for two snapshots with the same framework ID. The report binds both canonical hashes, reports changed framework fields, and groups additions, removals, and modifications by record type. A relationship is rewired when one of its endpoint fields changes value. A metadata-only change appears as a modified field. Omitted and explicitly null values are distinct field states. One comparison input can be `-` for standard input.
 
-The Python methods are `analyze_interchange(snapshot)` and `compare_interchange(before, after)` in `p3if.interchange_analysis`. Both return typed reports that serialize with `model_dump(mode="json")`. [Measurement definitions and worked examples](manuscript/METHODS.md)
+The Python methods are `analyze_interchange(snapshot)` and `compare_interchange(before, after)` in `p3if.interchange_analysis`. Both return typed reports that serialize with `model_dump(mode="json")`. [Measurement definitions and worked examples](studies/METHODS.md)
 
 ## Project changes across two stages
 
@@ -35,13 +35,13 @@ Each event carries its record kind, stable ID, operation, changed fields and rew
 
 Events are ordered by framework, property, process, perspective, and relationship, then by ID within each kind. Changes reflect only the two supplied snapshots. Playback can step between the two stages, and event order supplies a stable inspection sequence. Neither encodes a date or the order of intervening edits. Format-only changes produce an empty event list.
 
-In Python, use `transition_interchange(before, after)` from `p3if.interchange_transition` to get the same typed report. [Controlled revision with coordinate output](manuscript/METHODS.md#reproduce-a-controlled-revision)
+In Python, use `transition_interchange(before, after)` from `p3if.interchange_transition` to get the same typed report. [Controlled revision with coordinate output](studies/METHODS.md#reproduce-a-controlled-revision)
 
 ## Audit exact snapshot files
 
 Run `p3if audit BEFORE.json AFTER.json` to produce a `p3if.snapshot-audit.v1` receipt. The two inputs must share a framework ID. The receipt carries each file's byte length and SHA-256, each canonical graph SHA-256, and its complete sparse analysis. It classifies the pair as `identical_bytes`, `encoding_only`, or `declared_change`.
 
-The signed counts use after minus before. The receipt summarizes stable-ID additions, removals, modifications, and rewires by declaration kind, then reports axis participation, exact pair and triple coverage, and score-presence deltas. A count of zero means that measure stayed equal across the selected pair. A canonical change can keep every coordinate count equal if an existing relationship moves to another occupied or unoccupied coordinate. Read `p3if transition` alongside the audit to recover exact event IDs and directions. [ScienceResearch worked audit](manuscript/scienceresearch-audit.md)
+The signed counts use after minus before. The receipt summarizes stable-ID additions, removals, modifications, and rewires by declaration kind, then reports axis participation, exact pair and triple coverage, and score-presence deltas. A count of zero means that measure stayed equal across the selected pair. A canonical change can keep every coordinate count equal if an existing relationship moves to another occupied or unoccupied coordinate. Read `p3if transition` alongside the audit to recover exact event IDs and directions. [ScienceResearch worked audit](studies/scienceresearch-audit.md)
 
 ## Wire fields
 

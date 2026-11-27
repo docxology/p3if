@@ -1,6 +1,6 @@
 # Masked model comparison on held-out P3IF revisions
 
-Registered on 2026-11-14 for a technical model review comparison on the 16 ordered pairs in the [held-out case manifest](held-out-case-manifest.json). These pairs were excluded from the [first technical reviewer pilot](reviewer-study-pilot.md) and have a previously published [deterministic reference check](held-out-conformance.md). The fixture domains, interventions, exact source bytes, and answer key are fixed. There are no human participants.
+Registered on 2026-11-14 for a technical model review comparison on the 16 ordered pairs in the [held-out case manifest](../manuscript/held-out-case-manifest.json). These pairs were excluded from the [first technical reviewer pilot](reviewer-study-pilot.md) and have a previously published [deterministic reference check](held-out-conformance.md). The fixture domains, interventions, exact source bytes, and answer key are fixed. There are no human participants.
 
 ## Assignment and packet contents
 
@@ -10,7 +10,7 @@ Both workflows receive byte-identical original snapshots, stable-ID lookups, ins
 
 Each session receives only its scheduled packet directory, without previous chat history, the other packets, condition and allocation labels, or the reference answer key. Instructions allow inspecting the supplied snapshots and lookup for context and disallow rebuilding a second whole-case comparison, consulting the repository or internet, or reading outside the packet. The study withholds these materials at delivery. The published fixture identities and answer key remain independently accessible, and the sessions are not an operating-system sandbox.
 
-Publish this protocol, the packet and scorer code, and [the SHA-256 commitment](held-out-reviewer-commitment.json) on a public ref before starting model sessions. Independently verify schedule balance, file hashes, equal common inputs and masking in the delivered folders. Once delivery starts, retain the first submitted responses, timestamps and deviations. Do not replace an incorrect response. Publish the committed packet inventory and raw responses after submission.
+Publish this protocol, the packet and scorer code, and [the SHA-256 commitment](../manuscript/held-out-reviewer-commitment.json) on a public ref before starting model sessions. Independently verify schedule balance, file hashes, equal common inputs and masking in the delivered folders. Once delivery starts, retain the first submitted responses, timestamps and deviations. Do not replace an incorrect response. Publish the committed packet inventory and raw responses after submission.
 
 ## Outcome and analysis
 

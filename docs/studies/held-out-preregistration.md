@@ -4,7 +4,7 @@ Registered for the 2026-11-14 technical follow-up to the [two-domain reviewer pi
 
 ## Cases and freeze
 
-The [case specification](held-out-case-spec.json) declares the fixture sources and edits for 16 pairs, eight in ScienceResearch and eight in MathEducation. The [answer manifest](held-out-case-manifest.json) binds the case generator to exact UTF-8 input digests, declarative answers, and citation spans. The intervention families exercise top-level ordering and JSON escaping with unchanged declarations, simultaneous rewire/add/remove, score presence transitions, type-sensitive nested metadata, multi-kind edits, pair/triple changes, stable-ID replacement, and referentially closed axis changes.
+The [case specification](../manuscript/held-out-case-spec.json) declares the fixture sources and edits for 16 pairs, eight in ScienceResearch and eight in MathEducation. The [answer manifest](../manuscript/held-out-case-manifest.json) binds the case generator to exact UTF-8 input digests, declarative answers, and citation spans. The intervention families exercise top-level ordering and JSON escaping with unchanged declarations, simultaneous rewire/add/remove, score presence transitions, type-sensitive nested metadata, multi-kind edits, pair/triple changes, stable-ID replacement, and referentially closed axis changes.
 
 Held-out here means the challenges were constructed for this follow-up and excluded from the initial pilot. The two public domain fixtures are shared with the pilot. The case design and reference answers are public after registration.
 
