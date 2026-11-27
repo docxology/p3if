@@ -544,4 +544,4 @@ By following these guidelines, AI agents can contribute high-quality, well-docum
 *This guide is designed to help AI agents contribute effectively to the P3IF project by understanding the codebase structure, following established patterns, and maintaining high-quality standards.*
 
 
-Supported runtime: Python 3.13+; CI tests Python 3.13 and 3.14.
+Supported runtime: Python 3.13+; The tracked CI definition targets Python 3.13 and 3.14.
