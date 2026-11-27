@@ -70,7 +70,7 @@ The P3IF documentation is organized into the following sections:
 
 ### Installation and Setup
 - **[Getting Started](guides/getting-started.md)**: Quick start guide for new users
-- **[Installation Guide](guides/installation.md)**: Detailed installation instructions
+- **[Installation guide](guides/installation.md)** for local checkout setup and CLI verification.
 - **[Configuration](guides/configuration.md)**: Configuration options and best practices
 
 ## Tutorials and Examples
@@ -136,19 +136,8 @@ The P3IF documentation is organized into the following sections:
 
 ## Installation
 
-```bash
-# Clone the repository
-git clone https://github.com/docxology/p3if.git
-cd p3if
-
-# Install with development dependencies
-pip install -e ".[dev,web]"
-
-# Development environment setup
-python scripts/setup_development.py
-```
-
-For detailed installation instructions, see [Installation Guide](guides/installation.md).
+Set up the locked environment and verify the CLI from a local checkout.
+[Installation guide](guides/installation.md)
 
 ## Testing Principles
 
